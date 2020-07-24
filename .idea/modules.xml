@@ -3,6 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Auto.js.iml" filepath="$PROJECT_DIR$/Auto.js.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Autojs.iml" filepath="$PROJECT_DIR$/.idea/modules/Autojs.iml" group="Autojs" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Autojs-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Autojs-app.iml" group="Autojs/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/autojs/Autojs-autojs.iml" filepath="$PROJECT_DIR$/.idea/modules/autojs/Autojs-autojs.iml" group="Autojs/autojs" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/automator/Autojs-automator.iml" filepath="$PROJECT_DIR$/.idea/modules/automator/Autojs-automator.iml" group="Autojs/automator" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/Autojs-common.iml" filepath="$PROJECT_DIR$/.idea/modules/common/Autojs-common.iml" group="Autojs/common" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/inrt/Autojs-inrt.iml" filepath="$PROJECT_DIR$/.idea/modules/inrt/Autojs-inrt.iml" group="Autojs/inrt" />
       <module fileurl="file://$PROJECT_DIR$/NoRootScriptDroid.iml" filepath="$PROJECT_DIR$/NoRootScriptDroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/autojs/autojs.iml" filepath="$PROJECT_DIR$/autojs/autojs.iml" />
