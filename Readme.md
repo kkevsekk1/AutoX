@@ -4,11 +4,9 @@
 
 同时有[VS Code 插件](https://github.com/hyb1996/Auto.js-VSCode-Extension)可提供基础的在桌面开发的功能。
 
-下载地址：[酷安](http://www.coolapk.com/apk/org.autojs.autojs)
-
-Alpha版本：[Releases](https://github.com/hyb1996/NoRootScriptDroid/releases)
-
 官方文档：https://hyb1996.github.io/AutoJs-Docs/
+
+由于原作者 不再维护该项目，我计划继续维护和开发该项目，希望能将该软件做得更好，同时欢迎其他android开发人员，能够参与开发。
 
 ### 特性
 1. 由无障碍服务实现的简单易用的自动操作函数
@@ -33,15 +31,8 @@ Alpha版本：[Releases](https://github.com/hyb1996/NoRootScriptDroid/releases)
 * 文档：可在[这里](https://hyb1996.github.io/AutoJs-Docs/)查看在线文档。目前文档仍然不完善。
 * 示例：可在[这里](https://github.com/hyb1996/NoRootScriptDroid/tree/master/app/src/main/assets/sample)查看一些示例，或者直接在应用内查看和运行。
 
-### 截图
-
-![screen-capture2](https://raw.githubusercontent.com/hyb1996/NoRootScriptDroid/master/screen-captures/ss02.png)
-
-![screen-capture5](https://raw.githubusercontent.com/hyb1996/NoRootScriptDroid/master/screen-captures/ss05.png)
-
-![screen-capture5](https://raw.githubusercontent.com/hyb1996/NoRootScriptDroid/master/screen-captures/ss07.png)
-
-![screen-capture5](https://raw.githubusercontent.com/hyb1996/NoRootScriptDroid/master/screen-captures/ss08.png)
+### 架构图
+ 待补充
 
 ## License
 基于[Mozilla Public License Version 2.0](https://github.com/hyb1996/NoRootScriptDroid/blob/master/LICENSE.md)并附加以下条款：
