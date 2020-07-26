@@ -3,6 +3,8 @@ package org.autojs.autojs.build;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
+import android.util.Log;
 
 import com.stardust.pio.UncheckedIOException;
 
@@ -19,7 +21,7 @@ import java.io.InputStream;
 
 public class ApkBuilderPluginHelper {
 
-    private static final String PLUGIN_PACKAGE_NAME = "org.autojs.apkbuilderplugin";
+    private static final String PLUGIN_PACKAGE_NAME = "com.stardust.autojs.apkbuilder.sample";
     private static final String TEMPLATE_APK_PATH = "template.apk";
     private static final boolean DEBUG_APK_PLUGIN = false;
 
@@ -51,7 +53,7 @@ public class ApkBuilderPluginHelper {
     }
 
     public static int getSuitablePluginVersion() {
-        return BuildConfig.VERSION_CODE - 200;
+        return BuildConfig.VERSION_CODE;
     }
 }
 

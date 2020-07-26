@@ -214,8 +214,12 @@ public class PFiles {
 
     public static void write(File file, String text) {
         try {
+            if (!file.getParentFile().exists()) {
+                file.getParentFile().mkdirs();
+            }
+            file.createNewFile();
             write(new FileOutputStream(file), text);
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
     }

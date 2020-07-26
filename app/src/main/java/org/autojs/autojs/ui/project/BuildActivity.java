@@ -138,7 +138,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
 
     private void downloadPlugin() {
         IntentUtil.browse(this, String.format(Locale.getDefault(),
-                "https://i.autojs.org/autojs/plugin/%d.apk", ApkBuilderPluginHelper.getSuitablePluginVersion()));
+                "http://120.25.164.233:8080/appstore/app/20200726171005.apk", ApkBuilderPluginHelper.getSuitablePluginVersion()));
     }
 
     private void setupWithSourceFile(ScriptFile file) {
@@ -161,6 +161,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     @Click(R.id.select_source)
     void selectSourceFilePath() {
         String initialDir = new File(mSourcePath.getText().toString()).getParent();
+
         new FileChooserDialogBuilder(this)
                 .title(R.string.text_source_file_path)
                 .dir(Environment.getExternalStorageDirectory().getPath(),
@@ -252,6 +253,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     @SuppressLint("CheckResult")
     private void doBuildingApk() {
         ApkBuilder.AppConfig appConfig = createAppConfig();
+        System.out.println(getCacheDir());
         File tmpDir = new File(getCacheDir(), "build/");
         File outApk = new File(mOutputPath.getText().toString(),
                 String.format("%s_v%s.apk", appConfig.getAppName(), appConfig.getVersionName()));

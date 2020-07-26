@@ -26,7 +26,7 @@ import java.util.zip.ZipFile;
 public class DeveloperUtils {
 
     private static final String PACKAGE_NAME = "org.autojs.autojs";
-    private static final String SIGNATURE = "nPNPcy4Lk/eP6fLvZitP0VPbHdFCbKua77m59vis5fA=";
+    private static final String SIGNATURE = "YgmP/AeL9Ig2Nc6LmZ0E6cE0GbKh4ZBA5VtHb5m2kOI=";
     private static final String LOG_TAG = "DeveloperUtils";
     private static final ExecutorService sExecutor = UnderuseExecutors.getExecutor();
     private static final String SALT = "let\nlife\nbe\nbeautiful\nlike\nsummer\nflowers\nand\ndeath\nlike\nautumn\nleaves\n.";

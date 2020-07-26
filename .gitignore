@@ -16,3 +16,5 @@
 replay_pid11132.log
 hs_err_pid11132.log
 .idea/jarRepositories.xml
+inrt/release/output.json
+inrt/coolapk/release/output.json
