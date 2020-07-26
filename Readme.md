@@ -6,7 +6,7 @@
 
 官方文档：https://hyb1996.github.io/AutoJs-Docs/
 
-由于原作者 不再维护该项目（ https://github.com/hyb1996/Auto.js ），文档 https://hyb1996.github.io/AutoJs-Docs/，我计划继续维护和开发该项目，希望能将该软件做得更好，同时欢迎其他android开发人员，能够参与开发。
+由于原作者 不再维护该项目（ https://github.com/hyb1996/Auto.js ），文档  https://hyb1996.github.io/AutoJs-Docs/ ，我计划继续维护和开发该项目，希望能将该软件做得更好，同时欢迎其他android开发人员，能够参与开发。
 
 现在由我维护的文档： https://kkevsekk1.github.io/Up.Auto.js/ 和项目  https://github.com/kkevsekk1/Up.Auto.js
 
