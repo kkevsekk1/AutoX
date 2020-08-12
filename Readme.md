@@ -6,9 +6,14 @@
 
 官方文档：https://hyb1996.github.io/AutoJs-Docs/
 
-由于原作者 不再维护该项目（ https://github.com/hyb1996/Auto.js ），文档  https://hyb1996.github.io/AutoJs-Docs/ ，我计划继续维护和开发该项目，希望能将该软件做得更好，同时欢迎其他android开发人员，能够参与开发。
 
-现在由我维护的文档： https://kkevsekk1.github.io/Up.Auto.js/ 和项目  https://github.com/kkevsekk1/Up.Auto.js
+由于[原作者](https://github.com/hyb1996/Auto.js) 不再维护 Auto.js 项目，我计划在原来基础上继续维护者项目，并将原项目命名为AutoX.js。
+ 你现在看的是 原4.1版基础上的项目，后面我将针对项目本身如何开发、运行的进行介绍，欢迎更多开发者参与这个项目维护升级，
+ 最新的[AutoX地址](https://github.com/kkevsekk1/AutoX), 文档中很多原项目路径，
+ 在原项目没有删除的情况下我并不打算替换掉，以表对于原作者的尊重。这篇文档里有加密相关的内容可能和实际运行情况有冲突，
+ 我会逐步完善更新，程序代码，尽可能保持一致。
+
+现在由AutoX.js文档： https://kkevsekk1.github.io/AutoXJs-Docs/ 和项目  https://github.com/kkevsekk1/AutoX
 
 ### 特性
 1. 由无障碍服务实现的简单易用的自动操作函数
@@ -19,7 +24,7 @@
 6. 支持使用Root权限以提供更强大的屏幕点击、滑动、录制功能和运行shell命令。录制录制可产生js文件或二进制文件，录制动作的回放比较流畅
 7. 提供截取屏幕、保存截图、图片找色、找图等函数
 8. 可作为Tasker插件使用，结合Tasker可胜任日常工作流
-9. 带有界面分析工具，类似Android Studio的LayoutInspector，可以分析界面层次和范围、获取界面上的控件信息
+9. 带有界面分析工具，类似Android Studio的LayoutInspector，可以分析界面层次和范围、获取界面上的控件信息的
 
 本软件与按键精灵等软件不同，主要区别是：
 1. Auto.js主要以自动化、工作流为目标，更多地是方便日常生活工作，例如启动游戏时自动屏蔽通知、一键与特定联系人微信视频（知乎上出现过该问题，老人难以进行复杂的操作和子女进行微信视频）等
