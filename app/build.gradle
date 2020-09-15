@@ -43,6 +43,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
+            debuggable true
             shrinkResources false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -53,11 +54,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
         encoding = 'utf-8'
     }
-    lintOptions {
-        abortOnError false
-        disable 'MissingTranslation'
-        disable 'ExtraTranslation'
-    }
+
 
     configurations.all {
         resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.1'
@@ -89,9 +86,7 @@ android {
         common {
             buildConfigField "String", "CHANNEL", '"common"'
         }
-        coolapk {
-            buildConfigField "String", "CHANNEL", '"coolapk"'
-        }
+
     }
 
 }
@@ -185,10 +180,10 @@ dependencies {
     })
     // Android job
     implementation 'com.evernote:android-job:1.2.6'
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
-    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
     // Optional, if you use support library fragments:
-    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
     implementation project(':automator')
     implementation project(':common')
     implementation project(':autojs')
