@@ -101,7 +101,7 @@
                 android:background="?selectableItemBackgroundBorderless"
                 android:tint="#939393"
                 app:image_width="30dp"
-                app:src="@drawable/download"
+                app:altSrc="@drawable/download"
                 app:text="@string/text_download"/>
 
             <org.autojs.autojs.ui.main.market.ImageText
@@ -111,7 +111,7 @@
                 android:layout_weight="1"
                 android:background="?selectableItemBackgroundBorderless"
                 app:image_width="30dp"
-                app:src="@drawable/upvote"/>
+                app:altSrc="@drawable/upvote"/>
 
             <org.autojs.autojs.ui.main.market.ImageText
                 android:id="@+id/downvote"
@@ -120,7 +120,7 @@
                 android:layout_weight="1"
                 android:background="?selectableItemBackgroundBorderless"
                 app:image_width="30dp"
-                app:src="@drawable/downvote"/>
+                app:altSrc="@drawable/downvote"/>
 
             <org.autojs.autojs.ui.main.market.ImageText
                 android:id="@+id/star"
@@ -129,7 +129,7 @@
                 android:layout_weight="1"
                 android:background="?selectableItemBackgroundBorderless"
                 app:image_width="30dp"
-                app:src="@drawable/star"
+                app:altSrc="@drawable/star"
                 app:text="@string/text_star"/>
 
         </LinearLayout>

@@ -37,7 +37,7 @@
 
     <declare-styleable name="ImageText">
         <attr name="text"/>
-        <attr name="src"/>
+        <attr name="altSrc"/>
         <attr name="image_width" format="dimension|reference"/>
     </declare-styleable>
 

@@ -5,7 +5,7 @@
     <string name="text_please_input_name">请输入名称</string>
     <string name="text_name">名称</string>
     <string name="text_go_to_setting">去设置</string>
-    <string name="explain_accessibility_permission">软件需要打开\"无障碍服务\"才能运行，请在随后的设置中选择\"Auto.js\"并开启服务。\n您也可以稍后在侧拉菜单中设置。</string>
+    <string name="explain_accessibility_permission">软件需要打开\"无障碍服务\"才能运行，请在随后的设置中选择\"Autox.js\"并开启服务。\n您也可以稍后在侧拉菜单中设置。</string>
     <string name="text_cancel">取消</string>
     <string name="text_path_is_empty">路径为空</string>
     <string name="text_file_not_exists">文件不存在</string>
@@ -27,14 +27,14 @@
     <string name="text_about">关于</string>
     <string name="text_licenses">开放源代码许可</string>
     <string name="text_do_not_remind_again">不再提示</string>
-    <string name="copyright">Copyright©2018-2019 All right reserves.</string>
-    <string name="developer">星尘幻影</string>
-    <string name="qq" translatable="false">2732014414</string>
-    <string name="email" translatable="false">hybbbb1996@gmail.com</string>
+    <string name="copyright">Copyright©2020-2025 All right reserves.</string>
+    <string name="developer">aaron</string>
+    <string name="qq" translatable="false">470722660</string>
+    <string name="email" translatable="false">kkevsekk@163.com</string>
     <string name="github">软件源代码</string>
     <string name="text_already_copy_to_clip">已复制到剪贴板</string>
-    <string name="my_github">https://github.com/hyb1996/NoRootScriptDroid</string>
-    <string name="share_app">[Auto.js]下载地址：http://www.coolapk.com/apk/org.autojs.autojs </string>
+    <string name="my_github">https://github.com/kkevsekk1/autox</string>
+    <string name="share_app">[Autox.js]下载地址：https://github.com/kkevsekk1/AutoX/releases </string>
     <string name="text_floating_window">悬浮窗</string>
     <string name="text_error_report">错误报告</string>
     <string name="text_press_again_to_exit">再按一次退出程序</string>
