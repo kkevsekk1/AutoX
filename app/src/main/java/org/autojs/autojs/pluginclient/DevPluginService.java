@@ -115,7 +115,7 @@ public class DevPluginService {
     }
 
     @AnyThread
-    public Observable<JsonWebSocket> connectToServer(String host) {
+    public Observable<JsonWebSocket> connectToServer(String host,String params) {
         int port = PORT;
         String ip = host;
         int i = host.lastIndexOf(':');
@@ -125,13 +125,13 @@ public class DevPluginService {
         }
         mConnectionState.onNext(new State(State.CONNECTING));
 
-        return socket(ip, port)
+        return socket(ip, port,params)
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnError(this::onSocketError);
     }
 
     @AnyThread
-    private Observable<JsonWebSocket> socket(String ip, int port) {
+    private Observable<JsonWebSocket> socket(String ip, int port,String params) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .readTimeout(0, TimeUnit.MILLISECONDS)
                 .build();
@@ -139,6 +139,7 @@ public class DevPluginService {
         if (!url.startsWith("ws://") && !url.startsWith("wss://")) {
             url = "ws://" + url;
         }
+        url=url+"?"+params;
         return Observable.just(new JsonWebSocket(client, new Request.Builder()
                 .url(url)
                 .build()))

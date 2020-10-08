@@ -1,18 +1,22 @@
 package org.autojs.autojs.ui.main.drawer;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AppOpsManager;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
@@ -81,6 +85,8 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+
+import static android.content.Context.TELEPHONY_SERVICE;
 
 
 /**
@@ -239,13 +245,13 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
         }
         boolean enabled = AppOpsKt.isOpPermissionGranted(getContext(), AppOpsManager.OPSTR_GET_USAGE_STATS);
         boolean checked = holder.getSwitchCompat().isChecked();
-        if(checked && !enabled){
-            if(new NotAskAgainDialog.Builder(getContext(), "DrawerFragment.usage_stats")
+        if (checked && !enabled) {
+            if (new NotAskAgainDialog.Builder(getContext(), "DrawerFragment.usage_stats")
                     .title(R.string.text_usage_stats_permission)
                     .content(R.string.description_usage_stats_permission)
                     .positiveText(R.string.ok)
                     .dismissListener(dialog -> IntentUtil.requestAppUsagePermission(getContext()))
-                    .show() == null){
+                    .show() == null) {
                 IntentUtil.requestAppUsagePermission(getContext());
             }
         }
@@ -308,14 +314,27 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
         }
     }
 
+    private String getIMEI() {
+        TelephonyManager tm = (TelephonyManager) getActivity().getApplication().getSystemService(TELEPHONY_SERVICE);
+        String deviceId=null;
+        if (ActivityCompat.checkSelfPermission(getActivity().getApplication(), Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            deviceId = tm.getDeviceId();
+        }
+        if(TextUtils.isEmpty(deviceId)){
+            deviceId = Settings.System.getString(
+                    getActivity().getApplication().getContentResolver(), Settings.Secure.ANDROID_ID);
+        }
+        return  deviceId;
+    }
 
     private void inputRemoteHost() {
         String host = Pref.getServerAddressOrDefault(WifiTool.getRouterIp(getActivity()));
+        String params="iemi="+getIMEI()+"&usercode=2";
         new MaterialDialog.Builder(getActivity())
                 .title(R.string.text_server_address)
                 .input("", host, (dialog, input) -> {
                     Pref.saveServerAddress(input.toString());
-                    DevPluginService.getInstance().connectToServer(input.toString())
+                    DevPluginService.getInstance().connectToServer(input.toString(),params)
                             .subscribe(Observers.emptyConsumer(), this::onConnectException);
                 })
                 .neutralText(R.string.text_help)
