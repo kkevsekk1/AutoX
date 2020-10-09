@@ -251,8 +251,12 @@ public class DevPluginService {
     @MainThread
     private void onServerHello(JsonWebSocket jsonWebSocket, JsonObject message) {
         Log.i(LOG_TAG, "onServerHello: " + message);
+        String msg= message.get("data").getAsString();
+        if(!"连接成功".equals(msg)){
+            disconnectIfNeeded();
+        }
         mSocket = jsonWebSocket;
-        mConnectionState.onNext(new State(State.CONNECTED));
+        mConnectionState.onNext(new State(State.CONNECTED,new SocketTimeoutException(msg)));
     }
 
     @AnyThread
