@@ -14,6 +14,7 @@ import android.provider.Settings;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -345,12 +346,15 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
         }
     }
 
+    @SuppressLint("MissingPermission")
     private String getIMEI() {
         String deviceId=null;
-        if (ActivityCompat.checkSelfPermission(getActivity().getApplication(), Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+        int permissionCheck = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_PHONE_STATE);
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_PHONE_STATE}, 123);
+        }
             TelephonyManager tm = (TelephonyManager) getActivity().getApplication().getSystemService(TELEPHONY_SERVICE);
             deviceId = tm.getDeviceId();
-        }
         if(TextUtils.isEmpty(deviceId)){
             deviceId = Settings.System.getString(
                     getActivity().getApplication().getContentResolver(), Settings.Secure.ANDROID_ID);
