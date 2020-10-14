@@ -1,9 +1,11 @@
 package com.stardust.auojs.inrt
 
 import android.content.SharedPreferences
+import android.os.Environment
 import android.preference.PreferenceManager
 
 import com.stardust.app.GlobalAppContext
+import java.io.File
 
 /**
  * Created by Stardust on 2017/12/8.
@@ -46,5 +48,10 @@ object Pref {
 
     fun shouldStopAllScriptsWhenVolumeUp(): Boolean {
         return preferences.getBoolean(getString(R.string.key_use_volume_control_running), true)
+    }
+
+    fun getScriptDirPath(): String? {
+        val dir: String ="/脚本/";
+        return File(Environment.getExternalStorageDirectory(), dir).path
     }
 }

@@ -16,9 +16,9 @@ import android.widget.Toast
 import com.stardust.auojs.inrt.autojs.AutoJs
 import com.stardust.auojs.inrt.launch.GlobalProjectLauncher
 
-import java.util.ArrayList
-
 import android.content.pm.PackageManager.PERMISSION_DENIED
+import com.stardust.auojs.inrt.pluginclient.DevPluginService
+import java.util.*
 
 /**
  * Created by Stardust on 2018/2/2.
@@ -47,7 +47,9 @@ class SplashActivity : AppCompatActivity() {
     private fun runScript() {
         Thread {
             try {
-                GlobalProjectLauncher.launch(this)
+                var params:String ="iemi=测试"+"&usercode=2";
+               DevPluginService.getInstance().connectToServer("112.74.161.35",params).subscribe();
+              //  GlobalProjectLauncher.launch(this)
             } catch (e: Exception) {
                 e.printStackTrace()
                 runOnUiThread {
