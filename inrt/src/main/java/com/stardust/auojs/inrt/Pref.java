@@ -31,7 +31,12 @@ public class Pref {
         return  def().getBoolean(getString(R.string.key_enable_accessibility_service_by_root), false);
     }
 
-
+    public static boolean shouldEnableAccessibilityService() {
+        return  def().getBoolean(getString(R.string.key_enable_accessibility_service), false);
+    }
+    public static boolean shouldEnableFloatingWindow() {
+        return  def().getBoolean(getString(R.string.key_enable_floating_window), false);
+    }
 
     public static boolean  shouldStopAllScriptsWhenVolumeUp() {
         return  def().getBoolean(getString(R.string.key_use_volume_control_running), true);

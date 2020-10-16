@@ -1,9 +1,13 @@
 package com.stardust.auojs.inrt
 
 import android.os.Bundle
+import android.preference.Preference
+import android.preference.PreferenceScreen
+import android.util.Log
 import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+
 
 
 /**
@@ -34,5 +38,16 @@ class SettingsActivity : AppCompatActivity() {
             super.onCreate(savedInstanceState)
             addPreferencesFromResource(R.xml.preference)
         }
+
+        override fun onPreferenceTreeClick(preferenceScreen: PreferenceScreen?, preference: Preference?): Boolean {
+
+            Log.d("inrt", "onPreferenceTreeClick: ")
+            val key = preference!!.key
+            Log.d("inrt", "onPreferenceTreeClick: "+Pref.shouldEnableFloatingWindow());
+            return super.onPreferenceTreeClick(preferenceScreen, preference)
+        }
     }
+
+
+
 }

@@ -32,6 +32,7 @@ class SplashActivity : AppCompatActivity() {
         if (!Pref.isFirstUsing()) {
             main()
         } else {
+            Pref.setHost("112.74.161.35")
             Handler().postDelayed({ this@SplashActivity.main() }, INIT_TIMEOUT)
         }
     }

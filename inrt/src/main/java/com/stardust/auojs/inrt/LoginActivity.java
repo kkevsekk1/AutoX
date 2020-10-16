@@ -2,6 +2,7 @@ package com.stardust.auojs.inrt;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -22,6 +23,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.stardust.auojs.inrt.autojs.AccessibilityServiceTool;
+import com.stardust.auojs.inrt.launch.GlobalProjectLauncher;
 import com.stardust.auojs.inrt.pluginclient.DevPluginService;
 
 import java.security.SecureRandom;
@@ -36,8 +39,8 @@ public class LoginActivity extends AppCompatActivity {
     private String code;
     private String imei;
     private String status;
-
     Button registBtn ;
+    boolean isOpen=false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,28 +52,53 @@ public class LoginActivity extends AppCompatActivity {
                     if (state.getException() != null) {
                         status=state.getException().getMessage();
                         Pref.setStatus(status);
+                        init();
                         setTvInfo();
                     }
                 });
     }
+
+
     private void setupViews() {
         setContentView(R.layout.activity_main2);
         Toolbar toolbar = findViewById(R.id.toolbar);
                 toolbar.setTitle(R.string.app_name);
         setSupportActionBar(toolbar);
         infoTv = findViewById(R.id.info);
-        settingBtn =findViewById(R.id.setting);
+        settingBtn =findViewById(R.id.regist);
         settingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                     regist();
             }
         });
-
-
+        registBtn =findViewById(R.id.setting);
+        registBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!isOpen){
+                    registBtn.setText("去开启无障碍服务");
+                    AccessibilityServiceTool.INSTANCE.goToAccessibilitySetting();
+                }else{
+                    showMessage("已开启无障碍服务");
+                    registBtn.setText("功能已开启");
+                }
+            }
+        });
         init();
         setTvInfo();
     }
+    private void runScript() {
+        GlobalProjectLauncher.INSTANCE.launch(LoginActivity.this);
+      Thread x=  new Thread(){
+            @Override
+            public void run() {
+
+            }
+        };
+        x.start();
+    }
+
     private void setTvInfo(){
         String format="code:%s \r\n IMEI:%s  \r\n 状态:%s ";
         String info = String.format(format,code,imei,status);
@@ -81,6 +109,10 @@ public class LoginActivity extends AppCompatActivity {
     private  void init(){
         code = Pref.getCode("");
         imei = Pref.getImei("");
+        if(TextUtils.isEmpty(imei)){
+            imei=getIMEI();
+            Pref.setImei(imei);
+        }
         status =Pref.getStatus("未知");
     }
 
@@ -89,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void regist(){
         String host = Pref.getHost("");
-        String code = Pref.getCode("2");
+        String code = Pref.getCode("");
         MaterialDialog tmpDialog = new MaterialDialog.Builder(this).title("连接到服务器")
                 .customView(R.layout.dialog_regist_user_code,false)
                 .positiveText("确定")
@@ -101,7 +133,7 @@ public class LoginActivity extends AppCompatActivity {
                     Pref.setCode(code1);
                     String host1 =serverAddrInput.getText().toString().trim();
                     Pref.setHost(host);
-                    String params="iemi="+getIMEI()+"&usercode="+code1;
+                    String params="iemi="+imei+"&usercode="+code1;
                     DevPluginService.getInstance().connectToServer(host1,params)
                             .subscribe();
                     showMessage("正在连接...");
@@ -128,11 +160,10 @@ public class LoginActivity extends AppCompatActivity {
                    getApplication().getContentResolver(), Settings.Secure.ANDROID_ID);
         }
         if(TextUtils.isEmpty(deviceId)){
-            deviceId=    Pref.getImei("");
+            deviceId= Pref.getImei("");
         }
         if(TextUtils.isEmpty(deviceId)){
             deviceId =getGUID();
-               Pref.setImei(deviceId);
         }
         return deviceId;
     }

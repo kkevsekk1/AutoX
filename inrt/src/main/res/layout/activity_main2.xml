@@ -27,11 +27,19 @@
         android:text="code：1233 \r\n imei:dddd \r\n z"
         />
     <Button
+        android:id="@+id/regist"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24dp"
+        android:text="注册"
+        />
+    <Button
         android:id="@+id/setting"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24dp"
-        android:text="设置"
+        android:text="打开无障碍服务"
         />
 </LinearLayout>
