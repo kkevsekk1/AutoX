@@ -5,7 +5,6 @@ import android.util.Log;
 
 import com.fanjun.keeplive.config.KeepLiveService;
 import com.stardust.auojs.inrt.Pref;
-import com.stardust.auojs.inrt.data.LoginDataSource;
 
 public class AutoXKeepLiveService implements KeepLiveService {
     public static String TAG = "inrt.AutoXKeepLiveService";

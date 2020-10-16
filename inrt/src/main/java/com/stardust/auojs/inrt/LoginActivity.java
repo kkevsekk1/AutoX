@@ -48,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
                 .subscribe(state -> {
                     if (state.getException() != null) {
                         status=state.getException().getMessage();
+                        Pref.setStatus(status);
                         setTvInfo();
                     }
                 });
@@ -80,6 +81,7 @@ public class LoginActivity extends AppCompatActivity {
     private  void init(){
         code = Pref.getCode("");
         imei = Pref.getImei("");
+        status =Pref.getStatus("未知");
     }
 
     private void showMessage(CharSequence text) {

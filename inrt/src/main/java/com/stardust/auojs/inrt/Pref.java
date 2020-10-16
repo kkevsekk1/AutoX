@@ -66,5 +66,12 @@ public class Pref {
     }
 
 
+    public static String getStatus(String defValue) {
+        return  def().getString("user_status", defValue);
+    }
+
+    public static void setStatus(String defValue) {
+        def().edit().putString("user_status",defValue).apply();
+    }
 
 }

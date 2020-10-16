@@ -59,7 +59,7 @@ public class JsonWebSocket  {
                     public void onOpen(@NonNull WebSocket webSocket) {
                         Log.d(LOG_TAG, "----链接打开----");
                         mWebSocket =webSocket;
-                        DevPluginService.getInstance().connectionOnNext("已链接");
+                        DevPluginService.getInstance().connectionOnNext("连接成功");
                     }
                     @Override
                     public void onMessage(@NonNull String text) {
