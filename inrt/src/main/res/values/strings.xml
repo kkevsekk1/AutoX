@@ -21,5 +21,14 @@
     <string name="text_others">其他</string>
     <string name="powered_by_autojs">Powered by Auto.js</string>
     <string name="text_execution_finished" formatted="false">\n------------\n[%s]运行结束，用时%f秒</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 
 </resources>

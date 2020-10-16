@@ -2,22 +2,20 @@ package com.stardust.auojs.inrt
 
 import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager.PERMISSION_DENIED
 import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.NonNull
 import androidx.annotation.Nullable
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import android.widget.TextView
-import android.widget.Toast
-
+import com.stardust.app.GlobalAppContext
 import com.stardust.auojs.inrt.autojs.AutoJs
 import com.stardust.auojs.inrt.launch.GlobalProjectLauncher
-
-import android.content.pm.PackageManager.PERMISSION_DENIED
-import com.stardust.auojs.inrt.pluginclient.DevPluginService
 import java.util.*
 
 /**
@@ -31,7 +29,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         val slug = findViewById<TextView>(R.id.slug)
         slug.typeface = Typeface.createFromAsset(assets, "roboto_medium.ttf")
-        if (!Pref.isFirstUsing) {
+        if (!Pref.isFirstUsing()) {
             main()
         } else {
             Handler().postDelayed({ this@SplashActivity.main() }, INIT_TIMEOUT)
@@ -45,11 +43,16 @@ class SplashActivity : AppCompatActivity() {
 
 
     private fun runScript() {
+        if(true){
+            var intent:Intent =Intent(this@SplashActivity, LoginActivity::class.java);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent)
+            this@SplashActivity.finish();
+            return
+        }
         Thread {
             try {
-                var params:String ="iemi=测试"+"&usercode=2";
-               DevPluginService.getInstance().connectToServer("112.74.161.35",params).subscribe();
-              //  GlobalProjectLauncher.launch(this)
+                GlobalProjectLauncher.launch(this)
             } catch (e: Exception) {
                 e.printStackTrace()
                 runOnUiThread {

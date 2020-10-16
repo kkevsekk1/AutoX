@@ -3,15 +3,19 @@ package com.stardust.auojs.inrt.pluginclient;
 
 import android.util.Log;
 
+import com.dhh.websocket.Config;
+import com.dhh.websocket.RxWebSocket;
+import com.dhh.websocket.WebSocketSubscriber;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
 
 import java.io.StringReader;
-
+import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.subjects.PublishSubject;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -20,13 +24,12 @@ import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 import okio.ByteString;
 
-public class JsonWebSocket extends WebSocketListener {
+public class JsonWebSocket  {
 
     public static class Bytes {
         public final String md5;
         public final ByteString byteString;
         public final long timestamp;
-
         public Bytes(String md5, ByteString byteString) {
             this.md5 = md5;
             this.byteString = byteString;
@@ -36,26 +39,51 @@ public class JsonWebSocket extends WebSocketListener {
 
     private static final String LOG_TAG = "JsonWebSocket";
 
-    private final WebSocket mWebSocket;
+    private WebSocket mWebSocket;
     private final JsonParser mJsonParser = new JsonParser();
     private final PublishSubject<JsonElement> mJsonElementPublishSubject = PublishSubject.create();
     private final PublishSubject<Bytes> mBytesPublishSubject = PublishSubject.create();
     private volatile boolean mClosed = false;
 
-    public JsonWebSocket(OkHttpClient client, Request request) {
-        mWebSocket = client.newWebSocket(request, this);
-    }
+    public JsonWebSocket(OkHttpClient client, String url) {
+        Config config = new Config.Builder()
+                .setShowLog(true)           //show  log
+                .setClient(client)   //if you want to set your okhttpClient
+                .setShowLog(true, "your logTag")
+                .setReconnectInterval(2, TimeUnit.SECONDS)  //set reconnect interval
+                .build();
+        RxWebSocket.setConfig(config);
+        RxWebSocket.get(url)
+                .subscribe(new WebSocketSubscriber() {
+                    @Override
+                    public void onOpen(@NonNull WebSocket webSocket) {
+                        Log.d(LOG_TAG, "----链接打开----");
+                        mWebSocket =webSocket;
+                        DevPluginService.getInstance().connectionOnNext("已链接");
+                    }
+                    @Override
+                    public void onMessage(@NonNull String text) {
+                        Log.d(LOG_TAG, "返回数据:" + text);
+                        dispatchJson(text);
+                    }
 
-    @Override
-    public void onMessage(WebSocket webSocket, String text) {
-        Log.d(LOG_TAG, "onMessage: text = " + text);
-        dispatchJson(text);
-    }
+                    @Override
+                    public void onMessage(@NonNull ByteString byteString) {
+                        mBytesPublishSubject.onNext(new Bytes(byteString.md5().hex(), byteString));
+                    }
 
-    @Override
-    public void onMessage(WebSocket webSocket, ByteString bytes) {
-        Log.d(LOG_TAG, "onMessage: ByteString = " + bytes.toString());
-        mBytesPublishSubject.onNext(new Bytes(bytes.md5().hex(), bytes));
+                    @Override
+                    protected void onReconnect() {
+                        Log.d(LOG_TAG, "---------重连-------------");
+                        DevPluginService.getInstance().connectionOnNext("正在重连...");
+                    }
+                    @Override
+                    protected void onClose() {
+                        Log.d(LOG_TAG, "onClose:");
+                        DevPluginService.getInstance().connectionOnNext("已关闭");
+                    }
+                });
+
     }
 
     public Observable<JsonElement> data() {
@@ -77,24 +105,6 @@ public class JsonWebSocket extends WebSocketListener {
         mClosed = true;
         mWebSocket.close(1000, "close");
     }
-
-    @Override
-    public void onClosed(WebSocket webSocket, int code, String reason) {
-        Log.d(LOG_TAG, "onFailure: code = " + code + ", reason = " + reason);
-        close();
-    }
-
-    @Override
-    public void onFailure(WebSocket webSocket, Throwable t, Response response) {
-        Log.d(LOG_TAG, "onFailure: response = " + response, t);
-        close(t);
-    }
-
-    @Override
-    public void onOpen(WebSocket webSocket, Response response) {
-        Log.d(LOG_TAG, "onOpen: response = " + response);
-    }
-
 
     private void close(Throwable e) {
         if (mClosed) {

@@ -114,8 +114,12 @@ public class DevPluginService {
         return mConnectionState;
     }
 
+    public void connectionOnNext(String msg){
+        mConnectionState.onNext(new State(State.DISCONNECTED, new SocketTimeoutException(msg)));
+    }
+
     @AnyThread
-    public Observable<JsonWebSocket> connectToServer(String host,String params) {
+    public Observable<JsonWebSocket> connectToServer(String host, String params) {
         int port = PORT;
         String ip = host;
         int i = host.lastIndexOf(':');
@@ -124,14 +128,13 @@ public class DevPluginService {
             ip = host.substring(0, i);
         }
         mConnectionState.onNext(new State(State.CONNECTING));
-
-        return socket(ip, port,params)
+        return socket(ip, port, params)
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnError(this::onSocketError);
     }
 
     @AnyThread
-    private Observable<JsonWebSocket> socket(String ip, int port,String params) {
+    private Observable<JsonWebSocket> socket(String ip, int port, String params) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .readTimeout(0, TimeUnit.MILLISECONDS)
                 .build();
@@ -139,15 +142,11 @@ public class DevPluginService {
         if (!url.startsWith("ws://") && !url.startsWith("wss://")) {
             url = "ws://" + url;
         }
-        url=url+"?"+params;
-        return Observable.just(new JsonWebSocket(client, new Request.Builder()
-                .url(url)
-                .build()))
-                .doOnNext(socket -> {
-                    mSocket = socket;
-                    subscribeMessage(socket);
-                    sayHelloToServer(socket);
-                });
+        url = url + "?" + params;
+        JsonWebSocket jsonWebSocket =new JsonWebSocket(client, url);
+        mSocket =jsonWebSocket;
+        subscribeMessage(mSocket);
+        return Observable.just(jsonWebSocket);
     }
 
     @SuppressLint("CheckResult")
@@ -218,7 +217,7 @@ public class DevPluginService {
     }
 
     @WorkerThread
-    private void onSocketData(JsonWebSocket jsonWebSocket, JsonWebSocket.Bytes bytes) {
+    private void onSocketData(JsonWebSocket JsonWebSocket, JsonWebSocket.Bytes bytes) {
         JsonObject command = mRequiredBytesCommands.remove(bytes.md5);
         if (command != null) {
             handleBytes(command, bytes);
@@ -252,12 +251,12 @@ public class DevPluginService {
     @MainThread
     private void onServerHello(JsonWebSocket jsonWebSocket, JsonObject message) {
         Log.i(LOG_TAG, "onServerHello: " + message);
-        String msg= message.get("data").getAsString();
-        if(!"连接成功".equals(msg)){
+        String msg = message.get("data").getAsString();
+        if (!"连接成功".equals(msg)) {
             disconnectIfNeeded();
         }
         mSocket = jsonWebSocket;
-        mConnectionState.onNext(new State(State.CONNECTED,new SocketTimeoutException(msg)));
+        mConnectionState.onNext(new State(State.CONNECTED, new SocketTimeoutException(msg)));
     }
 
     @AnyThread

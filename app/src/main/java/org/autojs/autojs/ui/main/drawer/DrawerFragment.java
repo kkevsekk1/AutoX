@@ -359,7 +359,6 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
             deviceId = Settings.System.getString(
                     getActivity().getApplication().getContentResolver(), Settings.Secure.ANDROID_ID);
         }
-//        return  deviceId+new Random().nextInt(100);
         return deviceId;
     }
 

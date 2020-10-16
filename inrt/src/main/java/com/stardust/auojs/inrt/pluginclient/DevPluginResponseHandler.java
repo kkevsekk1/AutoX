@@ -62,7 +62,7 @@ public class DevPluginResponseHandler implements Handler {
                         return true;
                     })
                     .handler("stopAll", data -> {
-                     //   AutoJs.getInstance().getScriptEngineService().stopAllAndToast();
+                        AutoJs.Companion.getInstance().getScriptEngineService().stopAllAndToast();
                         return true;
                     }));
 
@@ -102,9 +102,9 @@ public class DevPluginResponseHandler implements Handler {
     private void runScript(String viewId, String name, String script) {
         StringScriptSource scriptSource = new StringScriptSource(name,script);
         ExecutionConfig config = new ExecutionConfig();
-        config.setWorkingDirectory(Pref.INSTANCE.getScriptDirPath());
-        AutoJs.Companion.getInstance().getScriptEngineService().execute(scriptSource, new ExecutionConfig());
-      // mScriptExecutions.put(viewId, Scripts.INSTANCE.run(new StringScriptSource("[remote]" + name, script)));
+        config.setWorkingDirectory(Pref.getScriptDirPath());
+        ScriptExecution scriptExecution = AutoJs.Companion.getInstance().getScriptEngineService().execute(scriptSource, new ExecutionConfig());
+       mScriptExecutions.put(viewId, scriptExecution);
     }
 
     private void stopScript(String viewId) {
