@@ -41,6 +41,7 @@ public class DevPluginService {
     private static final String TYPE_HELLO = "hello";
     private static final String TYPE_BYTES_COMMAND = "bytes_command";
     private static final long HANDSHAKE_TIMEOUT = 10 * 1000;
+    private static String tmpMessageId="";
 
     public static class State {
 
@@ -179,6 +180,12 @@ public class DevPluginService {
         }
         try {
             JsonObject obj = element.getAsJsonObject();
+            String tmp =obj.get("message_id").getAsString();
+            if(tmpMessageId.equals(tmp)){
+                Log.w(LOG_TAG, "重复消息id=>" + tmp);
+                return;
+            }
+            tmpMessageId=tmp;
             JsonElement typeElement = obj.get("type");
             if (typeElement == null || !typeElement.isJsonPrimitive()) {
                 return;
