@@ -24,12 +24,13 @@ import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 import okio.ByteString;
 
-public class JsonWebSocket  {
+public class JsonWebSocket {
 
     public static class Bytes {
         public final String md5;
         public final ByteString byteString;
         public final long timestamp;
+
         public Bytes(String md5, ByteString byteString) {
             this.md5 = md5;
             this.byteString = byteString;
@@ -49,7 +50,8 @@ public class JsonWebSocket  {
         Config config = new Config.Builder()
                 .setShowLog(true)           //show  log
                 .setClient(client)   //if you want to set your okhttpClient
-                .setShowLog(true, "your logTag")
+                .setShowLog(true, "inrt.connect")
+
                 .setReconnectInterval(2, TimeUnit.SECONDS)  //set reconnect interval
                 .build();
         RxWebSocket.setConfig(config);
@@ -58,9 +60,10 @@ public class JsonWebSocket  {
                     @Override
                     public void onOpen(@NonNull WebSocket webSocket) {
                         Log.d(LOG_TAG, "----链接打开----");
-                        mWebSocket =webSocket;
+                        mWebSocket = webSocket;
                         DevPluginService.getInstance().connectionOnNext("连接成功");
                     }
+
                     @Override
                     public void onMessage(@NonNull String text) {
                         Log.d(LOG_TAG, "返回数据:" + text);
@@ -77,6 +80,7 @@ public class JsonWebSocket  {
                         Log.d(LOG_TAG, "---------重连-------------");
                         DevPluginService.getInstance().connectionOnNext("正在重连...");
                     }
+
                     @Override
                     protected void onClose() {
                         Log.d(LOG_TAG, "onClose:");
@@ -90,7 +94,7 @@ public class JsonWebSocket  {
         return mJsonElementPublishSubject;
     }
 
-    public Observable<Bytes> bytes(){
+    public Observable<Bytes> bytes() {
         return mBytesPublishSubject;
     }
 
@@ -130,5 +134,6 @@ public class JsonWebSocket  {
     public boolean isClosed() {
         return mClosed;
     }
-
 }
+
+

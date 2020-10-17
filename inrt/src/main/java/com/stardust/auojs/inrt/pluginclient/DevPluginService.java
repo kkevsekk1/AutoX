@@ -137,6 +137,7 @@ public class DevPluginService {
     @AnyThread
     private Observable<JsonWebSocket> socket(String ip, int port, String params) {
         OkHttpClient client = new OkHttpClient.Builder()
+                .pingInterval(2,TimeUnit.SECONDS)
                 .readTimeout(0, TimeUnit.MILLISECONDS)
                 .build();
         String url = ip + ":" + port;

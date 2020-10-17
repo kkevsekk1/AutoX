@@ -2,14 +2,11 @@ package com.stardust.auojs.inrt;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -90,13 +87,6 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void runScript() {
         GlobalProjectLauncher.INSTANCE.launch(LoginActivity.this);
-      Thread x=  new Thread(){
-            @Override
-            public void run() {
-
-            }
-        };
-        x.start();
     }
 
     private void setTvInfo(){
@@ -194,4 +184,5 @@ public class LoginActivity extends AppCompatActivity {
         }
         return uid.toString();
     }
+
 }
