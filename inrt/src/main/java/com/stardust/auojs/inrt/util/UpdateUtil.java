@@ -1,4 +1,4 @@
-package org.signal.tmb.util;
+package com.stardust.auojs.inrt.util;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -13,10 +13,12 @@ import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.ProgressBar;
 
+import com.stardust.auojs.inrt.R;
+
 import org.json.JSONObject;
-import org.signal.tmb.R;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -34,9 +36,7 @@ public class UpdateUtil {
     private static final int START_DOWNLOAD_APK = 2;
     private static final int DOWNLOAD = 3;
     private static final int DOWNLOAD_FINISH = 4;
-    private static final String CHECK_UPDATE_URL = "http://120.25.164.233:8080/appstore/app/checkversion?id=5";
-
-
+    private static final String CHECK_UPDATE_URL = "http://120.25.164.233:8080/appstore/app/checkversion?id=22";
     private Context mContext;
     private ProgressBar mProgress;
     private Dialog mDownloadDialog;
@@ -117,11 +117,11 @@ public class UpdateUtil {
     private void showNoticeDialog() {
         // 构造对话框
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-        builder.setTitle(R.string.soft_update_title);
+        builder.setTitle("发现最新版本");
         builder.setMessage(description);
         builder.setCancelable(false);
         // 更新
-        builder.setPositiveButton(R.string.soft_update_updatebtn, new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("直接更新", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
@@ -130,10 +130,19 @@ public class UpdateUtil {
             }
         });
         // 稍后更新
-        builder.setNegativeButton(R.string.soft_update_later, new DialogInterface.OnClickListener() {
+        builder.setNeutralButton("稍后更新", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
+            }
+        });
+        // 稍后更新
+        builder.setNegativeButton("浏览器下载", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Uri uri = Uri.parse(apkurl);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                mContext.startActivity(intent);
             }
         });
         Dialog noticeDialog = builder.create();
@@ -143,7 +152,7 @@ public class UpdateUtil {
     private void showDownloadDialog() {
         // 构造软件下载对话框
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-        builder.setTitle(R.string.soft_updating);
+        builder.setTitle("正在下载");
         builder.setCancelable(false);
         // 给下载对话框增加进度条
         final LayoutInflater inflater = LayoutInflater.from(mContext);
@@ -151,7 +160,7 @@ public class UpdateUtil {
         mProgress = (ProgressBar) v.findViewById(R.id.update_progress);
         builder.setView(v);
         // 取消更新
-        builder.setNegativeButton(R.string.soft_update_cancel, new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
@@ -237,7 +246,7 @@ public class UpdateUtil {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setDataAndType(Uri.parse("file://" + apkfile.toString()), "application/vnd.android.package-archive");
+        intent.setDataAndType(Uri.fromFile(apkfile), "application/vnd.android.package-archive");
         mContext.startActivity(intent);
     }
 

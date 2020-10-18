@@ -1,4 +1,4 @@
-package org.signal.tmb.util;
+package com.stardust.auojs.inrt.util;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

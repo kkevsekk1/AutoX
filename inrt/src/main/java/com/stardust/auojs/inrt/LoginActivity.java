@@ -23,6 +23,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.stardust.auojs.inrt.autojs.AccessibilityServiceTool;
 import com.stardust.auojs.inrt.launch.GlobalProjectLauncher;
 import com.stardust.auojs.inrt.pluginclient.DevPluginService;
+import com.stardust.auojs.inrt.util.UpdateUtil;
 
 import java.security.SecureRandom;
 import java.util.Random;
@@ -53,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                         setTvInfo();
                     }
                 });
+        checkVersion();
     }
 
 
@@ -184,5 +186,11 @@ public class LoginActivity extends AppCompatActivity {
         }
         return uid.toString();
     }
+
+    private void checkVersion() {
+        UpdateUtil updateUtil = new UpdateUtil(this);
+        updateUtil.checkUpdate();
+    }
+
 
 }

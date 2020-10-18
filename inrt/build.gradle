@@ -10,7 +10,7 @@ android {
         applicationId "com.stardust.auojs.inrt"
         minSdkVersion versions.mini
         targetSdkVersion versions.target
-        versionCode versions.appVersionCode - 200
+        versionCode versions.appVersionCode
         versionName versions.appVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true

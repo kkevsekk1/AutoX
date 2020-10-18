@@ -6,7 +6,6 @@ import android.content.pm.PackageManager.PERMISSION_DENIED
 import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
@@ -16,9 +15,9 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.afollestad.materialdialogs.MaterialDialog
 import com.linsh.utilseverywhere.IntentUtils
-import com.linsh.utilseverywhere.PermissionUtils
 import com.stardust.auojs.inrt.autojs.AutoJs
 import com.stardust.auojs.inrt.launch.GlobalProjectLauncher
+import com.stardust.auojs.inrt.util.UpdateUtil
 import com.stardust.util.IntentUtil
 import ezy.assist.compat.SettingsCompat
 import java.util.*
@@ -43,6 +42,8 @@ class SplashActivity : AppCompatActivity() {
            // Handler().postDelayed({ this@SplashActivity.main() }, INIT_TIMEOUT)
         }
     }
+
+
 
     private fun main() {
         checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -103,7 +104,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, @NonNull permissions: Array<String>, @NonNull grantResults: IntArray) {
-        Log.d(TAG, "onRequestPermissionsResult: "+requestCode);
+        Log.d(TAG, "onRequestPermissionsResult: " + requestCode);
         runScript()
     }
 
