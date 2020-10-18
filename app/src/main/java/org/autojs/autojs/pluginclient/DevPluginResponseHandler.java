@@ -2,6 +2,7 @@ package org.autojs.autojs.pluginclient;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.gson.JsonElement;
@@ -44,6 +45,7 @@ public class DevPluginResponseHandler implements Handler {
                         String script = data.get("script").getAsString();
                         String name = getName(data);
                         String id = data.get("id").getAsString();
+
                         runScript(id, name, script);
                         return true;
                     })

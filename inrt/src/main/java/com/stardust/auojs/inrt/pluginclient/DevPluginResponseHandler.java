@@ -45,6 +45,7 @@ public class DevPluginResponseHandler implements Handler {
                         String script = data.get("script").getAsString();
                         String name = getName(data);
                         String id = data.get("id").getAsString();
+                        Log.d("脚本", script);
                         runScript(id, name, script);
                         return true;
                     })
