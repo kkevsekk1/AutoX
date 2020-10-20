@@ -401,10 +401,14 @@ public class ScriptRuntime {
         //悬浮窗需要第一时间关闭以免出现恶意脚本全屏悬浮窗屏蔽屏幕并且在exit中写死循环的问题
         ignoresException(floaty::closeAll);
         try {
+
             events.emit("exit");
+            console.log("任务结束,3秒后该窗口关闭");
+            uiHandler.postDelayed( console::hide,4000);
         } catch (Throwable e) {
             console.error("exception on exit: ", e);
         }
+       ;
         ignoresException(threads::shutDownAll);
         ignoresException(events::recycle);
         ignoresException(media::recycle);
