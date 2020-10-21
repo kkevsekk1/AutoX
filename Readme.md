@@ -11,9 +11,14 @@
  你现在看的是 原4.1版基础上的项目，后面我将针对项目本身如何开发、运行的进行介绍，欢迎更多开发者参与这个项目维护升级，
  最新的[AutoX地址](https://github.com/kkevsekk1/AutoX), 文档中很多原项目路径，
  在原项目没有删除的情况下我并不打算替换掉，以表对于原作者的尊重。这篇文档里有加密相关的内容可能和实际运行情况有冲突，
+ 如果你希望写的代码加密保护知识产权，请参考项目 https://github.com/kkevsekk1/webpack-autojs
  我会逐步完善更新，程序代码，尽可能保持一致。
 
-现在由AutoX.js文档： https://kkevsekk1.github.io/AutoXJs-Docs/ 和项目  https://github.com/kkevsekk1/AutoX
+### 现在：
+* AutoX.js文档： https://kkevsekk1.github.io/AutoXJs-Docs/
+* 项目  https://github.com/kkevsekk1/AutoX
+* [VS Code 插件](https://marketplace.visualstudio.com/items?itemName=aaroncheng.auto-js-vsce-fixed)
+* 官方论坛： [www.autoxjs.com](http://www.autoxjs.com)
 
 ### 特性
 1. 由无障碍服务实现的简单易用的自动操作函数
@@ -39,7 +44,7 @@
 * 示例：可在[这里](https://github.com/hyb1996/NoRootScriptDroid/tree/master/app/src/main/assets/sample)查看一些示例，或者直接在应用内查看和运行。
 
 ### 架构图
- 待补充
+ 待补充，不过是否有人真对此干兴趣？欢迎联系我交流
 
 ## License
 基于[Mozilla Public License Version 2.0](https://github.com/hyb1996/NoRootScriptDroid/blob/master/LICENSE.md)并附加以下条款：
