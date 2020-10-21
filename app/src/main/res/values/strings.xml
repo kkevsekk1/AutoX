@@ -134,8 +134,8 @@
     <string name="text_again_and_again_again">又双叒</string>
     <string name="text_again_and_again_again_again">又双叒叕</string>
     <string name="debug">连接电脑</string>
-    <string name="regist">连接到服务器</string>
-    <string name="text_server_address">服务器地址</string>
+    <string name="regist">连接到应用商店</string>
+    <string name="text_server_address">商店服务器地址</string>
     <string name="text_annunciation">声明</string>
     <string name="text_about_me_and_repo">关于项目与开发者</string>
     <string name="text_attribute">属性</string>

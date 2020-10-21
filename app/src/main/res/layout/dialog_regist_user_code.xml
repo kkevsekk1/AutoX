@@ -11,8 +11,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="请输入用户code">
-
+        android:hint="请输入商店用户code">
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/user_code"
             android:layout_width="match_parent"
@@ -21,7 +20,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="请输入服务器地址">
+        android:hint="请输入商店服务器地址">
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/server_addr"

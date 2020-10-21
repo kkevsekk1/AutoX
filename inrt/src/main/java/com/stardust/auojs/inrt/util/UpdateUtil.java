@@ -17,6 +17,7 @@ import android.widget.DatePicker;
 import android.widget.ProgressBar;
 
 import com.stardust.auojs.inrt.R;
+import com.stardust.util.IntentUtil;
 
 import org.json.JSONObject;
 
@@ -246,8 +247,9 @@ public class UpdateUtil {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setDataAndType(Uri.fromFile(apkfile), "application/vnd.android.package-archive");
-        mContext.startActivity(intent);
+
+         String AUTHORITY = "org.autojs.autojs.inrt.fileprovider";
+        IntentUtil.installApkOrToast(mContext, apkfile.getPath(),AUTHORITY);
     }
 
     Handler handler = new Handler() {

@@ -312,7 +312,7 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
     void regist(DrawerMenuItemViewHolder holder) {
         String host = Pref.getServerAddressOrDefault(WifiTool.getRouterIp(getActivity()));
         String code = Pref.getCode("2");
-        MaterialDialog tmpDialog = new MaterialDialog.Builder(getActivity()).title("连接到服务器")
+        MaterialDialog tmpDialog = new MaterialDialog.Builder(getActivity()).title("连接到商店服务器")
                 .customView(R.layout.dialog_regist_user_code,false)
                 .positiveText("确定")
                 .onPositive((dialog,which)->{
