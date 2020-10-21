@@ -64,8 +64,10 @@ public class DevPluginResponseHandler implements Handler {
                         String id = data.get("id").getAsString();
                         String script = data.get("script").getAsString();
                         String name = getName(data);
-                        int sum = AutoJs.getInstance().getScriptEngineService().stopAll();
-                        GlobalAppContext.toast("已停止"+sum+"个任务，并运行"+name);
+                        try {
+                            stopScript(id);
+                        } catch (Exception e) {
+                        }
                         runScript(id, name, script);
                         return true;
                     })
