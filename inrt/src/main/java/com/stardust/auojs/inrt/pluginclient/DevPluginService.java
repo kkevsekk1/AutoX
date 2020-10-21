@@ -1,14 +1,15 @@
-package org.autojs.autojs.pluginclient;
+package com.stardust.auojs.inrt.pluginclient;
 
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
+import android.util.Pair;
+
 import androidx.annotation.AnyThread;
 import androidx.annotation.MainThread;
 import androidx.annotation.WorkerThread;
-import android.util.Log;
-import android.util.Pair;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -16,7 +17,6 @@ import com.google.gson.JsonPrimitive;
 import com.stardust.app.GlobalAppContext;
 import com.stardust.util.MapBuilder;
 
-import org.autojs.autojs.BuildConfig;
 
 import java.io.File;
 import java.net.SocketTimeoutException;
@@ -41,6 +41,7 @@ public class DevPluginService {
     private static final String TYPE_HELLO = "hello";
     private static final String TYPE_BYTES_COMMAND = "bytes_command";
     private static final long HANDSHAKE_TIMEOUT = 10 * 1000;
+    private static String tmpMessageId="";
 
     public static class State {
 
@@ -114,8 +115,12 @@ public class DevPluginService {
         return mConnectionState;
     }
 
+    public void connectionOnNext(String msg){
+        mConnectionState.onNext(new State(State.DISCONNECTED, new SocketTimeoutException(msg)));
+    }
+
     @AnyThread
-    public Observable<JsonWebSocket> connectToServer(String host,String params) {
+    public Observable<JsonWebSocket> connectToServer(String host, String params) {
         int port = PORT;
         String ip = host;
         int i = host.lastIndexOf(':');
@@ -124,30 +129,26 @@ public class DevPluginService {
             ip = host.substring(0, i);
         }
         mConnectionState.onNext(new State(State.CONNECTING));
-
-        return socket(ip, port,params)
+        return socket(ip, port, params)
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnError(this::onSocketError);
     }
 
     @AnyThread
-    private Observable<JsonWebSocket> socket(String ip, int port,String params) {
+    private Observable<JsonWebSocket> socket(String ip, int port, String params) {
         OkHttpClient client = new OkHttpClient.Builder()
+                .pingInterval(2,TimeUnit.SECONDS)
                 .readTimeout(0, TimeUnit.MILLISECONDS)
                 .build();
         String url = ip + ":" + port;
         if (!url.startsWith("ws://") && !url.startsWith("wss://")) {
             url = "ws://" + url;
         }
-        url=url+"?"+params;
-        return Observable.just(new JsonWebSocket(client, new Request.Builder()
-                .url(url)
-                .build()))
-                .doOnNext(socket -> {
-                    mSocket = socket;
-                    subscribeMessage(socket);
-                    sayHelloToServer(socket);
-                });
+        url = url + "?" + params;
+        JsonWebSocket jsonWebSocket =new JsonWebSocket(client, url);
+        mSocket =jsonWebSocket;
+        subscribeMessage(mSocket);
+        return Observable.just(jsonWebSocket);
     }
 
     @SuppressLint("CheckResult")
@@ -173,12 +174,19 @@ public class DevPluginService {
 
     @MainThread
     private void onSocketData(JsonWebSocket jsonWebSocket, JsonElement element) {
+        Log.d("-------", "runScript: ");
         if (!element.isJsonObject()) {
             Log.w(LOG_TAG, "onSocketData: not json object: " + element);
             return;
         }
         try {
             JsonObject obj = element.getAsJsonObject();
+            String tmp =obj.get("message_id").getAsString();
+            if(tmpMessageId.equals(tmp)){
+                Log.w(LOG_TAG, "重复消息id=>" + tmp);
+                return;
+            }
+            tmpMessageId=tmp;
             JsonElement typeElement = obj.get("type");
             if (typeElement == null || !typeElement.isJsonPrimitive()) {
                 return;
@@ -217,7 +225,7 @@ public class DevPluginService {
     }
 
     @WorkerThread
-    private void onSocketData(JsonWebSocket jsonWebSocket, JsonWebSocket.Bytes bytes) {
+    private void onSocketData(JsonWebSocket JsonWebSocket, JsonWebSocket.Bytes bytes) {
         JsonObject command = mRequiredBytesCommands.remove(bytes.md5);
         if (command != null) {
             handleBytes(command, bytes);
@@ -231,8 +239,8 @@ public class DevPluginService {
         writeMap(socket, TYPE_HELLO, new MapBuilder<String, Object>()
                 .put("device_name", Build.BRAND + " " + Build.MODEL)
                 .put("client_version", CLIENT_VERSION)
-                .put("app_version", BuildConfig.VERSION_NAME)
-                .put("app_version_code", BuildConfig.VERSION_CODE)
+                .put("app_version", "4.1")
+                .put("app_version_code", "固定值")
                 .build());
         mHandler.postDelayed(() -> {
             if (mSocket != socket && !socket.isClosed()) {
@@ -251,17 +259,12 @@ public class DevPluginService {
     @MainThread
     private void onServerHello(JsonWebSocket jsonWebSocket, JsonObject message) {
         Log.i(LOG_TAG, "onServerHello: " + message);
-        String msg= "请在服务器端查看消息";
-        try {
-            msg = message.get("data").getAsString();
-            if(!"连接成功".equals(msg)){
-                disconnectIfNeeded();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        String msg = message.get("data").getAsString();
+        if (!"连接成功".equals(msg)) {
+            disconnectIfNeeded();
         }
         mSocket = jsonWebSocket;
-        mConnectionState.onNext(new State(State.CONNECTED,new SocketTimeoutException(msg)));
+        mConnectionState.onNext(new State(State.CONNECTED, new SocketTimeoutException(msg)));
     }
 
     @AnyThread

@@ -79,14 +79,11 @@ public class VersionService {
     public boolean isCurrentVersionDeprecated() {
         return mDeprecated;
     }
-
+    //获取当前版本的一些bug
     public String getCurrentVersionIssues() {
         if (mVersionInfo == null)
             return null;
-        VersionInfo.OldVersion oldVersion = mVersionInfo.getOldVersion(BuildConfig.VERSION_CODE);
-        if (oldVersion == null)
-            return null;
-        return oldVersion.issues;
+        return mVersionInfo.description;
     }
 
     public Observable<VersionInfo> checkForUpdatesIfNeededAndUsingWifi(Context context) {
@@ -105,9 +102,7 @@ public class VersionService {
         observable.subscribe(new SimpleObserver<VersionInfo>() {
             @Override
             public void onNext(@NonNull VersionInfo versionInfo) {
-                if (versionInfo.isValid()) {
                     setVersionInfo(versionInfo);
-                }
             }
 
             @Override
@@ -119,7 +114,7 @@ public class VersionService {
     }
 
     private void setVersionInfo(VersionInfo result) {
-        mDeprecated = BuildConfig.VERSION_CODE <= result.deprecated;
+        mDeprecated = BuildConfig.VERSION_CODE <= result.versionCode-10;
         mVersionInfo = result;
         if (mDeprecated) {
             mSharedPreferences.edit().putBoolean(KEY_DEPRECATED, mDeprecated)

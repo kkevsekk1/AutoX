@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.stardust.auojs.inrt",
+  "variantName": "processReleaseResources",
+  "elements": [
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "x86"
+        }
+      ],
+      "versionCode": 465,
+      "versionName": "4.2.3",
+      "outputFile": "inrt-x86-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "armeabi-v7a"
+        }
+      ],
+      "versionCode": 465,
+      "versionName": "4.2.3",
+      "outputFile": "inrt-armeabi-v7a-release.apk"
+    }
+  ]
+}

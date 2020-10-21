@@ -171,4 +171,12 @@ public class Pref {
     public static boolean isForegroundServiceEnabled() {
         return def().getBoolean(getString(R.string.key_foreground_servie), false);
     }
+
+    public static void setCode(String value) {
+        def().edit().putString("user_code", value).apply();
+    }
+    public static String getCode(String defValue) {
+        return def().getString("user_code",defValue);
+    }
+
 }

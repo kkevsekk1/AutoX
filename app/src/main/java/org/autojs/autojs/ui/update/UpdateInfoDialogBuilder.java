@@ -53,7 +53,7 @@ public class UpdateInfoDialogBuilder extends MaterialDialog.Builder {
         setReleaseNotes(mView, info);
         setCurrentVersionIssues(mView, info);
         setUpdateDownloadButtons(mView, info);
-        title(context.getString(R.string.text_new_version) + " " + info.versionName);
+        title(context.getString(R.string.text_new_version) + " " + info.version);
         customView(mView, false);
         return this;
     }
@@ -80,43 +80,42 @@ public class UpdateInfoDialogBuilder extends MaterialDialog.Builder {
 
     private void setCurrentVersionIssues(View view, VersionInfo info) {
         TextView issues = (TextView) view.findViewById(R.id.issues);
-        VersionInfo.OldVersion currentVersion = info.getOldVersion(BuildConfig.VERSION_CODE);
-        if (currentVersion == null) {
+        if (info == null) {
             issues.setVisibility(View.GONE);
         } else {
-            issues.setText(currentVersion.issues);
+            String note= info.note==null?"请尽快更新":info.note;
+            issues.setText(note);
         }
     }
 
     private void setUpdateDownloadButtons(View view, VersionInfo info) {
         LinearLayout downloads = (LinearLayout) view.findViewById(R.id.downloads);
         setDirectlyDownloadButton(downloads, info);
-        for (final VersionInfo.Download download : info.downloads) {
             Button button = (Button) View.inflate(getContext(), R.layout.dialog_update_info_btn, null);
-            button.setText(download.name);
+            button.setText("浏览器下载");
             downloads.addView(button);
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    IntentTool.browse(v.getContext(), download.url);
+                    IntentTool.browse(v.getContext(), info.apkurl);
                 }
             });
         }
-    }
+
 
     private void setDirectlyDownloadButton(LinearLayout container, final VersionInfo info) {
-        if (TextUtils.isEmpty(info.downloadUrl)) {
+        if (TextUtils.isEmpty(info.apkurl)) {
             return;
         }
         Button button = (Button) View.inflate(getContext(), R.layout.dialog_update_info_btn, null);
         button.setText(R.string.text_directly_download);
-        button.setOnClickListener(v -> directlyDownload(info.downloadUrl));
+        button.setOnClickListener(v -> directlyDownload(info.apkurl));
         container.addView(button);
     }
 
     @SuppressLint("CheckResult")
     private void directlyDownload(String downloadUrl) {
-        final String path = new File(Pref.getScriptDirPath(), "AutoJs.apk").getPath();
+        final String path = new File(Pref.getScriptDirPath(), "AutoxJs.apk").getPath();
         DownloadManager.getInstance().downloadWithProgress(getContext(), downloadUrl, path)
                 .subscribeOn(AndroidSchedulers.mainThread())
                 .subscribe(file -> IntentUtil.installApkOrToast(getContext(), file.getPath(), AppFileProvider.AUTHORITY),
@@ -130,6 +129,7 @@ public class UpdateInfoDialogBuilder extends MaterialDialog.Builder {
 
     private void setReleaseNotes(View view, VersionInfo info) {
         CommonMarkdownView markdownView = view.findViewById(R.id.release_notes);
-        markdownView.loadMarkdown(info.releaseNotes);
+        String description= info.description==null?"请尽快更新":info.description;
+        markdownView.loadMarkdown(description);
     }
 }

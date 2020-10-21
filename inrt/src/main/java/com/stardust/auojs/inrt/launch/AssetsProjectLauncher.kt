@@ -17,14 +17,12 @@ import com.stardust.autojs.execution.ScriptExecution
 import com.stardust.autojs.project.ProjectConfig
 import com.stardust.autojs.script.JavaScriptFileSource
 import com.stardust.autojs.script.JavaScriptSource
-import com.stardust.autojs.script.ScriptSource
 import com.stardust.pio.PFiles
 import com.stardust.pio.UncheckedIOException
 import com.stardust.util.MD5
 
 import java.io.File
 import java.io.IOException
-import java.lang.reflect.Field
 
 /**
  * Created by Stardust on 2018/1/24.
@@ -43,7 +41,7 @@ open class AssetsProjectLauncher(private val mAssetsProjectDir: String, private 
 
     fun launch(activity: Activity) {
         //如果需要隐藏日志界面，则直接运行脚本
-        if (mProjectConfig.launchConfig.shouldHideLogs() || Pref.shouldHideLogs()) {
+        if (mProjectConfig.launchConfig.shouldHideLogs()) {
             runScript(activity)
         } else {
             //如果不隐藏日志界面

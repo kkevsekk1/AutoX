@@ -175,7 +175,6 @@
                 <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING"/>
             </intent-filter>
         </activity-alias>
-
         <receiver android:name="org.autojs.autojs.external.receiver.StaticBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>

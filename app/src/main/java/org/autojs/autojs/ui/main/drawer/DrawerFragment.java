@@ -3,6 +3,7 @@ package org.autojs.autojs.ui.main.drawer;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AppOpsManager;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -13,12 +14,14 @@ import android.provider.Settings;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -80,6 +83,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -182,6 +186,7 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
                 new DrawerMenuItem(R.drawable.ic_volume, R.string.text_volume_down_control, R.string.key_use_volume_control_record, null),
 
                 new DrawerMenuGroup(R.string.text_others),
+                new DrawerMenuItem(R.drawable.ic_personalize, R.string.regist, this::regist),
                 mConnectionItem,
                 new DrawerMenuItem(R.drawable.ic_personalize, R.string.text_theme_color, this::openThemeColorSettings),
                 new DrawerMenuItem(R.drawable.ic_night_mode, R.string.text_night_mode, R.string.key_night_mode, this::toggleNightMode),
@@ -304,6 +309,33 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
         }
     }
 
+    void regist(DrawerMenuItemViewHolder holder) {
+        String host = Pref.getServerAddressOrDefault(WifiTool.getRouterIp(getActivity()));
+        String code = Pref.getCode("2");
+        MaterialDialog tmpDialog = new MaterialDialog.Builder(getActivity()).title("连接到商店服务器")
+                .customView(R.layout.dialog_regist_user_code,false)
+                .positiveText("确定")
+                .onPositive((dialog,which)->{
+                    View customeView = dialog.getCustomView();
+                    EditText  userCodeInput= (EditText) customeView.findViewById(R.id.user_code);
+                    EditText  serverAddrInput= (EditText) customeView.findViewById(R.id.server_addr);
+                    String code1 =userCodeInput.getText().toString().trim();
+                    Pref.setCode(code1);
+                    String host1 =serverAddrInput.getText().toString().trim();
+                    Pref.saveServerAddress(host1);
+                    String params="iemi="+getIMEI()+"&usercode="+code1;
+                    DevPluginService.getInstance().connectToServer(host1,params)
+                            .subscribe(Observers.emptyConsumer(), this::onConnectException);
+                 //   Toast.makeText(getContext(),"正在连接...",Toast.LENGTH_SHORT).show();
+
+                }).show();
+        View customeView = tmpDialog.getCustomView();
+        EditText  userCodeInput= (EditText) customeView.findViewById(R.id.user_code);
+        EditText  serverAddrInput= (EditText) customeView.findViewById(R.id.server_addr);
+        userCodeInput.setText(code);
+        serverAddrInput.setText(host);
+    }
+
 
     private void toggleForegroundService(DrawerMenuItemViewHolder holder) {
         boolean checked = holder.getSwitchCompat().isChecked();
@@ -314,22 +346,26 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
         }
     }
 
+    @SuppressLint("MissingPermission")
     private String getIMEI() {
-        TelephonyManager tm = (TelephonyManager) getActivity().getApplication().getSystemService(TELEPHONY_SERVICE);
         String deviceId=null;
-        if (ActivityCompat.checkSelfPermission(getActivity().getApplication(), Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-            deviceId = tm.getDeviceId();
+        int permissionCheck = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_PHONE_STATE);
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_PHONE_STATE}, 123);
         }
+            TelephonyManager tm = (TelephonyManager) getActivity().getApplication().getSystemService(TELEPHONY_SERVICE);
+            deviceId = tm.getDeviceId();
         if(TextUtils.isEmpty(deviceId)){
             deviceId = Settings.System.getString(
                     getActivity().getApplication().getContentResolver(), Settings.Secure.ANDROID_ID);
         }
-        return  deviceId;
+        return deviceId;
     }
 
     private void inputRemoteHost() {
         String host = Pref.getServerAddressOrDefault(WifiTool.getRouterIp(getActivity()));
-        String params="iemi="+getIMEI()+"&usercode=2";
+        String code = Pref.getCode("2");
+        String params="iemi="+getIMEI()+"&usercode="+code;
         new MaterialDialog.Builder(getActivity())
                 .title(R.string.text_server_address)
                 .input("", host, (dialog, input) -> {
@@ -346,6 +382,8 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
                 .show();
     }
 
+
+
     private void onConnectException(Throwable e) {
         setChecked(mConnectionItem, false);
         Toast.makeText(GlobalAppContext.get(), getString(R.string.error_connect_to_remote, e.getMessage()),
@@ -357,7 +395,6 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
         VersionService.getInstance().checkForUpdates()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SimpleObserver<VersionInfo>() {
-
                     @Override
                     public void onNext(@io.reactivex.annotations.NonNull VersionInfo versionInfo) {
                         if (getActivity() == null)

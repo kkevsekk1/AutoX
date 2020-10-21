@@ -8,6 +8,12 @@
 
     <string name="key_use_volume_control_running">key_use_volume_control_running</string>
     <string name="key_enable_accessibility_service_by_root">key_enable_accessibility_service_by_root</string>
+    <string name="key_enable_accessibility_service">key_enable_accessibility_service</string>
+    <string name="key_enable_floating_window">key_enable_floating_window</string>
+    <string name="text_use_accessibility_service">无障碍服务</string>
+    <string name="text_use_floating_window">悬浮窗</string>
+    <string name="summary_enable_accessibility_service">必须要开启无障碍服务任务才能执行</string>
+    <string name="summary_enable_floating_window">必须要开启悬浮窗才能查看日志</string>
     <string name="text_use_volume_to_stop_running">音量上键停止所有脚本</string>
     <string name="summary_enable_accessibility_service_by_root">开启后运行脚本会使用Root权限自动开启无障碍服务</string>
     <string name="text_enable_accessibility_service_by_root">使用Root权限自动启用服务</string>
@@ -21,5 +27,14 @@
     <string name="text_others">其他</string>
     <string name="powered_by_autojs">Powered by Auto.js</string>
     <string name="text_execution_finished" formatted="false">\n------------\n[%s]运行结束，用时%f秒</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 
 </resources>
