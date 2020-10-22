@@ -22,6 +22,8 @@ import com.stardust.enhancedfloaty.ResizableExpandableFloatyWindow;
 import com.stardust.autojs.R;
 import com.stardust.util.MapBuilder;
 import com.stardust.util.SparseArrayEntries;
+import com.stardust.util.ViewUtil;
+import com.stardust.util.ViewUtils;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -56,10 +58,12 @@ public class ConsoleView extends FrameLayout implements ConsoleImpl.LogListener 
     private ConsoleImpl mConsole;
     private RecyclerView mLogListRecyclerView;
     private EditText mEditText;
+    private Button submitButton;
     private ResizableExpandableFloatyWindow mWindow;
     private LinearLayout mInputContainer;
     private boolean mShouldStopRefresh = false;
     private ArrayList<ConsoleImpl.LogEntry> mLogEntries = new ArrayList<>();
+    private int mLogSize=-1;
 
     public ConsoleView(Context context) {
         super(context);
@@ -99,8 +103,8 @@ public class ConsoleView extends FrameLayout implements ConsoleImpl.LogListener 
     }
 
     private void initSubmitButton() {
-        final Button submit = findViewById(R.id.submit);
-        submit.setOnClickListener(v -> {
+        submitButton = findViewById(R.id.submit);
+        submitButton.setOnClickListener(v -> {
             CharSequence input = mEditText.getText();
             submitInput(input);
         });
@@ -200,11 +204,25 @@ public class ConsoleView extends FrameLayout implements ConsoleImpl.LogListener 
 
     public void showEditText() {
         post(() -> {
+            mEditText.setVisibility(VISIBLE);
+            submitButton.setVisibility(VISIBLE);
             mWindow.requestWindowFocus();
             //mInputContainer.setVisibility(VISIBLE);
             mEditText.requestFocus();
         });
     }
+    public void hideEditText() {
+        post(() -> {
+            mEditText.setVisibility(INVISIBLE);
+            submitButton.setVisibility(INVISIBLE);
+        });
+    }
+
+    public void setLogSize(int size){
+            mLogSize=(int)ViewUtils.spToPx(getContext(),size);
+
+    }
+
 
     private class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -227,9 +245,11 @@ public class ConsoleView extends FrameLayout implements ConsoleImpl.LogListener 
         public void onBindViewHolder(ViewHolder holder, int position) {
             ConsoleImpl.LogEntry logEntry = mLogEntries.get(position);
             holder.textView.setText(logEntry.content);
+            if(mLogSize!=-1){
+                holder.textView.setTextSize(mLogSize);
+            }
             holder.textView.setTextColor(mColors.get(logEntry.level));
         }
-
         @Override
         public int getItemCount() {
             return mLogEntries.size();

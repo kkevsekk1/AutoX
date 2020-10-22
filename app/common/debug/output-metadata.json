@@ -15,8 +15,8 @@
           "value": "x86"
         }
       ],
-      "versionCode": 466,
-      "versionName": "4.2.4",
+      "versionCode": 467,
+      "versionName": "4.2.5",
       "outputFile": "app-common-x86-debug.apk"
     },
     {
@@ -27,8 +27,8 @@
           "value": "armeabi-v7a"
         }
       ],
-      "versionCode": 466,
-      "versionName": "4.2.4",
+      "versionCode": 467,
+      "versionName": "4.2.5",
       "outputFile": "app-common-armeabi-v7a-debug.apk"
     }
   ]

@@ -2,18 +2,28 @@ package com.stardust.autojs.core.console;
 
 import android.content.Context;
 import android.content.ContextWrapper;
+
 import androidx.annotation.Nullable;
+
+import android.content.res.ColorStateList;
+import android.os.Build;
+import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.stardust.app.GlobalAppContext;
 import com.stardust.enhancedfloaty.FloatyService;
 import com.stardust.enhancedfloaty.ResizableExpandableFloaty;
 import com.stardust.enhancedfloaty.ResizableExpandableFloatyWindow;
 import com.stardust.util.ScreenMetrics;
 import com.stardust.util.ViewUtil;
 import com.stardust.autojs.R;
+import com.stardust.util.ViewUtils;
 
 /**
  * Created by Stardust on 2017/4/20.
@@ -24,8 +34,13 @@ public class ConsoleFloaty extends ResizableExpandableFloaty.AbstractResizableEx
     private ContextWrapper mContextWrapper;
     private View mResizer, mMoveCursor;
     private TextView mTitleView;
+    private ImageView mCloaseView, mMinimizeView, mResizeView;
     private ConsoleImpl mConsole;
     private CharSequence mTitle;
+    private int mContentSize = -1;
+    private int mTitleColor = 0xfe14efb1;
+    private double scale;
+
     private View mExpandedView;
 
     public ConsoleFloaty(ConsoleImpl console) {
@@ -80,7 +95,15 @@ public class ConsoleFloaty extends ResizableExpandableFloaty.AbstractResizableEx
 
     private void initConsoleTitle(View view) {
         mTitleView = view.findViewById(R.id.title);
+        mCloaseView = view.findViewById(R.id.close);
+        mMinimizeView = view.findViewById(R.id.minimize);
+        mResizeView = view.findViewById(R.id.move_or_resize);
         if (mTitle != null) {
+            scale = getBorderContentScale();
+            resetTiteText();
+            resetImageView(mCloaseView);
+            resetImageView(mMinimizeView);
+            resetImageView(mResizeView);
             mTitleView.setText(mTitle);
         }
     }
@@ -110,6 +133,8 @@ public class ConsoleFloaty extends ResizableExpandableFloaty.AbstractResizableEx
         view.findViewById(R.id.minimize).setOnClickListener(v -> window.collapse());
     }
 
+
+
     @Nullable
     @Override
     public View getResizerView(View expandedView) {
@@ -124,10 +149,68 @@ public class ConsoleFloaty extends ResizableExpandableFloaty.AbstractResizableEx
         return mMoveCursor;
     }
 
-    public void setTitle(final CharSequence title) {
+
+    public void setTitle(final CharSequence title, int color, int size) {
         mTitle = title;
+        mTitleColor = color;
+        mContentSize = ViewUtils.dpToPx(GlobalAppContext.get(), size);
+        mTitleColor = color;
         if (mTitleView != null) {
             mTitleView.post(() -> mTitleView.setText(title));
+            resetTiteText();
+            resetImageView(mCloaseView);
+            resetImageView(mMinimizeView);
+            resetImageView(mResizeView);
         }
     }
+
+    private void resetTiteText() {
+        if (mContentSize > 0) {
+            LinearLayout linearLayout = (LinearLayout) mTitleView.getParent();
+            ViewGroup.LayoutParams layoutParams = linearLayout.getLayoutParams();
+            layoutParams.height = mContentSize;
+            linearLayout.post(() -> linearLayout.setLayoutParams(layoutParams));
+
+            float titileSize = (float) (mContentSize * scale);
+            mTitleView.post(() -> mTitleView.setTextSize(TypedValue.COMPLEX_UNIT_PX, titileSize));
+
+        }
+        if (mTitleColor != 0xfe14efb1) {
+            mTitleView.setTextColor(mTitleColor);
+        }
+    }
+
+    private void resetImageView(ImageView view) {
+        if (mContentSize > 0) {
+            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+            layoutParams.height = mContentSize;
+            layoutParams.width = mContentSize;
+            view.setPadding((int) (view.getPaddingLeft() * scale), (int) (view.getPaddingTop() * scale), (int) (view.getPaddingRight() * scale), (int) (view.getPaddingBottom() * scale));
+            view.post(() -> {
+                view.setLayoutParams(layoutParams);
+            });
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && mTitleColor != 0xfe14efb1) {
+            view.setImageTintList(createColorStateList(mTitleColor));
+        }
+
+    }
+
+    private static ColorStateList createColorStateList(int color) {
+        int[] colors = new int[]{color, color};
+        int[][] states = new int[2][];
+        states[0] = new int[]{android.R.attr.state_checked};
+        states[1] = new int[]{-android.R.attr.state_checked};
+        ColorStateList colorList = new ColorStateList(states, colors);
+        return colorList;
+    }
+
+    private double getBorderContentScale() {
+        LinearLayout linearLayout = (LinearLayout) mTitleView.getParent();
+        ViewGroup.LayoutParams layoutParams = linearLayout.getLayoutParams();
+        int borderHeight = layoutParams.height;
+        float textSize = mTitleView.getTextSize();
+        return (textSize * 1.0) / (borderHeight * 1.0);
+    }
+
 }
