@@ -45,7 +45,7 @@ public class ScriptEngineService {
         public void onStart(ScriptExecution execution) {
             if (execution.getEngine() instanceof JavaScriptEngine) {
                 ((JavaScriptEngine) execution.getEngine()).getRuntime()
-                        .console.setTitle(execution.getSource().getName());
+                        .console.setTitle(execution.getSource().getName(),"#ffff0000",-1);
             }
             EVENT_BUS.post(new ScriptExecutionEvent(ScriptExecutionEvent.ON_START, execution.getSource().toString()));
         }

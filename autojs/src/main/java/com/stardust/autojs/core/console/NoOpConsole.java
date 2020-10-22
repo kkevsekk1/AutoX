@@ -66,7 +66,23 @@ public class NoOpConsole implements Console {
     }
 
     @Override
-    public void setTitle(CharSequence title) {
+    public void setTitle(CharSequence title,String color,int size) {
+
+    }
+
+    @Override
+    public void setBackgroud(@Nullable String color) {
+
+    }
+
+    @Override
+    public void setLogSize(int size) {
+
+
+    }
+
+    @Override
+    public void setCanInput(boolean can) {
 
     }
 }

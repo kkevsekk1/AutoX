@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import androidx.annotation.IdRes;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -47,4 +48,7 @@ public class ViewUtil {
         params.height = height;
         view.setLayoutParams(params);
     }
+
+
+
 }

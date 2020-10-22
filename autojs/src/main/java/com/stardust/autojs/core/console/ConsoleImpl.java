@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import android.graphics.Color;
 import android.view.WindowManager;
 
 import com.stardust.autojs.R;
@@ -137,7 +139,38 @@ public class ConsoleImpl extends AbstractConsole {
         return null;
     }
 
+    @Override
+    public void setTitle(CharSequence title, String color,int size) {
+        mConsoleFloaty.setTitle(title, Color.parseColor(color), size);
 
+    }
+
+    public void setTitle(CharSequence title) {
+        mConsoleFloaty.setTitle(title, 0xfe14efb1, -1);
+
+    }
+
+    public void setTitle(CharSequence title,String color) {
+        mConsoleFloaty.setTitle(title, 0xfe14efb1, -1);
+    }
+
+    @Override
+    public void setBackgroud(@Nullable String color) {
+        mConsoleView.get().setBackgroundColor(Color.parseColor(color));
+    }
+
+    @Override
+    public void setLogSize(int size) {
+        mConsoleView.get().setLogSize(size);
+    }
+    @Override
+    public void  setCanInput(boolean can){
+        if(can){
+            mConsoleView.get().showEditText();
+        }else {
+            mConsoleView.get().hideEditText();
+        }
+    }
     @Override
     public void write(int level, CharSequence charSequence) {
         println(level, charSequence);
@@ -265,10 +298,7 @@ public class ConsoleImpl extends AbstractConsole {
         return mInput.offer(input.toString());
     }
 
-    @Override
-    public void setTitle(CharSequence title) {
-        mConsoleFloaty.setTitle(title);
-    }
+
 
     @Override
     public void error(@Nullable Object data, Object... options) {
@@ -295,4 +325,6 @@ public class ConsoleImpl extends AbstractConsole {
             super.error(data, options);
         }
     }
+
+
 }
