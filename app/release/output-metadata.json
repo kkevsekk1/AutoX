@@ -15,8 +15,8 @@
           "value": "x86"
         }
       ],
-      "versionCode": 465,
-      "versionName": "4.2.3",
+      "versionCode": 467,
+      "versionName": "4.2.5",
       "outputFile": "inrt-x86-release.apk"
     },
     {
@@ -27,8 +27,8 @@
           "value": "armeabi-v7a"
         }
       ],
-      "versionCode": 465,
-      "versionName": "4.2.3",
+      "versionCode": 467,
+      "versionName": "4.2.5",
       "outputFile": "inrt-armeabi-v7a-release.apk"
     }
   ]
