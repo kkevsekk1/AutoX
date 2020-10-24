@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.SparseArray;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +64,7 @@ public class ConsoleView extends FrameLayout implements ConsoleImpl.LogListener 
     private LinearLayout mInputContainer;
     private boolean mShouldStopRefresh = false;
     private ArrayList<ConsoleImpl.LogEntry> mLogEntries = new ArrayList<>();
-    private int mLogSize=-1;
+    private float mLogSize=-1;
 
     public ConsoleView(Context context) {
         super(context);
@@ -246,7 +247,7 @@ public class ConsoleView extends FrameLayout implements ConsoleImpl.LogListener 
             ConsoleImpl.LogEntry logEntry = mLogEntries.get(position);
             holder.textView.setText(logEntry.content);
             if(mLogSize!=-1){
-                holder.textView.setTextSize(mLogSize);
+                holder.textView.setTextSize(TypedValue.COMPLEX_UNIT_PX,mLogSize);
             }
             holder.textView.setTextColor(mColors.get(logEntry.level));
         }
