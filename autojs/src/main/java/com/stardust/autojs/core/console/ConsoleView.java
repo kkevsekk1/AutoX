@@ -213,8 +213,8 @@ public class ConsoleView extends FrameLayout implements ConsoleImpl.LogListener 
     }
     public void hideEditText() {
         post(() -> {
-            mEditText.setVisibility(INVISIBLE);
-            submitButton.setVisibility(INVISIBLE);
+            mEditText.setVisibility(GONE);
+            submitButton.setVisibility(GONE);
         });
     }
 

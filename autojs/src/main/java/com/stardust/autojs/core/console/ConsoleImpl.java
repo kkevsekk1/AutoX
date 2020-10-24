@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import android.graphics.Color;
+import android.util.Log;
 import android.view.WindowManager;
 
 import com.stardust.autojs.R;
@@ -165,9 +166,13 @@ public class ConsoleImpl extends AbstractConsole {
     }
     @Override
     public void  setCanInput(boolean can){
+        if(mConsoleView.get()==null){
+            Log.e(ConsoleImpl.class.getName(), "设置不生效，console没创建创建 ");
+            return;
+        }
         if(can){
             mConsoleView.get().showEditText();
-        }else {
+        }else{
             mConsoleView.get().hideEditText();
         }
     }
