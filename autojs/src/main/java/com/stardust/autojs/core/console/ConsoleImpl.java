@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import android.graphics.Color;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.WindowManager;
 
@@ -142,6 +143,9 @@ public class ConsoleImpl extends AbstractConsole {
 
     @Override
     public void setTitle(CharSequence title, String color,int size) {
+        if(TextUtils.isEmpty(color)){
+            color="#fe14efb1";
+        }
         mConsoleFloaty.setTitle(title, Color.parseColor(color), size);
 
     }
@@ -152,7 +156,10 @@ public class ConsoleImpl extends AbstractConsole {
     }
 
     public void setTitle(CharSequence title,String color) {
-        mConsoleFloaty.setTitle(title, 0xfe14efb1, -1);
+        if(TextUtils.isEmpty(color)){
+            color="#fe14efb1";
+        }
+        mConsoleFloaty.setTitle(title, Color.parseColor(color), -1);
     }
 
     @Override
