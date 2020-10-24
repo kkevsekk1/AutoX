@@ -157,6 +157,10 @@ public class ConsoleImpl extends AbstractConsole {
 
     @Override
     public void setBackgroud(@Nullable String color) {
+        if(mConsoleView.get()==null){
+            Log.e(ConsoleImpl.class.getName(), "设置不生效，console没创建创建 ");
+            return;
+        }
         mConsoleView.get().setBackgroundColor(Color.parseColor(color));
     }
 
