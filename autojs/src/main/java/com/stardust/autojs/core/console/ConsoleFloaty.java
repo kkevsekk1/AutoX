@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 
 import android.content.res.ColorStateList;
 import android.os.Build;
+import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
 import android.view.View;
@@ -156,7 +157,9 @@ public class ConsoleFloaty extends ResizableExpandableFloaty.AbstractResizableEx
         mContentSize = ViewUtils.dpToPx(GlobalAppContext.get(), size);
         mTitleColor = color;
         if (mTitleView != null) {
-            mTitleView.post(() -> mTitleView.setText(title));
+            if(!TextUtils.isEmpty(title)){
+                mTitleView.post(() -> mTitleView.setText(title));
+            }
             resetTiteText();
             resetImageView(mCloaseView);
             resetImageView(mMinimizeView);

@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import android.graphics.Color;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.WindowManager;
 
 import com.stardust.autojs.R;
@@ -141,6 +143,9 @@ public class ConsoleImpl extends AbstractConsole {
 
     @Override
     public void setTitle(CharSequence title, String color,int size) {
+        if(TextUtils.isEmpty(color)){
+            color="#fe14efb1";
+        }
         mConsoleFloaty.setTitle(title, Color.parseColor(color), size);
 
     }
@@ -151,11 +156,18 @@ public class ConsoleImpl extends AbstractConsole {
     }
 
     public void setTitle(CharSequence title,String color) {
-        mConsoleFloaty.setTitle(title, 0xfe14efb1, -1);
+        if(TextUtils.isEmpty(color)){
+            color="#fe14efb1";
+        }
+        mConsoleFloaty.setTitle(title, Color.parseColor(color), -1);
     }
 
     @Override
     public void setBackgroud(@Nullable String color) {
+        if(mConsoleView.get()==null){
+            Log.e(ConsoleImpl.class.getName(), "设置不生效，console没创建创建 ");
+            return;
+        }
         mConsoleView.get().setBackgroundColor(Color.parseColor(color));
     }
 
@@ -165,9 +177,13 @@ public class ConsoleImpl extends AbstractConsole {
     }
     @Override
     public void  setCanInput(boolean can){
+        if(mConsoleView.get()==null){
+            Log.e(ConsoleImpl.class.getName(), "设置不生效，console没创建创建 ");
+            return;
+        }
         if(can){
             mConsoleView.get().showEditText();
-        }else {
+        }else{
             mConsoleView.get().hideEditText();
         }
     }

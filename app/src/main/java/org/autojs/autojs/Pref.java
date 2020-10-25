@@ -131,10 +131,10 @@ public class Pref {
 
     public static String getDocumentationUrl() {
         String docSource = def().getString(getString(R.string.key_documentation_source), null);
-        if (docSource == null || docSource.equals("Local")) {
+        if ("Local".equals(docSource)) {
             return "file:///android_asset/docs/";
         } else {
-            return "https://www.autojs.org/assets/autojs/docs/";
+            return "https://kkevsekk1.github.io/AutoXJs-Docs/#/?id=%e7%bb%bc%e8%bf%b0";
         }
     }
 

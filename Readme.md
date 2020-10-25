@@ -19,6 +19,7 @@
 * 项目  https://github.com/kkevsekk1/AutoX
 * [VS Code 插件](https://marketplace.visualstudio.com/items?itemName=aaroncheng.auto-js-vsce-fixed)
 * 官方论坛： [www.autoxjs.com](http://www.autoxjs.com)
+* autoxjs[更新日志](CHANGELOG.md)
 
 ### 特性
 1. 由无障碍服务实现的简单易用的自动操作函数
@@ -30,6 +31,7 @@
 7. 提供截取屏幕、保存截图、图片找色、找图等函数
 8. 可作为Tasker插件使用，结合Tasker可胜任日常工作流
 9. 带有界面分析工具，类似Android Studio的LayoutInspector，可以分析界面层次和范围、获取界面上的控件信息的
+
 
 本软件与按键精灵等软件不同，主要区别是：
 1. Auto.js主要以自动化、工作流为目标，更多地是方便日常生活工作，例如启动游戏时自动屏蔽通知、一键与特定联系人微信视频（知乎上出现过该问题，老人难以进行复杂的操作和子女进行微信视频）等

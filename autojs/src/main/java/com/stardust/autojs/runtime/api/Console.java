@@ -51,7 +51,6 @@ public interface Console {
      * @param size  标题字号，自动根据字号调整标题高度
      */
     void setTitle(CharSequence title,String color,int size);
-
     /**
      *
      * @param color 背景色 rgba
