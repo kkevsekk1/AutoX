@@ -1,7 +1,13 @@
+import java.nio.charset.Charset
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+
+
+Properties properties = new Properties()
+properties.load( new InputStreamReader(new FileInputStream("E:/资料/jks/autojs-inrt/sign.properties"), Charset.forName("utf-8")))
 android {
     compileSdkVersion versions.compile
     buildToolsVersion versions.buildTool
@@ -45,17 +51,30 @@ android {
             universalApk false
         }
     }
+    signingConfigs {
+        release{
+            keyAlias properties['keyAlias']
+            keyPassword properties['keyPassword']
+            storeFile file(properties['storeFile'])
+            storePassword properties['storePassword']
+        }
+    }
     buildTypes {
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
+
 }
+
+
 
 def buildApkPluginForAbi(File pluginProjectDir, String abi) {
     copy {
@@ -83,7 +102,7 @@ task buildApkPlugin {
         def pluginProjectDirPath = '..\\..\\AutoJsApkBuilderPlugin'
         def pluginProjectDir = file(pluginProjectDirPath)
         if (!pluginProjectDir.exists() || !pluginProjectDir.isDirectory()) {
-            println 'pluginProjectDir not exists'
+            println '插件目录 pluginProjectDir not exists'
             return
         }
         buildApkPluginForAbi(pluginProjectDir, 'armeabi-v7a')
@@ -91,7 +110,11 @@ task buildApkPlugin {
     }
 }
 
+
+
+
 tasks.whenTaskAdded { task ->
+    println("=================task "+task.name+" added=================")
     if (task.name == 'assembleRelease') {
         task.finalizedBy 'buildApkPlugin'
     }
