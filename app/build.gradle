@@ -18,7 +18,6 @@ configurations.all {
         force "com.android.support:support-v4:${SupportLibVersion}"
     }
 }
-
 android {
     compileSdkVersion versions.compile
     buildToolsVersion versions.buildTool
