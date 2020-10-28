@@ -117,7 +117,7 @@ def buildApkPluginForAbi(File pluginProjectDir, String abi) {
 
 task buildApkPlugin {
     doLast {
-        def pluginProjectDirPath = '..\\..\\AutoJsApkBuilderPlugin'
+        def pluginProjectDirPath = '..\\..\\Auto.js-ApkBuilder'
         def pluginProjectDir = file(pluginProjectDirPath)
         if (!pluginProjectDir.exists() || !pluginProjectDir.isDirectory()) {
             println '插件目录 pluginProjectDir not exists'
