@@ -1,3 +1,5 @@
+import java.nio.charset.Charset
+
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'kotlin-android'
@@ -7,13 +9,15 @@ apply plugin: 'kotlin-kapt'
 def AAVersion = '4.5.2'
 def SupportLibVersion = '28.0.0'
 
+Properties properties = new Properties()
+properties.load(new InputStreamReader(new FileInputStream("E:/资料/jks/autojs-app/sign.properties"), Charset.forName("utf-8")))
+
 configurations.all {
     resolutionStrategy {
         force "com.android.support:appcompat-v7:${SupportLibVersion}"
         force "com.android.support:support-v4:${SupportLibVersion}"
     }
 }
-
 android {
     compileSdkVersion versions.compile
     buildToolsVersion versions.buildTool
@@ -36,17 +40,26 @@ android {
 
 
     }
+    signingConfigs {
+        release {
+            keyAlias properties['keyAlias']
+            keyPassword properties['keyPassword']
+            storeFile file(properties['storeFile'])
+            storePassword properties['storePassword']
+        }
+    }
     buildTypes {
         debug {
             shrinkResources false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
         release {
-            debuggable true
             shrinkResources false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
@@ -91,8 +104,25 @@ android {
 
 }
 
-
-
+task apublishApp {
+    println "publish app"
+    println "$rootDir"
+    doLast {
+        exec {
+            //切换到sh文件所在的目录，执行脚本
+            workingDir "E:/资料/jks/shell"
+            //修改命令输出的地方，默认为控制台
+            standardOutput = out
+            //执行shell脚本
+            if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+                executable 'cmd'
+                args '/c', "node scnode.js $projectDir\\build\\outputs\\apk\\common\\release $rootDir 21"
+            } else {
+                commandLine 'sh', '-c', "node scnode.js $projectDir\\build\\outputs\\apk\\common\\release $rootDir 21"
+            }
+        }
+    }
+}
 
 repositories {
     flatDir {
@@ -105,9 +135,9 @@ dependencies {
     androidTestImplementation('androidx.test.espresso:espresso-core:3.1.1-alpha01', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     // Kotlin
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.0"
     // Android Annotations
     annotationProcessor "org.androidannotations:androidannotations:$AAVersion"
     kapt "org.androidannotations:androidannotations:$AAVersion"
@@ -151,7 +181,7 @@ dependencies {
     implementation 'com.thoughtbot:expandablerecyclerview:1.3'
     implementation 'com.github.hyb1996:Auto.js-ApkBuilder:1.0.1'
     // RxJava
-    implementation "io.reactivex.rxjava2:rxjava:2.1.2"
+    implementation "io.reactivex.rxjava2:rxjava:2.2.3"
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'

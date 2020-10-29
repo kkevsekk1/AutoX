@@ -17,5 +17,6 @@ str += "\nAndroidId: " + device.getAndroidId();
 str += "\nMac: " + device.getMacAddress();
 str += "\nAPI: " + device.sdkInt;
 str += "\n电量: " + device.getBattery();
-
+str += "\n是否有虚拟导航: " + device.checkDeviceHasNavigationBar();
+str += "\n虚拟导航高度: " + device.getVirtualBarHeigh();
 log(str);

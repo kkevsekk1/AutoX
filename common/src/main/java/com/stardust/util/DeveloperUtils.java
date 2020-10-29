@@ -11,6 +11,7 @@ import android.content.pm.ServiceInfo;
 import android.content.pm.Signature;
 import androidx.annotation.Nullable;
 import android.util.Base64;
+import android.util.Log;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;
@@ -26,7 +27,6 @@ import java.util.zip.ZipFile;
 public class DeveloperUtils {
 
     private static final String PACKAGE_NAME = "org.autojs.autojs";
-    private static final String SIGNATURE = "YgmP/AeL9Ig2Nc6LmZ0E6cE0GbKh4ZBA5VtHb5m2kOI=";
     private static final String LOG_TAG = "DeveloperUtils";
     private static final ExecutorService sExecutor = UnderuseExecutors.getExecutor();
     private static final String SALT = "let\nlife\nbe\nbeautiful\nlike\nsummer\nflowers\nand\ndeath\nlike\nautumn\nleaves\n.";
@@ -69,18 +69,18 @@ public class DeveloperUtils {
      * 此方法仅防止那些不会改源码直接用apk编辑器修改应用内字符串(QQ群号)等的恶意用户行为。
      * 为了开源社区的发展，请善用源码:-)
      */
-    public static boolean checkSignature(Context context) {
-        return checkSignature(context, context.getPackageName());
+    public static boolean checkSignature(Context context,String signal) {
+        return checkSignature(context, context.getPackageName(),signal);
     }
 
-    public static boolean checkSignature(Context context, String packageName) {
+    public static boolean checkSignature(Context context, String packageName,String signal) {
         String sha = getSignatureSHA(context, packageName);
         if (sha == null)
             return false;
         if (sha.endsWith("\n")) {
             sha = sha.substring(0, sha.length() - 1);
         }
-        return SIGNATURE.equals(sha);
+        return signal.equals(sha);
     }
 
 
@@ -150,15 +150,16 @@ public class DeveloperUtils {
         }
     }
 
-    public static void verifyApk(Activity activity, final int crcRes) {
+    public static void verifyApk(Activity activity,final String signal,final int crcRes) {
         final WeakReference<Activity> activityWeakReference = new WeakReference<>(activity);
+
         sExecutor.execute(new Runnable() {
             @Override
             public void run() {
                 Activity a = activityWeakReference.get();
                 if (a == null)
                     return;
-                if (!checkSignature(a)) {
+                if (!checkSignature(a,signal)) {
                     a.finish();
                     return;
                 }

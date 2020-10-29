@@ -147,6 +147,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         TelephonyManager tm = (TelephonyManager) this.getApplication().getSystemService(TELEPHONY_SERVICE);
         deviceId = tm.getDeviceId();
+
         if(TextUtils.isEmpty(deviceId)){
             deviceId = Settings.System.getString(
                    getApplication().getContentResolver(), Settings.Secure.ANDROID_ID);
@@ -156,6 +157,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         if(TextUtils.isEmpty(deviceId)){
             deviceId =getGUID();
+            Pref.setImei(deviceId);
         }
         return deviceId;
     }
