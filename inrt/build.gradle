@@ -73,7 +73,7 @@ android {
     }
 
 }
-task apublishApp {
+task publishApp(group: 'build') {
     println "publish app"
     println "$rootDir"
     doLast {
@@ -96,35 +96,35 @@ task apublishApp {
 
 def buildApkPluginForAbi(File pluginProjectDir, String abi) {
     copy {
-        from file('..\\app\\release\\')
-        into new File(pluginProjectDir, 'app\\src\\main\\assets')
+        from file('build\\outputs\\apk\\release\\')
+        into new File(pluginProjectDir, 'src\\main\\assets')
         def fileName = "inrt-" + abi + "-release.apk"
         include fileName
         rename fileName, 'template.apk'
     }
     exec {
         workingDir pluginProjectDir
-        commandLine 'gradlew.bat', 'assembleRelease'
+        commandLine 'cmd',"/c", ' gradle assembleRelease'
     }
     copy {
-        from new File(pluginProjectDir, 'app\\build\\outputs\\apk\\release')
-        into file('..\\common\\release')
+        from new File(pluginProjectDir, 'build\\outputs\\apk\\release')
+        into file('e:\\tmp\\apk')
         def fileName = '打包插件-' + versions.appVersionName + '-release.apk'
         include fileName
         rename fileName, '打包插件-' + abi + '-' + versions.appVersionName + '-release.apk'
     }
 }
 
-task buildApkPlugin {
+task buildApkPlugin(group: 'build') {
     doLast {
-        def pluginProjectDirPath = '..\\..\\Auto.js-ApkBuilder'
+        def pluginProjectDirPath = '..\\..\\Auto.js-ApkBuilder\\sample'
         def pluginProjectDir = file(pluginProjectDirPath)
         if (!pluginProjectDir.exists() || !pluginProjectDir.isDirectory()) {
             println '插件目录 pluginProjectDir not exists'
             return
         }
         buildApkPluginForAbi(pluginProjectDir, 'armeabi-v7a')
-        buildApkPluginForAbi(pluginProjectDir, 'x86')
+     //   buildApkPluginForAbi(pluginProjectDir, 'x86')
     }
 }
 
@@ -133,9 +133,7 @@ task buildApkPlugin {
 
 tasks.whenTaskAdded { task ->
     println("=================task "+task.name+" added=================")
-    if (task.name == 'assembleRelease') {
-        task.finalizedBy 'buildApkPlugin'
-    }
+
 }
 
 repositories {
@@ -169,7 +167,7 @@ dependencies {
 
     implementation 'com.github.SenhLinsh:Utils-Everywhere:3.0.0'
 
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     implementation project(':automator')
     implementation project(':common')
     implementation project(':autojs')

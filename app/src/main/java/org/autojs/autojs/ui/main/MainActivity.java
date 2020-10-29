@@ -70,7 +70,7 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
     public static class DrawerOpenEvent {
         static DrawerOpenEvent SINGLETON = new DrawerOpenEvent();
     }
-
+    private static final String  signal ="uyMt3t/FqNUjYvXE6KElfppO17L1Nzhm0mXlnsPBl1o=";
     private static final String LOG_TAG = "MainActivity";
 
     @ViewById(R.id.drawer_layout)
@@ -227,12 +227,17 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
     @Override
     protected void onResume() {
         super.onResume();
-        mVersionGuard.checkForDeprecatesAndUpdates();
+        try {
+            mVersionGuard.checkForDeprecatesAndUpdates();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         mActivityResultMediator.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -258,7 +263,7 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
     protected void onStart() {
         super.onStart();
         if (!BuildConfig.DEBUG) {
-            DeveloperUtils.verifyApk(this, R.string.dex_crcs);
+            DeveloperUtils.verifyApk(this, signal, R.string.dex_crcs);
         }
     }
 
