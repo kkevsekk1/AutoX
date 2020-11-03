@@ -248,7 +248,7 @@ public class UpdateUtil {
         intent.setAction(Intent.ACTION_VIEW);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-         String AUTHORITY = "org.autojs.autojs.inrt.fileprovider";
+         String AUTHORITY = "com.stardust.auojs.inrt.fileprovider";
         IntentUtil.installApkOrToast(mContext, apkfile.getPath(),AUTHORITY);
     }
 
