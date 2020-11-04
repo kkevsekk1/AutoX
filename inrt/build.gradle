@@ -20,7 +20,8 @@ android {
         versionName versions.appVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
-        buildConfigField "boolean","isMarket","true"
+//        buildConfigField "boolean","isMarket","true"
+        buildConfigField "boolean","isMarket","false"
     }
     lintOptions {
         abortOnError false
