@@ -3,6 +3,8 @@ package com.stardust.app;
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
@@ -88,5 +90,17 @@ public class GlobalAppContext {
 
     public static void postDelayed(Runnable r, long m) {
         sHandler.postDelayed(r, m);
+    }
+
+    public static synchronized String getAppName() {
+        try {
+            PackageManager packageManager = get().getPackageManager();
+            PackageInfo packageInfo = packageManager.getPackageInfo(
+                    get().getPackageName(), 0);
+            return packageManager.getApplicationLabel(packageInfo.applicationInfo).toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 }

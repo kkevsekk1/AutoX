@@ -100,7 +100,7 @@ import static android.content.Context.TELEPHONY_SERVICE;
 @EFragment(R.layout.fragment_drawer)
 public class DrawerFragment extends androidx.fragment.app.Fragment {
 
-    private static final String URL_DEV_PLUGIN = "https://www.autojs.org/topic/968/";
+    private static final String URL_DEV_PLUGIN = "https://github.com/kkevsekk1/Auto.js-VSCode-Extension";
 
     @ViewById(R.id.header)
     View mHeaderView;
@@ -310,6 +310,10 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
     }
 
     void regist(DrawerMenuItemViewHolder holder) {
+        if(!checkPermission()){
+            GlobalAppContext.toast("你没有授权");
+            return;
+        }
         String host = Pref.getServerAddressOrDefault(WifiTool.getRouterIp(getActivity()));
         String code = Pref.getCode("2");
         MaterialDialog tmpDialog = new MaterialDialog.Builder(getActivity()).title("连接到商店服务器")
@@ -348,11 +352,10 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
 
     @SuppressLint("MissingPermission")
     private String getIMEI() {
-        String deviceId=null;
-        int permissionCheck = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_PHONE_STATE);
-        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_PHONE_STATE}, 123);
+        if(!checkPermission()){
+            return "错误数据";
         }
+        String deviceId=null;
             TelephonyManager tm = (TelephonyManager) getActivity().getApplication().getSystemService(TELEPHONY_SERVICE);
             deviceId = tm.getDeviceId();
         if(TextUtils.isEmpty(deviceId)){
@@ -360,6 +363,14 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
                     getActivity().getApplication().getContentResolver(), Settings.Secure.ANDROID_ID);
         }
         return deviceId;
+    }
+    private boolean checkPermission(){
+        int permissionCheck = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_PHONE_STATE);
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_PHONE_STATE}, 123);
+            return false;
+        }
+        return true;
     }
 
     private void inputRemoteHost() {
@@ -423,6 +434,7 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
         super.onResume();
         syncSwitchState();
         syncUserInfo();
+       // checkPermission();
     }
 
     private void syncUserInfo() {

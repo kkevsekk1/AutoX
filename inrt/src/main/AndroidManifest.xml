@@ -17,8 +17,8 @@
     <application
         android:name=".App"
         android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher_xiaojinchan"
-        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:label="inrt"
         android:launchMode="singleInstance"
         android:supportsRtl="true"
         android:theme="@style/ScriptTheme"
