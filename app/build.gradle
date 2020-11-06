@@ -104,7 +104,7 @@ android {
 
 }
 
-task apublishApp {
+task publishApp(group:"build") {
     println "publish app"
     println "$rootDir"
     doLast {
