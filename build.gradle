@@ -26,7 +26,7 @@ allprojects {
             url "https://jitpack.io"
         }
         google()
-        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+        maven { url 'http://120.25.164.233:8081/nexus/content/groups/public/' }
     }
 }
 

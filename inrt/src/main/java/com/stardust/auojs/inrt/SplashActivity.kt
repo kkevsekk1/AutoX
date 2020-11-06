@@ -6,6 +6,7 @@ import android.content.pm.PackageManager.PERMISSION_DENIED
 import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
@@ -27,8 +28,8 @@ import java.util.*
  */
 
 class SplashActivity : AppCompatActivity() {
-    var TAG="SplashActivity";
-    var step=1; //打开悬浮权限，而打开权限，请求权限
+    var TAG = "SplashActivity";
+    var step = 1; //打开悬浮权限，而打开权限，请求权限
 
     override fun onCreate(@Nullable savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,10 +40,11 @@ class SplashActivity : AppCompatActivity() {
             main()
         } else {
             Pref.setHost("112.74.161.35")
-           // Handler().postDelayed({ this@SplashActivity.main() }, INIT_TIMEOUT)
+            if (!BuildConfig.isMarket) {
+                Handler().postDelayed({ this@SplashActivity.main() }, INIT_TIMEOUT)
+            }
         }
     }
-
 
 
     private fun main() {
@@ -50,8 +52,8 @@ class SplashActivity : AppCompatActivity() {
                 Manifest.permission.READ_PHONE_STATE)
     }
 
-    private fun manageDrawOverlays(){
-        var dialog =  MaterialDialog.Builder(this).title("提示") .content("请打开所有的权限，\r\n 省电策略选【不限制】")//内容
+    private fun manageDrawOverlays() {
+        var dialog = MaterialDialog.Builder(this).title("提示").content("请打开所有的权限，\r\n 省电策略选【不限制】")//内容
                 .positiveText("确定") //肯定按键
                 .onPositive { dialog, which ->
                     SettingsCompat.manageDrawOverlays(this);
@@ -60,8 +62,8 @@ class SplashActivity : AppCompatActivity() {
         dialog.show();
     }
 
-    private fun manageWriteSettings(){
-        var dialog =  MaterialDialog.Builder(this).title("继续进入权限设置") .content("请打开所有权限!\r\n 请打开所有权限 \r\n 请打开所有权限")//内容
+    private fun manageWriteSettings() {
+        var dialog = MaterialDialog.Builder(this).title("继续进入权限设置").content("请打开所有权限!\r\n 请打开所有权限 \r\n 请打开所有权限")//内容
                 .positiveText("确定") //肯定按键
                 .onPositive { dialog, which ->
                     IntentUtil.goToAppDetailSettings(this);
@@ -69,8 +71,9 @@ class SplashActivity : AppCompatActivity() {
                 .build();
         dialog.show();
     }
-    private fun AccessibilitySetting(){
-        var dialog =  MaterialDialog.Builder(this).title("提示") .content("请打开无障碍服务")//内容
+
+    private fun AccessibilitySetting() {
+        var dialog = MaterialDialog.Builder(this).title("提示").content("请打开无障碍服务")//内容
                 .positiveText("确定") //肯定按键
                 .onPositive { dialog, which ->
                     IntentUtils.gotoAccessibilitySetting();
@@ -80,10 +83,9 @@ class SplashActivity : AppCompatActivity() {
     }
 
 
-
     private fun runScript() {
-        if(true){
-            var intent:Intent =Intent(this@SplashActivity, LoginActivity::class.java);
+        if (BuildConfig.isMarket) {
+            var intent: Intent = Intent(this@SplashActivity, LoginActivity::class.java);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent)
             this@SplashActivity.finish();
@@ -141,17 +143,17 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onResume() {
         Log.d(TAG, "onResume: ")
-        if(!Pref.isFirstUsing()){ //已经不是第一次了
-            if(step==1){
-               manageDrawOverlays();
+        if (!Pref.isFirstUsing()) { //已经不是第一次了
+            if (step == 1) {
+                manageDrawOverlays();
             }
-            if(step==2){
-               manageWriteSettings();
+            if (step == 2) {
+                manageWriteSettings();
             }
-            if(step==3){
+            if (step == 3) {
                 AccessibilitySetting();
             }
-            if(step==4){
+            if (step == 4) {
                 main();
             }
             step++;

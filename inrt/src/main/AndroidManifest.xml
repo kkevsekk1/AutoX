@@ -18,7 +18,7 @@
         android:name=".App"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="inrt"
         android:launchMode="singleInstance"
         android:supportsRtl="true"
         android:theme="@style/ScriptTheme"
@@ -57,7 +57,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="org.autojs.autojs.inrt.fileprovider"
+            android:authorities="com.stardust.auojs.inrt.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

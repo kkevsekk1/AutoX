@@ -20,6 +20,8 @@ android {
         versionName versions.appVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+//        buildConfigField "boolean","isMarket","true"
+        buildConfigField "boolean","isMarket","false"
     }
     lintOptions {
         abortOnError false
@@ -102,25 +104,15 @@ def buildApkPluginForAbi(File pluginProjectDir, String abi) {
         include fileName
         rename fileName, 'template.apk'
     }
-    exec {
-        workingDir pluginProjectDir
-        commandLine 'cmd',"/c", ' gradle assembleRelease'
-    }
-    copy {
-        from new File(pluginProjectDir, 'build\\outputs\\apk\\release')
-        into file('e:\\tmp\\apk')
-        def fileName = '打包插件-' + versions.appVersionName + '-release.apk'
-        include fileName
-        rename fileName, '打包插件-' + abi + '-' + versions.appVersionName + '-release.apk'
-    }
+    println 'app cp 完成'
 }
 
-task buildApkPlugin(group: 'build') {
+task cp2APP(group: 'build') {
     doLast {
-        def pluginProjectDirPath = '..\\..\\Auto.js-ApkBuilder\\sample'
+        def pluginProjectDirPath = '..\\app'
         def pluginProjectDir = file(pluginProjectDirPath)
         if (!pluginProjectDir.exists() || !pluginProjectDir.isDirectory()) {
-            println '插件目录 pluginProjectDir not exists'
+            println 'app 目录 not exists'
             return
         }
         buildApkPluginForAbi(pluginProjectDir, 'armeabi-v7a')
@@ -148,7 +140,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.annotation:annotation:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     androidTestImplementation('androidx.test.espresso:espresso-core:3.1.1-alpha01', {

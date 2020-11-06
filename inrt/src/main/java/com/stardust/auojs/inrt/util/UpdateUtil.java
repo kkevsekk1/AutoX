@@ -16,6 +16,8 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.ProgressBar;
 
+import com.linsh.utilseverywhere.ContextUtils;
+import com.stardust.auojs.inrt.BuildConfig;
 import com.stardust.auojs.inrt.R;
 import com.stardust.util.IntentUtil;
 
@@ -248,7 +250,8 @@ public class UpdateUtil {
         intent.setAction(Intent.ACTION_VIEW);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-         String AUTHORITY = "org.autojs.autojs.inrt.fileprovider";
+         String AUTHORITY =   ContextUtils.getPackageName()+ ".fileprovider";
+
         IntentUtil.installApkOrToast(mContext, apkfile.getPath(),AUTHORITY);
     }
 
