@@ -15,6 +15,8 @@ import com.stardust.autojs.R;
 import com.stardust.enhancedfloaty.util.FloatingWindowPermissionUtil;
 
 import java.lang.reflect.Method;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import ezy.assist.compat.RomUtil;
 import ezy.assist.compat.SettingsCompat;
