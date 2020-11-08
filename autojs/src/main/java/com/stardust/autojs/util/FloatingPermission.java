@@ -15,6 +15,8 @@ import com.stardust.autojs.R;
 import com.stardust.enhancedfloaty.util.FloatingWindowPermissionUtil;
 
 import java.lang.reflect.Method;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import ezy.assist.compat.RomUtil;
 import ezy.assist.compat.SettingsCompat;
@@ -71,8 +73,13 @@ public class FloatingPermission {
 
     public static void manageDrawOverlays(Context context) {
         try {
-            if (RomUtil.isMiui() && TextUtils.equals("V10", RomUtil.getVersion())
-                    && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            int version = 0;
+            Matcher matcher = Pattern.compile("\\d+").matcher(RomUtil.getVersion());
+            if (matcher.find()) {
+                version = Integer.parseInt(matcher.group());
+            }
+            if (RomUtil.isMiui() && version >= 10
+                && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 manageDrawOverlaysForAndroidM(context);
             } else {
                 SettingsCompat.manageDrawOverlays(context);
