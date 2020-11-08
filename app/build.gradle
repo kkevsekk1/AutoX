@@ -9,8 +9,11 @@ apply plugin: 'kotlin-kapt'
 def AAVersion = '4.5.2'
 def SupportLibVersion = '28.0.0'
 
+File propFile =new File("E:/资料/jks/autojs-app/sign.properties");
 Properties properties = new Properties()
-properties.load(new InputStreamReader(new FileInputStream("E:/资料/jks/autojs-app/sign.properties"), Charset.forName("utf-8")))
+if(propFile.exists()){
+    properties.load(new InputStreamReader(new FileInputStream(propFile), Charset.forName("utf-8")))
+}
 
 configurations.all {
     resolutionStrategy {
@@ -37,15 +40,15 @@ android {
                 ]
             }
         }
-
-
     }
     signingConfigs {
-        release {
-            keyAlias properties['keyAlias']
-            keyPassword properties['keyPassword']
-            storeFile file(properties['storeFile'])
-            storePassword properties['storePassword']
+        if(propFile.exists()) {
+            release {
+                keyAlias properties['keyAlias']
+                keyPassword properties['keyPassword']
+                storeFile file(properties['storeFile'])
+                storePassword properties['storePassword']
+            }
         }
     }
     buildTypes {
