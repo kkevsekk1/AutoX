@@ -92,7 +92,10 @@ class SplashActivity : AppCompatActivity() {
         }
         Thread {
             try {
+
+                Thread.sleep(2000);
                 GlobalProjectLauncher.launch(this)
+                this.finish();
             } catch (e: Exception) {
                 e.printStackTrace()
                 runOnUiThread {

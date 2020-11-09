@@ -252,9 +252,7 @@
     <string name="text_cannot_read_file">无法读取文件</string>
     <string name="text_service">服务</string>
     <string name="text_notification_permission">通知读取权限</string>
-
-
-
+    <string name="powered_by_autojs">Powered by Autoxjs.com</string>
     <string name="text_open_main_activity">打开主界面</string>
     <string name="text_generate_code">生成代码</string>
     <string name="text_action">动作</string>

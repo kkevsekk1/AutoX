@@ -11,6 +11,17 @@ import com.stardust.autojs.runtime.exception.ScriptException;
 
 public abstract class AbstractConsole implements Console {
 
+    private boolean isAutoHide =false;
+
+    @Override
+    public boolean isAutoHide() {
+        return isAutoHide;
+    }
+
+    public void setAutoHide(boolean autoHide) {
+        isAutoHide = autoHide;
+    }
+
     public void printf(int level, @Nullable Object data, Object... options) {
         println(level, format(data, options));
     }
