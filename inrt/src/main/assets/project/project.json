@@ -9,5 +9,8 @@
   "name": "打包测试",
   "packageName": "xx.xx",
   "versionCode": 1,
-  "versionName": "1.0.0"
+  "versionName": "1.0.0",
+  "launchConfig":{
+    "hideLogs": true
+  }
 }

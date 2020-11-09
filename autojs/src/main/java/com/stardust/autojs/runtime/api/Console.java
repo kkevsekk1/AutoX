@@ -12,6 +12,7 @@ import com.stardust.autojs.annotation.ScriptInterface;
 
 public interface Console {
 
+
     @ScriptInterface
     void verbose(@Nullable Object data, Object... options);
 
@@ -37,10 +38,15 @@ public interface Console {
     void clear();
 
     @ScriptInterface
+    void show(boolean isAutoHide);
+
+    @ScriptInterface
     void show();
 
     @ScriptInterface
     void hide();
+
+    boolean isAutoHide();
 
     String println(int level, CharSequence charSequence);
 

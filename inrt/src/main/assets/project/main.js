@@ -16,3 +16,6 @@ ui.autoService.on("check", function (checked) {
         auto.service.disableSelf();
     }
 });
+
+log("测试");
+toast("测试");

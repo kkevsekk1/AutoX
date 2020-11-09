@@ -82,7 +82,6 @@ class SplashActivity : AppCompatActivity() {
         dialog.show();
     }
 
-
     private fun runScript() {
         if (BuildConfig.isMarket) {
             var intent: Intent = Intent(this@SplashActivity, LoginActivity::class.java);
@@ -93,7 +92,10 @@ class SplashActivity : AppCompatActivity() {
         }
         Thread {
             try {
+
+                Thread.sleep(2000);
                 GlobalProjectLauncher.launch(this)
+                this.finish();
             } catch (e: Exception) {
                 e.printStackTrace()
                 runOnUiThread {
@@ -142,23 +144,25 @@ class SplashActivity : AppCompatActivity() {
     }
 
     override fun onResume() {
-        Log.d(TAG, "onResume: ")
-        if (!Pref.isFirstUsing()) { //已经不是第一次了
-            if (step == 1) {
-                manageDrawOverlays();
+        if (BuildConfig.isMarket) {
+            Log.d(TAG, "onResume: ")
+            if (!Pref.isFirstUsing()) { //已经不是第一次了
+                if (step == 1) {
+                    manageDrawOverlays();
+                }
+                if (step == 2) {
+                    manageWriteSettings();
+                }
+                if (step == 3) {
+                    AccessibilitySetting();
+                }
+                if (step == 4) {
+                    main();
+                }
+                step++;
             }
-            if (step == 2) {
-                manageWriteSettings();
-            }
-            if (step == 3) {
-                AccessibilitySetting();
-            }
-            if (step == 4) {
-                main();
-            }
-            step++;
-        }
 
+        }
         super.onResume()
 
     }
