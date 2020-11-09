@@ -10,6 +10,6 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Gradle
-      run: chmod 777 ./gradlew && ./gradlew :app:assembleRelease && find app/build/outputs
+      run: chmod 777 ./gradlew && ./gradlew :inrt:assemble &&  ./gradlew inrt:cp2APP && ./gradlew :app:assembleRelease
 
 
