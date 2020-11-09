@@ -50,6 +50,11 @@ public class NoOpConsole implements Console {
     }
 
     @Override
+    public void show(boolean isAutoHide) {
+
+    }
+
+    @Override
     public void show() {
 
     }
@@ -57,6 +62,11 @@ public class NoOpConsole implements Console {
     @Override
     public void hide() {
 
+    }
+
+    @Override
+    public boolean isAutoHide() {
+        return false;
     }
 
     @Override
@@ -85,4 +95,5 @@ public class NoOpConsole implements Console {
     public void setCanInput(boolean can) {
 
     }
+
 }

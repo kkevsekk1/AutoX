@@ -204,7 +204,8 @@ public class ConsoleImpl extends AbstractConsole {
     }
 
     @Override
-    public void show() {
+    public void show(boolean isAutoHide) {
+        setAutoHide(isAutoHide);
         if (mShown) {
             return;
         }
@@ -233,6 +234,11 @@ public class ConsoleImpl extends AbstractConsole {
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    @Override
+    public void show() {
+        show(false);
     }
 
     private void startFloatyService() {

@@ -403,8 +403,10 @@ public class ScriptRuntime {
         try {
 
             events.emit("exit");
-            console.log("系统消息：任务结束,3秒后该窗口关闭");
-            uiHandler.postDelayed( console::hide,4000);
+            if(console.isAutoHide()){
+                console.log("系统消息：任务结束,3秒后该窗口关闭");
+                uiHandler.postDelayed( console::hide,4000);
+            }
         } catch (Throwable e) {
             console.error("exception on exit: ", e);
         }
