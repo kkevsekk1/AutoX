@@ -6,8 +6,11 @@ apply plugin: 'kotlin-android-extensions'
 
 
 
+File propFile =new File("E:/资料/jks/autojs-inrt/sign.properties");
 Properties properties = new Properties()
-properties.load( new InputStreamReader(new FileInputStream("E:/资料/jks/autojs-inrt/sign.properties"), Charset.forName("utf-8")))
+if(propFile.exists()){
+    properties.load(new InputStreamReader(new FileInputStream(propFile), Charset.forName("utf-8")))
+}
 android {
     compileSdkVersion versions.compile
     buildToolsVersion versions.buildTool
@@ -54,23 +57,29 @@ android {
         }
     }
     signingConfigs {
-        release{
-            keyAlias properties['keyAlias']
-            keyPassword properties['keyPassword']
-            storeFile file(properties['storeFile'])
-            storePassword properties['storePassword']
+        if(propFile.exists()) {
+            release {
+                keyAlias properties['keyAlias']
+                keyPassword properties['keyPassword']
+                storeFile file(properties['storeFile'])
+                storePassword properties['storePassword']
+            }
         }
     }
     buildTypes {
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            if(propFile.exists()) {
+                signingConfig signingConfigs.release
+            }
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            if(propFile.exists()) {
+                signingConfig signingConfigs.release
+            }
         }
     }
 
