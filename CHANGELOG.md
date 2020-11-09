@@ -1,6 +1,14 @@
 # Change Log
 autoxjs 整个项目的的一些更新日志。
 
+### 4.2.9
+优化以下特性：
+* 感谢 Wang Zijian 修复 floating window permission check on miui
+* console的自动隐藏改为参数控制
+* 打包apk启动后finish掉启动也
+* 升级apkbuild包,解决空文件夹问
+* 升级ci 项目
+
 ### 4.2.8
 优化以下特性：
 * 调整模板app，添加常驻前台，现在是统一自动开启
