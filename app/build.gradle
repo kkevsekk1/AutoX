@@ -56,13 +56,17 @@ android {
             shrinkResources false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            if(propFile.exists()) {
+                signingConfig signingConfigs.release
+            }
         }
         release {
             shrinkResources false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            if(propFile.exists()) {
+                signingConfig signingConfigs.release
+            }
         }
     }
     compileOptions {
