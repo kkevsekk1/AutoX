@@ -1,6 +1,11 @@
 # Change Log
 autoxjs 整个项目的的一些更新日志。
 
+### 4.2.10
+优化以下特性：
+* 稳定支持 websocket
+
+
 ### 4.2.9
 优化以下特性：
 * 感谢 Wang Zijian 修复 floating window permission check on miui
