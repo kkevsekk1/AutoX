@@ -15,7 +15,7 @@
  我会逐步完善更新，程序代码，尽可能保持一致。
 
 ### 现在：
-* AutoX.js文档： https://kkevsekk1.github.io/AutoXJs-Docs/
+* AutoX.js文档： http://doc.autoxjs.com/
 * 项目  https://github.com/kkevsekk1/AutoX
 * [VS Code 插件](https://marketplace.visualstudio.com/items?itemName=aaroncheng.auto-js-vsce-fixed)
 * 官方论坛： [www.autoxjs.com](http://www.autoxjs.com)

@@ -134,7 +134,7 @@ public class Pref {
         if ("Local".equals(docSource)) {
             return "file:///android_asset/docs/";
         } else {
-            return "https://kkevsekk1.github.io/AutoXJs-Docs/#/?id=%e7%bb%bc%e8%bf%b0";
+            return "http://doc.autoxjs.com/#/";
         }
     }
 
