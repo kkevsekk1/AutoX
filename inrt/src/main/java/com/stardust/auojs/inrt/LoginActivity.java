@@ -48,6 +48,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupViews();
+        checkconnect();
+        checkVersion();
+    }
+
+    private void checkconnect() {
         DevPluginService.getInstance().connectionState()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(state -> {
@@ -58,7 +63,6 @@ public class LoginActivity extends AppCompatActivity {
                         setTvInfo();
                     }
                 });
-        checkVersion();
     }
 
 
@@ -135,10 +139,15 @@ public class LoginActivity extends AppCompatActivity {
                     String code1 = userCodeInput.getText().toString().trim();
                     Pref.setCode(code1);
                     String host1 = serverAddrInput.getText().toString().trim();
-                    Pref.setHost(host);
+                    Pref.setHost(host1);
                     String params = "iemi=" + imei + "&usercode=" + code1;
-                    DevPluginService.getInstance().connectToServer(host1, params)
-                            .subscribe();
+                    if(host.equals(host1)){
+                        DevPluginService.getInstance().sayHelloToServer(Integer.parseInt(code1));
+                    }else{
+                        DevPluginService.getNewInstance().connectToServer(host1, params)
+                                .subscribe();
+                        checkconnect();
+                    }
                     showMessage("正在连接...");
                 }).show();
         View customeView = tmpDialog.getCustomView();
@@ -151,9 +160,9 @@ public class LoginActivity extends AppCompatActivity {
 
     @SuppressLint("MissingPermission")
     private String getIMEI() {
-      //  if (checkPermission()) {
-       //     return "错误数据";
-       // }
+        //  if (checkPermission()) {
+        //     return "错误数据";
+        // }
         String deviceId = null;
         TelephonyManager tm = (TelephonyManager) this.getApplication().getSystemService(TELEPHONY_SERVICE);
         deviceId = tm.getDeviceId();

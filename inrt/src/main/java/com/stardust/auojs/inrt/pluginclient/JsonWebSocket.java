@@ -12,6 +12,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
 
 import java.io.StringReader;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
@@ -61,7 +62,8 @@ public class JsonWebSocket {
                     public void onOpen(@NonNull WebSocket webSocket) {
                         Log.d(LOG_TAG, "----链接打开----");
                         mWebSocket = webSocket;
-                        DevPluginService.getInstance().connectionOnNext("连接成功");
+                       String json="{\"data\":\"连接中...\",\"type\":\"hello\",\"message_id\":\"1615128788594"+new Random().nextInt(1000) +"\"}";
+                    dispatchJson(json);
                     }
 
                     @Override
