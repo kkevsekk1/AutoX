@@ -39,7 +39,9 @@ class SplashActivity : AppCompatActivity() {
         if (!Pref.isFirstUsing()) {//不是第一次
             main()
         } else {
-            Pref.setHost("112.74.161.35")
+            if(Pref.getHost("d")=="d"){
+                Pref.setHost("112.74.161.35")
+            }
             if (!BuildConfig.isMarket) {
                 Handler().postDelayed({ this@SplashActivity.main() }, INIT_TIMEOUT)
             }
