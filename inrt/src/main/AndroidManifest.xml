@@ -28,9 +28,7 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"></activity>
-        <activity
-            android:name=".LogActivity"
-           ></activity>
+        <activity android:name=".LogActivity"></activity>
         <activity
             android:name=".SplashActivity"
             android:clearTaskOnLaunch="true"
