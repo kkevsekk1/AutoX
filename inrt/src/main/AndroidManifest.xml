@@ -19,7 +19,6 @@
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="inrt"
-        android:launchMode="singleInstance"
         android:supportsRtl="true"
         android:theme="@style/ScriptTheme"
         android:usesCleartextTraffic="true"
@@ -31,16 +30,14 @@
             android:label="@string/title_activity_login"></activity>
         <activity
             android:name=".LogActivity"
-            android:launchMode="singleInstance"></activity>
+           ></activity>
         <activity
             android:name=".SplashActivity"
-            android:launchMode="singleInstance"
             android:clearTaskOnLaunch="true"
             android:finishOnTaskLaunch="true"
             android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
