@@ -11,7 +11,7 @@ def SupportLibVersion = '28.0.0'
 
 File propFile =new File("E:/资料/jks/autojs-app/sign.properties");
 Properties properties = new Properties()
-if(propFile.exists()){
+if (propFile.exists()) {
     properties.load(new InputStreamReader(new FileInputStream(propFile), Charset.forName("utf-8")))
 }
 
@@ -42,7 +42,7 @@ android {
         }
     }
     signingConfigs {
-        if(propFile.exists()) {
+        if (propFile.exists()) {
             release {
                 keyAlias properties['keyAlias']
                 keyPassword properties['keyPassword']
@@ -56,7 +56,7 @@ android {
             shrinkResources false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            if(propFile.exists()) {
+            if (propFile.exists()) {
                 signingConfig signingConfigs.release
             }
         }
@@ -64,7 +64,7 @@ android {
             shrinkResources false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            if(propFile.exists()) {
+            if (propFile.exists()) {
                 signingConfig signingConfigs.release
             }
         }
@@ -105,13 +105,19 @@ android {
     productFlavors {
         common {
             buildConfigField "String", "CHANNEL", '"common"'
+            manifestPlaceholders = [appName: "@string/app_name"]
+        }
+        dev {
+            applicationIdSuffix ".dev"
+            buildConfigField "String", "CHANNEL", '"dev"'
+            manifestPlaceholders = [appName: "Autox.js[dev]"]
         }
 
     }
 
 }
 
-task publishApp(group:"build") {
+task publishApp(group: "build") {
     println "publish app"
     println "$rootDir"
     doLast {
