@@ -1,5 +1,12 @@
 # Change Log
 autoxjs 整个项目的的一些更新日志。
+### 4.2.14
+优化以下特性：
+* 调整应用配置页面:不缓存应用图标
+* 修复修改应用配置后,ExplorerChangeEvent UI更新问题
+* 打包应用页面支持修改应用配置信息
+* 调整整target及compile版本到29 ，可能出现兼容问题，有问题请反馈！
+* 感谢 CcSimple ，以上功能有 [CcSimple](https://github.com/CcSimple) 提交代码，欢迎点赞！
 
 ### 4.2.13
 优化以下特性：
