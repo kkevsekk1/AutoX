@@ -4,7 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+
 import androidx.annotation.Nullable;
+
 import android.text.Editable;
 import android.text.TextUtils;
 import android.view.View;
@@ -13,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.textfield.TextInputLayout;
 import com.stardust.autojs.project.ProjectConfig;
 import com.stardust.pio.PFiles;
@@ -130,6 +134,8 @@ public class ProjectConfigActivity extends BaseActivity {
             String icon = mProjectConfig.getIcon();
             if (icon != null) {
                 Glide.with(this)
+                        .setDefaultRequestOptions(RequestOptions.skipMemoryCacheOf(true).
+                                diskCacheStrategy(DiskCacheStrategy.NONE))
                         .load(new File(mDirectory, icon))
                         .into(mIcon);
             }
@@ -217,11 +223,11 @@ public class ProjectConfigActivity extends BaseActivity {
     private boolean checkPackageNameValid(EditText editText) {
         Editable text = editText.getText();
         String hint = ((TextInputLayout) editText.getParent().getParent()).getHint().toString();
-        if(TextUtils.isEmpty(text)){
+        if (TextUtils.isEmpty(text)) {
             editText.setError(hint + getString(R.string.text_should_not_be_empty));
             return false;
         }
-        if(!REGEX_PACKAGE_NAME.matcher(text).matches()){
+        if (!REGEX_PACKAGE_NAME.matcher(text).matches()) {
             editText.setError(getString(R.string.text_invalid_package_name));
             return false;
         }
@@ -242,6 +248,7 @@ public class ProjectConfigActivity extends BaseActivity {
     @SuppressLint("CheckResult")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (resultCode != RESULT_OK) {
             return;
         }

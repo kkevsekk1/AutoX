@@ -3,7 +3,9 @@ package com.stardust.autojs.core.ui.inflater.inflaters;
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.os.Build;
+
 import androidx.annotation.Nullable;
+
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -394,7 +396,9 @@ public class BaseViewInflater<V extends View> implements ViewInflater<V> {
                 }
                 break;
             case "importantForAutofill":
-                Exceptions.unsupports(view, attr, value);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                    view.setImportantForAutofill(View.IMPORTANT_FOR_AUTOFILL_NO_EXCLUDE_DESCENDANTS);
+                }
                 break;
             case "isScrollContainer":
                 view.setScrollContainer(Boolean.valueOf(value));

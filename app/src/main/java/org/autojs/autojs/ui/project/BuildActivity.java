@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
+
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+
 import android.text.Editable;
 import android.text.TextUtils;
 import android.util.Log;
@@ -16,8 +18,12 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.textfield.TextInputLayout;
 import com.stardust.autojs.project.ProjectConfig;
+import com.stardust.pio.PFiles;
 import com.stardust.util.IntentUtil;
 
 import org.androidannotations.annotations.AfterViews;
@@ -29,8 +35,11 @@ import org.autojs.autojs.R;
 import org.autojs.autojs.autojs.build.ApkBuilder;
 import org.autojs.autojs.build.ApkBuilderPluginHelper;
 import org.autojs.autojs.external.fileprovider.AppFileProvider;
+import org.autojs.autojs.model.explorer.ExplorerDirPage;
+import org.autojs.autojs.model.explorer.ExplorerFileItem;
+import org.autojs.autojs.model.explorer.Explorers;
+import org.autojs.autojs.model.project.ProjectTemplate;
 import org.autojs.autojs.model.script.ScriptFile;
-import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
 import org.autojs.autojs.tool.BitmapTool;
 import org.autojs.autojs.ui.BaseActivity;
 import org.autojs.autojs.ui.filechooser.FileChooserDialogBuilder;
@@ -38,12 +47,11 @@ import org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity;
 import org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity_;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.util.Locale;
 import java.util.concurrent.Callable;
 import java.util.regex.Pattern;
 
-import androidx.cardview.widget.CardView;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -92,6 +100,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     private MaterialDialog mProgressDialog;
     private String mSource;
     private boolean mIsDefaultIcon = true;
+    private Bitmap mIconBitmap;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -111,7 +120,6 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     private void checkApkBuilderPlugin() {
 
     }
-
 
 
     private void setupWithSourceFile(ScriptFile file) {
@@ -152,9 +160,21 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
         if (mProjectConfig == null) {
             return;
         }
-        mOutputPath.setText(new File(mSource, mProjectConfig.getBuildDir()).getPath());
-        mAppConfig.setVisibility(View.GONE);
+        mSourcePath.setText(new File(mSource, "").getPath());
         mSourcePathContainer.setVisibility(View.GONE);
+        mOutputPath.setText(new File(mSource, mProjectConfig.getBuildDir()).getPath());
+//        mAppConfig.setVisibility(View.GONE);
+        mPackageName.setText(mProjectConfig.getPackageName());
+        mVersionName.setText(mProjectConfig.getVersionName());
+        mVersionCode.setText("" + mProjectConfig.getVersionCode());
+        String icon = mProjectConfig.getIcon();
+        if (icon != null) {
+            Glide.with(this)
+                    .setDefaultRequestOptions(RequestOptions.skipMemoryCacheOf(true).
+                            diskCacheStrategy(DiskCacheStrategy.NONE))
+                    .load(new File(mSource, icon))
+                    .into(mIcon);
+        }
     }
 
     @Click(R.id.select_output)
@@ -175,12 +195,62 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
                 .startForResult(REQUEST_CODE);
     }
 
+    private void syncProjectConfig() {
+        mProjectConfig.setName(mAppName.getText().toString());
+        mProjectConfig.setVersionCode(Integer.parseInt(mVersionCode.getText().toString()));
+        mProjectConfig.setVersionName(mVersionName.getText().toString());
+//        mProjectConfig.setMainScriptFile(mMainFileName.getText().toString());
+        mProjectConfig.setPackageName(mPackageName.getText().toString());
+        //mProjectConfig.getLaunchConfig().setHideLogs(true);
+    }
+
+    @SuppressLint("CheckResult")
+    private Observable<String> saveIcon(Bitmap b) {
+        return Observable.just(b)
+                .map(bitmap -> {
+                    String iconPath = mProjectConfig.getIcon();
+                    if (iconPath == null) {
+                        iconPath = "res/logo.png";
+                    }
+                    File iconFile = new File(mSource, iconPath);
+                    PFiles.ensureDir(iconFile.getPath());
+                    FileOutputStream fos = new FileOutputStream(iconFile);
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+                    fos.close();
+                    return iconPath;
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnNext(iconPath -> mProjectConfig.setIcon(iconPath));
+
+    }
+
+    @SuppressLint("CheckResult")
     @Click(R.id.fab)
     void buildApk() {
         if (!checkInputs()) {
             return;
         }
-        doBuildingApk();
+        // 同步配置
+        syncProjectConfig();
+        // 保存配置后打包
+        if (mIconBitmap != null) {
+            saveIcon(mIconBitmap)
+                    .doAfterNext((iconPath) -> {
+                        writeProjectConfigAndRefreshView();
+                    }).doFinally(this::doBuildingApk)
+                    .subscribe();
+        } else {
+            writeProjectConfigAndRefreshView();
+            doBuildingApk();
+        }
+    }
+
+    private void writeProjectConfigAndRefreshView() {
+        PFiles.write(ProjectConfig.configFileOfDir(mSource),
+                mProjectConfig.toJson());
+        ExplorerFileItem item = new ExplorerFileItem(mSource, null);
+        Explorers.workspace().notifyItemChanged(item, item);
     }
 
     private boolean checkInputs() {
@@ -330,6 +400,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(bitmap -> {
                     mIcon.setImageBitmap(bitmap);
+                    mIconBitmap = bitmap;
                     mIsDefaultIcon = false;
                 }, Throwable::printStackTrace);
 

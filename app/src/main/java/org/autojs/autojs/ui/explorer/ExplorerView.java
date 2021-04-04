@@ -47,6 +47,7 @@ import org.autojs.autojs.theme.widget.ThemeColorSwipeRefreshLayout;
 
 import org.autojs.autojs.workground.WrapContentGridLayoutManger;
 import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.Stack;
 
@@ -267,7 +268,7 @@ public class ExplorerView extends ThemeColorSwipeRefreshLayout implements SwipeR
                 });
     }
 
-    @Subscribe
+    @Subscribe( threadMode = ThreadMode.MAIN)
     public void onExplorerChange(ExplorerChangeEvent event) {
         Log.d(LOG_TAG, "on explorer change: " + event);
         if ((event.getAction() == ExplorerChangeEvent.ALL)) {
