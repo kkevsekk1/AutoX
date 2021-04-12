@@ -130,12 +130,8 @@ public class Pref {
     }
 
     public static String getDocumentationUrl() {
-        String docSource = def().getString(getString(R.string.key_documentation_source), null);
-        if ("Local".equals(docSource)) {
-            return "file:///android_asset/docs/";
-        } else {
+//        String docSource = def().getString(getString(R.string.key_documentation_source), null);
             return "http://doc.autoxjs.com/";
-        }
     }
 
     public static boolean isFloatingMenuShown() {
