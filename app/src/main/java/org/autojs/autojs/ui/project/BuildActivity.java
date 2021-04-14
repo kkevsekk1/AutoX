@@ -40,6 +40,7 @@ import org.autojs.autojs.model.explorer.ExplorerFileItem;
 import org.autojs.autojs.model.explorer.Explorers;
 import org.autojs.autojs.model.project.ProjectTemplate;
 import org.autojs.autojs.model.script.ScriptFile;
+import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
 import org.autojs.autojs.tool.BitmapTool;
 import org.autojs.autojs.ui.BaseActivity;
 import org.autojs.autojs.ui.filechooser.FileChooserDialogBuilder;
@@ -195,13 +196,22 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
                 .startForResult(REQUEST_CODE);
     }
 
-    private void syncProjectConfig() {
+    private boolean syncProjectConfig() {
+        if (mProjectConfig == null) {
+            new ThemeColorMaterialDialogBuilder(this)
+                    .title(R.string.text_invalid_project)
+                    .positiveText(R.string.ok)
+                    .dismissListener(dialogInterface -> finish())
+                    .show();
+            return false;
+        }
         mProjectConfig.setName(mAppName.getText().toString());
         mProjectConfig.setVersionCode(Integer.parseInt(mVersionCode.getText().toString()));
         mProjectConfig.setVersionName(mVersionName.getText().toString());
 //        mProjectConfig.setMainScriptFile(mMainFileName.getText().toString());
         mProjectConfig.setPackageName(mPackageName.getText().toString());
         //mProjectConfig.getLaunchConfig().setHideLogs(true);
+        return true;
     }
 
     @SuppressLint("CheckResult")
@@ -232,17 +242,18 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
             return;
         }
         // 同步配置
-        syncProjectConfig();
-        // 保存配置后打包
-        if (mIconBitmap != null) {
-            saveIcon(mIconBitmap)
-                    .doAfterNext((iconPath) -> {
-                        writeProjectConfigAndRefreshView();
-                    }).doFinally(this::doBuildingApk)
-                    .subscribe();
-        } else {
-            writeProjectConfigAndRefreshView();
-            doBuildingApk();
+        if (syncProjectConfig()) {
+            // 保存配置后打包
+            if (mIconBitmap != null) {
+                saveIcon(mIconBitmap)
+                        .doAfterNext((iconPath) -> {
+                            writeProjectConfigAndRefreshView();
+                        }).doFinally(this::doBuildingApk)
+                        .subscribe();
+            } else {
+                writeProjectConfigAndRefreshView();
+                doBuildingApk();
+            }
         }
     }
 
