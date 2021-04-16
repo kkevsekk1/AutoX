@@ -3,18 +3,23 @@ package org.autojs.autojs.ui.project;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
 
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -22,7 +27,11 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.textfield.TextInputLayout;
+import com.stardust.app.DialogUtils;
+import com.stardust.autojs.core.image.Colors;
 import com.stardust.autojs.project.ProjectConfig;
+import com.stardust.autojs.project.SigningConfig;
+import com.stardust.pio.PFile;
 import com.stardust.pio.PFiles;
 import com.stardust.util.IntentUtil;
 
@@ -34,15 +43,18 @@ import org.autojs.autojs.Pref;
 import org.autojs.autojs.R;
 import org.autojs.autojs.autojs.build.ApkBuilder;
 import org.autojs.autojs.build.ApkBuilderPluginHelper;
+import org.autojs.autojs.build.ApkKeyStore;
+import org.autojs.autojs.build.ApkSigner;
+import org.autojs.autojs.build.apksigner.KeyStoreFileManager;
 import org.autojs.autojs.external.fileprovider.AppFileProvider;
-import org.autojs.autojs.model.explorer.ExplorerDirPage;
 import org.autojs.autojs.model.explorer.ExplorerFileItem;
 import org.autojs.autojs.model.explorer.Explorers;
-import org.autojs.autojs.model.project.ProjectTemplate;
 import org.autojs.autojs.model.script.ScriptFile;
 import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
 import org.autojs.autojs.tool.BitmapTool;
 import org.autojs.autojs.ui.BaseActivity;
+import org.autojs.autojs.ui.project.SignManageActivity;
+import org.autojs.autojs.ui.project.SignManageActivity_;
 import org.autojs.autojs.ui.filechooser.FileChooserDialogBuilder;
 import org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity;
 import org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity_;
@@ -50,12 +62,15 @@ import org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity_;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.regex.Pattern;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+import io.reactivex.subjects.PublishSubject;
 
 /**
  * Created by Stardust on 2017/10/22.
@@ -97,11 +112,17 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     @ViewById(R.id.app_config)
     CardView mAppConfig;
 
+    @ViewById(R.id.sign_key_path)
+    TextView mAppSignKeyPath;
+
     private ProjectConfig mProjectConfig;
     private MaterialDialog mProgressDialog;
     private String mSource;
     private boolean mIsDefaultIcon = true;
     private Bitmap mIconBitmap;
+    // 签名相关
+    private ArrayList<ApkKeyStore> mKeyStoreList;
+    private ApkKeyStore mKeyStore;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -176,6 +197,12 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
                     .load(new File(mSource, icon))
                     .into(mIcon);
         }
+        // 签名相关
+        SigningConfig signConfig = mProjectConfig.getSigningConfig();
+        if (signConfig.getKeyStore() != null && !signConfig.getKeyStore().isEmpty()) {
+            mAppSignKeyPath.setText(signConfig.getKeyStore());
+            mKeyStore = ApkSigner.loadApkKeyStore(signConfig.getKeyStore());
+        }
     }
 
     @Click(R.id.select_output)
@@ -196,10 +223,107 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
                 .startForResult(REQUEST_CODE);
     }
 
+    @Click(R.id.sign_choose)
+    void chooseSign() {
+        int selectedIndex = 0;
+        if (mKeyStore != null) {
+            mKeyStoreList = ApkSigner.loadKeyStore();
+            selectedIndex = getSelectIndex(mKeyStore);
+        }
+        DialogUtils.showDialog(new ThemeColorMaterialDialogBuilder(this)
+                .title(R.string.text_sign_choose)
+                .items(getSignItems())
+                .autoDismiss(false)
+                .itemsCallbackSingleChoice(selectedIndex, (dialog, itemView, which, text) -> {
+                    if (which <= 0) {
+                        mKeyStore = null;
+                        return true;
+                    } else {
+                        mKeyStore = mKeyStoreList.get(which - 1);
+                        mAppSignKeyPath.setText(mKeyStore.getPath());
+                        if (mKeyStore.isVerified()) {
+                            return true;
+                        }
+                        showPasswordInputDialog(mKeyStore, dialog);
+                        return false;
+                    }
+                })
+                .negativeText(R.string.cancel)
+                .onNegative((d, w) -> d.dismiss())
+                .negativeColorRes(R.color.text_color_secondary)
+                .neutralText(R.string.text_sign_manage)
+                .positiveText(R.string.ok)
+                .onNeutral((d, w) -> onSignManageClick())
+                .build());
+    }
+
+    private List<String> getSignItems() {
+        List<String> list = new ArrayList<>();
+        list.add("默认签名");
+        for (ApkKeyStore item : mKeyStoreList) {
+            list.add(item.getName());
+        }
+        return list;
+    }
+
+    private int getSelectIndex(ApkKeyStore keyStore) {
+        int index = 0;
+        int len = mKeyStoreList.size();
+        for (int i = 1; i <= len; i++) {
+            ApkKeyStore item = mKeyStoreList.get(i - 1);
+            Log.d(LOG_TAG, "name: ->" + item.getName());
+            Log.d(LOG_TAG, "name: =>" + keyStore.getName());
+            Log.d(LOG_TAG, "contains: =>" + item.getName().contains(keyStore.getName()));
+            if (item.getName().contains(PFiles.getName(keyStore.getName()))) {
+                index = i;
+                Log.d(LOG_TAG, "index: =>" + index);
+                break;
+            }
+        }
+        return index;
+    }
+
+    private void onSignManageClick() {
+        SignManageActivity_.intent(this).start();
+    }
+
+    private Observable<String> showPasswordInputDialog(ApkKeyStore keyStore, MaterialDialog chooseDialog) {
+        final PublishSubject<String> input = PublishSubject.create();
+        DialogUtils.showDialog(new ThemeColorMaterialDialogBuilder(this).title(R.string.text_sign_password)
+                .inputType(InputType.TYPE_TEXT_VARIATION_PASSWORD)
+                .autoDismiss(false)
+                .canceledOnTouchOutside(false)
+                .input(getString(R.string.text_sign_password_input), "", false, new MaterialDialog.InputCallback() {
+                    @Override
+                    public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
+
+                    }
+                })
+                .onPositive((dialog, which) -> {
+                    String password = dialog.getInputEditText().getText().toString();
+                    if (ApkSigner.checkKeyStore(keyStore.getPath(), password)) {
+                        Pref.setKeyStorePassWord(PFiles.getName(keyStore.getPath()), password);
+                        dialog.dismiss();
+                        if (chooseDialog != null) {
+                            chooseDialog.dismiss();
+                        }
+                        keyStore.setVerified(true);
+                        input.onComplete();
+                    } else {
+                        dialog.getInputEditText().setError("验证失败");
+                    }
+                })
+                .onNeutral((dialog, which) -> {
+                    dialog.dismiss();
+                })
+                .build());
+        return input;
+    }
+
     private boolean syncProjectConfig() {
         if (mProjectConfig == null) {
             new ThemeColorMaterialDialogBuilder(this)
-                    .title(R.string.text_invalid_project)
+                    .title(R.string.text_invalid_project_config)
                     .positiveText(R.string.ok)
                     .dismissListener(dialogInterface -> finish())
                     .show();
@@ -211,6 +335,13 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
 //        mProjectConfig.setMainScriptFile(mMainFileName.getText().toString());
         mProjectConfig.setPackageName(mPackageName.getText().toString());
         //mProjectConfig.getLaunchConfig().setHideLogs(true);
+        if (mKeyStore != null) {
+            mProjectConfig.getSigningConfig().setKeyStore(mKeyStore.getPath());
+            mProjectConfig.getSigningConfig().setAlias(mKeyStore.getAlias());
+        } else {
+            mProjectConfig.getSigningConfig().setKeyStore("");
+            mProjectConfig.getSigningConfig().setAlias("");
+        }
         return true;
     }
 
@@ -239,6 +370,11 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     @Click(R.id.fab)
     void buildApk() {
         if (!checkInputs()) {
+            return;
+        }
+        if (mKeyStore != null && !mKeyStore.isVerified()) {
+            showPasswordInputDialog(mKeyStore, null)
+                    .doOnComplete(this::buildApk);
             return;
         }
         // 同步配置
@@ -337,12 +473,18 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
 
     private ApkBuilder callApkBuilder(File tmpDir, File outApk, ApkBuilder.AppConfig appConfig) throws Exception {
         InputStream templateApk = ApkBuilderPluginHelper.openTemplateApk(BuildActivity.this);
+        String keyStorePath = null;
+        String keyStorePassword = null;
+        if (mKeyStore != null) {
+            keyStorePath = mKeyStore.getPath();
+            keyStorePassword = Pref.getKeyStorePassWord(PFiles.getName(mKeyStore.getPath()));
+        }
         return new ApkBuilder(templateApk, outApk, tmpDir.getPath())
                 .setProgressCallback(BuildActivity.this)
                 .prepare()
                 .withConfig(appConfig)
                 .build()
-                .sign()
+                .sign(keyStorePath, keyStorePassword)
                 .cleanWorkspace();
     }
 

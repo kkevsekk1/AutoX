@@ -15,6 +15,9 @@ import com.stardust.pio.PFiles;
 import com.stardust.util.AdvancedEncryptionStandard;
 import com.stardust.util.MD5;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+import org.autojs.autojs.build.ApkSigner;
 import org.autojs.autojs.build.TinySign;
 
 import java.io.BufferedInputStream;
@@ -24,9 +27,15 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.DigestOutputStream;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
+import java.util.jar.Attributes;
+import java.util.jar.Manifest;
 import java.util.regex.Pattern;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 import pxb.android.StringItem;
 import pxb.android.axml.AxmlWriter;
@@ -37,7 +46,6 @@ import zhao.arsceditor.ResDecoder.data.ResTable;
 /**
  * Created by Stardust on 2017/10/24.
  */
-
 public class ApkBuilder {
 
 
@@ -146,13 +154,17 @@ public class ApkBuilder {
     private String mWorkspacePath;
     private AppConfig mAppConfig;
     private final File mOutApkFile;
+    private String mWaitSignApk;
     private String mInitVector;
     private String mKey;
+
+    private static final String NO_SIGN_APK_SUFFIX = "_no-sign.apk";
 
 
     public ApkBuilder(InputStream apkInputStream, File outApkFile, String workspacePath) {
         mWorkspacePath = workspacePath;
         mOutApkFile = outApkFile;
+        mWaitSignApk = mOutApkFile.getAbsolutePath() + NO_SIGN_APK_SUFFIX;
         mApkPackager = new ApkPackager(apkInputStream, mWorkspacePath);
         PFiles.ensureDir(outApkFile.getPath());
     }
@@ -294,13 +306,22 @@ public class ApkBuilder {
         return this;
     }
 
-    public ApkBuilder sign() throws Exception {
+    public ApkBuilder sign(String keyStorePath, String keyPassword) throws Exception {
         if (mProgressCallback != null) {
             GlobalAppContext.post(() -> mProgressCallback.onSign(ApkBuilder.this));
         }
-        FileOutputStream fos = new FileOutputStream(mOutApkFile);
-        TinySign.sign(new File(mWorkspacePath), fos);
-        fos.close();
+        if (keyStorePath != null) {
+            File waitSignApk = new File(mWaitSignApk);
+            FileOutputStream out = new FileOutputStream(waitSignApk);
+            ZipOutputStream zos = new ZipOutputStream(out);
+            inZip(new File(mWorkspacePath), zos);
+            zos.close();
+            ApkSigner.sign(keyStorePath, keyPassword, waitSignApk, mOutApkFile);
+        } else {
+            FileOutputStream fos = new FileOutputStream(mOutApkFile);
+            TinySign.sign(new File(mWorkspacePath), fos);
+            fos.close();
+        }
         return this;
     }
 
@@ -309,6 +330,10 @@ public class ApkBuilder {
             GlobalAppContext.post(() -> mProgressCallback.onClean(ApkBuilder.this));
         }
         delete(new File(mWorkspacePath));
+        File waitSignApk = new File(mWaitSignApk);
+        if (waitSignApk.length() > 0) {
+            delete(waitSignApk);
+        }
         return this;
     }
 
@@ -338,6 +363,52 @@ public class ApkBuilder {
             }
             file.delete();
         }
+    }
+
+    private static final Pattern stripPattern = Pattern.compile("^META-INF/(.*)[.](SF|RSA|DSA|MF)$");
+
+    // 重新压缩apk
+    private void inZip(File dir, ZipOutputStream zos) throws Exception {
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        DigestOutputStream dos = new DigestOutputStream(zos, md);
+        delete(new File(dir.getPath() + "/META-INF/MANIFEST.MF"));
+        delete(new File(dir.getPath() + "/META-INF/CERT.RSA"));
+        delete(new File(dir.getPath() + "/META-INF/CERT.SF"));
+        File[] arr$ = dir.listFiles();
+        int len$ = arr$.length;
+        for (int i$ = 0; i$ < len$; ++i$) {
+            File f = arr$[i$];
+            if (f.isFile()) {
+                doFile(f.getName(), f, zos, dos);
+            } else {
+                doDir(f.getName() + "/", f, zos, dos);
+            }
+        }
+    }
+
+    private static void doDir(String prefix, File dir, ZipOutputStream zos, DigestOutputStream dos) throws IOException {
+        zos.putNextEntry(new ZipEntry(prefix));
+        zos.closeEntry();
+        File[] arr$ = dir.listFiles();
+        int len$ = arr$.length;
+
+        for (int i$ = 0; i$ < len$; ++i$) {
+            File f = arr$[i$];
+            if (f.isFile()) {
+                doFile(prefix + f.getName(), f, zos, dos);
+            } else {
+                doDir(prefix + f.getName() + "/", f, zos, dos);
+            }
+        }
+
+    }
+
+    private static void doFile(String name, File f, ZipOutputStream zos, DigestOutputStream dos) throws IOException {
+        zos.putNextEntry(new ZipEntry(name));
+        FileInputStream fis = FileUtils.openInputStream(f);
+        IOUtils.copy(fis, dos);
+        IOUtils.closeQuietly(fis);
+        zos.closeEntry();
     }
 
     private class ManifestEditorWithAuthorities extends ManifestEditor {

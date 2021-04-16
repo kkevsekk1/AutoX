@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/ToolBarStyle"/>
+            android:theme="@style/ToolBarStyle" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -54,7 +54,7 @@
                             android:layout_marginBottom="24dp"
                             android:text="@string/text_file"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                            android:textColor="?android:textColorSecondary"/>
+                            android:textColor="?android:textColorSecondary" />
 
                         <LinearLayout
                             android:id="@+id/source_path_container"
@@ -71,8 +71,7 @@
                                 <androidx.appcompat.widget.AppCompatEditText
                                     android:id="@+id/source_path"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    />
+                                    android:layout_height="wrap_content" />
 
                             </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,7 +81,7 @@
                                 android:layout_width="60dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="bottom"
-                                android:text="@string/text_select"/>
+                                android:text="@string/text_select" />
                         </LinearLayout>
 
 
@@ -101,8 +100,7 @@
                                 <androidx.appcompat.widget.AppCompatEditText
                                     android:id="@+id/output_path"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    />
+                                    android:layout_height="wrap_content" />
 
                             </com.google.android.material.textfield.TextInputLayout>
 
@@ -112,7 +110,7 @@
                                 android:layout_width="60dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="bottom"
-                                android:text="@string/text_select"/>
+                                android:text="@string/text_select" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -140,7 +138,7 @@
                             android:layout_marginBottom="24dp"
                             android:text="@string/text_config"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                            android:textColor="?android:textColorSecondary"/>
+                            android:textColor="?android:textColorSecondary" />
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
@@ -150,7 +148,7 @@
                             <androidx.appcompat.widget.AppCompatEditText
                                 android:id="@+id/app_name"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"/>
+                                android:layout_height="wrap_content" />
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
@@ -163,7 +161,7 @@
                                 android:id="@+id/package_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_."/>
+                                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_." />
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <LinearLayout
@@ -188,7 +186,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
 
-                                        android:text="1.0.0"/>
+                                        android:text="1.0.0" />
                                 </com.google.android.material.textfield.TextInputLayout>
 
                                 <com.google.android.material.textfield.TextInputLayout
@@ -203,7 +201,7 @@
                                         android:layout_height="wrap_content"
 
                                         android:inputType="number"
-                                        android:text="1"/>
+                                        android:text="1" />
                                 </com.google.android.material.textfield.TextInputLayout>
                             </LinearLayout>
 
@@ -219,7 +217,7 @@
                                     android:layout_marginBottom="12dp"
                                     android:text="@string/text_icon"
                                     android:textColor="#9e9e9e"
-                                    android:textSize="12sp"/>
+                                    android:textSize="12sp" />
 
                                 <ImageView
                                     android:id="@+id/icon"
@@ -230,7 +228,7 @@
                                     android:layout_marginRight="16dp"
                                     android:background="@drawable/shortcut_create_dialog_icon_bg"
                                     android:padding="12dp"
-                                    android:src="@drawable/ic_add_white_48dp"/>
+                                    android:src="@drawable/ic_add_white_48dp" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -238,6 +236,49 @@
 
                     </LinearLayout>
 
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/app_sign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="1dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="24dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="14dp"
+                            android:text="@string/text_sign"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                            android:textColor="?android:textColorSecondary" />
+
+                        <TextView
+                            android:id="@+id/sign_key_path"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="14dp"
+                            android:layout_marginBottom="6dp"
+                            android:text="默认签名"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/sign_choose"
+                            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_sign_choose" />
+
+                    </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
         </ScrollView>
@@ -248,7 +289,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end|right|bottom"
             android:layout_margin="16dp"
-            android:src="@drawable/ic_done_white_48dp"/>
+            android:src="@drawable/ic_done_white_48dp" />
     </FrameLayout>
 
 
