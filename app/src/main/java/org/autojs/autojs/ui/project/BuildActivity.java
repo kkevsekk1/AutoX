@@ -226,8 +226,8 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     @Click(R.id.sign_choose)
     void chooseSign() {
         int selectedIndex = 0;
+        mKeyStoreList = ApkSigner.loadKeyStore();
         if (mKeyStore != null) {
-            mKeyStoreList = ApkSigner.loadKeyStore();
             selectedIndex = getSelectIndex(mKeyStore);
         }
         DialogUtils.showDialog(new ThemeColorMaterialDialogBuilder(this)
@@ -260,8 +260,10 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     private List<String> getSignItems() {
         List<String> list = new ArrayList<>();
         list.add("默认签名");
-        for (ApkKeyStore item : mKeyStoreList) {
-            list.add(item.getName());
+        if (mKeyStoreList != null) {
+            for (ApkKeyStore item : mKeyStoreList) {
+                list.add(item.getName());
+            }
         }
         return list;
     }
