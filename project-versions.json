@@ -2,7 +2,7 @@
   "appVersionCode": 477,
   "appVersionName": "4.2.15",
   "target": 26,
-  "mini": 17,
+  "mini": 19,
   "compile": 29,
   "buildTool": "29.0.2"
 }
