@@ -164,6 +164,18 @@ public class Pref {
         return new File(Environment.getExternalStorageDirectory(), dir).getPath();
     }
 
+    public static String getKeyStorePath() {
+        return getScriptDirPath().concat("/.keyStore/");
+    }
+
+    public static String getKeyStorePassWord(String keyName) {
+        return def().getString(keyName, "");
+    }
+
+    public static void setKeyStorePassWord(String keyName, String passWord) {
+        def().edit().putString(keyName, passWord).apply();
+    }
+
     public static boolean isForegroundServiceEnabled() {
         return def().getBoolean(getString(R.string.key_foreground_servie), false);
     }
@@ -171,8 +183,9 @@ public class Pref {
     public static void setCode(String value) {
         def().edit().putString("user_code", value).apply();
     }
+
     public static String getCode(String defValue) {
-        return def().getString("user_code",defValue);
+        return def().getString("user_code", defValue);
     }
 
 }
