@@ -190,6 +190,8 @@ dependencies {
     implementation 'com.wang.avi:library:2.1.3'
     //Commons-lang
     implementation 'org.apache.commons:commons-lang3:3.6'
+    // 证书签名相关
+    implementation 'com.madgag.spongycastle:bcpkix-jdk15on:1.56.0.0'
     //Expandable RecyclerView
     implementation 'com.thoughtbot:expandablerecyclerview:1.3'
     implementation 'org.signal.autox:apkbuilder:1.0.3'
