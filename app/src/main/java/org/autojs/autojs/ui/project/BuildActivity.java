@@ -253,6 +253,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
                 .negativeColorRes(R.color.text_color_secondary)
                 .neutralText(R.string.text_sign_manage)
                 .positiveText(R.string.ok)
+                .onPositive((d, w) -> d.dismiss())
                 .onNeutral((d, w) -> onSignManageClick())
                 .build());
     }
