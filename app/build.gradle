@@ -142,6 +142,25 @@ task publishApp(group: "build") {
         }
     }
 }
+task publishDevApp(group: "build") {
+    println "publish app"
+    println "$rootDir"
+    doLast {
+        exec {
+            //切换到sh文件所在的目录，执行脚本
+            workingDir "E:/资料/jks/shell"
+            //修改命令输出的地方，默认为控制台
+            standardOutput = out
+            //执行shell脚本
+            if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+                executable 'cmd'
+                args '/c', "node scnode.js $projectDir\\build\\outputs\\apk\\dev\\release $rootDir 21"
+            } else {
+                commandLine 'sh', '-c', "node scnode.js $projectDir\\build\\outputs\\apk\\dev\\release $rootDir 21"
+            }
+        }
+    }
+}
 
 repositories {
     flatDir {
