@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
-          package="org.autojs.autojs">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="org.autojs.autojs">
 
 
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
-    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
         tools:ignore="ProtectedPermissions" />
 
 
     <!-- 非Auto.js运行必需，不会主动申请，某些脚本可以自行申请-->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <!-- Ad SDK Permissions -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:name=".App"
@@ -41,7 +41,7 @@
 
         <meta-data
             android:name="android.max_aspect"
-            android:value="2.1"/>
+            android:value="2.1" />
 
         <activity
             android:name=".ui.splash.SplashActivity"
@@ -49,9 +49,9 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.Splash">
             <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
 
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
         <activity
@@ -59,16 +59,15 @@
             android:hardwareAccelerated="true"
             android:label="@string/app_name"
             android:launchMode="singleTask"
-            android:theme="@style/AppTheme.FullScreen">
-        </activity>
+            android:theme="@style/AppTheme.FullScreen"></activity>
         <activity
             android:name=".external.shortcut.ShortcutActivity"
             android:taskAffinity="org.autojs.autojs.external.shortcut.ShortcutActivity"
             android:theme="@android:style/Theme.NoDisplay">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
@@ -79,7 +78,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
+                android:resource="@xml/provider_paths" />
         </provider>
 
         <activity
@@ -88,82 +87,53 @@
             android:launchMode="standard"
             android:multiprocess="true"
             android:taskAffinity="org.autojs.autojs.edit"
-            android:theme="@style/EditorTheme">
-        </activity>
-        <activity android:name=".ui.settings.AboutActivity_"/>
+            android:theme="@style/EditorTheme"></activity>
+        <activity android:name=".ui.settings.AboutActivity_" />
         <activity
             android:name=".ui.settings.SettingsActivity_"
-            android:theme="@style/AppTheme.Settings"/>
-        <activity android:name=".ui.error.ErrorReportActivity"/>
+            android:theme="@style/AppTheme.Settings" />
+        <activity android:name=".ui.error.ErrorReportActivity" />
         <activity
             android:name=".external.tasker.TaskerScriptEditActivity_"
-            android:configChanges="orientation|screenSize"
-            />
-        <activity android:name=".ui.edit.ViewSampleActivity"/>
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".ui.edit.ViewSampleActivity" />
         <activity
             android:name=".ui.user.LoginActivity_"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.user.RegisterActivity_"
-            android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".ui.user.WebActivity_"/>
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".ui.user.WebActivity_" />
         <activity
             android:name=".ui.project.BuildActivity_"
-            android:configChanges="orientation|screenSize"/>
-        <activity android:name=".ui.project.ProjectConfigActivity_"/>
-        <activity android:name=".ui.log.LogActivity_"/>
-        <activity android:name=".ui.doc.DocumentationActivity_"/>
-        <activity android:name=".ui.shortcut.ShortcutIconSelectActivity_"/>
-        <activity android:name=".ui.timing.TimedTaskSettingActivity_"/>
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".ui.project.SignManageActivity_"/>
+        <activity android:name=".ui.project.ProjectConfigActivity_" />
+        <activity android:name=".ui.log.LogActivity_" />
+        <activity android:name=".ui.doc.DocumentationActivity_" />
+        <activity android:name=".ui.shortcut.ShortcutIconSelectActivity_" />
+        <activity android:name=".ui.timing.TimedTaskSettingActivity_" />
         <activity
             android:name=".ui.shortcut.ShortcutCreateActivity"
-            android:theme="@style/AppTheme.Transparent"/>
+            android:theme="@style/AppTheme.Transparent" />
         <activity android:name=".external.widget.ScriptWidgetSettingsActivity_">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
             <intent-filter>
-                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.error.IssueReporterActivity"
-            android:theme="@style/IssueReporterTheme"/>
+            android:theme="@style/IssueReporterTheme" />
 
+        <service android:name=".external.foreground.ForegroundService" />
+        <service android:name=".external.ScriptExecutionIntentService" />
 
-        <service android:name=".external.foreground.ForegroundService"/>
-        <service android:name=".external.ScriptExecutionIntentService"/>
-
-        <activity android:name=".external.tasker.TaskPrefEditActivity_"/>
-
-        <service
-            android:name=".external.tile.LayoutBoundsTile"
-            android:icon="@drawable/ic_circular_menu_bounds"
-            android:label="@string/text_inspect_layout_bounds"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
-            <meta-data
-                android:name="android.service.quicksettings.ACTIVE_TILE"
-                android:value="false"/>
-            <intent-filter>
-                <action android:name="android.service.quicksettings.action.QS_TILE"/>
-            </intent-filter>
-        </service>
-
-        <service
-            android:name=".external.tile.LayoutHierarchyTile"
-            android:icon="@drawable/ic_circular_menu_hierarchy"
-            android:label="@string/text_inspect_layout_hierarchy"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
-
-            <meta-data
-                android:name="android.service.quicksettings.ACTIVE_TILE"
-                android:value="false"/>
-            <intent-filter>
-                <action android:name="android.service.quicksettings.action.QS_TILE"/>
-            </intent-filter>
-        </service>
+        <activity android:name=".external.tasker.TaskPrefEditActivity_" />
 
         <activity-alias
             android:name=".external.tasker.PluginActivity"
@@ -173,46 +143,73 @@
             android:targetActivity=".external.tasker.TaskPrefEditActivity_"
             tools:ignore="ExportedActivity">
             <intent-filter>
-                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING"/>
+                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
             </intent-filter>
         </activity-alias>
-        <receiver android:name="org.autojs.autojs.external.receiver.StaticBroadcastReceiver">
+
+        <service
+            android:name=".external.tile.LayoutBoundsTile"
+            android:icon="@drawable/ic_circular_menu_bounds"
+            android:label="@string/text_inspect_layout_bounds"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <meta-data
+                android:name="android.service.quicksettings.ACTIVE_TILE"
+                android:value="false" />
+
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
-                <action android:name="android.intent.action.TIME_SET"/>
-                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
-                <action android:name="android.intent.action.UID_REMOVED"/>
-                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
-                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
-                <action android:name="android.intent.action.ACTION_SHUTDOWN"/>
-                <action android:name="android.intent.action.DATE_CHANGED"/>
-                <action android:name="android.intent.action.DREAMING_STARTED"/>
-                <action android:name="android.intent.action.DREAMING_STOPPED"/>
-                <action android:name="android.intent.action.HEADSET_PLUG"/>
-                <action android:name="android.intent.action.INPUT_METHOD_CHANGED"/>
-                <action android:name="android.intent.action.LOCALE_CHANGED"/>
-                <action android:name="android.intent.action.MEDIA_BUTTON"/>
-                <action android:name="android.intent.action.MEDIA_CHECKING"/>
-                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
-                <action android:name="android.intent.action.PACKAGE_FIRST_LAUNCH"/>
-                <action android:name="android.intent.action.PROVIDER_CHANGED"/>
-                <action android:name="android.intent.action.WALLPAPER_CHANGED"/>
-                <action android:name="android.intent.action.USER_UNLOCKED"/>
-                <action android:name="android.intent.action.USER_PRESENT"/>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".external.tile.LayoutHierarchyTile"
+            android:icon="@drawable/ic_circular_menu_hierarchy"
+            android:label="@string/text_inspect_layout_hierarchy"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <meta-data
+                android:name="android.service.quicksettings.ACTIVE_TILE"
+                android:value="false" />
+
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <receiver android:name=".external.receiver.StaticBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.UID_REMOVED" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+                <action android:name="android.intent.action.DREAMING_STARTED" />
+                <action android:name="android.intent.action.DREAMING_STOPPED" />
+                <action android:name="android.intent.action.HEADSET_PLUG" />
+                <action android:name="android.intent.action.INPUT_METHOD_CHANGED" />
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+                <action android:name="android.intent.action.MEDIA_CHECKING" />
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.PACKAGE_FIRST_LAUNCH" />
+                <action android:name="android.intent.action.PROVIDER_CHANGED" />
+                <action android:name="android.intent.action.WALLPAPER_CHANGED" />
+                <action android:name="android.intent.action.USER_UNLOCKED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
             <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED"/>
-                <action android:name="android.intent.action.PACKAGE_CHANGED"/>
-                <action android:name="android.intent.action.PACKAGE_DATA_CLEARED"/>
-                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
-                <action android:name="android.intent.action.PACKAGE_RESTARTED"/>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_CHANGED" />
+                <action android:name="android.intent.action.PACKAGE_DATA_CLEARED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <action android:name="android.intent.action.PACKAGE_RESTARTED" />
 
-                <data android:scheme="package"/>
+                <data android:scheme="package" />
             </intent-filter>
         </receiver>
-
         <receiver
             android:name=".external.tasker.FireSettingReceiver"
             android:exported="true"
@@ -221,7 +218,7 @@
 
             <!-- this Intent filter allows the plug-in to discovered by the host. -->
             <intent-filter>
-                <action android:name="com.twofortyfouram.locale.intent.action.FIRE_SETTING"/>
+                <action android:name="com.twofortyfouram.locale.intent.action.FIRE_SETTING" />
             </intent-filter>
         </receiver>
 
@@ -230,16 +227,16 @@
             android:icon="@drawable/autojs_material"
             android:label="@string/text_edit_script">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <action android:name="android.intent.action.EDIT"/>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.EDIT" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="file"/>
-                <data android:scheme="content"/>
-                <data android:mimeType="application/x-javascript"/>
-                <data android:mimeType="text/plain"/>
+                <data android:scheme="file" />
+                <data android:scheme="content" />
+                <data android:mimeType="application/x-javascript" />
+                <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
         <activity
@@ -249,16 +246,16 @@
             android:taskAffinity="org.autojs.autojs.external.open.RunIntentActivity"
             android:theme="@android:style/Theme.NoDisplay">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <action android:name="android.intent.action.EDIT"/>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.EDIT" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="file"/>
-                <data android:scheme="content"/>
-                <data android:mimeType="application/x-javascript"/>
-                <data android:mimeType="text/plain"/>
+                <data android:scheme="file" />
+                <data android:scheme="content" />
+                <data android:mimeType="application/x-javascript" />
+                <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
         <activity
@@ -267,16 +264,16 @@
             android:label="@string/text_import_script"
             android:theme="@style/AppTheme.Transparent">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <action android:name="android.intent.action.EDIT"/>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.EDIT" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="file"/>
-                <data android:scheme="content"/>
-                <data android:mimeType="application/x-javascript"/>
-                <data android:mimeType="text/plain"/>
+                <data android:scheme="file" />
+                <data android:scheme="content" />
+                <data android:mimeType="application/x-javascript" />
+                <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
 
@@ -285,26 +282,24 @@
             android:label="@string/app_name"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
-                <action android:name="android.service.notification.NotificationListenerService"/>
+                <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
 
         <receiver android:name=".external.widget.ScriptWidget">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/script_widget_config"/>
+                android:resource="@xml/script_widget_config" />
         </receiver>
-
         <receiver android:name=".timing.TaskReceiver">
             <intent-filter>
-                <action android:name="com.stardust.autojs.action.task"/>
+                <action android:name="com.stardust.autojs.action.task" />
             </intent-filter>
         </receiver>
-
     </application>
 
 </manifest>

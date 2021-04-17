@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_keystore_add"
+        android:icon="@drawable/ic_add_white_48dp"
+        android:orderInCategory="100"
+        android:title="@string/text_sign_manage"
+        app:showAsAction="always|withText"/>
+<!--        <menu>-->
+<!--            <item-->
+<!--                android:id="@+id/action_key_create"-->
+<!--                android:tooltipText="@string/text_sign_key_add"-->
+<!--                android:title="@string/text_sign_key_add" />-->
+<!--            <item-->
+<!--                android:id="@+id/action_key_import"-->
+<!--                android:tooltipText="@string/text_sign_key_import"-->
+<!--                android:title="@string/text_sign_key_import" />-->
+<!--        </menu>-->
+<!--    </item>-->
+</menu>
