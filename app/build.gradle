@@ -104,12 +104,18 @@ android {
     }
     productFlavors {
         common {
+            // 重命名 包名
+//            applicationId "org.autojs.autojs"
             buildConfigField "String", "CHANNEL", '"common"'
+            buildConfigField "String", "APPID", '"?id=21"'
             manifestPlaceholders = [appName: "@string/app_name"]
         }
         dev {
             applicationIdSuffix ".dev"
+            versionCode versions.devVersionCode
+            versionName versions.devVersionName
             buildConfigField "String", "CHANNEL", '"dev"'
+            buildConfigField "String", "APPID", '"?id=23"'
             manifestPlaceholders = [appName: "Autox.js[dev]"]
         }
 
