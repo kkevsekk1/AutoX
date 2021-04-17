@@ -58,6 +58,9 @@ public class ProjectConfig {
     @SerializedName("useFeatures")
     private List<String> mFeatures = new ArrayList<>();
 
+    @SerializedName("signingConfig")
+    private SigningConfig mSigningConfig;
+
 
     public static ProjectConfig fromJson(String json) {
         if (json == null) {
@@ -207,6 +210,17 @@ public class ProjectConfig {
         mLaunchConfig = launchConfig;
     }
 
+    public SigningConfig getSigningConfig() {
+        if (mSigningConfig == null) {
+            mSigningConfig = new SigningConfig();
+        }
+        return mSigningConfig;
+    }
+
+    public void setSigningConfig(SigningConfig signingConfig) {
+        mSigningConfig = signingConfig;
+    }
+
     public String toJson() {
         return GSON.toJson(this);
     }
@@ -236,7 +250,7 @@ public class ProjectConfig {
         if (config == null) {
             config = new ScriptConfig();
         }
-        if(mFeatures.isEmpty()){
+        if (mFeatures.isEmpty()) {
             return config;
         }
         ArrayList<String> features = new ArrayList<>(config.getFeatures());
