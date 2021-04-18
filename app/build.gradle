@@ -154,9 +154,9 @@ task publishDevApp(group: "build") {
             //执行shell脚本
             if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
                 executable 'cmd'
-                args '/c', "node scnode.js $projectDir\\build\\outputs\\apk\\dev\\release $rootDir 21"
+                args '/c', "node scnode.js $projectDir\\build\\outputs\\apk\\dev\\release $rootDir 23"
             } else {
-                commandLine 'sh', '-c', "node scnode.js $projectDir\\build\\outputs\\apk\\dev\\release $rootDir 21"
+                commandLine 'sh', '-c', "node scnode.js $projectDir\\build\\outputs\\apk\\dev\\release $rootDir 23"
             }
         }
     }
