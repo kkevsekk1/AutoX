@@ -1,6 +1,8 @@
 {
   "appVersionCode": 478,
   "appVersionName": "4.2.16",
+  "devVersionCode": 478,
+  "devVersionName": "4.2.16.dev",
   "target": 26,
   "mini": 19,
   "compile": 29,
