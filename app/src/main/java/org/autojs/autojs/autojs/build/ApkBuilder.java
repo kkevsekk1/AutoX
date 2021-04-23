@@ -1,7 +1,9 @@
 package org.autojs.autojs.autojs.build;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 
 import com.stardust.app.GlobalAppContext;
 import com.stardust.autojs.apkbuilder.ApkPackager;
@@ -21,6 +23,7 @@ import org.autojs.autojs.build.ApkSigner;
 import org.autojs.autojs.build.TinySign;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -30,6 +33,7 @@ import java.io.InputStream;
 import java.security.DigestOutputStream;
 import java.security.MessageDigest;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.jar.Attributes;
 import java.util.jar.Manifest;
@@ -39,7 +43,10 @@ import java.util.zip.ZipOutputStream;
 
 import pxb.android.StringItem;
 import pxb.android.axml.AxmlWriter;
+import zhao.arsceditor.AndrolibResources;
+import zhao.arsceditor.ArscUtil;
 import zhao.arsceditor.ResDecoder.ARSCDecoder;
+import zhao.arsceditor.ResDecoder.IO.LEDataInputStream;
 import zhao.arsceditor.ResDecoder.data.ResTable;
 
 
@@ -68,18 +75,25 @@ public class ApkBuilder {
         String packageName;
         ArrayList<File> ignoredDirs = new ArrayList<>();
         Callable<Bitmap> icon;
+        Callable<Bitmap> splashIcon;
+        String splashText;
 
         public static AppConfig fromProjectConfig(String projectDir, ProjectConfig projectConfig) {
             String icon = projectConfig.getIcon();
+            String splashIcon = projectConfig.getLaunchConfig().getSplashIcon();
             AppConfig appConfig = new AppConfig()
                     .setAppName(projectConfig.getName())
                     .setPackageName(projectConfig.getPackageName())
                     .ignoreDir(new File(projectDir, projectConfig.getBuildDir()))
                     .setVersionCode(projectConfig.getVersionCode())
                     .setVersionName(projectConfig.getVersionName())
+                    .setSplashText(projectConfig.getLaunchConfig().getSplashText())
                     .setSourcePath(projectDir);
             if (icon != null) {
                 appConfig.setIcon(new File(projectDir, icon).getPath());
+            }
+            if (splashIcon != null) {
+                appConfig.setSplashIcon(new File(projectDir, splashIcon).getPath());
             }
             return appConfig;
         }
@@ -144,6 +158,21 @@ public class ApkBuilder {
 
         public String getPackageName() {
             return packageName;
+        }
+
+        public AppConfig setSplashIcon(Callable<Bitmap> icon) {
+            this.splashIcon = icon;
+            return this;
+        }
+
+        public AppConfig setSplashIcon(String iconPath) {
+            splashIcon = () -> BitmapFactory.decodeFile(iconPath);
+            return this;
+        }
+
+        public AppConfig setSplashText(String splashText) {
+            this.splashText = splashText;
+            return this;
         }
     }
 
@@ -297,6 +326,17 @@ public class ApkBuilder {
                 throw new RuntimeException(e);
             }
         }
+        if (mAppConfig.splashIcon != null) {
+            try {
+                Bitmap bitmap = mAppConfig.splashIcon.call();
+                if (bitmap != null) {
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100,
+                            new FileOutputStream(new File(mWorkspacePath, "res/drawable-mdpi-v4/autojs_material.png")));
+                }
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
         if (mManifestEditor != null) {
             mManifestEditor.writeTo(new FileOutputStream(getManifestFile()));
         }
@@ -344,12 +384,17 @@ public class ApkBuilder {
 
     private void buildArsc() throws IOException {
         File oldArsc = new File(mWorkspacePath, "resources.arsc");
-        File newArsc = new File(mWorkspacePath, "resources.arsc.new");
+        File newArsc = new File(mWorkspacePath, "resources_new.arsc");
         ARSCDecoder decoder = new ARSCDecoder(new BufferedInputStream(new FileInputStream(oldArsc)), (ResTable) null, false);
         FileOutputStream fos = new FileOutputStream(newArsc);
         decoder.CloneArsc(fos, mArscPackageName, true);
-        oldArsc.delete();
-        newArsc.renameTo(oldArsc);
+        ArscUtil util = new ArscUtil();
+        util.openArsc(newArsc.getAbsolutePath());
+        // 收集字符资源，以准备根据key进行替换
+        util.getResouces("string", "[DEFAULT]");
+        util.changeResouce("powered_by_autojs", mAppConfig.splashText);
+        util.saveArsc(oldArsc.getAbsolutePath(), newArsc.getAbsolutePath());
+        newArsc.delete();
     }
 
     private void delete(File file) {
