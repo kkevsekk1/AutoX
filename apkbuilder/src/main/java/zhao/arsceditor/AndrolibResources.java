@@ -1,7 +1,7 @@
 /**
  *  Copyright 2011 Ryszard Wiśniewski <brut.alll@gmail.com>
  *  Modified Copyright 2015 ZhaoHai <2801045898@qq.com>
- *  
+ *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
  *  You may obtain a copy of the License at
@@ -18,7 +18,6 @@
 package zhao.arsceditor;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -39,11 +38,6 @@ final public class AndrolibResources {
 	public static boolean sKeepBroken = true;
 
 
-
-
-
-	private Context context;
-
 	// ARSC解析器
 	public ARSCDecoder mARSCDecoder;
 
@@ -55,10 +49,8 @@ final public class AndrolibResources {
 
 	private ResPackage pkg;
 
-	public AndrolibResources(Context context) {
-		this.context = context;
-	}
-	
+	public AndrolibResources() {}
+
 	// 解析ARSC的方法
 	public void decodeARSC(ResTable resTable, ARSCCallBack callback) throws IOException {
 
@@ -73,7 +65,7 @@ final public class AndrolibResources {
 
 	/**
 	 * 解析AXML的方法
-	 * 
+	 *
 	 * @param AXMLStream
 	 * @return 返回一个解析后的临时文件对象
 	 * @throws IOException

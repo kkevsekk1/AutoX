@@ -722,7 +722,7 @@ public class ARSCDecoder {
      *
      * @throws IOException
      */
-    public void write(OutputStream os) throws IOException {
+    public void write(OutputStream os,InputStream in) throws IOException {
         // 二进制文件输出流
         LEDataOutputStream lmOut = new LEDataOutputStream(os);
         // 先将字符串数据写入到一个临时的流中
@@ -741,22 +741,23 @@ public class ARSCDecoder {
         // 写入字符串
         mTableStrings.writeFully(lmOut, mStrings);
         // 二进制输入流跳过size1-size2 个字节，目的是我们只需修改前面的包含有字符串的数据，而后面的数据，则从文件中直接复制
-        mIn.reset();
-        mIn.skipBytes(size1 - size2);
+        LEDataInputStream lein = new LEDataInputStream(in);
+        lein.skipBytes(size1 - size2);
         byte[] buffer = new byte[1024];
         int count;
         // 将剩余内容写入文件
-        while ((count = mIn.read(buffer, 0, buffer.length)) != -1) {
+        while ((count = lein.read(buffer, 0, buffer.length)) != -1) {
             lmOut.writeFully(buffer, 0, count);
         }
         lmOut.close();
+        lein.close();
     }
 
     /**
      * 写出arsc文件的方法 os 文件输出流 stringlist_src 未修改之前的字符串列表集合 stringlist_tar
      * 修改后的字符串列表集合
      ***/
-    public void write(OutputStream os, List<String> stringlist_src, List<String> stringlist_tar) throws IOException {
+    public void write(OutputStream os, InputStream in, List<String> stringlist_src, List<String> stringlist_tar) throws IOException {
 
         int index = 0;
         // 排序列表中的字符串，以方便一一写入
@@ -765,6 +766,6 @@ public class ARSCDecoder {
             mTableStrings.sortStringBlock(str, tar);
             index++;
         }
-        write(os);
+        write(os,in);
     }
 }
