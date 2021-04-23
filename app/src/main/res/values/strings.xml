@@ -223,6 +223,9 @@
     <string name="text_package_name">包名</string>
     <string name="text_version_name">版本名称</string>
     <string name="text_version_code">版本号</string>
+    <string name="text_run_config">运行配置</string>
+    <string name="text_splash_text">启动界面文本</string>
+    <string name="text_splash_icon">启动界面图标</string>
     <string name="text_sign">签名</string>
     <string name="text_sign_choose">选择签名</string>
     <string name="text_sign_password">签名证书密码</string>
