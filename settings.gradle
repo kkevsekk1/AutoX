@@ -1,1 +1,1 @@
-include ':app', ':automator', ':common', ':autojs', ':inrt'
+include ':app', ':automator', ':common', ':autojs', ':inrt', ':apkbuilder'
