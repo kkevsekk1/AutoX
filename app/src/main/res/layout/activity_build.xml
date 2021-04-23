@@ -227,8 +227,8 @@
                                     android:layout_marginLeft="16dp"
                                     android:layout_marginRight="16dp"
                                     android:background="@drawable/shortcut_create_dialog_icon_bg"
-                                    android:padding="12dp"
                                     android:src="@drawable/ic_add_white_48dp" />
+
                             </LinearLayout>
 
                         </LinearLayout>
@@ -236,6 +236,60 @@
 
                     </LinearLayout>
 
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/app_run_config"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="1dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="24dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="24dp"
+                            android:text="@string/text_run_config"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                            android:textColor="?android:textColorSecondary" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/text_splash_text">
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/app_splash_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="12dp"
+                            android:text="@string/text_splash_icon"
+                            android:textColor="#9e9e9e"
+                            android:textSize="12sp" />
+
+                        <ImageView
+                            android:id="@+id/app_splash_icon"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:background="@drawable/shortcut_create_dialog_icon_bg"
+                            android:src="@drawable/ic_add_white_48dp" />
+
+                    </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView

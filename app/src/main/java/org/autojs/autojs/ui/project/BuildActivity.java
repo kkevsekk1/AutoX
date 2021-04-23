@@ -69,6 +69,7 @@ import java.util.regex.Pattern;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.PublishSubject;
 
@@ -79,6 +80,7 @@ import io.reactivex.subjects.PublishSubject;
 public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCallback {
 
     private static final int REQUEST_CODE = 44401;
+    private static final int REQUEST_CODE_SPLASH_ICON = 44402;
 
     public static final String EXTRA_SOURCE = BuildActivity.class.getName() + ".extra_source_file";
 
@@ -109,6 +111,12 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     @ViewById(R.id.icon)
     ImageView mIcon;
 
+    @ViewById(R.id.app_splash_text)
+    EditText mSplashText;
+
+    @ViewById(R.id.app_splash_icon)
+    ImageView mSplashIcon;
+
     @ViewById(R.id.app_config)
     CardView mAppConfig;
 
@@ -120,6 +128,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     private String mSource;
     private boolean mIsDefaultIcon = true;
     private Bitmap mIconBitmap;
+    private Bitmap mSplashIconBitmap;
     // 签名相关
     private ArrayList<ApkKeyStore> mKeyStoreList;
     private ApkKeyStore mKeyStore;
@@ -197,6 +206,16 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
                     .load(new File(mSource, icon))
                     .into(mIcon);
         }
+        // 运行配置
+        mSplashText.setText(mProjectConfig.getLaunchConfig().getSplashText());
+        String splashIcon = mProjectConfig.getLaunchConfig().getSplashIcon();
+        if (splashIcon != null) {
+            Glide.with(this)
+                    .setDefaultRequestOptions(RequestOptions.skipMemoryCacheOf(true).
+                            diskCacheStrategy(DiskCacheStrategy.NONE))
+                    .load(new File(mSource, splashIcon))
+                    .into(mSplashIcon);
+        }
         // 签名相关
         SigningConfig signConfig = mProjectConfig.getSigningConfig();
         if (signConfig.getKeyStore() != null && !signConfig.getKeyStore().isEmpty()) {
@@ -221,6 +240,12 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     void selectIcon() {
         ShortcutIconSelectActivity_.intent(this)
                 .startForResult(REQUEST_CODE);
+    }
+
+    @Click(R.id.app_splash_icon)
+    void selectSplashIcon() {
+        ShortcutIconSelectActivity_.intent(this)
+                .startForResult(REQUEST_CODE_SPLASH_ICON);
     }
 
     @Click(R.id.sign_choose)
@@ -338,6 +363,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
 //        mProjectConfig.setMainScriptFile(mMainFileName.getText().toString());
         mProjectConfig.setPackageName(mPackageName.getText().toString());
         //mProjectConfig.getLaunchConfig().setHideLogs(true);
+        mProjectConfig.getLaunchConfig().setSplashText(mSplashText.getText().toString());
         if (mKeyStore != null) {
             mProjectConfig.getSigningConfig().setKeyStore(mKeyStore.getPath());
             mProjectConfig.getSigningConfig().setAlias(mKeyStore.getAlias());
@@ -350,6 +376,10 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
 
     @SuppressLint("CheckResult")
     private Observable<String> saveIcon(Bitmap b) {
+        if (b == null) {
+            return Observable.just("empty").map(s -> s).subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread());
+        }
         return Observable.just(b)
                 .map(bitmap -> {
                     String iconPath = mProjectConfig.getIcon();
@@ -370,6 +400,31 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     }
 
     @SuppressLint("CheckResult")
+    private Observable<String> saveSplashIcon(Bitmap b) {
+        if (b == null) {
+            return Observable.just("empty").map(s -> s).subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread());
+        }
+        return Observable.just(b)
+                .map(bitmap -> {
+                    String iconPath = mProjectConfig.getLaunchConfig().getSplashIcon();
+                    if (iconPath == null) {
+                        iconPath = "res/splashIcon.png";
+                    }
+                    File iconFile = new File(mSource, iconPath);
+                    PFiles.ensureDir(iconFile.getPath());
+                    FileOutputStream fos = new FileOutputStream(iconFile);
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+                    fos.close();
+                    return iconPath;
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnNext(iconPath -> mProjectConfig.getLaunchConfig().setSplashIcon(iconPath));
+
+    }
+
+    @SuppressLint("CheckResult")
     @Click(R.id.fab)
     void buildApk() {
         if (!checkInputs()) {
@@ -377,22 +432,24 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
         }
         if (mKeyStore != null && !mKeyStore.isVerified()) {
             showPasswordInputDialog(mKeyStore, null)
-                    .doOnComplete(this::buildApk);
+                    .doOnComplete(this::syncAndBuild).subscribe();
             return;
         }
+        syncAndBuild();
+    }
+
+    private void syncAndBuild() {
         // 同步配置
         if (syncProjectConfig()) {
             // 保存配置后打包
-            if (mIconBitmap != null) {
-                saveIcon(mIconBitmap)
-                        .doAfterNext((iconPath) -> {
-                            writeProjectConfigAndRefreshView();
-                        }).doFinally(this::doBuildingApk)
-                        .subscribe();
-            } else {
-                writeProjectConfigAndRefreshView();
-                doBuildingApk();
-            }
+            Observable.merge(saveIcon(mIconBitmap), saveSplashIcon(mSplashIconBitmap))
+                    .doFinally(() -> {
+                        writeProjectConfigAndRefreshView();
+                        doBuildingApk();
+                    })
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe();
         }
     }
 
@@ -463,6 +520,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
         int versionCode = Integer.parseInt(mVersionCode.getText().toString());
         String appName = mAppName.getText().toString();
         String packageName = mPackageName.getText().toString();
+        String splashText = mSplashText.getText().toString();
         return new ApkBuilder.AppConfig()
                 .setAppName(appName)
                 .setSourcePath(jsPath)
@@ -471,6 +529,10 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
                 .setVersionName(versionName)
                 .setIcon(mIsDefaultIcon ? null : (Callable<Bitmap>) () ->
                         BitmapTool.drawableToBitmap(mIcon.getDrawable())
+                )
+                .setSplashText(splashText)
+                .setSplashIcon(mSplashIcon.getDrawable() == null ? null : (Callable<Bitmap>) () ->
+                        BitmapTool.drawableToBitmap(mSplashIcon.getDrawable())
                 );
     }
 
@@ -551,14 +613,27 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
         if (resultCode != RESULT_OK) {
             return;
         }
-        ShortcutIconSelectActivity.getBitmapFromIntent(getApplicationContext(), data)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(bitmap -> {
-                    mIcon.setImageBitmap(bitmap);
-                    mIconBitmap = bitmap;
-                    mIsDefaultIcon = false;
-                }, Throwable::printStackTrace);
+        Log.d(LOG_TAG, "onActivityResult: " + data);
+        if (requestCode == REQUEST_CODE) {
+            ShortcutIconSelectActivity.getBitmapFromIntent(getApplicationContext(), data)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(bitmap -> {
+                        mIcon.setImageBitmap(bitmap);
+                        mIconBitmap = bitmap;
+                        mIsDefaultIcon = false;
+                    }, Throwable::printStackTrace);
+        }
+
+        if (requestCode == REQUEST_CODE_SPLASH_ICON) {
+            ShortcutIconSelectActivity.getBitmapFromIntent(getApplicationContext(), data)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(bitmap -> {
+                        mSplashIcon.setImageBitmap(bitmap);
+                        mSplashIconBitmap = bitmap;
+                    }, Throwable::printStackTrace);
+        }
 
         super.onActivityResult(requestCode, resultCode, data);
     }

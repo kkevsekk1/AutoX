@@ -100,6 +100,14 @@ public class Floaty {
         mWindows.clear();
     }
 
+    public synchronized boolean checkPermission() {
+        return FloatingPermission.canDrawOverlays(mContext);
+    }
+
+    public synchronized void requestPermission() {
+        FloatingPermission.manageDrawOverlays(mContext);
+    }
+
     public interface JsWindow {
         void close(boolean removeFromWindows);
     }

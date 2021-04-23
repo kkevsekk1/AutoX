@@ -47,6 +47,10 @@ module.exports = function(runtime, global){
     
     floaty.closeAll = runtime.floaty.closeAll.bind(runtime.floaty);
 
+    floaty.checkPermission = runtime.floaty.checkPermission.bind(runtime.floaty);
+
+    floaty.requestPermission = runtime.floaty.requestPermission.bind(runtime.floaty);
+
     return floaty;
 }
 

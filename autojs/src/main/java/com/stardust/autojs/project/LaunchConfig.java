@@ -11,6 +11,12 @@ public class LaunchConfig {
     @SerializedName("hideLogs")
     private boolean mHideLogs = false;
 
+    @SerializedName("splashIcon")
+    private String splashIcon;
+
+    @SerializedName("splashText")
+    private String splashText = "Powered by Autoxjs.com";
+
     public boolean shouldHideLogs() {
         return mHideLogs;
     }
@@ -19,4 +25,19 @@ public class LaunchConfig {
         mHideLogs = hideLogs;
     }
 
+    public String getSplashIcon() {
+        return splashIcon;
+    }
+
+    public void setSplashIcon(String splashIcon) {
+        this.splashIcon = splashIcon;
+    }
+
+    public String getSplashText() {
+        return splashText;
+    }
+
+    public void setSplashText(String splashText) {
+        this.splashText = splashText;
+    }
 }
