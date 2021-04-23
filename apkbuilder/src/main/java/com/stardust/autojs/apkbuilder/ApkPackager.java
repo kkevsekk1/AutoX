@@ -1,17 +1,14 @@
 package com.stardust.autojs.apkbuilder;
 
+import android.text.TextUtils;
+
 import com.stardust.autojs.apkbuilder.util.StreamUtils;
-
-//import net.lingala.zip4j.io.inputstream.ZipInputStream;
-//import net.lingala.zip4j.model.LocalFileHeader;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -40,7 +37,7 @@ public class ApkPackager {
         ZipInputStream zis = new ZipInputStream(mApkInputStream);
         for (ZipEntry e = zis.getNextEntry(); e != null; e = zis.getNextEntry()) {
             String name = e.getName();
-            if (!e.isDirectory()) {
+            if (!e.isDirectory() && !TextUtils.isEmpty(name)) {
                 File file = new File(mWorkspacePath, name);
                 System.out.println(file);
                 file.getParentFile().mkdirs();
