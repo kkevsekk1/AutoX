@@ -42,6 +42,7 @@ public class DevPluginResponseHandler implements Handler {
     private Router mRouter = new Router.RootRouter("type")
             .handler("command", new Router("command")
                     .handler("run", data -> {
+                        //向服务器发送消息
                         String script = data.get("script").getAsString();
                         String name = getName(data);
                         String id = data.get("id").getAsString();
