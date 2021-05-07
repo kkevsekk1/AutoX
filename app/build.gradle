@@ -122,7 +122,6 @@ android {
     }
 
 }
-
 task publishApp(group: "build") {
     println "publish app"
     println "$rootDir"
@@ -143,7 +142,7 @@ task publishApp(group: "build") {
     }
 }
 task publishDevApp(group: "build") {
-    println "publish app"
+    println "publish dev app"
     println "$rootDir"
     doLast {
         exec {
