@@ -96,9 +96,9 @@ task publishApp(group: 'build') {
             //执行shell脚本
             if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
                 executable 'cmd'
-                args '/c', "node scnode.js $projectDir\\build\\outputs\\apk\\release $rootDir 22"
+                args '/c', "node scnode.js $projectDir\\build\\outputs\\apk\\release $rootDir 21"
             } else {
-                commandLine 'sh', '-c', "node scnode.js $projectDir\\build\\outputs\\apk\\release $rootDir 22"
+                commandLine 'sh', '-c', "node scnode.js $projectDir\\build\\outputs\\apk\\release $rootDir 21"
             }
         }
     }
@@ -165,9 +165,7 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     implementation 'com.fanjun:keeplive:1.1.22'
     implementation  'com.dhh:websocket2:2.1.4'
-
     implementation 'com.github.SenhLinsh:Utils-Everywhere:3.0.0'
-
     testImplementation 'junit:junit:4.13'
     implementation project(':automator')
     implementation project(':common')
