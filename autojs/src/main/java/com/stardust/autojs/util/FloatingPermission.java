@@ -7,7 +7,9 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
+
 import androidx.annotation.RequiresApi;
+
 import android.text.TextUtils;
 import android.widget.Toast;
 
@@ -79,7 +81,10 @@ public class FloatingPermission {
                 version = Integer.parseInt(matcher.group());
             }
             if (RomUtil.isMiui() && version >= 10
-                && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                manageDrawOverlaysForAndroidM(context);
+            } else if (RomUtil.isEmui() && version >= 10
+                    && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 manageDrawOverlaysForAndroidM(context);
             } else {
                 SettingsCompat.manageDrawOverlays(context);
