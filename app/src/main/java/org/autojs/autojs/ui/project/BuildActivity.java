@@ -126,6 +126,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     private ProjectConfig mProjectConfig;
     private MaterialDialog mProgressDialog;
     private String mSource;
+    private String mDirectory;
     private boolean mIsDefaultIcon = true;
     private Bitmap mIconBitmap;
     private Bitmap mSplashIconBitmap;
@@ -143,6 +144,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
         setToolbarAsBack(getString(R.string.text_build_apk));
         mSource = getIntent().getStringExtra(EXTRA_SOURCE);
         if (mSource != null) {
+            mDirectory = mSource;
             setupWithSourceFile(new ScriptFile(mSource));
         }
         checkApkBuilderPlugin();
@@ -185,15 +187,20 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     private void setSource(File file) {
         if (!file.isDirectory()) {
             mSourcePath.setText(file.getPath());
-            return;
+            mDirectory = file.getParent();
+            mProjectConfig = ProjectConfig.fromProjectDir(mDirectory);
+            mOutputPath.setText(mDirectory);
+        } else {
+            mProjectConfig = ProjectConfig.fromProjectDir(file.getPath());
+            mSourcePathContainer.setVisibility(View.GONE);
+            mOutputPath.setText(new File(mSource, mProjectConfig.getBuildDir()).getPath());
         }
-        mProjectConfig = ProjectConfig.fromProjectDir(file.getPath());
         if (mProjectConfig == null) {
             return;
         }
         mSourcePath.setText(new File(mSource, "").getPath());
-        mSourcePathContainer.setVisibility(View.GONE);
-        mOutputPath.setText(new File(mSource, mProjectConfig.getBuildDir()).getPath());
+//        mSourcePathContainer.setVisibility(View.GONE);
+//        mOutputPath.setText(new File(mSource, mProjectConfig.getBuildDir()).getPath());
 //        mAppConfig.setVisibility(View.GONE);
         mPackageName.setText(mProjectConfig.getPackageName());
         mVersionName.setText(mProjectConfig.getVersionName());
@@ -203,7 +210,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
             Glide.with(this)
                     .setDefaultRequestOptions(RequestOptions.skipMemoryCacheOf(true).
                             diskCacheStrategy(DiskCacheStrategy.NONE))
-                    .load(new File(mSource, icon))
+                    .load(new File(mDirectory, icon))
                     .into(mIcon);
         }
         // 运行配置
@@ -213,7 +220,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
             Glide.with(this)
                     .setDefaultRequestOptions(RequestOptions.skipMemoryCacheOf(true).
                             diskCacheStrategy(DiskCacheStrategy.NONE))
-                    .load(new File(mSource, splashIcon))
+                    .load(new File(mDirectory, splashIcon))
                     .into(mSplashIcon);
         }
         // 签名相关
@@ -350,12 +357,16 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
 
     private boolean syncProjectConfig() {
         if (mProjectConfig == null) {
-            new ThemeColorMaterialDialogBuilder(this)
-                    .title(R.string.text_invalid_project_config)
-                    .positiveText(R.string.ok)
-                    .dismissListener(dialogInterface -> finish())
-                    .show();
-            return false;
+//            new ThemeColorMaterialDialogBuilder(this)
+//                    .title(R.string.text_invalid_project_config)
+//                    .positiveText(R.string.ok)
+//                    .dismissListener(dialogInterface -> finish())
+//                    .show();
+//            return false;
+            mProjectConfig = new ProjectConfig();
+            if (PFiles.isFile(mSource)) {
+                mProjectConfig.setMainScriptFile(new File(mSource).getName());
+            }
         }
         mProjectConfig.setName(mAppName.getText().toString());
         mProjectConfig.setVersionCode(Integer.parseInt(mVersionCode.getText().toString()));
@@ -376,7 +387,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
 
     @SuppressLint("CheckResult")
     private Observable<String> saveIcon(Bitmap b) {
-        if (b == null) {
+        if (b == null || mProjectConfig == null) {
             return Observable.just("empty").map(s -> s).subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread());
         }
@@ -386,7 +397,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
                     if (iconPath == null) {
                         iconPath = "res/logo.png";
                     }
-                    File iconFile = new File(mSource, iconPath);
+                    File iconFile = new File(mDirectory, iconPath);
                     PFiles.ensureDir(iconFile.getPath());
                     FileOutputStream fos = new FileOutputStream(iconFile);
                     bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
@@ -401,7 +412,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
 
     @SuppressLint("CheckResult")
     private Observable<String> saveSplashIcon(Bitmap b) {
-        if (b == null) {
+        if (b == null || mProjectConfig == null) {
             return Observable.just("empty").map(s -> s).subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread());
         }
@@ -411,7 +422,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
                     if (iconPath == null) {
                         iconPath = "res/splashIcon.png";
                     }
-                    File iconFile = new File(mSource, iconPath);
+                    File iconFile = new File(mDirectory, iconPath);
                     PFiles.ensureDir(iconFile.getPath());
                     FileOutputStream fos = new FileOutputStream(iconFile);
                     bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
@@ -454,7 +465,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     }
 
     private void writeProjectConfigAndRefreshView() {
-        PFiles.write(ProjectConfig.configFileOfDir(mSource),
+        PFiles.write(ProjectConfig.configFileOfDir(mDirectory),
                 mProjectConfig.toJson());
         ExplorerFileItem item = new ExplorerFileItem(mSource, null);
         Explorers.workspace().notifyItemChanged(item, item);

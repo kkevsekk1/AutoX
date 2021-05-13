@@ -13,6 +13,7 @@ import com.stardust.autojs.project.BuildInfo;
 import com.stardust.autojs.project.ProjectConfig;
 import com.stardust.autojs.script.EncryptedScriptFileHeader;
 import com.stardust.autojs.script.JavaScriptFileSource;
+import com.stardust.pio.PFile;
 import com.stardust.pio.PFiles;
 import com.stardust.util.AdvancedEncryptionStandard;
 import com.stardust.util.MD5;
@@ -90,14 +91,20 @@ public class ApkBuilder {
                     .setSplashText(projectConfig.getLaunchConfig().getSplashText())
                     .setSourcePath(projectDir);
             if (icon != null) {
-                appConfig.setIcon(new File(projectDir, icon).getPath());
+                appConfig.setIcon(getIconPath(projectDir, icon));
             }
             if (splashIcon != null) {
-                appConfig.setSplashIcon(new File(projectDir, splashIcon).getPath());
+                appConfig.setSplashIcon(getIconPath(projectDir, splashIcon));
             }
             return appConfig;
         }
 
+        private static String getIconPath(String dir, String icon) {
+            if (PFiles.isDir(dir)) {
+                return new File(dir, icon).getPath();
+            }
+            return new File(new File(dir).getParent(), icon).getPath();
+        }
 
         public AppConfig ignoreDir(File dir) {
             ignoredDirs.add(dir);
