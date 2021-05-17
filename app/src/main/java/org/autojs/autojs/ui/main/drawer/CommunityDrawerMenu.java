@@ -35,8 +35,8 @@ public class CommunityDrawerMenu {
             new DrawerMenuItem(R.drawable.community_list, R.string.text_community_category, this::showCategories),
             mUnreadItem,
             new DrawerMenuItem(R.drawable.community_time, R.string.text_community_recent, this::showRecent),
-            new DrawerMenuItem(R.drawable.community_fire, R.string.text_community_popular, this::showPopular),
-            new DrawerMenuItem(R.drawable.community_tags, R.string.text_community_tags, this::showTags),
+//            new DrawerMenuItem(R.drawable.community_fire, R.string.text_community_popular, this::showPopular),
+//            new DrawerMenuItem(R.drawable.community_tags, R.string.text_community_tags, this::showTags),
             mLogoutItem
     ));
 

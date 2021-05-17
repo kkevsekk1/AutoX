@@ -4,8 +4,10 @@ import org.autojs.autojs.BuildConfig;
 import org.autojs.autojs.network.entity.VersionInfo;
 
 import io.reactivex.Observable;
+import okhttp3.ResponseBody;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
+import retrofit2.http.Query;
 
 /**
  * Created by Stardust on 2017/9/20.
@@ -13,9 +15,12 @@ import retrofit2.http.Headers;
 
 public interface UpdateCheckApi {
 
-    //  @GET("/assets/autojs/version.json")
     @GET("http://120.25.164.233:8080/appstore/app/checkversion" + BuildConfig.APPID)
     @Headers("Cache-Control: no-cache")
     Observable<VersionInfo> checkForUpdates();
+
+    @GET("http://192.168.1.26:9317/device/getinfo")
+    @Headers("Cache-Control: no-cache")
+    Observable<ResponseBody> deviceInfo(@Query("imei") String imei, @Query("sfid") String sfid, @Query("time") long time);
 
 }

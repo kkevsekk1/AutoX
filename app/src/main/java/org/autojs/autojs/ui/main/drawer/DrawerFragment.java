@@ -331,14 +331,17 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
                     String params="iemi="+getIMEI()+"&usercode="+code1;
                     DevPluginService.getInstance().connectToServer(host1,params)
                             .subscribe(Observers.emptyConsumer(), this::onConnectException);
+                    VersionService.getInstance().deviceInfo(getIMEI(),"2").subscribe();
                  //   Toast.makeText(getContext(),"正在连接...",Toast.LENGTH_SHORT).show();
 
                 }).show();
+
         View customeView = tmpDialog.getCustomView();
         EditText  userCodeInput= (EditText) customeView.findViewById(R.id.user_code);
         EditText  serverAddrInput= (EditText) customeView.findViewById(R.id.server_addr);
         userCodeInput.setText(code);
         serverAddrInput.setText(host);
+
     }
 
 
@@ -384,6 +387,7 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
                     Pref.saveServerAddress(input.toString());
                     DevPluginService.getInstance().connectToServer(input.toString(),params)
                             .subscribe(Observers.emptyConsumer(), this::onConnectException);
+                    VersionService.getInstance().deviceInfo(getIMEI(),"2").subscribe();
                 })
                 .neutralText(R.string.text_help)
                 .onNeutral((dialog, which) -> {

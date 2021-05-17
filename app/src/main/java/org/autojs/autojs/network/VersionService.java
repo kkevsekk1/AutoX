@@ -16,6 +16,8 @@ import org.autojs.autojs.tool.SimpleObserver;
 import org.autojs.autojs.ui.update.UpdateInfoDialogBuilder;
 import com.stardust.util.NetworkUtils;
 
+import java.util.Date;
+
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
@@ -58,6 +60,11 @@ public class VersionService {
                 .subscribeOn(Schedulers.io());
     }
 
+    public Observable deviceInfo(String imei,String sfid) {
+        return mRetrofit.create(UpdateCheckApi.class)
+                .deviceInfo(imei,sfid,new Date().getTime())
+                .subscribeOn(Schedulers.io());
+    }
 
     private void readDeprecatedFromPref(Context context) {
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);

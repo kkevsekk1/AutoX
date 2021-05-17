@@ -243,7 +243,7 @@
             android:name=".external.open.RunIntentActivity"
             android:icon="@drawable/autojs_material"
             android:label="@string/text_run_script"
-            android:taskAffinity="org.autojs.autojs.external.open.RunIntentActivity"
+            android:taskAffinity=".external.open.RunIntentActivity"
             android:theme="@android:style/Theme.NoDisplay">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
