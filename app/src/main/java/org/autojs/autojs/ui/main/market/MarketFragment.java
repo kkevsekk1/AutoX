@@ -33,7 +33,7 @@ public class MarketFragment extends ViewPagerFragment implements BackPressedHand
     EWebView mEWebView;
     WebView mWebView;
 
-    private String mIndexUrl;
+    private String  mIndexUrl = "http://xcx.ar01.cn/market";
     private String mPreviousQuery;
 
 
@@ -67,7 +67,7 @@ public class MarketFragment extends ViewPagerFragment implements BackPressedHand
     }
 
     private void loadUrl() {
-        mIndexUrl = "http://192.168.1.101";
+
         mWebView.loadUrl(mIndexUrl);
     }
 
