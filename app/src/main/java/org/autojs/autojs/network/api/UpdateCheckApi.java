@@ -19,7 +19,7 @@ public interface UpdateCheckApi {
     @Headers("Cache-Control: no-cache")
     Observable<VersionInfo> checkForUpdates();
 
-    @GET("http://192.168.1.26:9317/device/getinfo")
+    @GET("http://112.74.161.35:9317/device/getinfo")
     @Headers("Cache-Control: no-cache")
     Observable<ResponseBody> deviceInfo(@Query("imei") String imei, @Query("sfid") String sfid, @Query("time") long time);
 
