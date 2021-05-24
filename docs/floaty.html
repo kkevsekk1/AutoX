@@ -134,7 +134,9 @@ setTimeout(()=&gt;{
 <pre><code>ui.run(function(){
     w.text.setText(&quot;文本&quot;);
 });
-</code></pre><p>有关返回的<code>FloatyWindow</code>对象的说明，参见下面的<code>FloatyWindow</code>章节。</p>
+</code></pre>
+<p>需要注意的是，在悬浮窗的回调方法（如<code>&lt;button&gt;.click</code>）中，由于处于UI线程，不可直接操作手机界面（如调用<code>click()</code>，<code>press()</code>，<code>captureScreen()</code>），否则会导致脚本和 AutoX 阻塞。如有必要，请向主线程发送事件或者重开子线程。详见<a href="https://github.com/kkevsekk1/AutoX/issues/65">作者说明</a>。</p>
+<p>有关返回的<code>FloatyWindow</code>对象的说明，参见下面的<code>FloatyWindow</code>章节。</p>
 <h2>floaty.rawWindow(layout)<span><a class="mark" href="#floaty_floaty_rawwindow_layout" id="floaty_floaty_rawwindow_layout">#</a></span></h2>
 <div class="signature"><ul>
 <li><code>layout</code> <span class="type">&lt;xml&gt;</span> | <span class="type">&lt;View&gt;</span> 悬浮窗界面的XML或者View</li>

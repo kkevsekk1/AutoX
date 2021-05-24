@@ -196,6 +196,8 @@
 
 //脚本的其他代码
 </code></pre><p>字符串&quot;ui&quot;的前面可以有注释、空行和空格<strong>[v4.1.0新增]</strong>，但是不能有其他代码。</p>
+<p>需要注意的是，在UI控件的回调方法（如<code>&lt;button&gt;.click</code>）中，由于处于UI线程，不可直接操作手机界面（如调用<code>click()</code>，<code>press()</code>，<code>captureScreen()</code>），否则会导致脚本和 AutoX 阻塞。如有必要，请向主线程发送事件或者重开子线程。详见<a href="https://github.com/kkevsekk1/AutoX/issues/65">作者说明</a>。</p>
+
 <p>界面是由视图(View)组成的。View分成两种，控件(Widget)和布局(Layout)。控件(Widget)用来具体显示文字、图片、网页等，比如文本控件(text)用来显示文字，按钮控件(button)则可以显示一个按钮并提供点击效果，图片控件(img)则用来显示来自网络或者文件的图片，除此之外还有输入框控件(input)、进度条控件(progressbar)、单选复选框控件(checkbox)等；布局(Layout)则是装着一个或多个控件的&quot;容器&quot;，用于控制在他里面的控件的位置，比如垂直布局(vertical)会把他里面的控件从上往下依次显示(即纵向排列)，水平布局(horizontal)则会把他里面的控件从左往右依次显示(即横向排列)，以及帧布局(frame)，他会把他里面的控件直接在左上角显示，如果有多个控件，后面的控件会重叠在前面的控件上。</p>
 <p>我们使用xml来编写界面，并通过<code>ui.layout()</code>函数指定界面的布局xml。举个例子：</p>
 <pre><code>&quot;ui&quot;;
