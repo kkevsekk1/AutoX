@@ -45,7 +45,7 @@ public class VersionGuard {
                     @Override
                     public void onNext(@io.reactivex.annotations.NonNull VersionInfo versionInfo) {
                         if (mVersionService.isCurrentVersionDeprecated()) {
-                            showDeprecatedDialogIfNeeded();
+                            showUpdateInfoIfNeeded(versionInfo);
                         } else {
                             showUpdateInfoIfNeeded(versionInfo);
                         }

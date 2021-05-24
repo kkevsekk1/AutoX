@@ -121,12 +121,7 @@ public class VersionService {
     }
 
     private void setVersionInfo(VersionInfo result) {
-        mDeprecated = BuildConfig.VERSION_CODE <= result.versionCode-10;
         mVersionInfo = result;
-        if (mDeprecated) {
-            mSharedPreferences.edit().putBoolean(KEY_DEPRECATED, mDeprecated)
-                    .putInt(KEY_DEPRECATED_VERSION_CODE, BuildConfig.VERSION_CODE)
-                    .apply();
-        }
+
     }
 }
