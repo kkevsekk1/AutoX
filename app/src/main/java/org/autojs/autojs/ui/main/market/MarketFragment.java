@@ -1,5 +1,6 @@
 package org.autojs.autojs.ui.main.market;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -8,6 +9,7 @@ import android.webkit.WebView;
 import androidx.annotation.Nullable;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.stardust.autojs.script.StringScriptSource;
 import com.stardust.util.BackPressedHandler;
 
 import org.androidannotations.annotations.AfterViews;
@@ -15,6 +17,7 @@ import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 import org.autojs.autojs.Pref;
 import org.autojs.autojs.R;
+import org.autojs.autojs.model.script.Scripts;
 import org.autojs.autojs.ui.main.QueryEvent;
 import org.autojs.autojs.ui.main.ViewPagerFragment;
 import org.autojs.autojs.ui.widget.EWebView;
@@ -32,6 +35,7 @@ public class MarketFragment extends ViewPagerFragment implements BackPressedHand
     @ViewById(R.id.eweb_view)
     EWebView mEWebView;
     WebView mWebView;
+     MarketJavascriptInterface javascriptInterface = new MarketJavascriptInterface();
 
     private String  mIndexUrl = "http://xcx.ar01.cn/market";
     private String mPreviousQuery;
@@ -51,6 +55,7 @@ public class MarketFragment extends ViewPagerFragment implements BackPressedHand
     @AfterViews
     void setUpViews() {
         mWebView = mEWebView.getWebView();
+
         mEWebView.getSwipeRefreshLayout().setOnRefreshListener(() -> {
             if (TextUtils.equals(mWebView.getUrl(), mIndexUrl)) {
                 loadUrl();
@@ -67,8 +72,10 @@ public class MarketFragment extends ViewPagerFragment implements BackPressedHand
     }
 
     private void loadUrl() {
-
         mWebView.loadUrl(mIndexUrl);
+        //window.android.runScript()
+        mWebView.addJavascriptInterface(javascriptInterface,"android");
+
     }
 
 
