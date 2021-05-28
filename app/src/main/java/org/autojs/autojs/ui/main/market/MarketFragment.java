@@ -4,17 +4,20 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import androidx.annotation.Nullable;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.stardust.app.GlobalAppContext;
 import com.stardust.autojs.script.StringScriptSource;
 import com.stardust.util.BackPressedHandler;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
+import org.autojs.autojs.App;
 import org.autojs.autojs.Pref;
 import org.autojs.autojs.R;
 import org.autojs.autojs.model.script.Scripts;
@@ -35,15 +38,18 @@ public class MarketFragment extends ViewPagerFragment implements BackPressedHand
     @ViewById(R.id.eweb_view)
     EWebView mEWebView;
     WebView mWebView;
-     MarketJavascriptInterface javascriptInterface = new MarketJavascriptInterface();
 
-    private String  mIndexUrl = "http://xcx.ar01.cn/market";
+     MarketJavascriptInterface javascriptInterface ;
+
+    private String  mIndexUrl = "http://192.168.1.26:8080/pages/feature/index";
+//    private String  mIndexUrl = "http://xcx.ar01.cn/market";
     private String mPreviousQuery;
 
 
     public MarketFragment() {
         super(ROTATION_GONE);
         setArguments(new Bundle());
+        javascriptInterface = new MarketJavascriptInterface(GlobalAppContext.get());
     }
 
     @Override
@@ -54,8 +60,9 @@ public class MarketFragment extends ViewPagerFragment implements BackPressedHand
 
     @AfterViews
     void setUpViews() {
-        mWebView = mEWebView.getWebView();
-
+        mWebView =  mEWebView.getWebView();
+        WebSettings  settings  = mWebView.getSettings();
+        settings.setJavaScriptEnabled(true);
         mEWebView.getSwipeRefreshLayout().setOnRefreshListener(() -> {
             if (TextUtils.equals(mWebView.getUrl(), mIndexUrl)) {
                 loadUrl();
@@ -73,7 +80,7 @@ public class MarketFragment extends ViewPagerFragment implements BackPressedHand
 
     private void loadUrl() {
         mWebView.loadUrl(mIndexUrl);
-        //window.android.runScript()
+//        window.android.runScript()
         mWebView.addJavascriptInterface(javascriptInterface,"android");
 
     }

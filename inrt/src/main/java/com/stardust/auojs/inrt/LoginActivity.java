@@ -160,9 +160,6 @@ public class LoginActivity extends AppCompatActivity {
 
     @SuppressLint("MissingPermission")
     private String getIMEI() {
-        //  if (checkPermission()) {
-        //     return "错误数据";
-        // }
         String deviceId = null;
         TelephonyManager tm = (TelephonyManager) this.getApplication().getSystemService(TELEPHONY_SERVICE);
         deviceId = tm.getDeviceId();
