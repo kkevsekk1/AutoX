@@ -138,6 +138,9 @@ public class ConsoleImpl extends AbstractConsole {
         if (mLogListener != null && mLogListener.get() != null) {
             mLogListener.get().onNewLog(logEntry);
         }
+        if(mLogEntries.size()>300){
+            clear();
+        }
         return null;
     }
 
