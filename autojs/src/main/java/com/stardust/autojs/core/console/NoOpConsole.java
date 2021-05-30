@@ -70,6 +70,11 @@ public class NoOpConsole implements Console {
     }
 
     @Override
+    public void setMaxLines(int maxLines) {
+
+    }
+
+    @Override
     public String println(int level, CharSequence charSequence) {
 
         return null;

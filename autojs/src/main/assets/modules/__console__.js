@@ -86,6 +86,7 @@ module.exports = function (runtime, scope) {
     console.setBackgroud = rtConsole.setBackgroud.bind(rtConsole);
     console.setCanInput = rtConsole.setCanInput.bind(rtConsole);
     console.setLogSize = rtConsole.setLogSize.bind(rtConsole);
+    console.setMaxLines = rtConsole.setMaxLines.bind(rtConsole);
 
     scope.print = console.print.bind(console);
     scope.log = console.log.bind(console);

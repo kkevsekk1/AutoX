@@ -34,6 +34,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ConsoleImpl extends AbstractConsole {
 
+    private int maxLines=-1;
     public static class LogEntry implements Comparable<LogEntry> {
 
         public int id;
@@ -138,7 +139,7 @@ public class ConsoleImpl extends AbstractConsole {
         if (mLogListener != null && mLogListener.get() != null) {
             mLogListener.get().onNewLog(logEntry);
         }
-        if(mLogEntries.size()>300){
+        if(maxLines>0&& mLogEntries.size()>maxLines){
             clear();
         }
         return null;
@@ -263,6 +264,11 @@ public class ConsoleImpl extends AbstractConsole {
                 mShown = false;
             }
         });
+    }
+
+    @Override
+    public void setMaxLines(int maxLines) {
+        this.maxLines =maxLines;
     }
 
 
