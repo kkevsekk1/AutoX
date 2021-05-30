@@ -8,6 +8,8 @@ import com.stardust.auojs.inrt.LogActivity
 import com.stardust.auojs.inrt.Pref
 import com.stardust.auojs.inrt.R
 import com.stardust.auojs.inrt.SettingsActivity
+import com.stardust.auojs.inrt.pluginclient.DevPluginService
+import com.stardust.autojs.core.console.GlobalConsole
 import com.stardust.autojs.runtime.ScriptRuntime
 import com.stardust.autojs.runtime.api.AppUtils
 import com.stardust.autojs.runtime.exception.ScriptException
@@ -74,6 +76,16 @@ class AutoJs private constructor(application: Application) : com.stardust.autojs
             AccessibilityServiceTool.goToAccessibilitySetting()
             if (!AccessibilityService.waitForEnabled(-1)) {
                 throw ScriptInterruptedException()
+            }
+        }
+    }
+
+    override fun createGlobalConsole(): GlobalConsole {
+        return object : GlobalConsole(uiHandler) {
+            override fun println(level: Int, charSequence: CharSequence): String {
+                val log = super.println(level, charSequence)
+                DevPluginService.getInstance().log(log)
+                return log
             }
         }
     }

@@ -15,6 +15,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import com.stardust.app.GlobalAppContext;
+import com.stardust.auojs.inrt.BuildConfig;
 import com.stardust.auojs.inrt.Pref;
 import com.stardust.util.MapBuilder;
 
@@ -44,6 +45,7 @@ public class DevPluginService {
     private static final long HANDSHAKE_TIMEOUT = 10 * 1000;
     private static String tmpMessageId = "";
     private static String tmpHost;
+    private boolean debug=false;
 
     public static class State {
 
@@ -256,19 +258,28 @@ public class DevPluginService {
                 .put("device_name", Build.BRAND + " " + Build.MODEL)
                 .put("usercode",usercode)
                 .put("client_version", CLIENT_VERSION)
-                .put("app_version", "4.1")
-                .put("app_version_code", "固定值")
+                .put("app_version", BuildConfig.VERSION_NAME)
+                .put("app_version_code",  BuildConfig.VERSION_CODE)
                 .build());
 
     }
-
-
     @MainThread
     private void onServerHello(JsonWebSocket jsonWebSocket, JsonObject message) {
         Log.i(LOG_TAG, "onServerHello: " + message);
-        String msg = message.get("data").getAsString();
+        String msg=null;
+        try {
+            msg = message.get("data").getAsString();
+        }catch (Exception e){
+        }
         if("连接中...".equals(msg)){
             sayHelloToServer(Integer.parseInt(Pref.getCode("-1")));
+        }
+        try{
+        if(!message.get("debug").isJsonNull()){
+                boolean debug = message.get("debug").getAsBoolean();
+                this.debug =debug;
+            }
+        }catch (Exception e){
         }
         mSocket = jsonWebSocket;
         mConnectionState.onNext(new State(State.CONNECTED, new SocketTimeoutException(msg)));
@@ -316,8 +327,11 @@ public class DevPluginService {
     @SuppressLint("CheckResult")
     @AnyThread
     public void log(String log) {
-        if (!isConnected())
+        if (!isConnected()){
             return;
-      //  writePair(mSocket, "log", new Pair<>("log", log));
+        }
+        if(debug){
+            writePair(mSocket, "log", new Pair<>("log", log));
+        }
     }
 }
