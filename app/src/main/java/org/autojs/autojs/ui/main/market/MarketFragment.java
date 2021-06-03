@@ -1,26 +1,20 @@
 package org.autojs.autojs.ui.main.market;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import androidx.annotation.Nullable;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.stardust.app.GlobalAppContext;
-import com.stardust.autojs.script.StringScriptSource;
 import com.stardust.util.BackPressedHandler;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
-import org.autojs.autojs.App;
-import org.autojs.autojs.Pref;
 import org.autojs.autojs.R;
-import org.autojs.autojs.model.script.Scripts;
 import org.autojs.autojs.ui.main.QueryEvent;
 import org.autojs.autojs.ui.main.ViewPagerFragment;
 import org.autojs.autojs.ui.widget.EWebView;
@@ -30,18 +24,16 @@ import org.greenrobot.eventbus.Subscribe;
 /**
  * Created by Stardust on 2017/8/22.
  */
-@EFragment(R.layout.fragment_online_docs)
+@EFragment(R.layout.fragment_market)
 public class MarketFragment extends ViewPagerFragment implements BackPressedHandler {
 
-    public static final String ARGUMENT_URL = "url";
-
-    @ViewById(R.id.eweb_view)
+    @ViewById(R.id.eweb_view_market)
     EWebView mEWebView;
     WebView mWebView;
 
      MarketJavascriptInterface javascriptInterface ;
 
-    private String  mIndexUrl = "http://192.168.1.26:8080/pages/feature/index";
+    private String  mIndexUrl = "http://192.168.1.26:8080/pages/controlMine/controlMine";
 //    private String  mIndexUrl = "http://xcx.ar01.cn/market";
     private String mPreviousQuery;
 
@@ -61,14 +53,13 @@ public class MarketFragment extends ViewPagerFragment implements BackPressedHand
     @AfterViews
     void setUpViews() {
         mWebView =  mEWebView.getWebView();
-        WebSettings  settings  = mWebView.getSettings();
-        settings.setJavaScriptEnabled(true);
         mEWebView.getSwipeRefreshLayout().setOnRefreshListener(() -> {
             if (TextUtils.equals(mWebView.getUrl(), mIndexUrl)) {
                 loadUrl();
             } else {
                 mEWebView.onRefresh();
             }
+            mWebView.addJavascriptInterface(javascriptInterface,"android");
         });
         Bundle savedWebViewState = getArguments().getBundle("savedWebViewState");
         if (savedWebViewState != null) {
@@ -76,13 +67,11 @@ public class MarketFragment extends ViewPagerFragment implements BackPressedHand
         } else {
             loadUrl();
         }
+        mWebView.addJavascriptInterface(javascriptInterface,"android");
     }
 
     private void loadUrl() {
         mWebView.loadUrl(mIndexUrl);
-//        window.android.runScript()
-        mWebView.addJavascriptInterface(javascriptInterface,"android");
-
     }
 
 

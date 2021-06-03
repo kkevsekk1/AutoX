@@ -17,9 +17,8 @@ public class MarketJavascriptInterface {
     Context context;
 
     @android.webkit.JavascriptInterface
-    public void runScript(String code,String params,String name) {
+    public void runScript(String code,String name) {
         System.out.println(code);
-        System.out.println(params);
         Scripts.INSTANCE.run(new StringScriptSource( name, code));
     }
 
