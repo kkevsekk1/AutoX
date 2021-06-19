@@ -184,6 +184,7 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
                 new DrawerMenuGroup(R.string.text_script_record),
                 mFloatingWindowItem,
                 new DrawerMenuItem(R.drawable.ic_volume, R.string.text_volume_down_control, R.string.key_use_volume_control_record, null),
+                new DrawerMenuItem(R.drawable.ic_backup_black_48dp, R.string.text_auto_back, R.string.key_auto_back, null),
 
                 new DrawerMenuGroup(R.string.text_others),
                 new DrawerMenuItem(R.drawable.ic_personalize, R.string.regist, this::regist),

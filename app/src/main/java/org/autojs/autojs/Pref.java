@@ -138,6 +138,10 @@ public class Pref {
         return def().getBoolean(KEY_FLOATING_MENU_SHOWN, false);
     }
 
+    public static boolean isAutoBack() {
+        return def().getBoolean(getString(R.string.key_auto_back), true);
+    }
+
     public static void setFloatingMenuShown(boolean checked) {
         def().edit().putBoolean(KEY_FLOATING_MENU_SHOWN, checked).apply();
     }
@@ -187,5 +191,7 @@ public class Pref {
     public static String getCode(String defValue) {
         return def().getString("user_code", defValue);
     }
+
+
 
 }

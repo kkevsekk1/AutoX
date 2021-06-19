@@ -68,6 +68,7 @@
     <string name="text_use_volume_control_record">使用音量下键控制</string>
     <string name="summary_use_volume_control_record">开启悬浮窗后每次音量下键会开始或停止脚本录制</string>
     <string name="key_use_volume_control_record">key_use_volume_control_record</string>
+    <string name="key_auto_back">key_auto_back</string>
     <string name="text_mobile_qq_not_installed">未安装手机QQ</string>
     <string name="text_edit">编辑</string>
     <string name="key_max_length_for_code_completion">key_max_length_for_code_completion</string>
@@ -175,6 +176,7 @@
     <string name="text_manage">管理</string>
     <string name="not_login">未登录</string>
     <string name="text_volume_down_control">音量下键控制</string>
+    <string name="text_auto_back">自动备份脚本</string>
     <string name="text_others">其他</string>
     <string name="text_import">导入</string>
     <string name="text_click_too_frequently">您的操作太快啦ヽ(#`Д´)ﾉ</string>
