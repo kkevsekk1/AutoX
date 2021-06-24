@@ -35,6 +35,22 @@
         android:text="注册"
         />
     <Button
+        android:id="@+id/reconnect"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24dp"
+        android:text="重连"
+        />
+    <Button
+        android:id="@+id/ykapp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24dp"
+        android:text="运行脚本"
+        />
+    <Button
         android:id="@+id/setting"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"

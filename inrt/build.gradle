@@ -23,8 +23,8 @@ android {
         versionName versions.appVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
-//        buildConfigField "boolean","isMarket","true" // 这是有注册码的版本
-        buildConfigField "boolean","isMarket","false"
+        buildConfigField "boolean","isMarket","true" // 这是有注册码的版本
+//        buildConfigField "boolean","isMarket","false"
     }
     lintOptions {
         abortOnError false
