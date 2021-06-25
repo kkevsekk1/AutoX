@@ -40,6 +40,9 @@ open class AssetsProjectLauncher(private val mAssetsProjectDir: String, private 
     }
 
     fun launch(activity: Activity) {
+        if (mProjectConfig.launchConfig.isStableMode) {
+            Pref.setStableMode(mProjectConfig.launchConfig.isStableMode);
+        }
         //如果需要隐藏日志界面，则直接运行脚本
         if (mProjectConfig.launchConfig.shouldHideLogs()) {
             runScript(activity)
