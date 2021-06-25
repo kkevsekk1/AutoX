@@ -129,6 +129,10 @@ public class Pref {
         return def().getBoolean(getString(R.string.key_stable_mode), false);
     }
 
+    public static boolean isSingleBuildCleanModeEnabled() {
+        return def().getBoolean(getString(R.string.key_single_build_clean_mode), true);
+    }
+
     public static String getDocumentationUrl() {
 //        String docSource = def().getString(getString(R.string.key_documentation_source), null);
             return "http://doc.autoxjs.com/";

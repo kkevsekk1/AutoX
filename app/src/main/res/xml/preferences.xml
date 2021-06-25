@@ -93,6 +93,13 @@
         android:layout="@layout/preference_category_custom"
         android:title="@string/text_others">
 
+        <com.stardust.theme.preference.ThemeColorSwitchPreference
+            android:defaultValue="true"
+            android:key="@string/key_single_build_clean_mode"
+            android:layout="@layout/preference_custom"
+            android:summary="@string/summary_single_build_clean_mode"
+            android:title="@string/text_single_build_clean_mode"/>
+
         <com.afollestad.materialdialogs.prefs.MaterialListPreference
             android:entries="@array/keys_documentation_source"
             android:entryValues="@array/values_documentation_source"
