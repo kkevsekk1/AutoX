@@ -10,73 +10,81 @@ import com.stardust.app.GlobalAppContext;
 import java.io.File;
 
 public class Pref {
-    private static String  KEY_FIRST_USING = "key_first_using";
+    private static String KEY_FIRST_USING = "key_first_using";
+
     private static SharedPreferences def() {
         return PreferenceManager.getDefaultSharedPreferences(GlobalAppContext.get());
     }
 
- public static boolean isFirstUsing() {
-        boolean firstUsing =  def().getBoolean(KEY_FIRST_USING, true);
+    public static boolean isFirstUsing() {
+        boolean firstUsing = def().getBoolean(KEY_FIRST_USING, true);
         if (firstUsing) {
             def().edit().putBoolean(KEY_FIRST_USING, false).apply();
         }
         return firstUsing;
     }
 
-    private  static String getString(int res) {
+    private static String getString(int res) {
         return GlobalAppContext.getString(res);
     }
 
+    public static void setStableMode(boolean stableMode) {
+        def().edit().putBoolean(getString(R.string.key_stable_mode), stableMode).apply();
+    }
+
     public static boolean shouldEnableAccessibilityServiceByRoot() {
-        return  def().getBoolean(getString(R.string.key_enable_accessibility_service_by_root), false);
+        return def().getBoolean(getString(R.string.key_enable_accessibility_service_by_root), false);
     }
 
     public static boolean shouldEnableAccessibilityService() {
-        return  def().getBoolean(getString(R.string.key_enable_accessibility_service), false);
-    }
-    public static boolean shouldEnableFloatingWindow() {
-        return  def().getBoolean(getString(R.string.key_enable_floating_window), false);
+        return def().getBoolean(getString(R.string.key_enable_accessibility_service), false);
     }
 
-    public static boolean  shouldStopAllScriptsWhenVolumeUp() {
-        return  def().getBoolean(getString(R.string.key_use_volume_control_running), true);
+    public static boolean shouldEnableFloatingWindow() {
+        return def().getBoolean(getString(R.string.key_enable_floating_window), false);
+    }
+
+    public static boolean shouldStopAllScriptsWhenVolumeUp() {
+        return def().getBoolean(getString(R.string.key_use_volume_control_running), true);
     }
 
     public static String getScriptDirPath() {
-         String dir ="/脚本/";
-        return  new File(Environment.getExternalStorageDirectory(), dir).getPath();
+        String dir = "/脚本/";
+        return new File(Environment.getExternalStorageDirectory(), dir).getPath();
     }
 
 
-    public static void setCode( String value) {
-        def().edit().putString("user_code",value).apply();
+    public static void setCode(String value) {
+        def().edit().putString("user_code", value).apply();
     }
 
-    public static String getCode( String defValue)  {
-        return  def().getString("user_code", defValue);
+    public static String getCode(String defValue) {
+        return def().getString("user_code", defValue);
     }
 
-    public static void setHost( String value) {
-        def().edit().putString("user_host",value).apply();
-    }
-    public static String getHost( String defValue)  {
-        return  def().getString("user_host", defValue);
+    public static void setHost(String value) {
+        def().edit().putString("user_host", value).apply();
     }
 
-    public static void setImei( String value) {
-        def().edit().putString("user_imei",value).apply();
+    public static String getHost(String defValue) {
+        return def().getString("user_host", defValue);
     }
-    public static String getImei( String defValue)  {
-        return  def().getString("user_imei", defValue);
+
+    public static void setImei(String value) {
+        def().edit().putString("user_imei", value).apply();
+    }
+
+    public static String getImei(String defValue) {
+        return def().getString("user_imei", defValue);
     }
 
 
     public static String getStatus(String defValue) {
-        return  def().getString("user_status", defValue);
+        return def().getString("user_status", defValue);
     }
 
     public static void setStatus(String defValue) {
-        def().edit().putString("user_status",defValue).apply();
+        def().edit().putString("user_status", defValue).apply();
     }
 
 }

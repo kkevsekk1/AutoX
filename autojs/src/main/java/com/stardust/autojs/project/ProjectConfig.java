@@ -113,9 +113,16 @@ public class ProjectConfig {
         return fromFile(configFileOfDir(path));
     }
 
+    public static ProjectConfig fromProjectDir(String path, String configName) {
+        return fromFile(configFileOfDir(path, configName));
+    }
 
     public static String configFileOfDir(String projectDir) {
         return PFiles.join(projectDir, CONFIG_FILE_NAME);
+    }
+
+    public static String configFileOfDir(String projectDir, String configName) {
+        return PFiles.join(projectDir, configName);
     }
 
     public BuildInfo getBuildInfo() {
