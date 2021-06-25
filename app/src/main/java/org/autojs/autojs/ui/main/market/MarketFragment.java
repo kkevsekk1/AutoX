@@ -33,8 +33,7 @@ public class MarketFragment extends ViewPagerFragment implements BackPressedHand
 
      MarketJavascriptInterface javascriptInterface ;
 
-    private String  mIndexUrl = "http://192.168.1.26:8080/pages/controlMine/controlMine";
-//    private String  mIndexUrl = "http://xcx.ar01.cn/market";
+    private String  mIndexUrl = "http://xcx.ar01.cn/pages/controlMine/controlMine";
     private String mPreviousQuery;
 
 
