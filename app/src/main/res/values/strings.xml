@@ -224,6 +224,7 @@
     <string name="text_version_name">版本名称</string>
     <string name="text_version_code">版本号</string>
     <string name="text_run_config">运行配置</string>
+    <string name="text_hideLogs">隐藏日志</string>
     <string name="text_splash_text">启动界面文本</string>
     <string name="text_splash_icon">启动界面图标</string>
     <string name="text_sign">签名</string>

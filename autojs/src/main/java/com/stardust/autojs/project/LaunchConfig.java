@@ -11,6 +11,9 @@ public class LaunchConfig {
     @SerializedName("hideLogs")
     private boolean mHideLogs = false;
 
+    @SerializedName("stableMode")
+    private boolean stableMode = false;
+
     @SerializedName("splashIcon")
     private String splashIcon;
 
@@ -23,6 +26,14 @@ public class LaunchConfig {
 
     public void setHideLogs(boolean hideLogs) {
         mHideLogs = hideLogs;
+    }
+
+    public boolean isStableMode() {
+        return stableMode;
+    }
+
+    public void setStableMode(boolean stableMode) {
+        this.stableMode = stableMode;
     }
 
     public String getSplashIcon() {

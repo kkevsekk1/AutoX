@@ -58,6 +58,7 @@ import org.autojs.autojs.ui.project.SignManageActivity_;
 import org.autojs.autojs.ui.filechooser.FileChooserDialogBuilder;
 import org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity;
 import org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity_;
+import org.autojs.autojs.ui.widget.CheckBoxCompat;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -67,6 +68,8 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.regex.Pattern;
 
+import butterknife.BindView;
+import butterknife.OnCheckedChanged;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -110,6 +113,15 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
 
     @ViewById(R.id.icon)
     ImageView mIcon;
+
+    @ViewById(R.id.main_file_name)
+    EditText mMainFileName;
+
+    @ViewById(R.id.default_stable_mode)
+    CheckBoxCompat mStableMode;
+
+    @ViewById(R.id.default_hideLogs)
+    CheckBoxCompat mHideLogs;
 
     @ViewById(R.id.app_splash_text)
     EditText mSplashText;
@@ -214,6 +226,9 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
                     .into(mIcon);
         }
         // 运行配置
+        mMainFileName.setText(mProjectConfig.getMainScriptFile());
+        mStableMode.setChecked(mProjectConfig.getLaunchConfig().isStableMode());
+        mHideLogs.setChecked(mProjectConfig.getLaunchConfig().shouldHideLogs());
         mSplashText.setText(mProjectConfig.getLaunchConfig().getSplashText());
         String splashIcon = mProjectConfig.getLaunchConfig().getSplashIcon();
         if (splashIcon != null) {
@@ -253,6 +268,20 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     void selectSplashIcon() {
         ShortcutIconSelectActivity_.intent(this)
                 .startForResult(REQUEST_CODE_SPLASH_ICON);
+    }
+
+    @OnCheckedChanged(R.id.default_stable_mode)
+    void onStableModeCheckedChanged() {
+        if (mProjectConfig != null) {
+            mProjectConfig.getLaunchConfig().setStableMode(mStableMode.isChecked());
+        }
+    }
+
+    @OnCheckedChanged(R.id.default_hideLogs)
+    void onHideLogsCheckedChanged() {
+        if (mProjectConfig != null) {
+            mProjectConfig.getLaunchConfig().setHideLogs(mHideLogs.isChecked());
+        }
     }
 
     @Click(R.id.sign_choose)
@@ -371,9 +400,10 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
         mProjectConfig.setName(mAppName.getText().toString());
         mProjectConfig.setVersionCode(Integer.parseInt(mVersionCode.getText().toString()));
         mProjectConfig.setVersionName(mVersionName.getText().toString());
-//        mProjectConfig.setMainScriptFile(mMainFileName.getText().toString());
         mProjectConfig.setPackageName(mPackageName.getText().toString());
-        //mProjectConfig.getLaunchConfig().setHideLogs(true);
+        mProjectConfig.setMainScriptFile(mMainFileName.getText().toString());
+        mProjectConfig.getLaunchConfig().setStableMode(mStableMode.isChecked());
+        mProjectConfig.getLaunchConfig().setHideLogs(mHideLogs.isChecked());
         mProjectConfig.getLaunchConfig().setSplashText(mSplashText.getText().toString());
         if (mKeyStore != null) {
             mProjectConfig.getSigningConfig().setKeyStore(mKeyStore.getPath());

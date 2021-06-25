@@ -265,6 +265,31 @@
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:hint="@string/text_main_file_name">
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/main_file_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/default_main_file_name" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <org.autojs.autojs.ui.widget.CheckBoxCompat
+                            android:id="@+id/default_stable_mode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_stable_mode" />
+
+                        <org.autojs.autojs.ui.widget.CheckBoxCompat
+                            android:id="@+id/default_hideLogs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_hideLogs" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:hint="@string/text_splash_text">
 
                             <androidx.appcompat.widget.AppCompatEditText
