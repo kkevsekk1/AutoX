@@ -140,11 +140,14 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     private String mSource;
     private String mDirectory;
     private boolean mIsDefaultIcon = true;
+    private boolean mIsDefaultSplashIcon = true;
     private Bitmap mIconBitmap;
     private Bitmap mSplashIconBitmap;
     // 签名相关
     private ArrayList<ApkKeyStore> mKeyStoreList;
     private ApkKeyStore mKeyStore;
+    // 单文件打包清爽模式
+    private boolean mSingleBuildCleanMode = true;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -155,6 +158,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     void setupViews() {
         setToolbarAsBack(getString(R.string.text_build_apk));
         mSource = getIntent().getStringExtra(EXTRA_SOURCE);
+        mSingleBuildCleanMode = Pref.isSingleBuildCleanModeEnabled();
         if (mSource != null) {
             mDirectory = mSource;
             setupWithSourceFile(new ScriptFile(mSource));
@@ -200,7 +204,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
         if (!file.isDirectory()) {
             mSourcePath.setText(file.getPath());
             mDirectory = file.getParent();
-            mProjectConfig = ProjectConfig.fromProjectDir(mDirectory);
+            mProjectConfig = ProjectConfig.fromProjectDir(mDirectory, getSourceJsonName());
             mOutputPath.setText(mDirectory);
         } else {
             mProjectConfig = ProjectConfig.fromProjectDir(file.getPath());
@@ -425,18 +429,25 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
                 .map(bitmap -> {
                     String iconPath = mProjectConfig.getIcon();
                     if (iconPath == null) {
-                        iconPath = "res/logo.png";
+                        iconPath = getSourceIconPath("logo");
                     }
-                    File iconFile = new File(mDirectory, iconPath);
-                    PFiles.ensureDir(iconFile.getPath());
-                    FileOutputStream fos = new FileOutputStream(iconFile);
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
-                    fos.close();
+                    // 没有开启清爽模式或者不是单文件
+                    if (!mSingleBuildCleanMode || !isSingleFile()) {
+                        File iconFile = new File(mDirectory, iconPath);
+                        PFiles.ensureDir(iconFile.getPath());
+                        FileOutputStream fos = new FileOutputStream(iconFile);
+                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+                        fos.close();
+                    }
                     return iconPath;
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnNext(iconPath -> mProjectConfig.setIcon(iconPath));
+                .doOnNext(iconPath -> {
+                    if (!mSingleBuildCleanMode || !isSingleFile()) {
+                        mProjectConfig.setIcon(iconPath);
+                    }
+                });
 
     }
 
@@ -450,19 +461,33 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
                 .map(bitmap -> {
                     String iconPath = mProjectConfig.getLaunchConfig().getSplashIcon();
                     if (iconPath == null) {
-                        iconPath = "res/splashIcon.png";
+                        iconPath = getSourceIconPath("splashIcon");
                     }
-                    File iconFile = new File(mDirectory, iconPath);
-                    PFiles.ensureDir(iconFile.getPath());
-                    FileOutputStream fos = new FileOutputStream(iconFile);
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
-                    fos.close();
+                    // 没有开启清爽模式或者不是单文件
+                    if (!mSingleBuildCleanMode || !isSingleFile()) {
+                        File iconFile = new File(mDirectory, iconPath);
+                        PFiles.ensureDir(iconFile.getPath());
+                        FileOutputStream fos = new FileOutputStream(iconFile);
+                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+                        fos.close();
+                    }
                     return iconPath;
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnNext(iconPath -> mProjectConfig.getLaunchConfig().setSplashIcon(iconPath));
+                .doOnNext(iconPath -> {
+                    if (!mSingleBuildCleanMode || !isSingleFile()) {
+                        mProjectConfig.getLaunchConfig().setSplashIcon(iconPath);
+                    }
+                });
 
+    }
+
+    private String getSourceIconPath(String iconName) {
+        if (isSingleFile()) {
+            return "res/" + iconName + "_" + PFiles.getNameWithoutExtension(mSource) + ".png";
+        }
+        return "res/" + iconName + ".png";
     }
 
     @SuppressLint("CheckResult")
@@ -495,10 +520,27 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     }
 
     private void writeProjectConfigAndRefreshView() {
-        PFiles.write(ProjectConfig.configFileOfDir(mDirectory),
-                mProjectConfig.toJson());
+        if (!mSingleBuildCleanMode || !isSingleFile()) {
+            PFiles.write(ProjectConfig.configFileOfDir(mDirectory, getSourceJsonName()),
+                    mProjectConfig.toJson());
+        }
         ExplorerFileItem item = new ExplorerFileItem(mSource, null);
         Explorers.workspace().notifyItemChanged(item, item);
+    }
+
+    // 单文件打包时，不一样的json文件名
+    private String getSourceJsonName() {
+        if (isSingleFile()) {
+            return PFiles.getNameWithoutExtension(mSource) + ".json";
+        }
+        return ProjectConfig.CONFIG_FILE_NAME;
+    }
+
+    private boolean isSingleFile() {
+        if (mSource != null) {
+            return mSource.endsWith(".js");
+        }
+        return false;
     }
 
     private boolean checkInputs() {
@@ -554,7 +596,19 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
 
     private ApkBuilder.AppConfig createAppConfig() {
         if (mProjectConfig != null) {
-            return ApkBuilder.AppConfig.fromProjectConfig(mSource, mProjectConfig);
+            ApkBuilder.AppConfig appConfig = ApkBuilder.AppConfig.fromProjectConfig(mSource, mProjectConfig);
+            // 设置了logo/splashIcon没有保存对应文件的时候
+            if (!mIsDefaultIcon && appConfig.getIcon() == null) {
+                appConfig = appConfig.setIcon((Callable<Bitmap>) () ->
+                        BitmapTool.drawableToBitmap(mIcon.getDrawable())
+                );
+            }
+            if (!mIsDefaultSplashIcon && appConfig.getSplashIcon() == null) {
+                appConfig = appConfig.setSplashIcon((Callable<Bitmap>) () ->
+                        BitmapTool.drawableToBitmap(mSplashIcon.getDrawable())
+                );
+            }
+            return appConfig;
         }
         String jsPath = mSourcePath.getText().toString();
         String versionName = mVersionName.getText().toString();
@@ -572,7 +626,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
                         BitmapTool.drawableToBitmap(mIcon.getDrawable())
                 )
                 .setSplashText(splashText)
-                .setSplashIcon(mSplashIcon.getDrawable() == null ? null : (Callable<Bitmap>) () ->
+                .setSplashIcon(mIsDefaultSplashIcon ? null : (Callable<Bitmap>) () ->
                         BitmapTool.drawableToBitmap(mSplashIcon.getDrawable())
                 );
     }
@@ -673,6 +727,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
                     .subscribe(bitmap -> {
                         mSplashIcon.setImageBitmap(bitmap);
                         mSplashIconBitmap = bitmap;
+                        mIsDefaultSplashIcon = false;
                     }, Throwable::printStackTrace);
         }
 

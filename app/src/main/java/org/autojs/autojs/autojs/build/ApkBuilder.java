@@ -147,6 +147,10 @@ public class ApkBuilder {
             return this;
         }
 
+        public Callable<Bitmap> getIcon() {
+            return icon;
+        }
+
         public String getAppName() {
             return appName;
         }
@@ -175,6 +179,10 @@ public class ApkBuilder {
         public AppConfig setSplashIcon(String iconPath) {
             splashIcon = () -> BitmapFactory.decodeFile(iconPath);
             return this;
+        }
+
+        public Callable<Bitmap> getSplashIcon() {
+            return splashIcon;
         }
 
         public AppConfig setSplashText(String splashText) {
