@@ -167,6 +167,9 @@
     <string name="key_stable_mode">key_stable_mode</string>
     <string name="summary_stable_mode">开启后布局分析更稳定，但小部分脚本可能无法正常运行。重启无障碍服务生效</string>
     <string name="text_stable_mode">稳定模式</string>
+    <string name="key_single_build_clean_mode">key_single_build_clean_mode</string>
+    <string name="text_single_build_clean_mode">单文件打包清爽模式</string>
+    <string name="summary_single_build_clean_mode">开启后单文件打包时不保存打包配置文件,及不保存启动图和应用图标等所有配置信息</string>
     <string name="key_enable_observe_key">key_enable_observe_key</string>
     <string name="text_directory">文件夹</string>
     <string name="text_file">文件</string>
