@@ -1,8 +1,8 @@
 {
   "appVersionCode": 482,
   "appVersionName": "5.0.1",
-  "devVersionCode": 480,
-  "devVersionName": "4.2.17.dev",
+  "devVersionCode": 485,
+  "devVersionName": "5.2.0.dev",
   "target": 26,
   "mini": 19,
   "compile": 29,
