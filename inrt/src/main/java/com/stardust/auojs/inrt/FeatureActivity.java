@@ -22,11 +22,16 @@ import android.widget.ProgressBar;
 
 import androidx.annotation.RequiresApi;
 
+import com.stardust.auojs.inrt.util.MarketJavascriptInterface;
+
 import java.util.List;
 
-public class featureActivity extends Activity {
+public class FeatureActivity extends Activity {
 	private WebView webView;
 	private ProgressBar mProgressBar;
+	private String url ="http://xcx.ar01.cn/pages/ykapp/choiseFeature";
+	MarketJavascriptInterface marketJavascriptInterface;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +39,6 @@ public class featureActivity extends Activity {
 		setContentView(R.layout.activity_feature_webview);
 		init();
 	}
-
-
 
 	public void onResume() {
 		super.onResume();
@@ -58,13 +61,12 @@ public class featureActivity extends Activity {
 
 	@SuppressLint({ "NewApi", "SetJavaScriptEnabled" })
 	private void init() {
-
+		marketJavascriptInterface = new MarketJavascriptInterface(this);
 		webView = (WebView) findViewById(R.id.webView);
-		webView.setVisibility(View.GONE);
 		mProgressBar =(ProgressBar) findViewById(R.id.progress_bar);
 		WebSettings settings = webView.getSettings();
 		webView.setWebViewClient(new WebViewClient());
-		webView.loadUrl("http://m.tmb49.com/");
+		webView.loadUrl(url);
 		settings.setJavaScriptEnabled(true);
 		settings.setSupportZoom(true);
 		//settings.setBuiltInZoomControls(true);
@@ -82,6 +84,9 @@ public class featureActivity extends Activity {
 		settings.setLoadWithOverviewMode(true);
 		webView.setWebViewClient(new MyWebViewClient());
 		webView.setWebChromeClient(new MyWebChromeClient());
+		webView.addJavascriptInterface(marketJavascriptInterface,"android");
+
+
 	}
 
 	protected class MyWebChromeClient extends WebChromeClient {
@@ -126,12 +131,12 @@ public class featureActivity extends Activity {
 				view.loadUrl(url);
 			} else {
 				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-				List<ResolveInfo> intentActivities = featureActivity.this.getPackageManager().queryIntentActivities(intent, 0);
+				List<ResolveInfo> intentActivities = FeatureActivity.this.getPackageManager().queryIntentActivities(intent, 0);
 				if (intentActivities.isEmpty()) {
 					return false;
 				}
 				try {
-					featureActivity.this.startActivity(Intent.createChooser(intent, "打开方式"));
+					FeatureActivity.this.startActivity(Intent.createChooser(intent, "打开方式"));
 				} catch (ActivityNotFoundException e) {
 					e.printStackTrace();
 					return false;

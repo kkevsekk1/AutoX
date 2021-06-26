@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".featureActivity" >
+    tools:context=".FeatureActivity" >
     <WebView
         android:id="@+id/webView"
         android:layout_width="fill_parent"

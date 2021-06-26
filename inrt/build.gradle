@@ -23,8 +23,8 @@ android {
         versionName versions.appVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
-        buildConfigField "boolean","isMarket","true" // 这是有注册码的版本
-//        buildConfigField "boolean","isMarket","false"
+//        buildConfigField "boolean","isMarket","true" // 这是有注册码的版本
+        buildConfigField "boolean","isMarket","false"
     }
     lintOptions {
         abortOnError false
@@ -66,6 +66,19 @@ android {
             }
         }
     }
+    flavorDimensions "channel"
+    productFlavors {
+        common {
+            buildConfigField "boolean","isMarket","false"
+            manifestPlaceholders = [appName: "inrt"]
+        }
+        market {
+            buildConfigField "boolean","isMarket","true"
+            manifestPlaceholders = [appName: "AIX云控"]
+        }
+
+    }
+
     buildTypes {
         debug {
             minifyEnabled false

@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24dp"
-        android:text="注册"
+        android:text="注册设备"
         />
     <Button
         android:id="@+id/reconnect"
@@ -40,15 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24dp"
-        android:text="重连"
-        />
-    <Button
-        android:id="@+id/ykapp"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24dp"
-        android:text="运行脚本"
+        android:text="重连服务器"
         />
     <Button
         android:id="@+id/setting"
@@ -57,5 +49,13 @@
         android:layout_height="wrap_content"
         android:textSize="24dp"
         android:text="打开无障碍服务"
+        />
+    <Button
+        android:id="@+id/ykapp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24dp"
+        android:text="独立运行"
         />
 </LinearLayout>

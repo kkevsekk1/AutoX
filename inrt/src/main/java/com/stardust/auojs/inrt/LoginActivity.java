@@ -2,6 +2,7 @@ package com.stardust.auojs.inrt;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -73,7 +74,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-
     private void setupViews() {
 
         setContentView(R.layout.activity_market_home);
@@ -97,6 +97,13 @@ public class LoginActivity extends AppCompatActivity {
                 reconnect();
             }
         });
+        runFeatureBtn = findViewById(R.id.ykapp);
+        runFeatureBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startFeature();
+            }
+        });
         settingBtn = findViewById(R.id.setting);
         settingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,6 +117,11 @@ public class LoginActivity extends AppCompatActivity {
         init();
         setTvInfo();
     }
+    private void startFeature(){
+        Intent intent = new Intent(this, FeatureActivity.class);
+        startActivity(intent);
+    }
+
 
     private void checkAccessibilityService() {
         this.isOpen = AccessibilityServiceTool.INSTANCE.isAccessibilityServiceEnabled(this);
@@ -160,7 +172,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void regist() {
         if (!checkPermission()) {
-            GlobalAppContext.toast("你没有授权,请授权后重试");
+            GlobalAppContext.toast("权限不够,请打开必要的权限");
             return;
         }
         String host = Pref.getHost("");
@@ -206,10 +218,6 @@ public class LoginActivity extends AppCompatActivity {
         }
         if (TextUtils.isEmpty(deviceId)) {
             deviceId = Pref.getImei("");
-        }
-        if (TextUtils.isEmpty(deviceId)) {
-            deviceId = getGUID();
-            Pref.setImei(deviceId);
         }
         return deviceId;
     }
