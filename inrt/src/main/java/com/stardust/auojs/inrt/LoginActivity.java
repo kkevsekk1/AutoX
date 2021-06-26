@@ -49,6 +49,14 @@ public class LoginActivity extends AppCompatActivity {
         setupViews();
         checkconnect();
         checkVersion();
+
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        checkAccessibilityService();
     }
 
     private void checkconnect() {
@@ -63,6 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
+
 
 
     private void setupViews() {
@@ -92,18 +101,25 @@ public class LoginActivity extends AppCompatActivity {
         settingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!isOpen) {
-                    settingBtn.setText("去开启无障碍服务");
-                    AccessibilityServiceTool.INSTANCE.goToAccessibilitySetting();
-                } else {
-                    showMessage("已开启无障碍服务");
-                    settingBtn.setText("功能已开启");
-                }
+                checkAccessibilityService();
+                if (isOpen) {
+                    showMessage("无障碍服务--已开启");
+                }  AccessibilityServiceTool.INSTANCE.goToAccessibilitySetting();
             }
         });
-
         init();
         setTvInfo();
+    }
+
+    private void checkAccessibilityService() {
+        this.isOpen = AccessibilityServiceTool.INSTANCE.isAccessibilityServiceEnabled(this);
+        String msg = "";
+        if (isOpen) {
+            msg = "无障碍服务--已开启";
+        } else {
+            msg = "无障碍服务--未打开";
+        }
+        settingBtn.setText(msg);
     }
 
     private void runScript() {
@@ -130,10 +146,11 @@ public class LoginActivity extends AppCompatActivity {
     private void showMessage(CharSequence text) {
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
     }
-    private void reconnect(){
+
+    private void reconnect() {
         String host = Pref.getHost("");
         String code = Pref.getCode("");
-        if(TextUtils.isEmpty(host)||TextUtils.isEmpty(code)){
+        if (TextUtils.isEmpty(host) || TextUtils.isEmpty(code)) {
             showMessage("链接地址或用户码未设置");
         }
         DevPluginService.getInstance().sayHelloToServer(Integer.parseInt(code));//重启
@@ -161,9 +178,9 @@ public class LoginActivity extends AppCompatActivity {
                     String newHost = serverAddrInput.getText().toString().trim();
                     Pref.setHost(newHost);
                     String params = "iemi=" + imei + "&usercode=" + newCode;
-                    if(!host.equals(newHost)){
-                       DevPluginService.getInstance().connectToServer(newHost,params).subscribe();
-                    }else{
+                    if (!host.equals(newHost)) {
+                        DevPluginService.getInstance().connectToServer(newHost, params).subscribe();
+                    } else {
                         DevPluginService.getInstance().sayHelloToServer(Integer.parseInt(newCode));//重启
                     }
                     showMessage("正在连接...");

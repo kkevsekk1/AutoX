@@ -59,7 +59,7 @@ public class JsonWebSocket {
                 .setReconnectInterval(2, TimeUnit.SECONDS)  //set reconnect interval
                 .build();
         RxWebSocket.setConfig(config);
-        RxWebSocket.get(url,5,TimeUnit.SECONDS)
+        RxWebSocket.get(url)
                 .subscribe(new WebSocketSubscriber() {
                     @Override
                     public void onOpen(@NonNull WebSocket webSocket) {
