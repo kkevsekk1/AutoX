@@ -2,8 +2,6 @@ package com.stardust.auojs.inrt;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -22,7 +20,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.linsh.utilseverywhere.ContextUtils;
 import com.stardust.app.GlobalAppContext;
 import com.stardust.auojs.inrt.autojs.AccessibilityServiceTool;
 import com.stardust.auojs.inrt.launch.GlobalProjectLauncher;
@@ -37,11 +34,13 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 public class LoginActivity extends AppCompatActivity {
     TextView infoTv;
 
+    Button registBtn;
     Button settingBtn;
+    Button reconnectBtn;
+    Button runFeatureBtn;
     private String code;
     private String imei;
     private String status;
-    Button registBtn;
     boolean isOpen = false;
 
     @Override
@@ -68,31 +67,41 @@ public class LoginActivity extends AppCompatActivity {
 
     private void setupViews() {
 
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_market_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(GlobalAppContext.getAppName());
         setSupportActionBar(toolbar);
+
         infoTv = findViewById(R.id.info);
-        settingBtn = findViewById(R.id.regist);
-        settingBtn.setOnClickListener(new View.OnClickListener() {
+
+        registBtn = findViewById(R.id.regist);
+        registBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 regist();
             }
         });
-        registBtn = findViewById(R.id.setting);
-        registBtn.setOnClickListener(new View.OnClickListener() {
+        reconnectBtn = findViewById(R.id.reconnect);
+        reconnectBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reconnect();
+            }
+        });
+        settingBtn = findViewById(R.id.setting);
+        settingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!isOpen) {
-                    registBtn.setText("去开启无障碍服务");
+                    settingBtn.setText("去开启无障碍服务");
                     AccessibilityServiceTool.INSTANCE.goToAccessibilitySetting();
                 } else {
                     showMessage("已开启无障碍服务");
-                    registBtn.setText("功能已开启");
+                    settingBtn.setText("功能已开启");
                 }
             }
         });
+
         init();
         setTvInfo();
     }
@@ -121,6 +130,16 @@ public class LoginActivity extends AppCompatActivity {
     private void showMessage(CharSequence text) {
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
     }
+    private void reconnect(){
+        String host = Pref.getHost("");
+        String code = Pref.getCode("");
+        if(TextUtils.isEmpty(host)||TextUtils.isEmpty(code)){
+            showMessage("链接地址或用户码未设置");
+        }
+        DevPluginService.getInstance().sayHelloToServer(Integer.parseInt(code));//重启
+        showMessage("重连中...");
+    }
+
 
     private void regist() {
         if (!checkPermission()) {
@@ -129,6 +148,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         String host = Pref.getHost("");
         String code = Pref.getCode("");
+
         MaterialDialog tmpDialog = new MaterialDialog.Builder(this).title("连接到服务器")
                 .customView(R.layout.dialog_regist_user_code, false)
                 .positiveText("确定")
@@ -136,25 +156,25 @@ public class LoginActivity extends AppCompatActivity {
                     View customeView = dialog.getCustomView();
                     EditText userCodeInput = (EditText) customeView.findViewById(R.id.user_code);
                     EditText serverAddrInput = (EditText) customeView.findViewById(R.id.server_addr);
-                    String code1 = userCodeInput.getText().toString().trim();
-                    Pref.setCode(code1);
-                    String host1 = serverAddrInput.getText().toString().trim();
-                    Pref.setHost(host1);
-                    String params = "iemi=" + imei + "&usercode=" + code1;
-                    if(host.equals(host1)){
-                        DevPluginService.getInstance().sayHelloToServer(Integer.parseInt(code1));
+                    String newCode = userCodeInput.getText().toString().trim();
+                    Pref.setCode(newCode);
+                    String newHost = serverAddrInput.getText().toString().trim();
+                    Pref.setHost(newHost);
+                    String params = "iemi=" + imei + "&usercode=" + newCode;
+                    if(!host.equals(newHost)){
+                       DevPluginService.getInstance().connectToServer(newHost,params).subscribe();
                     }else{
-                        DevPluginService.getNewInstance().connectToServer(host1, params)
-                                .subscribe();
-                        checkconnect();
+                        DevPluginService.getInstance().sayHelloToServer(Integer.parseInt(newCode));//重启
                     }
                     showMessage("正在连接...");
                 }).show();
+
         View customeView = tmpDialog.getCustomView();
         EditText userCodeInput = (EditText) customeView.findViewById(R.id.user_code);
         EditText serverAddrInput = (EditText) customeView.findViewById(R.id.server_addr);
         userCodeInput.setText(code);
         serverAddrInput.setText(host);
+
     }
 
 
