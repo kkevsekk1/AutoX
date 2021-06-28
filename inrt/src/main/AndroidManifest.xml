@@ -18,7 +18,7 @@
         android:name=".App"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
-        android:label="inrt"
+        android:label="${appName}"
         android:supportsRtl="true"
         android:theme="@style/ScriptTheme"
         android:usesCleartextTraffic="true"

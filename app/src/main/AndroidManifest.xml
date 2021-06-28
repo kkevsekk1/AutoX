@@ -46,7 +46,7 @@
         <activity
             android:name=".ui.splash.SplashActivity"
             android:hardwareAccelerated="true"
-            android:label="@string/app_name"
+            android:label="${appName}"
             android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -57,7 +57,7 @@
         <activity
             android:name=".ui.main.MainActivity_"
             android:hardwareAccelerated="true"
-            android:label="@string/app_name"
+            android:label="${appName}"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.FullScreen"></activity>
         <activity
@@ -139,7 +139,7 @@
             android:name=".external.tasker.PluginActivity"
             android:exported="true"
             android:icon="@drawable/ic_android_eat_js"
-            android:label="@string/app_name"
+            android:label="${appName}"
             android:targetActivity=".external.tasker.TaskPrefEditActivity_"
             tools:ignore="ExportedActivity">
             <intent-filter>
@@ -279,7 +279,7 @@
 
         <service
             android:name="com.stardust.notification.NotificationListenerService"
-            android:label="@string/app_name"
+            android:label="${appName}"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService" />

@@ -97,7 +97,7 @@ android {
     }
 
 }
-task publishApp(group: 'build') {
+task publishMarket(group: 'build') {
     println "publish app"
     println "$rootDir"
     doLast {
@@ -109,9 +109,9 @@ task publishApp(group: 'build') {
             //执行shell脚本
             if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
                 executable 'cmd'
-                args '/c', "node scnode.js $projectDir\\build\\outputs\\apk\\release $rootDir 21"
+                args '/c', "node scnode.js $projectDir\\build\\outputs\\apk\\market\\release $rootDir 21"
             } else {
-                commandLine 'sh', '-c', "node scnode.js $projectDir\\build\\outputs\\apk\\release $rootDir 21"
+                commandLine 'sh', '-c', "node scnode.js $projectDir\\build\\outputs\\apk\\market\\release $rootDir 21"
             }
         }
     }
@@ -120,7 +120,7 @@ task publishApp(group: 'build') {
 
 def buildApkPluginForAbi(File pluginProjectDir, String abi) {
     copy {
-        from file('build\\outputs\\apk\\release\\')
+        from file('build\\outputs\\apk\\common\\release\\')
         into new File(pluginProjectDir, 'src\\main\\assets')
         def fileName = "inrt-" + abi + "-release.apk"
         include fileName
