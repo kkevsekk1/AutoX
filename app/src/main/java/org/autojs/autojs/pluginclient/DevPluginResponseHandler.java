@@ -158,9 +158,10 @@ public class DevPluginResponseHandler implements Handler {
         if (TextUtils.isEmpty(name)) {
             name = "untitled";
         }
-        name = PFiles.getNameWithoutExtension(name);
+
+        name =  PFiles.getName(name); //PFiles.getNameWithoutExtension(name);
         if (!name.endsWith(".js")) {
-            name = name + ".js";
+//            name = name + ".js";
         }
         File file = new File(Pref.getScriptDirPath(), name);
         PFiles.ensureDir(file.getPath());

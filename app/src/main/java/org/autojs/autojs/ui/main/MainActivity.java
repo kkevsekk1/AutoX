@@ -52,7 +52,6 @@ import org.autojs.autojs.ui.floating.FloatyWindowManger;
 import org.autojs.autojs.ui.log.LogActivity_;
 import org.autojs.autojs.ui.main.community.CommunityFragment;
 import org.autojs.autojs.ui.main.community.CommunityFragment_;
-import org.autojs.autojs.ui.main.market.MarketFragment;
 import org.autojs.autojs.ui.main.market.MarketFragment_;
 import org.autojs.autojs.ui.main.scripts.MyScriptListFragment_;
 import org.autojs.autojs.ui.main.task.TaskManagerFragment_;

@@ -428,7 +428,9 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
 
     public Observable<String> save() {
         String path = mUri.getPath();
-        PFiles.move(path, path + ".bak");
+        if(Pref.isAutoBack()){
+            PFiles.move(path, path + ".bak");
+        }
         return Observable.just(mEditor.getText())
                 .observeOn(Schedulers.io())
                 .doOnNext(s -> PFiles.write(getContext().getContentResolver().openOutputStream(mUri), s))

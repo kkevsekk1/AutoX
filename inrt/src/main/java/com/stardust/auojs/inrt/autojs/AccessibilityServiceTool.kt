@@ -48,5 +48,8 @@ object AccessibilityServiceTool {
         GlobalAppContext.get().startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
     }
 
+    fun isAccessibilityServiceEnabled(context: Context): Boolean {
+        return isAccessibilityServiceEnabled(context, com.stardust.autojs.core.accessibility.AccessibilityService::class.java)
+    }
 
 }

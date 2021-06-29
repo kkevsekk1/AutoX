@@ -15,6 +15,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import com.stardust.app.GlobalAppContext;
+import com.stardust.auojs.inrt.BuildConfig;
 import com.stardust.auojs.inrt.Pref;
 import com.stardust.util.MapBuilder;
 
@@ -29,7 +30,6 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.subjects.PublishSubject;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
 
 /**
  * Created by Stardust on 2017/5/11.
@@ -44,6 +44,7 @@ public class DevPluginService {
     private static final long HANDSHAKE_TIMEOUT = 10 * 1000;
     private static String tmpMessageId = "";
     private static String tmpHost;
+    private boolean debug = false;
 
     public static class State {
 
@@ -79,20 +80,12 @@ public class DevPluginService {
     private final HashMap<String, JsonWebSocket.Bytes> mBytes = new HashMap<>();
     private final HashMap<String, JsonObject> mRequiredBytesCommands = new HashMap<>();
     private final Handler mHandler = new Handler(Looper.getMainLooper());
-    private volatile JsonWebSocket mSocket;
+    private volatile JsonWebSocket mSocket =new JsonWebSocket();
 
     public static DevPluginService getInstance() {
         if (sInstance == null) {
             sInstance = new DevPluginService();
         }
-        return sInstance;
-    }
-
-    public static DevPluginService getNewInstance() {
-        if (sInstance != null) {
-            sInstance = null;
-        }
-        sInstance = new DevPluginService();
         return sInstance;
     }
 
@@ -159,10 +152,12 @@ public class DevPluginService {
             url = "ws://" + url;
         }
         url = url + "?" + params;
-        JsonWebSocket jsonWebSocket = new JsonWebSocket(client, url);
-        mSocket = jsonWebSocket;
+        if(null==mSocket){
+            mSocket = new JsonWebSocket();
+        }
+        mSocket.createConnect(client,url);
         subscribeMessage(mSocket);
-        return Observable.just(jsonWebSocket);
+        return Observable.just(mSocket);
     }
 
     @SuppressLint("CheckResult")
@@ -254,21 +249,31 @@ public class DevPluginService {
             return;
         writeMap(mSocket, TYPE_HELLO, new MapBuilder<String, Object>()
                 .put("device_name", Build.BRAND + " " + Build.MODEL)
-                .put("usercode",usercode)
+                .put("usercode", usercode)
                 .put("client_version", CLIENT_VERSION)
-                .put("app_version", "4.1")
-                .put("app_version_code", "固定值")
+                .put("app_version", BuildConfig.VERSION_NAME)
+                .put("app_version_code", BuildConfig.VERSION_CODE)
                 .build());
 
     }
 
-
     @MainThread
     private void onServerHello(JsonWebSocket jsonWebSocket, JsonObject message) {
         Log.i(LOG_TAG, "onServerHello: " + message);
-        String msg = message.get("data").getAsString();
-        if("连接中...".equals(msg)){
+        String msg = null;
+        try {
+            msg = message.get("data").getAsString();
+        } catch (Exception e) {
+        }
+        if ("连接中...".equals(msg)) {
             sayHelloToServer(Integer.parseInt(Pref.getCode("-1")));
+        }
+        try {
+            if (!message.get("debug").isJsonNull()) {
+                boolean debug = message.get("debug").getAsBoolean();
+                this.debug = debug;
+            }
+        } catch (Exception e) {
         }
         mSocket = jsonWebSocket;
         mConnectionState.onNext(new State(State.CONNECTED, new SocketTimeoutException(msg)));
@@ -316,8 +321,11 @@ public class DevPluginService {
     @SuppressLint("CheckResult")
     @AnyThread
     public void log(String log) {
-        if (!isConnected())
+        if (!isConnected()) {
             return;
-      //  writePair(mSocket, "log", new Pair<>("log", log));
+        }
+        if (debug) {
+            writePair(mSocket, "log", new Pair<>("log", log));
+        }
     }
 }

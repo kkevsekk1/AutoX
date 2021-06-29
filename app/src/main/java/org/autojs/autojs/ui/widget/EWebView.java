@@ -22,7 +22,6 @@ import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.stardust.app.OnActivityResultDelegate;
 
 import org.autojs.autojs.R;
@@ -120,6 +119,8 @@ public class EWebView extends FrameLayout implements SwipeRefreshLayout.OnRefres
             mProgressBar.setProgress(newProgress);
         }
 
+
+
         //For Android  >= 4.1
         public void openFileChooser(ValueCallback<Uri> valueCallback,
                                     String acceptType, String capture) {
@@ -203,10 +204,10 @@ public class EWebView extends FrameLayout implements SwipeRefreshLayout.OnRefres
         public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
             return shouldOverrideUrlLoading(view, request.getUrl().toString());
         }
-
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            if (url.startsWith("http://") || url.startsWith("https://") || url.startsWith("file://")) {
+            if ((!url.endsWith(".apk")&&!url.contains(".apk?"))
+                    &&(url.startsWith("http://") || url.startsWith("https://") || url.startsWith("file://"))) {
                 view.loadUrl(url);
             } else {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
