@@ -20,6 +20,7 @@ import com.stardust.util.MD5;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.autojs.autojs.build.ApkSigner;
 import org.autojs.autojs.build.TinySign;
 
@@ -78,6 +79,7 @@ public class ApkBuilder {
         Callable<Bitmap> icon;
         Callable<Bitmap> splashIcon;
         String splashText;
+        String serviceDesc;
 
         public static AppConfig fromProjectConfig(String projectDir, ProjectConfig projectConfig) {
             String icon = projectConfig.getIcon();
@@ -89,6 +91,7 @@ public class ApkBuilder {
                     .setVersionCode(projectConfig.getVersionCode())
                     .setVersionName(projectConfig.getVersionName())
                     .setSplashText(projectConfig.getLaunchConfig().getSplashText())
+                    .setServiceDesc(projectConfig.getLaunchConfig().getServiceDesc())
                     .setSourcePath(projectDir);
             if (icon != null) {
                 appConfig.setIcon(getIconPath(projectDir, icon));
@@ -187,6 +190,11 @@ public class ApkBuilder {
 
         public AppConfig setSplashText(String splashText) {
             this.splashText = splashText;
+            return this;
+        }
+
+        public AppConfig setServiceDesc(String serviceDesc) {
+            this.serviceDesc = serviceDesc;
             return this;
         }
     }
@@ -408,6 +416,9 @@ public class ApkBuilder {
         // 收集字符资源，以准备根据key进行替换
         util.getResouces("string", "[DEFAULT]");
         util.changeResouce("powered_by_autojs", mAppConfig.splashText);
+        if (StringUtils.isNotBlank(mAppConfig.serviceDesc)) {
+            util.changeResouce("text_accessibility_service_description", mAppConfig.serviceDesc);
+        }
         util.saveArsc(oldArsc.getAbsolutePath(), newArsc.getAbsolutePath());
         newArsc.delete();
     }

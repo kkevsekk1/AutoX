@@ -20,6 +20,9 @@ public class LaunchConfig {
     @SerializedName("splashText")
     private String splashText = "Powered by Autoxjs.com";
 
+    @SerializedName("serviceDesc")
+    private String serviceDesc = "使脚本自动操作(点击、长按、滑动等)所需，若关闭则只能执行不涉及自动操作的脚本。";
+
     public boolean shouldHideLogs() {
         return mHideLogs;
     }
@@ -50,5 +53,13 @@ public class LaunchConfig {
 
     public void setSplashText(String splashText) {
         this.splashText = splashText;
+    }
+
+    public String getServiceDesc() {
+        return serviceDesc;
+    }
+
+    public void setServiceDesc(String serviceDesc) {
+        this.serviceDesc = serviceDesc;
     }
 }

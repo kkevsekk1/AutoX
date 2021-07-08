@@ -232,6 +232,7 @@
     <string name="text_hideLogs">隐藏日志</string>
     <string name="text_splash_text">启动界面文本</string>
     <string name="text_splash_icon">启动界面图标</string>
+    <string name="text_service_desc_text">无障碍服务描述</string>
     <string name="text_sign">签名</string>
     <string name="text_sign_choose">选择签名</string>
     <string name="text_sign_password">签名证书密码</string>

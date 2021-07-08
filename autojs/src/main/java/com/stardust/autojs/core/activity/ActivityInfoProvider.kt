@@ -77,7 +77,7 @@ class ActivityInfoProvider(private val context: Context) : AccessibilityDelegate
         get() = AccessibilityDelegate.ALL_EVENT_TYPES
 
     override fun onAccessibilityEvent(service: AccessibilityService, event: AccessibilityEvent): Boolean {
-        if (event.eventType == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
+        if (event.eventType == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED || event.eventType == AccessibilityEvent.WINDOWS_CHANGE_ACTIVE) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 val window = service.getWindow(event.windowId)
                 if (window?.isFocused != false) {
