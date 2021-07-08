@@ -129,6 +129,9 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     @ViewById(R.id.app_splash_icon)
     ImageView mSplashIcon;
 
+    @ViewById(R.id.app_service_desc)
+    EditText mServiceDesc;
+
     @ViewById(R.id.app_config)
     CardView mAppConfig;
 
@@ -234,6 +237,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
         mStableMode.setChecked(mProjectConfig.getLaunchConfig().isStableMode());
         mHideLogs.setChecked(mProjectConfig.getLaunchConfig().shouldHideLogs());
         mSplashText.setText(mProjectConfig.getLaunchConfig().getSplashText());
+        mServiceDesc.setText(mProjectConfig.getLaunchConfig().getServiceDesc());
         String splashIcon = mProjectConfig.getLaunchConfig().getSplashIcon();
         if (splashIcon != null) {
             Glide.with(this)
@@ -409,6 +413,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
         mProjectConfig.getLaunchConfig().setStableMode(mStableMode.isChecked());
         mProjectConfig.getLaunchConfig().setHideLogs(mHideLogs.isChecked());
         mProjectConfig.getLaunchConfig().setSplashText(mSplashText.getText().toString());
+        mProjectConfig.getLaunchConfig().setServiceDesc(mServiceDesc.getText().toString());
         if (mKeyStore != null) {
             mProjectConfig.getSigningConfig().setKeyStore(mKeyStore.getPath());
             mProjectConfig.getSigningConfig().setAlias(mKeyStore.getAlias());
@@ -616,6 +621,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
         String appName = mAppName.getText().toString();
         String packageName = mPackageName.getText().toString();
         String splashText = mSplashText.getText().toString();
+        String serviceDesc = mServiceDesc.getText().toString();
         return new ApkBuilder.AppConfig()
                 .setAppName(appName)
                 .setSourcePath(jsPath)
@@ -626,6 +632,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
                         BitmapTool.drawableToBitmap(mIcon.getDrawable())
                 )
                 .setSplashText(splashText)
+                .setServiceDesc(serviceDesc)
                 .setSplashIcon(mIsDefaultSplashIcon ? null : (Callable<Bitmap>) () ->
                         BitmapTool.drawableToBitmap(mSplashIcon.getDrawable())
                 );

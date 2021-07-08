@@ -314,6 +314,18 @@
                             android:background="@drawable/shortcut_create_dialog_icon_bg"
                             android:src="@drawable/ic_add_white_48dp" />
 
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_marginTop="12dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/text_service_desc_text">
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/app_service_desc"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
