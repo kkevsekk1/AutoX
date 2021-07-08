@@ -1,6 +1,12 @@
 # Change Log
 autoxjs 整个项目的的一些更新日志,双版本号为稳定版，单版本号为激进版本。
 
+### 5.3.0
+优化以下特性：
+*  新增无障碍服务描述配置
+* [CcSimple](https://github.com/CcSimple)  优化currentPackage及currentActivity获取方式(待测试实际效果!)
+* dev版本欢迎大家测试 currentPackage,currentActivity api并反馈效果
+
 ### 5.2.0
 优化以下特性：
 *  模板app稳定模式

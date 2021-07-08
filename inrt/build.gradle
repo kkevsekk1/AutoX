@@ -119,10 +119,12 @@ task publishMarket(group: 'build') {
 
 
 def buildApkPluginForAbi(File pluginProjectDir, String abi) {
+
     copy {
         from file('build\\outputs\\apk\\common\\release\\')
         into new File(pluginProjectDir, 'src\\main\\assets')
-        def fileName = "inrt-" + abi + "-release.apk"
+        def fileName = "inrt-common-" + abi + "-release.apk"
+
         include fileName
         rename fileName, 'template.apk'
     }
@@ -132,11 +134,13 @@ def buildApkPluginForAbi(File pluginProjectDir, String abi) {
 task cp2APP(group: 'build') {
     doLast {
         def pluginProjectDirPath = '..\\app'
+        println pluginProjectDirPath
         def pluginProjectDir = file(pluginProjectDirPath)
         if (!pluginProjectDir.exists() || !pluginProjectDir.isDirectory()) {
             println 'app 目录 not exists'
             return
         }
+        println pluginProjectDir
         buildApkPluginForAbi(pluginProjectDir, 'armeabi-v7a')
      //   buildApkPluginForAbi(pluginProjectDir, 'x86')
     }
