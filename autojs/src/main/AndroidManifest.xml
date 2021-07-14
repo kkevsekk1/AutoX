@@ -10,6 +10,10 @@
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+    <!--读取联系人的权限-->
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <!--写联系人的权限-->
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 
     <application
         >
