@@ -109,9 +109,9 @@ task publishMarket(group: 'build') {
             //执行shell脚本
             if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
                 executable 'cmd'
-                args '/c', "node scnode.js $projectDir\\build\\outputs\\apk\\market\\release $rootDir 21"
+                args '/c', "node scnode.js $projectDir\\build\\outputs\\apk\\market\\release $rootDir 22"
             } else {
-                commandLine 'sh', '-c', "node scnode.js $projectDir\\build\\outputs\\apk\\market\\release $rootDir 21"
+                commandLine 'sh', '-c', "node scnode.js $projectDir\\build\\outputs\\apk\\market\\release $rootDir 22"
             }
         }
     }
