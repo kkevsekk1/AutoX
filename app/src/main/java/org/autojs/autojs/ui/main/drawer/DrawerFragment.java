@@ -200,7 +200,7 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
 
 
     @SuppressLint("CheckResult")
-    @Click(R.id.avatar)
+//    @Click(R.id.avatar)
     void loginOrShowUserInfo() {
         UserService.getInstance()
                 .me()

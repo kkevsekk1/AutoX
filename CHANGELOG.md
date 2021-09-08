@@ -2,7 +2,12 @@
 autoxjs 整个项目的的一些更新日志,双版本号为稳定版，单版本号为激进版本。
 
 
-### 5.3.0
+### 5.3.2
+优化以下特性：
+* 剔除登录和用户模块
+* 测试opencv 4 准备升级
+
+### 5.3.1
 优化以下特性：
 *  新增无障碍服务描述配置
 * [CcSimple](https://github.com/CcSimple)  优化currentPackage及currentActivity获取方式(待测试实际效果!)
