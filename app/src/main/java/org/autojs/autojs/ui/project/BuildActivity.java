@@ -221,6 +221,9 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
 //        mSourcePathContainer.setVisibility(View.GONE);
 //        mOutputPath.setText(new File(mSource, mProjectConfig.getBuildDir()).getPath());
 //        mAppConfig.setVisibility(View.GONE);
+        if (!mProjectConfig.getName().equals("")){
+            mAppName.setText(mProjectConfig.getName());
+        }
         mPackageName.setText(mProjectConfig.getPackageName());
         mVersionName.setText(mProjectConfig.getVersionName());
         mVersionCode.setText("" + mProjectConfig.getVersionCode());
