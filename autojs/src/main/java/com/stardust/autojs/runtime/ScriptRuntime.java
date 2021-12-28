@@ -27,6 +27,7 @@ import com.stardust.autojs.core.looper.Loopers;
 import com.stardust.autojs.runtime.api.Media;
 import com.stardust.autojs.runtime.api.Plugins;
 import com.stardust.autojs.runtime.api.Sensors;
+import com.stardust.autojs.runtime.api.SevenZip;
 import com.stardust.autojs.runtime.api.Threads;
 import com.stardust.autojs.runtime.api.Timers;
 import com.stardust.autojs.core.accessibility.UiSelector;
@@ -185,6 +186,9 @@ public class ScriptRuntime {
     public final Files files;
 
     @ScriptVariable
+    public final SevenZip zips;
+
+    @ScriptVariable
     public Sensors sensors;
 
     @ScriptVariable
@@ -225,6 +229,7 @@ public class ScriptRuntime {
         files = new Files(this);
         media = new Media(context, this);
         plugins = new Plugins(context, this);
+        zips = new SevenZip(context,this);
     }
 
     public void init() {

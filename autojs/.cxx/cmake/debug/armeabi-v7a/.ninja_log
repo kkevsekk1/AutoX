@@ -1,0 +1,6 @@
+# ninja log v5
+0	525	662406445	CMakeFiles/zips.dir/src/main/CPP/zips.cpp.o	792c62c2cbd06d00
+527	661	662406445	../../../../build/intermediates/cmake/debug/obj/armeabi-v7a/libzips.so	6753160f1c347204
+4	554	662406770	CMakeFiles/zips.dir/src/main/CPP/zips.cpp.o	792c62c2cbd06d00
+554	696	662406770	../../../../build/intermediates/cmake/debug/obj/armeabi-v7a/libzips.so	6753160f1c347204
+1	9	0	clean	dd476c843cb786fa

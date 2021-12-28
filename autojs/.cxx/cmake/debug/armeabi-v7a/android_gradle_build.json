@@ -1,0 +1,43 @@
+{
+  "stringTable": {
+    "0": "D:/Users/source/AndroidStudioProjects/AutoX/AutoX/autojs/.cxx/cmake/debug/armeabi-v7a",
+    "1": "--target=armv7-none-linux-androideabi19 --gcc-toolchain=D:/Software/Java/Android_Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Software/Java/Android_Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dzips_EXPORTS -I../../../../src/main/cpp/lib7za/C -I../../../../src/main/cpp/lib7za/CPP -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -LD:/Users/source/AndroidStudioProjects/AutoX/AutoX/autojs/src/main/jniLibs/armeabi-v7a -O0 -fno-limit-debug-info -fPIC"
+  },
+  "buildFiles": [
+    "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\CMakeLists.txt",
+    "D:\\Software\\Java\\Android_Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
+    "D:\\Software\\Java\\Android_Sdk\\ndk\\21.1.6352462\\build\\cmake\\platforms.cmake"
+  ],
+  "cleanCommands": [
+    "D:\\Software\\Java\\Android_Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\.cxx\\cmake\\debug\\armeabi-v7a\" clean"
+  ],
+  "buildTargetsCommand": "D:\\Software\\Java\\Android_Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\.cxx\\cmake\\debug\\armeabi-v7a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "zips-Debug-armeabi-v7a": {
+      "buildCommand": "D:\\Software\\Java\\Android_Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\.cxx\\cmake\\debug\\armeabi-v7a\" zips",
+      "buildType": "debug",
+      "toolchain": "1051464619",
+      "abi": "armeabi-v7a",
+      "artifactName": "zips",
+      "files": [
+        {
+          "src": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\src\\main\\CPP\\zips.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\build\\intermediates\\cmake\\debug\\obj\\armeabi-v7a\\libzips.so",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {
+    "1051464619": {
+      "cppCompilerExecutable": "D:\\Software\\Java\\Android_Sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}
