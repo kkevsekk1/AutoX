@@ -16,7 +16,7 @@ void strArgs(const char *cmd, int &args, char pString[66][1024]);
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_stardust_autojs_runtime_api_SevenZip_zipsCmd(JNIEnv *env, jclass type, jstring cmd_) {
+Java_com_stardust_autojs_runtime_api_SevenZip_Cmd(JNIEnv *env, jclass type, jstring cmd_) {
     const char *cmd = env->GetStringUTFChars(cmd_, 0);
     int numArgs;
     char temp[66][1024] = {0};
