@@ -7,8 +7,11 @@ var dirPath = "/sdcard/脚本";
 var type = "7z";
 //压缩
 zips.A(type，filePath, dirPath);
+toastLog("压缩成功！")
+
 //解压(若文件已存在则跳过)
-zips.X(filePath, dirPath);
+//runtime.zips.X(filePath, dirPath);
+
 //自定义命令:加密压缩
-var password = "password"
-zips.cmd("7za a -y -ms -p" + password + " "  + filePath + " -r" + dirPath);
+//var password = "password"
+//runtime.zips.cmd("7za a -y -ms -p" + password + " "  + filePath + " -r" + dirPath);
