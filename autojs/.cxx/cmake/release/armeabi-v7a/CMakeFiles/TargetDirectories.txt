@@ -1,0 +1,3 @@
+D:/androidspaces/autoxjs/autojs/.cxx/cmake/release/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+D:/androidspaces/autoxjs/autojs/.cxx/cmake/release/armeabi-v7a/CMakeFiles/zips.dir
+D:/androidspaces/autoxjs/autojs/.cxx/cmake/release/armeabi-v7a/CMakeFiles/edit_cache.dir

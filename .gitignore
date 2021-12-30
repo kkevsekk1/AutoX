@@ -21,3 +21,5 @@ inrt/coolapk/release/output.json
 app/common/release/app-common-release.aab
 app/common/release/output-metadata.json
 *.log
+autojs/.cxx/ndk_locator_record_68547592.json
+autojs/.cxx/ndk_locator_record_68547592_key.json

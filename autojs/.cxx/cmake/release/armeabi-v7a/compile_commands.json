@@ -1,0 +1,7 @@
+[
+{
+  "directory": "D:/androidspaces/autoxjs/autojs/.cxx/cmake/release/armeabi-v7a",
+  "command": "D:\\sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=armv7-none-linux-androideabi19 --gcc-toolchain=D:/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dzips_EXPORTS -I../../../../src/main/cpp/lib7za/C -I../../../../src/main/cpp/lib7za/CPP  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security   -LD:/androidspaces/autoxjs/autojs/src/main/jniLibs/armeabi-v7a -Oz -DNDEBUG  -fPIC   -o CMakeFiles\\zips.dir\\src\\main\\CPP\\zips.cpp.o -c D:\\androidspaces\\autoxjs\\autojs\\src\\main\\CPP\\zips.cpp",
+  "file": "D:/androidspaces/autoxjs/autojs/src/main/CPP/zips.cpp"
+}
+]

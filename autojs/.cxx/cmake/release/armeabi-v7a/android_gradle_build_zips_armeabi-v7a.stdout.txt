@@ -1,0 +1,2 @@
+ninja: Entering directory `D:\androidspaces\autoxjs\autojs\.cxx\cmake\release\armeabi-v7a'
+ninja: no work to do.

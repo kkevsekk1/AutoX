@@ -95,12 +95,12 @@ class App : Application() {
 
                     }
                 })
-        //启动保活服务
-        if(BuildConfig.isMarket){
+          //启动保活服务
             KeepLive.useSilenceMusice = false;
             KeepLive.startWork(this, KeepLive.RunMode.ENERGY, foregroundNotification, AutoXKeepLiveService());
-            showNotification(this);
-       }
+            if(BuildConfig.isMarket){
+                showNotification(this);
+           }
     }
 
     private fun showNotification(context: Context) {

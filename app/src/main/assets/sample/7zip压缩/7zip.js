@@ -6,7 +6,7 @@ var dirPath = "/sdcard/脚本";
 //支持的压缩类型包括：zip 7z bz2 bzip2 tbz2 tbz gz gzip tgz tar wim swm xz txz。
 var type = "7z";
 //压缩
-runtime.zips.A(type，filePath, dirPath);
+runtime.zips.A(type,filePath, dirPath);
 toastLog("压缩成功！")
 
 //解压(若文件已存在则跳过)

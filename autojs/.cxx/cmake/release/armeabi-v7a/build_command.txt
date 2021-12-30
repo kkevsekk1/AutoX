@@ -1,0 +1,21 @@
+                Executable : D:\sdk\cmake\3.10.2.4988404\bin\cmake.exe
+arguments : 
+-HD:\androidspaces\autoxjs\autojs
+-DCMAKE_FIND_ROOT_PATH=D:\androidspaces\autoxjs\autojs\.cxx\cmake\release\prefab\armeabi-v7a\prefab
+-DCMAKE_BUILD_TYPE=Release
+-DCMAKE_TOOLCHAIN_FILE=D:\sdk\ndk\21.1.6352462\build\cmake\android.toolchain.cmake
+-DANDROID_ABI=armeabi-v7a
+-DANDROID_NDK=D:\sdk\ndk\21.1.6352462
+-DANDROID_PLATFORM=android-19
+-DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a
+-DCMAKE_ANDROID_NDK=D:\sdk\ndk\21.1.6352462
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=D:\androidspaces\autoxjs\autojs\build\intermediates\cmake\release\obj\armeabi-v7a
+-DCMAKE_MAKE_PROGRAM=D:\sdk\cmake\3.10.2.4988404\bin\ninja.exe
+-DCMAKE_SYSTEM_NAME=Android
+-DCMAKE_SYSTEM_VERSION=19
+-BD:\androidspaces\autoxjs\autojs\.cxx\cmake\release\armeabi-v7a
+-GNinja
+jvmArgs : 
+
+Build command args:
