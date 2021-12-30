@@ -1,0 +1,7 @@
+Executable : D:\sdk\cmake\3.10.2.4988404\bin\ninja.exe
+arguments : 
+-C
+D:\androidspaces\autoxjs\autojs\.cxx\cmake\release\armeabi-v7a
+zips
+jvmArgs : 
+
