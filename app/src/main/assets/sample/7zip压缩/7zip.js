@@ -10,7 +10,7 @@ zips.A(type,filePath, dirPath);
 toastLog("压缩成功！")
 
 //解压(若文件已存在则跳过)
-//支持的解压缩类型除了以上的压缩类型，还扩展支持了包括：RAR ISO LZH LZMA等等7zip原生支持解压的格式。
+//支持的解压缩类型除了以上的压缩类型，还扩展支持了包括：RAR ISO LZH LZMA等p7zip原生支持解压的格式。
 //zips.X(filePath, dirPath);
 
 //自定义命令:7z加密压缩
