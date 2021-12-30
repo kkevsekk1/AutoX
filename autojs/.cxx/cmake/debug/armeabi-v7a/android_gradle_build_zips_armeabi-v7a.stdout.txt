@@ -1,0 +1,4 @@
+ninja: Entering directory `D:\Users\source\AndroidStudioProjects\AutoX\AutoX\autojs\.cxx\cmake\debug\armeabi-v7a'
+[1/2] Building CXX object CMakeFiles/zips.dir/src/main/CPP/zips.cpp.o
+clang++: warning: argument unused during compilation: '-LD:/Users/source/AndroidStudioProjects/AutoX/AutoX/autojs/src/main/jniLibs/armeabi-v7a' [-Wunused-command-line-argument]
+[2/2] Linking CXX shared library ..\..\..\..\build\intermediates\cmake\debug\obj\armeabi-v7a\libzips.so
