@@ -5,9 +5,9 @@
     "environmentVariables": []
   },
   "cmake": {
-    "cmakeArtifactsBaseFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-dev\\autojs\\.cxx\\cmake\\debug\\armeabi-v7a",
-    "cmakeServerLogFile": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-dev\\autojs\\.cxx\\cmake\\debug\\armeabi-v7a\\cmake_server_log.txt",
-    "cmakeWrappingBaseFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-dev\\autojs\\.cxx\\cxx\\debug\\armeabi-v7a",
+    "cmakeArtifactsBaseFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\.cxx\\cmake\\debug\\armeabi-v7a",
+    "cmakeServerLogFile": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\.cxx\\cmake\\debug\\armeabi-v7a\\cmake_server_log.txt",
+    "cmakeWrappingBaseFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\.cxx\\cxx\\debug\\armeabi-v7a",
     "effectiveConfiguration": {
       "name": "traditional-android-studio-cmake-environment",
       "description": "Composite reified CMakeSettings configuration",
@@ -15,13 +15,13 @@
       "inheritEnvironments": [
         "ndk"
       ],
-      "buildRoot": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-dev\\autojs\\.cxx\\cmake\\debug\\armeabi-v7a",
+      "buildRoot": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\.cxx\\cmake\\debug\\armeabi-v7a",
       "cmakeToolchain": "D:\\Software\\Java\\Android_Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
       "cmakeExecutable": "D:\\Software\\Java\\Android_Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe",
       "variables": [
         {
           "name": "CMAKE_FIND_ROOT_PATH",
-          "value": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-dev\\autojs\\.cxx\\cmake\\debug\\prefab\\armeabi-v7a\\prefab"
+          "value": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\.cxx\\cmake\\debug\\prefab\\armeabi-v7a\\prefab"
         },
         {
           "name": "CMAKE_BUILD_TYPE",
@@ -57,7 +57,7 @@
         },
         {
           "name": "CMAKE_LIBRARY_OUTPUT_DIRECTORY",
-          "value": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-dev\\autojs\\build\\intermediates\\cmake\\debug\\obj\\armeabi-v7a"
+          "value": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\build\\intermediates\\cmake\\debug\\obj\\armeabi-v7a"
         },
         {
           "name": "CMAKE_MAKE_PROGRAM",
@@ -74,14 +74,14 @@
       ]
     }
   },
-  "cxxBuildFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-dev\\autojs\\.cxx\\cmake\\debug\\armeabi-v7a",
+  "cxxBuildFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\.cxx\\cmake\\debug\\armeabi-v7a",
   "info": {
     "abi": "ARMEABI_V7A",
     "bitness": 32,
     "deprecated": false,
     "default": true
   },
-  "originalCxxBuildFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-dev\\autojs\\.cxx\\cmake\\debug\\armeabi-v7a",
+  "originalCxxBuildFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\.cxx\\cmake\\debug\\armeabi-v7a",
   "variant": {
     "buildSystemArgumentList": [],
     "buildTargetSet": [],
@@ -100,12 +100,12 @@
         "ninjaExe": "D:\\Software\\Java\\Android_Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe"
       },
       "cmakeToolchainFile": "D:\\Software\\Java\\Android_Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
-      "cxxFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-dev\\autojs\\.cxx",
+      "cxxFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\.cxx",
       "gradleModulePathName": ":autojs",
-      "intermediatesFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-dev\\autojs\\build\\intermediates",
-      "makeFile": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-dev\\autojs\\CMakeLists.txt",
-      "moduleBuildFile": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-dev\\autojs\\build.gradle",
-      "moduleRootFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-dev\\autojs",
+      "intermediatesFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\build\\intermediates",
+      "makeFile": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\CMakeLists.txt",
+      "moduleBuildFile": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\build.gradle",
+      "moduleRootFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs",
       "ndkDefaultAbiList": [
         "ARMEABI_V7A",
         "ARM64_V8A",
@@ -169,12 +169,12 @@
       "ndkDefaultStl": "LIBCXX_STATIC",
       "ndkVersion": "21.1.6352462",
       "project": {
-        "compilerSettingsCacheFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-dev\\.cxx",
-        "cxxFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-dev\\.cxx",
+        "compilerSettingsCacheFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\.cxx",
+        "cxxFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\.cxx",
         "isBuildOnlyTargetAbiEnabled": true,
         "isCmakeBuildCohabitationEnabled": false,
         "isNativeCompilerSettingsCacheEnabled": false,
-        "rootBuildGradleFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-dev",
+        "rootBuildGradleFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX",
         "sdkFolder": "D:\\Software\\Java\\Android_Sdk",
         "isPrefabEnabled": false
       },
@@ -191,13 +191,13 @@
         "SYSTEM": {}
       }
     },
-    "objFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-dev\\autojs\\build\\intermediates\\cmake\\debug\\obj",
+    "objFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\build\\intermediates\\cmake\\debug\\obj",
     "variantName": "debug",
     "validAbiList": [
       "ARMEABI_V7A"
     ],
-    "prefabDirectory": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-dev\\autojs\\.cxx\\cmake\\debug\\prefab",
+    "prefabDirectory": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\.cxx\\cmake\\debug\\prefab",
     "prefabPackageDirectoryList": []
   },
-  "prefabFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-dev\\autojs\\.cxx\\cmake\\debug\\prefab\\armeabi-v7a"
+  "prefabFolder": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\.cxx\\cmake\\debug\\prefab\\armeabi-v7a"
 }

@@ -10,7 +10,7 @@ zips.A(type,filePath, dirPath);
 toastLog("压缩成功！")
 
 //解压(若文件已存在则跳过)
-//除了支持的压缩类型外，还额外扩展了7za对Iso、Chm、Rar、Nsis、Udf、Wim等格式的解压缩支持
+//除了支持的压缩类型外，还额外扩展了7za对Iso、Chm、Rar等多种格式的解压缩支持
 //zips.X(filePath, dirPath);
 
 //自定义命令:7z加密压缩
