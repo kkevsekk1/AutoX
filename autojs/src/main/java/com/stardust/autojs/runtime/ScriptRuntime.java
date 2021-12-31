@@ -229,7 +229,7 @@ public class ScriptRuntime {
         files = new Files(this);
         media = new Media(context, this);
         plugins = new Plugins(context, this);
-        zips = new SevenZip(context);
+        zips = new SevenZip(context,this);
     }
 
     public void init() {

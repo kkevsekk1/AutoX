@@ -1,2 +1,0 @@
-ninja: Entering directory `D:\Users\source\AndroidStudioProjects\AutoX\AutoX\autojs\.cxx\cmake\debug\arm64-v8a'
-ninja: no work to do.
