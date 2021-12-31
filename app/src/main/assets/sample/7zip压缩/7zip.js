@@ -6,12 +6,13 @@ var dirPath = "/sdcard/脚本";
 //支持的压缩类型包括：zip 7z bz2 bzip2 tbz2 tbz gz gzip tgz tar wim swm xz txz。
 var type = "7z";
 //压缩
-runtime.zips.A(type,filePath, dirPath);
+zips.A(type,filePath, dirPath);
 toastLog("压缩成功！")
 
 //解压(若文件已存在则跳过)
-//runtime.zips.X(filePath, dirPath);
+//除了支持的压缩类型外，还额外扩展了7za对Iso、Chm、Rar、Nsis、Udf、Wim等格式的解压缩支持
+//zips.X(filePath, dirPath);
 
 //自定义命令:7z加密压缩
 //var password = "password"
-//runtime.zips.cmd("7za a -y -ms -t7z -p" + password + " "  + filePath + " -r" + dirPath);
+//zips.cmd("7za a -y -ms -t7z -p" + password + " "  + filePath + " -r" + dirPath);

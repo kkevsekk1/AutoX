@@ -141,5 +141,6 @@ module.exports = function(runtime, global){
         return buildTypes.release;
     }
 
+    global.zips = Object.create(runtime.zips);
 
 }
