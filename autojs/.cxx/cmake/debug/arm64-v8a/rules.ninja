@@ -42,7 +42,7 @@ rule CXX_SHARED_LIBRARY_LINKER__zips
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = D:\Software\Java\Android_Sdk\cmake\3.10.2.4988404\bin\cmake.exe -HD:\Users\source\AndroidStudioProjects\AutoX\AutoX-now\autojs -BD:\Users\source\AndroidStudioProjects\AutoX\AutoX-now\autojs\.cxx\cmake\debug\arm64-v8a
+  command = D:\Software\Java\Android_Sdk\cmake\3.10.2.4988404\bin\cmake.exe -HD:\Users\source\AndroidStudioProjects\AutoX\AutoX\autojs -BD:\Users\source\AndroidStudioProjects\AutoX\AutoX\autojs\.cxx\cmake\debug\arm64-v8a
   description = Re-running CMake...
   generator = 1
 

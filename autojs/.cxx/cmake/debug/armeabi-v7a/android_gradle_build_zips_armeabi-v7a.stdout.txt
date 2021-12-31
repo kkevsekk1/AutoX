@@ -1,2 +1,0 @@
-ninja: Entering directory `D:\Users\source\AndroidStudioProjects\AutoX\AutoX-now\autojs\.cxx\cmake\debug\armeabi-v7a'
-ninja: no work to do.

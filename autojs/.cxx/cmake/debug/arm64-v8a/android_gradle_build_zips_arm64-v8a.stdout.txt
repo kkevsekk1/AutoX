@@ -1,4 +1,2 @@
-ninja: Entering directory `D:\Users\source\AndroidStudioProjects\AutoX\AutoX-now\autojs\.cxx\cmake\debug\arm64-v8a'
-[1/2] Building CXX object CMakeFiles/zips.dir/src/main/CPP/zips.cpp.o
-clang++: warning: argument unused during compilation: '-LD:/Users/source/AndroidStudioProjects/AutoX/AutoX-now/autojs/src/main/jniLibs/arm64-v8a' [-Wunused-command-line-argument]
-[2/2] Linking CXX shared library ..\..\..\..\build\intermediates\cmake\debug\obj\arm64-v8a\libzips.so
+ninja: Entering directory `D:\Users\source\AndroidStudioProjects\AutoX\AutoX\autojs\.cxx\cmake\debug\arm64-v8a'
+ninja: no work to do.
