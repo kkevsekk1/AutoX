@@ -1,0 +1,7 @@
+[
+{
+  "directory": "D:/Users/source/AndroidStudioProjects/AutoX/AutoX-now/autojs/.cxx/cmake/debug/x86",
+  "command": "D:\\Software\\Java\\Android_Sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android19 --gcc-toolchain=D:/Software/Java/Android_Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Software/Java/Android_Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dzips_EXPORTS -I../../../../src/main/cpp/lib7za/C -I../../../../src/main/cpp/lib7za/CPP  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -LD:/Users/source/AndroidStudioProjects/AutoX/AutoX-now/autojs/src/main/jniLibs/x86 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\zips.dir\\src\\main\\CPP\\zips.cpp.o -c D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-now\\autojs\\src\\main\\CPP\\zips.cpp",
+  "file": "D:/Users/source/AndroidStudioProjects/AutoX/AutoX-now/autojs/src/main/CPP/zips.cpp"
+}
+]

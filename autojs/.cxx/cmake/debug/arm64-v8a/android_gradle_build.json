@@ -1,0 +1,43 @@
+{
+  "stringTable": {
+    "0": "D:/Users/source/AndroidStudioProjects/AutoX/AutoX-now/autojs/.cxx/cmake/debug/arm64-v8a",
+    "1": "--target=aarch64-none-linux-android21 --gcc-toolchain=D:/Software/Java/Android_Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Software/Java/Android_Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dzips_EXPORTS -I../../../../src/main/cpp/lib7za/C -I../../../../src/main/cpp/lib7za/CPP -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -LD:/Users/source/AndroidStudioProjects/AutoX/AutoX-now/autojs/src/main/jniLibs/arm64-v8a -O0 -fno-limit-debug-info -fPIC"
+  },
+  "buildFiles": [
+    "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-now\\autojs\\CMakeLists.txt",
+    "D:\\Software\\Java\\Android_Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
+    "D:\\Software\\Java\\Android_Sdk\\ndk\\21.1.6352462\\build\\cmake\\platforms.cmake"
+  ],
+  "cleanCommands": [
+    "D:\\Software\\Java\\Android_Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-now\\autojs\\.cxx\\cmake\\debug\\arm64-v8a\" clean"
+  ],
+  "buildTargetsCommand": "D:\\Software\\Java\\Android_Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-now\\autojs\\.cxx\\cmake\\debug\\arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "zips-Debug-arm64-v8a": {
+      "buildCommand": "D:\\Software\\Java\\Android_Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-now\\autojs\\.cxx\\cmake\\debug\\arm64-v8a\" zips",
+      "buildType": "debug",
+      "toolchain": "1051464619",
+      "abi": "arm64-v8a",
+      "artifactName": "zips",
+      "files": [
+        {
+          "src": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-now\\autojs\\src\\main\\CPP\\zips.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-now\\autojs\\build\\intermediates\\cmake\\debug\\obj\\arm64-v8a\\libzips.so",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {
+    "1051464619": {
+      "cppCompilerExecutable": "D:\\Software\\Java\\Android_Sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

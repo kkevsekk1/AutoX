@@ -1,0 +1,3 @@
+D:/Users/source/AndroidStudioProjects/AutoX/AutoX-now/autojs/.cxx/cmake/debug/x86/CMakeFiles/rebuild_cache.dir
+D:/Users/source/AndroidStudioProjects/AutoX/AutoX-now/autojs/.cxx/cmake/debug/x86/CMakeFiles/zips.dir
+D:/Users/source/AndroidStudioProjects/AutoX/AutoX-now/autojs/.cxx/cmake/debug/x86/CMakeFiles/edit_cache.dir

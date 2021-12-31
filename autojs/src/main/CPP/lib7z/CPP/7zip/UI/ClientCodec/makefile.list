@@ -1,0 +1,24 @@
+SRCS=\
+../../../myWindows/wine_date_and_time.cpp \
+../../../Common/MyWindows.cpp \
+../../../Common/MyString.cpp \
+../../../Common/StringConvert.cpp \
+../../../Windows/PropVariant.cpp \
+../../../Windows/DLL.cpp \
+./ClientCodec.cpp
+
+wine_date_and_time.o : ../../../myWindows/wine_date_and_time.cpp
+	$(CXX) $(CXXFLAGS) ../../../myWindows/wine_date_and_time.cpp
+MyWindows.o : ../../../Common/MyWindows.cpp
+	$(CXX) $(CXXFLAGS) ../../../Common/MyWindows.cpp
+MyString.o : ../../../Common/MyString.cpp
+	$(CXX) $(CXXFLAGS) ../../../Common/MyString.cpp
+StringConvert.o : ../../../Common/StringConvert.cpp
+	$(CXX) $(CXXFLAGS) ../../../Common/StringConvert.cpp
+PropVariant.o : ../../../Windows/PropVariant.cpp
+	$(CXX) $(CXXFLAGS) ../../../Windows/PropVariant.cpp
+DLL.o : ../../../Windows/DLL.cpp
+	$(CXX) $(CXXFLAGS) ../../../Windows/DLL.cpp
+ClientCodec.o : ./ClientCodec.cpp
+	$(CXX) $(CXXFLAGS) ./ClientCodec.cpp
+
