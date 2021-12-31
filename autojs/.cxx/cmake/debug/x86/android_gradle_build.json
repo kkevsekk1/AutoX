@@ -1,33 +1,33 @@
 {
   "stringTable": {
-    "0": "D:/Users/source/AndroidStudioProjects/AutoX/AutoX-now/autojs/.cxx/cmake/debug/x86",
-    "1": "--target=i686-none-linux-android19 --gcc-toolchain=D:/Software/Java/Android_Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Software/Java/Android_Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dzips_EXPORTS -I../../../../src/main/cpp/lib7za/C -I../../../../src/main/cpp/lib7za/CPP -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -LD:/Users/source/AndroidStudioProjects/AutoX/AutoX-now/autojs/src/main/jniLibs/x86 -O0 -fno-limit-debug-info -fPIC"
+    "0": "D:/Users/source/AndroidStudioProjects/AutoX/AutoX/autojs/.cxx/cmake/debug/x86",
+    "1": "--target=i686-none-linux-android19 --gcc-toolchain=D:/Software/Java/Android_Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Software/Java/Android_Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dzips_EXPORTS -I../../../../src/main/cpp/lib7za/C -I../../../../src/main/cpp/lib7za/CPP -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -LD:/Users/source/AndroidStudioProjects/AutoX/AutoX/autojs/src/main/jniLibs/x86 -O0 -fno-limit-debug-info -fPIC"
   },
   "buildFiles": [
-    "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-now\\autojs\\CMakeLists.txt",
+    "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\CMakeLists.txt",
     "D:\\Software\\Java\\Android_Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
     "D:\\Software\\Java\\Android_Sdk\\ndk\\21.1.6352462\\build\\cmake\\platforms.cmake"
   ],
   "cleanCommands": [
-    "D:\\Software\\Java\\Android_Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-now\\autojs\\.cxx\\cmake\\debug\\x86\" clean"
+    "D:\\Software\\Java\\Android_Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\.cxx\\cmake\\debug\\x86\" clean"
   ],
-  "buildTargetsCommand": "D:\\Software\\Java\\Android_Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-now\\autojs\\.cxx\\cmake\\debug\\x86\" {LIST_OF_TARGETS_TO_BUILD}",
+  "buildTargetsCommand": "D:\\Software\\Java\\Android_Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\.cxx\\cmake\\debug\\x86\" {LIST_OF_TARGETS_TO_BUILD}",
   "libraries": {
     "zips-Debug-x86": {
-      "buildCommand": "D:\\Software\\Java\\Android_Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-now\\autojs\\.cxx\\cmake\\debug\\x86\" zips",
+      "buildCommand": "D:\\Software\\Java\\Android_Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\.cxx\\cmake\\debug\\x86\" zips",
       "buildType": "debug",
       "toolchain": "1051464619",
       "abi": "x86",
       "artifactName": "zips",
       "files": [
         {
-          "src": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-now\\autojs\\src\\main\\CPP\\zips.cpp",
+          "src": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\src\\main\\CPP\\zips.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         }
       ],
       "headers": [],
-      "output": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX-now\\autojs\\build\\intermediates\\cmake\\debug\\obj\\x86\\libzips.so",
+      "output": "D:\\Users\\source\\AndroidStudioProjects\\AutoX\\AutoX\\autojs\\build\\intermediates\\cmake\\debug\\obj\\x86\\libzips.so",
       "runtimeFiles": []
     }
   },
