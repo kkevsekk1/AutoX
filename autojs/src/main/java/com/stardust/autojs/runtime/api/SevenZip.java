@@ -21,16 +21,15 @@ public class SevenZip {
     private Context mContext;
     private ScriptRuntime mRuntime;
 
-    public SevenZip(Context context, ScriptRuntime scriptRuntime) {
+    public SevenZip(Context context) {
         mContext = context;
-        mRuntime = scriptRuntime;
     }
 
     static {
         System.loadLibrary("zips");
     }
 
-    public static native int cmd(String cmdStr);
+    public static native int cmdExec(String cmdStr);
 
     public void A(String type, String destFilePath, String srcPath) {
         String typeOption = "";
@@ -44,7 +43,7 @@ public class SevenZip {
             cmdStr = "7za a -y" + typeOption + " -ms -r " + destFilePath + " " + srcPath;
         }
         try {
-            cmd(cmdStr);
+            cmdExec(cmdStr);
         } catch (Exception e) {
             throw new ScriptException(e);
         }
@@ -60,7 +59,7 @@ public class SevenZip {
             }
         }
         try {
-            cmd(cmdStr);
+            cmdExec(cmdStr);
         } catch (Exception e) {
             throw new ScriptException(e);
         }

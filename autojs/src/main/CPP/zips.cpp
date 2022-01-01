@@ -1,60 +1,161 @@
+#include "com_stardust_autojs_runtime_api_SevenZip.h"
 #include <jni.h>
-#include <string>
-#include <7zTypes.h>
-#include <android/log.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+#include "android/log.h"
 
-#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR, "7za",__VA_ARGS__);
+#define LOG_ENABLE
+#ifdef LOG_ENABLE
+#define LOG_TAG "p7zip_jni"
+#define LOGI(...) do {__android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__);} while(0)
+#define LOGD(...) do {__android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__);} while(0)
+#define LOGE(...) do {__android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__);} while(0)
+#else
+...
+#endif
 
-extern int MY_CDECL main
-        (
+#define ARGV_LEN_MAX 256
+#define ARGC_MAX 32
+
+extern int MY_CDECL main(
 #ifndef _WIN32
-        int numArgs, char *args[]
+        int numArgs, const char *args[]
 #endif
 );
 
-void strArgs(const char *cmd, int &args, char pString[66][1024]);
+static bool str2args(const char* s,char argv[][ARGV_LEN_MAX],int* argc) {
+    bool in_token, in_container, escaped;
+    bool result;
+    char container_start, c;
+    int len, i;
+    int index = 0;
+    int arg_count = 0;
 
-extern "C"
-JNIEXPORT jint JNICALL
-Java_com_stardust_autojs_runtime_api_SevenZip_cmd(JNIEnv *env, jclass type, jstring cmd_) {
-    const char *cmd = env->GetStringUTFChars(cmd_, 0);
-    int numArgs;
-    char temp[66][1024] = {0};
-    strArgs(cmd, numArgs, temp);
-    char *args[] = {0};
-    for (int i = 0; i < numArgs; ++i) {
-        args[i] = temp[i];
-        LOGE("%s", args[i]);
-    }
-    env->ReleaseStringUTFChars(cmd_, cmd);
-    return main(numArgs, args);
-}
+    result = true;
+    container_start = 0;
+    in_token = false;
+    in_container = false;
+    escaped = false;
 
-void strArgs(const char *cmd, int &numArgs, char argv[66][1024]) {
-    int size = strlen(cmd);
-    int a = 0, b = 0;
-    int inspace = 0;
-    for (int i = 0; i < size; ++i) {
-        char c = cmd[i];
+    len = strlen(s);
+    for (i = 0; i < len; i++) {
+        c = s[i];
         switch (c) {
             case ' ':
             case '\t':
-                if (inspace) {
-                    argv[a][b++] = '\0';
-                    a++;
-                    b = 0;
-                    inspace = 0;
+            case '\n':
+
+                if (!in_token)
+                    continue;
+                if (in_container) {
+                    argv[arg_count][index++] = c;
+                    continue;
                 }
+                if (escaped) {
+                    escaped = false;
+                    argv[arg_count][index++] = c;
+                    continue;
+                }
+                /* if reached here, we're at end of token */
+                in_token = false;
+                argv[arg_count++][index] = '\0';
+                index = 0;
                 break;
-            default:
-                inspace = 1;
-                argv[a][b++] = c;
+                /* handle quotes */
+            case '\'':
+            case '\"':
+
+                if (escaped) {
+                    argv[arg_count][index++] = c;
+                    escaped = false;
+                    continue;
+                }
+                if (!in_token) {
+                    in_token = true;
+                    in_container = true;
+                    container_start = c;
+                    continue;
+                }
+                if (in_container) {
+                    if (c == container_start) { //container end
+                        in_container = false;
+                        in_token = false;
+                        argv[arg_count++][index] = '\0';
+                        index = 0;
+                        continue;
+                    } else { //not the same as contain start char
+                        argv[arg_count][index++] = c;
+                        continue;
+                    }
+                }
+                LOGE("Parse Error! Bad quotes\n");
+                result = false;
+                break;
+            case '\\':
+
+                if (in_container && s[i + 1] != container_start) {
+                    argv[arg_count][index++] = c;
+                    continue;
+                }
+                if (escaped) {
+                    argv[arg_count][index++] = c;
+                    continue;
+                }
+                escaped = true;
+                break;
+            default: //normal char
+
+                if (!in_token) {
+                    in_token = true;
+                }
+                argv[arg_count][index++] = c;
+                if (i == len - 1) { //reach the end
+                    argv[arg_count++][index++] = '\0';
+                }
                 break;
         }
     }
-    if (cmd[size - 1] != ' ' && cmd[size - 1] != '\t') {
-        argv[a][b] = '\0';
-        a++;
+    *argc = arg_count;
+
+    if (in_container) {
+        LOGE("Parse Error! Still in container\n");
+        result = false;
     }
-    numArgs = a;
+    if (escaped) {
+        LOGE("Parse Error! Unused escape (\\)\n");
+        result = false;
+    }
+    return result;
+}
+
+
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_stardust_autojs_runtime_api_SevenZip_cmdExec(JNIEnv *env, jclass clazz, jstring cmd_str) {
+    int result = -1;
+    const char* tmp_cmd = (const char*)env->GetStringUTFChars(cmd_str,NULL);
+
+    LOGI("start[%s]",tmp_cmd);
+
+    int argc = 0;
+    char temp[ARGC_MAX][ARGV_LEN_MAX] = {0};
+    char* argv[ARGC_MAX] = {0};
+
+    if (str2args(tmp_cmd,temp,&argc)==false) {
+        return 7;
+    }
+
+    for (int i=0;i<argc;i++) {
+        argv[i] = temp[i];
+        LOGD("arg[%d]:[%s]",i,argv[i]);
+    }
+
+    result = main(argc,(const char**)argv);
+
+    LOGI("end[%s]",tmp_cmd);
+
+    env->ReleaseStringUTFChars(cmd_str,tmp_cmd);
+
+    return result;
 }
