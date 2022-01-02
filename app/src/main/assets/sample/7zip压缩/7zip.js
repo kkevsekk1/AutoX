@@ -14,4 +14,4 @@ toastLog("压缩成功！")
 
 //自定义命令:7z加密压缩
 //var password = "password"
-//zips.cmd("7z a -y -ms -t7z -p" + password + " "  + filePath + " -r" + dirPath);
+//zips.cmd("7z a -y -ms -t7z -p" + password + " "  + filePath + " -r " + dirPath);
