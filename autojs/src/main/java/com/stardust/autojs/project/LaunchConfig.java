@@ -9,6 +9,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class LaunchConfig {
 
+    @SerializedName("displaySplash")
+    private boolean mdisplaySplash = false;
+
     @SerializedName("hideLogs")
     private boolean mHideLogs = false;
 
@@ -75,4 +78,11 @@ public class LaunchConfig {
         this.volumeUpcontrol = volumeUpcontrol;
     }
 
+    public boolean isDisplaySplash() {
+        return mdisplaySplash;
+    }
+
+    public void setDisplaySplash(boolean mdisplaySplash) {
+        this.mdisplaySplash = mdisplaySplash;
+    }
 }

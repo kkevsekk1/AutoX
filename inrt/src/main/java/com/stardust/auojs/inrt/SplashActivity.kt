@@ -37,15 +37,20 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         val slug = findViewById<TextView>(R.id.slug)
         slug.typeface = Typeface.createFromAsset(assets, "roboto_medium.ttf")
-        if(Pref.getHost("d")=="d"){
+        if(Pref.getHost("d")=="d"){ //非第一次运行
             Pref.setHost("112.74.161.35")
             val mProjectConfig: ProjectConfig = ProjectConfig.fromAssets(this, ProjectConfig.configFileOfDir("project"))
             Pref.setHideLogs(mProjectConfig.getLaunchConfig().shouldHideLogs())
             Pref.setStableMode(mProjectConfig.getLaunchConfig().isStableMode())
             Pref.setStopAllScriptsWhenVolumeUp(mProjectConfig.getLaunchConfig().isVolumeUpcontrol())
+            Pref.setDisplaySplash(mProjectConfig.getLaunchConfig().isDisplaySplash())
         }
         if (!BuildConfig.isMarket) {
-            Handler().postDelayed({ this@SplashActivity.main() }, INIT_TIMEOUT)
+            if(Pref.istDisplaySplash()){
+                main()
+            }else{
+                Handler().postDelayed({ this@SplashActivity.main() }, INIT_TIMEOUT)
+            }
         }else{
            main()
         }
@@ -100,7 +105,6 @@ class SplashActivity : AppCompatActivity() {
         }
         Thread {
             try {
-                Thread.sleep(2000);
                 GlobalProjectLauncher.launch(this)
                 this.finish();
             } catch (e: Exception) {

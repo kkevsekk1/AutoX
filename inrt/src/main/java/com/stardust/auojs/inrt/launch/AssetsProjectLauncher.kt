@@ -41,12 +41,13 @@ open class AssetsProjectLauncher(private val mAssetsProjectDir: String, private 
 
     fun launch(activity: Activity) {
         if (Pref.istHideLogs()) {
-            //隐藏日志直接运行
+            //隐藏日志---直接运行
             runScript(activity)
             return;
         }
-        //如果不隐藏日志界面，且不是日志界面
+        //不隐藏日志，
         if (!(activity is LogActivity)) {
+            //且当前不是日志
             mHandler.post {
                 activity.startActivity(Intent(mActivity, LogActivity::class.java)
                         .putExtra(LogActivity.EXTRA_LAUNCH_SCRIPT, true))

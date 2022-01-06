@@ -38,6 +38,14 @@ public class Pref {
     public static boolean istHideLogs() {
         return def().getBoolean(getString(R.string.key_hide_logs), false);
     }
+
+    public static void setDisplaySplash(Boolean value) {
+        def().edit().putBoolean(getString(R.string.key_dont_show_main_activity), value).apply();
+    }
+    public static boolean istDisplaySplash() {
+        return def().getBoolean(getString(R.string.key_dont_show_main_activity), false);
+    }
+
     public static boolean shouldStopAllScriptsWhenVolumeUp() {
         return def().getBoolean(getString(R.string.key_use_volume_control_running), true);
     }
