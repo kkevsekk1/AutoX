@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by Stardust on 2018/1/25.
+ * update by aaron on 2022年1月6日10:06:38
  */
 
 public class LaunchConfig {
@@ -19,6 +20,9 @@ public class LaunchConfig {
 
     @SerializedName("splashText")
     private String splashText = "Powered by Autoxjs.com";
+
+    @SerializedName("volumeUpcontrol")
+    private boolean volumeUpcontrol = true;
 
     @SerializedName("serviceDesc")
     private String serviceDesc = "使脚本自动操作(点击、长按、滑动等)所需，若关闭则只能执行不涉及自动操作的脚本。";
@@ -62,4 +66,13 @@ public class LaunchConfig {
     public void setServiceDesc(String serviceDesc) {
         this.serviceDesc = serviceDesc;
     }
+
+    public boolean isVolumeUpcontrol() {
+        return volumeUpcontrol;
+    }
+
+    public void setVolumeUpcontrol(boolean volumeUpcontrol) {
+        this.volumeUpcontrol = volumeUpcontrol;
+    }
+
 }
