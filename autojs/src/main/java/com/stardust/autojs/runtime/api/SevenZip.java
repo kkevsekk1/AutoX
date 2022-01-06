@@ -21,46 +21,45 @@ public class SevenZip {
     private Context mContext;
     private ScriptRuntime mRuntime;
 
-    public SevenZip(Context context, ScriptRuntime scriptRuntime) {
+    public SevenZip(Context context) {
         mContext = context;
-        mRuntime = scriptRuntime;
     }
 
     static {
         System.loadLibrary("zips");
     }
 
-    public static native int cmd(String cmdStr);
+    public static native int cmdExec(String cmdStr);
 
     public void A(String type, String destFilePath, String srcPath) {
         String typeOption = "";
         if (!type.trim().isEmpty()) {
             typeOption = " -t" + type.trim();
         }
-        String cmdStr = "7za";
+        String cmdStr = "7z";
         if (PFiles.isFile(srcPath)) {
-            cmdStr = "7za a -y" + typeOption + " -ms " + destFilePath + " " + srcPath;
+            cmdStr = "7z a -y" + typeOption + " -ms " + destFilePath + " " + srcPath;
         } else if (PFiles.isDir(srcPath)) {
-            cmdStr = "7za a -y" + typeOption + " -ms -r " + destFilePath + " " + srcPath;
+            cmdStr = "7z a -y" + typeOption + " -ms -r " + destFilePath + " " + srcPath;
         }
         try {
-            cmd(cmdStr);
+            cmdExec(cmdStr);
         } catch (Exception e) {
             throw new ScriptException(e);
         }
     }
 
     public void X(String filePath0, String dirPath1) {
-        String cmdStr = "7za x -y -aos " + filePath0;
+        String cmdStr = "7z x -y -aos " + filePath0;
         if (PFiles.isFile(filePath0)) {
             if (PFiles.isDir(dirPath1)) {
-                cmdStr = "7za x -y -aos -o" + dirPath1 + " " + filePath0;
+                cmdStr = "7z x -y -aos -o" + dirPath1 + " " + filePath0;
             } else {
-                cmdStr = "7za x -y -aos " + filePath0;
+                cmdStr = "7z x -y -aos " + filePath0;
             }
         }
         try {
-            cmd(cmdStr);
+            cmdExec(cmdStr);
         } catch (Exception e) {
             throw new ScriptException(e);
         }
