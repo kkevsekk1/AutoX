@@ -40,25 +40,20 @@ open class AssetsProjectLauncher(private val mAssetsProjectDir: String, private 
     }
 
     fun launch(activity: Activity) {
-        if (mProjectConfig.launchConfig.isStableMode) {
-            Pref.setStableMode(mProjectConfig.launchConfig.isStableMode);
-        }
-        //如果需要隐藏日志界面，则直接运行脚本
-        if (mProjectConfig.launchConfig.shouldHideLogs()) {
+        if (Pref.istHideLogs()) {
+            //隐藏日志直接运行
             runScript(activity)
-        } else {
-            //如果不隐藏日志界面
-            //如果当前已经是日志界面则直接运行脚本
-            if (activity is LogActivity) {
-                runScript(null)
-            } else {
-                //否则显示日志界面并在日志界面中运行脚本
-                mHandler.post {
-                    activity.startActivity(Intent(mActivity, LogActivity::class.java)
-                            .putExtra(LogActivity.EXTRA_LAUNCH_SCRIPT, true))
-                    activity.finish()
-                }
+            return;
+        }
+        //如果不隐藏日志界面，且不是日志界面
+        if (!(activity is LogActivity)) {
+            mHandler.post {
+                activity.startActivity(Intent(mActivity, LogActivity::class.java)
+                        .putExtra(LogActivity.EXTRA_LAUNCH_SCRIPT, true))
+                activity.finish()
             }
+        } else {
+            runScript(null)
         }
     }
 

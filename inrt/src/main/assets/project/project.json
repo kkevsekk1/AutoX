@@ -10,7 +10,12 @@
   "packageName": "xx.xx",
   "versionCode": 1,
   "versionName": "1.0.0",
-  "launchConfig":{
-    "hideLogs": true
+  "launchConfig": {
+    "hideLogs": false,
+    "splashIcon": "res/splashIcon.png",
+    "splashText": "Powered by Autoxjs.com",
+    "stableMode": true,
+    "volumeUpcontrol":true,
+    "serviceDesc":"无障碍启动描述"
   }
 }
