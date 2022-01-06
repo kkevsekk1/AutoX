@@ -123,6 +123,9 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     @ViewById(R.id.default_hideLogs)
     CheckBoxCompat mHideLogs;
 
+    @ViewById(R.id.default_volume_up)
+    CheckBoxCompat mVolumeUp;
+
     @ViewById(R.id.app_splash_text)
     EditText mSplashText;
 
@@ -239,6 +242,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
         mMainFileName.setText(mProjectConfig.getMainScriptFile());
         mStableMode.setChecked(mProjectConfig.getLaunchConfig().isStableMode());
         mHideLogs.setChecked(mProjectConfig.getLaunchConfig().shouldHideLogs());
+        mVolumeUp.setChecked(mProjectConfig.getLaunchConfig().isVolumeUpcontrol());
         mSplashText.setText(mProjectConfig.getLaunchConfig().getSplashText());
         mServiceDesc.setText(mProjectConfig.getLaunchConfig().getServiceDesc());
         String splashIcon = mProjectConfig.getLaunchConfig().getSplashIcon();
@@ -294,6 +298,13 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
             mProjectConfig.getLaunchConfig().setHideLogs(mHideLogs.isChecked());
         }
     }
+    @OnCheckedChanged(R.id.default_volume_up)
+    void onVolumeUpCheckedChanged() {
+        if (mProjectConfig != null) {
+            mProjectConfig.getLaunchConfig().setHideLogs(mVolumeUp.isChecked());
+        }
+    }
+
 
     @Click(R.id.sign_choose)
     void chooseSign() {
@@ -397,12 +408,6 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
 
     private boolean syncProjectConfig() {
         if (mProjectConfig == null) {
-//            new ThemeColorMaterialDialogBuilder(this)
-//                    .title(R.string.text_invalid_project_config)
-//                    .positiveText(R.string.ok)
-//                    .dismissListener(dialogInterface -> finish())
-//                    .show();
-//            return false;
             mProjectConfig = new ProjectConfig();
             if (PFiles.isFile(mSource)) {
                 mProjectConfig.setMainScriptFile(new File(mSource).getName());
@@ -415,6 +420,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
         mProjectConfig.setMainScriptFile(mMainFileName.getText().toString());
         mProjectConfig.getLaunchConfig().setStableMode(mStableMode.isChecked());
         mProjectConfig.getLaunchConfig().setHideLogs(mHideLogs.isChecked());
+        mProjectConfig.getLaunchConfig().setVolumeUpcontrol(mVolumeUp.isChecked());
         mProjectConfig.getLaunchConfig().setSplashText(mSplashText.getText().toString());
         mProjectConfig.getLaunchConfig().setServiceDesc(mServiceDesc.getText().toString());
         if (mKeyStore != null) {

@@ -5,7 +5,6 @@
     <string name="text_enable_accessibility_service_by_root_timeout">使用root权限启用无障碍服务失败</string>
     <string name="text_settings">设置</string>
     <string name="text_script_running">脚本运行</string>
-
     <string name="key_use_volume_control_running">key_use_volume_control_running</string>
     <string name="key_enable_accessibility_service_by_root">key_enable_accessibility_service_by_root</string>
     <string name="key_enable_accessibility_service">key_enable_accessibility_service</string>

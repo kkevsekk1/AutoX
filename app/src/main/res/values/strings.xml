@@ -230,6 +230,7 @@
     <string name="text_version_code">版本号</string>
     <string name="text_run_config">运行配置</string>
     <string name="text_hideLogs">隐藏日志</string>
+    <string name="text_volumeUpcontrol">音量上结束任务</string>
     <string name="text_splash_text">启动界面文本</string>
     <string name="text_splash_icon">启动界面图标</string>
     <string name="text_service_desc_text">无障碍服务描述</string>
