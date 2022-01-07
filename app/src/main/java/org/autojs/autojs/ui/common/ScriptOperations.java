@@ -303,7 +303,8 @@ public class ScriptOperations {
     @SuppressLint("CheckResult")
     public void deleteWithoutConfirm(final ScriptFile scriptFile) {
         boolean isDir = scriptFile.isDirectory();
-        Observable.fromPublisher((Publisher<Boolean>) s -> s.onNext(PFiles.deleteRecursively(scriptFile)))
+        File f = new File(scriptFile.getAbsolutePath());
+        Observable.fromPublisher((Publisher<Boolean>) s -> s.onNext(PFiles.deleteRecursively(f)))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(deleted -> {

@@ -27,6 +27,7 @@ import com.stardust.auojs.inrt.autojs.GlobalKeyObserver
 import com.stardust.auojs.inrt.pluginclient.AutoXKeepLiveService
 import com.stardust.autojs.core.ui.inflater.ImageLoader
 import com.stardust.autojs.core.ui.inflater.util.Drawables
+import com.stardust.autojs.execution.ScriptExecuteActivity
 
 
 /**
@@ -89,8 +90,8 @@ class App : Application() {
                 object : ForegroundNotificationClickListener {
                     override fun foregroundNotificationClick(context: Context?, intent: Intent?) {
                         Log.d(TAG, "foregroundNotificationClick: ");
-                        val splashActivityintent = Intent(context, SplashActivity::class.java)
-                        splashActivityintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_NEW_TASK);
+                        val splashActivityintent = Intent(context, ScriptExecuteActivity::class.java)
+                        splashActivityintent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
                         context!!.startActivity(splashActivityintent)
 
                     }

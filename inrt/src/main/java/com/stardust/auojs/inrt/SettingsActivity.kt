@@ -1,13 +1,12 @@
 package com.stardust.auojs.inrt
 
 import android.os.Bundle
-import android.preference.Preference
-import android.preference.PreferenceScreen
+import androidx.preference.Preference
 import android.util.Log
 import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-
+import androidx.preference.PreferenceFragmentCompat
 
 
 /**
@@ -16,7 +15,6 @@ import androidx.appcompat.widget.Toolbar
 
 class SettingsActivity : AppCompatActivity() {
 
-
     override fun onCreate(@Nullable savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupViews()
@@ -24,7 +22,7 @@ class SettingsActivity : AppCompatActivity() {
 
     private fun setupViews() {
         setContentView(R.layout.activity_settings)
-        fragmentManager.beginTransaction().replace(R.id.fragment_setting, PreferenceFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_setting, PreferenceFragment()).commit()
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         toolbar.setTitle(R.string.text_settings)
         setSupportActionBar(toolbar)
@@ -32,20 +30,24 @@ class SettingsActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    class PreferenceFragment : android.preference.PreferenceFragment() {
+    class PreferenceFragment : PreferenceFragmentCompat() {
 
         override fun onCreate(@Nullable savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
+
+        }
+
+        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             addPreferencesFromResource(R.xml.preference)
         }
 
-        override fun onPreferenceTreeClick(preferenceScreen: PreferenceScreen?, preference: Preference?): Boolean {
-
-            Log.d("inrt", "onPreferenceTreeClick: ")
+        override fun onPreferenceTreeClick(preference: Preference?): Boolean {
             val key = preference!!.key
+            Log.d("inrt", "onPreferenceTreeClick: ")
             Log.d("inrt", "onPreferenceTreeClick: "+Pref.shouldEnableFloatingWindow());
-            return super.onPreferenceTreeClick(preferenceScreen, preference)
+            return super.onPreferenceTreeClick(preference)
         }
+
     }
 
 

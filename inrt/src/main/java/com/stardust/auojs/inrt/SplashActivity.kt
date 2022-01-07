@@ -19,6 +19,7 @@ import com.linsh.utilseverywhere.IntentUtils
 import com.stardust.auojs.inrt.autojs.AutoJs
 import com.stardust.auojs.inrt.launch.GlobalProjectLauncher
 import com.stardust.auojs.inrt.util.UpdateUtil
+import com.stardust.autojs.project.ProjectConfig
 import com.stardust.util.IntentUtil
 import ezy.assist.compat.SettingsCompat
 import java.util.*
@@ -36,22 +37,32 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         val slug = findViewById<TextView>(R.id.slug)
         slug.typeface = Typeface.createFromAsset(assets, "roboto_medium.ttf")
-        if (!Pref.isFirstUsing()) {//不是第一次
-            main()
-        } else {
-            if(Pref.getHost("d")=="d"){
-                Pref.setHost("112.74.161.35")
-            }
-            if (!BuildConfig.isMarket) {
+        if(Pref.getHost("d")=="d"){ //非第一次运行
+            Pref.setHost("112.74.161.35")
+            val mProjectConfig: ProjectConfig = ProjectConfig.fromAssets(this, ProjectConfig.configFileOfDir("project"))
+            Pref.setHideLogs(mProjectConfig.getLaunchConfig().shouldHideLogs())
+            Pref.setStableMode(mProjectConfig.getLaunchConfig().isStableMode())
+            Pref.setStopAllScriptsWhenVolumeUp(mProjectConfig.getLaunchConfig().isVolumeUpcontrol())
+            Pref.setDisplaySplash(mProjectConfig.getLaunchConfig().isDisplaySplash())
+        }
+        if (!BuildConfig.isMarket) {
+            if(Pref.istDisplaySplash()){
+                main()
+            }else{
                 Handler().postDelayed({ this@SplashActivity.main() }, INIT_TIMEOUT)
             }
+        }else{
+           main()
         }
+
     }
 
 
     private fun main() {
-        checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_PHONE_STATE)
+        if(checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_PHONE_STATE)){
+            runScript();
+        }
     }
 
     private fun manageDrawOverlays() {
@@ -94,8 +105,6 @@ class SplashActivity : AppCompatActivity() {
         }
         Thread {
             try {
-
-                Thread.sleep(2000);
                 GlobalProjectLauncher.launch(this)
                 this.finish();
             } catch (e: Exception) {
@@ -111,19 +120,19 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onRequestPermissionsResult(requestCode: Int, @NonNull permissions: Array<String>, @NonNull grantResults: IntArray) {
         Log.d(TAG, "onRequestPermissionsResult: " + requestCode);
-        runScript()
     }
 
-    private fun checkPermission(vararg permissions: String) {
+    private fun checkPermission(vararg permissions: String): Boolean {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             val requestPermissions = getRequestPermissions(permissions)
             if (requestPermissions.isNotEmpty()) {
                 requestPermissions(requestPermissions, PERMISSION_REQUEST_CODE)
+                return false;
             } else {
-                runScript()
+              return true;
             }
         } else {
-            runScript()
+            return true;
         }
     }
 
@@ -147,8 +156,7 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onResume() {
         if (BuildConfig.isMarket) {
-            Log.d(TAG, "onResume: ")
-            if (!Pref.isFirstUsing()) { //已经不是第一次了
+            if (Pref.isFirstUsing()) { //已经不是第一次了
                 if (step == 1) {
                     manageDrawOverlays();
                 }
@@ -159,14 +167,13 @@ class SplashActivity : AppCompatActivity() {
                     AccessibilitySetting();
                 }
                 if (step == 4) {
+                    Pref.setNotFirstUsingEnd()
                     main();
                 }
                 step++;
             }
-
         }
         super.onResume()
-
     }
 
 }

@@ -28,10 +28,10 @@
     <string name="text_about">关于</string>
     <string name="text_licenses">开放源代码许可</string>
     <string name="text_do_not_remind_again">不再提示</string>
-    <string name="copyright">Copyright©2020-2025 All right reserves.</string>
+    <string name="copyright">Copyright©2020-2022 All right reserves.</string>
     <string name="developer">aaron</string>
-    <string name="qq" translatable="false">470722660</string>
-    <string name="email" translatable="false">kkevsekk@163.com</string>
+    <string name="qq" translatable="false">895775483</string>
+    <string name="email" translatable="false">chengshulun@live.com</string>
     <string name="github">软件源代码</string>
     <string name="text_already_copy_to_clip">已复制到剪贴板</string>
     <string name="my_github">https://github.com/kkevsekk1/autox</string>
@@ -230,6 +230,7 @@
     <string name="text_version_code">版本号</string>
     <string name="text_run_config">运行配置</string>
     <string name="text_hideLogs">隐藏日志</string>
+    <string name="text_volumeUpcontrol">音量上结束任务</string>
     <string name="text_splash_text">启动界面文本</string>
     <string name="text_splash_icon">启动界面图标</string>
     <string name="text_service_desc_text">无障碍服务描述</string>

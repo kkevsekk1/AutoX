@@ -208,7 +208,6 @@ public class ProjectConfigActivity extends BaseActivity {
             String location = mProjectLocation.getText().toString();
             mDirectory = new File(location);
         }
-        //mProjectConfig.getLaunchConfig().setHideLogs(true);
     }
 
     private boolean checkInputs() {

@@ -5,12 +5,18 @@
     "build_number": 1,
     "build_time": 1543638246643
   },
-  "main": "main.js",
+  "main": "main1.js",
   "name": "打包测试",
   "packageName": "xx.xx",
   "versionCode": 1,
   "versionName": "1.0.0",
-  "launchConfig":{
-    "hideLogs": true
+  "launchConfig": {
+    "displaySplash": false,
+    "hideLogs": false,
+    "splashIcon": "res/splashIcon.png",
+    "splashText": "Powered by Autoxjs.com",
+    "stableMode": true,
+    "volumeUpcontrol":true,
+    "serviceDesc":"无障碍启动描述"
   }
 }
