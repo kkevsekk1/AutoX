@@ -73,5 +73,7 @@ dependencies {
     api files('libs/rhino-1.7.7.2.jar')
     api project(path: ':common')
     api project(path: ':automator')
+    // https://github.com/hzy3774/AndroidP7zip
+    implementation 'com.hzy:libp7zip:1.7.0'
 }
 

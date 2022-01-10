@@ -1,21 +1,11 @@
 package com.stardust.autojs.runtime.api;
 
 import android.content.Context;
-import android.widget.Toast;
 
+import com.hzy.libp7zip.P7ZipApi;
 import com.stardust.autojs.runtime.ScriptRuntime;
 import com.stardust.autojs.runtime.exception.ScriptException;
-import com.stardust.autojs.runtime.exception.ScriptInterruptedException;
 import com.stardust.pio.PFiles;
-import com.stardust.view.accessibility.AccessibilityNotificationObserver;
-
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class SevenZip {
     private Context mContext;
@@ -25,11 +15,15 @@ public class SevenZip {
         mContext = context;
     }
 
-    static {
-        System.loadLibrary("zips");
-    }
+//    static {
+//        System.loadLibrary("zips");
+//    }
 
-    public static native int cmdExec(String cmdStr);
+//    public static native int cmdExec(String cmdStr);
+
+    public void cmdExec(String cmdStr) {
+        P7ZipApi.executeCommand(cmdStr);
+    }
 
     public void A(String type, String destFilePath, String srcPath) {
         String typeOption = "";
@@ -43,7 +37,7 @@ public class SevenZip {
             cmdStr = "7z a -y" + typeOption + " -ms -r " + destFilePath + " " + srcPath;
         }
         try {
-            cmdExec(cmdStr);
+            P7ZipApi.executeCommand(cmdStr);
         } catch (Exception e) {
             throw new ScriptException(e);
         }
@@ -59,7 +53,7 @@ public class SevenZip {
             }
         }
         try {
-            cmdExec(cmdStr);
+            P7ZipApi.executeCommand(cmdStr);
         } catch (Exception e) {
             throw new ScriptException(e);
         }

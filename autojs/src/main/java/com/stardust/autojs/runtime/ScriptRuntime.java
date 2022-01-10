@@ -186,7 +186,7 @@ public class ScriptRuntime {
     public final Files files;
 
     @ScriptVariable
-    public final SevenZip zips=null;
+    public SevenZip zips;
 
     @ScriptVariable
     public Sensors sensors;
@@ -229,7 +229,7 @@ public class ScriptRuntime {
         files = new Files(this);
         media = new Media(context, this);
         plugins = new Plugins(context, this);
-//        zips = new SevenZip(context);
+        zips = new SevenZip(context);
     }
 
     public void init() {
