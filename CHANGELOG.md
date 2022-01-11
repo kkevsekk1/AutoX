@@ -3,9 +3,9 @@ autoxjs 整个项目的的一些更新日志,双版本号为稳定版，单版�
 
 ### 5.5.3
 优化以下特性：
-*.增加配置隐藏启动图标，只能通过adb等其他方式启动app
-2.感谢 [Aioure](https://github.com/Aioure) 增加7zip 相关api，在打包app中应用
-3.修复一些闪推问题
+* 增加配置隐藏启动图标，只能通过adb等其他方式启动app
+* 感谢 [Aioure](https://github.com/Aioure) 增加7zip 相关api，在打包app中应用
+* 修复一些闪推问题
 
 
 
