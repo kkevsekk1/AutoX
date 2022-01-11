@@ -15,6 +15,9 @@ public class LaunchConfig {
     @SerializedName("hideLogs")
     private boolean mHideLogs = false;
 
+    @SerializedName("hideLauncher")
+    private boolean hideLauncher = false;
+
     @SerializedName("stableMode")
     private boolean stableMode = false;
 
@@ -84,5 +87,13 @@ public class LaunchConfig {
 
     public void setDisplaySplash(boolean mdisplaySplash) {
         this.mdisplaySplash = mdisplaySplash;
+    }
+
+    public boolean isHideLauncher() {
+        return hideLauncher;
+    }
+
+    public void setHideLauncher(boolean hideLauncher) {
+        this.hideLauncher = hideLauncher;
     }
 }
