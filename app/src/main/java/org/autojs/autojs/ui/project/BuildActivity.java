@@ -117,6 +117,9 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     @ViewById(R.id.main_file_name)
     EditText mMainFileName;
 
+    @ViewById(R.id.default_hideLaucher)
+    CheckBoxCompat mHideLaucher;
+
     @ViewById(R.id.default_stable_mode)
     CheckBoxCompat mStableMode;
 
@@ -241,6 +244,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
         // 运行配置
         mMainFileName.setText(mProjectConfig.getMainScriptFile());
         mStableMode.setChecked(mProjectConfig.getLaunchConfig().isStableMode());
+        mHideLaucher.setChecked(mProjectConfig.getLaunchConfig().isHideLauncher());
         mHideLogs.setChecked(mProjectConfig.getLaunchConfig().shouldHideLogs());
         mVolumeUp.setChecked(mProjectConfig.getLaunchConfig().isVolumeUpcontrol());
         mSplashText.setText(mProjectConfig.getLaunchConfig().getSplashText());
@@ -289,6 +293,13 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
     void onStableModeCheckedChanged() {
         if (mProjectConfig != null) {
             mProjectConfig.getLaunchConfig().setStableMode(mStableMode.isChecked());
+        }
+    }
+
+    @OnCheckedChanged(R.id.default_hideLaucher)
+    void onHideLaucherCheckedChanged() {
+        if (mProjectConfig != null) {
+            mProjectConfig.getLaunchConfig().setHideLauncher(mHideLaucher.isChecked());
         }
     }
 
@@ -419,6 +430,7 @@ public class BuildActivity extends BaseActivity implements ApkBuilder.ProgressCa
         mProjectConfig.setPackageName(mPackageName.getText().toString());
         mProjectConfig.setMainScriptFile(mMainFileName.getText().toString());
         mProjectConfig.getLaunchConfig().setStableMode(mStableMode.isChecked());
+        mProjectConfig.getLaunchConfig().setHideLauncher(mHideLaucher.isChecked());
         mProjectConfig.getLaunchConfig().setHideLogs(mHideLogs.isChecked());
         mProjectConfig.getLaunchConfig().setVolumeUpcontrol(mVolumeUp.isChecked());
         mProjectConfig.getLaunchConfig().setSplashText(mSplashText.getText().toString());

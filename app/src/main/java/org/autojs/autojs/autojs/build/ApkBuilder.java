@@ -79,6 +79,7 @@ public class ApkBuilder {
         Callable<Bitmap> icon;
         Callable<Bitmap> splashIcon;
         String splashText;
+        boolean hideLauncher;
         String serviceDesc;
 
         public static AppConfig fromProjectConfig(String projectDir, ProjectConfig projectConfig) {
@@ -87,6 +88,7 @@ public class ApkBuilder {
             AppConfig appConfig = new AppConfig()
                     .setAppName(projectConfig.getName())
                     .setPackageName(projectConfig.getPackageName())
+                    .setHideLauncher(projectConfig.getLaunchConfig().isHideLauncher())
                     .ignoreDir(new File(projectDir, projectConfig.getBuildDir()))
                     .setVersionCode(projectConfig.getVersionCode())
                     .setVersionName(projectConfig.getVersionName())
@@ -195,6 +197,11 @@ public class ApkBuilder {
 
         public AppConfig setServiceDesc(String serviceDesc) {
             this.serviceDesc = serviceDesc;
+            return this;
+        }
+
+        public AppConfig setHideLauncher(boolean hideLauncher) {
+            this.hideLauncher = hideLauncher;
             return this;
         }
     }
@@ -488,14 +495,19 @@ public class ApkBuilder {
             super(manifestInputStream);
         }
 
+
+
         @Override
         public void onAttr(AxmlWriter.Attr attr) {
+            if(mAppConfig.hideLauncher&&attr.value instanceof StringItem&&"android.intent.category.LAUNCHER".equals(((StringItem) attr.value).data)){
+                Log.e("attr", "onAttr: "+((StringItem) attr.value).data+"----"+"");
+                ((StringItem) attr.value).data="android.intent.category.DEFAULT";
+            }
             if ("authorities".equals(attr.name.data) && attr.value instanceof StringItem) {
                 ((StringItem) attr.value).data = mAppConfig.packageName + ".fileprovider";
             } else {
                 super.onAttr(attr);
             }
-
         }
     }
 }

@@ -5,7 +5,7 @@
     "build_number": 1,
     "build_time": 1543638246643
   },
-  "main": "main1.js",
+  "main": "main.js",
   "name": "打包测试",
   "packageName": "xx.xx",
   "versionCode": 1,
