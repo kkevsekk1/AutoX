@@ -54,12 +54,12 @@ dependencies {
     api 'com.github.hyb1996:EnhancedFloaty:0.31'
     api 'com.makeramen:roundedimageview:2.3.0'
     // OpenCv
-    api(name: 'opencv-3.4.3', ext: 'aar')
+    api(name: 'opencv-4.2.0', ext: 'aar')
     // OkHttp
     api 'com.squareup.okhttp3:okhttp:3.10.0'
     // JDeferred
     api 'org.jdeferred:jdeferred-android-aar:1.2.6'
-    //RootShell
+    // RootShell
     api 'com.github.Stericson:RootShell:1.6'
     // Gson
     api 'com.google.code.gson:gson:2.8.2'
@@ -70,10 +70,10 @@ dependencies {
     api(name: 'libtermexec-release', ext: 'aar')
     api(name: 'emulatorview-release', ext: 'aar')
     api(name: 'term-debug', ext: 'aar')
-    api files('libs/rhino-1.7.7.2.jar')
+    api files('libs/rhino-1.7.13.jar')
     api project(path: ':common')
     api project(path: ':automator')
-    // https://github.com/hzy3774/AndroidP7zip
-    implementation 'com.hzy:libp7zip:1.7.0'
+    // 7zip
+    api(name: 'libp7zip-1.7.2', ext: 'aar')
 }
 

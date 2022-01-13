@@ -9,9 +9,9 @@ buildscript {
         maven { url "https://jitpack.io" }
         maven { url 'http://120.25.164.233:8081/nexus/content/groups/public/' }
         google { url 'https://maven.aliyun.com/repository/google' }
-        google()
+//        google()
         jcenter { url 'https://maven.aliyun.com/repository/public' }
-        jcenter()
+//        jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.0'
