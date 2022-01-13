@@ -7,6 +7,7 @@ import com.stardust.autojs.runtime.ScriptRuntime;
 import com.stardust.autojs.runtime.exception.ScriptException;
 import com.stardust.pio.PFiles;
 
+
 public class SevenZip {
     private Context mContext;
     private ScriptRuntime mRuntime;
@@ -32,9 +33,9 @@ public class SevenZip {
         }
         String cmdStr = "7z";
         if (PFiles.isFile(srcPath)) {
-            cmdStr = "7z a -y" + typeOption + " -ms " + destFilePath + " " + srcPath;
+            cmdStr = "7z a -y" + typeOption + " -ms=off -mx=1 -mmt " + destFilePath + " " + srcPath;
         } else if (PFiles.isDir(srcPath)) {
-            cmdStr = "7z a -y" + typeOption + " -ms -r " + destFilePath + " " + srcPath;
+            cmdStr = "7z a -y" + typeOption + " -ms=off -mx=1 -mmt -r " + destFilePath + " " + srcPath;
         }
         try {
             P7ZipApi.executeCommand(cmdStr);
