@@ -30,12 +30,12 @@ function callJavaScript(webViewWidget, script, callback) {
     }
 }
 
-function autoX() {
-    let getautoXFrame = () => {
-        let bridgeFrame = document.getElementById("autoXFrame");
+function AutoX() {
+    let getAutoXFrame = () => {
+        let bridgeFrame = document.getElementById("AutoXFrame");
         if (!bridgeFrame) {
             bridgeFrame = document.createElement('iframe');
-            bridgeFrame.id = "autoXFrame";
+            bridgeFrame.id = "AutoXFrame";
             bridgeFrame.style = "display: none";
             document.body.append(bridgeFrame);
         }
@@ -62,9 +62,9 @@ function autoX() {
         let callId = null;
         try {
             let paramsStr = JSON.stringify(params);
-            let autoXFrame = getautoXFrame();
+            let AutoXFrame = getAutoXFrame();
             callId = setCallback(callback);
-            autoXFrame.src = "jsbridge://" + cmd + "/" + callId + "/" + encodeURIComponent(paramsStr);
+            AutoXFrame.src = "jsbridge://" + cmd + "/" + callId + "/" + encodeURIComponent(paramsStr);
         } catch (e) {
             if (callId) {
                 getCallback(callId);
@@ -94,7 +94,7 @@ function bridgeHandler_handle(cmd, params) {
     let ret = fun(params)
     return ret;
 }
-function toastAction(params) {
+function mFunction(params) {
     toastLog(params.toString());
     device.vibrate(120);
     return files.isDir('/storage/emulated/0/Download')//'toast提示成功';
@@ -102,10 +102,9 @@ function toastAction(params) {
 function webViewExpand_init(webViewWidget) {
     webViewWidget.webViewClient = new JavaAdapter(android.webkit.WebViewClient, {
         onPageFinished: (webView, curUrl) => {
-            console.log('页面加载完成');
             try {
-                // 注入 autoX
-                callJavaScript(webView, autoX.toString() + ";var auto0 = autoX();auto0.invoke('toastAction','This is autoX!',(data) => {console.log('接收到callback1:' + JSON.stringify(data));});", null);
+                // 注入 AutoX
+                callJavaScript(webView, AutoX.toString() + ";var auto0 = AutoX();auto0.invoke('mFunction','This is AutoX!',(data) => {console.log('接收到callback1:' + JSON.stringify(data));});", null);
             } catch (e) {
                 console.trace(e)
             }
@@ -122,7 +121,7 @@ function webViewExpand_init(webViewWidget) {
                     let cmd = uris[2];
                     let callId = uris[3];
                     let params = java.net.URLDecoder.decode(uris[4], "UTF-8");
-                    console.log('AutoJs处理JavaScript调用请求: callId=%s, cmd=%s, params=%s', callId, cmd, params);
+                    console.log('AutoX处理JavaScript调用请求: callId=%s, cmd=%s, params=%s', callId, cmd, params);
                     let result = null;
                     try {
                         result = bridgeHandler_handle(cmd, JSON.parse(params));
@@ -167,7 +166,7 @@ ui.webView.loadUrl(path);
 
 ui.loadMdBtn.on("click", () => {
     webViewExpand_init(ui.webView);
-    let mdFile = files.cwd() + "/README.md";
+    let mdFile = files.cwd() + "/Readme.md";
 });
 ui.loadHtmlBtn.on("click", () => {
     webViewExpand_init(ui.webView);
