@@ -1,6 +1,13 @@
 # Change Log
 autoxjs 整个项目的的一些更新日志,双版本号为稳定版，单版本号为激进版本。
 
+### 5.5.6
+优化以下特性：
+*  [Aioure](https://github.com/Aioure)  升级如下功能：
+*  opencv 到4.5.5版，修复上一版兼容问题
+*  最低版升级到21即android 5
+*  打包后的dex进行拆分
+
 ### 5.5.5
 优化以下特性：
 *  感谢 [Aioure](https://github.com/Aioure) 更新如下功能，次版本可能存在bug，欢迎反馈
