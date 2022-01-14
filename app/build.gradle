@@ -256,4 +256,5 @@ dependencies {
     implementation project(':common')
     implementation project(':autojs')
     implementation project(':apkbuilder')
+    implementation 'androidx.multidex:multidex:2.0.1'
 }
