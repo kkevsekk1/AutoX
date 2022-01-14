@@ -4,7 +4,7 @@
   "devVersionCode": 490,
   "devVersionName": "5.3.1",
   "target": 26,
-  "mini": 19,
+  "mini": 21,
   "compile": 29,
   "buildTool": "29.0.2"
 }
