@@ -30,12 +30,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class VersionService {
-
-    private static final String KEY_DEPRECATED = "KEY_DEPRECATED";
     private static final String KEY_DEPRECATED_VERSION_CODE = "KEY_DEPRECATED_VERSION_CODE";
-
     private static VersionService sInstance = new VersionService();
-    private boolean mDeprecated = false;
     private VersionInfo mVersionInfo;
     private SharedPreferences mSharedPreferences;
     private Retrofit mRetrofit;
@@ -66,26 +62,6 @@ public class VersionService {
                 .subscribeOn(Schedulers.io());
     }
 
-    private void readDeprecatedFromPref(Context context) {
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        if (mSharedPreferences.getInt(KEY_DEPRECATED_VERSION_CODE, 0) < BuildConfig.VERSION_CODE) {
-            mSharedPreferences.edit().remove(KEY_DEPRECATED_VERSION_CODE)
-                    .putBoolean(KEY_DEPRECATED, false)
-                    .apply();
-        }
-        mDeprecated = mSharedPreferences.getBoolean(KEY_DEPRECATED, false);
-    }
-
-
-    public void readDeprecatedFromPrefIfNeeded(Context context) {
-        if (mSharedPreferences == null) {
-            readDeprecatedFromPref(context);
-        }
-    }
-
-    public boolean isCurrentVersionDeprecated() {
-        return mDeprecated;
-    }
     //获取当前版本的一些bug
     public String getCurrentVersionIssues() {
         if (mVersionInfo == null)

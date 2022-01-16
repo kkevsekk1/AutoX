@@ -43,7 +43,7 @@ public class PrefSwitch extends SwitchCompat implements SharedPreferences.OnShar
             return;
         TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.PrefSwitch);
         mPrefKey = a.getString(R.styleable.PrefSwitch_key);
-        mDefaultChecked = a.getBoolean(R.styleable.PrefSwitch_defaultValue, false);
+        mDefaultChecked = a.getBoolean(R.styleable.PrefSwitch_default_value, false);
         if (mPrefKey != null) {
             mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
             mSharedPreferences.registerOnSharedPreferenceChangeListener(this);

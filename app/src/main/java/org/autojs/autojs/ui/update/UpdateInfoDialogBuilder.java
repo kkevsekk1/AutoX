@@ -2,9 +2,11 @@ package org.autojs.autojs.ui.update;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
+
+
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +19,6 @@ import android.widget.Toast;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.stardust.util.IntentUtil;
 
-import org.autojs.autojs.BuildConfig;
 import org.autojs.autojs.Pref;
 import org.autojs.autojs.R;
 import org.autojs.autojs.external.fileprovider.AppFileProvider;
@@ -69,7 +70,10 @@ public class UpdateInfoDialogBuilder extends MaterialDialog.Builder {
         });
         return this;
     }
-
+    public UpdateInfoDialogBuilder forgetAskAgin(){
+        mSharedPreferences.edit().putBoolean(KEY_DO_NOT_ASK_AGAIN_FOR_VERSION + mVersionInfo.versionCode, false).apply();
+        return this;
+    }
     @Override
     public MaterialDialog show() {
         if (mSharedPreferences.getBoolean(KEY_DO_NOT_ASK_AGAIN_FOR_VERSION + mVersionInfo.versionCode, false)) {
@@ -77,7 +81,6 @@ public class UpdateInfoDialogBuilder extends MaterialDialog.Builder {
         }
         return super.show();
     }
-
     private void setCurrentVersionIssues(View view, VersionInfo info) {
         TextView issues = (TextView) view.findViewById(R.id.issues);
         if (info == null) {

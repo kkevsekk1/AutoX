@@ -16,6 +16,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.afollestad.materialdialogs.MaterialDialog
 import com.linsh.utilseverywhere.IntentUtils
+import com.stardust.app.GlobalAppContext
 import com.stardust.auojs.inrt.autojs.AutoJs
 import com.stardust.auojs.inrt.launch.GlobalProjectLauncher
 import com.stardust.auojs.inrt.util.UpdateUtil
@@ -62,6 +63,8 @@ class SplashActivity : AppCompatActivity() {
         if(checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_PHONE_STATE)){
             runScript();
+        }else{
+            GlobalAppContext.toast("请开启权限后，再运行!")
         }
     }
 

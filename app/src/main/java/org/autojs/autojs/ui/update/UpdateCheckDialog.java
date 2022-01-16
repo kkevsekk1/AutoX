@@ -46,7 +46,6 @@ public class UpdateCheckDialog {
                             Toast.makeText(GlobalAppContext.get(), R.string.text_is_latest_version, Toast.LENGTH_SHORT).show();
                         }
                     }
-
                     @Override
                     public void onError(@NonNull Throwable e) {
                         e.printStackTrace();

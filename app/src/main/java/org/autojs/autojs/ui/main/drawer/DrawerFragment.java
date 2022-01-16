@@ -385,9 +385,13 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
         new MaterialDialog.Builder(getActivity())
                 .title(R.string.text_server_address)
                 .input("", host, (dialog, input) -> {
+                    try{
+                        DevPluginService.getInstance().connectToServer(input.toString(),params)
+                                .subscribe(Observers.emptyConsumer(), this::onConnectException);
+                    }catch (Exception exception){
+                        GlobalAppContext.toast(R.string.text_server_address_error);
+                    }
                     Pref.saveServerAddress(input.toString());
-                    DevPluginService.getInstance().connectToServer(input.toString(),params)
-                            .subscribe(Observers.emptyConsumer(), this::onConnectException);
                     VersionService.getInstance().deviceInfo(getIMEI(),"2").subscribe();
                 })
                 .neutralText(R.string.text_help)
@@ -418,6 +422,7 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
                             return;
                         if (versionInfo.isNewer()) {
                             new UpdateInfoDialogBuilder(getActivity(), versionInfo)
+                                    .forgetAskAgin()
                                     .show();
                         } else {
                             Toast.makeText(GlobalAppContext.get(), R.string.text_is_latest_version, Toast.LENGTH_SHORT).show();
