@@ -71,7 +71,7 @@ class SplashActivity : AppCompatActivity() {
     private fun manageDrawOverlays() {
         var dialog = MaterialDialog.Builder(this).title("提示").content("请打开所有的权限，\r\n 省电策略选【不限制】")//内容
                 .positiveText("确定") //肯定按键
-                .onPositive { dialog, which ->
+                .onPositive { _, _ ->
                     SettingsCompat.manageDrawOverlays(this);
                 }.canceledOnTouchOutside(false)
                 .build();
@@ -81,7 +81,7 @@ class SplashActivity : AppCompatActivity() {
     private fun manageWriteSettings() {
         var dialog = MaterialDialog.Builder(this).title("继续进入权限设置").content("请打开所有权限!\r\n 请打开所有权限 \r\n 请打开所有权限")//内容
                 .positiveText("确定") //肯定按键
-                .onPositive { dialog, which ->
+                .onPositive { _, _ ->
                     IntentUtil.goToAppDetailSettings(this);
                 }.canceledOnTouchOutside(false)
                 .build();
@@ -115,7 +115,7 @@ class SplashActivity : AppCompatActivity() {
                 runOnUiThread {
                     Toast.makeText(this@SplashActivity, e.message, Toast.LENGTH_LONG).show()
                     startActivity(Intent(this@SplashActivity, LogActivity::class.java))
-                    AutoJs.instance!!.globalConsole.printAllStackTrace(e)
+                    AutoJs.instance.globalConsole.printAllStackTrace(e)
                 }
             }
         }.start()
