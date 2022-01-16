@@ -442,7 +442,7 @@ public class CodeEditText extends AppCompatEditText {
     public Parcelable onSaveInstanceState() {
         Bundle bundle = new Bundle();
         Editable text = getText();
-        TextView.SavedState savedState = (SavedState) super.onSaveInstanceState();
+        SavedState savedState = (SavedState) super.onSaveInstanceState();
         if (text != null && text.length() > 50 * 1024) {
             // avoid TransactionTooLargeException
             TextViewHelper.setText(savedState, "");

@@ -98,7 +98,7 @@ public class CodeCompletionBar extends RecyclerView {
         setLayoutManager(new WrapContentLinearLayoutManager(getContext(), HORIZONTAL, false));
     }
 
-    private class CodeCompletionAdapter extends RecyclerView.Adapter<ViewHolder> {
+    private class CodeCompletionAdapter extends Adapter<ViewHolder> {
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

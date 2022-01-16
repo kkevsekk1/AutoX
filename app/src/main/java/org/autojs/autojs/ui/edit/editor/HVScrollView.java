@@ -762,9 +762,9 @@ public class HVScrollView extends FrameLayout {
      * component is a good candidate for focus, this scrollview reclaims the
      * focus.</p>
      *
-     * @param direction the scroll direction: {@link android.view.View#FOCUS_UP}
+     * @param direction the scroll direction: {@link View#FOCUS_UP}
      *                  to go the top of the view or
-     *                  {@link android.view.View#FOCUS_DOWN} to go the bottom
+     *                  {@link View#FOCUS_DOWN} to go the bottom
      * @return true if the key event is consumed by this method, false otherwise
      */
     public boolean fullScrollV(int direction) {
@@ -811,9 +811,9 @@ public class HVScrollView extends FrameLayout {
      * to a component visible in this area. If no component can be focused in
      * the new visible area, the focus is reclaimed by this scrollview.</p>
      *
-     * @param direction the scroll direction: {@link android.view.View#FOCUS_UP}
+     * @param direction the scroll direction: {@link View#FOCUS_UP}
      *                  to go upward
-     *                  {@link android.view.View#FOCUS_DOWN} to downward
+     *                  {@link View#FOCUS_DOWN} to downward
      * @param top       the top offset of the new area to be made visible
      * @param bottom    the bottom offset of the new area to be made visible
      * @return true if the key event is consumed by this method, false otherwise
@@ -1368,7 +1368,7 @@ public class HVScrollView extends FrameLayout {
      * When looking for focus in children of a scroll view, need to be a little
      * more careful not to give focus to something that is scrolled off screen.
      * <p>
-     * This is more expensive than the default {@link android.view.ViewGroup}
+     * This is more expensive than the default {@link ViewGroup}
      * implementation, otherwise this behavior might have been made the default.
      */
     @Override

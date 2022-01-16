@@ -2,7 +2,6 @@
 ui.layout(
     <vertical>
         <horizontal bg="#c7edcc" gravity="center" h="auto">
-            <button text="MarkDown" id="loadMdBtn" style="Widget.AppCompat.Button.Colored" w="auto" />
             <button text="远程网页" id="loadHtmlBtn" style="Widget.AppCompat.Button.Colored" w="auto" />
             <button text="本地游戏" id="loadLocalHtmlBtn" style="Widget.AppCompat.Button.Colored" w="auto" />
             <button text="控制台" id="consoleBtn" style="Widget.AppCompat.Button.Colored" w="auto" />
@@ -164,10 +163,6 @@ webViewExpand_init(ui.webView)
 let path = "file:" + files.path("game.html");
 ui.webView.loadUrl(path);
 
-ui.loadMdBtn.on("click", () => {
-    webViewExpand_init(ui.webView);
-    let mdFile = files.cwd() + "/Readme.md";
-});
 ui.loadHtmlBtn.on("click", () => {
     webViewExpand_init(ui.webView);
     ui.webView.loadUrl("https://www.baidu.com/");
