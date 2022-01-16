@@ -3,14 +3,15 @@ package org.autojs.autojs.ui.settings;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceScreen;
-import androidx.core.util.Pair;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.util.Pair;
+import androidx.fragment.app.DialogFragment;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
+
 import com.stardust.theme.app.ColorSelectActivity;
-import com.stardust.theme.preference.ThemeColorPreferenceFragment;
 import com.stardust.theme.util.ListBuilder;
 import com.stardust.util.MapBuilder;
 
@@ -31,6 +32,7 @@ import de.psdev.licensesdialog.licenses.License;
 
 /**
  * Created by Stardust on 2017/2/2.
+ * update by aaron 2022年1月16日
  */
 @EActivity(R.layout.activity_settings)
 public class SettingsActivity extends BaseActivity {
@@ -69,7 +71,7 @@ public class SettingsActivity extends BaseActivity {
     @AfterViews
     void setUpUI() {
         setUpToolbar();
-        getFragmentManager().beginTransaction().replace(R.id.fragment_setting, new PreferenceFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_setting,new PreferenceFragment()).commit();
     }
 
     private void setUpToolbar() {
@@ -86,7 +88,13 @@ public class SettingsActivity extends BaseActivity {
     }
 
 
-    public static class PreferenceFragment extends ThemeColorPreferenceFragment {
+
+
+
+
+
+
+    public static class PreferenceFragment extends PreferenceFragmentCompat {
 
         private Map<String, Runnable> ACTION_MAP;
 
@@ -94,7 +102,28 @@ public class SettingsActivity extends BaseActivity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+
+        }
+
+        @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             addPreferencesFromResource(R.xml.preferences);
+        }
+
+        @Override
+        public void onDisplayPreferenceDialog(Preference preference) {
+
+            DialogFragment dialogFragment = null;
+            if (preference instanceof ScriptDirPathPreference) {
+                dialogFragment= ScriptDirPathPreferenceFragmentCompat.newInstance(preference.getKey());
+            }
+            if (dialogFragment != null) {
+                dialogFragment.setTargetFragment(this, 1234);
+                dialogFragment.show(this.getParentFragmentManager(), "androidx.preference.PreferenceFragment.DIALOG1");
+            }else{
+                super.onDisplayPreferenceDialog(preference);
+            }
+
         }
 
         @Override
@@ -110,14 +139,15 @@ public class SettingsActivity extends BaseActivity {
                     .build();
         }
 
+
         @Override
-        public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        public boolean onPreferenceTreeClick( Preference preference) {
             Runnable action = ACTION_MAP.get(preference.getTitle().toString());
             if (action != null) {
                 action.run();
                 return true;
             } else {
-                return super.onPreferenceTreeClick(preferenceScreen, preference);
+                return super.onPreferenceTreeClick(preference);
             }
         }
 

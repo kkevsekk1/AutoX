@@ -49,7 +49,7 @@
     <string name="text_already_delete">已删除</string>
     <string name="text_error">错误</string>
     <string name="text_copy_debug_info">复制调试信息</string>
-    <string name="text_it_is_the_developer_of_app">这是软件开发者(。・・)ノ</string>
+    <string name="text_it_is_the_developer_of_app">这是软件开发者之一(。・・)ノ</string>
     <string name="text_please_choose">请选择</string>
     <string name="text_crash">崩溃了o(≧口≦)o</string>
     <string name="crash_feedback">将会自动提交错误信息。您也可以手动复制调试信息提交给开发者(*^▽^*)或者点击\"退出\"退出程序o(╥﹏╥)o</string>
@@ -69,6 +69,7 @@
     <string name="summary_use_volume_control_record">开启悬浮窗后每次音量下键会开始或停止脚本录制</string>
     <string name="key_use_volume_control_record">key_use_volume_control_record</string>
     <string name="key_auto_back">key_auto_back</string>
+    <string name="text_qq_group">这是qq群号,若无法打开请手动搜索</string>
     <string name="text_mobile_qq_not_installed">未安装手机QQ</string>
     <string name="text_edit">编辑</string>
     <string name="key_max_length_for_code_completion">key_max_length_for_code_completion</string>
@@ -138,6 +139,7 @@
     <string name="debug">连接电脑</string>
     <string name="regist">连接到应用商店</string>
     <string name="text_server_address">服务器地址</string>
+    <string name="text_server_address_error">链接地址错误</string>
     <string name="text_annunciation">声明</string>
     <string name="text_about_me_and_repo">关于项目与开发者</string>
     <string name="text_attribute">属性</string>

@@ -1,6 +1,24 @@
 # Change Log
 autoxjs 整个项目的的一些更新日志,双版本号为稳定版，单版本号为激进版本。
 
+### 5.6.1
+优化以下特性：
+*  手动检测更新无法显示问题
+*  重新配置控件，升级androidx
+*  修复定时任务月份bug
+*  提现开启权限，后运行
+*  qq群号问题
+*  脚本目录修改bug
+*  IP地址不合法bug
+*  不兼容arm64 bug
+*  [Aioure](https://github.com/Aioure)  升级如下功能：
+*  编译兼容低版本的opencv
+*  集成PaddleOCR
+*  修复若干兼容问题
+*  此版本有重大升级变化，欢迎测试提交bug
+
+
+
 ### 5.5.6
 优化以下特性：
 *  [Aioure](https://github.com/Aioure)  升级如下功能：

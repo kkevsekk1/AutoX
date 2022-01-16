@@ -51,8 +51,9 @@ public class AboutActivity extends BaseActivity {
     @Click(R.id.qq)
     void openQQToChatWithMe() {
         String qq = getString(R.string.qq);
-        if (!IntentUtil.chatWithQQ(this, qq)) {
-            Toast.makeText(this, R.string.text_mobile_qq_not_installed, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.text_mobile_qq_not_installed, Toast.LENGTH_SHORT).show();
+        if (!IntentUtil.joinQQGroup(this, qq)) {
+           // Toast.makeText(this, R.string.text_mobile_qq_not_installed, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -61,8 +62,6 @@ public class AboutActivity extends BaseActivity {
         String email = getString(R.string.email);
         IntentUtil.sendMailTo(this, email);
     }
-
-
     @Click(R.id.share)
     void share() {
         IntentUtil.shareText(this, getString(R.string.share_app));
@@ -71,10 +70,10 @@ public class AboutActivity extends BaseActivity {
     @Click(R.id.icon)
     void lol() {
         mLolClickCount++;
-        //Toast.makeText(this, R.string.text_lll, Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, R.string.text_lll, Toast.LENGTH_LONG).show();
         if (mLolClickCount >= 5) {
             crashTest();
-            //showEasterEgg();
+            showEasterEgg();
         }
     }
 

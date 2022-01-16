@@ -52,7 +52,7 @@
             android:layout_toRightOf="@+id/avatar"
             android:alpha="0.08"
             android:src="@drawable/android_eating_half"
-            android:tint="#000000"/>
+            app:tint="#000000" />
 
     </RelativeLayout>
 
@@ -95,7 +95,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="12dp"
                     android:src="@drawable/ic_ali_settings"
-                    android:tint="#666666"/>
+                    app:tint="#666666" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -122,7 +122,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="12dp"
                     android:src="@drawable/ic_ali_exit"
-                    android:tint="#666666"/>
+                    app:tint="#666666" />
 
                 <TextView
                     android:layout_width="wrap_content"

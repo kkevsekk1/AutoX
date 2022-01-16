@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id ="@android:id/edit"></EditText>
+<RadioGroup
+    android:id="@+id/script_operate"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <RadioButton
         android:id="@+id/none"
@@ -10,7 +18,6 @@
         android:layout_height="wrap_content"
         android:checked="true"
         android:text="不执行任何操作"/>
-
 
     <RadioButton
         android:id="@+id/copy"
@@ -25,3 +32,4 @@
         android:text="移动原文件夹内容到新文件夹"/>
 
 </RadioGroup>
+</LinearLayout>

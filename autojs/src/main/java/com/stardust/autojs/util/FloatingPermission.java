@@ -80,11 +80,9 @@ public class FloatingPermission {
             if (matcher.find()) {
                 version = Integer.parseInt(matcher.group());
             }
-            if (RomUtil.isMiui() && version >= 10
-                    && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (RomUtil.isMiui() && version >= 10&& Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 manageDrawOverlaysForAndroidM(context);
-            } else if (RomUtil.isEmui() && version >= 10
-                    && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            } else if (RomUtil.isEmui() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 manageDrawOverlaysForAndroidM(context);
             } else {
                 SettingsCompat.manageDrawOverlays(context);
