@@ -444,7 +444,7 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
     public void onResume() {
         super.onResume();
         syncSwitchState();
-        syncUserInfo();
+      //  syncUserInfo();
        // checkPermission();
     }
 
