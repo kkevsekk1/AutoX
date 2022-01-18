@@ -284,6 +284,7 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
         setUpInputMethodEnhancedBar();
         setUpFunctionsKeyboard();
         setMenuItemStatus(R.id.save, false);
+        setTextSize(8);
         mDocsWebView.getWebView().getSettings().setDisplayZoomControls(true);
         mDocsWebView.getWebView().loadUrl(Pref.getDocumentationUrl() + "index.html");
         Themes.getCurrent(getContext())
@@ -394,6 +395,12 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
             case R.id.cancel_search:
                 cancelSearch();
                 break;
+            case R.id.textSizePlus:
+                setTextSizePlus();
+                break;
+            case R.id.textSizeMinus:
+                setTextSizeMinus();
+                break;
         }
     }
 
@@ -428,7 +435,7 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
 
     public Observable<String> save() {
         String path = mUri.getPath();
-        if(Pref.isAutoBack()){
+        if (Pref.isAutoBack()) {
             PFiles.move(path, path + ".bak");
         }
         return Observable.just(mEditor.getText())
@@ -538,6 +545,18 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
     public void setTextSize(int value) {
         Pref.setEditorTextSize(value);
         mEditor.getCodeEditText().setTextSize(value);
+    }
+
+    public void setTextSizePlus() {
+        int value = (int) ViewUtils.pxToSp(getContext(), mEditor.getCodeEditText().getTextSize());
+        Pref.setEditorTextSize(Math.min(value + 2, 60));
+        mEditor.getCodeEditText().setTextSize(Math.min(value + 2, 60));
+    }
+
+    public void setTextSizeMinus() {
+        int value = (int) ViewUtils.pxToSp(getContext(), mEditor.getCodeEditText().getTextSize());
+        Pref.setEditorTextSize(Math.max(value - 2, 2));
+        mEditor.getCodeEditText().setTextSize(Math.max(value - 2, 2));
     }
 
     private void selectEditorTheme(List<Theme> themes) {

@@ -42,7 +42,6 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         override fun onPreferenceTreeClick(preference: Preference?): Boolean {
-            val key = preference!!.key
             Log.d("inrt", "onPreferenceTreeClick: ")
             Log.d("inrt", "onPreferenceTreeClick: "+Pref.shouldEnableFloatingWindow());
             return super.onPreferenceTreeClick(preference)

@@ -93,7 +93,8 @@ public class CodeEditText extends AppCompatEditText {
         setTextColor(Color.TRANSPARENT);
         // 设置字体
         setTypeface(Typeface.MONOSPACE);
-        setHorizontallyScrolling(true);
+        setHorizontallyScrolling(false);
+        setSingleLine(false);
         mTheme = Theme.getDefault(getContext());
         mLineHighlightPaint.setStyle(Paint.Style.FILL);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -121,6 +122,7 @@ public class CodeEditText extends AppCompatEditText {
         mLogger.reset();
         if (mParentScrollView == null) {
             mParentScrollView = (HVScrollView) getParent();
+            mParentScrollView.setHorizontalScrollBarEnabled(false);
         }
         if (getLayout() == null) {
             super.onDraw(canvas);

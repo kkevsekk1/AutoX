@@ -16,6 +16,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.afollestad.materialdialogs.MaterialDialog
 import com.linsh.utilseverywhere.IntentUtils
+import com.stardust.app.GlobalAppContext
 import com.stardust.auojs.inrt.autojs.AutoJs
 import com.stardust.auojs.inrt.launch.GlobalProjectLauncher
 import com.stardust.auojs.inrt.util.UpdateUtil
@@ -62,13 +63,15 @@ class SplashActivity : AppCompatActivity() {
         if(checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_PHONE_STATE)){
             runScript();
+        }else{
+            GlobalAppContext.toast("请开启权限后，再运行!")
         }
     }
 
     private fun manageDrawOverlays() {
         var dialog = MaterialDialog.Builder(this).title("提示").content("请打开所有的权限，\r\n 省电策略选【不限制】")//内容
                 .positiveText("确定") //肯定按键
-                .onPositive { dialog, which ->
+                .onPositive { _, _ ->
                     SettingsCompat.manageDrawOverlays(this);
                 }.canceledOnTouchOutside(false)
                 .build();
@@ -78,7 +81,7 @@ class SplashActivity : AppCompatActivity() {
     private fun manageWriteSettings() {
         var dialog = MaterialDialog.Builder(this).title("继续进入权限设置").content("请打开所有权限!\r\n 请打开所有权限 \r\n 请打开所有权限")//内容
                 .positiveText("确定") //肯定按键
-                .onPositive { dialog, which ->
+                .onPositive { _, _ ->
                     IntentUtil.goToAppDetailSettings(this);
                 }.canceledOnTouchOutside(false)
                 .build();
@@ -112,7 +115,7 @@ class SplashActivity : AppCompatActivity() {
                 runOnUiThread {
                     Toast.makeText(this@SplashActivity, e.message, Toast.LENGTH_LONG).show()
                     startActivity(Intent(this@SplashActivity, LogActivity::class.java))
-                    AutoJs.instance!!.globalConsole.printAllStackTrace(e)
+                    AutoJs.instance.globalConsole.printAllStackTrace(e)
                 }
             }
         }.start()
