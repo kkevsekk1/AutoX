@@ -16,17 +16,15 @@ public class SevenZip {
         mContext = context;
     }
 
-//    static {
-//        System.loadLibrary("zips");
-//    }
-
-//    public static native int cmdExec(String cmdStr);
-
-    public void cmdExec(String cmdStr) {
-        P7ZipApi.executeCommand(cmdStr);
+    public int cmdExec(String cmdStr) {
+        try {
+            return P7ZipApi.executeCommand(cmdStr);
+        } catch (Exception e) {
+            throw new ScriptException(e);
+        }
     }
 
-    public void A(String type, String destFilePath, String srcPath) {
+    public int A(String type, String destFilePath, String srcPath) {
         String typeOption = "";
         if (!type.trim().isEmpty()) {
             typeOption = " -t" + type.trim();
@@ -38,23 +36,49 @@ public class SevenZip {
             cmdStr = "7z a -y" + typeOption + " -ms=off -mx=1 -mmt -r " + destFilePath + " " + srcPath;
         }
         try {
-            P7ZipApi.executeCommand(cmdStr);
+            return P7ZipApi.executeCommand(cmdStr);
         } catch (Exception e) {
             throw new ScriptException(e);
         }
     }
 
-    public void X(String filePath0, String dirPath1) {
+    public int X(String filePath0, String dirPath1) {
         String cmdStr = "7z x -y -aos " + filePath0;
         if (PFiles.isFile(filePath0)) {
             if (PFiles.isDir(dirPath1)) {
-                cmdStr = "7z x -y -aos -o" + dirPath1 + " " + filePath0;
+                cmdStr = "7z x -y -aos -o" + dirPath1 + " " + filePath0 + "";
             } else {
-                cmdStr = "7z x -y -aos " + filePath0;
+                cmdStr = "7z x -y -aos " + filePath0 + "";
             }
         }
         try {
-            P7ZipApi.executeCommand(cmdStr);
+            return P7ZipApi.executeCommand(cmdStr);
+        } catch (Exception e) {
+            throw new ScriptException(e);
+        }
+    }
+
+    public int X(String filePath0, String dirPath1, String password) {
+        String cmdStr = "7z x -y -aos " + filePath0 + "";
+        if (password == "") {
+            if (PFiles.isFile(filePath0)) {
+                if (PFiles.isDir(dirPath1)) {
+                    cmdStr = "7z x -y -aos -o" + dirPath1 + " " + filePath0 + "";
+                } else {
+                    cmdStr = "7z x -y -aos " + filePath0 + "";
+                }
+            }
+        } else {
+            if (PFiles.isFile(filePath0)) {
+                if (PFiles.isDir(dirPath1)) {
+                    cmdStr = "7z x -y -aos -p" + password + " -o" + dirPath1 + " ";
+                } else {
+                    cmdStr = "7z x -y -aos -p" + password + " " + filePath0 + "";
+                }
+            }
+        }
+        try {
+            return P7ZipApi.executeCommand(cmdStr);
         } catch (Exception e) {
             throw new ScriptException(e);
         }

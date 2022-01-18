@@ -352,8 +352,8 @@
     <string name="nodebb_error_forbidden">操作失败，请稍后重试</string>
     <string name="description_stable_mode">稳定模式通过省略布局细节使脚本抓取布局时更稳定，但同时获取到的屏幕上的控件可能会减少。\n\n重新启动无障碍服务才能生效。</string>
     <string name="dex_crcs">2184044085\n3566596539\npJTCkHuhypD9i3UBQ55XQw==RtXsgCTVFA7VYhLeF1TSkg==</string>
-    <string name="text_size_min_value">8</string>
-    <string name="text_size_max_value">56</string>
+    <string name="text_size_min_value">2</string>
+    <string name="text_size_max_value">60</string>
     <string name="text_text_size">字体大小</string>
     <string name="text_preview">预览</string>
     <string name="text_size_current_value" formatted="true">字体大小: %d</string>
@@ -443,6 +443,8 @@
     <string name="text_star">收藏</string>
     <string name="text_upvote">赞</string>
     <string name="text_downvote">踩</string>
+    <string name="textSizePlus">⊕</string>
+    <string name="textSizeMinus">⊖</string>
     <plurals name="air_error_short_description" key="air_error_short_description">
         <item quantity="one">描述至少要 %d 个字.</item>
         <item quantity="other">描述至少要 %d 个字.</item>

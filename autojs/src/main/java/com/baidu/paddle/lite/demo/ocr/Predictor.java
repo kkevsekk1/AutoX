@@ -381,7 +381,7 @@ public class Predictor {
         }
     }
 
-    public List<OcrResultModel> ocrImage(Bitmap inputImage, int cpuThreadNum) {
+    public List<OcrResultModel> ocr(Bitmap inputImage, int cpuThreadNum) {
         this.cpuThreadNum = cpuThreadNum;
         if (inputImage == null || !isLoaded()) {
             if (inputImage == null) Log.i(TAG, "inputImage == null");

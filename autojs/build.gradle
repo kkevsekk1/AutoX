@@ -75,6 +75,6 @@ dependencies {
     api project(path: ':common')
     api project(path: ':automator')
     // 7zip
-    api(name: 'libp7zip-1.7.2', ext: 'aar')
+    api(name: 'libp7zip-release', ext: 'aar')
 }
 
