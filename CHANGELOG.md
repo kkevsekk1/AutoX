@@ -1,6 +1,17 @@
 # Change Log
 autoxjs 整个项目的的一些更新日志,双版本号为稳定版，单版本号为激进版本。
 
+### 5.6.2
+优化以下特性：
+*  升级了一下[文档](https://github.com/kkevsekk1/kkevsekk1.github.io)项目一些路径问题，删除了本地文档
+*  修改为在线文档，使用cdn加速github的文档
+*  删除不必要的用户检测
+*  [Aioure](https://github.com/Aioure)  升级如下功能：
+*  ocr一些调整和完善
+*  7zip一下完善
+*  欢迎提交bug，欢迎pr本项目，欢迎pr文档，欢迎给贡献代码的开发者点赞！
+
+
 ### 5.6.1
 优化以下特性：
 *  手动检测更新无法显示问题
