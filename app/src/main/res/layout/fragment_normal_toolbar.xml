@@ -39,5 +39,23 @@
         app:icon_color="@color/toolbar"
         app:text="@string/text_save"/>
 
+    <org.autojs.autojs.ui.widget.ToolbarMenuItem
+        android:id="@+id/textSizePlus"
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:enabled="false"
+        app:icon="@drawable/ic_edit_white_24dp"
+        app:icon_color="@color/toolbar"
+        app:text="@string/textSizePlus"/>
+
+    <org.autojs.autojs.ui.widget.ToolbarMenuItem
+        android:id="@+id/textSizeMinus"
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:enabled="false"
+        app:icon="@drawable/ic_edit_white_24dp"
+        app:icon_color="@color/toolbar"
+        app:text="@string/textSizeMinus"/>
+
 
 </LinearLayout>

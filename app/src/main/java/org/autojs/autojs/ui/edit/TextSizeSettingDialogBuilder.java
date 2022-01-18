@@ -25,7 +25,7 @@ public class TextSizeSettingDialogBuilder extends ThemeColorMaterialDialogBuilde
         void onPositive(int value);
     }
 
-    private static final int MIN = 8;
+    private static final int MIN = 2;
 
     @BindView(R.id.seekbar)
     SeekBar mSeekBar;

@@ -8,6 +8,7 @@ import android.util.Log;
 import com.stardust.app.GlobalAppContext;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -28,23 +29,22 @@ public class PaddleOcrInstance implements IOcrInstance<Predictor> {
     public void init() {
         if (mPredictor != null) {
             mPredictor.init(GlobalAppContext.get());
-        }else{
+        } else {
             Log.e("mPredictor.init", "mPredictor == null");
         }
     }
 
     @Override
-    public OcrResult ocrImage(Bitmap bitmap, int cpuThreadNum) {
-        OcrResult ocrResult;
+    public List<OcrResult> ocr(Bitmap bitmap, int cpuThreadNum) {
+        List<OcrResult> words_result = Collections.emptyList();
         if (mPredictor != null && bitmap != null && !bitmap.isRecycled()) {
             mPredictor.setInputImage(bitmap);
-            List<OcrResultModel> OcrResultModelList = mPredictor.ocrImage(bitmap,cpuThreadNum);
-            ocrResult = transformData(OcrResultModelList);
-            ocrResult.timeRequired = mPredictor.inferenceTime();
+            List<OcrResultModel> OcrResultModelList = mPredictor.ocr(bitmap, cpuThreadNum);
+            words_result = transformData(OcrResultModelList);
         } else {
-            ocrResult = OcrResult.buildFailResult();
+            words_result = Collections.emptyList();
         }
-        return ocrResult;
+        return words_result;
     }
 
     @Override
@@ -54,13 +54,11 @@ public class PaddleOcrInstance implements IOcrInstance<Predictor> {
         }
     }
 
-    public OcrResult transformData(List<OcrResultModel> OcrResultModelList) {
+    public List<OcrResult> transformData(List<OcrResultModel> OcrResultModelList) {
         if (OcrResultModelList == null) {
-            return OcrResult.buildFailResult();
+            return Collections.emptyList();
         }
-        OcrResult ocrResult = new OcrResult();
-        List<OcrResult.OCrWord> wordList = new ArrayList<>();
-        StringBuilder textSb = new StringBuilder();
+        List<OcrResult> words_result = new ArrayList<>();
         for (OcrResultModel model : OcrResultModelList) {
             List<Point> pointList = model.getPoints();
             if (pointList.isEmpty()) {
@@ -85,14 +83,13 @@ public class PaddleOcrInstance implements IOcrInstance<Predictor> {
                     bottom = p.y;
                 }
             }
-            textSb.append(model.getLabel());
-            Rect rect = new Rect(left, top, right, bottom);
-            OcrResult.OCrWord oCrWord = new OcrResult.OCrWord(model.getLabel(), rect, model.getConfidence());
-            wordList.add(oCrWord);
+            OcrResult ocrResult = new OcrResult();
+            ocrResult.confidence = model.getConfidence();
+            ocrResult.words = model.getLabel().trim().replace("\r", "");
+            ocrResult.location = new int[]{left, top, Math.abs(right - left), Math.abs(bottom - top)};
+            ocrResult.bounds = new Rect(left, top, right, bottom);
+            words_result.add(ocrResult);
         }
-        ocrResult.success = true;
-        ocrResult.words = wordList;
-        ocrResult.text = textSb.toString();
-        return ocrResult;
+        return words_result;
     }
 }
