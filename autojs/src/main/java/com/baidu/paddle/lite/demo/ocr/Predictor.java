@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
+import android.graphics.Rect;
 import android.util.Log;
 
 import java.io.File;
@@ -51,24 +52,23 @@ public class Predictor {
     public Predictor() {
     }
 
-    public boolean init(Context appCtx) {
-        isLoaded = loadLabel(appCtx, "labels/ppocr_keys_v1.txt") && loadModel(appCtx, "models/ocr_v2_for_cpu", 4, "LITE_POWER_HIGH");
-         Log.i(TAG, "isLoaded: " + isLoaded);
-        return isLoaded;
-    }
-
-    public boolean init(Context appCtx, int cpuThreadNum) {
-        isLoaded = loadLabel(appCtx, "labels/ppocr_keys_v1.txt") && loadModel(appCtx, "models/ocr_v2_for_cpu", cpuThreadNum, "LITE_POWER_HIGH");
+    public boolean init(Context appCtx, boolean useSlim) {
+        if (useSlim) {
+            isLoaded = loadLabel(appCtx, "labels/ppocr_keys_v1.txt") && loadModel(appCtx, "models/ocr_v2_for_cpu(slim)", 4, "LITE_POWER_HIGH");
+        } else {
+            isLoaded = loadLabel(appCtx, "labels/ppocr_keys_v1.txt") && loadModel(appCtx, "models/ocr_v2_for_cpu", 4, "LITE_POWER_HIGH");
+        }
         Log.i(TAG, "isLoaded: " + isLoaded);
         return isLoaded;
     }
 
     public boolean init(Context appCtx, String modelPath, String labelPath) {
-        isLoaded = loadModel(appCtx, modelPath, cpuThreadNum, cpuPowerMode);
         if (!isLoaded) {
-            return false;
+            loadModel(appCtx, modelPath, cpuThreadNum, cpuPowerMode);
+            loadLabel(appCtx, labelPath);
+            isLoaded = true;
         }
-        isLoaded = loadLabel(appCtx, labelPath);
+        Log.i(TAG, "PaddleOCR isLoaded: " + isLoaded);
         return isLoaded;
     }
 
@@ -129,7 +129,7 @@ public class Predictor {
             // Read model files from custom path if the first character of mode path is '/'
             // otherwise copy model to cache from assets
             realPath = appCtx.getCacheDir() + "/" + modelPath;
-            Log.i(TAG, "realPath.isEmpty() "+realPath);
+            Log.i(TAG, "realPath.isEmpty() " + realPath);
             Utils.copyDirectoryFromAssets(appCtx, modelPath, realPath);
         }
         if (realPath.isEmpty()) {
@@ -151,7 +151,7 @@ public class Predictor {
         this.modelPath = realPath;
         this.modelName = realPath.substring(realPath.lastIndexOf("/") + 1);
         this.mPaddlePredictorNative = new OCRPredictorNative(config);
-        Log.i(TAG, "realPath "+realPath);
+        Log.i(TAG, "realPath " + realPath);
         return true;
     }
 
@@ -170,7 +170,7 @@ public class Predictor {
             paddlePredictor = null;
         }
         isLoaded = false;
-        cpuThreadNum = 1;
+        cpuThreadNum = 4;
         cpuPowerMode = "LITE_POWER_HIGH";
         modelPath = "";
         modelName = "";
@@ -381,13 +381,50 @@ public class Predictor {
         }
     }
 
-    public List<OcrResultModel> ocr(Bitmap inputImage, int cpuThreadNum) {
-        this.cpuThreadNum = cpuThreadNum;
-        if (inputImage == null || !isLoaded()) {
-            if (inputImage == null) Log.i(TAG, "inputImage == null");
-            if (!isLoaded()) {
-                Log.i(TAG, "!isLoaded()");
+    public List<OcrResult> transformData(List<OcrResultModel> OcrResultModelList) {
+        if (OcrResultModelList == null) {
+            return Collections.emptyList();
+        }
+        List<OcrResult> words_result = new ArrayList<>();
+        for (OcrResultModel model : OcrResultModelList) {
+            List<Point> pointList = model.getPoints();
+            if (pointList.isEmpty()) {
+                continue;
             }
+            Point firstPoint = pointList.get(0);
+            int left = firstPoint.x;
+            int top = firstPoint.y;
+            int right = firstPoint.x;
+            int bottom = firstPoint.y;
+            for (Point p : pointList) {
+                if (p.x < left) {
+                    left = p.x;
+                }
+                if (p.x > right) {
+                    right = p.x;
+                }
+                if (p.y < top) {
+                    top = p.y;
+                }
+                if (p.y > bottom) {
+                    bottom = p.y;
+                }
+            }
+            OcrResult ocrResult = new OcrResult();
+            ocrResult.preprocessTime = preprocessTime;
+            ocrResult.inferenceTime = inferenceTime;
+            ocrResult.confidence = model.getConfidence();
+            ocrResult.words = model.getLabel().trim().replace("\r", "");
+            ocrResult.location = new OcrResult.RectLocation(left, top, Math.abs(right - left), Math.abs(bottom - top));
+            ocrResult.bounds = new Rect(left, top, right, bottom);
+            words_result.add(ocrResult);
+        }
+        return words_result;
+    }
+
+    public List<OcrResult> ocr(Bitmap inputImage, int cpuThreadNum) {
+        this.cpuThreadNum = cpuThreadNum;
+        if (inputImage == null) {
             return Collections.emptyList();
         }
         // Pre-process image, and feed input tensor with pre-processed data
@@ -447,9 +484,9 @@ public class Predictor {
         start = new Date();
         ArrayList<OcrResultModel> results = paddlePredictor.runImage(inputData, width, height, channels, inputImage);
         end = new Date();
-        inferenceTime = (end.getTime() - start.getTime()) / (float) inferIterNum;
+        inferenceTime = (float) (end.getTime() - start.getTime());
         results = postprocess(results);
-        return results;
+        return transformData(results);
     }
 
 }

@@ -5,6 +5,12 @@ var dirPath = "/sdcard/脚本";
 //压缩类型
 //支持的压缩类型包括:zip 7z bz2 bzip2 tbz2 tbz gz gzip tgz tar wim swm xz txz。
 var type = "7z";
+//压缩密码
+var password = "password"
+
+//7z加密压缩(若文件已存在则跳过)
+//zips.A(filePath, dirPath, password)
+
 //压缩
 switch (zips.A(type, filePath, dirPath)) {
     case 0:
@@ -26,6 +32,4 @@ switch (zips.A(type, filePath, dirPath)) {
         toastLog("用户中止操作")
         break;
     default: toastLog("未知错误")
-
 }
-
