@@ -1,6 +1,14 @@
 # Change Log
 autoxjs 整个项目的的一些更新日志,双版本号为稳定版，单版本号为激进版本。
 
+### 5.6.4
+优化以下特性：
+*  版本检查问题
+*  感谢 [Aioure](https://github.com/Aioure)  升级如下功能：
+*  ocr一些调整和完善，更多模型
+*  7zip一下完善，更多参数
+*  欢迎提交bug，欢迎pr本项目，欢迎pr文档，欢迎给贡献代码的开发者点赞！
+
 ### 5.6.3
 优化以下特性：
 *  感谢 [Aioure](https://github.com/Aioure)  升级如下功能：
