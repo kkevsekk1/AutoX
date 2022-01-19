@@ -19,6 +19,7 @@ import com.squareup.leakcanary.LeakCanary
 import com.stardust.app.GlobalAppContext
 import com.stardust.autojs.core.ui.inflater.ImageLoader
 import com.stardust.autojs.core.ui.inflater.util.Drawables
+import com.stardust.autojs.runtime.api.Paddle
 import com.stardust.theme.ThemeColor
 import com.tencent.bugly.Bugly
 import com.tencent.bugly.crashreport.CrashReport
@@ -87,6 +88,7 @@ class App : MultiDexApplication() {
         setupDrawableImageLoader()
         TimedTaskScheduler.init(this)
         initDynamicBroadcastReceivers()
+        Paddle.getInstance().initOcr(true)
     }
 
     @SuppressLint("CheckResult")
