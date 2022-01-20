@@ -26,6 +26,7 @@ import androidx.annotation.NonNull;
 public class Predictor {
     private static final String TAG = Predictor.class.getSimpleName();
     public boolean isLoaded = false;
+    public boolean useSlim = true;
     protected OCRPredictorNative mPaddlePredictorNative;
     public int warmupIterNum = 1;
     public int inferIterNum = 1;
@@ -53,13 +54,18 @@ public class Predictor {
     }
 
     public boolean init(Context appCtx, boolean useSlim) {
-        if (useSlim) {
-            isLoaded = loadLabel(appCtx, "labels/ppocr_keys_v1.txt") && loadModel(appCtx, "models/ocr_v2_for_cpu(slim)", 4, "LITE_POWER_HIGH");
-        } else {
-            isLoaded = loadLabel(appCtx, "labels/ppocr_keys_v1.txt") && loadModel(appCtx, "models/ocr_v2_for_cpu", 4, "LITE_POWER_HIGH");
+        if (!this.isLoaded || (this.useSlim != useSlim)) {
+            loadLabel(appCtx, "labels/ppocr_keys_v1.txt");
+            if (useSlim) {
+                loadModel(appCtx, "models/ocr_v2_for_cpu(slim)", 4, "LITE_POWER_HIGH");
+            } else {
+                loadModel(appCtx, "models/ocr_v2_for_cpu", 4, "LITE_POWER_HIGH");
+            }
         }
-        Log.i(TAG, "isLoaded: " + isLoaded);
-        return isLoaded;
+        this.isLoaded = true;
+        this.useSlim = useSlim;
+        Log.i(TAG, "isLoaded: " + this.isLoaded);
+        return this.isLoaded;
     }
 
     public boolean init(Context appCtx, String modelPath, String labelPath) {
