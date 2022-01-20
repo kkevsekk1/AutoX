@@ -32,6 +32,7 @@ android {
         versionName versions.appVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+        buildConfigField "boolean","isMarket","false"
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [
@@ -41,6 +42,16 @@ android {
             }
         }
     }
+    lintOptions {
+        abortOnError false
+        disable 'MissingTranslation'
+        disable 'ExtraTranslation'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+        encoding = 'utf-8'
+    }
     signingConfigs {
         if (propFile.exists()) {
             release {
@@ -49,6 +60,28 @@ android {
                 storeFile file(properties['storeFile'])
                 storePassword properties['storePassword']
             }
+        }
+    }
+    splits {
+
+        // Configures multiple APKs based on ABI.
+        abi {
+
+            // Enables building multiple APKs per ABI.
+            enable true
+
+            // By default all ABIs are included, so use reset() and include to specify that we only
+            // want APKs for x86 and x86_64.
+
+            // Resets the list of ABIs that Gradle should create APKs for to none.
+            reset()
+
+            // Specifies a list of ABIs that Gradle should create APKs for.
+            // include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+            include 'arm64-v8a'  //默认提供64位版本，相比于32位，尤其在opencv、7zip、ocr等原生模块上性能提升显著，且Google明确在Android 12上只支持64位的APP，32位App将会被抛弃
+
+            // Specifies that we do not want to also generate a universal APK that includes all ABIs.
+            universalApk false
         }
     }
     buildTypes {
@@ -69,39 +102,8 @@ android {
             }
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-        encoding = 'utf-8'
-    }
-
-
-    configurations.all {
-        resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.1'
-    }
 
     flavorDimensions "channel"
-    splits {
-
-        // Configures multiple APKs based on ABI.
-        abi {
-
-            // Enables building multiple APKs per ABI.
-            enable true
-
-            // By default all ABIs are included, so use reset() and include to specify that we only
-            // want APKs for x86 and x86_64.
-
-            // Resets the list of ABIs that Gradle should create APKs for to none.
-            reset()
-
-            // Specifies a list of ABIs that Gradle should create APKs for.
-            include 'armeabi-v7a'
-
-            // Specifies that we do not want to also generate a universal APK that includes all ABIs.
-            universalApk false
-        }
-    }
     productFlavors {
         common {
             versionCode versions.appVersionCode
@@ -119,6 +121,10 @@ android {
             manifestPlaceholders = [appName: "Autox.js[dev]"]
         }
 
+    }
+
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.1'
     }
 
 }

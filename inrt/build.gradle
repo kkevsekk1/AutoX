@@ -5,10 +5,9 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 
-
-File propFile =new File("E:/资料/jks/autojs-inrt/sign.properties");
+File propFile = new File("E:/资料/jks/autojs-inrt/sign.properties");
 Properties properties = new Properties()
-if(propFile.exists()){
+if (propFile.exists()) {
     properties.load(new InputStreamReader(new FileInputStream(propFile), Charset.forName("utf-8")))
 }
 android {
@@ -24,7 +23,15 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
 //        buildConfigField "boolean","isMarket","true" // 这是有注册码的版本
-        buildConfigField "boolean","isMarket","false"
+        buildConfigField "boolean", "isMarket", "false"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        'resourcePackageName': applicationId,
+                        "androidManifestFile": "$projectDir/src/main/AndroidManifest.xml".toString()
+                ]
+            }
+        }
     }
     lintOptions {
         abortOnError false
@@ -34,6 +41,17 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+        encoding = 'utf-8'
+    }
+    signingConfigs {
+        if (propFile.exists()) {
+            release {
+                keyAlias properties['keyAlias']
+                keyPassword properties['keyPassword']
+                storeFile file(properties['storeFile'])
+                storePassword properties['storePassword']
+            }
+        }
     }
     splits {
 
@@ -50,49 +68,39 @@ android {
             reset()
 
             // Specifies a list of ABIs that Gradle should create APKs for.
-            include "x86", "armeabi-v7a"
+            // include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+            include 'arm64-v8a'
+            //默认提供64位版本，相比于32位，尤其在opencv、7zip、ocr等原生模块上性能提升显著，且Google明确在Android 12上只支持64位的APP，32位App将会被抛弃
 
             // Specifies that we do not want to also generate a universal APK that includes all ABIs.
             universalApk false
         }
     }
-    signingConfigs {
-        if(propFile.exists()) {
-            release {
-                keyAlias properties['keyAlias']
-                keyPassword properties['keyPassword']
-                storeFile file(properties['storeFile'])
-                storePassword properties['storePassword']
-            }
-        }
-    }
-    flavorDimensions "channel"
-    productFlavors {
-        common {
-            buildConfigField "boolean","isMarket","false"
-            manifestPlaceholders = [appName: "inrt"]
-        }
-        market {
-            buildConfigField "boolean","isMarket","true"
-            manifestPlaceholders = [appName: "AIX云控"]
-        }
-
-    }
-
     buildTypes {
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            if(propFile.exists()) {
+            if (propFile.exists()) {
                 signingConfig signingConfigs.release
             }
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            if(propFile.exists()) {
+            if (propFile.exists()) {
                 signingConfig signingConfigs.release
             }
+        }
+    }
+    flavorDimensions "channel"
+    productFlavors {
+        common {
+            buildConfigField "boolean", "isMarket", "false"
+            manifestPlaceholders = [appName: "inrt"]
+        }
+        market {
+            buildConfigField "boolean", "isMarket", "true"
+            manifestPlaceholders = [appName: "AIX云控"]
         }
     }
 
@@ -142,15 +150,13 @@ task cp2APP(group: 'build') {
         }
         println pluginProjectDir
         buildApkPluginForAbi(pluginProjectDir, 'armeabi-v7a')
-     //   buildApkPluginForAbi(pluginProjectDir, 'x86')
+        //   buildApkPluginForAbi(pluginProjectDir, 'x86')
     }
 }
 
 
-
-
 tasks.whenTaskAdded { task ->
-    println("=================task "+task.name+" added=================")
+    println("=================task " + task.name + " added=================")
 
 }
 
@@ -182,10 +188,12 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:2.2.3"
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     implementation 'com.fanjun:keeplive:1.1.22'
-    implementation  'com.dhh:websocket2:2.1.4'
+    implementation 'com.dhh:websocket2:2.1.4'
     implementation 'com.github.SenhLinsh:Utils-Everywhere:3.0.0'
     testImplementation 'junit:junit:4.13'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
     implementation project(':automator')
     implementation project(':common')
     implementation project(':autojs')
+    implementation 'androidx.multidex:multidex:2.0.1'
 }

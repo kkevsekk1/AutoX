@@ -9,7 +9,7 @@ var type = "7z";
 var password = "password"
 
 //7z加密压缩(若文件已存在则跳过)
-//zips.A(filePath, dirPath, password)
+//zips.A(type, filePath, dirPath, password)
 
 //压缩
 switch (zips.A(type, filePath, dirPath)) {
