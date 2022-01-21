@@ -160,8 +160,9 @@ public class EditActivity extends BaseActivity implements OnActivityResultDelega
         Log.d(LOG_TAG, "onActionModeStarted: " + mode);
         Menu menu = mode.getMenu();
         MenuItem item = menu.getItem(menu.size() - 1);
-        menu.add(item.getGroupId(), R.id.action_delete_line, 10000, R.string.text_delete_line);
-        menu.add(item.getGroupId(), R.id.action_copy_line, 20000, R.string.text_copy_line);
+        // 以下两项在64位版存在失效bug，暂时注释掉，相关功能可通过编辑菜单使用
+//        menu.add(item.getGroupId(), R.id.action_delete_line, 10000, R.string.text_delete_line);
+//        menu.add(item.getGroupId(), R.id.action_copy_line, 20000, R.string.text_copy_line);
         super.onActionModeStarted(mode);
     }
 
