@@ -32,6 +32,12 @@ import java.util.Random;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
+
+/** GPL-2.0
+ * Copyright 2006 AARON  <CHENGSHULUN@LIVE.COM>
+ */
+
+
 public class LoginActivity extends AppCompatActivity {
     TextView infoTv;
 
