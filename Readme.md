@@ -70,7 +70,7 @@
 本AutoXjs能不能采用GPL-V2?
 
 关于GPL-V2 应该很容易理解， 著名linux 采用该许可证。但是对于MPL-2.0 有非常多的文章都是停留在PML-1.1 的版本，对非常多国内开发者造成困扰,
-这是一篇比较标准[译文]（https://github.com/rachelzhang1/MPL2.0_zh-CN/blob/93d2feec60d8b0b5a54a1843c866994af4610d4f/Mozilla_Public_License_2.0_Simplified_Chinese_Reference.txt）
+这是一篇比较标准[译文](https://github.com/rachelzhang1/MPL2.0_zh-CN/blob/93d2feec60d8b0b5a54a1843c866994af4610d4f/Mozilla_Public_License_2.0_Simplified_Chinese_Reference.txt)
 有兴趣可以研究一下。
 
 代码贡献者需要注意：
