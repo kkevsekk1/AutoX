@@ -14,12 +14,15 @@
 在原项目没有删除的情况下我并不打算替换掉，以表对于原作者的尊重。这篇文档里有加密相关的内容可能和实际运行情况有冲突，
 如果你希望写的代码加密保护知识产权，请参考项目 https://github.com/kkevsekk1/webpack-autojs
 我会逐步完善更新，程序代码，尽可能保持一致。~~
+
   本项目从[hyb1996](https://github.com/hyb1996/Auto.js) 获得,并正式命名为AutoX.js， 你现在看的是原4.1版基础上的项目，
 后面我将针对项目本身如何开发、运行的进行介绍，欢迎更多开发者参与这个项目维护升级。[hyb1996](https://github.com/hyb1996/Auto.js)采用的
 [Mozilla Public License Version 2.0](https://github.com/hyb1996/NoRootScriptDroid/blob/master/LICENSE.md) +**非商业性使用**，出于多种因素考虑，
 本产品采用 [GPL-V2](https://opensource.org/licenses/GPL-2.0) 许可证， 无论是其他贡献者，还是使用该产品，均需按照 MPL-2.0+非商业性使用 和 GPL-V2 的相关要求使用。
+
 关于两个两种协议：
 （https://opensource.org/licenses/GPL-2.0）
+
 （https://www.mozilla.org/MPL/2.0/）
 
 ### 现在：
@@ -58,12 +61,14 @@
 
 ## 关于License
 本产品采用 [GPL-V2](https://opensource.org/licenses/GPL-2.0) 许可证
-由于历史原因还得遵循
-(https://github.com/hyb1996/Auto.js)
+
+由于历史原因还得遵循[项目](https://github.com/hyb1996/Auto.js)
 基于[Mozilla Public License Version 2.0](https://github.com/hyb1996/NoRootScriptDroid/blob/master/LICENSE.md)并附加以下条款：
 * **非商业性使用** — 不得将此项目及其衍生的项目的源代码和二进制产品用于任何商业和盈利用途
 
-跟产品能不能采用GPL-V2?
+
+本AutoXjs能不能采用GPL-V2?
+
 关于GPL-V2 应该很容易理解， 著名linux 采用该许可证。但是对于MPL-2.0 有非常多的文章都是停留在PML-1.1 的版本，对非常多国内开发者造成困扰,
 这是一篇比较标准[译文]（https://github.com/rachelzhang1/MPL2.0_zh-CN/blob/93d2feec60d8b0b5a54a1843c866994af4610d4f/Mozilla_Public_License_2.0_Simplified_Chinese_Reference.txt）
 有兴趣可以研究一下。
@@ -75,7 +80,7 @@
 // SPDX-License-Identifier: GPL-2.0
 // 申明你的版权
 ```
-其他人要本产品，做深度开发请注意
+其他人使用AutoXjs，做深度开发请注意
 * 如果你使用了带有GPL-2.0 声明的代码 或编译出来的二进制。你需要开源你所有代码。
 * 如果你仅使用了MPL-2.0 的东西，你需要开源你修改过的相关代码。
 * 脱离本产品说关于商用和开源，开源东西可以商用，你也需要按规定开源！商用的产品可以是开源的，比如redhat！商用了但是不开源，那可了解openwrt的来源
