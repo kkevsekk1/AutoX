@@ -1,6 +1,6 @@
 # Auto.js 和 AutoX.js
 ## 简介
-一个支持无障碍服务的Android平台上的JavaScript IDE，其发展目标是JsBox和Workflow。
+一个支持无障碍服务的Android平台上的JavaScript 运行环境 和 开发环境，其发展目标是类似JsBox和Workflow。
 
  ~~由于[原作者](https://github.com/hyb1996/Auto.js) 不再维护 Auto.js 项目
 我计划在原来基础上继续维护者项目，本项目从[autojs](https://github.com/hyb1996/Auto.js) 并将原项目命名为AutoX.js。
@@ -23,8 +23,8 @@
 
 ### 现在AutoXjs：
 * AutoX.js文档： http://doc.autoxjs.com/
-* 项目  https://github.com/kkevsekk1/AutoX
-* [VS Code 插件](https://marketplace.visualstudio.com/items?itemName=aaroncheng.auto-js-vsce-fixed)
+* 开源地址  https://github.com/kkevsekk1/AutoX
+* pc端开发[VS Code 插件](https://marketplace.visualstudio.com/items?itemName=aaroncheng.auto-js-vsce-fixed)
 * 官方论坛： [www.autoxjs.com](http://www.autoxjs.com)
 * autoxjs[更新日志](CHANGELOG.md)
 
