@@ -2,11 +2,6 @@
 ## 简介
 一个支持无障碍服务的Android平台上的JavaScript IDE，其发展目标是JsBox和Workflow。
 
-同时有[VS Code 插件](https://github.com/hyb1996/Auto.js-VSCode-Extension)可提供基础的在桌面开发的功能。
-
-官方文档：https://hyb1996.github.io/AutoJs-Docs/
-
-
  ~~由于[原作者](https://github.com/hyb1996/Auto.js) 不再维护 Auto.js 项目
 我计划在原来基础上继续维护者项目，本项目从[autojs](https://github.com/hyb1996/Auto.js) 并将原项目命名为AutoX.js。
  你现在看的是原4.1版基础上的项目，后面我将针对项目本身如何开发、运行的进行介绍，欢迎更多开发者参与这个项目维护升级，
@@ -19,6 +14,7 @@
 后面我将针对项目本身如何开发、运行的进行介绍，欢迎更多开发者参与这个项目维护升级。[hyb1996](https://github.com/hyb1996/Auto.js)采用的
 [Mozilla Public License Version 2.0](https://github.com/hyb1996/NoRootScriptDroid/blob/master/LICENSE.md) +**非商业性使用**，出于多种因素考虑，
 本产品采用 [GPL-V2](https://opensource.org/licenses/GPL-2.0) 许可证， 无论是其他贡献者，还是使用该产品，均需按照 MPL-2.0+非商业性使用 和 GPL-V2 的相关要求使用。
+
 
 关于两个两种协议：
 （https://opensource.org/licenses/GPL-2.0）
