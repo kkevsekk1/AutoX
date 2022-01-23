@@ -10,8 +10,8 @@
 如果你希望写的代码加密保护知识产权，请参考项目 https://github.com/kkevsekk1/webpack-autojs
 我会逐步完善更新，程序代码，尽可能保持一致。~~
 
-  本项目从[hyb1996](https://github.com/hyb1996/Auto.js) 获得,并正式命名为AutoX.js， 你现在看的是原4.1版基础上的项目，
-后面我将针对项目本身如何开发、运行的进行介绍，欢迎更多开发者参与这个项目维护升级。[hyb1996](https://github.com/hyb1996/Auto.js)采用的
+  本项目从[hyb1996](https://github.com/hyb1996/Auto.js) autojs 获得,并命名为AutoX.js （autojs 修改版本）， 你现在看的是原4.1版本基础上的项目，
+后面我们将针对项目本身如何开发、运行的进行介绍，欢迎更多开发者参与这个项目维护升级。[hyb1996](https://github.com/hyb1996/Auto.js)采用的
 [Mozilla Public License Version 2.0](https://github.com/hyb1996/NoRootScriptDroid/blob/master/LICENSE.md) +**非商业性使用**，出于多种因素考虑，
 本产品采用 [GPL-V2](https://opensource.org/licenses/GPL-2.0) 许可证， 无论是其他贡献者，还是使用该产品，均需按照 MPL-2.0+非商业性使用 和 GPL-V2 的相关要求使用。
 
@@ -21,7 +21,7 @@
 
 （https://www.mozilla.org/MPL/2.0/）
 
-### 现在：
+### 现在AutoXjs：
 * AutoX.js文档： http://doc.autoxjs.com/
 * 项目  https://github.com/kkevsekk1/AutoX
 * [VS Code 插件](https://marketplace.visualstudio.com/items?itemName=aaroncheng.auto-js-vsce-fixed)
@@ -47,7 +47,7 @@
 4. Auto.js可以提供界面编写等功能，不仅仅是作为一个脚本软件而存在
 
 
-### 信息
+### autojs信息
 * 官方论坛： [autojs.org](http://www.autojs.org)
 * 文档：可在[这里](https://hyb1996.github.io/AutoJs-Docs/)查看在线文档。目前文档仍然不完善。
 * 示例：可在[这里](https://github.com/hyb1996/NoRootScriptDroid/tree/master/app/src/main/assets/sample)查看一些示例，或者直接在应用内查看和运行。
