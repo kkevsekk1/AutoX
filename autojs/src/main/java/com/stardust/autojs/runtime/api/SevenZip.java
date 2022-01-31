@@ -1,21 +1,11 @@
 package com.stardust.autojs.runtime.api;
 
-import android.content.Context;
-
 import com.hzy.libp7zip.P7ZipApi;
-import com.stardust.autojs.runtime.ScriptRuntime;
 import com.stardust.autojs.runtime.exception.ScriptException;
 import com.stardust.pio.PFiles;
 
 
 public class SevenZip {
-    private Context mContext;
-    private ScriptRuntime mRuntime;
-
-    public SevenZip(Context context) {
-        mContext = context;
-    }
-
     public int cmdExec(String cmdStr) {
         try {
             return P7ZipApi.executeCommand(cmdStr);

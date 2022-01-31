@@ -80,9 +80,9 @@ public class MarketFragment extends ViewPagerFragment implements BackPressedHand
                 if (which == 0) {
                     mIndexUrl = "http://mk.autoxjs.com/pages/controlMine/controlMine";
                 } else if (which == 1) {
-                    mIndexUrl = "https://search.gitee.com/?skin=rec&type=repository&q=autojs";
+                    mIndexUrl = "https://search.gitee.com/?skin=rec&type=repository&q=auto%20js";
                 } else {
-                    mIndexUrl = "https://github.com/search?q=autojs";
+                    mIndexUrl = "https://github.com/search?q=auto+js+%E8%84%9A%E6%9C%AC";
                 }
                 mWebView.loadUrl(mIndexUrl);
                 dialog.dismiss();

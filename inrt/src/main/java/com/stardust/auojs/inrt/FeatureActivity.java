@@ -7,11 +7,11 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.net.http.SslError;
+import com.tencent.smtt.export.external.interfaces.SslError;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import com.tencent.smtt.sdk.SslErrorHandler;
+import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.export.external.interfaces.WebResourceRequest;
 import com.tencent.smtt.sdk.WebSettings;
@@ -112,9 +112,8 @@ public class FeatureActivity extends Activity {
 			mProgressBar.setVisibility(View.GONE);
 		}
 
-		@Override
 		public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-			handler.sendEmptyMessage(3);
+//			handler.sendEmptyMessage(3);
 			super.onReceivedSslError(view, handler, error);
 		}
 
