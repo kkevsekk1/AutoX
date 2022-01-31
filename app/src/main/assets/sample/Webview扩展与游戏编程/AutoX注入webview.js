@@ -16,7 +16,7 @@ function callJavaScript(webViewWidget, script, callback) {
     try {
         console.assert(webViewWidget != null, "webView控件为空");
         //console.log(script.toString())
-        webViewWidget.evaluateJavascript("javascript:" + script, new JavaAdapter(android.webkit.ValueCallback, {
+        webViewWidget.evaluateJavascript("javascript:" + script, new JavaAdapter(com.tencent.smtt.sdk.ValueCallback, {
             onReceiveValue: (val) => {
                 if (callback) {
                     callback(val);
@@ -99,7 +99,7 @@ function mFunction(params) {
     return files.isDir('/storage/emulated/0/Download')//'toast提示成功';
 }
 function webViewExpand_init(webViewWidget) {
-    webViewWidget.webViewClient = new JavaAdapter(android.webkit.WebViewClient, {
+    webViewWidget.webViewClient = new JavaAdapter(com.tencent.smtt.sdk.WebViewClient, {
         onPageFinished: (webView, curUrl) => {
             try {
                 // 注入 AutoX
@@ -153,7 +153,7 @@ function webViewExpand_init(webViewWidget) {
             console.trace(errorCode + " " + description + " " + url);
         }
     });
-    webViewWidget.webChromeClient = new JavaAdapter(android.webkit.WebChromeClient, {
+    webViewWidget.webChromeClient = new JavaAdapter(com.tencent.smtt.sdk.WebChromeClient, {
         onConsoleMessage: (msg) => {
             console.log("[%s:%s]: %s", msg.sourceId(), msg.lineNumber(), msg.message());
         }

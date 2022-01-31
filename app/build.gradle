@@ -175,6 +175,7 @@ repositories {
 }
 
 dependencies {
+    implementation files('libs\\tbs_sdk.jar')
     androidTestImplementation('androidx.test.espresso:espresso-core:3.1.1-alpha01', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })

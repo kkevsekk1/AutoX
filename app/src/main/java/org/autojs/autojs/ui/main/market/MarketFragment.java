@@ -1,11 +1,15 @@
 package org.autojs.autojs.ui.main.market;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.webkit.WebView;
+import android.widget.Toast;
+
+import com.tencent.smtt.sdk.WebView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.stardust.app.GlobalAppContext;
@@ -31,9 +35,9 @@ public class MarketFragment extends ViewPagerFragment implements BackPressedHand
     EWebView mEWebView;
     WebView mWebView;
 
-     MarketJavascriptInterface javascriptInterface ;
+    MarketJavascriptInterface javascriptInterface;
 
-    private String  mIndexUrl = "http://mk.autoxjs.com/pages/controlMine/controlMine";
+    private String mIndexUrl = "http://mk.autoxjs.com/pages/controlMine/controlMine";
     private String mPreviousQuery;
 
 
@@ -51,14 +55,10 @@ public class MarketFragment extends ViewPagerFragment implements BackPressedHand
 
     @AfterViews
     void setUpViews() {
-        mWebView =  mEWebView.getWebView();
+        mWebView = mEWebView.getWebView();
         mEWebView.getSwipeRefreshLayout().setOnRefreshListener(() -> {
-            if (TextUtils.equals(mWebView.getUrl(), mIndexUrl)) {
-                loadUrl();
-            } else {
-                mEWebView.onRefresh();
-            }
-            mWebView.addJavascriptInterface(javascriptInterface,"android");
+            loadUrl();
+            mWebView.addJavascriptInterface(javascriptInterface, "android");
         });
         Bundle savedWebViewState = getArguments().getBundle("savedWebViewState");
         if (savedWebViewState != null) {
@@ -66,13 +66,30 @@ public class MarketFragment extends ViewPagerFragment implements BackPressedHand
         } else {
             loadUrl();
         }
-        mWebView.addJavascriptInterface(javascriptInterface,"android");
+        mWebView.addJavascriptInterface(javascriptInterface, "android");
     }
 
     private void loadUrl() {
-        mWebView.loadUrl(mIndexUrl);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.getContext());
+        builder.setTitle("请选择共享脚本来源：");
+        final String items[] = {"AutoX官方市场（年久失修……）", "Gitee脚本搜索（推荐）", "Github脚本搜索（推荐）"};
+        builder.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String item = items[which];
+                if (which == 0) {
+                    mIndexUrl = "http://mk.autoxjs.com/pages/controlMine/controlMine";
+                } else if (which == 1) {
+                    mIndexUrl = "https://search.gitee.com/?skin=rec&type=repository&q=autojs";
+                } else {
+                    mIndexUrl = "https://github.com/search?q=autojs";
+                }
+                mWebView.loadUrl(mIndexUrl);
+                dialog.dismiss();
+            }
+        });
+        builder.show();
     }
-
 
     @Override
     public void onPause() {

@@ -22,7 +22,7 @@ import okhttp3.HttpUrl;
  */
 
 public class WebkitCookieManagerProxy extends CookieManager implements CookieJar {
-    private android.webkit.CookieManager webkitCookieManager;
+    private com.tencent.smtt.sdk.CookieManager webkitCookieManager;
 
     private static final String TAG = WebkitCookieManagerProxy.class.getSimpleName();
 
@@ -32,7 +32,7 @@ public class WebkitCookieManagerProxy extends CookieManager implements CookieJar
 
     WebkitCookieManagerProxy(CookieStore store, CookiePolicy cookiePolicy) {
         super(null, cookiePolicy);
-        this.webkitCookieManager = android.webkit.CookieManager.getInstance();
+        this.webkitCookieManager = com.tencent.smtt.sdk.CookieManager.getInstance();
     }
 
     @Override
@@ -71,7 +71,7 @@ public class WebkitCookieManagerProxy extends CookieManager implements CookieJar
         String url = uri.toString();
 
         // prepare our response
-        Map<String, List<String>> res = new java.util.HashMap<String, List<String>>();
+        Map<String, List<String>> res = new HashMap<String, List<String>>();
 
         // get the cookie
         String cookie = webkitCookieManager.getCookie(url);

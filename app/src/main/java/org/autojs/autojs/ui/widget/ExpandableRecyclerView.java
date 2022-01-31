@@ -173,19 +173,19 @@ public class ExpandableRecyclerView extends ThemeColorRecyclerView {
         }
 
         @Override
-        protected RecyclerView.ViewHolder onCreateTitleViewHolder(ViewGroup parent) {
+        protected ViewHolder onCreateTitleViewHolder(ViewGroup parent) {
             return new TitleViewHolder(LayoutInflater.from(getContext()).inflate(R.layout.expanded_recycler_view_default_title, parent, false));
         }
 
 
         @Override
-        protected void onBindTitleViewHolder(RecyclerView.ViewHolder holder) {
+        protected void onBindTitleViewHolder(ViewHolder holder) {
             TitleViewHolder viewHolder = (TitleViewHolder) holder;
             viewHolder.mExpandHint.setImageResource(isExpanded() ? R.drawable.ic_expanded : R.drawable.ic_collapsed);
         }
 
 
-        private class TitleViewHolder extends RecyclerView.ViewHolder {
+        private class TitleViewHolder extends ViewHolder {
 
             ImageView mExpandHint;
 

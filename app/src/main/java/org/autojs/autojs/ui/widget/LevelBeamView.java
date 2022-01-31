@@ -72,7 +72,7 @@ public class LevelBeamView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int width = mPaddingLeft + mPaddingRight + (mLevel + 1) * (mLinesWidth + mLinesOffset);
-        int height = View.MeasureSpec.getSize(heightMeasureSpec);
+        int height = MeasureSpec.getSize(heightMeasureSpec);
         setMeasuredDimension(width, height);
     }
 

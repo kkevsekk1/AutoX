@@ -1,4 +1,4 @@
-package com.stardust.app;
+package org.autojs.autojs.ui.common;
 
 import android.content.Context;
 import androidx.annotation.NonNull;

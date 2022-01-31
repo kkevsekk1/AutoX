@@ -148,7 +148,7 @@ public class TinySign {
     private static byte[] writeSF(ZipOutputStream zos, Manifest sf, String sha1Manifest) throws Exception {
         Signature signature = instanceSignature();
         zos.putNextEntry(new ZipEntry("META-INF/CERT.SF"));
-        TinySign.SignatureOutputStream out = new TinySign.SignatureOutputStream(zos, signature);
+        SignatureOutputStream out = new SignatureOutputStream(zos, signature);
         out.write("Signature-Version: 1.0\r\n".getBytes("UTF-8"));
         out.write(("Created-By: tiny-sign-" + TinySign.class.getPackage().getImplementationVersion() + "\r\n").getBytes("UTF-8"));
         out.write("SHA1-Digest-Manifest: ".getBytes("UTF-8"));

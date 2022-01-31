@@ -27,7 +27,14 @@
 -dontwarn com.pushtorefresh.storio.**
 -dontwarn java.lang.invoke.*
 -dontwarn **$$Lambda$*
-
+-dontwarn dalvik.**
+-dontwarn com.tencent.smtt.**
+-keep class com.tencent.smtt.** {
+    *;
+}
+-keep class com.tencent.tbs.** {
+    *;
+}
 -keep class org.mozilla.javascript.** { *; }
 -keep class com.jecelyin.editor.** { *; }
 -keep class com.stardust.automator.** { *; }

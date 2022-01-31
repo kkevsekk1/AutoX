@@ -13,12 +13,12 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 
 import android.util.AttributeSet;
-import android.webkit.ValueCallback;
-import android.webkit.WebChromeClient;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import com.tencent.smtt.sdk.ValueCallback;
+import com.tencent.smtt.sdk.WebChromeClient;
+import com.tencent.smtt.export.external.interfaces.WebResourceRequest;
+import com.tencent.smtt.sdk.WebSettings;
+import com.tencent.smtt.sdk.WebView;
+import com.tencent.smtt.sdk.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
@@ -133,7 +133,7 @@ public class EWebView extends FrameLayout implements SwipeRefreshLayout.OnRefres
 
         public boolean openFileChooser(ValueCallback<Uri> valueCallback,
                                        String[] acceptType) {
-            if (getContext() instanceof OnActivityResultDelegate.DelegateHost &&
+            if (getContext() instanceof DelegateHost &&
                     getContext() instanceof Activity && isImageType(acceptType)) {
                 chooseImage(valueCallback);
                 return true;
@@ -146,7 +146,7 @@ public class EWebView extends FrameLayout implements SwipeRefreshLayout.OnRefres
         @Override
         public boolean onShowFileChooser(WebView webView,
                                          ValueCallback<Uri[]> filePathCallback,
-                                         WebChromeClient.FileChooserParams fileChooserParams) {
+                                         FileChooserParams fileChooserParams) {
             openFileChooser(value -> {
                 if (value == null) {
                     filePathCallback.onReceiveValue(null);
@@ -161,7 +161,7 @@ public class EWebView extends FrameLayout implements SwipeRefreshLayout.OnRefres
     }
 
     private void chooseImage(ValueCallback<Uri> valueCallback) {
-        DelegateHost delegateHost = ((OnActivityResultDelegate.DelegateHost) getContext());
+        DelegateHost delegateHost = ((DelegateHost) getContext());
         Mediator mediator = delegateHost.getOnActivityResultDelegateMediator();
         Activity activity = (Activity) getContext();
         new ImageSelector(activity, mediator, (selector, uri) -> valueCallback.onReceiveValue(uri))

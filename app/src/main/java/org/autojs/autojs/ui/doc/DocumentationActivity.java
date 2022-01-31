@@ -1,6 +1,6 @@
 package org.autojs.autojs.ui.doc;
 
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.WebView;
 
 import org.autojs.autojs.Pref;
 import org.autojs.autojs.R;
