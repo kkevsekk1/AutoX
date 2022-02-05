@@ -57,32 +57,33 @@ public class MarketFragment extends ViewPagerFragment implements BackPressedHand
     void setUpViews() {
         mWebView = mEWebView.getWebView();
         mEWebView.getSwipeRefreshLayout().setOnRefreshListener(() -> {
-            loadUrl();
+            loadUrlOption();
             mWebView.addJavascriptInterface(javascriptInterface, "android");
         });
         Bundle savedWebViewState = getArguments().getBundle("savedWebViewState");
         if (savedWebViewState != null) {
             mWebView.restoreState(savedWebViewState);
         } else {
-            loadUrl();
+            loadUrlOption();
         }
         mWebView.addJavascriptInterface(javascriptInterface, "android");
     }
 
-    private void loadUrl() {
+    private void loadUrlOption() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this.getContext());
-        builder.setTitle("请选择共享脚本来源：");
-        final String items[] = {"AutoX官方市场（年久失修……）", "Gitee脚本搜索（推荐）", "Github脚本搜索（推荐）"};
+        builder.setTitle("请选择论坛版块：");
+        final String items[] = {"交流社区", "脚本市场（年久失修……）", "Gitee脚本搜索（推荐）", "Github脚本搜索（推荐）"};
         builder.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String item = items[which];
                 if (which == 0) {
-                    mIndexUrl = "http://mk.autoxjs.com/pages/controlMine/controlMine";
-                } else if (which == 1) {
+                    mIndexUrl = "http://www.autoxjs.com/";
+                } else if (which == 2) {
                     mIndexUrl = "https://search.gitee.com/?skin=rec&type=repository&q=auto%20js";
-                } else {
+                } else if (which == 3) {
                     mIndexUrl = "https://github.com/search?q=auto+js+%E8%84%9A%E6%9C%AC";
+                } else {
+                    mIndexUrl = "http://mk.autoxjs.com/pages/controlMine/controlMine";
                 }
                 mWebView.loadUrl(mIndexUrl);
                 dialog.dismiss();
@@ -140,4 +141,5 @@ public class MarketFragment extends ViewPagerFragment implements BackPressedHand
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
+
 }

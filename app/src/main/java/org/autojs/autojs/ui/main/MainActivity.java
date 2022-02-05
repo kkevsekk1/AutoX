@@ -4,23 +4,20 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import androidx.core.view.GravityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.widget.Toolbar;
-import androidx.viewpager.widget.ViewPager;
-
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.stardust.app.FragmentPagerAdapterBuilder;
 import com.stardust.app.OnActivityResultDelegate;
@@ -46,6 +43,7 @@ import org.autojs.autojs.external.foreground.ForegroundService;
 import org.autojs.autojs.model.explorer.Explorers;
 import org.autojs.autojs.tool.AccessibilityServiceTool;
 import org.autojs.autojs.ui.BaseActivity;
+import org.autojs.autojs.ui.WebviewActivity_;
 import org.autojs.autojs.ui.common.NotAskAgainDialog;
 import org.autojs.autojs.ui.doc.DocsFragment_;
 import org.autojs.autojs.ui.floating.FloatyWindowManger;
@@ -70,7 +68,8 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
     public static class DrawerOpenEvent {
         static DrawerOpenEvent SINGLETON = new DrawerOpenEvent();
     }
-    private static final String  signal ="uyMt3t/FqNUjYvXE6KElfppO17L1Nzhm0mXlnsPBl1o=";
+
+    private static final String signal = "uyMt3t/FqNUjYvXE6KElfppO17L1Nzhm0mXlnsPBl1o=";
     private static final String LOG_TAG = "MainActivity";
 
     @ViewById(R.id.drawer_layout)
@@ -89,6 +88,7 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
     private BackPressedHandler.Observer mBackPressObserver = new BackPressedHandler.Observer();
     private SearchViewItem mSearchViewItem;
     private MenuItem mLogMenuItem;
+    private MenuItem mWebMenuItem;
     private boolean mDocsSearchItemExpanded;
 
 
@@ -170,10 +170,10 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
         TabLayout tabLayout = $(R.id.tab);
         mPagerAdapter = new FragmentPagerAdapterBuilder(this)
                 .add(new MyScriptListFragment_(), R.string.text_file)
+                .add(new TaskManagerFragment_(), R.string.text_manage)
                 .add(new DocsFragment_(), R.string.text_tutorial)
                 .add(new CommunityFragment_(), R.string.text_community)
                 .add(new MarketFragment_(), R.string.text_market)
-                .add(new TaskManagerFragment_(), R.string.text_manage)
                 .build();
         mViewPager.setAdapter(mPagerAdapter);
         tabLayout.setupWithViewPager(mViewPager);
@@ -308,10 +308,10 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
         getMenuInflater().inflate(R.menu.menu_main, menu);
         MenuItem searchMenuItem = menu.findItem(R.id.action_search);
         mLogMenuItem = menu.findItem(R.id.action_log);
+        mWebMenuItem = menu.findItem(R.id.action_web);
         setUpSearchMenuItem(searchMenuItem);
         return true;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -322,6 +322,8 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
                 LogActivity_.intent(this).start();
             }
             return true;
+        } else if (item.getItemId() == R.id.action_web) {
+            WebviewActivity_.intent(this).start();
         }
         return super.onOptionsItemSelected(item);
     }

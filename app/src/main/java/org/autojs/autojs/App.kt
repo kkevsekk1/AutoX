@@ -88,7 +88,6 @@ class App : MultiDexApplication() {
         setupDrawableImageLoader()
         TimedTaskScheduler.init(this)
         initDynamicBroadcastReceivers()
-        Paddle.getInstance().initOcr(true)
     }
 
     @SuppressLint("CheckResult")

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_webAddress"
+        android:icon="@drawable/ic_edit_white_24dp"
+        android:title="address"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_webScript"
+        android:icon="@drawable/ic_script"
+        android:title="script"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_webSwitch"
+        android:icon="@drawable/ic_robot_64"
+        android:title="UA"
+        app:showAsAction="always|collapseActionView"/>
+
+    <item
+        android:id="@+id/action_webLog"
+        android:icon="@drawable/ic_ali_log"
+        android:title="@string/text_log"
+        app:showAsAction="always"/>
+</menu>

@@ -29,7 +29,7 @@ public class OCRPredictorNative {
     public OCRPredictorNative(Config config) {
         this.config = config;
         loadLibrary();
-        nativePointer = init(config.detModelFilename, config.recModelFilename,config.clsModelFilename,
+        nativePointer = init(config.detModelFilename, config.recModelFilename, config.clsModelFilename,
                 config.cpuThreadNum, config.cpuPower);
         Log.i("OCRPredictorNative", "load success " + nativePointer);
 
@@ -53,14 +53,17 @@ public class OCRPredictorNative {
 
     }
 
-    public void destory(){
-        if (nativePointer > 0) {
+    public void destroy() {
+        // Fixed By TonyJiangWJ(https://github.com/TonyJiangWJ) on 2022/02/05.
+        // 原代码中为大于0，但是指针地址实际上可能为负数 将导致跳过释放最终内存泄露
+        // 因此此处需要改为不等于0，实际C++源码中也是进行的非零判断而不是大于0
+        if (nativePointer != 0) {
             release(nativePointer);
             nativePointer = 0;
         }
     }
 
-    protected native long init(String detModelPath, String recModelPath,String clsModelPath, int threadNum, String cpuMode);
+    protected native long init(String detModelPath, String recModelPath, String clsModelPath, int threadNum, String cpuMode);
 
     protected native float[] forward(long pointer, float[] buf, float[] ddims, Bitmap originalImage);
 

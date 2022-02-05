@@ -3,9 +3,9 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_log"
-        android:icon="@drawable/ic_ali_log"
-        android:title="@string/text_log"
+        android:id="@+id/action_web"
+        android:icon="@drawable/ic_ali_web"
+        android:title="Web"
         app:showAsAction="always"/>
 
     <item
@@ -16,4 +16,10 @@
         android:title="@string/text_search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="always|collapseActionView"/>
+
+    <item
+        android:id="@+id/action_log"
+        android:icon="@drawable/ic_ali_log"
+        android:title="@string/text_log"
+        app:showAsAction="always"/>
 </menu>

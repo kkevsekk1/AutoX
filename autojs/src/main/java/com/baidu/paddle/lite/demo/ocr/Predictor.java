@@ -20,8 +20,6 @@ import java.util.Vector;
 
 import static android.graphics.Color.*;
 
-import androidx.annotation.NonNull;
-
 
 public class Predictor {
     private static final String TAG = Predictor.class.getSimpleName();
@@ -140,6 +138,8 @@ public class Predictor {
         }
         if (realPath.isEmpty()) {
             Log.i(TAG, "realPath.isEmpty() ");
+            realPath = appCtx.getCacheDir() + "/" + modelPath;
+            Utils.copyDirectoryFromAssets(appCtx, modelPath, realPath);
             return false;
         }
 
@@ -163,7 +163,7 @@ public class Predictor {
 
     public void release() {
         if (this.mPaddlePredictorNative != null) {
-            this.mPaddlePredictorNative.destory();
+            this.mPaddlePredictorNative.destroy();
             this.mPaddlePredictorNative = null;
         }
 
@@ -172,7 +172,7 @@ public class Predictor {
 
     public void releaseModel() {
         if (paddlePredictor != null) {
-            paddlePredictor.destory();
+            paddlePredictor.destroy();
             paddlePredictor = null;
         }
         isLoaded = false;

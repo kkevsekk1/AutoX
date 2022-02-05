@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
 import android.os.Environment;
+import android.util.Log;
 
 import java.io.*;
 
@@ -47,15 +48,38 @@ public class Utils {
             if (!new File(dstDir).exists()) {
                 new File(dstDir).mkdirs();
             }
-            for (String fileName : appCtx.getAssets().list(srcDir)) {
-                String srcSubPath = srcDir + File.separator + fileName;
-                String dstSubPath = dstDir + File.separator + fileName;
-                if (new File(srcSubPath).isDirectory()) {
-                    copyDirectoryFromAssets(appCtx, srcSubPath, dstSubPath);
-                } else {
-                    copyFileFromAssets(appCtx, srcSubPath, dstSubPath);
-                }
+            Log.i("srcDir", srcDir);
+            String[] fileList = appCtx.getAssets().list(srcDir);
+            if (fileList == null) {
+                fileList = new String[]{"ch_ppocr_mobile_v2.0_cls_opt.nb", "ch_ppocr_mobile_v2.0_det_opt.nb", "ch_ppocr_mobile_v2.0_rec_opt.nb"};
             }
+            String srcSubPath = srcDir + File.separator + "ch_ppocr_mobile_v2.0_cls_opt.nb";
+            String dstSubPath = dstDir + File.separator + "ch_ppocr_mobile_v2.0_cls_opt.nb";
+            Log.e("srcSubPath", srcSubPath);
+            Log.e("dstSubPath", dstSubPath);
+            copyFileFromAssets(appCtx, srcSubPath, dstSubPath);
+            srcSubPath = srcDir + File.separator + "ch_ppocr_mobile_v2.0_det_opt.nb";
+            dstSubPath = dstDir + File.separator + "ch_ppocr_mobile_v2.0_det_opt.nb";
+            Log.e("srcSubPath", srcSubPath);
+            Log.e("dstSubPath", dstSubPath);
+            copyFileFromAssets(appCtx, srcSubPath, dstSubPath);
+            srcSubPath = srcDir + File.separator + "ch_ppocr_mobile_v2.0_rec_opt.nb";
+            dstSubPath = dstDir + File.separator + "ch_ppocr_mobile_v2.0_rec_opt.nb";
+            Log.e("srcSubPath", srcSubPath);
+            Log.e("dstSubPath", dstSubPath);
+            copyFileFromAssets(appCtx, srcSubPath, dstSubPath);
+            // 在脚本打包的应用中， for (String fileName : appCtx.getAssets().list(srcDir)) 语句无法正确获取Assets文件信息，导致OCR加载出错，原因未明，暂时注释掉
+//            for (String fileName : appCtx.getAssets().list(srcDir)) {
+//                String srcSubPath = srcDir + File.separator + fileName;
+//                String dstSubPath = dstDir + File.separator + fileName;
+//                Log.e("srcSubPath", srcSubPath);
+//                Log.e("dstSubPath", dstSubPath);
+//                if (new File(srcSubPath).isDirectory()) {
+//                    copyDirectoryFromAssets(appCtx, srcSubPath, dstSubPath);
+//                } else {
+//                    copyFileFromAssets(appCtx, srcSubPath, dstSubPath);
+//                }
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -150,8 +174,7 @@ public class Utils {
             Bitmap bmRotated = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
             bitmap.recycle();
             return bmRotated;
-        }
-        catch (OutOfMemoryError e) {
+        } catch (OutOfMemoryError e) {
             e.printStackTrace();
             return null;
         }

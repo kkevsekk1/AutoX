@@ -372,6 +372,14 @@
             android:hardwareAccelerated="true"
             android:launchMode="singleTask" />
         <activity
+            android:name=".ui.WebviewActivity_"
+            android:label="WebX"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:theme="@style/ActionBarTheme"
+            />
+        <activity
             android:name=".ui.project.BuildActivity_"
             android:configChanges="orientation|screenSize" />
         <activity android:name=".ui.project.SignManageActivity_" />

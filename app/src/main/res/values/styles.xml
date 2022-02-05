@@ -15,6 +15,20 @@
         <item name="drawer_group_text_color">@color/drawer_menu_group_text_color</item>
     </style>
 
+    <style name="ActionBarTheme" parent="Theme.AppCompat.DayNight">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/text_color_secondary</item>
+        <item name="android:textColorSecondary">@color/text_color_thirdly</item>
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:itemBackground">@color/item_background</item>
+        <item name="itemBackgroundDark">@color/item_background_dark</item>
+        <item name="android:divider">@color/divider</item>
+        <item name="drawer_item_text_color">@color/drawer_menu_item_text_color</item>
+        <item name="drawer_group_text_color">@color/drawer_menu_group_text_color</item>
+    </style>
+
     <style name="ToolBarStyle" parent="ThemeOverlay.AppCompat.ActionBar">
         <item name="android:textColorPrimary">@color/toolbar</item>
         <item name="android:textColorSecondary">@color/toolbar</item>
