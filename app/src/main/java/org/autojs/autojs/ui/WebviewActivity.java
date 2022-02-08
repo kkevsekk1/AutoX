@@ -40,6 +40,7 @@ import org.androidannotations.annotations.ViewById;
 import org.autojs.autojs.R;
 import org.autojs.autojs.model.script.Scripts;
 import org.autojs.autojs.ui.log.LogActivity_;
+import org.autojs.autojs.ui.main.MainActivity_;
 
 import java.io.InputStream;
 import java.util.HashMap;
@@ -64,8 +65,8 @@ public class WebviewActivity extends BaseActivity implements OnActivityResultDel
     private boolean mDocsSearchItemExpanded;
     private JSInterface mJSInterface = new JSInterface();
     String ua0 = "";
-    final String ua1 = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36";
-    final String ua2 = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0";
+    final String ua1 = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36";
+    final String ua2 = "Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12A365 MicroMessenger/5.4.1 NetType/WIFI";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -286,12 +287,15 @@ public class WebviewActivity extends BaseActivity implements OnActivityResultDel
         if (item.getItemId() == R.id.action_webLog) {
             LogActivity_.intent(this).start();
             return true;
+        } else if (item.getItemId() == R.id.action_webBack) {
+            MainActivity_.intent(this).start();
+            return true;
         } else if (item.getItemId() == R.id.action_webScript) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             final EditText et = new EditText(this);
             et.setTextSize(12);
             et.setMinLines(4);
-            et.setText("_a.runScript(\"toastLog('Hello!')\");");
+            et.setText("_a.runScript(\"toastLog('网页标题为：\"+" + "document.title" + "+\"')\");");
             builder.setTitle("请输入JS脚本代码")
                     .setView(et)
                     .setPositiveButton("运行", new DialogInterface.OnClickListener() {

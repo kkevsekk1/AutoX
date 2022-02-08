@@ -1,7 +1,8 @@
+//目录路径(必须是完整路径)
+var dirPath = "/sdcard/脚本/";
+if(!files.isDir(dirPath)) files.create(dirPath);
 //压缩文件路径(必须是完整路径)
 var filePath = "/sdcard/脚本.7z";
-//目录路径(必须是完整路径)
-var dirPath = "/sdcard/脚本";
 //压缩类型
 //支持的压缩类型包括:zip 7z bz2 bzip2 tbz2 tbz gz gzip tgz tar wim swm xz txz。
 var type = "7z";
@@ -9,10 +10,10 @@ var type = "7z";
 var password = "password"
 
 //7z加密压缩(若文件已存在则跳过)
-//zips.A(type, filePath, dirPath, password)
+//zips.add(type, filePath, dirPath, password)
 
 //压缩
-switch (zips.A(type, filePath, dirPath)) {
+switch (zips.add(type, filePath, dirPath)) {
     case 0:
         toastLog("压缩成功！文件已保存为： " + filePath)
         break;

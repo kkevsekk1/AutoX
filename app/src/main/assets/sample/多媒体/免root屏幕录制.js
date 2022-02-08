@@ -37,7 +37,7 @@ ui.button.click(function () {
         activity.startActivityForResult(mMediaProjectionManager.createScreenCaptureIntent(), 666);
     }
 });
-// 无障碍服务
+// 检查权限
 ui.permissions.on("check", function (checked) {
     if (checked) {
         runtime.requestPermissions(["WRITE_EXTERNAL_STORAGE", "READ_EXTERNAL_STORAGE", "RECORD_AUDIO"]);
@@ -99,6 +99,7 @@ function stopRecord() {
     mMediaRecorder.reset();
     mVirtualDisplay.release();
     mMediaProjection.stop();
+    toastLog("录制结束！");
     isRunning = false;
     return true;
 }

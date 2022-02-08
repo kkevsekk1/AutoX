@@ -51,21 +51,6 @@ public class Predictor {
     public Predictor() {
     }
 
-    public boolean init(Context appCtx, boolean useSlim) {
-        if (!this.isLoaded || (this.useSlim != useSlim)) {
-            loadLabel(appCtx, "labels/ppocr_keys_v1.txt");
-            if (useSlim) {
-                loadModel(appCtx, "models/ocr_v2_for_cpu(slim)", 4, "LITE_POWER_HIGH");
-            } else {
-                loadModel(appCtx, "models/ocr_v2_for_cpu", 4, "LITE_POWER_HIGH");
-            }
-        }
-        this.isLoaded = true;
-        this.useSlim = useSlim;
-        Log.i(TAG, "isLoaded: " + this.isLoaded);
-        return this.isLoaded;
-    }
-
     public boolean init(Context appCtx, String modelPath, String labelPath) {
         if (!isLoaded) {
             loadModel(appCtx, modelPath, cpuThreadNum, cpuPowerMode);
@@ -385,6 +370,21 @@ public class Predictor {
             canvas.drawPath(path, paint);
             canvas.drawPath(path, paintFillAlpha);
         }
+    }
+
+    public boolean init(Context appCtx, boolean useSlim) {
+        if (!this.isLoaded || (this.useSlim != useSlim)) {
+            loadLabel(appCtx, "labels/ppocr_keys_v1.txt");
+            if (useSlim) {
+                loadModel(appCtx, "models/ocr_v2_for_cpu(slim)", 4, "LITE_POWER_HIGH");
+            } else {
+                loadModel(appCtx, "models/ocr_v2_for_cpu", 4, "LITE_POWER_HIGH");
+            }
+        }
+        this.isLoaded = true;
+        this.useSlim = useSlim;
+        Log.i(TAG, "isLoaded: " + this.isLoaded);
+        return this.isLoaded;
     }
 
     public List<OcrResult> transformData(List<OcrResultModel> OcrResultModelList) {

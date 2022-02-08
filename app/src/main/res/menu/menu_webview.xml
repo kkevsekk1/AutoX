@@ -3,6 +3,12 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/action_webBack"
+        android:icon="@drawable/ic_ali_left"
+        android:title="back"
+        app:showAsAction="always"/>
+
+    <item
         android:id="@+id/action_webAddress"
         android:icon="@drawable/ic_edit_white_24dp"
         android:title="address"

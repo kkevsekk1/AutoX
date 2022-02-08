@@ -6,7 +6,7 @@ import com.stardust.pio.PFiles;
 
 
 public class SevenZip {
-    public int cmdExec(String cmdStr) {
+    public int cmd(String cmdStr) {
         try {
             return P7ZipApi.executeCommand(cmdStr);
         } catch (Exception e) {
@@ -14,7 +14,7 @@ public class SevenZip {
         }
     }
 
-    public int A(String type, String destFilePath, String srcPath) {
+    public int add(String type, String destFilePath, String srcPath) {
         String typeOption = "";
         if (!type.trim().isEmpty()) {
             typeOption = " -t" + type.trim();
@@ -25,14 +25,10 @@ public class SevenZip {
         } else if (PFiles.isDir(srcPath)) {
             cmdStr = "7z a -y" + typeOption + " -ms=off -mx=1 -mmt -r " + destFilePath + " " + srcPath;
         }
-        try {
-            return P7ZipApi.executeCommand(cmdStr);
-        } catch (Exception e) {
-            throw new ScriptException(e);
-        }
+        return cmd(cmdStr);
     }
 
-    public int A(String type, String destFilePath, String srcPath, String password) {
+    public int add(String type, String destFilePath, String srcPath, String password) {
         String typeOption = "";
         if (!type.trim().isEmpty()) {
             typeOption = " -t" + type.trim();
@@ -43,14 +39,10 @@ public class SevenZip {
         } else if (PFiles.isDir(srcPath)) {
             cmdStr = "7z a -y" + typeOption + " -ms=off -mx=1 -mmt -r -p" + password + " " + destFilePath + " " + srcPath;
         }
-        try {
-            return P7ZipApi.executeCommand(cmdStr);
-        } catch (Exception e) {
-            throw new ScriptException(e);
-        }
+        return cmd(cmdStr);
     }
 
-    public int X(String filePath0, String dirPath1) {
+    public int extract(String filePath0, String dirPath1) {
         String cmdStr = "7z x -y -aos " + filePath0;
         if (PFiles.isFile(filePath0)) {
             if (PFiles.isDir(dirPath1)) {
@@ -59,17 +51,13 @@ public class SevenZip {
                 cmdStr = "7z x -y -aos " + filePath0 + "";
             }
         }
-        try {
-            return P7ZipApi.executeCommand(cmdStr);
-        } catch (Exception e) {
-            throw new ScriptException(e);
-        }
+        return cmd(cmdStr);
     }
 
-    public int X(String filePath0, String dirPath1, String password) {
+    public int extract(String filePath0, String dirPath1, String password) {
         String cmdStr = "7z x -y -aos " + filePath0 + "";
         if (password == "") {
-            X(filePath0, dirPath1);
+            extract(filePath0, dirPath1);
         } else {
             if (PFiles.isFile(filePath0)) {
                 if (PFiles.isDir(dirPath1)) {
@@ -79,10 +67,6 @@ public class SevenZip {
                 }
             }
         }
-        try {
-            return P7ZipApi.executeCommand(cmdStr);
-        } catch (Exception e) {
-            throw new ScriptException(e);
-        }
+        return cmd(cmdStr);
     }
 }
