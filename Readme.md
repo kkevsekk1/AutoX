@@ -56,15 +56,15 @@
  待补充，不过是否有人真对此干兴趣？欢迎联系我交流
 
 ## 关于License
-本产品采用 [GPL-V2](https://opensource.org/licenses/GPL-2.0) 许可证
+* 本产品采用 [GPL-V2](https://opensource.org/licenses/GPL-2.0) 许可证
 
-由于历史原因还得遵循[autojs项目](https://github.com/hyb1996/Auto.js)
-基于[Mozilla Public License Version 2.0](https://github.com/hyb1996/NoRootScriptDroid/blob/master/LICENSE.md)并附加以下条款：
-* **非商业性使用** — 不得将此项目及其衍生的项目的源代码和二进制产品用于任何商业和盈利用途
+* 由于历史原因还得遵循[autojs项目](https://github.com/hyb1996/Auto.js)
+ 基于[Mozilla Public License Version 2.0](https://github.com/hyb1996/NoRootScriptDroid/blob/master/LICENSE.md)并附加以下条款：
+ * **非商业性使用** — 不得将此项目及其衍生的项目的源代码和二进制产品用于任何商业和盈利用途
 
 #### 本AutoXjs能不能采用GPL-V2?
 
-关于GPL-V2 应该很容易理解， 著名linux 采用该许可证。但是对于MPL-2.0 有非常多的文章都是停留在PML-1.1 的版本，对非常多国内开发者造成困扰,
+关于GPL-V2 应该很容易理解， 著名linux 采用该许可证。但是对于MPL-2.0 有非常多的文章都是停留在MPL-1.1 的版本，对非常多国内开发者造成困扰,
 这是一篇比较标准[译文](https://github.com/rachelzhang1/MPL2.0_zh-CN/blob/93d2feec60d8b0b5a54a1843c866994af4610d4f/Mozilla_Public_License_2.0_Simplified_Chinese_Reference.txt)
 有兴趣可以研究一下。
 
@@ -79,11 +79,10 @@
 * 如果你使用了带有GPL-2.0 声明的代码 或编译出来的二进制。你需要开源你所有代码。
 * 如果你仅使用了MPL-2.0 的东西，你需要开源你修改过的相关代码。
 #### 抛开本产品谈 开源和商业
-* 开源不等于随意使用，开源不等于禁止商用！
+* 开源不等于随意使用，开源也不等于禁止商用！
 * 开源东西可以商用，但你需要按规定开源！
 * 商用的产品可以是开源的，比如redhat！
-* 不按开源协议使用开源产品，那可了解openwrt的来源，以及近几年的侵权案例！
-
+* 不按开源协议使用开源产品，那可了解openwrt的来源，以及近几年国内的侵权案例！
 
 #### 关于其他人开发的js脚本，在这上面运行。是否需要遵循GPL-2.0进行开源
 * 那是你的自由，不受这协议限制，如同linux 运行软件一样
