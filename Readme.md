@@ -16,7 +16,7 @@
 本产品采用 [GPL-V2](https://opensource.org/licenses/GPL-2.0) 许可证， 无论是其他贡献者，还是使用该产品，均需按照 MPL-2.0+非商业性使用 和 GPL-V2 的相关要求使用。
 
 
-关于两个两种协议：
+关于两种协议：
 * GPL-V2（https://opensource.org/licenses/GPL-2.0）
 * MPL-2（https://www.mozilla.org/MPL/2.0/）
 
