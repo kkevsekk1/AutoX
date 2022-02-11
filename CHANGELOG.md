@@ -1,6 +1,14 @@
 # Change Log
 autoxjs 整个项目的的一些更新日志,双版本号为稳定版，单版本号为激进版本。
 
+### 5.7.3
+优化以下特性：
+*  感谢 [heham](https://github.com/heham/)  修复屏幕宽带为0 的bug
+*  感谢 [syhyz](https://github.com/syhyz/)  rhino-1.7.14  升级
+*  修改一些文档,修复ocr内存泄露问题
+*  新年已开始，欢迎反馈bug，最近一个月会大力支持新功能
+
+
 ### 5.7.2
 优化以下特性：
 *  感谢 [heham](https://github.com/heham/)  修复屏幕宽带为0 的bug
