@@ -18,7 +18,7 @@
 
 关于两种协议：
 * GPL-V2（https://opensource.org/licenses/GPL-2.0）
-* MPL-2（https://www.mozilla.org/MPL/2.0/）
+* MPL-2 (https://www.mozilla.org/MPL/2.0)
 
 ### 现在AutoXjs：
 * AutoX.js文档： http://doc.autoxjs.com/
