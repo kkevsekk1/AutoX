@@ -14,7 +14,8 @@ public class OcrResult implements Comparable {
     @Override
     public int compareTo(Object o) {
         OcrResult s = (OcrResult) (o);
-        if (this.bounds.bottom == s.bounds.bottom) {
+        int deviation = 9;
+        if (Math.abs(this.bounds.bottom - s.bounds.bottom) <= deviation) {
             return this.bounds.left - s.bounds.left;
         } else {
             return this.bounds.bottom - s.bounds.bottom;
