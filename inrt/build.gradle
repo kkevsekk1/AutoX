@@ -2,7 +2,6 @@ import java.nio.charset.Charset
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-//apply plugin: 'kotlin-android-extensions'
 
 
 File propFile = new File("E:/资料/jks/autojs-inrt/sign.properties");
