@@ -2,7 +2,7 @@ import java.nio.charset.Charset
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'kotlin-android-extensions'
 
 
 File propFile = new File("E:/资料/jks/autojs-inrt/sign.properties");
@@ -13,7 +13,9 @@ if (propFile.exists()) {
 android {
     compileSdkVersion versions.compile
     buildToolsVersion versions.buildTool
-
+    buildFeatures {
+        viewBinding true
+    }
     defaultConfig {
         applicationId "com.stardust.auojs.inrt"
         minSdkVersion versions.mini
