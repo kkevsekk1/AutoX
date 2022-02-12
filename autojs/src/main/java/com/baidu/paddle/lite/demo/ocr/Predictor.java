@@ -425,6 +425,7 @@ public class Predictor {
             ocrResult.bounds = new Rect(left, top, right, bottom);
             words_result.add(ocrResult);
         }
+        Collections.sort(words_result);
         return words_result;
     }
 
