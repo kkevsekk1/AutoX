@@ -1,6 +1,11 @@
 # Change Log
 autoxjs 整个项目的的一些更新日志,双版本号为稳定版，单版本号为激进版本。
 
+### 5.7.4
+优化以下特性：
+*   感谢 [syhyz](https://github.com/syhyz/)  ocr 结果排序问题
+*   空指针问题
+
 ### 5.7.3
 优化以下特性：
 *  感谢 [heham](https://github.com/heham/)  修复屏幕宽带为0 的bug
