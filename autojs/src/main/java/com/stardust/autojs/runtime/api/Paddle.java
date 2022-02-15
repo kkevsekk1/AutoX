@@ -71,6 +71,10 @@ public class Paddle {
         final Paddle INSTANCE = new Paddle();
         return INSTANCE;
     }
+
+    public void release() {
+        mPredictor.releaseModel();
+    }
 }
 
 
