@@ -10,6 +10,7 @@ threads.start(function () {
     var i=0;
     do {
         console.setLogSize(myrandom(4,20) );
+        console.setBackgroud("#33ef0000");
         console.setCanInput(i%2==0);
         i++;
         console.log("i----->"+i);

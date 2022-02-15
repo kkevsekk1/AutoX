@@ -1,6 +1,15 @@
 # Change Log
 autoxjs 整个项目的的一些更新日志,双版本号为稳定版，单版本号为激进版本。
 
+### 5.7.5
+优化以下特性：
+*   双指缩放代码编辑页
+*   感谢 [heham](https://github.com/heham)  修复
+*   进一步解决OCR内存泄漏问题
+*   Background拼写问题
+
+
+
 ### 5.7.4
 优化以下特性：
 *   感谢 [syhyz](https://github.com/syhyz/)  ocr 结果排序问题
