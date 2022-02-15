@@ -86,7 +86,7 @@ public class NoOpConsole implements Console {
     }
 
     @Override
-    public void setBackgroud(@Nullable String color) {
+    public void setBackground(@Nullable String color) {
 
     }
 
