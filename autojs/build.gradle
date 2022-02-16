@@ -71,7 +71,7 @@ dependencies {
     api(name: 'libtermexec-release', ext: 'aar')
     api(name: 'emulatorview-release', ext: 'aar')
     api(name: 'term-debug', ext: 'aar')
-    api files('libs/rhino-1.7.14.jar')
+    api files('libs/rhino-1.7.13.jar')
     api project(path: ':common')
     api project(path: ':automator')
     // 7zip
