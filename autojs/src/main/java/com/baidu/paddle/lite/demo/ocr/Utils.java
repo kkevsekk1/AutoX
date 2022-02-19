@@ -47,15 +47,25 @@ public class Utils {
             if (!new File(dstDir).exists()) {
                 new File(dstDir).mkdirs();
             }
-            for (String fileName : appCtx.getAssets().list(srcDir)) {
-                String srcSubPath = srcDir + File.separator + fileName;
-                String dstSubPath = dstDir + File.separator + fileName;
-                if (new File(srcSubPath).isDirectory()) {
-                    copyDirectoryFromAssets(appCtx, srcSubPath, dstSubPath);
-                } else {
-                    copyFileFromAssets(appCtx, srcSubPath, dstSubPath);
-                }
-            }
+//             for (String fileName : appCtx.getAssets().list(srcDir)) {
+//                 String srcSubPath = srcDir + File.separator + fileName;
+//                 String dstSubPath = dstDir + File.separator + fileName;
+//                 if (new File(srcSubPath).isDirectory()) {
+//                     copyDirectoryFromAssets(appCtx, srcSubPath, dstSubPath);
+//                 } else {
+//                     copyFileFromAssets(appCtx, srcSubPath, dstSubPath);
+//                 }
+//             }
+            // 由于存在Assets路径获取失败导致找不到模型的bug，这里直接使用完整路径进行复制
+            String srcSubPath = srcDir + File.separator.toString() + "ch_ppocr_mobile_v2.0_cls_opt.nb";
+            String dstSubPath = dstDir + File.separator.toString() + "ch_ppocr_mobile_v2.0_cls_opt.nb";
+            copyFileFromAssets(appCtx, srcSubPath, dstSubPath);
+            srcSubPath = srcDir + File.separator.toString() + "ch_ppocr_mobile_v2.0_det_opt.nb";
+            dstSubPath = dstDir + File.separator.toString() + "ch_ppocr_mobile_v2.0_det_opt.nb";
+            copyFileFromAssets(appCtx, srcSubPath, dstSubPath);
+            srcSubPath = srcDir + File.separator.toString() + "ch_ppocr_mobile_v2.0_rec_opt.nb";
+            dstSubPath = dstDir + File.separator.toString() + "ch_ppocr_mobile_v2.0_rec_opt.nb";
+            copyFileFromAssets(appCtx, srcSubPath, dstSubPath);
         } catch (Exception e) {
             e.printStackTrace();
         }
