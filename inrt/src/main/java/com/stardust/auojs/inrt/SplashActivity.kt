@@ -45,10 +45,10 @@ class SplashActivity : AppCompatActivity() {
             Pref.setStopAllScriptsWhenVolumeUp(mProjectConfig.getLaunchConfig().isVolumeUpcontrol())
             Pref.setDisplaySplash(mProjectConfig.getLaunchConfig().isDisplaySplash())
         }
-        runScript();
         if (!checkPermissions()) {
             GlobalAppContext.toast("请开启权限后，再运行!")
         }
+        runScript();
     }
 
     private fun manageDrawOverlays() {
