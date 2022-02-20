@@ -2,8 +2,8 @@
 ui.layout(
     <vertical>
         <horizontal bg="#c7edcc" gravity="center" h="auto">
-            <button text="远程网页" id="loadHtmlBtn" style="Widget.AppCompat.Button.Colored" w="auto" />
-            <button text="本地游戏" id="loadLocalHtmlBtn" style="Widget.AppCompat.Button.Colored" w="auto" />
+            <button text="网络冲浪" id="surfInternetBtn" style="Widget.AppCompat.Button.Colored" w="auto" />
+            <button text="记忆翻牌" id="loadLocalHtmlBtn" style="Widget.AppCompat.Button.Colored" w="auto" />
             <button text="控制台" id="consoleBtn" style="Widget.AppCompat.Button.Colored" w="auto" />
         </horizontal>
         <vertical h="*" w="*">
@@ -160,12 +160,11 @@ function webViewExpand_init(webViewWidget) {
     });
 }
 webViewExpand_init(ui.webView)
-let path = "file:" + files.path("game.html");
-ui.webView.loadUrl(path);
+ui.webView.loadUrl("https://wht.im");
 
-ui.loadHtmlBtn.on("click", () => {
+ui.surfInternetBtn.on("click", () => {
     webViewExpand_init(ui.webView);
-    ui.webView.loadUrl("https://www.baidu.com/");
+    ui.webView.loadUrl("https://wht.im");
 });
 ui.consoleBtn.on("click", () => {
     app.startActivity("console");

@@ -12,8 +12,8 @@ public class SevenZip {
     private Context mContext;
     private ScriptRuntime mRuntime;
 
-    public SevenZip(Context context) {
-        mContext = context;
+    public SevenZip() {
+
     }
 
     public int cmdExec(String cmdStr) {

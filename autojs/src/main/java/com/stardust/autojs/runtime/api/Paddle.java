@@ -67,11 +67,6 @@ public class Paddle {
         return ocrText(image, 4, true);
     }
 
-    public static Paddle getInstance() {
-        final Paddle INSTANCE = new Paddle();
-        return INSTANCE;
-    }
-
     public void release() {
         mPredictor.releaseModel();
     }
