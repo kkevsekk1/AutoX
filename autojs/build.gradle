@@ -73,7 +73,7 @@ dependencies {
     api(name: 'emulatorview-release', ext: 'aar')
     api(name: 'term-debug', ext: 'aar')
     api(name: 'opencv-4.5.5', ext: 'aar')
-    api files('../app/libs/rhino-1.7.14.jar')
+    api files('../app/libs/rhino-1.7.13.jar')
     api files('../app/libs/dx.jar')
 }
 
