@@ -157,7 +157,7 @@ public class SettingsActivity extends BaseActivity {
                     .setNotices(R.raw.licenses)
                     .setIncludeOwnLicense(true)
                     .build()
-                    .showAppCompat();
+                    .show();
         }
 
         public static class MozillaPublicLicense20 extends License {

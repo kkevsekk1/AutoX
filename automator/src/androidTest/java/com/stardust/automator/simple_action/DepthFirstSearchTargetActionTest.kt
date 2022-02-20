@@ -3,6 +3,7 @@ package com.stardust.automator.simple_action
 import android.view.accessibility.AccessibilityNodeInfo
 
 import com.stardust.automator.UiObject
+import com.stardust.automator.simple_action.FilterAction.Filter
 import com.stardust.automator.test.TestUiObject
 
 import org.junit.Test
@@ -18,12 +19,14 @@ class DepthFirstSearchTargetActionTest {
 
     @Test
     fun perform() {
-        val action = DepthFirstSearchTargetAction(AccessibilityNodeInfo.ACTION_CLICK, FilterAction.Filter { root ->
-            val list = ArrayList<UiObject>()
-            for (i in 0 until root.childCount) {
-                list.add(root.child(i))
+        val action = DepthFirstSearchTargetAction(AccessibilityNodeInfo.ACTION_CLICK, object : Filter {
+            override fun filter(root: UiObject): List<UiObject> {
+                val list = ArrayList<UiObject>()
+                for (i in 0 until root.childCount) {
+                    root.child(i)?.let { list.add(it) }
+                }
+                return list
             }
-            list
         })
         val root = TestUiObject(5)
         action.perform(root)

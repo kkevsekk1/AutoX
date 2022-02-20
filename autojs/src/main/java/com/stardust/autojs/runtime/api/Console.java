@@ -64,7 +64,7 @@ public interface Console {
      *
      * @param color 背景色 rgba
      */
-    void setBackgroud(@Nullable String color);
+    void setBackground(@Nullable String color);
 
     /**
      * @param size 字号大小

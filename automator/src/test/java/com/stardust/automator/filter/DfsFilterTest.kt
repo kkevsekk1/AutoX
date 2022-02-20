@@ -28,7 +28,7 @@ class DfsFilterTest {
     fun filter() {
         val filter = RandomFilter()
         val root = TestUiObject(10)
-        val list = DFS(filter).search(root)
+        val list =  DFS.search(root,filter);
         for (uiObject in list) {
             if (root !== uiObject)
                 uiObject.recycle()
