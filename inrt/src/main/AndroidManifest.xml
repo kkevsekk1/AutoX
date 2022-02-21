@@ -19,7 +19,7 @@
         tools:ignore="ProtectedPermissions" />
 
 
-    <!-- 非Auto.js运行必需，不会主动申请，某些脚本可以自行申请-->
+    <!-- 非AutoX运行必需，不会主动申请，某些脚本可以自行申请-->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
@@ -48,7 +48,8 @@
             android:name=".SplashActivity"
             android:clearTaskOnLaunch="true"
             android:finishOnTaskLaunch="true"
-            android:theme="@style/AppTheme.Splash">
+            android:theme="@style/AppTheme.Splash"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -59,7 +60,8 @@
         <service
             android:name="com.stardust.notification.NotificationListenerService"
             android:label="inrt"
-            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>

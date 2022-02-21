@@ -3,7 +3,7 @@ package com.baidu.paddle.lite.demo.ocr;
 import android.graphics.Rect;
 import android.os.Parcelable;
 
-public class OcrResult implements Comparable {
+public class OcrResult implements Comparable<OcrResult> {
     public float confidence;
     public float preprocessTime;
     public float inferenceTime;
@@ -11,16 +11,17 @@ public class OcrResult implements Comparable {
     public Rect bounds;
     public RectLocation location;
 
+
     @Override
-    public int compareTo(Object o) {
-        OcrResult s = (OcrResult) (o);
-        int deviation = 9;
-        if (Math.abs(this.bounds.bottom - s.bounds.bottom) <= deviation) {
+    public int compareTo(OcrResult s) {
+        int deviation = Math.max(this.location.height / 2, s.location.height / 2);
+        if (Math.abs((this.bounds.top + this.bounds.bottom) / 2 - (s.bounds.top + s.bounds.bottom) / 2) < deviation) {
             return this.bounds.left - s.bounds.left;
         } else {
             return this.bounds.bottom - s.bounds.bottom;
         }
     }
+
 
     public static class RectLocation {
         public int left;

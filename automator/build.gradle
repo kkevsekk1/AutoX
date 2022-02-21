@@ -11,7 +11,6 @@ android {
         targetSdkVersion versions.target
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
@@ -41,7 +40,7 @@ dependencies {
     androidTestImplementation('androidx.test.espresso:espresso-core:3.1.1-alpha01', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13.2'
     api 'androidx.appcompat:appcompat:1.2.0'
     api project(path: ':common')
 }

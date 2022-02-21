@@ -257,10 +257,7 @@ dependencies {
     })
     // Android job
     implementation 'com.evernote:android-job:1.4.2'
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
-    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
     // Optional, if you use support library fragments:
-    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
     implementation project(':automator')
     implementation project(':common')
     implementation project(':autojs')

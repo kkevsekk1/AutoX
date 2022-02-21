@@ -233,7 +233,7 @@ public class ScriptRuntime {
         files = new Files(this);
         media = new Media(context, this);
         plugins = new Plugins(context, this);
-        zips = new SevenZip(context);
+        zips = new SevenZip();
         paddle = new Paddle();
     }
 
@@ -436,6 +436,7 @@ public class ScriptRuntime {
         ignoresException(sensors::unregisterAll);
         ignoresException(timers::recycle);
         ignoresException(ui::recycle);
+        ignoresException(paddle::release);
     }
 
     private void ignoresException(Runnable r) {
