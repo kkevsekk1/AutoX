@@ -40,7 +40,6 @@ repositories {
 }
 
 dependencies {
-    implementation files('..\\app\\libs\\rhino-1.7.14.jar')
     androidTestImplementation('androidx.test.espresso:espresso-core:3.1.1-alpha01', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
