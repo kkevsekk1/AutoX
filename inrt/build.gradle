@@ -193,4 +193,5 @@ dependencies {
     implementation project(':common')
     implementation project(':autojs')
     implementation 'androidx.multidex:multidex:2.0.1'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
