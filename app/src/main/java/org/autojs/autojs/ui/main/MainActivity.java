@@ -263,7 +263,7 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
     protected void onStart() {
         super.onStart();
         if (!BuildConfig.DEBUG) {
-            DeveloperUtils.verifyApk(this, signal, R.string.dex_crcs);
+         //   DeveloperUtils.verifyApk(this, signal, R.string.dex_crcs);
         }
     }
 
