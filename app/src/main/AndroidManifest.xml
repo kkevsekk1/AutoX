@@ -129,10 +129,8 @@
         <activity
             android:name=".ui.error.IssueReporterActivity"
             android:theme="@style/IssueReporterTheme" />
-
         <service android:name=".external.foreground.ForegroundService" />
         <service android:name=".external.ScriptExecutionIntentService" />
-
         <activity android:name=".external.tasker.TaskPrefEditActivity_" />
 
         <activity-alias
