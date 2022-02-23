@@ -40,7 +40,6 @@ jobs:
         name: Sign app APK
         with:
           releaseDirectory: |
-            app/build/outputs/apk/common/release
             app/build/outputs/apk/dev/release
           signingKeyBase64: ${{ secrets.ASIGNING_KEY }}
           output: build/app/signed
