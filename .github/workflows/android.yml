@@ -36,8 +36,6 @@ jobs:
           mv  build/inrt/signed/*.apk  app/src/main/assets/template.apk
           ls  app/src/main/assets
           ./gradlew app:assembleDev
-           ls app/build/outputs/apk/common/release
-           ls app/build/outputs/apk/dev/release
       - uses: Tlaster/android-sign@v1.2.2
         name: Sign app APK
         with:
