@@ -37,11 +37,13 @@ jobs:
           ls  app/src/main/assets
           ./gradlew app:assembleDev
            ls app/build/outputs/apk/common/release
+           ls app/build/outputs/apk/dev/release
       - uses: Tlaster/android-sign@v1.2.2
         name: Sign app APK
         with:
           releaseDirectory: |
             app/build/outputs/apk/common/release
+            app/build/outputs/apk/dev/release
           signingKeyBase64: ${{ secrets.ASIGNING_KEY }}
           output: build/app/signed
           alias: ${{ secrets.AALIAS }}
