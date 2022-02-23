@@ -1,13 +1,6 @@
 name: Android CI
 on:
-  pull_request:
-    branches:
-      - 'dev'
-      - 'dev-test'
   push:
-    branches:
-      - 'dev'
-      - 'dev-test'
     tags:
       - '*'
 jobs:
