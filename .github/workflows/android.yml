@@ -40,8 +40,6 @@ jobs:
         run: |
           ls  build/inrt/signed
           pwd
-          cd build/release/signed
-          pwd
           mv  build/inrt/signed/*.apk  app/src/main/assets/template.apk
           ls  app/src/main/assets
           ./gradlew app:assembleRelease
