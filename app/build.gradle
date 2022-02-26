@@ -106,6 +106,7 @@ android {
     flavorDimensions "channel"
     productFlavors {
         common {
+            applicationId 'org.autojs.autoxjs'
             versionCode versions.appVersionCode
             versionName versions.appVersionName
             buildConfigField "String", "CHANNEL", '"common"'

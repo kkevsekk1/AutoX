@@ -16,6 +16,7 @@ import org.autojs.autojs.model.explorer.ExplorerDirPage;
 import org.autojs.autojs.model.explorer.ExplorerFileProvider;
 import org.autojs.autojs.model.script.Scripts;
 import org.autojs.autojs.ui.BaseActivity;
+import org.autojs.autojs.ui.common.ScriptOperations;
 import org.autojs.autojs.ui.explorer.ExplorerView;
 
 /**
@@ -47,7 +48,13 @@ public class ScriptWidgetSettingsActivity extends BaseActivity {
         explorerView.setExplorer(mExplorer, ExplorerDirPage.createRoot(Environment.getExternalStorageDirectory()));
         explorerView.setOnItemClickListener((view, file) -> {
             mSelectedScriptFilePath = file.getPath();
-            finish();
+            if(mAppWidgetId==AppWidgetManager.INVALID_APPWIDGET_ID){
+                new ScriptOperations(getApplicationContext(), explorerView)
+                        .createShortcut(file.toScriptFile());
+
+            }else{
+                finish();
+            }
         });
     }
 
