@@ -23,7 +23,7 @@ public class ScreenMetrics {
     
     
     public static void initIfNeeded(Activity activity) {
-        if (initialized)
+        if (initialized && deviceScreenHeight != 0)
             return;
         DisplayMetrics metrics = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
