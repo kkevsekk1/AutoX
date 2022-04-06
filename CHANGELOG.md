@@ -1,6 +1,18 @@
 # Change Log
 autoxjs 整个项目的的一些更新日志,双版本号为稳定版，单版本号为激进版本。
 
+### 5.7.10
+优化以下特性：
+感谢[falcolee]( https://github.com/falcolee)
+增加pro的websocket功能[文档地址](https://pro.autojs.org/docs/#/zh-cn/webSocket)
+增加pro的zip功能[文档地址](https://pro.autojs.org/docs/#/zh-cn/zip)
+增加pro的加解密功能[文档地址](https://pro.autojs.org/docs/#/zh-cn/crypto)
+相关功能 可以参考 实例代码
+感谢 [heham](https://github.com/heham) 调整文档
+ 感谢 [gxylfm](https://github.com/gxylfm)  修复没有勾选权限情况打开APP闪退问题
+这是用手机发布的，没法升级版本号，
+apk下载地址 选actions  https://github.com/kkevsekk1/AutoX/actions/runs/2088633898
+
 
 ### 5.7.9
 优化以下特性：
