@@ -1,5 +1,28 @@
 # Change Log
+
 autoxjs 整个项目的的一些更新日志,双版本号为稳定版，单版本号为激进版本。
+
+### 5.7.11
+优化以下特性：
+* 感谢[weili71]( https://github.com/weili71/AutoX)
+添加Android新版本的无障碍全局动作函数
+包过：
+'takeScreenshot',
+'lockScreen',
+'dismissNotificationShade',
+'keyCodeHeadsetHook',
+'accessibilityShortcut',
+'accessibilityButtonChooser',
+'accessibilityButton',
+'accessibilityAllApps',
+'dpadUp',
+'dpadDown',
+'dpadRight',
+'dpadLeft',
+'dpadCenter'
+* 编译版本升级到android 32 会不会产生新bug 未知
+apk下载地址 选actions https://github.com/kkevsekk1/AutoX/actions
+* 未知原因导致无法上传文件服务器，故不能直接下载，请打github下载
 
 ### 5.7.10
 优化以下特性：
