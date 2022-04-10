@@ -155,6 +155,135 @@ class SimpleActionAutomator(private val mAccessibilityBridge: AccessibilityBridg
         return performGlobalAction(AccessibilityService.GLOBAL_ACTION_TOGGLE_SPLIT_SCREEN)
     }
 
+    /**
+     * Action to take a screenshot
+     */
+    @ScriptInterface
+    @RequiresApi(Build.VERSION_CODES.P)
+    fun takeScreenshot(): Boolean {
+        return performGlobalAction(AccessibilityService.GLOBAL_ACTION_TAKE_SCREENSHOT)
+    }
+
+    /**
+     * Action to lock the screen
+     */
+    @ScriptInterface
+    @RequiresApi(Build.VERSION_CODES.P)
+    fun lockScreen(): Boolean {
+        return performGlobalAction(AccessibilityService.GLOBAL_ACTION_LOCK_SCREEN)
+    }
+
+    /**
+     * Action to dismiss the notification shade
+     */
+    @ScriptInterface
+    @RequiresApi(Build.VERSION_CODES.S)
+    fun dismissNotificationShade(): Boolean {
+        return performGlobalAction(AccessibilityService.GLOBAL_ACTION_DISMISS_NOTIFICATION_SHADE)
+    }
+
+    /**
+     * Action to send the KEYCODE_HEADSETHOOK KeyEvent, which is used to answer/hang up
+     * calls and play/stop media
+     */
+    @ScriptInterface
+    @RequiresApi(Build.VERSION_CODES.S)
+    fun keyCodeHeadsetHook(): Boolean {
+        return performGlobalAction(AccessibilityService.GLOBAL_ACTION_KEYCODE_HEADSETHOOK)
+    }
+
+    /**
+     * Action to trigger the Accessibility Shortcut. This shortcut has a hardware trigger
+     * and can be activated by holding down the two volume keys.
+     */
+    @ScriptInterface
+    @RequiresApi(Build.VERSION_CODES.S)
+    fun accessibilityShortcut(): Boolean {
+        return performGlobalAction(AccessibilityService.GLOBAL_ACTION_ACCESSIBILITY_SHORTCUT)
+    }
+
+    /**
+     * Action to bring up the Accessibility Button’s chooser menu
+     */
+    @ScriptInterface
+    @RequiresApi(Build.VERSION_CODES.S)
+    fun accessibilityButtonChooser(): Boolean {
+        return performGlobalAction(AccessibilityService.GLOBAL_ACTION_ACCESSIBILITY_BUTTON_CHOOSER)
+    }
+
+    /**
+     * Action to trigger the Accessibility Button
+     */
+    @ScriptInterface
+    @RequiresApi(Build.VERSION_CODES.S)
+    fun accessibilityButton(): Boolean {
+        return performGlobalAction(AccessibilityService.GLOBAL_ACTION_ACCESSIBILITY_BUTTON)
+    }
+
+    /**
+     * Action to show Launcher’s all apps.
+     */
+    @ScriptInterface
+    @RequiresApi(Build.VERSION_CODES.S)
+    fun accessibilityAllApps(): Boolean {
+        return performGlobalAction(AccessibilityService.GLOBAL_ACTION_ACCESSIBILITY_ALL_APPS)
+    }
+
+    /**
+     * Action to trigger dpad up keyevent.
+     */
+    @ScriptInterface
+//    @RequiresApi(Build.VERSION_CODES.Tiramisu)
+    fun dpadUp(): Boolean {
+//        return performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_UP)
+        // TODO: 待适配Api Tiramisu
+        return false
+    }
+
+    /**
+     * Action to trigger dpad down keyevent.
+     */
+    @ScriptInterface
+//    @RequiresApi(Build.VERSION_CODES.Tiramisu)
+    fun dpadDown(): Boolean {
+//        return performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_DOWN)
+        // TODO: 待适配Api Tiramisu
+        return false
+    }
+
+    /**
+     * Action to trigger dpad right keyevent.
+     */
+    @ScriptInterface
+//    @RequiresApi(Build.VERSION_CODES.Tiramisu)
+    fun dpadRight(): Boolean {
+//        return performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT)
+        // TODO: 待适配Api Tiramisu
+        return false
+    }
+
+    /**
+     * Action to trigger dpad left keyevent.
+     */
+    @ScriptInterface
+//    @RequiresApi(Build.VERSION_CODES.Tiramisu)
+    fun dpadLeft(): Boolean {
+//        return performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_LEFT)
+        // TODO: 待适配Api Tiramisu
+        return false
+    }
+
+    /**
+     * Action to trigger dpad center keyevent.
+     */
+    @ScriptInterface
+//    @RequiresApi(Build.VERSION_CODES.Tiramisu)
+    fun dpadCenter(): Boolean {
+//        return performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER)
+        // TODO: 待适配Api Tiramisu
+        return false
+    }
+
     @ScriptInterface
     @RequiresApi(api = Build.VERSION_CODES.N)
     fun gesture(start: Long, duration: Long, vararg points: IntArray): Boolean {
