@@ -194,7 +194,10 @@ module.exports = function(runtime, global){
 
     global.auto = auto;
 
-    global.__asGlobal__(runtime.automator, ['back', 'home', 'powerDialog', 'notifications', 'quickSettings', 'recents', 'splitScreen']);
+    global.__asGlobal__(runtime.automator, ['back', 'home', 'powerDialog', 'notifications',
+     'quickSettings', 'recents', 'splitScreen','takeScreenshot','lockScreen','dismissNotificationShade',
+     'keyCodeHeadsetHook','accessibilityShortcut','accessibilityButtonChooser','accessibilityButton',
+     'accessibilityAllApps','dpadUp','dpadDown','dpadRight','dpadLeft','dpadCenter']);
     global.__asGlobal__(automator, ['click', 'longClick', 'press', 'swipe', 'gesture', 'gestures', 'gestureAsync', 'gesturesAsync', 'scrollDown', 'scrollUp', 'input', 'setText']);
 
     return automator;
