@@ -6,7 +6,7 @@
     <string name="text_please_input_name">请输入名称</string>
     <string name="text_name">名称</string>
     <string name="text_go_to_setting">去设置</string>
-    <string name="explain_accessibility_permission">软件需要打开\"无障碍服务\"才能运行，请在随后的设置中选择\"Autox.js\"并开启服务。\n您也可以稍后在侧拉菜单中设置。</string>
+    <string name="explain_accessibility_permission">软件需要打开\"无障碍服务\"才能运行，请打开”设置->无障碍服务“或”设置->无障碍服务->更多已下载的服务“，找到本应用，开启无障碍服务\n您也可以稍后在侧拉菜单中设置。</string>
     <string name="text_cancel">取消</string>
     <string name="text_path_is_empty">路径为空</string>
     <string name="text_file_not_exists">文件不存在</string>
@@ -169,7 +169,7 @@
     <string name="text_binary">binary</string>
     <string name="key_stable_mode">key_stable_mode</string>
     <string name="summary_stable_mode">开启后布局分析更稳定，但小部分脚本可能无法正常运行。重启无障碍服务生效</string>
-    <string name="text_hideLaucher">隐藏桌面图标(通过adb或其他启动应用)</string>
+    <string name="text_hideLaucher">隐藏桌面图标(通过adb或其他方法启动应用)</string>
     <string name="text_stable_mode">稳定模式</string>
     <string name="key_single_build_clean_mode">key_single_build_clean_mode</string>
     <string name="text_single_build_clean_mode">单文件打包清爽模式</string>
@@ -443,8 +443,8 @@
     <string name="text_star">收藏</string>
     <string name="text_upvote">赞</string>
     <string name="text_downvote">踩</string>
-    <string name="textSizePlus">⊕</string>
-    <string name="textSizeMinus">⊖</string>
+    <string name="textSizePlus">+</string>
+    <string name="textSizeMinus">-</string>
     <plurals name="air_error_short_description" key="air_error_short_description">
         <item quantity="one">描述至少要 %d 个字.</item>
         <item quantity="other">描述至少要 %d 个字.</item>
@@ -475,6 +475,11 @@
     <string name="air_dialog_description_failed_issues_not_available">Issues不可用，请联系软件开发者.</string>
     <string name="air_dialog_description_failed_unknown">未知错误</string>
     <string name="air_dialog_action_failed">OK</string>
-
+    <string name="text_template_apk_not_found">找不到模板apk，请把"build\outputs\apk\common\release"目录下的apk文件复制到"app/src/main/assets"并命名为"template.apk"再重新构建</string>
+    <string name="desc_back">后退</string>
+    <string name="desc_add_icon">添加图标</string>
+    <string name="text_default_signature">默认签名</string>
+    <string name="desc_done">完成</string>
+    <string name="apk_icon">APK图标</string>
 
 </resources>
