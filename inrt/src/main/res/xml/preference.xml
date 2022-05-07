@@ -3,6 +3,14 @@
 
     <androidx.preference.PreferenceCategory
         android:title="@string/text_script_running">
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/key_keep_running_with_foreground_service"
+            android:title="@string/text_keep_running_with_foreground_service"
+            android:summary="@string/summary_use_volume_to_stop_running"
+            />
+
         <SwitchPreference
             android:defaultValue="true"
             android:key="@string/key_use_volume_control_running"

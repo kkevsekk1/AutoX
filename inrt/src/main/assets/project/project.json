@@ -16,7 +16,10 @@
     "splashIcon": "res/splashIcon.png",
     "splashText": "Powered by Autoxjs.com",
     "stableMode": true,
-    "volumeUpcontrol":true,
-    "serviceDesc":"无障碍启动描述"
+    "volumeUpcontrol": true,
+    "serviceDesc": "无障碍启动描述",
+    "permissions": [
+      
+    ]
   }
 }
