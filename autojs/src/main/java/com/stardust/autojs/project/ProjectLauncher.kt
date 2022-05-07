@@ -1,0 +1,18 @@
+package com.stardust.autojs.project
+
+import com.stardust.autojs.ScriptEngineService
+import com.stardust.autojs.execution.ExecutionConfig
+import com.stardust.autojs.script.JavaScriptFileSource
+import java.io.File
+
+class ProjectLauncher(private val mProjectDir: String) {
+    private val mProjectConfig: ProjectConfigKt = ProjectConfigKt.fromProjectDir(mProjectDir)!!
+    private val mMainScriptFile: File = File(mProjectDir, mProjectConfig.mainScriptFile)
+    fun launch(service: ScriptEngineService) {
+        val config = ExecutionConfig()
+        config.workingDirectory = mProjectDir
+        config.scriptConfig.features = mProjectConfig.features
+        service.execute(JavaScriptFileSource(mMainScriptFile), config)
+    }
+
+}
