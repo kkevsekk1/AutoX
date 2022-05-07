@@ -33,7 +33,7 @@
         android:layout_marginRight="2dp"
         android:background="?selectableItemBackgroundBorderless"
         android:padding="6dp"
-        android:src="@drawable/ic_play_arrow_white_48dp"
+        android:src="@drawable/ic_play_fill"
         android:tint="#606366"/>
 
     <ImageView

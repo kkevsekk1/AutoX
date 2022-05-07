@@ -36,7 +36,7 @@
         android:background="@drawable/circle_blue"
         android:foreground="?selectableItemBackgroundBorderless"
         android:padding="8dp"
-        android:src="@drawable/ic_circular_menu_bounds"/>
+        android:src="@drawable/ic_circular_menu_bounds_white" />
 
     <ImageView
         android:id="@+id/stop_all_scripts"
@@ -46,7 +46,7 @@
         android:background="@drawable/circle_yellow"
         android:foreground="?selectableItemBackgroundBorderless"
         android:padding="8dp"
-        android:src="@drawable/ic_close_white_48dp"/>
+        android:src="@drawable/ic_close_white_48dp" />
 
 
     <ImageView
