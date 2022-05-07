@@ -2,7 +2,11 @@ import groovy.json.JsonSlurper
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = '1.6.10'
+    ext {
+        kotlin_version = '1.5.31'
+        compose_version = '1.1.1'
+    }
+
     repositories {
         mavenLocal()
         maven { url 'https://maven.aliyun.com/repository/central' }
