@@ -16,7 +16,6 @@ import org.autojs.autojs.R;
 import org.autojs.autojs.model.indices.AndroidClass;
 import org.autojs.autojs.model.indices.ClassSearchingItem;
 import org.autojs.autojs.ui.project.BuildActivity;
-import org.autojs.autojs.ui.project.BuildActivity_;
 import org.autojs.autojs.ui.common.NotAskAgainDialog;
 import org.autojs.autojs.ui.edit.editor.CodeEditor;
 import org.autojs.autojs.ui.log.LogActivity_;
@@ -189,9 +188,8 @@ public class EditorMenu {
     }
 
     private void startBuildApkActivity() {
-        BuildActivity_.intent(mContext)
-                .extra(BuildActivity.EXTRA_SOURCE, mEditorView.getUri().getPath())
-                .start();
+        mContext.startActivity(BuildActivity.Companion.getIntent(mContext)
+                .putExtra(BuildActivity.EXTRA_SOURCE, mEditorView.getUri().getPath()));
     }
 
 

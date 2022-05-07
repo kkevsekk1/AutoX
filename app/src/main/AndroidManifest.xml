@@ -107,7 +107,7 @@
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".ui.user.WebActivity_" />
         <activity
-            android:name=".ui.project.BuildActivity_"
+            android:name=".ui.project.BuildActivity"
             android:configChanges="orientation|screenSize" />
         <activity android:name=".ui.project.SignManageActivity_"/>
         <activity android:name=".ui.project.ProjectConfigActivity_" />

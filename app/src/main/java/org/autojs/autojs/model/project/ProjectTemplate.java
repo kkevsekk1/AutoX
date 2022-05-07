@@ -2,7 +2,7 @@ package org.autojs.autojs.model.project;
 
 import android.annotation.SuppressLint;
 
-import com.stardust.autojs.project.ProjectConfig;
+import com.stardust.autojs.project.ProjectConfigKt;
 import com.stardust.pio.PFiles;
 
 import java.io.File;
@@ -14,10 +14,10 @@ import io.reactivex.schedulers.Schedulers;
 public class ProjectTemplate {
 
 
-    private final ProjectConfig mProjectConfig;
+    private final ProjectConfigKt mProjectConfig;
     private final File mProjectDir;
 
-    public ProjectTemplate(ProjectConfig projectConfig, File projectDir) {
+    public ProjectTemplate(ProjectConfigKt projectConfig, File projectDir) {
         mProjectConfig = projectConfig;
         mProjectDir = projectDir;
     }
@@ -26,7 +26,7 @@ public class ProjectTemplate {
     public Observable<File> newProject() {
         return Observable.fromCallable(() -> {
             mProjectDir.mkdirs();
-            PFiles.write(ProjectConfig.configFileOfDir(mProjectDir.getPath()), mProjectConfig.toJson());
+            PFiles.write(ProjectConfigKt.Companion.configFileOfDir(mProjectDir.getPath()), mProjectConfig.toJson());
             new File(mProjectDir, mProjectConfig.getMainScriptFile()).createNewFile();
             return mProjectDir;
         })
