@@ -5,6 +5,9 @@ import com.stardust.autojs.execution.ExecutionConfig
 import com.stardust.autojs.script.JavaScriptFileSource
 import java.io.File
 
+/**
+ * Modified by wilinz on 2022/5/23
+ */
 class ProjectLauncher(private val mProjectDir: String) {
     private val mProjectConfig: ProjectConfigKt = ProjectConfigKt.fromProjectDir(mProjectDir)!!
     private val mMainScriptFile: File = File(mProjectDir, mProjectConfig.mainScriptFile)

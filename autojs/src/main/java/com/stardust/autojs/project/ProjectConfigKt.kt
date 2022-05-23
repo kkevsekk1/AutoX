@@ -7,6 +7,9 @@ import com.stardust.pio.PFiles
 import java.io.File
 import java.util.zip.CRC32
 
+/**
+ * Modified by wilinz on 2022/5/23
+ */
 data class ProjectConfigKt(
     @SerializedName("assets")
     var assets: List<String> = emptyList(),
@@ -21,7 +24,7 @@ data class ProjectConfigKt(
     @SerializedName("packageName")
     var packageName: String? = null,
     @SerializedName("versionCode")
-    var versionCode: Long = -1,
+    var versionCode: Int = -1,
     @SerializedName("versionName")
     var versionName: String? = null,
     @SerializedName("icon")
@@ -31,7 +34,7 @@ data class ProjectConfigKt(
     @SerializedName("useFeatures")
     var features: List<String> = emptyList(),
     @SerializedName("signingConfig")
-    var signingConfig: SigningConfig? = null
+    var signingConfig: SigningConfig = SigningConfig()
 ) {
     companion object {
 
@@ -49,7 +52,7 @@ data class ProjectConfigKt(
                         && !packageName.isNullOrEmpty()
                         && !versionName.isNullOrEmpty()
                         && !mainScriptFile.isNullOrEmpty()
-                        && versionCode != -1L
+                        && versionCode != -1
             }
         }
 
