@@ -5,10 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: set up JDK 16
+      - name: set up JDK
         uses: actions/setup-java@v1
         with:
-          java-version: 16
+          java-version: 15
       - name: set up kotlin
         uses: fwilhe2/setup-kotlin@main
         with:

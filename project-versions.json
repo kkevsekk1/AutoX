@@ -8,5 +8,5 @@
   "compile": 32,
   "buildTool": "32.0.0",
   "IDE": "Android Studio Bumblebee | 2021.1.1",
-  "JDK": "16.0.2"
+  "JDK": "15"
 }
