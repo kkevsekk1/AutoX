@@ -233,7 +233,14 @@
     <string name="text_version_code">版本号</string>
     <string name="text_run_config">运行配置</string>
     <string name="text_hideLogs">隐藏日志</string>
-    <string name="text_volumeUpcontrol">音量上结束任务</string>
+    <string name="text_required_accessibility_service">需要无障碍服务</string>
+    <string name="text_required_opencv">OpenCv图片处理</string>
+    <string name="text_required_ocr">OCR文字识别</string>
+    <string name="text_required_7zip">7zip压缩库</string>
+    <string name="text_required_terminal_emulator">终端模拟器</string>
+    <string name="text_required_background_start">需要后台弹出界面权限</string>
+    <string name="text_required_draw_overlay">需要悬浮窗权限</string>
+    <string name="text_volumeUpcontrol">音量上键结束任务</string>
     <string name="text_splash_text">启动界面文本</string>
     <string name="text_splash_icon">启动界面图标</string>
     <string name="text_service_desc_text">无障碍服务描述</string>
@@ -481,5 +488,7 @@
     <string name="text_default_signature">默认签名</string>
     <string name="desc_done">完成</string>
     <string name="apk_icon">APK图标</string>
+    <string name="compile_options">编译选项</string>
+    <string name="text_verification_failed">验证失败</string>
 
 </resources>

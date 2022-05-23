@@ -6,7 +6,11 @@ import android.net.Uri
 import android.os.Build
 import android.provider.Settings
 
-object BackgroundStartPermissions {
+/**
+ * @author wilinz
+ * @date 2022/5/23
+ */
+object BackgroundStartPermission {
 
     private fun isXiaoMi(): Boolean {
         return checkManufacturer("xiaomi")

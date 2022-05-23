@@ -10,9 +10,14 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.ui.Modifier
 import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
+import com.google.accompanist.appcompattheme.AppCompatTheme
+import com.stardust.autojs.core.permission.Permissions
 import com.stardust.autojs.project.ProjectConfigKt
 import com.stardust.autojs.project.ProjectConfigKt.Companion.configFileOfDir
 import com.stardust.autojs.project.ProjectConfigKt.Companion.fromProjectDir
@@ -31,32 +36,50 @@ import org.autojs.autojs.external.fileprovider.AppFileProvider
 import org.autojs.autojs.model.explorer.ExplorerFileItem
 import org.autojs.autojs.model.explorer.Explorers
 import org.autojs.autojs.model.script.ScriptFile
+import org.autojs.autojs.ui.theme.AutoXJsTheme
 import java.io.File
-import java.util.concurrent.Callable
 
+/**
+ * Modified by wilinz on 2022/5/23
+ */
 open class BuildActivity : ComponentActivity(), ApkBuilder.ProgressCallback {
 
-    private var projectConfig: ProjectConfigKt? = null
+    //    private var projectConfig: ProjectConfigKt? = null
     private var progressDialog: MaterialDialog? = null
     private var source: String? = null
     private var directory: String? = null
-    private var isDefaultIcon = true
-    private var isDefaultSplashIcon = true
 
-    // 签名相关
-    private var keyStore: ApkKeyStore? = null
 
     // 单文件打包清爽模式
     private var singleBuildCleanMode = true
 
     private val viewModel: BuildViewModel by viewModels()
 
+    companion object {
+        @JvmField
+        val EXTRA_SOURCE = BuildActivity::class.java.name + ".extra_source_file"
+        const val TAG = "BuildActivity"
+        private val REGEX_PACKAGE_NAME =
+            Regex("^([A-Za-z][A-Za-z\\d_]*\\.)+([A-Za-z][A-Za-z\\d_]*)$")
+
+        fun getIntent(context: Context): Intent {
+            return Intent(context, BuildActivity::class.java)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         init()
 
         setContent {
-            BuildPage( onKeyStoreChange = { keyStore = it })
+            AppCompatTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colors.background
+                ) {
+                    BuildPage()
+                }
+            }
         }
     }
 
@@ -88,52 +111,63 @@ open class BuildActivity : ComponentActivity(), ApkBuilder.ProgressCallback {
     }
 
     private fun setSource(file: File) {
-        if (!file.isDirectory) {
-            viewModel.scriptPath = file.path
+        if (file.isFile) {
+            viewModel.sourcePath = file.path
             directory = file.parent
-            projectConfig = fromProjectDir(directory!!, sourceJsonName)
+            viewModel.projectConfig = fromProjectDir(directory!!, sourceJsonName)
             viewModel.outputPath = directory!!
         } else {
-            projectConfig = fromProjectDir(file.path)
-            viewModel.outputPath = File(source, projectConfig!!.buildDir).path
+            viewModel.projectConfig = fromProjectDir(file.path)
+            viewModel.outputPath = File(source, viewModel.projectConfig!!.buildDir).path
         }
-        projectConfig?.let { mProjectConfig ->
+        viewModel.projectConfig?.let { config ->
             viewModel.apply {
-                scriptPath = File(source, "").path
-                appName = mProjectConfig.name!!
-                packageName = mProjectConfig.packageName!!
-                versionName = mProjectConfig.versionName!!
-                versionCode = mProjectConfig.versionCode.toString()
-                icon = mProjectConfig.icon
-                mainScriptFile = mProjectConfig.mainScriptFile ?: ""
-                isStableMode = mProjectConfig.launchConfig.isStableMode
-                isHideLauncher = mProjectConfig.launchConfig.isHideLauncher
-                isHideLogs = mProjectConfig.launchConfig.isHideLogs
-                isVolumeUpControl = mProjectConfig.launchConfig.isVolumeUpControl
-                splashText = mProjectConfig.launchConfig.splashText
-                serviceDesc = mProjectConfig.launchConfig.serviceDesc
-                splashIcon = mProjectConfig.launchConfig.splashIcon
-                appSignKeyPath = mProjectConfig.signingConfig?.keyStore ?: ""
+                sourcePath = File(source, "").path
+                appName = config.name ?: ""
+                packageName = config.packageName ?: ""
+                versionName = config.versionName ?: ""
+                versionCode = config.versionCode.toString()
+                icon = config.icon
+                mainScriptFile = config.mainScriptFile ?: ""
+                isStableMode = config.launchConfig.isStableMode
+                isHideLauncher = config.launchConfig.isHideLauncher
+                isHideLogs = config.launchConfig.isHideLogs
+                isVolumeUpControl = config.launchConfig.isVolumeUpControl
+                splashText = config.launchConfig.splashText
+                serviceDesc = config.launchConfig.serviceDesc
+                splashIcon = config.launchConfig.splashIcon
+                appSignKeyPath = config.signingConfig.keyStore
             }
             // 签名相关
-            val signConfig = mProjectConfig.signingConfig
-//            if (!signConfig?.keyStore.isNullOrEmpty()) {
-                keyStore = ApkSigner.loadApkKeyStore(signConfig!!.keyStore)
-//            }
+            val signConfig = config.signingConfig
+            if (signConfig.keyStore.isNotEmpty()) {
+                viewModel.appSignKeyPath = signConfig.keyStore
+                viewModel.keyStore = ApkSigner.loadApkKeyStore(signConfig.keyStore)
+            }
 
         }
     }
 
+    /**
+     * 从viewModel保存配置
+     */
     private fun syncProjectConfig(): Boolean {
-        if (projectConfig == null) {
-            projectConfig = ProjectConfigKt()
+        if (viewModel.projectConfig == null) {
+            viewModel.projectConfig = ProjectConfigKt()
             if (!source.isNullOrEmpty() && PFiles.isFile(source)) {
-                projectConfig!!.mainScriptFile = File(source).name
+                viewModel.projectConfig!!.mainScriptFile = File(source).name
             }
         }
-        projectConfig?.apply {
+
+        //请求权限列表
+        val permissionList = mutableListOf<String>()
+        if (viewModel.isRequiredAccessibilityServices) permissionList.add(Constant.Permissions.ACCESSIBILITY_SERVICES)
+        if (viewModel.isRequiredBackgroundStart) permissionList.add(Constant.Permissions.BACKGROUND_START)
+        if (viewModel.isRequiredDrawOverlay) permissionList.add(Constant.Permissions.DRAW_OVERLAY)
+
+        viewModel.projectConfig?.apply {
             name = viewModel.appName
-            versionCode = viewModel.versionCode.toLong()
+            versionCode = viewModel.versionCode.toInt()
             versionName = viewModel.versionName
             packageName = viewModel.packageName
             mainScriptFile = viewModel.mainScriptFile
@@ -144,22 +178,21 @@ open class BuildActivity : ComponentActivity(), ApkBuilder.ProgressCallback {
                 isVolumeUpControl = viewModel.isVolumeUpControl
                 splashText = viewModel.splashText
                 serviceDesc = viewModel.serviceDesc
+                permissions = permissionList
+            }
+            viewModel.keyStore?.let { apkKeyStore ->
+                apkKeyStore.path?.let { signingConfig.keyStore = it }
+                apkKeyStore.alias?.let { signingConfig.alias = it }
             }
         }
-        if (keyStore != null) {
-            projectConfig!!.signingConfig!!.keyStore = keyStore!!.path
-            projectConfig!!.signingConfig!!.alias = keyStore!!.alias
-        } else {
-            projectConfig!!.signingConfig!!.keyStore = ""
-            projectConfig!!.signingConfig!!.alias = ""
-        }
+
         return true
     }
 
     suspend fun saveIcon(bitmap: Bitmap): String? {
-        projectConfig?.let {
+        viewModel.projectConfig?.let {
             val iconPath = withContext(Dispatchers.IO) {
-                val iconPath = projectConfig?.icon ?: "logo"
+                val iconPath = viewModel.projectConfig?.icon ?: "logo"
                 // 没有开启清爽模式或者不是单文件
                 if (!singleBuildCleanMode || !isSingleFile) {
                     val iconFile = File(directory, iconPath)
@@ -171,7 +204,7 @@ open class BuildActivity : ComponentActivity(), ApkBuilder.ProgressCallback {
                 iconPath
             }
             if (!singleBuildCleanMode || !isSingleFile) {
-                projectConfig!!.icon = iconPath
+                viewModel.projectConfig!!.icon = iconPath
             }
             return iconPath
         }
@@ -179,9 +212,9 @@ open class BuildActivity : ComponentActivity(), ApkBuilder.ProgressCallback {
     }
 
     suspend fun saveSplashIcon(bitmap: Bitmap): String? {
-        projectConfig?.let {
+        viewModel.projectConfig?.let {
             val iconPath = withContext(Dispatchers.IO) {
-                val iconPath = projectConfig?.icon ?: getSourceIconPath("splashIcon")
+                val iconPath = viewModel.projectConfig?.icon ?: getSourceIconPath("splashIcon")
                 // 没有开启清爽模式或者不是单文件
                 if (!singleBuildCleanMode || !isSingleFile) {
                     val iconFile = File(directory, iconPath)
@@ -193,7 +226,7 @@ open class BuildActivity : ComponentActivity(), ApkBuilder.ProgressCallback {
                 iconPath
             }
             if (!singleBuildCleanMode || !isSingleFile) {
-                projectConfig!!.launchConfig.splashIcon = iconPath
+                viewModel.projectConfig!!.launchConfig.splashIcon = iconPath
             }
             return iconPath
         }
@@ -207,14 +240,10 @@ open class BuildActivity : ComponentActivity(), ApkBuilder.ProgressCallback {
     private suspend fun syncAndBuild() {
         // 同步配置
         if (syncProjectConfig()) {
-            withContext(Dispatchers.IO) {
-                viewModel.iconDrawable?.let { saveIcon(it) }
-                viewModel.splashIconDrawable?.let { saveSplashIcon(it) }
-                withContext(Dispatchers.Main) {
-                    writeProjectConfigAndRefreshView()
-                }
-                doBuildingApk()
-            }
+            viewModel.iconDrawable?.let { saveIcon(it) }
+            viewModel.splashIconDrawable?.let { saveSplashIcon(it) }
+            writeProjectConfigAndRefreshView()
+            doBuildingApk()
         }
     }
 
@@ -222,7 +251,7 @@ open class BuildActivity : ComponentActivity(), ApkBuilder.ProgressCallback {
         if (!singleBuildCleanMode || !isSingleFile) {
             PFiles.write(
                 configFileOfDir(directory!!, sourceJsonName),
-                projectConfig!!.toJson()
+                viewModel.projectConfig!!.toJson()
             )
         }
         val item = ExplorerFileItem(source, null)
@@ -246,6 +275,7 @@ open class BuildActivity : ComponentActivity(), ApkBuilder.ProgressCallback {
     @SuppressLint("CheckResult")
     private suspend fun doBuildingApk() {
         val appConfig = createAppConfig()
+        Log.d(TAG, "doBuildingApk: $appConfig")
         println(cacheDir)
         val tmpDir = File(cacheDir, "build/")
         val outApk = File(
@@ -253,44 +283,42 @@ open class BuildActivity : ComponentActivity(), ApkBuilder.ProgressCallback {
             String.format("%s_v%s.apk", appConfig.appName, appConfig.versionName)
         )
         showProgressDialog()
-        withContext(Dispatchers.IO) {
-            try {
-                callApkBuilder(tmpDir, outApk, appConfig)
-                withContext(Dispatchers.Main) {
-                    onBuildSuccessful(outApk)
-                }
-            } catch (e: Exception) {
-                withContext(Dispatchers.Main) {
-                    onBuildFailed(e)
-                }
+        try {
+            withContext(Dispatchers.IO) {
+                callApkBuilder(tmpDir, outApk, appConfig, viewModel.projectConfig)
             }
+            onBuildSuccessful(outApk)
+        } catch (e: Exception) {
+            onBuildFailed(e)
         }
     }
 
     @OptIn(DelicateCoroutinesApi::class)
-    fun buildApk(mKeyStore:ApkKeyStore) {
+    fun buildApk(apkKeyStore: ApkKeyStore?) {
         if (!checkInputs(viewModel)) {
             return
         }
-        if (!mKeyStore.isVerified) {
+        if (apkKeyStore != null && !apkKeyStore.isVerified) {
             showPasswordInputDialog(
                 context = this,
-                keyStore = keyStore!!,
+                keyStore = apkKeyStore,
                 chooseDialog = null,
                 onComplete = {
-                    GlobalScope.launch {
+                    GlobalScope.launch(Dispatchers.Main) {
                         syncAndBuild()
                     }
                 }
             )
             return
         }
-
+        GlobalScope.launch(Dispatchers.Main) {
+            syncAndBuild()
+        }
     }
 
     private fun checkInputs(viewModel: BuildViewModel): Boolean {
         var inputValid = true
-        inputValid = inputValid and viewModel.scriptPath.isNotEmpty()
+        inputValid = inputValid and viewModel.sourcePath.isNotEmpty()
         inputValid = inputValid and viewModel.outputPath.isNotEmpty()
         inputValid = inputValid and viewModel.appName.isNotEmpty()
         inputValid = inputValid and viewModel.versionCode.isNotEmpty()
@@ -299,58 +327,70 @@ open class BuildActivity : ComponentActivity(), ApkBuilder.ProgressCallback {
         return inputValid
     }
 
+    /**
+     * 从viewModel创建配置
+     */
     private fun createAppConfig(): AppConfig {
-        if (projectConfig != null) {
-            var appConfig = fromProjectConfig(source, projectConfig!!)
+        val excludeLibraries = mutableListOf<String>()
+        if (!viewModel.isRequiredOpenCv) excludeLibraries.add(Constant.Libraries.OPEN_CV)
+        if (!viewModel.isRequiredOCR) excludeLibraries.add(Constant.Libraries.OCR)
+        if (!viewModel.isRequired7Zip) excludeLibraries.add(Constant.Libraries.`7ZIP`)
+        if (!viewModel.isRequiredTerminalEmulator) excludeLibraries.add(Constant.Libraries.TERMINAL_EMULATOR)
+
+        if (viewModel.projectConfig != null) {
+            var appConfig = fromProjectConfig(source!!, viewModel.projectConfig!!)
             // 设置了logo/splashIcon没有保存对应文件的时候
-            if (!isDefaultIcon && appConfig.icon == null) {
-                appConfig = appConfig.setIcon { (viewModel.iconDrawable) }
+            appConfig.excludeLibraries = excludeLibraries
+            if (appConfig.icon == null) {
+                viewModel.iconDrawable?.let {
+                    appConfig = appConfig.setIcon { it }
+                }
             }
-            if (!isDefaultSplashIcon && appConfig.splashIcon == null) {
-                appConfig = appConfig.setSplashIcon { viewModel.splashIconDrawable }
+            if (appConfig.splashIcon == null) {
+                viewModel.splashIconDrawable?.let {
+                    appConfig = appConfig.setSplashIcon { it }
+                }
             }
             return appConfig
         }
-        val jsPath = viewModel.scriptPath
-        val versionName = viewModel.versionName
-        val versionCode = viewModel.versionCode.toInt()
-        val appName = viewModel.appName
-        val packageName = viewModel.packageName
-        val splashText = viewModel.splashText
-        val serviceDesc = viewModel.serviceDesc
-        return AppConfig()
-            .setAppName(appName)
-            .setSourcePath(jsPath)
-            .setPackageName(packageName)
-            .setVersionCode(versionCode)
-            .setVersionName(versionName)
-            .setIcon(if (isDefaultIcon) null else Callable {
-                viewModel.iconDrawable
+
+
+        return AppConfig(
+            appName = viewModel.appName,
+            sourcePath = viewModel.sourcePath,
+            packageName = viewModel.packageName,
+            versionCode = viewModel.versionCode.toInt(),
+            versionName = viewModel.versionName,
+            splashText = viewModel.splashText,
+            serviceDesc = viewModel.serviceDesc,
+            excludeLibraries = excludeLibraries
+        ).apply {
+            viewModel.iconDrawable?.let {
+                setIcon { it }
             }
-            )
-            .setSplashText(splashText)
-            .setServiceDesc(serviceDesc)
-            .setSplashIcon(if (isDefaultSplashIcon) null else Callable {
-                viewModel.splashIconDrawable
+            viewModel.splashIconDrawable?.let {
+                setSplashIcon { it }
             }
-            )
+        }
     }
 
     @Throws(Exception::class)
-    private fun callApkBuilder(tmpDir: File, outApk: File, appConfig: AppConfig): ApkBuilder {
+    private fun callApkBuilder(
+        tmpDir: File,
+        outApk: File,
+        appConfig: AppConfig,
+        projectConfigKt: ProjectConfigKt?
+    ): ApkBuilder {
         val templateApk = ApkBuilderPluginHelper.openTemplateApk(this@BuildActivity)
-        var keyStorePath: String? = null
-        var keyStorePassword: String? = null
-        if (keyStore != null) {
-            keyStorePath = keyStore!!.path
-            keyStorePassword = Pref.getKeyStorePassWord(PFiles.getName(keyStore!!.path))
-        }
+        val keyStorePath = viewModel.keyStore?.path
+
+        Log.d("callApkBuilder: ", appConfig.toString())
         return ApkBuilder(templateApk, outApk, tmpDir.path)
             .setProgressCallback(this@BuildActivity)
             .prepare()
-            .withConfig(appConfig)
+            .withConfig(appConfig, projectConfigKt)
             .build()
-            .sign(keyStorePath, keyStorePassword)
+            .sign(keyStorePath, keyStorePath?.let { Pref.getKeyStorePassWord(PFiles.getName(it)) })
             .cleanWorkspace()
     }
 
@@ -370,7 +410,7 @@ open class BuildActivity : ComponentActivity(), ApkBuilder.ProgressCallback {
             getString(R.string.text_build_failed) + error.message,
             Toast.LENGTH_SHORT
         ).show()
-        Log.e(LOG_TAG, "Build failed", error)
+        Log.e(TAG, "Build failed", error)
     }
 
     private fun onBuildSuccessful(outApk: File) {
@@ -407,15 +447,4 @@ open class BuildActivity : ComponentActivity(), ApkBuilder.ProgressCallback {
         progressDialog?.setContent(R.string.apk_builder_clean)
     }
 
-    companion object {
-        @JvmField
-        val EXTRA_SOURCE = BuildActivity::class.java.name + ".extra_source_file"
-        const val LOG_TAG = "BuildActivity"
-        private val REGEX_PACKAGE_NAME =
-            Regex("^([A-Za-z][A-Za-z\\d_]*\\.)+([A-Za-z][A-Za-z\\d_]*)$")
-
-        fun getIntent(context:Context): Intent {
-            return Intent(context,BuildActivity::class.java)
-        }
-    }
 }

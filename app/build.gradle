@@ -182,6 +182,14 @@ repositories {
 }
 
 dependencies {
+
+    def accompanist_version="0.24.9-beta"
+    implementation "com.google.accompanist:accompanist-permissions:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-pager-indicators:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-pager:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-swiperefresh:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-appcompat-theme:$accompanist_version"
+
     implementation("io.coil-kt:coil-compose:2.0.0-rc01")
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"

@@ -5,11 +5,15 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.util.Log
-import com.stardust.auojs.inrt.BuildConfig
+import androidx.activity.result.ActivityResultLauncher
 import java.io.BufferedReader
 import java.io.IOException
 
-object PermissionsSettingUtil {
+/**
+ * @author wilinz
+ * @date 2022/5/23
+ */
+object PermissionsSettingsUtil {
     /**
      * Build.MANUFACTURER判断各大手机厂商品牌
      */
@@ -20,31 +24,41 @@ object PermissionsSettingUtil {
     private const val MANUFACTURER_OPPO = "oppo"
     private const val MANUFACTURER_LG = "lg"
     private const val MANUFACTURER_LETV = "letv" //乐视
-
+    private const val TAG="PermissionsSettingUtil"
     /**
      * 跳转到相应品牌手机系统权限设置页，如果跳转不成功，则跳转到应用详情页
      * 这里需要改造成返回true或者false，应用详情页:true，应用权限页:false
      */
-    fun getAppPermissionsSettingIntent(): Intent {
+    fun ActivityResultLauncher<Intent>.launchAppPermissionsSettings(packageName:String){
+        try {
+            Log.d(TAG, "launchAppPermissionsSettings: ${getAppPermissionsSettingIntent(packageName)}")
+            launch(getAppPermissionsSettingIntent(packageName))
+        } catch (e: Exception) {
+            e.printStackTrace()
+            launch(getAppDetailSettingIntent(packageName))
+        }
+    }
+
+    fun getAppPermissionsSettingIntent(packageName:String): Intent {
         return when (Build.MANUFACTURER.toLowerCase()) {
-            MANUFACTURER_HUAWEI -> huawei()
-            MANUFACTURER_MEIZU -> meizu()
-            MANUFACTURER_XIAOMI -> xiaomi()
-            MANUFACTURER_SONY -> sony()
-            MANUFACTURER_OPPO -> oppo()
-            MANUFACTURER_LG -> lg()
-            MANUFACTURER_LETV -> letv()
-            else -> getAppDetailSettingIntent()
+            MANUFACTURER_HUAWEI -> huawei(packageName)
+            MANUFACTURER_MEIZU -> meizu(packageName)
+            MANUFACTURER_XIAOMI -> xiaomi(packageName)
+            MANUFACTURER_SONY -> sony(packageName)
+            MANUFACTURER_OPPO -> oppo(packageName)
+            MANUFACTURER_LG -> lg(packageName)
+            MANUFACTURER_LETV -> letv(packageName)
+            else -> getAppDetailSettingIntent(packageName)
         }
     }
 
     /**
      * 华为跳转权限设置页
      */
-    private fun huawei(): Intent {
+    private fun huawei(packageName:String): Intent {
         val intent = Intent()
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        intent.putExtra("packageName", BuildConfig.APPLICATION_ID)
+        intent.putExtra("packageName", packageName)
         val comp = ComponentName(
             "com.huawei.systemmanager",
             "com.huawei.permissionmanager.ui.MainActivity"
@@ -56,17 +70,17 @@ object PermissionsSettingUtil {
     /**
      * 魅族跳转权限设置页，测试时，点击无反应，具体原因不明
      */
-    private fun meizu(): Intent {
+    private fun meizu(packageName:String): Intent {
         val intent = Intent("com.meizu.safe.security.SHOW_APPSEC")
         intent.addCategory(Intent.CATEGORY_DEFAULT)
-        intent.putExtra("packageName", BuildConfig.APPLICATION_ID)
+        intent.putExtra("packageName", packageName)
         return intent
     }
 
-    private fun xiaomi(): Intent {
+    private fun xiaomi(packageName:String): Intent {
         val intent = Intent("miui.intent.action.APP_PERM_EDITOR").putExtra(
             "extra_pkgname",
-            BuildConfig.APPLICATION_ID
+            packageName
         )
         getMIUIVersion()?.let {
             val versionCode = it.trimStart('V').toIntOrNull()
@@ -88,10 +102,10 @@ object PermissionsSettingUtil {
     /**
      * 索尼，6.0以上的手机非常少，基本没看见
      */
-    private fun sony(): Intent {
+    private fun sony(packageName:String): Intent {
         val intent = Intent()
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        intent.putExtra("packageName", BuildConfig.APPLICATION_ID)
+        intent.putExtra("packageName", packageName)
         val comp = ComponentName("com.sonymobile.cta", "com.sonymobile.cta.SomcCTAMainActivity")
         intent.component = comp
         return intent
@@ -100,10 +114,10 @@ object PermissionsSettingUtil {
     /**
      * OPPO
      */
-    private fun oppo(): Intent {
+    private fun oppo(packageName:String): Intent {
         val intent = Intent()
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        intent.putExtra("packageName", BuildConfig.APPLICATION_ID)
+        intent.putExtra("packageName", packageName)
         val comp = ComponentName(
             "com.color.safecenter",
             "com.color.safecenter.permission.PermissionManagerActivity"
@@ -115,10 +129,10 @@ object PermissionsSettingUtil {
     /**
      * LG经过测试，正常使用
      */
-    private fun lg(): Intent {
+    private fun lg(packageName:String): Intent {
         val intent = Intent("android.intent.action.MAIN")
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        intent.putExtra("packageName", BuildConfig.APPLICATION_ID)
+        intent.putExtra("packageName", packageName)
         val comp = ComponentName(
             "com.android.settings",
             "com.android.settings.Settings\$AccessLockSummaryActivity"
@@ -130,10 +144,10 @@ object PermissionsSettingUtil {
     /**
      * 乐视6.0以上很少，基本都可以忽略了，现在乐视手机不多
      */
-    private fun letv(): Intent {
+    private fun letv(packageName:String): Intent {
         val intent = Intent()
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        intent.putExtra("packageName", BuildConfig.APPLICATION_ID)
+        intent.putExtra("packageName", packageName)
         val comp = ComponentName(
             "com.letv.android.letvsafe",
             "com.letv.android.letvsafe.PermissionAndApps"
@@ -145,10 +159,10 @@ object PermissionsSettingUtil {
     /**
      * 只能打开到自带安全软件
      */
-    private fun `360`(): Intent {
+    private fun `360`(packageName:String): Intent {
         val intent = Intent("android.intent.action.MAIN")
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        intent.putExtra("packageName", BuildConfig.APPLICATION_ID)
+        intent.putExtra("packageName", packageName)
         val comp = ComponentName(
             "com.qihoo360.mobilesafe",
             "com.qihoo360.mobilesafe.ui.index.AppEnterActivity"
@@ -160,11 +174,11 @@ object PermissionsSettingUtil {
     /**
      * 获取应用详情页面
      */
-    fun getAppDetailSettingIntent(): Intent {
+    fun getAppDetailSettingIntent(packageName:String): Intent {
         val localIntent = Intent()
         localIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         localIntent.action = "android.settings.APPLICATION_DETAILS_SETTINGS"
-        localIntent.data = Uri.fromParts("package", BuildConfig.APPLICATION_ID, null)
+        localIntent.data = Uri.fromParts("package", packageName, null)
         return localIntent
     }
 

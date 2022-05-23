@@ -2,13 +2,14 @@ package org.autojs.autojs.ui.project
 
 import android.app.Activity
 import android.content.Context
-import android.graphics.Bitmap
 import android.os.Environment
 import android.text.InputType
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
@@ -37,14 +38,12 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import coil.compose.AsyncImage
+import coil.compose.rememberAsyncImagePainter
 import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
 import com.stardust.app.DialogUtils
 import com.stardust.pio.PFile
 import com.stardust.pio.PFiles
-import io.reactivex.Observable
-import io.reactivex.subjects.PublishSubject
 import kotlinx.coroutines.launch
 import org.autojs.autojs.Pref
 import org.autojs.autojs.R
@@ -56,17 +55,19 @@ import org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity
 import org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity_
 import java.io.File
 
+/**
+ * @author wilinz
+ * @date 2022/5/23
+ */
 @Composable
-fun BuildPage(
-    onKeyStoreChange: (ApkKeyStore?) -> Unit,
-) {
+fun BuildPage() {
     val model: BuildViewModel = viewModel()
     Scaffold(
         topBar = {
             TopBar()
         },
         floatingActionButton = {
-            Fab()
+            Fab(model)
         },
         floatingActionButtonPosition = FabPosition.End
     ) {
@@ -75,18 +76,27 @@ fun BuildPage(
                 .padding(it)
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
+                .padding(6.dp),
+            verticalArrangement = Arrangement.spacedBy(6.dp)
         ) {
             FileCard(model)
             ConfigCard(model)
+            CompileOptionCard(model)
             RunConfigCard(model)
-            SignatureCard(onKeyStoreChange, model)
+            SignatureCard(model)
         }
     }
 }
 
 @Composable
-private fun Fab() {
-    FloatingActionButton(onClick = { /*TODO*/ }) {
+private fun Fab(model: BuildViewModel) {
+    val context = LocalContext.current
+    FloatingActionButton(onClick = {
+        if (context is BuildActivity) {
+            Toast.makeText(context, "开始构建", Toast.LENGTH_SHORT).show()
+            context.buildApk(model.keyStore)
+        }
+    }) {
         Icon(
             imageVector = Icons.Default.Done,
             contentDescription = stringResource(R.string.desc_done)
@@ -111,24 +121,65 @@ private fun TopBar() {
 }
 
 @Composable
-private fun SignatureCard(
-    onKeyStoreChange: (ApkKeyStore?) -> Unit,
+private fun CompileOptionCard(
     model: BuildViewModel
 ) {
     val context = LocalContext.current
-
-    Card(modifier = Modifier.padding(6.dp)) {
+    Card() {
         Column(
             Modifier
                 .fillMaxSize()
                 .padding(24.dp)
         ) {
-            Text(text = model.appSignKeyPath.ifEmpty { stringResource(id = R.string.text_default_signature) })
+            Text(text = stringResource(R.string.compile_options))
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(
+                    checked = model.isRequiredOpenCv,
+                    onCheckedChange = { model.isRequiredOpenCv = it })
+                Text(text = stringResource(id = R.string.text_required_opencv))
+            }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(
+                    checked = model.isRequiredOCR,
+                    onCheckedChange = { model.isRequiredOCR = it })
+                Text(text = stringResource(id = R.string.text_required_ocr))
+            }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(
+                    checked = model.isRequired7Zip,
+                    onCheckedChange = { model.isRequired7Zip = it })
+                Text(text = stringResource(id = R.string.text_required_7zip))
+            }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(
+                    checked = model.isRequiredTerminalEmulator,
+                    onCheckedChange = { model.isRequiredTerminalEmulator = it })
+                Text(text = stringResource(id = R.string.text_required_terminal_emulator))
+            }
+        }
+    }
+}
+
+@Composable
+private fun SignatureCard(
+    model: BuildViewModel
+) {
+    val context = LocalContext.current
+
+    Card() {
+        Column(
+            Modifier
+                .fillMaxSize()
+                .padding(24.dp)
+        ) {
+            Text(
+                text = model.appSignKeyPath ?: stringResource(id = R.string.text_default_signature)
+            )
             TextButton(onClick = {
                 chooseSign(
                     context = context,
-                    onKeyStoreChange = onKeyStoreChange,
-                    onAppSignKeyPathChange = { model.appSignKeyPath = it }
+                    currentKeyStore = model.keyStore,
+                    onKeyStoreChange = { model.keyStore = it;model.appSignKeyPath = it?.path }
                 )
             }) {
                 Text(text = stringResource(id = R.string.text_sign_choose))
@@ -148,7 +199,7 @@ private fun RunConfigCard(model: BuildViewModel) {
             if (it.resultCode == Activity.RESULT_OK) {
                 it.data?.let { intent ->
                     scope.launch {
-                        ShortcutIconSelectActivity.getBitmapFromIntent1(
+                        ShortcutIconSelectActivity.getBitmapFromIntent2(
                             context,
                             intent
                         )?.let { icon = it }
@@ -158,7 +209,7 @@ private fun RunConfigCard(model: BuildViewModel) {
         }
     )
 
-    Card(modifier = Modifier.padding(6.dp)) {
+    Card() {
         Column(
             Modifier
                 .fillMaxSize()
@@ -170,53 +221,87 @@ private fun RunConfigCard(model: BuildViewModel) {
                 onValueChange = { model.mainScriptFile = it },
                 label = { Text(text = stringResource(id = R.string.text_main_file_name)) },
             )
-            Row {
+            Spacer(modifier = Modifier.height(8.dp))
+            Row(verticalAlignment = Alignment.CenterVertically) {
                 Checkbox(
                     checked = model.isHideLauncher,
                     onCheckedChange = { model.isHideLauncher = it })
                 Text(text = stringResource(id = R.string.text_hideLaucher))
             }
-            Row {
+            Row(verticalAlignment = Alignment.CenterVertically) {
                 Checkbox(
                     checked = model.isStableMode,
                     onCheckedChange = { model.isStableMode = it })
                 Text(text = stringResource(id = R.string.text_stable_mode))
             }
-            Row {
+            Row(verticalAlignment = Alignment.CenterVertically) {
                 Checkbox(
                     checked = model.isHideLogs,
                     onCheckedChange = { model.isHideLogs = it })
                 Text(text = stringResource(id = R.string.text_hideLogs))
             }
-            NextActionTextField(
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(
+                    checked = model.isVolumeUpControl,
+                    onCheckedChange = { model.isVolumeUpControl = it })
+                Text(text = stringResource(id = R.string.text_volumeUpcontrol))
+            }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(
+                    checked = model.isRequiredAccessibilityServices,
+                    onCheckedChange = { model.isRequiredAccessibilityServices = it })
+                Text(text = stringResource(id = R.string.text_required_accessibility_service))
+            }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(
+                    checked = model.isRequiredBackgroundStart,
+                    onCheckedChange = { model.isRequiredBackgroundStart = it })
+                Text(text = stringResource(id = R.string.text_required_background_start))
+            }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(
+                    checked = model.isRequiredDrawOverlay,
+                    onCheckedChange = { model.isRequiredDrawOverlay = it })
+                Text(text = stringResource(id = R.string.text_required_draw_overlay))
+            }
+            MyTextField(
                 value = model.splashText,
                 onValueChange = { model.splashText = it },
                 label = { Text(text = stringResource(id = R.string.text_splash_text)) }
             )
+            Spacer(modifier = Modifier.height(8.dp))
             Text(text = stringResource(id = R.string.text_splash_icon))
 
-            AsyncImage(
-                model = if (icon != null) icon else painterResource(id = R.drawable.ic_add_white_48dp),
-                contentDescription = stringResource(R.string.apk_icon),
-                modifier = Modifier
-                    .size(64.dp)
-                    .clickable {
-                        selectIconLauncher.launch(
-                            ShortcutIconSelectActivity_
-                                .intent(context)
-                                .get()
-                        )
-                    }
-            )
+            val modifier = Modifier
+                .size(64.dp)
+                .clickable {
+                    selectIconLauncher.launch(
+                        ShortcutIconSelectActivity_
+                            .intent(context)
+                            .get()
+                    )
+                }
 
-            TextField(
+            if (icon == null) {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_add_white_48dp),
+                    contentDescription = stringResource(R.string.apk_icon),
+                    modifier = modifier,
+                    tint = MaterialTheme.colors.primary
+                )
+            } else {
+                Image(
+                    painter = rememberAsyncImagePainter(model = icon),
+                    contentDescription = stringResource(R.string.apk_icon),
+                    modifier = modifier,
+                )
+            }
+
+
+            MyTextField(
                 value = model.serviceDesc,
                 onValueChange = { model.serviceDesc = it },
                 label = { Text(text = stringResource(id = R.string.text_service_desc_text)) },
-                keyboardOptions = KeyboardOptions(
-                    imeAction = ImeAction.Done
-                ),
-                singleLine = true
             )
         }
     }
@@ -232,7 +317,7 @@ private fun ConfigCard(model: BuildViewModel) {
         onResult = {
             it.data?.let { intent ->
                 scope.launch {
-                    ShortcutIconSelectActivity.getBitmapFromIntent1(
+                    ShortcutIconSelectActivity.getBitmapFromIntent2(
                         context,
                         intent
                     )?.let { icon = it }
@@ -241,7 +326,7 @@ private fun ConfigCard(model: BuildViewModel) {
         }
     )
 
-    Card(modifier = Modifier.padding(6.dp)) {
+    Card() {
         Column(
             Modifier
                 .fillMaxSize()
@@ -275,23 +360,34 @@ private fun ConfigCard(model: BuildViewModel) {
                         label = { Text(text = stringResource(id = R.string.text_version_code)) }
                     )
                 }
-                Column {
+                Column(Modifier.padding(top = 8.dp)) {
                     Text(text = stringResource(id = R.string.text_icon))
                     Box {
-                        AsyncImage(
-                            model = if (icon != null) icon else painterResource(id = R.drawable.ic_add_white_48dp),
-                            contentDescription = stringResource(R.string.apk_icon),
-                            modifier = Modifier
-                                .size(64.dp)
-                                .align(alignment = Alignment.Center)
-                                .clickable {
-                                    selectIconLauncher.launch(
-                                        ShortcutIconSelectActivity_
-                                            .intent(context)
-                                            .get()
-                                    )
-                                }
-                        )
+                        val modifier = Modifier
+                            .size(64.dp)
+                            .align(Alignment.Center)
+                            .clickable {
+                                selectIconLauncher.launch(
+                                    ShortcutIconSelectActivity_
+                                        .intent(context)
+                                        .get()
+                                )
+                            }
+
+                        if (icon == null) {
+                            Icon(
+                                painter = painterResource(id = R.drawable.ic_add_white_48dp),
+                                contentDescription = stringResource(R.string.apk_icon),
+                                modifier = modifier,
+                                tint = MaterialTheme.colors.primary
+                            )
+                        } else {
+                            Image(
+                                painter = rememberAsyncImagePainter(model = icon),
+                                contentDescription = stringResource(R.string.apk_icon),
+                                modifier = modifier,
+                            )
+                        }
                     }
                 }
             }
@@ -302,17 +398,17 @@ private fun ConfigCard(model: BuildViewModel) {
 @Composable
 private fun FileCard(model: BuildViewModel) {
     val context = LocalContext.current
-    Card(modifier = Modifier.padding(6.dp)) {
+    Card() {
         Column(
             Modifier
                 .fillMaxSize()
                 .padding(24.dp)
         ) {
-            Text(text = "文件")
+            Text(text = stringResource(id = R.string.text_file))
             Row(Modifier.fillMaxWidth()) {
-                NextActionTextField(
-                    value = model.scriptPath,
-                    onValueChange = { model.scriptPath = it },
+                MyTextField(
+                    value = model.sourcePath,
+                    onValueChange = { model.sourcePath = it },
                     label = { Text(text = stringResource(id = R.string.text_source_file_path)) },
                     modifier = Modifier.weight(1f)
                 )
@@ -320,8 +416,8 @@ private fun FileCard(model: BuildViewModel) {
                     onClick = {
                         selectSourceFilePath(
                             context = context,
-                            scriptPath = model.scriptPath,
-                            onResult = { model.scriptPath = it.absolutePath },
+                            scriptPath = model.sourcePath,
+                            onResult = { model.sourcePath = it.absolutePath },
                         )
                     },
                 ) {
@@ -329,7 +425,7 @@ private fun FileCard(model: BuildViewModel) {
                 }
             }
             Row(Modifier.fillMaxWidth()) {
-                NextActionTextField(
+                MyTextField(
                     value = model.outputPath,
                     onValueChange = { model.outputPath = it },
                     label = { Text(text = stringResource(id = R.string.text_output_apk_path)) },
@@ -369,10 +465,10 @@ fun NextActionTextField(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     shape: Shape =
         MaterialTheme.shapes.small.copy(bottomEnd = ZeroCornerSize, bottomStart = ZeroCornerSize),
-    colors: TextFieldColors = TextFieldDefaults.textFieldColors()
+    colors: TextFieldColors = TextFieldDefaults.textFieldColors(backgroundColor = Color.Transparent)
 ) {
     val focusManager = LocalFocusManager.current
-    TextField(
+    MyTextField(
         value = value,
         onValueChange = onValueChange,
         modifier = modifier,
@@ -390,6 +486,55 @@ fun NextActionTextField(
             focusManager.moveFocus(FocusDirection.Next)
         }),
         singleLine = true,
+        maxLines = maxLines,
+        interactionSource = interactionSource,
+        shape = shape,
+        colors = colors
+    )
+}
+
+@Composable
+fun MyTextField(
+    value: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    readOnly: Boolean = false,
+    textStyle: TextStyle = LocalTextStyle.current,
+    label: @Composable (() -> Unit)? = null,
+    placeholder: @Composable (() -> Unit)? = null,
+    leadingIcon: @Composable (() -> Unit)? = null,
+    trailingIcon: @Composable (() -> Unit)? = null,
+    isError: Boolean = false,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions(),
+    singleLine: Boolean = false,
+    maxLines: Int = Int.MAX_VALUE,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    shape: Shape =
+        MaterialTheme.shapes.small.copy(bottomEnd = ZeroCornerSize, bottomStart = ZeroCornerSize),
+    colors: TextFieldColors = TextFieldDefaults.textFieldColors(
+        backgroundColor = Color.Transparent,
+        textColor = MaterialTheme.colors.onSurface
+    )
+) {
+    TextField(
+        value = value,
+        onValueChange = onValueChange,
+        modifier = modifier.fillMaxWidth(),
+        enabled = enabled,
+        readOnly = readOnly,
+        textStyle = textStyle,
+        label = label,
+        placeholder = placeholder,
+        leadingIcon = leadingIcon,
+        trailingIcon = trailingIcon,
+        isError = isError,
+        visualTransformation = visualTransformation,
+        keyboardOptions = keyboardOptions,
+        keyboardActions = keyboardActions,
+        singleLine = singleLine,
         maxLines = maxLines,
         interactionSource = interactionSource,
         shape = shape,
@@ -444,28 +589,31 @@ private fun selectOutputDirPath(context: Context, outputPath: String, onResult: 
 
 fun chooseSign(
     context: Context,
+    currentKeyStore: ApkKeyStore?,
     onKeyStoreChange: (ApkKeyStore?) -> Unit,
-    onAppSignKeyPathChange: (String) -> Unit
 ) {
     val keyStoreList = ApkSigner.loadKeyStore()
-    val selectedIndex = getSelectIndex(keyStore, keyStoreList)
+    //默认选中位置
+    val selectedIndex = currentKeyStore?.let { getSelectIndex(it, keyStoreList) } ?: 0
 
     DialogUtils.showDialog(
         ThemeColorMaterialDialogBuilder(context)
             .title(R.string.text_sign_choose)
             .items(getSignItems(keyStoreList))
             .autoDismiss(false)
-            .itemsCallbackSingleChoice(selectedIndex) { dialog: MaterialDialog?, itemView: View?, which: Int, text: CharSequence? ->
-                if (which <= 0) {
+            .itemsCallbackSingleChoice(selectedIndex) { dialog: MaterialDialog?, itemView: View?, position: Int, text: CharSequence? ->
+                if (position <= 0) {
                     onKeyStoreChange(null)
                     return@itemsCallbackSingleChoice true
                 } else {
-                    onKeyStoreChange(keyStoreList!![which - 1])
-                    onAppSignKeyPathChange(keyStore.path)
+                    val keyStore = keyStoreList[position - 1]
+                    onKeyStoreChange(keyStore)
+                    //如果已保存密码
                     if (keyStore.isVerified) {
                         return@itemsCallbackSingleChoice true
                     }
-                    showPasswordInputDialog(context, keyStore, dialog,{})
+                    //否则输入密码
+                    showPasswordInputDialog(context, keyStore, dialog, {})
                     return@itemsCallbackSingleChoice false
                 }
             }
@@ -476,22 +624,24 @@ fun chooseSign(
             .positiveText(R.string.ok)
             .onPositive { d: MaterialDialog, w: DialogAction? -> d.dismiss() }
             .onNeutral { d: MaterialDialog?, w: DialogAction? ->
-                SignManageActivity_.intent(context).start()
+                context.startActivity(SignManageActivityKt.getIntent(context))
             }
             .build())
 }
 
-private fun getSelectIndex(keyStore: ApkKeyStore, mKeyStoreList: List<ApkKeyStore>): Int {
+private fun getSelectIndex(keyStore: ApkKeyStore, keyStoreList: List<ApkKeyStore>): Int {
     var index = 0
-    val len = mKeyStoreList.size
+    val len = keyStoreList.size
     for (i in 1..len) {
-        val item = mKeyStoreList[i - 1]
-        Log.d(BuildActivity.LOG_TAG, "name: ->" + item.name)
-        Log.d(BuildActivity.LOG_TAG, "name: =>" + keyStore.name)
-        Log.d(BuildActivity.LOG_TAG, "contains: =>" + item.name.contains(keyStore.name))
-        if (item.name.contains(PFiles.getName(keyStore.name))) {
+        val item = keyStoreList[i - 1]
+
+        Log.d(BuildActivity.TAG, "name: ->" + item.name)
+        Log.d(BuildActivity.TAG, "name: =>" + keyStore.name)
+        Log.d(BuildActivity.TAG, "contains: =>" + keyStore.name?.let { item.name!!.contains(it) })
+
+        if (item.name != null && item.name!!.contains(PFiles.getName(keyStore.name))) {
             index = i
-            Log.d(BuildActivity.LOG_TAG, "index: =>$index")
+            Log.d(BuildActivity.TAG, "index: =>$index")
             break
         }
     }
@@ -532,7 +682,7 @@ fun showPasswordInputDialog(
                 keyStore.isVerified = true
                 onComplete(password)
             } else {
-                dialog.inputEditText!!.error = "验证失败"
+                dialog.inputEditText!!.error = context.getString(R.string.text_verification_failed)
             }
         }
         .onNeutral { dialog: MaterialDialog, which: DialogAction? -> dialog.dismiss() }

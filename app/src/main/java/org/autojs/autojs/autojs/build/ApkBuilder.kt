@@ -3,6 +3,7 @@ package org.autojs.autojs.autojs.build
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
+import com.google.gson.annotations.SerializedName
 import com.stardust.app.GlobalAppContext
 import com.stardust.autojs.apkbuilder.ApkPackager
 import com.stardust.autojs.apkbuilder.ManifestEditor
@@ -19,6 +20,7 @@ import org.apache.commons.io.IOUtils
 import org.apache.commons.lang3.StringUtils
 import org.autojs.autojs.build.ApkSigner
 import org.autojs.autojs.build.TinySign
+import org.autojs.autojs.ui.project.Constant
 import pxb.android.StringItem
 import pxb.android.axml.AxmlWriter
 import zhao.arsceditor.ArscUtil
@@ -27,13 +29,13 @@ import zhao.arsceditor.ResDecoder.data.ResTable
 import java.io.*
 import java.security.DigestOutputStream
 import java.security.MessageDigest
-import java.util.concurrent.Callable
 import java.util.regex.Pattern
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
 
 /**
  * Created by Stardust on 2017/10/24.
+ * Modified by wilinz on 2022/5/23
  */
 class ApkBuilder(
     apkInputStream: InputStream?,
@@ -47,118 +49,74 @@ class ApkBuilder(
         fun onClean(builder: ApkBuilder?)
     }
 
-    class AppConfig {
-        var appName: String? = null
-        var versionName: String? = null
-        var versionCode = 0
-        var sourcePath: String? = null
-        var packageName: String? = null
-        var ignoredDirs = ArrayList<File>()
-        var icon: Callable<Bitmap>? = null
-        var splashIcon: Callable<Bitmap>? = null
-        var splashText: String? = null
-        var hideLauncher = false
-        var serviceDesc: String? = null
+    data class AppConfig(
+        var appName: String? = null,
+        var versionName: String? = null,
+        var versionCode: Int = 0,
+        var sourcePath: String? = null,
+        var packageName: String? = null,
+        var ignoredDirs: ArrayList<File> = ArrayList(),
+        var icon: (() -> Bitmap)? = null,
+        var splashIcon: (() -> Bitmap)? = null,
+        var splashText: String? = null,
+        var hideLauncher: Boolean = false,
+        var serviceDesc: String? = null,
+        var excludeLibraries: MutableList<String> = mutableListOf()
+    ) {
+
+        fun addExcludeLibrary(library: String) {
+            excludeLibraries.add(library)
+        }
+
         fun ignoreDir(dir: File): AppConfig {
             ignoredDirs.add(dir)
             return this
         }
 
-        fun setAppName(appName: String?): AppConfig {
-            this.appName = appName
-            return this
-        }
-
-        fun setVersionName(versionName: String?): AppConfig {
-            this.versionName = versionName
-            return this
-        }
-
-        fun setVersionCode(versionCode: Int): AppConfig {
-            this.versionCode = versionCode
-            return this
-        }
-
-        fun setSourcePath(sourcePath: String?): AppConfig {
-            this.sourcePath = sourcePath
-            return this
-        }
-
-        fun setPackageName(packageName: String?): AppConfig {
-            this.packageName = packageName
-            return this
-        }
-
-        fun setIcon(icon: Callable<Bitmap>?): AppConfig {
+        fun setIcon(icon: (() -> Bitmap)): AppConfig {
             this.icon = icon
             return this
         }
 
-        fun setIcon(iconPath: String?): AppConfig {
-            icon = Callable<Bitmap> { BitmapFactory.decodeFile(iconPath) }
+        fun setIcon(iconPath: String): AppConfig {
+            icon = { BitmapFactory.decodeFile(iconPath) }
             return this
         }
 
-        @JvmName("getIcon1")
-        fun getIcon(): Callable<Bitmap>? {
-            return icon
-        }
-
-        fun setSplashIcon(icon: Callable<Bitmap>?): AppConfig {
-            splashIcon = icon
+        fun setSplashIcon(icon: (() -> Bitmap)): AppConfig {
+            this.splashIcon = icon
             return this
         }
 
-        fun setSplashIcon(iconPath: String?): AppConfig {
-            splashIcon = Callable<Bitmap> { BitmapFactory.decodeFile(iconPath) }
-            return this
-        }
-
-        @JvmName("getSplashIcon1")
-        fun getSplashIcon(): Callable<Bitmap>? {
-            return splashIcon
-        }
-
-        fun setSplashText(splashText: String?): AppConfig {
-            this.splashText = splashText
-            return this
-        }
-
-        fun setServiceDesc(serviceDesc: String?): AppConfig {
-            this.serviceDesc = serviceDesc
-            return this
-        }
-
-        fun setHideLauncher(hideLauncher: Boolean): AppConfig {
-            this.hideLauncher = hideLauncher
+        fun setSplashIcon(iconPath: String): AppConfig {
+            splashIcon = { BitmapFactory.decodeFile(iconPath) }
             return this
         }
 
         companion object {
             @JvmStatic
-            fun fromProjectConfig(projectDir: String?, projectConfig: ProjectConfigKt): AppConfig {
+            fun fromProjectConfig(projectDir: String, projectConfig: ProjectConfigKt): AppConfig {
                 val icon = projectConfig.icon
-                val splashIcon = projectConfig.launchConfig?.splashIcon
-                val appConfig = AppConfig()
-                    .setAppName(projectConfig.name)
-                    .setPackageName(projectConfig.packageName)
-                    .setHideLauncher(projectConfig.launchConfig!!.isHideLauncher)
-                    .ignoreDir(File(projectDir, projectConfig.buildDir))
-                    .setVersionCode(projectConfig.versionCode.toInt())
-                    .setVersionName(projectConfig.versionName)
-                    .setSplashText(projectConfig.launchConfig!!.splashText)
-                    .setServiceDesc(projectConfig.launchConfig!!.serviceDesc)
-                    .setSourcePath(projectDir)
-                if (icon != null) {
-                    appConfig.setIcon(getIconPath(projectDir, icon))
-                }
-                if (splashIcon != null) {
-                    appConfig.setSplashIcon(getIconPath(projectDir, splashIcon))
+                val splashIcon = projectConfig.launchConfig.splashIcon
+
+                val appConfig = AppConfig(
+                    appName = projectConfig.name,
+                    packageName = projectConfig.packageName,
+                    hideLauncher = projectConfig.launchConfig.isHideLauncher,
+                    versionCode = projectConfig.versionCode,
+                    versionName = projectConfig.versionName,
+                    splashText = projectConfig.launchConfig.splashText,
+                    serviceDesc = projectConfig.launchConfig.serviceDesc,
+                    sourcePath = projectDir,
+                ).apply {
+                    ignoreDir(File(projectDir, projectConfig.buildDir))
+                    icon?.let { setIcon(getIconPath(projectDir, it)) }
+                    splashIcon?.let { setIcon(getIconPath(projectDir, it)) }
                 }
                 return appConfig
             }
 
-            private fun getIconPath(dir: String?, icon: String): String {
+            private fun getIconPath(dir: String, icon: String): String {
                 return if (PFiles.isDir(dir)) {
                     File(dir, icon).path
                 } else File(File(dir).parent, icon).path
@@ -167,11 +125,11 @@ class ApkBuilder(
     }
 
     private var mProgressCallback: ProgressCallback? = null
-    private val mApkPackager: ApkPackager
+    private val mApkPackager: ApkPackager = ApkPackager(apkInputStream, mWorkspacePath)
     private var mArscPackageName: String? = null
     private var mManifestEditor: ManifestEditor? = null
     private var mAppConfig: AppConfig? = null
-    private val mWaitSignApk: String
+    private val mWaitSignApk: String = mOutApkFile.absolutePath + NO_SIGN_APK_SUFFIX
     private var mInitVector: String? = null
     private var mKey: String? = null
     fun setProgressCallback(callback: ProgressCallback?): ApkBuilder {
@@ -179,6 +137,9 @@ class ApkBuilder(
         return this
     }
 
+    /**
+     * 新建工作目录并解压apk
+     */
     @Throws(IOException::class)
     fun prepare(): ApkBuilder {
         if (mProgressCallback != null) {
@@ -233,7 +194,7 @@ class ApkBuilder(
         try {
             EncryptedScriptFileHeader.writeHeader(
                 fos,
-                JavaScriptFileSource(file).executionMode as Short
+                JavaScriptFileSource(file).executionMode.toShort()
             )
             val bytes: ByteArray = AdvancedEncryptionStandard(
                 mKey!!.toByteArray(),
@@ -260,15 +221,41 @@ class ApkBuilder(
     }
 
     @Throws(IOException::class)
-    fun withConfig(config: AppConfig): ApkBuilder {
+    fun withConfig(config: AppConfig, projectConfig: ProjectConfigKt?): ApkBuilder {
         mAppConfig = config
         mManifestEditor = editManifest()
             .setAppName(config.appName)
             .setVersionName(config.versionName)
             .setVersionCode(config.versionCode)
             .setPackageName(config.packageName)
-        setArscPackageName(config.packageName)
-        updateProjectConfig(config)
+        setArscPackageName(config.packageName!!)
+        updateProjectConfig(config, projectConfig)
+
+        Log.d(TAG, config.excludeLibraries.toString())
+        config.excludeLibraries.forEach { name ->
+            File(mWorkspacePath, "/lib").listFiles()?.forEach { archDir ->
+                when (name) {
+                    Constant.Libraries.OPEN_CV -> {
+                        delete(File(archDir, "/libopencv_java4.so"))
+                    }
+                    Constant.Libraries.OCR -> {
+                        delete(File(archDir, "/libc++_shared.so"))
+                        delete(File(archDir, "/libpaddle_light_api_shared.so"))
+                        delete(File(archDir, "/libhiai.so"))
+                        delete(File(archDir, "/libhiai_ir.so"))
+                        delete(File(archDir, "/libhiai_ir_build.so"))
+                        delete(File(archDir, "/libNative.so"))
+                    }
+                    Constant.Libraries.`7ZIP` -> {
+                        delete(File(archDir, "/libp7zip.so"))
+                    }
+                    Constant.Libraries.TERMINAL_EMULATOR -> {
+                        delete(File(archDir, "/libjackpal-androidterm5.so"))
+                        delete(File(archDir, "/libjackpal-termexec2.so"))
+                    }
+                }
+            }
+        }
         setScriptFile(config.sourcePath)
         return this
     }
@@ -282,25 +269,24 @@ class ApkBuilder(
     protected val manifestFile: File
         protected get() = File(mWorkspacePath, "AndroidManifest.xml")
 
-    private fun updateProjectConfig(appConfig: AppConfig) {
+    private fun updateProjectConfig(appConfig: AppConfig, projectConfig: ProjectConfigKt?) {
         val config: ProjectConfigKt
-        if (!PFiles.isDir(appConfig.sourcePath)) {
-            config = ProjectConfigKt(
-                mainScriptFile = "main.js",
-                name = appConfig.appName!!,
-                packageName = appConfig.packageName!!,
-                versionName = appConfig.versionName!!,
-                versionCode = appConfig.versionCode.toLong(),
+        if (PFiles.isFile(appConfig.sourcePath) && projectConfig != null) {
+            projectConfig.apply {
                 buildInfo = BuildInfo.generate(
                     appConfig.versionCode.toLong()
                 )
+            }
+            config = projectConfig
+            PFiles.write(
+                File(mWorkspacePath, "assets/project/project.json").path,
+                projectConfig.toJson()
             )
-            PFiles . write (File(mWorkspacePath, "assets/project/project.json").path, config.toJson())
 
         } else {
             config = ProjectConfigKt.fromProjectDir(appConfig.sourcePath!!)!!
             val buildNumber: Long = config.buildInfo.buildNumber
-            config.buildInfo=(BuildInfo.generate(buildNumber + 1))
+            config.buildInfo = (BuildInfo.generate(buildNumber + 1))
             PFiles.write(ProjectConfigKt.configFileOfDir(appConfig.sourcePath!!), config.toJson())
         }
         mKey =
@@ -317,31 +303,25 @@ class ApkBuilder(
         mManifestEditor?.commit()
         if (mAppConfig!!.icon != null) {
             try {
-                val bitmap: Bitmap? = mAppConfig!!.icon!!.call()
-                if (bitmap != null) {
-                    bitmap.compress(
-                        Bitmap.CompressFormat.PNG, 100,
-                        FileOutputStream(File(mWorkspacePath, "res/mipmap/ic_launcher.png"))
-                    )
-                }
+                mAppConfig!!.icon?.invoke()?.compress(
+                    Bitmap.CompressFormat.PNG, 100,
+                    FileOutputStream(File(mWorkspacePath, "res/mipmap/ic_launcher.png"))
+                )
             } catch (e: Exception) {
                 throw RuntimeException(e)
             }
         }
         if (mAppConfig!!.splashIcon != null) {
             try {
-                val bitmap: Bitmap? = mAppConfig!!.splashIcon!!.call()
-                if (bitmap != null) {
-                    bitmap.compress(
-                        Bitmap.CompressFormat.PNG, 100,
-                        FileOutputStream(
-                            File(
-                                mWorkspacePath,
-                                "res/drawable-mdpi-v4/autojs_material.png"
-                            )
+                mAppConfig!!.splashIcon?.invoke()?.compress(
+                    Bitmap.CompressFormat.PNG, 100,
+                    FileOutputStream(
+                        File(
+                            mWorkspacePath,
+                            "res/drawable-mdpi-v4/autojs_material.png"
                         )
                     )
-                }
+                )
             } catch (e: Exception) {
                 throw RuntimeException(e)
             }
@@ -358,7 +338,7 @@ class ApkBuilder(
         if (mProgressCallback != null) {
             GlobalAppContext.post(Runnable { mProgressCallback!!.onSign(this@ApkBuilder) })
         }
-        if (keyStorePath != null) {
+        if (keyStorePath != null && keyPassword != null && keyStorePath.isNotEmpty()) {
             val waitSignApk = File(mWaitSignApk)
             val out = FileOutputStream(waitSignApk)
             val zos = ZipOutputStream(out)
@@ -375,7 +355,7 @@ class ApkBuilder(
 
     fun cleanWorkspace(): ApkBuilder {
         if (mProgressCallback != null) {
-            GlobalAppContext.post(Runnable { mProgressCallback!!.onClean(this@ApkBuilder) })
+            GlobalAppContext.post { mProgressCallback!!.onClean(this@ApkBuilder) }
         }
         delete(File(mWorkspacePath))
         val waitSignApk = File(mWaitSignApk)
@@ -386,7 +366,7 @@ class ApkBuilder(
     }
 
     @Throws(IOException::class)
-    fun setArscPackageName(packageName: String?): ApkBuilder {
+    fun setArscPackageName(packageName: String): ApkBuilder {
         mArscPackageName = packageName
         return this
     }
@@ -415,7 +395,7 @@ class ApkBuilder(
         if (file.isFile) {
             file.delete()
         } else {
-            val files = file.listFiles()
+            val files = file.listFiles() ?: return
             for (child in files) {
                 delete(child)
             }
@@ -431,14 +411,12 @@ class ApkBuilder(
         delete(File(dir.path + "/META-INF/MANIFEST.MF"))
         delete(File(dir.path + "/META-INF/CERT.RSA"))
         delete(File(dir.path + "/META-INF/CERT.SF"))
-        val `arr$` = dir.listFiles()
-        val `len$` = `arr$`.size
-        for (`i$` in 0 until `len$`) {
-            val f = `arr$`[`i$`]
-            if (f.isFile) {
-                doFile(f.name, f, zos, dos)
+        val files = dir.listFiles() ?: return
+        for (file in files) {
+            if (file.isFile) {
+                doFile(file.name, file, zos, dos)
             } else {
-                doDir(f.name + "/", f, zos, dos)
+                doDir(file.name + "/", file, zos, dos)
             }
         }
     }
@@ -461,6 +439,7 @@ class ApkBuilder(
     companion object {
         private const val NO_SIGN_APK_SUFFIX = "_no-sign.apk"
         private val stripPattern = Pattern.compile("^META-INF/(.*)[.](SF|RSA|DSA|MF)$")
+        private const val TAG: String = "ApkBuilder"
 
         @Throws(IOException::class)
         private fun doDir(
@@ -471,10 +450,8 @@ class ApkBuilder(
         ) {
             zos.putNextEntry(ZipEntry(prefix))
             zos.closeEntry()
-            val `arr$` = dir.listFiles()
-            val `len$` = `arr$`.size
-            for (`i$` in 0 until `len$`) {
-                val f = `arr$`[`i$`]
+            val files = dir.listFiles() ?: return
+            for (f in files) {
                 if (f.isFile) {
                     doFile(prefix + f.name, f, zos, dos)
                 } else {
@@ -494,8 +471,6 @@ class ApkBuilder(
     }
 
     init {
-        mWaitSignApk = mOutApkFile.absolutePath + NO_SIGN_APK_SUFFIX
-        mApkPackager = ApkPackager(apkInputStream, mWorkspacePath)
         PFiles.ensureDir(mOutApkFile.path)
     }
 }

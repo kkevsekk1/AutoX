@@ -128,9 +128,9 @@ task publishMarket(group: 'build') {
 def buildApkPluginForAbi(File pluginProjectDir, String abi) {
 
     copy {
-        from file('build\\outputs\\apk\\common\\release\\')
+        from file('build/intermediates/apk/common/debug/')
         into new File(pluginProjectDir, 'src\\main\\assets')
-        def fileName = "inrt-common-" + abi + "-release.apk"
+        def fileName = "inrt-common-" + abi + "-debug.apk"
 
         include fileName
         rename fileName, 'template.apk'
