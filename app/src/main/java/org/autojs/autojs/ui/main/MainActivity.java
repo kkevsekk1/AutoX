@@ -15,6 +15,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -79,6 +80,7 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
     public static class DrawerOpenEvent {
         static DrawerOpenEvent SINGLETON = new DrawerOpenEvent();
     }
+
     //private static final String  signal ="uyMt3t/FqNUjYvXE6KElfppO17L1Nzhm0mXlnsPBl1o=";
     private static final String LOG_TAG = "MainActivity";
 
@@ -150,7 +152,19 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
     }
 
     private void checkPermissions() {
-        checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        // 检测存储权限
+        if (Build.VERSION.SDK_INT >= 30) {
+            if (!Environment.isExternalStorageManager()) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+                intent.setData(Uri.parse("package:" + getApplicationContext().getPackageName()));
+                Toast.makeText(this, "请授予AutoX“所有文件访问权限”", Toast.LENGTH_LONG).show();
+                startActivity(intent);
+                return;
+            }
+            return;
+        } else {
+            checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        }
     }
 
     private void showAccessibilitySettingPromptIfDisabled() {
