@@ -4,7 +4,7 @@ import groovy.json.JsonSlurper
 buildscript {
     ext {
         kotlin_version = '1.5.31'
-        compose_version = '1.1.1'
+        compose_version = '1.2.0-alpha08'
     }
 
     repositories {
