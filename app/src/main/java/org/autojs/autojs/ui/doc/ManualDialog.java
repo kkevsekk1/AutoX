@@ -24,7 +24,7 @@ public class ManualDialog {
     @BindView(R.id.title)
     TextView mTitle;
 
-    @BindView(R.id.eweb_view)
+    @BindView(R.id.eweb_view_manual_dialog)
     EWebView mEWebView;
 
     @BindView(R.id.pin_to_left)

@@ -31,7 +31,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testImplementation 'junit:junit:4.12'
-    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     api 'androidx.annotation:annotation:1.1.0'
     api 'com.github.hyb1996:settingscompat:1.1.5'
 }

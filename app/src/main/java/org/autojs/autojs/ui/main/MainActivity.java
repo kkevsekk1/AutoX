@@ -48,6 +48,8 @@ import org.autojs.autojs.ui.floating.FloatyWindowManger;
 import org.autojs.autojs.ui.log.LogActivity_;
 import org.autojs.autojs.ui.main.community.CommunityFragment;
 import org.autojs.autojs.ui.main.community.CommunityFragment_;
+import org.autojs.autojs.ui.main.community.WebFragment;
+import org.autojs.autojs.ui.main.community.WebFragment_;
 import org.autojs.autojs.ui.main.market.MarketFragment_;
 import org.autojs.autojs.ui.main.scripts.MyScriptListFragment_;
 import org.autojs.autojs.ui.main.task.TaskManagerFragment_;
@@ -166,10 +168,11 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
         TabLayout tabLayout = $(R.id.tab);
         mPagerAdapter = new FragmentPagerAdapterBuilder(this)
                 .add(new MyScriptListFragment_(), R.string.text_file)
+                .add(new TaskManagerFragment_(), R.string.text_manage)
+                .add(new WebFragment_(), R.string.text_web)
                 .add(new DocsFragment_(), R.string.text_tutorial)
                 .add(new CommunityFragment_(), R.string.text_community)
                 .add(new MarketFragment_(), R.string.text_market)
-                .add(new TaskManagerFragment_(), R.string.text_manage)
                 .build();
         mViewPager.setAdapter(mPagerAdapter);
         tabLayout.setupWithViewPager(mViewPager);

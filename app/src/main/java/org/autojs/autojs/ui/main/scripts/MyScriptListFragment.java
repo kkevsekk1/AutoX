@@ -3,7 +3,10 @@ package org.autojs.autojs.ui.main.scripts;
 import android.app.Activity;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.widget.Toast;
+
 import androidx.annotation.Nullable;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import com.stardust.app.GlobalAppContext;
@@ -12,6 +15,7 @@ import com.stardust.util.IntentUtil;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
+
 import org.autojs.autojs.Pref;
 import org.autojs.autojs.R;
 import org.autojs.autojs.external.fileprovider.AppFileProvider;
@@ -27,6 +31,7 @@ import org.autojs.autojs.ui.main.ViewPagerFragment;
 import org.autojs.autojs.ui.project.ProjectConfigActivity;
 import org.autojs.autojs.ui.project.ProjectConfigActivity_;
 import org.autojs.autojs.ui.viewmodel.ExplorerItemList;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
@@ -158,18 +163,21 @@ public class MyScriptListFragment extends ViewPagerFragment implements FloatingA
             return;
         switch (pos) {
             case 0:
-                new ScriptOperations(getContext(), mExplorerView, mExplorerView.getCurrentPage())
-                        .newDirectory();
+                //返回主界面
                 break;
             case 1:
                 new ScriptOperations(getContext(), mExplorerView, mExplorerView.getCurrentPage())
-                        .newFile();
+                        .importFile();
                 break;
             case 2:
                 new ScriptOperations(getContext(), mExplorerView, mExplorerView.getCurrentPage())
-                        .importFile();
+                        .newDirectory();
                 break;
             case 3:
+                new ScriptOperations(getContext(), mExplorerView, mExplorerView.getCurrentPage())
+                        .newFile();
+                break;
+            case 4:
                 ProjectConfigActivity_.intent(getContext())
                         .extra(ProjectConfigActivity.EXTRA_PARENT_DIRECTORY, mExplorerView.getCurrentPage().getPath())
                         .extra(ProjectConfigActivity.EXTRA_NEW_PROJECT, true)
