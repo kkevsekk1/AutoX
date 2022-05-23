@@ -271,7 +271,7 @@ public class CircularMenu implements Recorder.OnStateChangedListener, LayoutInsp
                         mContext.getString(R.string.text_current_activity) + mRunningActivity)
                 .item(R.id.open_launcher, R.drawable.ic_android_eat_js, R.string.text_open_main_activity)
                 .item(R.id.pointer_location, R.drawable.ic_zoom_out_map_white_24dp, R.string.text_pointer_location)
-                .item(R.id.exit, R.drawable.ic_close_white_48dp, R.string.text_exit_floating_window)
+                .item(R.id.exit, R.drawable.ic_close_black_48dp, R.string.text_exit_floating_window)
                 .bindItemClick(this)
                 .title(R.string.text_more)
                 .build();

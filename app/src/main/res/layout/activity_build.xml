@@ -368,7 +368,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="14dp"
                             android:layout_marginBottom="6dp"
-                            android:text="默认签名"
+                            android:text="@string/text_default_signature"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
                         <androidx.appcompat.widget.AppCompatButton

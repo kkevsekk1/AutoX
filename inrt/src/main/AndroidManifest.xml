@@ -39,10 +39,10 @@
         tools:targetApi="m">
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login" />
 
-        <activity android:name=".LogActivity"></activity>
-        <activity android:name=".FeatureActivity"></activity>
+        <activity android:name=".LogActivity" />
+        <activity android:name=".FeatureActivity" />
 
         <activity
             android:name=".SplashActivity"

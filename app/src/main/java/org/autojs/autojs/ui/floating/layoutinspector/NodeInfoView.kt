@@ -104,7 +104,7 @@ class NodeInfoView : RecyclerView {
                 val pos = adapterPosition
                 if (pos < 1 || pos >= mData.size)
                     return@setOnClickListener
-                ClipboardUtil.setClip(context, mData[pos][0] + " = " + mData[pos][1])
+                ClipboardUtil.setClip(context, mData[pos][0] + "(\"" + mData[pos][1] + "\")")
                 Snackbar.make(this@NodeInfoView, R.string.text_already_copy_to_clip, Snackbar.LENGTH_SHORT).show()
             }
         }

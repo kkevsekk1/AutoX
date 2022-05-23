@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.stardust.autojs.project.ProjectConfig;
+import com.stardust.autojs.project.ProjectConfigKt;
 import com.stardust.autojs.project.ProjectLauncher;
 import com.stardust.pio.PFile;
 
@@ -17,7 +17,6 @@ import org.autojs.autojs.model.explorer.ExplorerChangeEvent;
 import org.autojs.autojs.model.explorer.ExplorerItem;
 import org.autojs.autojs.model.explorer.Explorers;
 import org.autojs.autojs.ui.project.BuildActivity;
-import org.autojs.autojs.ui.project.BuildActivity_;
 import org.autojs.autojs.ui.project.ProjectConfigActivity;
 import org.autojs.autojs.ui.project.ProjectConfigActivity_;
 import org.greenrobot.eventbus.Subscribe;
@@ -28,7 +27,7 @@ import butterknife.OnClick;
 
 public class ExplorerProjectToolbar extends CardView {
 
-    private ProjectConfig mProjectConfig;
+    private ProjectConfigKt mProjectConfig;
     private PFile mDirectory;
 
     @BindView(R.id.project_name)
@@ -56,7 +55,7 @@ public class ExplorerProjectToolbar extends CardView {
     }
 
     public void setProject(PFile dir) {
-        mProjectConfig = ProjectConfig.fromProjectDir(dir.getPath());
+        mProjectConfig = ProjectConfigKt.Companion.fromProjectDir(dir.getPath());
         if(mProjectConfig == null){
             setVisibility(GONE);
             return;
@@ -84,9 +83,8 @@ public class ExplorerProjectToolbar extends CardView {
 
     @OnClick(R.id.build)
     void build() {
-        BuildActivity_.intent(getContext())
-                .extra(BuildActivity.EXTRA_SOURCE, mDirectory.getPath())
-                .start();
+        getContext().startActivity(BuildActivity.Companion.getIntent(getContext())
+                .putExtra(BuildActivity.EXTRA_SOURCE, mDirectory.getPath()));
     }
 
     @OnClick(R.id.sync)

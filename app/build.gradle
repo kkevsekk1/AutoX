@@ -43,6 +43,9 @@ android {
             }
         }
     }
+    buildFeatures {
+        compose true
+    }
     lintOptions {
         abortOnError false
         disable 'MissingTranslation'
@@ -51,7 +54,10 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
-        encoding = 'utf-8'
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.1.0-beta03'
+        kotlinCompilerVersion '1.5.31'
     }
     signingConfigs {
         if (propFile.exists()) {
@@ -176,6 +182,25 @@ repositories {
 }
 
 dependencies {
+
+    def accompanist_version="0.24.9-beta"
+    implementation "com.google.accompanist:accompanist-permissions:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-pager-indicators:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-pager:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-swiperefresh:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-appcompat-theme:$accompanist_version"
+
+    implementation("io.coil-kt:coil-compose:2.0.0-rc01")
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.material:material:$compose_version"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation 'androidx.activity:activity-compose:1.3.1'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+    implementation 'org.chromium.net:cronet-embedded:76.3809.111'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+
+
     androidTestImplementation('androidx.test.espresso:espresso-core:3.1.1-alpha01', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -263,4 +288,11 @@ dependencies {
     implementation project(':autojs')
     implementation project(':apkbuilder')
     implementation 'androidx.multidex:multidex:2.0.1'
+
+    def lifecycle_version = "2.5.0-beta01"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    // ViewModel utilities for Compose
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"
+
+    implementation "androidx.savedstate:savedstate-ktx:1.2.0-beta01"
 }

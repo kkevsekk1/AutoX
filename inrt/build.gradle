@@ -128,9 +128,9 @@ task publishMarket(group: 'build') {
 def buildApkPluginForAbi(File pluginProjectDir, String abi) {
 
     copy {
-        from file('build\\outputs\\apk\\common\\release\\')
+        from file('build/intermediates/apk/common/debug/')
         into new File(pluginProjectDir, 'src\\main\\assets')
-        def fileName = "inrt-common-" + abi + "-release.apk"
+        def fileName = "inrt-common-" + abi + "-debug.apk"
 
         include fileName
         rename fileName, 'template.apk'
@@ -167,6 +167,7 @@ repositories {
 }
 
 dependencies {
+    implementation "androidx.activity:activity-ktx:1.4.0"
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.annotation:annotation:1.3.0'

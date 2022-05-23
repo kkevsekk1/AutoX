@@ -58,7 +58,7 @@ public class CommunityWebView extends EWebView {
         mBottomSheetDialog.setContentView(new OptionListView.Builder(getContext())
                 .title(fileName)
                 .item(R.id.save, R.drawable.ic_file_download_black_48dp, R.string.text_download)
-                .item(R.id.run, R.drawable.ic_play_arrow_white_48dp, R.string.text_run)
+                .item(R.id.run, R.drawable.ic_play_fill, R.string.text_run)
                 .bindItemClick(this)
                 .build());
         mBottomSheetDialog.show();

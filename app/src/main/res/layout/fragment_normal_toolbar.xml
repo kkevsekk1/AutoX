@@ -10,7 +10,7 @@
         android:id="@+id/run"
         android:layout_width="40dp"
         android:layout_height="match_parent"
-        app:icon="@drawable/ic_play_arrow_white_48dp"
+        app:icon="@drawable/ic_play_fill"
         app:icon_color="@color/toolbar"
         app:text="@string/text_run"/>
 
@@ -18,7 +18,7 @@
         android:id="@+id/undo"
         android:layout_width="40dp"
         android:layout_height="match_parent"
-        app:icon="@drawable/ic_undo_white_48dp"
+        app:icon="@drawable/ic_undo"
         app:icon_color="@color/toolbar"
         app:text="@string/text_undo"/>
 
@@ -26,7 +26,7 @@
         android:id="@+id/redo"
         android:layout_width="40dp"
         android:layout_height="match_parent"
-        app:icon="@drawable/ic_redo_white_48dp"
+        app:icon="@drawable/ic_redo"
         app:icon_color="@color/toolbar"
         app:text="@string/text_redo"/>
 

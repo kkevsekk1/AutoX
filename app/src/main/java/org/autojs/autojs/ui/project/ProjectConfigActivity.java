@@ -4,9 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-
 import android.text.Editable;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,11 +11,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.textfield.TextInputLayout;
-import com.stardust.autojs.project.ProjectConfig;
+import com.stardust.autojs.project.ProjectConfigKt;
 import com.stardust.pio.PFiles;
 
 import org.androidannotations.annotations.AfterViews;
@@ -80,7 +79,7 @@ public class ProjectConfigActivity extends BaseActivity {
 
     private File mDirectory;
     private File mParentDirectory;
-    private ProjectConfig mProjectConfig;
+    private ProjectConfigKt mProjectConfig;
     private boolean mNewProject;
     private Bitmap mIconBitmap;
 
@@ -95,7 +94,7 @@ public class ProjectConfigActivity extends BaseActivity {
                 return;
             }
             mParentDirectory = new File(parentDirectory);
-            mProjectConfig = new ProjectConfig();
+            mProjectConfig = new ProjectConfigKt();
         } else {
             String dir = getIntent().getStringExtra(EXTRA_DIRECTORY);
             if (dir == null) {
@@ -103,7 +102,7 @@ public class ProjectConfigActivity extends BaseActivity {
                 return;
             }
             mDirectory = new File(dir);
-            mProjectConfig = ProjectConfig.fromProjectDir(dir);
+            mProjectConfig = ProjectConfigKt.Companion.fromProjectDir(dir);
             if (mProjectConfig == null) {
                 new ThemeColorMaterialDialogBuilder(this)
                         .title(R.string.text_invalid_project)
@@ -175,7 +174,7 @@ public class ProjectConfigActivity extends BaseActivity {
                     });
         } else {
             Observable.fromCallable(() -> {
-                PFiles.write(ProjectConfig.configFileOfDir(mDirectory.getPath()),
+                PFiles.write(ProjectConfigKt.Companion.configFileOfDir(mDirectory.getPath()),
                         mProjectConfig.toJson());
                 return Void.TYPE;
             })
