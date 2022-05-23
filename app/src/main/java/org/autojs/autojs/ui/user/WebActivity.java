@@ -22,7 +22,7 @@ public class WebActivity extends BaseActivity implements OnActivityResultDelegat
 
     private OnActivityResultDelegate.Mediator mMediator = new OnActivityResultDelegate.Mediator();
 
-    @ViewById(R.id.eweb_view)
+    @ViewById(R.id.eweb_view_web)
     EWebView mEWebView;
 
     @AfterViews

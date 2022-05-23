@@ -22,7 +22,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <org.autojs.autojs.ui.widget.EWebView
-        android:id="@+id/eweb_view"
+        android:id="@+id/eweb_view_documentation"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

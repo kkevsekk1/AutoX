@@ -19,10 +19,10 @@ public class DocumentationActivity extends BaseActivity {
 
     public static final String EXTRA_URL = "url";
 
-    @ViewById(R.id.eweb_view)
+    @ViewById(R.id.eweb_view_documentation)
     EWebView mEWebView;
 
-    WebView mWebView;
+    com.tencent.smtt.sdk.WebView mWebView;
 
     @AfterViews
     void setUpViews() {

@@ -1,4 +1,4 @@
-package org.autojs.autojs.ui.doc;
+package org.autojs.autojs.ui.main.community;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -21,36 +21,49 @@ import com.stardust.util.BackPressedHandler;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
-import org.autojs.autojs.Pref;
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 import org.autojs.autojs.R;
+import org.autojs.autojs.network.NodeBB;
 import org.autojs.autojs.tool.SimpleObserver;
-import org.autojs.autojs.ui.main.FloatingActionMenu;
 import org.autojs.autojs.ui.main.FloatingActionMenu;
 import org.autojs.autojs.ui.main.QueryEvent;
 import org.autojs.autojs.ui.main.ViewPagerFragment;
 import org.autojs.autojs.ui.widget.CallbackBundle;
-import org.autojs.autojs.ui.widget.EWebView;
-import io.reactivex.android.schedulers.AndroidSchedulers;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.io.File;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@EFragment(R.layout.fragment_online_docs)
-public class DocsFragment extends ViewPagerFragment implements BackPressedHandler, FloatingActionMenu.OnFloatingActionButtonClickListener {
+import io.reactivex.android.schedulers.AndroidSchedulers;
 
-    public static final String ARGUMENT_URL = "url";
+/**
+ * Created by Stardust on 2017/8/22.
+ */
+@EFragment(R.layout.fragment_web)
+public class WebFragment extends ViewPagerFragment implements BackPressedHandler, FloatingActionMenu.OnFloatingActionButtonClickListener {
 
-    @ViewById(R.id.eweb_view_docs)
-    EWebView mEWebView;
-    com.tencent.smtt.sdk.WebView mWebView;
+    public static class LoadUrl {
+        public final String mIndexUrl;
 
-    private String mIndexUrl = "file:///android_asset/docs/index.html";
-    private String mPreviousQuery;
+        public LoadUrl(String url) {
+            this.mIndexUrl = url;
+        }
+
+    }
+
+    public static class VisibilityChange {
+        public final boolean visible;
+
+        public VisibilityChange(boolean visible) {
+            this.visible = visible;
+        }
+    }
+
+    private static final String POSTS_PAGE_PATTERN = "[\\S\\s]+/topic/[0-9]+/[\\S\\s]+";
     static private Dialog mDialog;
     public static String tag = "OpenFileDialog";
     static public String sRoot = Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -60,17 +73,24 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
     static final private String sOnErrorMsg = "No rights to access!";
     private FloatingActionMenu mFloatingActionMenu;
 
+    @ViewById(R.id.eweb_view_web)
+    CommunityWebView mEWebView;
+    com.tencent.smtt.sdk.WebView mWebView;
 
-    public DocsFragment() {
-        super(ROTATION_GONE);
+    @ViewById(R.id.fab)
+    FloatingActionButton mFab;
+
+    public WebFragment() {
+        super(0);
         setArguments(new Bundle());
     }
+
+    private String mIndexUrl = "https://0x3.com/";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EventBus.getDefault().register(this);
-        mIndexUrl = getArguments().getString(ARGUMENT_URL, Pref.getDocumentationUrl() + "index.html");
     }
 
     @AfterViews
@@ -83,7 +103,6 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
             mWebView.loadUrl(mIndexUrl);
         }
     }
-
 
     @Override
     public void onPause() {
@@ -101,6 +120,7 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
         }
         return false;
     }
+
 
     @Override
     protected void onFabClick(FloatingActionButton fab) {
@@ -131,33 +151,43 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
         mFloatingActionMenu.setOnFloatingActionButtonClickListener(this);
     }
 
+    @Subscribe
+    public void loadUrl(LoadUrl loadUrl) {
+        mWebView.loadUrl(NodeBB.url(loadUrl.mIndexUrl));
+    }
 
     @Subscribe
-    public void onQuerySummit(QueryEvent event) {
-        if (!isShown()) {
+    public void submitQuery(QueryEvent event) {
+        if (!isShown() || event == QueryEvent.CLEAR) {
             return;
         }
-        if (event == QueryEvent.CLEAR) {
-            mWebView.clearMatches();
-            mPreviousQuery = null;
-            return;
-        }
-        if (event.isFindForward()) {
-            mWebView.findNext(false);
-            return;
-        }
-        if (event.getQuery().equals(mPreviousQuery)) {
-            mWebView.findNext(true);
-            return;
-        }
-        mWebView.findAllAsync(event.getQuery());
-        mPreviousQuery = event.getQuery();
+        String query = URLEncoder.encode(event.getQuery());
+        String url = String.format("http://www.autojs.org/search?term=%s&in=titlesposts", query);
+        mWebView.loadUrl(url);
+        event.collapseSearchView();
+    }
+
+    private boolean isInPostsPage() {
+        String url = mWebView.getUrl();
+        return url != null && url.matches(POSTS_PAGE_PATTERN);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
+    }
+
+    @Override
+    public void onPageShow() {
+        super.onPageShow();
+        EventBus.getDefault().post(new VisibilityChange(true));
+    }
+
+    @Override
+    public void onPageHide() {
+        super.onPageHide();
+        EventBus.getDefault().post(new VisibilityChange(false));
     }
 
     @Override
@@ -227,32 +257,6 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
             default:
                 break;
         }
-
-    }
-
-
-
-    // 参数说明
-    // context:上下文
-    // dialogId:对话框ID
-    // title:对话框标题
-    // callback:一个传递Bundle参数的回调接口
-    // suffix:需要选择的文件后缀，比如需要选择wav、mp3文件的时候设置为".wav;.mp3;"，注意最后需要一个分号(;)
-    // images:用来根据后缀显示的图标资源ID。
-    //	根目录图标的索引为sRoot;
-    //	父目录的索引为sParent;
-    //	文件夹的索引为sFolder;
-    //	默认图标的索引为sEmpty;
-    //	其他的直接根据后缀进行索引，比如.wav文件图标的索引为"wav"
-    public Dialog createDialog(Context context, String title, CallbackBundle callback, String suffix, Map<String, Integer> images, String rootDir) {
-        if (!rootDir.isEmpty() && (new File(rootDir)).isDirectory()) {
-            sRoot = rootDir;
-        }
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setView(new FileSelectView(context, callback, suffix, images));
-        mDialog = builder.create();
-        mDialog.setTitle(title);
-        return mDialog;
     }
 
     public Dialog createDialog(Context context, String title, CallbackBundle callback, String suffix, Map<String, Integer> images) {
