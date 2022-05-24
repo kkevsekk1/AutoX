@@ -3,36 +3,34 @@ package org.autojs.autojs.ui.floating.layoutinspector
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Rect
-import android.view.*
-import android.widget.FrameLayout
-import androidx.activity.compose.BackHandler
-import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
+import android.util.Log
+import android.view.ContextThemeWrapper
+import android.view.KeyEvent
+import android.view.View
+import android.view.ViewGroup
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.Text
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.drawscope.DrawStyle
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewTreeLifecycleOwner
 import androidx.lifecycle.ViewTreeViewModelStoreOwner
-//import androidx.savedstate.ViewTreeSavedStateRegistryOwner
 import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.Theme
+import com.google.accompanist.appcompattheme.AppCompatTheme
 import com.stardust.app.DialogUtils
 import com.stardust.enhancedfloaty.FloatyService
 import com.stardust.view.accessibility.NodeInfo
@@ -71,59 +69,9 @@ open class LayoutHierarchyFloatyWindow(private val mRootNode: NodeInfo) : FullSc
         }
 
         view.setContent {
-            val context = LocalContext.current
-            var isShowLayoutHierarchyView by remember {
-                mutableStateOf(true)
+            AppCompatTheme {
+                Content()
             }
-            Box(modifier = Modifier.fillMaxSize()) {
-                Box(
-                    modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Canvas(modifier = Modifier.fillMaxSize()) {
-                        if (mLayoutHierarchyView!!.mShowClickedNodeBounds) {
-                            mLayoutHierarchyView!!.mClickedNodeInfo?.let {
-                                val statusBarHeight = mLayoutHierarchyView!!.mStatusBarHeight
-                                val rect = Rect(it.boundsInScreen)
-                                rect.offset(0, -statusBarHeight)
-                                drawRect(
-                                    color = Color(
-                                        mLayoutHierarchyView!!.boundsPaint?.color ?: 0x2cd0d1
-                                    ),
-                                    topLeft = Offset(rect.left.toFloat(), rect.top.toFloat()),
-                                    size = Size(rect.width().toFloat(), rect.height().toFloat()),
-                                    style = Stroke(
-                                        width = mLayoutHierarchyView!!.boundsPaint?.strokeWidth
-                                            ?: 3f
-                                    )
-                                )
-                            }
-                        }
-                    }
-                }
-                Column(modifier = Modifier.fillMaxSize()) {
-                    AndroidView(
-                        factory = {
-                            mLayoutHierarchyView!!
-                        },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .weight(1f),
-                        update = {
-                            it.alpha = if (isShowLayoutHierarchyView) 1f else 0f
-                        }
-                    )
-                    Box(modifier = Modifier.fillMaxWidth()) {
-                        Button(
-                            onClick = { isShowLayoutHierarchyView = !isShowLayoutHierarchyView },
-                            modifier = Modifier.align(Alignment.CenterEnd)
-                        ) {
-                            Text(text = if (isShowLayoutHierarchyView) "隐藏" else "显示")
-                        }
-                    }
-                }
-            }
-
         }
         // Trick The ComposeView into thinking we are tracking lifecycle
         val viewModelStore = ViewModelStore()
@@ -132,8 +80,76 @@ open class LayoutHierarchyFloatyWindow(private val mRootNode: NodeInfo) : FullSc
         lifecycleOwner.handleLifecycleEvent(Lifecycle.Event.ON_CREATE)
         ViewTreeLifecycleOwner.set(view, lifecycleOwner)
         ViewTreeViewModelStoreOwner.set(view) { viewModelStore }
-//        ViewTreeSavedStateRegistryOwner.set(view, lifecycleOwner)
+        view.setViewTreeSavedStateRegistryOwner(lifecycleOwner)
+
         return view
+    }
+
+    @Composable
+    private fun Content() {
+        val context = LocalContext.current
+
+        Box(modifier = Modifier.fillMaxSize()) {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                Canvas(modifier = Modifier.fillMaxSize()) {
+                    if (mLayoutHierarchyView!!.mShowClickedNodeBounds) {
+                        mLayoutHierarchyView!!.mClickedNodeInfo?.let {
+                            val statusBarHeight = mLayoutHierarchyView!!.mStatusBarHeight
+                            val rect = Rect(it.boundsInScreen)
+                            rect.offset(0, -statusBarHeight)
+                            drawRect(
+                                color = Color(
+                                    mLayoutHierarchyView!!.boundsPaint?.color ?: 0x2cd0d1
+                                ),
+                                topLeft = Offset(rect.left.toFloat(), rect.top.toFloat()),
+                                size = Size(rect.width().toFloat(), rect.height().toFloat()),
+                                style = Stroke(
+                                    width = mLayoutHierarchyView!!.boundsPaint?.strokeWidth
+                                        ?: 3f
+                                )
+                            )
+                        }
+                    }
+                }
+            }
+            Column(modifier = Modifier.fillMaxSize()) {
+                var isShowLayoutHierarchyView by remember {
+                    mutableStateOf(true)
+                }
+                AndroidView(
+                    factory = {
+                        mLayoutHierarchyView!!
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f),
+                    update = {
+                        it.alpha = if (isShowLayoutHierarchyView) 1f else 0f
+                    }
+                )
+                Box(modifier = Modifier.fillMaxWidth()) {
+                    Button(
+                        onClick = { isShowLayoutHierarchyView = !isShowLayoutHierarchyView },
+                        modifier = Modifier
+                            .align(Alignment.CenterEnd)
+                            .padding(horizontal = 16.dp)
+                    ) {
+                        Text(text = "隐藏/显示")
+//                        if (isShowLayoutHierarchyView) {
+//                            Log.d(TAG, "隐藏")
+//                            Text(text = "隐藏")
+//                        } else {
+//                            Log.d(TAG, "显示")
+//                            Text(text = "显示")
+//                        }
+//                        Text(text = if (isShowLayoutHierarchyView) "隐藏" else "显示")
+                    }
+                }
+            }
+        }
     }
 
     @SuppressLint("ClickableViewAccessibility")
