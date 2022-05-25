@@ -1,200 +1,218 @@
-package zhao.arsceditor;
+package zhao.arsceditor
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import zhao.arsceditor.ResDecoder.ARSCCallBack
+import zhao.arsceditor.ResDecoder.data.ResTable
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.InputStream
+import java.util.*
 
-import zhao.arsceditor.ResDecoder.ARSCCallBack;
-import zhao.arsceditor.ResDecoder.data.ResTable;
+class ArscUtil {
 
-public class ArscUtil {
+    companion object {
+        // 存储资源Configs的集合
+        var Configs: MutableList<String>? = null
+        const val TAG = "ArscUtil"
+
+        // 存储资源种类的集合
+        var Types: MutableList<String>? = null
+
+        // 资源类型常量
+        const val ARSC = 0
+        const val AXML = 1
+        const val DEX = 2
+    }
+
     // 存储字符串的集合
-    public List<String> txtOriginal = new ArrayList<String>();
+    var txtOriginal: MutableList<String> = ArrayList()
+
     // 存储修改后的字符串的集合
-    public List<String> txtTranslated = new ArrayList<String>();
+    var txtTranslated: MutableList<String> = ArrayList()
+
     // 存储字符串在资源中对应的键
-    public List<String> txtTranslated_Key = new ArrayList<String>();
-    // 存储资源Configs的集合
-    public static List<String> Configs;
-    // 存储资源种类的集合
-    public static List<String> Types;
+    var txtTranslatedKey: MutableList<String> = ArrayList()
+
     // 存储资源的集合
-    private List<Map<String, String>> RESOURCES = new ArrayList<Map<String, String>>();
+    private val resources: MutableList<Map<String, String>> = ArrayList()
+
     // ARSC解析器
-    private AndrolibResources mAndRes;
+    private val mAndRes: AndrolibResources by lazy { AndrolibResources() }
+
     // 字符串是否修改
-    public boolean isChanged = false;
+    var isChanged = false
+
     // 资源类型
-    private int ResType;
-    // 资源类型常量
-    public static final int ARSC = 0, AXML = 1, DEX = 2;
+    private val ResType = 0
 
-
-    private void open(String resFile) throws IOException {
-        if (resFile.endsWith(".arsc")) {
-            open(new FileInputStream(resFile), ARSC);
-        } else if (resFile.endsWith(".xml")) {
-            open(new FileInputStream(resFile), AXML);
-        } else if (resFile.endsWith(".dex")) {
-            open(new FileInputStream(resFile), DEX);
-        } else {
-            throw new IOException("Unsupported FileType");
+    @Throws(IOException::class)
+    private fun open(
+        resFile: String,
+        callback: ((config: String, type: String, key: String, value: String) -> Unit)? = null
+    ) {
+        when {
+            resFile.endsWith(".arsc") -> {
+                open(FileInputStream(resFile), ARSC, callback)
+            }
+            resFile.endsWith(".xml") -> {
+                open(FileInputStream(resFile), AXML)
+            }
+            resFile.endsWith(".dex") -> {
+                open(FileInputStream(resFile), DEX)
+            }
+            else -> {
+                throw IOException("Unsupported FileType")
+            }
         }
     }
 
-    private void open(InputStream resInputStream, int resType) {
-        mAndRes = new AndrolibResources();
+    private fun open(
+        resInputStream: InputStream,
+        resType: Int,
+        callback: ((config: String, type: String, key: String, value: String) -> Unit)? = null
+    ) {
         // 如果储存资源类型的列表未初始化
         if (Types == null) {
             // 初始化储存资源类型的列表
-            Types = new ArrayList<String>();
+            Types = ArrayList()
         }
 
         // 实现资源回调接口
-        ARSCCallBack callback = new ARSCCallBack() {
-            @Override
-            public void back(String config, String type, String key, String value) {
-                // 这里是为了出去一些不能编辑的字符串
-                if (type != null) {
-                    // 初始化键值映射
-                    Map<String, String> values = new HashMap<String, String>();
-                    // 向映射中添加资源的键
-                    values.put(MyObj.NAME, key);
-                    // 向映射中添加资源的值
-                    values.put(MyObj.VALUE, value);
-                    // 向映射中添加资源的种类
-                    values.put(MyObj.TYPE, type);
-                    // 向映射中添加资源的Config
-                    values.put(MyObj.CONFIG, config);
-                    // 向资源中添加该映射
-                    RESOURCES.add(values);
-                }
-                // 如果资源种类集合中不存在该种类
-                if (!Types.contains(type))
-                    // 向其中添加该种类
-                    Types.add(type);
-            }
-        };
-        try {
-            mAndRes.decodeARSC(getResTable(resInputStream), callback);
-        } catch (IOException e) {
-            e.printStackTrace();
+        val callback = ARSCCallBack { config, type, key, value ->
+            if (key == null || type == null) return@ARSCCallBack
+            callback?.invoke(config, type, key, value)
+            // 这里是为了出去一些不能编辑的字符串
+            // 初始化键值映射
+            val values: MutableMap<String, String> = HashMap()
+            // 向映射中添加资源的键
+            values[MyObj.NAME] = key
+            // 向映射中添加资源的值
+            values[MyObj.VALUE] = value
+            // 向映射中添加资源的种类
+            values[MyObj.TYPE] = type
+            // 向映射中添加资源的Config
+            values[MyObj.CONFIG] = config
+            // 向资源中添加该映射
+            resources.add(values)
+            // 如果资源种类集合中不存在该种类
+            if (Types?.contains(type) != true) // 向其中添加该种类
+                Types?.add(type)
         }
-        Collections.sort(Types);
+        try {
+            mAndRes.decodeARSC(getResTable(resInputStream), callback)
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        Types?.sort()
     }
 
     // 获取ARSC文件的ResTable的方法
-    public ResTable getResTable(InputStream ARSCStream) throws IOException {
-        return mAndRes.getResTable(ARSCStream);
+    @Throws(IOException::class)
+    fun getResTable(ARSCStream: InputStream?): ResTable {
+        return mAndRes.getResTable(ARSCStream)
     }
 
     // 一个储存键的类
-    static class MyObj {
-        public final static String NAME = "name";
-        public final static String VALUE = "value";
-        public final static String TYPE = "type";
-        public final static String CONFIG = "config";
+    internal object MyObj {
+        const val NAME = "name"
+        const val VALUE = "value"
+        const val TYPE = "type"
+        const val CONFIG = "config"
     }
 
-    public void openArsc(String file_name) {
+    fun openArsc(
+        filename: String,
+        callback: ((config: String, type: String, key: String, value: String) -> Unit)? = null
+    ) {
         try {
-            open(file_name);
-        } catch (IOException e) {
-            e.printStackTrace();
+            open(filename, callback)
+        } catch (e: IOException) {
+            e.printStackTrace()
         }
     }
 
-    public void saveArsc(String file_name, String file_name1) {
-        FileOutputStream fo1;
+    fun saveArsc(file_name: String?, file_name1: String?) {
+        val fo1: FileOutputStream
         try {
-            fo1 = new FileOutputStream(file_name);
-            FileInputStream fi1 = new FileInputStream(file_name1);
-            mAndRes.mARSCDecoder.write(fo1, fi1, txtOriginal, txtTranslated);
-            fo1.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+            fo1 = FileOutputStream(file_name)
+            val fi1 = FileInputStream(file_name1)
+            mAndRes.mARSCDecoder.write(fo1, fi1, txtOriginal, txtTranslated)
+            fo1.close()
+        } catch (e: IOException) {
+            e.printStackTrace()
         }
-        isChanged = false;
+        isChanged = false
     }
 
-    public void getResouces(String key, String value) {
+    fun getResouces(key: String, value: String) {
         // 如果储存Config的列表未初始化
         if (Configs == null) {
             // 初始化Config列表
-            Configs = new ArrayList<String>();
+            Configs = ArrayList()
         }
 
         // 检查是否发生改变
-        for (String str : txtTranslated) {
-            if (!str.equals(""))
-                isChanged = true;
-            break;
+        for (str in txtTranslated) {
+            if (str != "") isChanged = true
+            break
         }
-
         if (isChanged) {
             // 排序整理修改后的内容，以方便一一写入
-            for (int i = 0; i < txtOriginal.size(); i++)
-                mAndRes.mARSCDecoder.mTableStrings.sortStringBlock(txtOriginal.get(i), txtTranslated.get(i));
+            for (i in txtOriginal.indices) mAndRes.mARSCDecoder.mTableStrings.sortStringBlock(
+                txtOriginal[i], txtTranslated[i]
+            )
         }
 
         // 清除几个列表中的元素
-        txtOriginal.clear();
-        txtTranslated.clear();
-        txtTranslated_Key.clear();
-        Configs.clear();
-
-        for (Map<String, String> resource : RESOURCES) {
+        txtOriginal.clear()
+        txtTranslated.clear()
+        txtTranslatedKey.clear()
+        Configs!!.clear()
+        for (resource in resources) {
             // 获取资源的键
-            String NAME = (String) resource.get(MyObj.NAME);
+            val name = resource.getValue(MyObj.NAME)
             // 获取资源的值
-            String VALUE = (String) resource.get(MyObj.VALUE);
+            val value = resource.getValue(MyObj.VALUE)
             // 获取资源类型
-            String TYPE = (String) resource.get(MyObj.TYPE);
+            val type = resource[MyObj.TYPE]
             // 获取资源分支
-            String CONFIG = (String) resource.get(MyObj.CONFIG);
-//            System.out.println("NAME: " + NAME + " VALUE: " + VALUE + " TYPE: " + TYPE + " CONGIG: " + CONFIG);
+            val config = resource[MyObj.CONFIG]
+            //            System.out.println("NAME: " + NAME + " VALUE: " + VALUE + " TYPE: " + TYPE + " CONGIG: " + CONFIG);
             // 如果资源的Config开头存在-符号，并且Config列表中不存在该资源的Config元素，并且资源种类是params[0]的值
-            if (CONFIG.startsWith("-") && !Configs.contains(CONFIG.substring(1)) && TYPE.equals(key))
-                // 向Config列表中添加元素
-                Configs.add(CONFIG.substring(1));
-                // 如果资源的Config开头不存在-符号，并且Config列表中不存在该资源的Config元素，并且资源种类是params[0]的值
-            else if (!CONFIG.startsWith("-") && !Configs.contains(CONFIG) && TYPE.equals(key))
-                Configs.add(CONFIG);
+            if (config!!.startsWith("-") && !Configs!!.contains(config.substring(1)) && type == key) // 向Config列表中添加元素
+                Configs!!.add(config.substring(1)) else if (!config.startsWith("-") && !Configs!!.contains(
+                    config
+                ) && type == key
+            ) Configs!!.add(config)
 
             // 如果资源的Config开头存在-符号，并且Config列表中存在该资源的Config元素，并且Config是params[1]的值
-            if (TYPE.equals(key) && CONFIG.startsWith("-") && CONFIG.substring(1).equals(value)) {
+            if (type == key && config.startsWith("-") && config.substring(1) == value) {
                 // 向储存字符串的列表中添加字符串成员
-                txtOriginal.add(VALUE);
+                txtOriginal.add(value)
                 // 向储存修改后的字符串的列表中添加空成员
-                txtTranslated.add("");
+                txtTranslated.add("")
                 // 向储存资源的键的列表添加键
-                txtTranslated_Key.add(NAME);
+                txtTranslatedKey.add(name)
                 // 如果资源的Config开头不存在-符号，并且Config列表中存在该资源的Config元素，并且Config是params[1]的值
-            } else if (TYPE.equals(key) && !CONFIG.startsWith("-") && CONFIG.equals(value)) {
+            } else if (type == key && !config.startsWith("-") && config == value) {
                 // 向储存字符串的列表中添加字符串成员
-                txtOriginal.add(VALUE);
+                txtOriginal.add(value)
                 // 向储存修改后的字符串的列表中添加空成员
-                txtTranslated.add("");
+                txtTranslated.add("")
                 // 向储存资源的键的列表添加键
-                txtTranslated_Key.add(NAME);
+                txtTranslatedKey.add(name)
             }
         }
-
-        Collections.sort(Configs);
+        Configs?.sort()
     }
 
-    public void changeResouce(String key, String value) {
-        int position = txtTranslated_Key.indexOf(key);
-        if (position == -1) return;
-        System.out.println("txtTranslated: " + txtOriginal.get(position));
-        txtTranslated.remove(position);
+    fun changeResource(key: String, value: String) {
+        val position = txtTranslatedKey.indexOf(key)
+        if (position == -1) return
+        println("txtTranslated: " + txtOriginal[position])
+        txtTranslated.removeAt(position)
         // 向当前位置添加新的内容，以此实现文本的更新
-        txtTranslated.add(position, value);
+        txtTranslated.add(position, value)
     }
+
 }
