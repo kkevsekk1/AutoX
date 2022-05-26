@@ -84,7 +84,9 @@ public class SignKeyCreateDialogBuilder extends ThemeColorMaterialDialogBuilder 
         positiveText(R.string.ok);
         onNegative((dialog, which) -> dialog.dismiss());
         onPositive((dialog, which) -> {
-            createSignKey();
+            if (createSignKey()){
+                dialog.dismiss();
+            }
         });
 
     }
@@ -100,16 +102,16 @@ public class SignKeyCreateDialogBuilder extends ThemeColorMaterialDialogBuilder 
         return this;
     }
 
-    private void createSignKey() {
+    private boolean createSignKey() {
         if (!checkInputs()) {
-            return;
+            return false;
         }
         String simplePath = mPath.getText().toString();
         mKeySavePath = mKeyStoreDir.concat(simplePath);
         PFile keyStore = new PFile(mKeySavePath);
         if (keyStore.exists()) {
             mPath.setError(getString(R.string.text_file_exists));
-            return;
+            return false;
         }
         String alias = mAlias.getText().toString();
         String password = mPassword.getText().toString();
@@ -131,6 +133,7 @@ public class SignKeyCreateDialogBuilder extends ThemeColorMaterialDialogBuilder 
         } else {
             Toast.makeText(context, getString(R.string.text_sign_create_fail), Toast.LENGTH_SHORT).show();
         }
+        return success;
     }
 
 

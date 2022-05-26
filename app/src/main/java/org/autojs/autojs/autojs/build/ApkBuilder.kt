@@ -3,7 +3,6 @@ package org.autojs.autojs.autojs.build
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
-import com.google.gson.annotations.SerializedName
 import com.stardust.app.GlobalAppContext
 import com.stardust.autojs.apkbuilder.ApkPackager
 import com.stardust.autojs.apkbuilder.ManifestEditor
@@ -232,6 +231,12 @@ class ApkBuilder(
         updateProjectConfig(config, projectConfig)
 
         Log.d(TAG, config.excludeLibraries.toString())
+        deleteLibraries(config)
+        setScriptFile(config.sourcePath)
+        return this
+    }
+
+    private fun deleteLibraries(config: AppConfig) {
         config.excludeLibraries.forEach { name ->
             File(mWorkspacePath, "/lib").listFiles()?.forEach { archDir ->
                 when (name) {
@@ -256,8 +261,6 @@ class ApkBuilder(
                 }
             }
         }
-        setScriptFile(config.sourcePath)
-        return this
     }
 
     @Throws(FileNotFoundException::class)
@@ -301,36 +304,51 @@ class ApkBuilder(
             GlobalAppContext.post(Runnable { mProgressCallback!!.onBuild(this@ApkBuilder) })
         }
         mManifestEditor?.commit()
-        if (mAppConfig!!.icon != null) {
-            try {
-                mAppConfig!!.icon?.invoke()?.compress(
-                    Bitmap.CompressFormat.PNG, 100,
-                    FileOutputStream(File(mWorkspacePath, "res/mipmap/ic_launcher.png"))
-                )
-            } catch (e: Exception) {
-                throw RuntimeException(e)
-            }
-        }
-        if (mAppConfig!!.splashIcon != null) {
-            try {
-                mAppConfig!!.splashIcon?.invoke()?.compress(
-                    Bitmap.CompressFormat.PNG, 100,
-                    FileOutputStream(
-                        File(
-                            mWorkspacePath,
-                            "res/drawable-mdpi-v4/autojs_material.png"
-                        )
-                    )
-                )
-            } catch (e: Exception) {
-                throw RuntimeException(e)
-            }
-        }
+
+
         mManifestEditor?.writeTo(FileOutputStream(manifestFile))
         if (mArscPackageName != null) {
-            buildArsc()
+            buildArsc(
+                onReplaceIcon = {
+                    if (mAppConfig!!.icon != null) {
+                        try {
+                            //fix file not found bug
+                            val file = File(mWorkspacePath, it)
+                            mAppConfig!!.icon?.invoke()?.compress(
+                                Bitmap.CompressFormat.PNG, 100,
+                                file.outputStream()
+                            )
+                        } catch (e: Exception) {
+                            throw RuntimeException(e)
+                        }
+                    }
+                },
+                onReplaceSplashIcon = {
+                    if (mAppConfig!!.splashIcon != null) {
+                        try {
+                            val file = File(
+                                mWorkspacePath,
+                                it
+                            )
+                            mAppConfig!!.splashIcon?.invoke()?.compress(
+                                Bitmap.CompressFormat.PNG, 100,
+                                file.outputStream()
+                            )
+                        } catch (e: Exception) {
+                            throw RuntimeException(e)
+                        }
+                    }
+                }
+            )
         }
         return this
+    }
+
+    private fun createFile(file: File) {
+        file.parentFile?.let {
+            if (!it.exists()) it.mkdirs()
+        }
+        if (!file.exists()) file.createNewFile()
     }
 
     @Throws(Exception::class)
@@ -372,7 +390,10 @@ class ApkBuilder(
     }
 
     @Throws(IOException::class)
-    private fun buildArsc() {
+    private fun buildArsc(
+        onReplaceIcon: (path: String) -> Unit,
+        onReplaceSplashIcon: (path: String) -> Unit
+    ) {
         val oldArsc = File(mWorkspacePath, "resources.arsc")
         val newArsc = File(mWorkspacePath, "resources_new.arsc")
         val decoder =
@@ -380,12 +401,29 @@ class ApkBuilder(
         val fos = FileOutputStream(newArsc)
         decoder.CloneArsc(fos, mArscPackageName, true)
         val util = ArscUtil()
-        util.openArsc(newArsc.absolutePath)
+        util.openArsc(newArsc.absolutePath) { config, type, key, value ->
+            when (type) {
+                "mipmap" -> {
+                    if (key == "ic_launcher") {
+                        onReplaceIcon(value)
+                    }
+                }
+                "drawable" -> {
+                    if (key == "autojs_material") onReplaceSplashIcon(value)
+                }
+            }
+        }
         // 收集字符资源，以准备根据key进行替换
+
         util.getResouces("string", "[DEFAULT]")
-        util.changeResouce("powered_by_autojs", mAppConfig!!.splashText)
+        mAppConfig?.splashText?.let { util.changeResource("powered_by_autojs", it) }
         if (StringUtils.isNotBlank(mAppConfig!!.serviceDesc)) {
-            util.changeResouce("text_accessibility_service_description", mAppConfig!!.serviceDesc)
+            mAppConfig?.serviceDesc?.let {
+                util.changeResource(
+                    "text_accessibility_service_description",
+                    it
+                )
+            }
         }
         util.saveArsc(oldArsc.absolutePath, newArsc.absolutePath)
         newArsc.delete()
