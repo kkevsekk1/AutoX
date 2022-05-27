@@ -17,17 +17,8 @@ public class Paddle {
 
     private Predictor mPredictor = new Predictor();
 
-    public synchronized boolean initOcr(boolean useSlim) {
-        if (!mPredictor.isLoaded()) {
-            if (Looper.getMainLooper() == Looper.myLooper()) {
-                new Thread(() -> {
-                    mPredictor.initOcr(GlobalAppContext.get(), 4, useSlim);
-                }).start();
-            } else {
-                mPredictor.initOcr(GlobalAppContext.get(), 4, useSlim);
-            }
-        }
-        return mPredictor.isLoaded();
+    public void initOcr(boolean useSlim) {
+        mPredictor.initOcr(GlobalAppContext.get(), 1, useSlim);
     }
 
     public List<OcrResult> ocr(ImageWrapper image, int cpuThreadNum, boolean useSlim) {
