@@ -3,14 +3,14 @@ import groovy.json.JsonSlurper
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext {
-        kotlin_version = '1.5.31'
+        kotlin_version = '1.6.20'
         compose_version = '1.2.0-alpha08'
     }
 
     repositories {
         mavenLocal()
         maven { url 'https://maven.aliyun.com/repository/central' }
-        maven { url "https://www.jitpack.io" }
+        maven { url "https://jitpack.io" }
         maven { url 'https://120.25.164.233:8081/nexus/content/groups/public/' }
         google { url 'https://maven.aliyun.com/repository/google' }
         mavenCentral { url 'https://maven.aliyun.com/repository/public' }
@@ -29,7 +29,7 @@ allprojects {
     repositories {
         mavenLocal()
         maven { url 'https://maven.aliyun.com/repository/central' }
-        maven { url "https://www.jitpack.io" }
+        maven { url "https://jitpack.io" }
         maven { url 'https://120.25.164.233:8081/nexus/content/groups/public/' }
         google { url 'https://maven.aliyun.com/repository/google' }
         mavenCentral { url 'https://maven.aliyun.com/repository/public' }

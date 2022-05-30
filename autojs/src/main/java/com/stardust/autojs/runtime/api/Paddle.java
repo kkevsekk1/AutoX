@@ -4,9 +4,8 @@ import android.graphics.Bitmap;
 import android.os.Looper;
 import android.util.Log;
 
-import cn.android.ocr.OcrResult;
-import cn.android.ocr.Predictor;
-
+import com.baidu.paddle.lite.demo.ocr.OcrResult;
+import com.baidu.paddle.lite.demo.ocr.Predictor;
 import com.stardust.app.GlobalAppContext;
 import com.stardust.autojs.core.image.ImageWrapper;
 
@@ -17,8 +16,17 @@ public class Paddle {
 
     private Predictor mPredictor = new Predictor();
 
-    public void initOcr(boolean useSlim) {
-        mPredictor.initOcr(GlobalAppContext.get(), 1, useSlim);
+    public synchronized boolean initOcr(boolean useSlim) {
+        if (!mPredictor.isLoaded) {
+            if (Looper.getMainLooper() == Looper.myLooper()) {
+                new Thread(() -> {
+                    mPredictor.init(GlobalAppContext.get(), useSlim);
+                }).start();
+            } else {
+                mPredictor.init(GlobalAppContext.get(), useSlim);
+            }
+        }
+        return mPredictor.isLoaded;
     }
 
     public List<OcrResult> ocr(ImageWrapper image, int cpuThreadNum, boolean useSlim) {
@@ -30,7 +38,7 @@ public class Paddle {
             return Collections.emptyList();
         }
         initOcr(useSlim);
-        return mPredictor.ocr(GlobalAppContext.get(), bitmap, cpuThreadNum, useSlim);
+        return mPredictor.ocr(bitmap, cpuThreadNum);
     }
 
     public List<OcrResult> ocr(ImageWrapper image, int cpuThreadNum) {
