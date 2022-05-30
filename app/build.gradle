@@ -56,8 +56,8 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.1.0-beta03'
-        kotlinCompilerVersion '1.5.31'
+        kotlinCompilerExtensionVersion '1.2.0-alpha08'
+        kotlinCompilerVersion '1.6.20'
     }
     signingConfigs {
         if (propFile.exists()) {
