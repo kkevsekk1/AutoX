@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="control_keys_short_names">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Left-Alt</item>
+        <item>Right-Alt</item>
+        <item>Vol-Up</item>
+        <item>Vol-Dn</item>
+        <item>Camera</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="entries_actionbar_preference">
+        <!-- <item>Action bar disabled</item> -->
+        <item>Always show action bar</item>
+        <item>Hide action bar (touch top of screen or Menu key to show)</item>
+    </string-array>
+    <string-array name="entries_backaction_preference">
+        <item>Closes all terminal windows</item>
+        <item>Closes this terminal window only</item>
+        <item>Closes activity, leaving sessions running</item>
+        <item>Sends ESC to terminal</item>
+        <item>Sends TAB to terminal</item>
+    </string-array>
+    <string-array name="entries_color_preference">
+        <item>Svart text på vit</item>
+        <item>Vit text på svart</item>
+        <item>Vit text på blå</item>
+        <item>Grön text på svart</item>
+        <item>Orange text på svart</item>
+        <item>Röd text på svart</item>
+        <item>Blå text på svart</item>
+        <item>Solarized Light</item>
+        <item>Solarized Dark</item>
+        <item>Linux Console</item>
+    </string-array>
+    <string-array name="entries_controlkey_preference">
+        <item>Trackball</item>
+        <item>\@-tangent</item>
+        <item>Vänster Alt-tangent</item>
+        <item>Höger Alt-tangent</item>
+        <item>Volym upp</item>
+        <item>Volym ner</item>
+        <item>Kamera-tangent</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="entries_cursorblink_preference">
+        <item>Icke-blinkande markör</item>
+        <item>Blinkande markör</item>
+    </string-array>
+    <string-array name="entries_cursorstyle_preference">
+        <item>Rektangel</item>
+        <item>Understruken</item>
+        <item>Vertikalt streck</item>
+    </string-array>
+    <string-array name="entries_fnkey_preference">
+        <item>Trackball</item>
+        <item>\@-tangent</item>
+        <item>Vänster Alt-tangent</item>
+        <item>Höger Alt-tangent</item>
+        <item>Volym upp</item>
+        <item>Volym ner</item>
+        <item>Kamera-tangent</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="entries_fontsize_preference">
+        <item>4x8 Pixlar</item>
+        <item>6 Punkter</item>
+        <item>7 Punkter</item>
+        <item>8 Punkter</item>
+        <item>9 Punkter</item>
+        <item>10 Punkter</item>
+        <item>12 Punkter</item>
+        <item>14 Punkter</item>
+        <item>16 Punkter</item>
+        <item>20 Punkter</item>
+        <item>24 Punkter</item>
+        <item>28 Punkter</item>
+        <item>32 Punkter</item>
+        <item>36 Punkter</item>
+        <item>42 Punkter</item>
+        <item>48 Punkter</item>
+        <item>64 Punkter</item>
+        <item>72 Punkter</item>
+        <item>96 Punkter</item>
+        <item>144 Punkter</item>
+        <item>288 Punkter</item>
+    </string-array>
+    <string-array name="entries_ime_preference">
+        <item>Teckenbaserade</item>
+        <item>Ordbaserade</item>
+    </string-array>
+    <string-array name="entries_statusbar_preference">
+        <item>Visa statusfältet</item>
+        <item>Dölj statusfältet</item>
+    </string-array>
+    <string-array name="fn_keys_short_names">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Left-Alt</item>
+        <item>Right-Alt</item>
+        <item>Vol-Up</item>
+        <item>Vol-Dn</item>
+        <item>Camera</item>
+        <item>None</item>
+    </string-array>
+    <string name="application_terminal">Terminalemulator</string>
+    <string name="copy_all">Kopiera allt</string>
+    <string name="dialog_title_color_preference">Textfärg</string>
+    <string name="dialog_title_controlkey_preference">Ctrl-tangent</string>
+    <string name="dialog_title_cursorblink_preference">Blinkande markör</string>
+    <string name="dialog_title_cursorstyle_preference">Markörstil</string>
+    <string name="dialog_title_fnkey_preference">Fn-tangent</string>
+    <string name="dialog_title_fontsize_preference">Teckenstorlek</string>
+    <string name="dialog_title_ime_preference">Inmatningsmetod</string>
+    <string name="dialog_title_initialcommand_preference">Inledande kommando</string>
+    <string name="dialog_title_shell_preference">Skal</string>
+    <string name="dialog_title_statusbar_preference">Statusfält</string>
+    <string name="disable_wakelock">Inaktivera VäckningsLås</string>
+    <string name="disable_wifilock">Inaktivera WifiLås</string>
+    <string name="edit_text">Redigera text</string>
+    <string name="enable_wakelock">Aktivera VäckningsLås</string>
+    <string name="enable_wifilock">Aktivera WifiLås</string>
+    <string name="keyboard_preferences">Tangentbord</string>
+    <string name="paste">Klistra in</string>
+    <string name="preferences">Inställningar</string>
+    <string name="reset">Återställ terminal</string>
+    <string name="screen_preferences">Skärm</string>
+    <string name="select_text">Markera text</string>
+    <string name="send_email">E-posta till</string>
+    <string name="service_notify_text">Terminalsessionen är igång</string>
+    <string name="shell_preferences">Skal</string>
+    <string name="special_keys">Special tangenter</string>
+    <string name="summary_color_preference">Välj textfärg.</string>
+    <string name="summary_controlkey_preference">Välj Ctrl-tangent</string>
+    <string name="summary_cursorblink_preference">Välj blinkande markör</string>
+    <string name="summary_cursorstyle_preference">Välj markörstil.</string>
+    <string name="summary_fnkey_preference">Välj Fn-tangent.</string>
+    <string name="summary_fontsize_preference">Välj teckenhöjd i punkter.</string>
+    <string name="summary_ime_preference">Välj inmatningsmetod för virtuellt tangentbord.</string>
+    <string name="summary_initialcommand_preference">Skickas till skalet när det börjar.</string>
+    <string name="summary_shell_preference">Ange skalkommandorad.</string>
+    <string name="summary_statusbar_preference">Visa/Dölj statusfält</string>
+    <string name="text_preferences">Text</string>
+    <string name="title_color_preference">Färger</string>
+    <string name="title_controlkey_preference">Ctrl-tangent</string>
+    <string name="title_cursorblink_preference">Blinkande markör</string>
+    <string name="title_cursorstyle_preference">Markörstil</string>
+    <string name="title_fnkey_preference">Fn-tangent</string>
+    <string name="title_fontsize_preference">Teckenstorlek</string>
+    <string name="title_ime_preference">Inmatningsmetod</string>
+    <string name="title_initialcommand_preference">Inledande kommando</string>
+    <string name="title_shell_preference">Kommandorad</string>
+    <string name="title_statusbar_preference">Statusfält</string>
+    <string name="toggle_soft_keyboard">Växla till virtuellt tangentbord</string>
+</resources>

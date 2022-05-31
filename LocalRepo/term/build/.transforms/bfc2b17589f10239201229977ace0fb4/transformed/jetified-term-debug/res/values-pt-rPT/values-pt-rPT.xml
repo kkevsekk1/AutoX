@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="control_keys_short_names">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Alt esq.</item>
+        <item>Alt dir.</item>
+        <item>Aum. vol.</item>
+        <item>Dim vol.</item>
+        <item>Câmara</item>
+        <item>Nenhuma</item>
+    </string-array>
+    <string-array name="entries_actionbar_preference">
+        <!-- <item>Barra de ação</item> -->
+        <item>Mostrar barra de ação</item>
+        <item>Ocultar barra de ação (tocar no topo de ecrã ou na tecla Menu para mostrar)</item>
+    </string-array>
+    <string-array name="entries_backaction_preference">
+        <item>Fechar todas as janelas</item>
+        <item>Fechar esta janela</item>
+        <item>Fechar atividades e manter sessão</item>
+        <item>Envia ESC ao terminal</item>
+        <item>Envia TAB ao terminal</item>
+    </string-array>
+    <string-array name="entries_color_preference">
+        <item>Texto preto em fundo branco</item>
+        <item>Texto branco em fundo preto</item>
+        <item>Texto branco em fundo azul</item>
+        <item>Texto verde em fundo preto</item>
+        <item>Texto âmbar em fundo preto</item>
+        <item>Texto vermelho em fundo preto</item>
+        <item>Texto azul em fundo preto</item>
+        <item>Solarized Light</item>
+        <item>Solarized Dark</item>
+        <item>Linux Console</item>
+    </string-array>
+    <string-array name="entries_controlkey_preference">
+        <item>Trackball</item>
+        <item>Tecla \@</item>
+        <item>Tecla Alt esquerda</item>
+        <item>Tecla Alt direita</item>
+        <item>Aum. volume</item>
+        <item>Dim. volume</item>
+        <item>Tecla da câmara</item>
+        <item>Nenhuma</item>
+    </string-array>
+    <string-array name="entries_cursorblink_preference">
+        <item>Cursor fixo</item>
+        <item>Cursor a piscar</item>
+    </string-array>
+    <string-array name="entries_cursorstyle_preference">
+        <item>Rectangular</item>
+        <item>Sublinhado</item>
+        <item>Barra vertical</item>
+    </string-array>
+    <string-array name="entries_fnkey_preference">
+       <item>Trackball</item>
+        <item>Tecla \@</item>
+        <item>Tecla Alt esquerda</item>
+        <item>Tecla Alt direita</item>
+        <item>Aum. volume</item>
+        <item>Dim. volume</item>
+        <item>Tecla da câmara</item>
+        <item>Nenhuma</item>
+    </string-array>
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8 píxeis</item>
+        <item>6 pt</item>
+        <item>7 pt</item>
+        <item>8 pt</item>
+        <item>9 pt</item>
+        <item>10 pt</item>
+        <item>12 pt</item>
+        <item>14 pt</item>
+        <item>16 pt</item>
+        <item>20 pt</item>
+        <item>24 pt</item>
+        <item>28 pt</item>
+        <item>32 pt</item>
+        <item>36 pt</item>
+        <item>42 pt</item>
+        <item>48 pt</item>
+        <item>64 pt</item>
+        <item>72 pt</item>
+        <item>96 pt</item>
+        <item>144 pt</item>
+        <item>288 pt</item>
+    </string-array>
+    <string-array name="entries_ime_preference">
+        <item>Baseado em caracteres</item>
+        <item>Baseado em palavras</item>
+    </string-array>
+    <string-array name="entries_statusbar_preference">
+        <item>Mostrar barra de notificações</item>
+        <item>Esconder barra de notificações</item>
+    </string-array>
+    <string-array name="fn_keys_short_names">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Alt esq.</item>
+        <item>Alt dir.</item>
+        <item>Aum. vol.</item>
+        <item>Dim. vol.</item>
+        <item>Câmara</item>
+        <item>Nenhuma</item>
+    </string-array>
+    <string name="application_terminal">Terminal Emulator</string>
+    <string name="copy_all">Copiar tudo</string>
+    <string name="dialog_title_color_preference">Côr do texto</string>
+    <string name="dialog_title_controlkey_preference">Tecla control</string>
+    <string name="dialog_title_cursorblink_preference">Piscar do cursor</string>
+    <string name="dialog_title_cursorstyle_preference">Estilo do cursor</string>
+    <string name="dialog_title_fontsize_preference">Tamanho do texto</string>
+    <string name="dialog_title_ime_preference">Método de entrada</string>
+    <string name="dialog_title_initialcommand_preference">Comando inicial</string>
+    <string name="dialog_title_shell_preference">Shell</string>
+    <string name="dialog_title_statusbar_preference">Barra de notificações</string>
+    <string name="edit_text">Editar texto</string>
+    <string name="keyboard_preferences">Teclado</string>
+    <string name="paste">Colar</string>
+    <string name="preferences">Preferências</string>
+    <string name="reset">Reset terminal</string>
+    <string name="screen_preferences">Ecrã</string>
+    <string name="select_text">Seleccionar texto</string>
+    <string name="send_email">Email para</string>
+    <string name="shell_preferences">Shell</string>
+    <string name="special_keys">Teclas especiais</string>
+    <string name="summary_color_preference">Escolher côr do texto</string>
+    <string name="summary_controlkey_preference">Escolher tecla control</string>
+    <string name="summary_cursorblink_preference">Escolher piscar do cursor</string>
+    <string name="summary_cursorstyle_preference">Escolha o estilo do cursor</string>
+    <string name="summary_fontsize_preference">Escolher a altura dos caracteres em pontos</string>
+    <string name="summary_ime_preference">Escolher método de entrada</string>
+    <string name="summary_initialcommand_preference">Enviar para o shell no arranque</string>
+    <string name="summary_shell_preference">Especificar a linha de comando do shell</string>
+    <string name="summary_statusbar_preference">Mostrar/esconder barra de notificações</string>
+    <string name="text_preferences">Texto</string>
+    <string name="title_color_preference">Côres</string>
+    <string name="title_controlkey_preference">Tecla control</string>
+    <string name="title_cursorblink_preference">Piscar do cursor</string>
+    <string name="title_cursorstyle_preference">Estilo do cursor</string>
+    <string name="title_fontsize_preference">Tamanho do texto</string>
+    <string name="title_ime_preference">Método de entrada</string>
+    <string name="title_initialcommand_preference">Comando inicial</string>
+    <string name="title_shell_preference">Linha de comandos</string>
+    <string name="title_statusbar_preference">Barra de notificações</string>
+    <string name="toggle_soft_keyboard">Abrir teclado</string>
+</resources>

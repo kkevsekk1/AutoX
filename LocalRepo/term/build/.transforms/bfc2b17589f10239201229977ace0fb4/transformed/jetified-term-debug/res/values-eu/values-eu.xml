@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="control_keys_short_names">
+        <item>Bola</item>
+        <item>\@</item>
+        <item>Ezker-Alt</item>
+        <item>Eskuin-Alt</item>
+        <item>Bol-Igo</item>
+        <item>Bol-Jaitsi</item>
+        <item>Kamera</item>
+        <item>Bat ere ez</item>
+    </string-array>
+    <string-array name="entries_actionbar_preference">
+        <!-- <item>Action bar disabled</item> -->
+        <item>Beti erakutsi ekintza-barra</item>
+        <item>Ezkutatu ekintza-barra (erakusteko ukitu pantailaren goialdea edo Menu tekla)</item>
+    </string-array>
+    <string-array name="entries_backaction_preference">
+        <item>Terminal leiho guztiak ixten ditu</item>
+        <item>Soilik terminal leiho hau ixten du</item>
+        <item>Jarduera ixten du, saioak martxan utziz</item>
+        <item>ESC bidaltzen du terminalera</item>
+        <item>TAB bidaltzen du terminalera</item>
+    </string-array>
+    <string-array name="entries_color_preference">
+        <item>Testu beltza zuriaren gainean</item>
+        <item>Testu zuria beltzaren gainean</item>
+        <item>Testu zuria urdinaren gainean</item>
+        <item>Testu berdea beltzaren gainean</item>
+        <item>Testu anbarra beltzaren gainean</item>
+        <item>Testu gorria beltzaren gainean</item>
+        <item>Solarized Light</item>
+        <item>Solarized Dark</item>
+        <item>Linux Console</item>
+    </string-array>
+    <string-array name="entries_controlkey_preference">
+        <item>Jog bola</item>
+        <item>\@ tekla</item>
+        <item>Ezker Alt tekla</item>
+        <item>Eskuin Alt tekla</item>
+        <item>Bol Igo tekla</item>
+        <item>Bol Jaitsi tekla</item>
+        <item>Kamera tekla</item>
+        <item>Bat ere ez</item>
+    </string-array>
+    <string-array name="entries_cursorblink_preference">
+        <item>Kurtsore ez-keinukaria</item>
+        <item>Kurtsore keinukaria</item>
+    </string-array>
+    <string-array name="entries_cursorstyle_preference">
+        <item>Laukizuzena</item>
+        <item>Azpimarra</item>
+        <item>Barra bertikala</item>
+    </string-array>
+    <string-array name="entries_fnkey_preference">
+        <item>Jog bola</item>
+        <item>\@ tekla</item>
+        <item>Ezker Alt tekla</item>
+        <item>Eskuin Alt tekla</item>
+        <item>Bol Igo tekla</item>
+        <item>Bol Jaitsi tekla</item>
+        <item>Kamera tekla</item>
+        <item>Bat ere ez</item>
+    </string-array>
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8 pixel</item>
+        <item>6 pt</item>
+        <item>7 pt</item>
+        <item>8 pt</item>
+        <item>9 pt</item>
+        <item>10 pt</item>
+        <item>12 pt</item>
+        <item>14 pt</item>
+        <item>16 pt</item>
+        <item>20 pt</item>
+        <item>24 pt</item>
+        <item>28 pt</item>
+        <item>32 pt</item>
+        <item>36 pt</item>
+        <item>42 pt</item>
+        <item>48 pt</item>
+        <item>64 pt</item>
+        <item>72 pt</item>
+        <item>96 pt</item>
+        <item>144 pt</item>
+        <item>288 pt</item>
+    </string-array>
+    <string-array name="entries_ime_preference">
+        <item>Karaktereetan oinarritua</item>
+        <item>Hitzetan oinarritua</item>
+    </string-array>
+    <string-array name="entries_statusbar_preference">
+        <item>Erakutsi egoera-barra</item>
+        <item>Ezkutatu egoera-barra</item>
+    </string-array>
+    <string-array name="fn_keys_short_names">
+        <item>Bola</item>
+        <item>\@</item>
+        <item>Ezker-Alt</item>
+        <item>Eskuin-Alt</item>
+        <item>Bol-Igo</item>
+        <item>Bol-Jaitsi</item>
+        <item>Kamera</item>
+        <item>Bat ere ez</item>
+    </string-array>
+    <string name="application_terminal">Terminal Emulatzailea</string>
+    <string name="close_window">Leihoa itxi</string>
+    <string name="confirm_window_close_message">Leiho hau itxi?</string>
+    <string name="control_key_dialog_control_disabled_text">Ez da kontrol teklarik ezarri.</string>
+    <string name="control_key_dialog_control_text">CTRLKEY Zuriunea : Kontrol-@ (NUL)\nCTRLKEY A..Z : Kontrol-A..Z\nCTRLKEY 5 : Kontrol-]\nCTRLKEY 6 : Kontrol-^\nCTRLKEY 7 : Kontrol-_\nCTRLKEY 9 : F11\nCTRLKEY 0 : F12</string>
+    <string name="control_key_dialog_fn_disabled_text">Ez da funtzio teklarik ezarri.</string>
+    <string name="control_key_dialog_fn_text">FNKEY 1..9 : F1-F9\nFNKEY 0 : F10\nFNKEY W : Gora\nFNKEY A : Ezkerra\nFNKEY S : Behera\nFNKEY D : Eskuina\nFNKEY P : Hurrengo-orria\nFNKEY N : Aurreko-orria\nFNKEY T : Tabulatzailea\nFNKEY L : | (kanalizazioa)\nFNKEY U : _ (azpimarra)\nFNKEY E : Kontrol-[ (ESC)\nFNKEY X : Ezabatu\nFNKEY I : Txertatu\nFNKEY H : Etxea\nFNKEY F : Bukaera\nFNKEY . : Kontrol-\\\n</string>
+    <string name="control_key_dialog_title">Kontrol and Funtzio Teklak</string>
+    <string name="copy_all">Kopiatu guztia</string>
+    <string name="dialog_title_actionbar_preference">Ekintza-barraren portaera</string>
+    <string name="dialog_title_backaction_preference">Atzera botoiaren portaera</string>
+    <string name="dialog_title_color_preference">Testuaren kolorea</string>
+    <string name="dialog_title_controlkey_preference">Kontrol tekla</string>
+    <string name="dialog_title_cursorblink_preference">Kurtsore-keinua</string>
+    <string name="dialog_title_cursorstyle_preference">Kurtsore-estiloa</string>
+    <string name="dialog_title_fnkey_preference">Fn tekla</string>
+    <string name="dialog_title_fontsize_preference">Letra-tamaina</string>
+    <string name="dialog_title_ime_preference">Sarrera-metodoa</string>
+    <string name="dialog_title_initialcommand_preference">Hasierako Komandoa</string>
+    <string name="dialog_title_shell_preference">Shell</string>
+    <string name="dialog_title_statusbar_preference">Egoera-barra</string>
+    <string name="dialog_title_termtype_preference">Terminal mota</string>
+    <string name="disable_wakelock">Desgaitu WakeLock</string>
+    <string name="disable_wifilock">Desgaitu WifiLock</string>
+    <string name="edit_text">Editatu testua</string>
+    <string name="enable_wakelock">Gaitu WakeLock</string>
+    <string name="enable_wifilock">Gaitu WifiLock</string>
+    <string name="keyboard_preferences">Teklatua</string>
+    <string name="new_window">Leiho berria</string>
+    <string name="next_window">Hurrengo leihoa</string>
+    <string name="paste">Itsatsi</string>
+    <string name="perm_run_script">Exekutatu hautazko komandoak Terminal Emulatzailean</string>
+    <string name="permdesc_run_script">Aplikazioari baimena ematen dio Android Terminal Emulatzailean leiho berriak irekitzeko eta leiho hauetan komandoak exekutatzeko Android Terminal Emulatzailearen baimen guztiekin, Interneterako eta zure SD txartelerako sarbidea barne.</string>
+    <string name="preferences">Hobespenak</string>
+    <string name="prev_window">Aurreko leihoa</string>
+    <string name="process_exit_message">Terminal saioa amaituta</string>
+    <string name="reset">Berrezarri terminala</string>
+    <string name="reset_toast_notification">-Terminal leiho honen egoera berrezarri da.</string>
+    <string name="screen_preferences">Pantaila</string>
+    <string name="select_text">Hautatu testua</string>
+    <string name="send_control_key">Bidali kontrol tekla</string>
+    <string name="send_email">Bidali eposta ...(r)i</string>
+    <string name="send_fn_key">Bidali fn tekla</string>
+    <string name="service_notify_text">Terminal saioa martxan dago</string>
+    <string name="shell_preferences">Shell</string>
+    <string name="special_keys">Tekla bereziak</string>
+    <string name="summary_actionbar_preference">Aukeratu ekintza-barraren portaera (Android 3.0tik aurrera).</string>
+    <string name="summary_backaction_preference">Aukeratu atzera botoia sakatzeak zer egiten duen.</string>
+    <string name="summary_close_window_on_process_exit_preference">Bere shell-a irtetean leiho bat itxi behar litzatekeen ala ez.</string>
+    <string name="summary_color_preference">Hautatu testuaren kolorea.</string>
+    <string name="summary_controlkey_preference">Hautatu kontrol tekla.</string>
+    <string name="summary_cursorblink_preference">Hautatu kurtsore-keinua.</string>
+    <string name="summary_cursorstyle_preference">Hautatu kurtsore-estiloa.</string>
+    <string name="summary_fnkey_preference">Hautatu Fn tekla.</string>
+    <string name="summary_fontsize_preference">Hautatu karaktereen tamaina puntutan.</string>
+    <string name="summary_ime_preference">Hautatu sarrera-metodoa soft teklatuarentzat.</string>
+    <string name="summary_initialcommand_preference">Bidali shell-era abiarazten denean.</string>
+    <string name="summary_shell_preference">Zehaztu shell komando lerroa.</string>
+    <string name="summary_statusbar_preference">Erakutsi/ezkutatu egoera-barra.</string>
+    <string name="summary_termtype_preference">Terminal motaren berri eman shell-ari.</string>
+    <string name="summary_utf8_by_default_preference">UTF-8 modu lehenetsian gaitzen den ala ez.</string>
+    <string name="text_preferences">Testua</string>
+    <string name="title_actionbar_preference">Ekintza-barra</string>
+    <string name="title_backaction_preference">Atzera botoiaren portaera</string>
+    <string name="title_close_window_on_process_exit_preference">Itxi leihoa irtetean</string>
+    <string name="title_color_preference">Koloreak</string>
+    <string name="title_controlkey_preference">Kontrol tekla</string>
+    <string name="title_cursorblink_preference">Kurtsore-keinua</string>
+    <string name="title_cursorstyle_preference">Kurtsore-estiloa</string>
+    <string name="title_fnkey_preference">Fn tekla</string>
+    <string name="title_fontsize_preference">Letra-tamaina</string>
+    <string name="title_ime_preference">Sarrera-metodoa</string>
+    <string name="title_initialcommand_preference">Hasierako komandoa</string>
+    <string name="title_shell_preference">Komando lerroa</string>
+    <string name="title_statusbar_preference">Egoera-barra</string>
+    <string name="title_termtype_preference">Terminal mota</string>
+    <string name="title_utf8_by_default_preference">Lehenetsi UTF-8</string>
+    <string name="toggle_soft_keyboard">Txandakatu soft teklatua</string>
+    <string name="window_list">Leihoak</string>
+    <string name="window_title">%1$d leihoa</string>
+</resources>

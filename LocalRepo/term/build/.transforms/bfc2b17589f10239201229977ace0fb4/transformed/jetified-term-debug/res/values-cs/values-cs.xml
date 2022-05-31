@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="control_keys_short_names">
+        <item>Kulička</item>
+        <item>\@</item>
+        <item>Levý Alt</item>
+        <item>Pravý Alt</item>
+        <item>Vol-Up</item>
+        <item>Vol-Dn</item>
+        <item>Kamera</item>
+        <item>Žádné</item>
+    </string-array>
+    <string-array name="entries_actionbar_preference">
+        <!-- <item>Action bar disabled</item> -->
+        <item>Vždy zobrazovat panel akcí</item>
+        <item>Skrývat panel akcí (zobrazit dotykem v horní části obrazovky, nebo tlačítkem menu)</item>
+    </string-array>
+    <string-array name="entries_backaction_preference">
+        <item>Zavřít všechna terminálová okna</item>
+        <item>Zavřít pouze toto terminálové okno</item>
+        <item>Zavřít terminál, ale dál poběží na pozadí</item>
+        <item>Poslat klávesu ESC do terminálu</item>
+        <item>Poslat klávesu TAB do terminálu</item>
+    </string-array>
+    <string-array name="entries_color_preference">
+        <item>Černý text na bílém podkladu</item>
+        <item>Bílý text na černém podkladu</item>
+        <item>Bílý text na modrém podkladu</item>
+        <item>Zelený text na černém podkladu</item>
+        <item>Žlutý text na černém podkladu</item>
+        <item>Červený text na černém podkladu</item>
+        <item>Solarized Light</item>
+        <item>Solarized Dark</item>
+        <item>Linux Console</item>
+    </string-array>
+    <string-array name="entries_controlkey_preference">
+        <item>Pohybové tlačítko</item>
+        <item>Tlačítko \@</item>
+        <item>Levá klávesa ALT</item>
+        <item>Pravá klávesa ALT</item>
+        <item>Tlačítko hlasitosti dolů</item>
+        <item>Tlačítko hlasitosti nahoru</item>
+        <item>Tlačítko kamery</item>
+        <item>Žádné</item>
+    </string-array>
+    <string-array name="entries_cursorblink_preference">
+        <item>Neblikající kurzor \:\)</item>
+        <item>Blikající kurzor</item>
+    </string-array>
+    <string-array name="entries_cursorstyle_preference">
+        <item>Obdelník</item>
+        <item>Podtržítko</item>
+        <item>Svislá čára</item>
+    </string-array>
+    <string-array name="entries_fnkey_preference">
+        <item>Pohybové tlačítko</item>
+        <item>Tlačítko \@</item>
+        <item>Levá klávesa ALT</item>
+        <item>Pravá klávesa ALT</item>
+        <item>Tlačítko hlasitosti dolů</item>
+        <item>Tlačítko hlasitosti nahoru</item>
+        <item>Tlačítko kamery</item>
+        <item>Žádné</item>
+    </string-array>
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8 pixelů</item>
+        <item>6 pt</item>
+        <item>7 pt</item>
+        <item>8 pt</item>
+        <item>9 pt</item>
+        <item>10 pt</item>
+        <item>12 pt</item>
+        <item>14 pt</item>
+        <item>16 pt</item>
+        <item>20 pt</item>
+        <item>24 pt</item>
+        <item>28 pt</item>
+        <item>32 pt</item>
+        <item>36 pt</item>
+        <item>42 pt</item>
+        <item>48 pt</item>
+        <item>64 pt</item>
+        <item>72 pt</item>
+        <item>96 pt</item>
+        <item>144 pt</item>
+        <item>288 pt</item>
+    </string-array>
+    <string-array name="entries_ime_preference">
+        <item>Zadávání po znacích</item>
+        <item>Zadávání po slovech</item>
+    </string-array>
+    <string-array name="entries_statusbar_preference">
+        <item>Zobrazovat stavový řádek</item>
+        <item>Nebrazovat stavový řádek</item>
+    </string-array>
+    <string-array name="fn_keys_short_names">
+        <item>Kulička</item>
+        <item>\@</item>
+        <item>Levý Alt</item>
+        <item>Pravý Alt</item>
+        <item>Vol-Up</item>
+        <item>Vol-Dn</item>
+        <item>Kamera</item>
+        <item>Žádné</item>
+    </string-array>
+    <string name="application_terminal">Terminal Emulator</string>
+    <string name="close_window">Zavřít okno</string>
+    <string name="confirm_window_close_message">Zavřít okno?</string>
+    <string name="control_key_dialog_control_disabled_text">Není nastaveno žádné tlačitko pro control.</string>
+    <string name="control_key_dialog_control_text">CTRLKEY Space : Control-@ (NUL)\nCTRLKEY A..Z : Control-A..Z\nCTRLKEY 5 : Control-]\nCTRLKEY 6 : Control-^\nCTRLKEY 7 : Control-_\nCTRLKEY 9 : F11\nCTRLKEY 0 : F12</string>
+    <string name="control_key_dialog_fn_disabled_text">Není nastaveno žádné tlačitko pro funkční klávesu.</string>
+    <string name="control_key_dialog_fn_text">FNKEY 1..9 : F1-F9\nFNKEY 0 : F10\nFNKEY W : Up\nFNKEY A : Left\nFNKEY S : Down\nFNKEY D : Right\nFNKEY P : PageUp\nFNKEY N : PageDown\nFNKEY T : Tab\nFNKEY L : | (pipe)\nFNKEY U : _ (underscore)\nFNKEY E : Control-[ (ESC)\nFNKEY X : Delete\nFNKEY I : Insert\nFNKEY H : Home\nFNKEY F : End\nFNKEY . : Control-\\\n</string>
+    <string name="control_key_dialog_title">Funkční klávesy a klávesa control</string>
+    <string name="copy_all">Kopírovat vše</string>
+    <string name="dialog_title_actionbar_preference">Chování panelu akcí</string>
+    <string name="dialog_title_backaction_preference">Chování tlačítka zpět</string>
+    <string name="dialog_title_color_preference">Barva textu</string>
+    <string name="dialog_title_controlkey_preference">Klávesa control</string>
+    <string name="dialog_title_cursorblink_preference">Blikání kurzoru</string>
+    <string name="dialog_title_cursorstyle_preference">Styl kurzoru</string>
+    <string name="dialog_title_fnkey_preference">Klávesa Fn</string>
+    <string name="dialog_title_fontsize_preference">Velikost písma</string>
+    <string name="dialog_title_ime_preference">Vstupní metoda</string>
+    <string name="dialog_title_initialcommand_preference">Počáteční příkaz</string>
+    <string name="dialog_title_shell_preference">Shell</string>
+    <string name="dialog_title_statusbar_preference">Stavový řádek</string>
+    <string name="dialog_title_termtype_preference">Typ terminálu</string>
+    <string name="disable_wakelock">Povolit uspání</string>
+    <string name="disable_wifilock">Povolit odpojení wifi</string>
+    <string name="edit_text">Práce s textem</string>
+    <string name="enable_wakelock">Zabránit uspání</string>
+    <string name="enable_wifilock">Zabránit odpojení wifi</string>
+    <string name="keyboard_preferences">Klávesnice</string>
+    <string name="new_window">Nové okno</string>
+    <string name="next_window">Další okno</string>
+    <string name="paste">Vložit</string>
+    <string name="preferences">Nastavení</string>
+    <string name="prev_window">Predešlé okno</string>
+    <string name="process_exit_message">Terminál je ukončen</string>
+    <string name="reset">Reset terminálu</string>
+    <string name="reset_toast_notification">Toto terminálové okno bylo restartováno.</string>
+    <string name="screen_preferences">Obrazovka</string>
+    <string name="select_text">Vybrat text</string>
+    <string name="send_control_key">Pošli klávesu control</string>
+    <string name="send_email">Napiš email</string>
+    <string name="send_fn_key">Pošli klávesu fn</string>
+    <string name="service_notify_text">Terminál je spuštěný</string>
+    <string name="shell_preferences">Shell</string>
+    <string name="special_keys">Speciální znaky</string>
+    <string name="summary_actionbar_preference">Vyberte chování panelu akcí (Android 3.0 a novější).</string>
+    <string name="summary_backaction_preference">Vyberte chování tlačítka zpět.</string>
+    <string name="summary_close_window_on_process_exit_preference">Nastavte, zda má být okno zavřeno po ukončení shellu.</string>
+    <string name="summary_color_preference">Vyberte barevné schéma terminálu.</string>
+    <string name="summary_controlkey_preference">Vyberte tlačítko pro klávesu control.</string>
+    <string name="summary_cursorblink_preference">Vyberte chování kurzoru.</string>
+    <string name="summary_cursorstyle_preference">Vyberte styl kurzoru.</string>
+    <string name="summary_fnkey_preference">Vyberte tlačítko pro klávesu Fn.</string>
+    <string name="summary_fontsize_preference">Vyberte velikost písma.</string>
+    <string name="summary_ime_preference">Vyberte vstupní metodu pro soft. klávesnici.</string>
+    <string name="summary_initialcommand_preference">Nastavte počáteční příkaz po spuštění terminálu.</string>
+    <string name="summary_shell_preference">Nastavte příkazový řádek.</string>
+    <string name="summary_statusbar_preference">Zobrazit/skrýt stavový řádek.</string>
+    <string name="summary_termtype_preference">Vyberte typ terminálu pro interpretaci příkazů.</string>
+    <string name="summary_utf8_by_default_preference">Nastavte formátování UTF-8 jako výchozí.</string>
+    <string name="text_preferences">Text</string>
+    <string name="title_actionbar_preference">Panel akcí</string>
+    <string name="title_backaction_preference">Chování tlačítka zpět</string>
+    <string name="title_close_window_on_process_exit_preference">Zavřít okno při ukončení</string>
+    <string name="title_color_preference">Barvy</string>
+    <string name="title_controlkey_preference">Klávesa control</string>
+    <string name="title_cursorblink_preference">Blikání kurzoru</string>
+    <string name="title_cursorstyle_preference">Styl kurzoru</string>
+    <string name="title_fnkey_preference">Klávesa Fn</string>
+    <string name="title_fontsize_preference">Velikost písma</string>
+    <string name="title_ime_preference">Vstupní metoda</string>
+    <string name="title_initialcommand_preference">Počáteční příkaz</string>
+    <string name="title_shell_preference">Příkazový řádek</string>
+    <string name="title_statusbar_preference">Stavový řádek</string>
+    <string name="title_termtype_preference">Typ terminálu</string>
+    <string name="title_utf8_by_default_preference">Výchozí formát UTF-8</string>
+    <string name="toggle_soft_keyboard">Přepnout soft. klávesnici</string>
+    <string name="window_list">Okna</string>
+    <string name="window_title">Okno %1$d</string>
+</resources>

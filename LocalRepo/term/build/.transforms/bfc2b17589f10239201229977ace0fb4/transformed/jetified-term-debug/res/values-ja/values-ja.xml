@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="control_keys_short_names">
+        <item>ボール</item>
+        <item>\@</item>
+        <item>左Alt</item>
+        <item>右Alt</item>
+        <item>ボリュームアップ</item>
+        <item>ボリュームダウン</item>
+        <item>カメラ</item>
+        <item>なし</item>
+    </string-array>
+    <string-array name="entries_actionbar_preference">
+        <!-- <item>Action bar disabled</item> -->
+        <item>常にアクションバーを表示する</item>
+        <item>アクションバーを隠す (スクリーンの上部へのタッチかメニューキーで表示)</item>
+    </string-array>
+    <string-array name="entries_backaction_preference">
+        <item>すべてのターミナルウインドウを閉じる</item>
+        <item>このターミナルウインドウだけを閉じる</item>
+        <item>アクティビティを閉じ，セッションは実行を継続</item>
+        <item>ターミナルにESCを送出</item>
+        <item>ターミナルにTABを送出</item>
+    </string-array>
+    <string-array name="entries_color_preference">
+        <item>白背景に黒字</item>
+        <item>黒背景に白字</item>
+        <item>青背景に白字</item>
+        <item>黒背景に緑字</item>
+        <item>黒背景にアンバー字</item>
+        <item>黒背景に赤字</item>
+        <item>黒背景にホロブルー字</item>
+        <item>Solarized Light</item>
+        <item>Solarized Dark</item>
+        <item>Linux Console</item>
+    </string-array>
+    <string-array name="entries_controlkey_preference">
+        <item>トラックボール</item>
+        <item>\@キー</item>
+        <item>左Altキー</item>
+        <item>右Altキー</item>
+        <item>ボリュームアップ</item>
+        <item>ボリュームダウン</item>
+        <item>カメラキー</item>
+        <item>なし</item>
+    </string-array>
+    <string-array name="entries_cursorblink_preference">
+        <item>点滅しないカーソル</item>
+        <item>点滅するカーソル</item>
+    </string-array>
+    <string-array name="entries_cursorstyle_preference">
+        <item>四角</item>
+        <item>下線</item>
+        <item>縦線</item>
+    </string-array>
+    <string-array name="entries_fnkey_preference">
+        <item>トラックボール</item>
+        <item>\@キー</item>
+        <item>左Altキー</item>
+        <item>右Altキー</item>
+        <item>ボリュームアップ</item>
+        <item>ボリュームダウン</item>
+        <item>カメラキー</item>
+        <item>なし</item>
+    </string-array>
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8ピクセル</item>
+        <item>6 pt</item>
+        <item>7 pt</item>
+        <item>8 pt</item>
+        <item>9 pt</item>
+        <item>10 pt</item>
+        <item>12 pt</item>
+        <item>14 pt</item>
+        <item>16 pt</item>
+        <item>20 pt</item>
+        <item>24 pt</item>
+        <item>28 pt</item>
+        <item>32 pt</item>
+        <item>36 pt</item>
+        <item>42 pt</item>
+        <item>48 pt</item>
+        <item>64 pt</item>
+        <item>72 pt</item>
+        <item>96 pt</item>
+        <item>144 pt</item>
+        <item>288 pt</item>
+    </string-array>
+    <string-array name="entries_ime_preference">
+        <item>文字ベース</item>
+        <item>単語ベース</item>
+    </string-array>
+    <string-array name="entries_statusbar_preference">
+        <item>ステータスバーを表示する</item>
+        <item>ステータスバーを隠す</item>
+    </string-array>
+    <string-array name="fn_keys_short_names">
+        <item>ボール</item>
+        <item>\@</item>
+        <item>左Alt</item>
+        <item>右Alt</item>
+        <item>ボリュームアップ</item>
+        <item>ボリュームダウン</item>
+        <item>カメラ</item>
+        <item>なし</item>
+    </string-array>
+    <string name="alt_sends_esc">AltキーでESCを送出</string>
+    <string name="alt_sends_esc_summary_off">Alt keyでESCを送出しない.</string>
+    <string name="alt_sends_esc_summary_on">Alt keyでESCを送出する.</string>
+    <string name="application_terminal">端末エミュレータ</string>
+    <string name="close_window">ウインドウを閉じる</string>
+    <string name="confirm_window_close_message">このウインドウを閉じますか?</string>
+    <string name="control_key_dialog_control_disabled_text">No control key set.</string>
+    <string name="control_key_dialog_control_text">CTRLKEY Space : Control-@ (NUL)\nCTRLKEY A..Z : Control-A..Z\nCTRLKEY 5 : Control-]\nCTRLKEY 6 : Control-^\nCTRLKEY 7 : Control-_\nCTRLKEY 9 : F11\nCTRLKEY 0 : F12</string>
+    <string name="control_key_dialog_fn_disabled_text">ファンクションキーの設定がありません.</string>
+    <string name="control_key_dialog_fn_text">FNKEY 1..9 : F1-F9\nFNKEY 0 : F10\nFNKEY W : Up\nFNKEY A : Left\nFNKEY S : Down\nFNKEY D : Right\nFNKEY P : PageUp\nFNKEY N : PageDown\nFNKEY T : Tab\nFNKEY L : | (pipe)\nFNKEY U : _ (underscore)\nFNKEY E : Control-[ (ESC)\nFNKEY X : Delete\nFNKEY I : Insert\nFNKEY H : Home\nFNKEY F : End\nFNKEY . : Control-\\\n</string>
+    <string name="control_key_dialog_title">コントロールキーとファンクションキー</string>
+    <string name="copy_all">すべてコピー</string>
+    <string name="dialog_title_actionbar_preference">アクションバーの振舞い</string>
+    <string name="dialog_title_backaction_preference">Backボタンの振舞い</string>
+    <string name="dialog_title_color_preference">文字の色</string>
+    <string name="dialog_title_controlkey_preference">コントロールキー</string>
+    <string name="dialog_title_cursorblink_preference">カーソルの点滅</string>
+    <string name="dialog_title_cursorstyle_preference">カーソルスタイル</string>
+    <string name="dialog_title_fnkey_preference">Fnキー</string>
+    <string name="dialog_title_fontsize_preference">フォントサイズ</string>
+    <string name="dialog_title_ime_preference">インプットメソッド</string>
+    <string name="dialog_title_initialcommand_preference">初期コマンド</string>
+    <string name="dialog_title_shell_preference">シェル</string>
+    <string name="dialog_title_statusbar_preference">ステータスバー</string>
+    <string name="dialog_title_termtype_preference">ターミナルタイプ</string>
+    <string name="disable_wakelock">WakeLockを解除</string>
+    <string name="disable_wifilock">WifiLockを解除</string>
+    <string name="edit_text">テキスト編集</string>
+    <string name="email_transcript_chooser_title">メール転写の選択:</string>
+    <string name="email_transcript_no_email_activity_found">転写を送信するEメール用アクティビティが選択できませんでした.</string>
+    <string name="email_transcript_subject">Transcript from Terminal Emulator for Android</string>
+    <string name="enable_wakelock">WakeLockを取得</string>
+    <string name="enable_wifilock">WifiLockを取得</string>
+    <string name="keyboard_preferences">キーボード</string>
+    <string name="new_window">新規ウインドウ</string>
+    <string name="next_window">次のウインドウ</string>
+    <string name="paste">貼付け</string>
+    <string name="perm_append_to_path">端末エミュレータへのコマンド追加</string>
+    <string name="perm_prepend_to_path">端末エミュレータのコマンドを上書きする</string>
+    <string name="perm_run_script">端末エミュレータで任意のコマンドを実行</string>
+    <string name="permdesc_append_to_path">アプリケーションに対して，端末エミュレータのコマンドを追加する(PATHにディレクトリを追加する)ことを許可する.</string>
+    <string name="permdesc_prepend_to_path">アプリケーションに対して，端末エミュレータが持つ既存のコマンドを，アプリケーション独自のバージョンに置き換える(PATHの先頭にディレクトリを追加する)ことを許可する.</string>
+    <string name="permdesc_run_script">アプリケーションに対して，端末エミュレータに新規ウインドウを開かせ，インターネットやSDカードへのアクセスを含む，端末エミュレータが持つすべてのパーミッションでコマンドを実行することを許可する.</string>
+    <string name="preferences">設定</string>
+    <string name="prev_window">前のウインドウ</string>
+    <string name="process_exit_message">ターミナルセッション終了</string>
+    <string name="reset">端末をリセット</string>
+    <string name="reset_toast_notification">このウインドウのターミナル状態はリセットされました.</string>
+    <string name="screen_preferences">スクリーン</string>
+    <string name="select_text">テキスト選択</string>
+    <string name="send_control_key">コントールキー送信</string>
+    <string name="send_email">メール送信</string>
+    <string name="send_fn_key">fnキー送信</string>
+    <string name="service_notify_text">ターミナルセッション実行中</string>
+    <string name="shell_preferences">シェル</string>
+    <string name="special_keys">特殊キー</string>
+    <string name="summary_actionbar_preference">アクションバーの振舞いを選択する. (Android 3.0 以降).</string>
+    <string name="summary_allow_prepend_path_preference">他のアプリから既存のコマンドの上書きを許可するか否か (PATHの先頭に追加).</string>
+    <string name="summary_backaction_preference">Backボタンの振る舞いを選択</string>
+    <string name="summary_close_window_on_process_exit_preference">シェル終了時にウインドウを閉じるか否か.</string>
+    <string name="summary_color_preference">文字の色を選択</string>
+    <string name="summary_controlkey_preference">コントロールキーを選択</string>
+    <string name="summary_cursorblink_preference">カーソルの点滅を選択</string>
+    <string name="summary_cursorstyle_preference">カーソルスタイルの選択</string>
+    <string name="summary_do_path_extensions_preference">他のアプリから追加のコマンドの提供を許可するか否か (PATHへの追加).</string>
+    <string name="summary_fnkey_preference">Fnキーを選択</string>
+    <string name="summary_fontsize_preference">文字の高さと大きさを選択</string>
+    <string name="summary_ime_preference">ソフトキーボードのインプットメソッドを選択</string>
+    <string name="summary_initialcommand_preference">開始時、シェルにコマンドを送信</string>
+    <string name="summary_shell_preference">コマンドラインシェルを指定</string>
+    <string name="summary_statusbar_preference">ステータスバーの表示/非表示</string>
+    <string name="summary_termtype_preference">シェルに報告するターミナルタイプ</string>
+    <string name="summary_utf8_by_default_preference">デフォルトでUTF-8モードを可能にするか否か.</string>
+    <string name="summary_verify_path_preference">アクセス不可ディレクトリをPATHから取り除くべきか否か.</string>
+    <string name="text_preferences">テキスト</string>
+    <string name="title_actionbar_preference">アクションバー</string>
+    <string name="title_allow_prepend_path_preference">PATHへのプリペンドの許可</string>
+    <string name="title_backaction_preference">Backボタンの振舞い</string>
+    <string name="title_close_window_on_process_exit_preference">終了時にウインドウを閉じる</string>
+    <string name="title_color_preference">色</string>
+    <string name="title_controlkey_preference">コントロールキー</string>
+    <string name="title_cursorblink_preference">カーソルの点滅</string>
+    <string name="title_cursorstyle_preference">カーソルのスタイル</string>
+    <string name="title_do_path_extensions_preference">PATH拡張の許可</string>
+    <string name="title_fnkey_preference">Fnキー</string>
+    <string name="title_fontsize_preference">フォントサイズ</string>
+    <string name="title_ime_preference">インプットメソッド</string>
+    <string name="title_initialcommand_preference">初期コマンド</string>
+    <string name="title_shell_preference">コマンドライン</string>
+    <string name="title_statusbar_preference">ステータスバー</string>
+    <string name="title_termtype_preference">ターミナルタイプ</string>
+    <string name="title_utf8_by_default_preference">デフォルトをUTF-8にする</string>
+    <string name="title_verify_path_preference">PATHエントリを照合</string>
+    <string name="toggle_soft_keyboard">ソフトキーボード</string>
+    <string name="window_list">ウインドウ一覧</string>
+    <string name="window_title">ウインドウ %1$d</string>
+</resources>

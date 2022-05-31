@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="control_keys_short_names">
+        <item>Трекбол</item>
+        <item>\@</item>
+        <item>LAlt</item>
+        <item>RAlt</item>
+        <item>Vol+</item>
+        <item>Vol-</item>
+        <item>Камера</item>
+        <item>Нет</item>
+    </string-array>
+    <string-array name="entries_actionbar_preference">
+        <item>Всегда показывать</item>
+        <item>Скрывать панель действий (коснитесь верха экрана или клавиши «Меню», чтобы её показать)</item>
+    </string-array>
+    <string-array name="entries_backaction_preference">
+        <item>Закрыть все окна терминала</item>
+        <item>Закрыть текущее окно терминала</item>
+        <item>Закрывает приложение, но оставляет запущенным терминал</item>
+        <item>Посылает ESC в терминал</item>
+        <item>Посылает TAB в терминал</item>
+    </string-array>
+    <string-array name="entries_color_preference">
+        <item>Чёрный на белом</item>
+        <item>Белый на чёрном</item>
+        <item>Белый на синем</item>
+        <item>Зелёный на чёрном</item>
+        <item>Жёлтый на чёрном</item>
+        <item>Красный на чёрном</item>
+        <item>Голубой на чёрном</item>
+        <item>Соляризованный светлый</item>
+        <item>Соляризованный тёмный</item>
+        <item>Консоль Linux</item>
+    </string-array>
+    <string-array name="entries_controlkey_preference">
+        <item>Трекбол</item>
+        <item>Клавиша @</item>
+        <item>Левый Alt</item>
+        <item>Правый Alt</item>
+        <item>Громкость вверх</item>
+        <item>Громкость вниз</item>
+        <item>Клавиша камеры</item>
+        <item>Нет</item>
+    </string-array>
+    <string-array name="entries_cursorblink_preference">
+        <item>Немигающий курсор</item>
+        <item>Мигающий курсор</item>
+    </string-array>
+    <string-array name="entries_cursorstyle_preference">
+        <item>Прямоугольник</item>
+        <item>Подчеркивание</item>
+        <item>Вертикальная черта</item>
+    </string-array>
+    <string-array name="entries_fnkey_preference">
+        <item>Трекбол</item>
+        <item>Клавиша @</item>
+        <item>Левый Alt</item>
+        <item>Правый Alt</item>
+        <item>Громкость вверх</item>
+        <item>Громкость вниз</item>
+        <item>Клавиша камеры</item>
+        <item>Нет</item>
+    </string-array>
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8 пикселей</item>
+        <item>6 пунктов</item>
+        <item>7 пунктов</item>
+        <item>8 пунктов</item>
+        <item>9 пунктов</item>
+        <item>10 пунктов</item>
+        <item>12 пунктов</item>
+        <item>14 пунктов</item>
+        <item>16 пунктов</item>
+        <item>20 пунктов</item>
+        <item>24 пункта</item>
+        <item>28 пунктов</item>
+        <item>32 пункта</item>
+        <item>36 пунктов</item>
+        <item>42 пункта</item>
+        <item>48 пунктов</item>
+        <item>64 пункта</item>
+        <item>72 пункта</item>
+        <item>96 пунктов</item>
+        <item>144 пункта</item>
+        <item>288 пунктов</item>
+    </string-array>
+    <string-array name="entries_ime_preference">
+        <item>По символам</item>
+        <item>По словам</item>
+    </string-array>
+    <string-array name="entries_orientation_preference">
+        <item>Автоматически</item>
+        <item>Альбомная</item>
+        <item>Портретная</item>
+    </string-array>
+    <string-array name="entries_statusbar_preference">
+        <item>Показывать</item>
+        <item>Скрывать</item>
+    </string-array>
+    <string-array name="fn_keys_short_names">
+        <item>Трекбол</item>
+        <item>\@</item>
+        <item>LAlt</item>
+        <item>RAlt</item>
+        <item>Vol+</item>
+        <item>Vol-</item>
+        <item>Камера</item>
+        <item>Нет</item>
+    </string-array>
+    <string name="activity_shortcut_create">Ярлык терминала</string>
+    <string name="activity_term_here_title">Терминал здесь</string>
+    <string name="addshortcut_arguments_label">Аргументы</string>
+    <string name="addshortcut_button_find_command">Поиск команды</string>
+    <string name="addshortcut_button_text_icon">Текст значок</string>
+    <string name="addshortcut_command_hint">command</string>
+    <string name="addshortcut_command_window_instructions">Командное окно требует полный путь без аргументов. Для других команд использовать окно Аргументы (пример: CD/SD-карта).</string>
+    <string name="addshortcut_example_hint">--пример=\"a\"</string>
+    <string name="addshortcut_make_text_icon">СОЗДАТЬ ЗНАЧОК ТЕКСТА</string>
+    <string name="addshortcut_navigator_title">ВЫБЕРИТЕ ЦЕЛЬ ЯРЛЫКА</string>
+    <string name="addshortcut_shortcut_label">Метка ярлыка</string>
+    <string name="addshortcut_title">Ярлык терминала</string>
+    <string name="alt_sends_esc">Клавиша Alt посылает ESC</string>
+    <string name="alt_sends_esc_summary_off">Клавиша Alt не посылает ESC</string>
+    <string name="alt_sends_esc_summary_on">Клавиша Alt посылает ESC</string>
+    <string name="application_terminal">Терминал</string>
+    <string name="close_window">Закрыть окно</string>
+    <string name="colorvalue_icon_text_entry_hint">Введите текст для значка</string>
+    <string name="colorvalue_label_lock_button_column">LOCK</string>
+    <string name="confirm_window_close_message">Закрыть это окно?</string>
+    <string name="control_key_dialog_control_disabled_text">Управляющие клавиши отключены</string>
+    <string name="control_key_dialog_control_text">"CTRLKEY + Пробел: Control-@ (NUL)
+ CTRLKEY + A..Z: Control-A..Z
+ CTRLKEY + 5: Control-]
+ CTRLKEY + 6: Control-^
+ CTRLKEY + 7: Control-_
+ CTRLKEY + 9: F11
+ CTRLKEY + 0: F12"</string>
+    <string name="control_key_dialog_fn_disabled_text">Функциональные клавиши отключены</string>
+    <string name="control_key_dialog_fn_text">"FNKEY 1..9 : F1-F9
+ FNKEY + 0: F10
+ FNKEY + W: Вверх
+ FNKEY + A: Влево
+ FNKEY + S: Вниз
+ FNKEY + D: Вправо
+ FNKEY + P: PageUp
+ FNKEY + N: PageDown
+ FNKEY + T: Tab
+ FNKEY + L: | (вертикальная черта)
+ FNKEY + U: _ (подчёркивание)
+ FNKEY + E: Control-[ (ESC)
+ FNKEY + X: Delete
+ FNKEY + I: Insert
+ FNKEY + H: Home
+ FNKEY + F: End
+ FNKEY + .: Control-\\
+"</string>
+    <string name="control_key_dialog_title">Управляющие и функциональные клавиши</string>
+    <string name="copy_all">Копировать всё</string>
+    <string name="dialog_title_actionbar_preference">Поведение панели действий</string>
+    <string name="dialog_title_backaction_preference">Поведение кнопки «Назад»</string>
+    <string name="dialog_title_color_preference">Цвет текста</string>
+    <string name="dialog_title_controlkey_preference">Клавиша Control</string>
+    <string name="dialog_title_cursorblink_preference">Мигание курсора</string>
+    <string name="dialog_title_cursorstyle_preference">Вид курсора</string>
+    <string name="dialog_title_fnkey_preference">Клавиша Fn</string>
+    <string name="dialog_title_fontsize_preference">Размер шрифта</string>
+    <string name="dialog_title_ime_preference">Способ ввода</string>
+    <string name="dialog_title_initialcommand_preference">Команды запуска</string>
+    <string name="dialog_title_orientation_preference">Поворот экрана</string>
+    <string name="dialog_title_shell_preference">Оболочка</string>
+    <string name="dialog_title_statusbar_preference">Строка состояния</string>
+    <string name="dialog_title_termtype_preference">Тип терминала</string>
+    <string name="disable_wakelock">Выключить WakeLock</string>
+    <string name="disable_wifilock">Выключить WifiLock</string>
+    <string name="edit_text">Изменить</string>
+    <string name="email_transcript_chooser_title">Отправить текст из терминала с помощью:</string>
+    <string name="email_transcript_no_email_activity_found">Не найдено приложения для отправки текста</string>
+    <string name="email_transcript_subject">Вывод терминала Android</string>
+    <string name="enable_wakelock">Включить WakeLock</string>
+    <string name="enable_wifilock">Включить WifiLock</string>
+    <string name="fsnavigator_change_theme">Изменить тему</string>
+    <string name="fsnavigator_no_external_storage">Внешние хранилища недоступно</string>
+    <string name="fsnavigator_optional_enter_path">Или введите путь здесь</string>
+    <string name="fsnavigator_title">ВЫБОР ФАЙЛОВ</string>
+    <string name="help">Помощь</string>
+    <string name="keyboard_preferences">Клавиатура</string>
+    <string name="new_window">Новое окно</string>
+    <string name="next_window">Следующее окно</string>
+    <string name="paste">Вставить</string>
+    <string name="perm_append_to_path">Добавление команд в терминала</string>
+    <string name="perm_prepend_to_path">Переопределение команд в терминале</string>
+    <string name="perm_run_script">Выполнение произвольных команд в терминале</string>
+    <string name="permdesc_append_to_path">Приложение сможет обеспечить дополнительные команды (добавить каталоги в PATH) для терминала.</string>
+    <string name="permdesc_prepend_to_path">Позволяет приложению переопределить существующие команды своими (перезаписывать PATH) в терминале.</string>
+    <string name="permdesc_run_script">Позволяет приложению открытие новых окон в терминале Android и запуск команд в этих окнах со всеми разрешениями терминала, в том числе доступ к Интернету и SD-карте.</string>
+    <string name="preferences">Настройки</string>
+    <string name="prev_window">Предыдущее окно</string>
+    <string name="process_exit_message">Терминальный сеанс завершён</string>
+    <string name="reset">Перезапустить терминал</string>
+    <string name="reset_toast_notification">Терминал перезапущен</string>
+    <string name="screen_preferences">Экран</string>
+    <string name="select_text">Выбрать текст</string>
+    <string name="send_control_key">Передать кнопку Control</string>
+    <string name="send_email">Отправить по эл.почте</string>
+    <string name="send_fn_key">Передать кнопку Fn</string>
+    <string name="service_notify_text">Запущен терминальный сеанс</string>
+    <string name="shell_preferences">Командная оболочка</string>
+    <string name="special_keys">Сочетания клавиш</string>
+    <string name="summary_actionbar_preference">Настройка поведения панели действий (Android 3.0 и выше)</string>
+    <string name="summary_allow_prepend_path_preference">Разрешить другим приложениям изменять существующие команды (добавление к началу PATH)</string>
+    <string name="summary_backaction_preference">Выбор действия при нажатии кнопки «Назад»</string>
+    <string name="summary_close_window_on_process_exit_preference">Окно закроется, если выйти из оболочки</string>
+    <string name="summary_color_preference">Выбор цветовой гаммы</string>
+    <string name="summary_controlkey_preference">Выбор аналога клавиши Control</string>
+    <string name="summary_cursorblink_preference">Выберите параметры мигания курсора</string>
+    <string name="summary_cursorstyle_preference">Выберите стиль курсора</string>
+    <string name="summary_do_path_extensions_preference">Разрешить другим приложениям обеспечивать дополнительные команды (добавление к PATH)</string>
+    <string name="summary_fnkey_preference">Выбор аналога клавиши Fn</string>
+    <string name="summary_fontsize_preference">Выбор размера шрифта</string>
+    <string name="summary_home_path_preference">Установка пути к папке, которая будет использована в качестве домашней (должны быть права записи)</string>
+    <string name="summary_ime_preference">Выберите способ ввода для экранной клавиатуры</string>
+    <string name="summary_initialcommand_preference">Передаются облочке при запуске терминала</string>
+    <string name="summary_mouse_tracking_preference">Определяет, будут ли события касания и прокрутки передаваться в терминал как Escape-последовательности</string>
+    <string name="summary_orientation_preference">Выбор ориентации экрана</string>
+    <string name="summary_shell_preference">Укажите строку обращения к командной оболочке</string>
+    <string name="summary_statusbar_preference">Показывать или скрывать строку состояния</string>
+    <string name="summary_termtype_preference">Выбор типа терминала для использования в оболочке</string>
+    <string name="summary_utf8_by_default_preference">Применить режим UTF-8 по умолчанию</string>
+    <string name="summary_verify_path_preference">Удалять недоступные каталоги из PATH</string>
+    <string name="text_preferences">Текст</string>
+    <string name="title_actionbar_preference">Панель действий</string>
+    <string name="title_allow_prepend_path_preference">Разрешить перезапись PATH</string>
+    <string name="title_backaction_preference">Поведение кнопки «Назад»</string>
+    <string name="title_close_window_on_process_exit_preference">Закрытие окна при выходе</string>
+    <string name="title_color_preference">Цветовая схема</string>
+    <string name="title_controlkey_preference">Клавиша Control</string>
+    <string name="title_cursorblink_preference">Мигание курсора</string>
+    <string name="title_cursorstyle_preference">Вид курсора</string>
+    <string name="title_do_path_extensions_preference">Включить расширения PATH</string>
+    <string name="title_fnkey_preference">Клавиша Fn</string>
+    <string name="title_fontsize_preference">Размер шрифта</string>
+    <string name="title_home_path_preference">Домашняя папка</string>
+    <string name="title_ime_preference">Способ ввода</string>
+    <string name="title_initialcommand_preference">Команды запуска</string>
+    <string name="title_mouse_tracking_preference">Передавать события мыши</string>
+    <string name="title_orientation_preference">Поворот экрана</string>
+    <string name="title_shell_preference">Обработчик команд</string>
+    <string name="title_statusbar_preference">Строка состояния</string>
+    <string name="title_termtype_preference">Тип терминала</string>
+    <string name="title_use_keyboard_shortcuts">Использовать сочетания клавиш</string>
+    <string name="title_utf8_by_default_preference">По умолчанию UTF-8</string>
+    <string name="title_verify_path_preference">Проверять пути в PATH</string>
+    <string name="toggle_soft_keyboard">Экранная клавиатура</string>
+    <string name="use_keyboard_shortcuts_summary_off">Сочетания клавиш отключены</string>
+    <string name="use_keyboard_shortcuts_summary_on">Ctrl-Tab: переключение окон, Ctrl-Shift-N: новое окно, Ctrl-Shift-V: вставить</string>
+    <string name="window_list">Окна</string>
+    <string name="window_title">Окно %1$d</string>
+</resources>

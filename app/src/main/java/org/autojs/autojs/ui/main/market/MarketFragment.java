@@ -29,7 +29,7 @@ public class MarketFragment extends ViewPagerFragment implements BackPressedHand
 
     @ViewById(R.id.eweb_view_market)
     EWebView mEWebView;
-    WebView mWebView;
+    com.tencent.smtt.sdk.WebView mWebView;
 
      MarketJavascriptInterface javascriptInterface ;
 

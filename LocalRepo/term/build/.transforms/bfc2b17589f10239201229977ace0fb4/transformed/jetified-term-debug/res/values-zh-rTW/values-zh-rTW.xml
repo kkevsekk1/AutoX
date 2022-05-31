@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="control_keys_short_names">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Left-Alt</item>
+        <item>Right-Alt</item>
+        <item>Vol-Up</item>
+        <item>Vol-Dn</item>
+        <item>Camera</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="entries_actionbar_preference">
+        <!-- <item>Action bar disabled</item> -->
+        <item>Always show action bar</item>
+        <item>Hide action bar (touch top of screen or Menu key to show)</item>
+    </string-array>
+    <string-array name="entries_backaction_preference">
+        <item>Closes all terminal windows</item>
+        <item>Closes this terminal window only</item>
+        <item>Closes activity, leaving sessions running</item>
+        <item>Sends ESC to terminal</item>
+        <item>Sends TAB to terminal</item>
+    </string-array>
+    <string-array name="entries_color_preference">
+        <item>白底黑字</item>
+        <item>黑底白字</item>
+        <item>藍底白字</item>
+        <item>黑底綠字</item>
+        <item>黑底黄字</item>
+        <item>黑底紅字</item>
+        <item>Holo blue on black</item>
+        <item>Solarized Light</item>
+        <item>Solarized Dark</item>
+        <item>Linux Console</item>
+    </string-array>
+    <string-array name="entries_controlkey_preference">
+        <item>軌跡球</item>
+        <item>\@ 鍵</item>
+        <item>左 Alt 鍵</item>
+        <item>右 Alt 鍵</item>
+        <item>提升音量鍵</item>
+        <item>降低音量鍵</item>
+        <item>相機快門鍵</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="entries_cursorblink_preference">
+        <item>非閃爍式浮標</item>
+        <item>閃爍式浮標</item>
+    </string-array>
+    <string-array name="entries_cursorstyle_preference">
+        <item>方形</item>
+        <item>底線</item>
+        <item>直線</item>
+    </string-array>
+    <string-array name="entries_fnkey_preference">
+        <item>軌跡球</item>
+        <item>\@ 鍵</item>
+        <item>左 Alt 鍵</item>
+        <item>右 Alt 鍵</item>
+        <item>提升音量鍵</item>
+        <item>降低音量鍵</item>
+        <item>相機快門鍵</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8 像素</item>
+        <item>6 點</item>
+        <item>7 點</item>
+        <item>8 點</item>
+        <item>9 點</item>
+        <item>10 點</item>
+        <item>12 點</item>
+        <item>14 點</item>
+        <item>16 點</item>
+        <item>20 點</item>
+        <item>24 點</item>
+        <item>28 點</item>
+        <item>32 點</item>
+        <item>36 點</item>
+        <item>42 點</item>
+        <item>48 點</item>
+        <item>64 點</item>
+        <item>72 點</item>
+        <item>96 點</item>
+        <item>144 點</item>
+        <item>288 點</item>
+    </string-array>
+    <string-array name="entries_ime_preference">
+        <item>字本</item>
+        <item>詞本</item>
+    </string-array>
+    <string-array name="entries_statusbar_preference">
+        <item>顯示狀態列</item>
+        <item>隱藏狀態列</item>
+    </string-array>
+    <string-array name="fn_keys_short_names">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Left-Alt</item>
+        <item>Right-Alt</item>
+        <item>Vol-Up</item>
+        <item>Vol-Dn</item>
+        <item>Camera</item>
+        <item>None</item>
+    </string-array>
+    <string name="application_terminal">模擬終端</string>
+    <string name="copy_all">全部複製</string>
+    <string name="dialog_title_color_preference">文字色彩</string>
+    <string name="dialog_title_controlkey_preference">Ctrl 鍵</string>
+    <string name="dialog_title_cursorblink_preference">浮標閃爍</string>
+    <string name="dialog_title_cursorstyle_preference">浮標風格</string>
+    <string name="dialog_title_fnkey_preference">Fn 鍵</string>
+    <string name="dialog_title_fontsize_preference">字型大小</string>
+    <string name="dialog_title_ime_preference">輸入方式</string>
+    <string name="dialog_title_initialcommand_preference">初始命令</string>
+    <string name="dialog_title_shell_preference">殼層</string>
+    <string name="dialog_title_statusbar_preference">狀態列</string>
+    <string name="disable_wakelock">解除喚醒鎖定</string>
+    <string name="disable_wifilock">解除 WiFi 鎖定</string>
+    <string name="edit_text">編輯文字</string>
+    <string name="enable_wakelock">使用喚醒鎖定</string>
+    <string name="enable_wifilock">使用 WiFi 鎖定</string>
+    <string name="keyboard_preferences">鍵盤</string>
+    <string name="paste">貼上</string>
+    <string name="preferences">設定</string>
+    <string name="reset">結束</string>
+    <string name="screen_preferences">螢幕</string>
+    <string name="select_text">選擇文字</string>
+    <string name="send_email">以電郵傳送</string>
+    <string name="service_notify_text">終端機工作階段執行中</string>
+    <string name="shell_preferences">殼層</string>
+    <string name="special_keys">特別按鍵</string>
+    <string name="summary_color_preference">選擇文字色彩</string>
+    <string name="summary_controlkey_preference">選擇 Ctrl 鍵</string>
+    <string name="summary_cursorblink_preference">選擇浮標是否閃爍</string>
+    <string name="summary_cursorstyle_preference">選擇浮標風格</string>
+    <string name="summary_fnkey_preference">選擇 Fn 鍵</string>
+    <string name="summary_fontsize_preference">選擇字元高度</string>
+    <string name="summary_ime_preference">選擇軟體鍵盤的輸入方式</string>
+    <string name="summary_initialcommand_preference">在啟動時傳送至殼層</string>
+    <string name="summary_shell_preference">指定殼層的命令列</string>
+    <string name="summary_statusbar_preference">顯示／隱藏狀態列</string>
+    <string name="text_preferences">文字</string>
+    <string name="title_color_preference">色彩</string>
+    <string name="title_controlkey_preference">Ctrl 鍵</string>
+    <string name="title_cursorblink_preference">浮標閃爍</string>
+    <string name="title_cursorstyle_preference">浮標風格</string>
+    <string name="title_fnkey_preference">Fn 鍵</string>
+    <string name="title_fontsize_preference">字型大小</string>
+    <string name="title_ime_preference">輸入方式</string>
+    <string name="title_initialcommand_preference">初始命令</string>
+    <string name="title_shell_preference">命令列</string>
+    <string name="title_statusbar_preference">狀態列</string>
+    <string name="toggle_soft_keyboard">顯示／隱藏鍵盤</string>
+</resources>

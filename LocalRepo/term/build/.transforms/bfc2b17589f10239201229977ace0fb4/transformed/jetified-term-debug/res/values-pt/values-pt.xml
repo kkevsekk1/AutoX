@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="control_keys_short_names">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Alt esq.</item>
+        <item>Alt dir.</item>
+        <item>Aum. vol.</item>
+        <item>Dim vol.</item>
+        <item>Câmara</item>
+        <item>Nenhuma</item>
+    </string-array>
+    <string-array name="entries_actionbar_preference">
+        <!-- <item>Barra de ação</item> -->
+        <item>Mostrar barra de ação</item>
+        <item>Ocultar barra de ação (tocar no topo de ecrã ou na tecla Menu para mostrar)</item>
+    </string-array>
+    <string-array name="entries_backaction_preference">
+        <item>Fechar todas as janelas</item>
+        <item>Fechar esta janela</item>
+        <item>Fechar atividades e manter sessão</item>
+        <item>Envia ESC ao terminal</item>
+        <item>Envia TAB ao terminal</item>
+    </string-array>
+    <string-array name="entries_color_preference">
+        <item>Texto preto em branco</item>
+        <item>Texto branco em preto</item>
+        <item>Texto branco em azul</item>
+        <item>Texto verde em preto</item>
+        <item>Texto âmbar em preto</item>
+        <item>Texto vermelho em preto</item>
+        <item>Texto azul em preto</item>
+        <item>Solarized Light</item>
+        <item>Solarized Dark</item>
+        <item>Linux Console</item>
+    </string-array>
+    <string-array name="entries_controlkey_preference">
+        <item>Trackball</item>
+        <item>Tecla \@</item>
+        <item>Tecla Alt esquerda</item>
+        <item>Tecla Alt direita</item>
+        <item>Aum. volume</item>
+        <item>Dim. volume</item>
+        <item>Tecla da câmara</item>
+        <item>Nenhuma</item>
+    </string-array>
+    <string-array name="entries_cursorblink_preference">
+        <item>Cursor não intermitente</item>
+        <item>Cursor intermitente</item>
+    </string-array>
+    <string-array name="entries_cursorstyle_preference">
+        <item>Retângulo</item>
+        <item>Sublinhado</item>
+        <item>Barra vertical</item>
+    </string-array>
+    <string-array name="entries_fnkey_preference">
+       <item>Trackball</item>
+        <item>Tecla \@</item>
+        <item>Tecla Alt esquerda</item>
+        <item>Tecla Alt direita</item>
+        <item>Aum. volume</item>
+        <item>Dim. volume</item>
+        <item>Tecla da câmara</item>
+        <item>Nenhuma</item>
+    </string-array>
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8 pixeis</item>
+        <item>6 pt</item>
+        <item>7 pt</item>
+        <item>8 pt</item>
+        <item>9 pt</item>
+        <item>10 pt</item>
+        <item>12 pt</item>
+        <item>14 pt</item>
+        <item>16 pt</item>
+        <item>20 pt</item>
+        <item>24 pt</item>
+        <item>28 pt</item>
+        <item>32 pt</item>
+        <item>36 pt</item>
+        <item>42 pt</item>
+        <item>48 pt</item>
+        <item>64 pt</item>
+        <item>72 pt</item>
+        <item>96 pt</item>
+        <item>144 pt</item>
+        <item>288 pt</item>
+    </string-array>
+    <string-array name="entries_ime_preference">
+        <item>Caracteres</item>
+        <item>Palavra</item>
+    </string-array>
+    <string-array name="entries_statusbar_preference">
+        <item>Mostrar barra de estado</item>
+        <item>Ocultar barra de estado</item>
+    </string-array>
+    <string-array name="fn_keys_short_names">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Alt esq.</item>
+        <item>Alt dir.</item>
+        <item>Aum. vol.</item>
+        <item>Dim. vol.</item>
+        <item>Câmara</item>
+        <item>Nenhuma</item>
+    </string-array>
+    <string name="application_terminal">Emulador de Terminal</string>
+    <string name="close_window">Fechar janela</string>
+    <string name="confirm_window_close_message">Fechar janela?</string>
+    <string name="control_key_dialog_control_disabled_text">Nenhuma tecla definida.</string>
+    <string name="control_key_dialog_control_text">CTRLKEY espaço : Control-@ (NUL)\nCTRLKEY A..Z : Control-A..Z\nCTRLKEY 5 : Control-]\nCTRLKEY 6 : Control-^\nCTRLKEY 7 : Control-_\nCTRLKEY 9 : F11\nCTRLKEY 0 : F12</string>
+    <string name="control_key_dialog_fn_disabled_text">Nenhuma tecla definida.</string>
+    <string name="control_key_dialog_fn_text">FNKEY 1..9 : F1-F9\nFNKEY 0 : F10\nFNKEY W : Cima\nFNKEY A : Esquerda\nFNKEY S : Baixo\nFNKEY D : Direita\nFNKEY P : PageUp\nFNKEY N : PageDown\nFNKEY T : Tab\nFNKEY L : | (pipe)\nFNKEY U : _ (underscore)\nFNKEY E : Control-[ (ESC)\nFNKEY X : Delete\nFNKEY I : Insert\nFNKEY H : Home\nFNKEY F : End\nFNKEY . : Control-\\\n</string>
+    <string name="control_key_dialog_title">Teclas Control e Fn</string>
+    <string name="copy_all">Copiar tudo</string>
+    <string name="dialog_title_actionbar_preference">Comportamento da barra de ação</string>
+    <string name="dialog_title_backaction_preference">Comportamento do botão Voltar</string>
+    <string name="dialog_title_color_preference">Cor do texto</string>
+    <string name="dialog_title_controlkey_preference">Tecla Control</string>
+    <string name="dialog_title_cursorblink_preference">Intermitência</string>
+    <string name="dialog_title_cursorstyle_preference">Estilo do cursor</string>
+    <string name="dialog_title_fnkey_preference">Tecla Fn</string>
+    <string name="dialog_title_fontsize_preference">Tamanho da letra</string>
+    <string name="dialog_title_ime_preference">Método de inserção</string>
+    <string name="dialog_title_initialcommand_preference">Comando inicial</string>
+    <string name="dialog_title_shell_preference">Consola</string>
+    <string name="dialog_title_statusbar_preference">Barra de estado</string>
+    <string name="dialog_title_termtype_preference">Tipo de Terminal</string>
+    <string name="disable_wakelock">Largar WakeLock</string>
+    <string name="disable_wifilock">Largar WifiLock</string>
+    <string name="edit_text">Editar texto</string>
+    <string name="enable_wakelock">Obter WakeLock</string>
+    <string name="enable_wifilock">Obter WifiLock</string>
+    <string name="keyboard_preferences">Teclado</string>
+    <string name="new_window">Nova janela</string>
+    <string name="next_window">Seguinte</string>
+    <string name="paste">Colar</string>
+    <string name="perm_append_to_path">Adicionar comandos ao emulador de terminal</string>
+    <string name="perm_prepend_to_path">Substituir comandos do emulador de terminal</string>
+    <string name="perm_run_script">Executar comandos aleatórios no emulador de terminal</string>
+    <string name="permdesc_append_to_path">Permite a disponibilização de comandos adicionais (adicionar diretórios em PATH) no emulador de terminal Android.</string>
+    <string name="permdesc_prepend_to_path">Permite que a aplicação substitua os comandos existentes pelos seus (anteceder diretórios em PATH) no emulador de terminal Android.</string>
+    <string name="permdesc_run_script">Permite que a aplicação abra janelas no emulador de terminal e executar comandos nessas janelas com todas as permissões, incluido o acesso à Internet e aos cartão SD.</string>
+    <string name="preferences">Preferências</string>
+    <string name="prev_window">Anterior</string>
+    <string name="process_exit_message">A sessão do Terminal terminou</string>
+    <string name="reset">Repor terminal</string>
+    <string name="reset_toast_notification">O estado desta janela foi restaurado.</string>
+    <string name="screen_preferences">Ecrã</string>
+    <string name="select_text">Selecionar texto</string>
+    <string name="send_control_key">Enviar tecla control</string>
+    <string name="send_email">Enviar mensagem para</string>
+    <string name="send_fn_key">Enviar tecla fn</string>
+    <string name="service_notify_text">A sessão do Terminal está em execução</string>
+    <string name="shell_preferences">Consola</string>
+    <string name="special_keys">Teclas especiais</string>
+    <string name="summary_actionbar_preference">Escolha o comportamento da barra de ação (Android 3.0 ou superior).</string>
+    <string name="summary_allow_prepend_path_preference">Se outras aplicações podem substituir os comandos existentes (anteceder a PATH).</string>
+    <string name="summary_backaction_preference">Escolha a ação do botão Voltar.</string>
+    <string name="summary_close_window_on_process_exit_preference">Se a janela deve ser fechada ao fechar a consola.</string>
+    <string name="summary_color_preference">Escolha a cor do texto.</string>
+    <string name="summary_controlkey_preference">Escolha a tecla control.</string>
+    <string name="summary_cursorblink_preference">Escolha a intermitência do cursor.</string>
+    <string name="summary_cursorstyle_preference">Escolha o estilo do cursor.</string>
+    <string name="summary_do_path_extensions_preference">Se outras aplicações podem enviar comandos adicionais (adicionar a PATH).</string>
+    <string name="summary_fnkey_preference">Escolha a tecla Fn.</string>
+    <string name="summary_fontsize_preference">Escolha a altura das letras (em pontos).</string>
+    <string name="summary_ime_preference">Escolha o método de inserção do teclado.</string>
+    <string name="summary_initialcommand_preference">O comando inicial da consola.</string>
+    <string name="summary_shell_preference">Indique a linha de comandos da consola.</string>
+    <string name="summary_statusbar_preference">Mostrar/ocultar barra de estado.</string>
+    <string name="summary_termtype_preference">O tipo de terminal a reportar à consola.</string>
+    <string name="summary_utf8_by_default_preference">Se o modo UTF-8 está ativo por definição.</string>
+    <string name="summary_verify_path_preference">Se os diretórios inacessíveis devem ser removidos do PATH.</string>
+    <string name="text_preferences">Texto</string>
+    <string name="title_actionbar_preference">Barra de ação</string>
+    <string name="title_allow_prepend_path_preference">Permitir preceder PATH</string>
+    <string name="title_backaction_preference">Comportamento do botão Voltar</string>
+    <string name="title_close_window_on_process_exit_preference">Fechar janela ao sair</string>
+    <string name="title_color_preference">Cores</string>
+    <string name="title_controlkey_preference">Tecla Control</string>
+    <string name="title_cursorblink_preference">Intermitência</string>
+    <string name="title_cursorstyle_preference">Estilo do cursor</string>
+    <string name="title_do_path_extensions_preference">Permitir extensões PATH</string>
+    <string name="title_fnkey_preference">Tecla Fn</string>
+    <string name="title_fontsize_preference">Tamanho da letra</string>
+    <string name="title_ime_preference">Método de inserção</string>
+    <string name="title_initialcommand_preference">Comando inicial</string>
+    <string name="title_shell_preference">Linha de comandos</string>
+    <string name="title_statusbar_preference">Barra de estado</string>
+    <string name="title_termtype_preference">Tipo de Terminal</string>
+    <string name="title_utf8_by_default_preference">UTF-8 por definição</string>
+    <string name="title_verify_path_preference">Verificar as entradas PATH</string>
+    <string name="toggle_soft_keyboard">Mostrar/ocultar teclado</string>
+    <string name="window_list">Janelas</string>
+    <string name="window_title">Janela %1$d</string>
+</resources>

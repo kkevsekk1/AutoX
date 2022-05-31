@@ -22,7 +22,7 @@ public class DocumentationActivity extends BaseActivity {
     @ViewById(R.id.eweb_view)
     EWebView mEWebView;
 
-    WebView mWebView;
+    com.tencent.smtt.sdk.WebView mWebView;
 
     @AfterViews
     void setUpViews() {

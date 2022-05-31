@@ -47,7 +47,7 @@ public class CommunityFragment extends ViewPagerFragment implements BackPressedH
 
     @ViewById(R.id.eweb_view)
     CommunityWebView mEWebView;
-    WebView mWebView;
+    com.tencent.smtt.sdk.WebView mWebView;
 
     public CommunityFragment() {
         super(0);

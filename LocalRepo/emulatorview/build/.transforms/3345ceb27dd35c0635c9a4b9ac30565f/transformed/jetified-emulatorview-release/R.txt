@@ -1,0 +1,2 @@
+int drawable atari_small 0x7f020000
+int drawable atari_small_nodpi 0x7f020001

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="control_keys_short_names">
+      <item>Ball</item>
+      <item>\@</item>
+      <item>Venstre-Alt</item>
+      <item>Høyre-Alt</item>
+      <item>Vol-Opp</item>
+      <item>Vol-Ned</item>
+      <item>Kamera</item>
+      <item>Ingen</item>
+  </string-array>
+    <string-array name="entries_actionbar_preference">
+      <!-- <item>Action bar disabled</item> -->
+      <item>Alltid vis handlingslinjen</item>
+      <item>Skjul handlingslinjen (Trykk på toppen av skjermen for å vise den)</item>
+  </string-array>
+    <string-array name="entries_backaction_preference">
+      <item>Lukker alle terminalvinduer</item>
+      <item>Lukker kun dette terminalviduet</item>
+      <item>Lukker aktiviteten, men lar økten kjøre</item>
+      <item>Sender ESC til terminalen</item>
+      <item>Sender TAB til terminalen</item>
+  </string-array>
+    <string-array name="entries_color_preference">
+    <item>Sort tekst på hvit</item>
+    <item>Hvit tekst på sort</item>
+    <item>Hvit tekst på blå</item>
+    <item>Grønn tekst på sort</item>
+    <item>Orange tekst på sort</item>
+    <item>Rød tekst på sort</item>
+    <item>Holo blå på sort</item>
+    <item>Solarized Lys</item>
+    <item>Solarized Mørk</item>
+    <item>Linux konsoll</item>
+  </string-array>
+    <string-array name="entries_controlkey_preference">
+    <item>Trackball</item>
+    <item>\@-tast</item>
+    <item>Venstre Alt-tast</item>
+    <item>Høyre Alt-tast</item>
+    <item>Vol opp</item>
+    <item>Vol ned</item>
+    <item>Kamera-tast</item>
+    <item>Ingen</item>
+  </string-array>
+    <string-array name="entries_cursorblink_preference">
+    <item>Ikke-blinkende peker</item>
+    <item>Blinkende peker</item>
+  </string-array>
+    <string-array name="entries_cursorstyle_preference">
+    <item>Rektangulær</item>
+    <item>Understreket</item>
+    <item>Vertikal linje</item>
+  </string-array>
+    <string-array name="entries_fnkey_preference">
+    <item>Trackball</item>
+    <item>\@-tast</item>
+    <item>Venstre Alt-tast</item>
+    <item>Høyre Alt-tast</item>
+    <item>Vol opp</item>
+    <item>Vol ned</item>
+    <item>Kamera-tast</item>
+    <item>Ingen</item>
+  </string-array>
+    <string-array name="entries_fontsize_preference">
+    <item>4x8 Piksler</item>
+    <item>6 Punkter</item>
+    <item>7 Punkter</item>
+    <item>8 Punkter</item>
+    <item>9 Punkter</item>
+    <item>10 Punkter</item>
+    <item>12 Punkter</item>
+    <item>14 Punkter</item>
+    <item>16 Punkter</item>
+    <item>20 Punkter</item>
+    <item>24 Punkter</item>
+    <item>28 Punkter</item>
+    <item>32 Punkter</item>
+    <item>36 Punkter</item>
+    <item>42 Punkter</item>
+    <item>48 Punkter</item>
+    <item>64 Punkter</item>
+    <item>72 Punkter</item>
+    <item>96 Punkter</item>
+    <item>144 Punkter</item>
+    <item>288 Punkter</item>
+  </string-array>
+    <string-array name="entries_ime_preference">
+    <item>Tegnbasert</item>
+    <item>Ordbasert</item>
+  </string-array>
+    <string-array name="entries_orientation_preference">
+        <item>Automatisk</item>
+        <item>Landskap</item>
+        <item>Portrett</item>
+    </string-array>
+    <string-array name="entries_statusbar_preference">
+    <item>Vis statuslinje</item>
+    <item>Skjul statuslinje</item>
+  </string-array>
+    <string-array name="fn_keys_short_names">
+      <item>Ball</item>
+      <item>\@</item>
+      <item>Venstre-Alt</item>
+      <item>Høyre-Alt</item>
+      <item>Vol-Opp</item>
+      <item>Vol-Ned</item>
+      <item>Kamera</item>
+      <item>Ingen</item>
+  </string-array>
+    <string name="alt_sends_esc">Alt-tasten sender ESC</string>
+    <string name="alt_sends_esc_summary_off">Alt-tasten sender ikke ESC.</string>
+    <string name="alt_sends_esc_summary_on">Alt-tasten sender ESC.</string>
+    <string name="application_terminal">Terminalemulator</string>
+    <string name="close_window">Lukk vindu</string>
+    <string name="confirm_window_close_message">Lukk dette vinduet?</string>
+    <string name="control_key_dialog_control_disabled_text">Ingen ctrl-tast valgt</string>
+    <string name="control_key_dialog_control_text">CTRLKEY Mellomrom : Ctrl-@ (NUL)\nCTRLKEY A..Z : Ctrl-A..Z\nCTRLKEY 5 : Ctrl-]\nCTRLKEY 6 : Ctrl-^\nCTRLKEY 7 : Ctrl-_\nCTRLKEY 9 : F11\nCTRLKEY 0 : F12</string>
+    <string name="control_key_dialog_fn_disabled_text">Ingen fn-tast valgt</string>
+    <string name="control_key_dialog_fn_text">FNKEY 1..9 : F1-F9\nFNKEY 0 : F10\nFNKEY W : Opp\nFNKEY A : Venstre\nFNKEY S : Ned\nFNKEY D : Høyre\nFNKEY P : PageUp\nFNKEY N : PageDown\nFNKEY T : Tab\nFNKEY L : | (pipe)\nFNKEY U : _ (understrek)\nFNKEY E : Ctrl-[ (ESC)\nFNKEY X : Delete\nFNKEY I : Insert\nFNKEY H : Home\nFNKEY F : End\nFNKEY . : Ctrl-\\\n</string>
+    <string name="control_key_dialog_title">Ctrl og fn-tast</string>
+    <string name="copy_all">Kopier alt</string>
+    <string name="dialog_title_actionbar_preference">Handlingslinje</string>
+    <string name="dialog_title_backaction_preference">Tilbaketast</string>
+    <string name="dialog_title_color_preference">Tekstfarge</string>
+    <string name="dialog_title_controlkey_preference">Ctrl-tast</string>
+    <string name="dialog_title_cursorblink_preference">Blinkende peker</string>
+    <string name="dialog_title_cursorstyle_preference">Pekertype</string>
+    <string name="dialog_title_fnkey_preference">Fn-tast</string>
+    <string name="dialog_title_fontsize_preference">Skriftstørrelse</string>
+    <string name="dialog_title_ime_preference">Inndatametode</string>
+    <string name="dialog_title_initialcommand_preference">Innledende kommando</string>
+    <string name="dialog_title_orientation_preference">Rotasjon</string>
+    <string name="dialog_title_shell_preference">Skall</string>
+    <string name="dialog_title_statusbar_preference">Statuslinje</string>
+    <string name="dialog_title_termtype_preference">Terminaltype</string>
+    <string name="disable_wakelock">Dropp WakeLock</string>
+    <string name="disable_wifilock">Dropp WifiLock</string>
+    <string name="edit_text">Rediger tekst</string>
+    <string name="email_transcript_chooser_title">Mail transcript med:</string>
+    <string name="email_transcript_no_email_activity_found">Kunne ikke velge aktivitet for å sende transcript.</string>
+    <string name="email_transcript_subject">Transcript fra Android Terminalemulator</string>
+    <string name="enable_wakelock">Ta WakeLock</string>
+    <string name="enable_wifilock">Ta WifiLock</string>
+    <string name="keyboard_preferences">Tastatur</string>
+    <string name="new_window">Nytt vindu</string>
+    <string name="next_window">Neste vindu</string>
+    <string name="paste">Lim inn</string>
+    <string name="perm_append_to_path">Legge til kommandoer i Terminalemulatoren</string>
+    <string name="perm_prepend_to_path">Overstyr kommandoer i Terminalemulatoren</string>
+    <string name="perm_run_script">Kjøre forskjellige kommandoer i Terminalemulatoren</string>
+    <string name="permdesc_append_to_path">Lar appen tilby flere kommandoer (Legge til i PATH) til Terminalemulatoren.</string>
+    <string name="permdesc_prepend_to_path">Lar appen overstyre eksisterende kommandoer med sine egene versjoner (legge til i begynnelsen av PATH) i Terminalemulatoren</string>
+    <string name="permdesc_run_script">Lar appen åpne nye vinduer i Terminalemulatoren, samt kjøre kommandoer i disse. Appen vil da kunne kjøre kommandoer med alle tillatelsene som Terminalemulatoren har, inkludert tilgang til Internett og SD-kortet. </string>
+    <string name="preferences">Innstillinger</string>
+    <string name="prev_window">Forrige vindu</string>
+    <string name="process_exit_message">Terminaløkt ferdig</string>
+    <string name="reset">Tilbakestill terminal</string>
+    <string name="reset_toast_notification">Terminalen i dette vinduet ble tilbakestilt.</string>
+    <string name="screen_preferences">Skjerm</string>
+    <string name="select_text">Marker tekst</string>
+    <string name="send_control_key">Send ctrl-tast</string>
+    <string name="send_email">Send epost til</string>
+    <string name="send_fn_key">Send fn-ast</string>
+    <string name="service_notify_text">Terminaløkt kjører</string>
+    <string name="shell_preferences">Skall</string>
+    <string name="special_keys">Spesielle tegn</string>
+    <string name="summary_actionbar_preference">Velg hvordan handlingslinjen (ActionBar) skal oppføre seg (Android 3.0 og oppover).</string>
+    <string name="summary_allow_prepend_path_preference">Velg om andre apper skal kunne overstyre eksisterende kommandoer (legge til i begynnelsen av PATH).</string>
+    <string name="summary_backaction_preference">Velg hva som skal skje når det trykkes på tilbaketasten.</string>
+    <string name="summary_close_window_on_process_exit_preference">Velg om vinduet skal lukkes når skallet avsluttes.</string>
+    <string name="summary_color_preference">Velg tekstfarge.</string>
+    <string name="summary_controlkey_preference">Velg Ctrl-tast</string>
+    <string name="summary_cursorblink_preference">Velg blinkende peker</string>
+    <string name="summary_cursorstyle_preference">Velg pekertype.</string>
+    <string name="summary_do_path_extensions_preference">Velg om andre apper skal kunne tilby flere kommandoer (legge til i PATH).</string>
+    <string name="summary_fnkey_preference">Velg Fn-tast.</string>
+    <string name="summary_fontsize_preference">Velg tegnhøyde i antall punkter.</string>
+    <string name="summary_home_path_preference">Sti til en skrivbar mappe som skal brukes som HOME.</string>
+    <string name="summary_ime_preference">Velg inndatametode for virtuelt tastatur.</string>
+    <string name="summary_initialcommand_preference">Sendes til skallet når det starter.</string>
+    <string name="summary_mouse_tracking_preference">Velg om trykk og scroll-sekvenser skal bli sendt som escape-sekvenser til terminalen.</string>
+    <string name="summary_orientation_preference">Velg hvordan rotasjon av skjermen skal håndteres.</string>
+    <string name="summary_shell_preference">Velg kommandolinjeskall.</string>
+    <string name="summary_statusbar_preference">Vis/Skjul statuslinje</string>
+    <string name="summary_termtype_preference">Velg terminaltype.</string>
+    <string name="summary_utf8_by_default_preference">Velg om UTF-8 skal være aktivert som standard.</string>
+    <string name="summary_verify_path_preference">Velg om utilgjengelige mapper skal fjernes fra PATH.</string>
+    <string name="text_preferences">Tekst</string>
+    <string name="title_actionbar_preference">Handlingslinje</string>
+    <string name="title_allow_prepend_path_preference">Tillat overstyring av PATH</string>
+    <string name="title_backaction_preference">Tilbaketast</string>
+    <string name="title_close_window_on_process_exit_preference">Lukk vinduet ved avslutning</string>
+    <string name="title_color_preference">Farger</string>
+    <string name="title_controlkey_preference">Ctrl-tast</string>
+    <string name="title_cursorblink_preference">Blinkende peker</string>
+    <string name="title_cursorstyle_preference">Pekertype</string>
+    <string name="title_do_path_extensions_preference">Tillat utvidelse av PATH</string>
+    <string name="title_fnkey_preference">Fn-tast</string>
+    <string name="title_fontsize_preference">Skriftstørrelse</string>
+    <string name="title_home_path_preference">HOME-mappe</string>
+    <string name="title_ime_preference">Inndatametode</string>
+    <string name="title_initialcommand_preference">Innledende kommando</string>
+    <string name="title_mouse_tracking_preference">Send musebevegelser</string>
+    <string name="title_orientation_preference">Rotasjon</string>
+    <string name="title_shell_preference">Kommandolinje</string>
+    <string name="title_statusbar_preference">Statuslinje</string>
+    <string name="title_termtype_preference">Terminaltype</string>
+    <string name="title_utf8_by_default_preference">Aktiver UTF-8</string>
+    <string name="title_verify_path_preference">Kontroller oppføringer i PATH</string>
+    <string name="toggle_soft_keyboard">Veksle virtuelt tastatur</string>
+    <string name="window_list">Vinduer</string>
+    <string name="window_title">Vindu %1$d</string>
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (C) 2008 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+-->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_new_window"
+        android:title="@string/new_window"
+        android:icon="@drawable/ic_menu_add" />
+    <item android:id="@+id/menu_close_window"
+        android:title="@string/close_window"
+        android:icon="@drawable/ic_menu_close_clear_cancel" />
+    <item android:id="@+id/menu_window_list"
+        android:title="@string/window_list"
+        android:icon="@drawable/ic_menu_windows" />
+    <item android:id="@+id/menu_toggle_soft_keyboard"
+        android:title="@string/toggle_soft_keyboard" />
+    <item android:id="@+id/menu_special_keys"
+        android:title="@string/special_keys" />
+    <item android:id="@+id/menu_preferences"
+        android:title="@string/preferences"
+        android:icon="@drawable/ic_menu_preferences" />
+    <item android:id="@+id/menu_reset"
+        android:title="@string/reset" />
+    <item android:id="@+id/menu_send_email"
+        android:title="@string/send_email" />
+    <item android:id="@+id/menu_toggle_wakelock"
+        android:title="@string/enable_wakelock" />
+    <item android:id="@+id/menu_toggle_wifilock"
+        android:title="@string/enable_wifilock" />
+    <item android:id="@+id/action_help"
+        android:title="@string/help" />
+</menu>

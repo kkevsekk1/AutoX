@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="control_keys_short_names">
+        <item>ბურთი</item>
+        <item>\@</item>
+        <item>მარცხ.-Alt</item>
+        <item>მარჯვ.-Alt</item>
+        <item>ხმა-ზემოთ</item>
+        <item>ხმა-ქვემოთ</item>
+        <item>კამერა</item>
+        <item>არცერთი</item>
+    </string-array>
+    <string-array name="entries_actionbar_preference">
+        <!-- <item>Action bar disabled</item> -->
+        <item>სტატუსის ხაზის მიმაგრება ეკრანზე</item>
+        <item>სტატუსის ხაზის დამალვა(საჩვენებლად შეეხეთ ეკრანის ზედა ნაწილს ან მენიუს ღილაკს)</item>
+    </string-array>
+    <string-array name="entries_backaction_preference">
+        <item>ტერმინალის ყველა ფანჯრის დახურვა</item>
+        <item>ტერმინალის მონიშნული ფანჯრის დახურვა</item>
+        <item>ფანჯრის დახურვა სესიების გაშვებულ მდგომარეობაში დატოვებით</item>
+        <item>ტერმინალისათვის ESC-ის გაგზავნა</item>
+        <item>ტერმინალისათვის TAB-ის გაგზავნა</item>
+    </string-array>
+    <string-array name="entries_color_preference">
+        <item>შავი თეთრზე</item>
+        <item>თეთრი შავზე</item>
+        <item>თეთრი ლურჯზე</item>
+        <item>მწვანე შავზე</item>
+        <item>ქარვისფერი შავზე</item>
+        <item>წითელი შავზე</item>
+        <item>ღია ლურჯი შავზე</item>
+        <item>Solarized Light</item>
+        <item>Solarized Dark</item>
+        <item>Linux Console</item>
+    </string-array>
+    <string-array name="entries_controlkey_preference">
+        <item>Jog ball</item>
+        <item>\@ ღილაკი</item>
+        <item>მარცხენა Alt ღილაკი</item>
+        <item>მარჯვენა Alt ღილაკი</item>
+        <item>ხმის აწევის ღილაკი</item>
+        <item>ხმის დაწევის ღილაკი</item>
+        <item>კამერის ღილაკი</item>
+        <item>არცერთი</item>
+    </string-array>
+    <string-array name="entries_cursorblink_preference">
+        <item>არა-მოციმციმე კურსორი</item>
+        <item>მოციმციმე კურსორი</item>
+    </string-array>
+    <string-array name="entries_cursorstyle_preference">
+        <item>ოთხკუთხედი</item>
+        <item>ქვედა ტირე</item>
+        <item>ვერტიკალური ხაზი</item>
+    </string-array>
+    <string-array name="entries_fnkey_preference">
+        <item>Jog ball</item>
+        <item>\@ ღილაკი</item>
+        <item>მარცხენა Alt ღილაკი</item>
+        <item>მარჯვენა Alt ღილაკი</item>
+        <item>ხმის აწევის ღილაკი</item>
+        <item>ხმის დაწევის ღილაკი</item>
+        <item>ამერის ღილაკი</item>
+        <item>არცერთი</item>
+    </string-array>
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8 პიქსელი</item>
+        <item>6 pt</item>
+        <item>7 pt</item>
+        <item>8 pt</item>
+        <item>9 pt</item>
+        <item>10 pt</item>
+        <item>12 pt</item>
+        <item>14 pt</item>
+        <item>16 pt</item>
+        <item>20 pt</item>
+        <item>24 pt</item>
+        <item>28 pt</item>
+        <item>32 pt</item>
+        <item>36 pt</item>
+        <item>42 pt</item>
+        <item>48 pt</item>
+        <item>64 pt</item>
+        <item>72 pt</item>
+        <item>96 pt</item>
+        <item>144 pt</item>
+        <item>288 pt</item>
+    </string-array>
+    <string-array name="entries_ime_preference">
+        <item>სიმბოლოებზე დამოკიდებული</item>
+        <item>სიტყვებზე დამოკიდებული</item>
+    </string-array>
+    <string-array name="entries_statusbar_preference">
+        <item>სტატუსის ხაზის ჩვენება</item>
+        <item>სტატუსის ხაზის დამალვა</item>
+    </string-array>
+    <string-array name="fn_keys_short_names">
+        <item>ბურთი</item>
+        <item>\@</item>
+        <item>მარცხ.-Alt</item>
+        <item>მარჯვ.-Alt</item>
+        <item>ხმა-ზემოთ</item>
+        <item>ხმა-ქვემოთ</item>
+        <item>კამერა</item>
+        <item>არცერთი</item>
+    </string-array>
+    <string name="application_terminal">Terminal Emulator</string>
+    <string name="close_window">ფანჯრის დახურვა</string>
+    <string name="confirm_window_close_message">გნებავთ ფანჯრის დახურვა?</string>
+    <string name="control_key_dialog_control_disabled_text">ღილაკი Control მითითებული არაა.</string>
+    <string name="control_key_dialog_control_text">CTRLKEY Space : Control-@ (NUL)\nCTRLKEY A..Z : Control-A..Z\nCTRLKEY 5 : Control-]\nCTRLKEY 6 : Control-^\nCTRLKEY 7 : Control-_\nCTRLKEY 9 : F11\nCTRLKEY 0 : F12</string>
+    <string name="control_key_dialog_fn_disabled_text">ღილაკი Function მითითებული არაა.</string>
+    <string name="control_key_dialog_fn_text">FNKEY 1..9 : F1-F9\nFNKEY 0 : F10\nFNKEY W : Up\nFNKEY A : Left\nFNKEY S : Down\nFNKEY D : Right\nFNKEY P : PageUp\nFNKEY N : PageDown\nFNKEY T : Tab\nFNKEY L : | (pipe)\nFNKEY U : _ (underscore)\nFNKEY E : Control-[ (ESC)\nFNKEY X : Delete\nFNKEY I : Insert\nFNKEY H : Home\nFNKEY F : End\nFNKEY . : Control-\\\n</string>
+    <string name="control_key_dialog_title">Control და Function ღილაკები</string>
+    <string name="copy_all">ასლი</string>
+    <string name="dialog_title_actionbar_preference">მოქმედების ხაზის ქცევა</string>
+    <string name="dialog_title_backaction_preference">ღილაკ Back-ის ქცევა</string>
+    <string name="dialog_title_color_preference">ტექსტის ფერი</string>
+    <string name="dialog_title_controlkey_preference">ღილაკი Control</string>
+    <string name="dialog_title_cursorblink_preference">კურსორის ციმციმი</string>
+    <string name="dialog_title_cursorstyle_preference">კურსორის სტილი</string>
+    <string name="dialog_title_fnkey_preference">ღილაკი Fn</string>
+    <string name="dialog_title_fontsize_preference">ფონტის ზომა</string>
+    <string name="dialog_title_ime_preference">შეყვანის მეთოდი</string>
+    <string name="dialog_title_initialcommand_preference">საწყისი ბრძანება</string>
+    <string name="dialog_title_shell_preference">გარსი</string>
+    <string name="dialog_title_statusbar_preference">მდგომარეობის ხაზი</string>
+    <string name="dialog_title_termtype_preference">ტერმინალის ტიპი</string>
+    <string name="disable_wakelock">WakeLock-ის გამორთვა</string>
+    <string name="disable_wifilock">WifiLock-ის გამორთვა</string>
+    <string name="edit_text">ტექსტის ჩასწორება</string>
+    <string name="enable_wakelock">WakeLock-ის ჩართვა</string>
+    <string name="enable_wifilock">WifiLock-ის ჩართვა</string>
+    <string name="keyboard_preferences">კლავიატურა</string>
+    <string name="new_window">ახალი ფანჯარა</string>
+    <string name="next_window">შემდეგი ფანჯარა</string>
+    <string name="paste">ჩასმა</string>
+    <string name="perm_append_to_path">Terminal Emulator-სათვის ბრძანებების დამატება</string>
+    <string name="perm_prepend_to_path">Terminal Emulator-ის ბრძანებების უგულებელყოფა</string>
+    <string name="perm_run_script">ტერმინალში სასურველი ბრძანებების გაშვება</string>
+    <string name="permdesc_append_to_path">Allows application to provide additional commands (add directories to the PATH) for Terminal Emulator for Android.</string>
+    <string name="permdesc_prepend_to_path">Allows application to override existing commands with its own versions (prepend directories to the PATH) in Terminal Emulator for Android.</string>
+    <string name="permdesc_run_script">Allows application to open new windows in Terminal Emulator for Android and run commands in those windows with all of Terminal Emulator for Android\'s permissions, including access to the Internet and your SD Card.</string>
+    <string name="preferences">გამართვა</string>
+    <string name="prev_window">წინა ფანჯარა</string>
+    <string name="process_exit_message">ტერმინალის სესია დასრულდა</string>
+    <string name="reset">ტერმინალის რესტარტი</string>
+    <string name="reset_toast_notification">ამ ტერმინალის მდგომარეობა საწყისზე დაბრუნდა.</string>
+    <string name="screen_preferences">ეკრანი</string>
+    <string name="select_text">ტექსტის მონიშვნა</string>
+    <string name="send_control_key">საკონტროლო ღილაკის გაგზავნა</string>
+    <string name="send_email">ელ-ფოსტის გაგზავნა</string>
+    <string name="send_fn_key">fn ღილაკის გაგზავნა</string>
+    <string name="service_notify_text">ტერმინალის სესია გაშვებულია</string>
+    <string name="shell_preferences">გარსი</string>
+    <string name="special_keys">სპეციალური ღილაკები</string>
+    <string name="summary_actionbar_preference">აირჩიეთ მოქმედების ხაზის ქცევის პარამეტრები(Android 3.0 და ზემოთ).</string>
+    <string name="summary_allow_prepend_path_preference">უნდა იყვნენ თუ არა აპლიკაციები ნებადართული, რომ შეცვალონ გარსის ცვლადი PATH მის დასაწყისში დასტების ჩამატებით.</string>
+    <string name="summary_backaction_preference">აირჩიეთ რას აკეთებს ღილაკი back.</string>
+    <string name="summary_close_window_on_process_exit_preference">უნდა დაიხუროს თუ არა ფანჯარა გარსიდან გამოსვლის დროს.</string>
+    <string name="summary_color_preference">აირჩიეთ ტექსტის ფერი.</string>
+    <string name="summary_controlkey_preference">აირჩიეთ ღილაკი control.</string>
+    <string name="summary_cursorblink_preference">აირჩიეთ კურსორის ციმციმის ტიპი.</string>
+    <string name="summary_cursorstyle_preference">აირჩიეთ კურსორის სტილი.</string>
+    <string name="summary_do_path_extensions_preference">უნდა იყვნენ თუ არა აპლიკაციები ნებადართული, რომ შეცვალონ გარსის ცვლადი PATH.</string>
+    <string name="summary_fnkey_preference">აირჩიეთ ღილაკი Fn.</string>
+    <string name="summary_fontsize_preference">აირჩიეთ სიმბოლოს სიმაღლე წერტილებში.</string>
+    <string name="summary_ime_preference">აირჩიეთ შეყვანის მეთოდი პროგრამული კლავიატურისათვის.</string>
+    <string name="summary_initialcommand_preference">გაეგზავნოს გარსს მისი გაშვებისას.</string>
+    <string name="summary_shell_preference">აირჩიეთ გარსის ბრძანების ხაზი.</string>
+    <string name="summary_statusbar_preference">მდგომარეობის ხაზის ჩართვა/გამორთვა.</string>
+    <string name="summary_termtype_preference">ტერმინალის რომელი ტიპი იქნება მიწოდებული გარსისათვის.</string>
+    <string name="summary_utf8_by_default_preference">როდესაც UTF-8 გამოიყენება ნაგულისხმევად.</string>
+    <string name="summary_verify_path_preference">უნდა იყოს თუ არა ამოღებული PATH-დან მიუწვდომელი დასტები.</string>
+    <string name="text_preferences">ტექსტი</string>
+    <string name="title_actionbar_preference">მოქმედების ხაზი</string>
+    <string name="title_allow_prepend_path_preference">PATH-ის დასაწყისში ჩამატება</string>
+    <string name="title_backaction_preference">ღილაკ Back-ის ქცევა</string>
+    <string name="title_close_window_on_process_exit_preference">ფანჯრის დახურვა გასვლისას</string>
+    <string name="title_color_preference">ფერები</string>
+    <string name="title_controlkey_preference">ღილაკი Control</string>
+    <string name="title_cursorblink_preference">კურსორის ციმციმი</string>
+    <string name="title_cursorstyle_preference">კურსორის სტილი</string>
+    <string name="title_do_path_extensions_preference">PATH-ის გავრცობის ნების დართვა</string>
+    <string name="title_fnkey_preference">ღილაკი Fn</string>
+    <string name="title_fontsize_preference">ფონტის ზომა</string>
+    <string name="title_ime_preference">შეყვანის მეთოდი</string>
+    <string name="title_initialcommand_preference">საწყისი ბრძანება</string>
+    <string name="title_shell_preference">ბრძანების ხაზი</string>
+    <string name="title_statusbar_preference">მდგომარეობის ხაზი</string>
+    <string name="title_termtype_preference">ტერმინალის ტიპი</string>
+    <string name="title_utf8_by_default_preference">UTF-8-ის გამოყენება</string>
+    <string name="title_verify_path_preference">გარსის ცვლად PATH-ის გადამოწმება</string>
+    <string name="toggle_soft_keyboard">პროგრამული კლავიატურის ჩართ./გამორთ.</string>
+    <string name="window_list">ფანჯრები</string>
+    <string name="window_title">ფანჯარა %1$d</string>
+</resources>

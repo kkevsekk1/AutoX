@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="entries_color_preference">
+        <item>Beyaz arkaplan üzerinde siyah metin</item>
+        <item>Siyah arkaplan üzerinde beyaz metin</item>
+        <item>Mavi arkaplan üzerinde beyaz metin</item>
+        <item>Siyah arkaplan üzerinde yeşil metin</item>
+        <item>Siyah arkaplan üzerinde turuncu metin</item>
+        <item>Siyah arkaplan üzerinde kırmızı metin</item>
+        <item>Solarized Light</item>
+        <item>Solarized Dark</item>
+        <item>Linux Console</item>
+    </string-array>
+    <string-array name="entries_controlkey_preference">
+        <item>Jog ball</item>
+        <item>\@ Tuşu</item>
+        <item>Sol Alt Tuşu</item>
+        <item>Sağ Alt Tuşu</item>
+        <item>Ses Arttırma Tuşu</item>
+        <item>Ses Kısma Tuşu</item>
+        <item>Kamera Tuşu</item>
+    </string-array>
+    <string-array name="entries_cursorblink_preference">
+        <item>Non-blinking cursor</item>
+        <item>Blinking cursor</item>
+    </string-array>
+    <string-array name="entries_cursorstyle_preference">
+        <item>Rectangle</item>
+        <item>Underline</item>
+        <item>Vertical bar</item>
+    </string-array>
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8 piksel</item>
+        <item>6 pt</item>
+        <item>7 pt</item>
+        <item>8 pt</item>
+        <item>9 pt</item>
+        <item>10 pt</item>
+        <item>12 pt</item>
+        <item>14 pt</item>
+        <item>16 pt</item>
+        <item>20 pt</item>
+        <item>24 pt</item>
+        <item>28 pt</item>
+        <item>32 pt</item>
+        <item>36 pt</item>
+        <item>42 pt</item>
+        <item>48 pt</item>
+        <item>64 pt</item>
+        <item>72 pt</item>
+        <item>96 pt</item>
+        <item>144 pt</item>
+        <item>288 pt</item>
+    </string-array>
+    <string-array name="entries_ime_preference">
+        <item>Harf tabanlı</item>
+        <item>Kelime tabanlı</item>
+    </string-array>
+    <string-array name="entries_statusbar_preference">
+        <item>Uyarı çubuğunu göster</item>
+        <item>Uyarı çubuğunu sakla</item>
+    </string-array>
+    <string name="application_terminal">Terminal Emülatörü</string>
+    <string name="copy_all">Hepsini kopyala</string>
+    <string name="dialog_title_color_preference">Metin rengi</string>
+    <string name="dialog_title_controlkey_preference">Kontrol tuşu</string>
+    <string name="dialog_title_cursorblink_preference">Cursor blink</string>
+    <string name="dialog_title_cursorstyle_preference">İmleç stili</string>
+    <string name="dialog_title_fontsize_preference">Karakter boyutu</string>
+    <string name="dialog_title_ime_preference">Giriş yöntemi</string>
+    <string name="dialog_title_initialcommand_preference">Başlangıç komutu</string>
+    <string name="dialog_title_shell_preference">Kabuk</string>
+    <string name="dialog_title_statusbar_preference">Uyarı çubuğu</string>
+    <string name="edit_text">Metni düzenle</string>
+    <string name="keyboard_preferences">Klavye</string>
+    <string name="paste">Yapıştır</string>
+    <string name="preferences">Tercihler</string>
+    <string name="reset">Terminali yeniden başlat</string>
+    <string name="screen_preferences">Ekran</string>
+    <string name="select_text">Metni seç</string>
+    <string name="send_email">Email olarak yolla</string>
+    <string name="shell_preferences">Kabuk</string>
+    <string name="special_keys">Özel tuşlar</string>
+    <string name="summary_color_preference">Metin rengini seçin.</string>
+    <string name="summary_controlkey_preference">Kontrol tuşunu seçin.</string>
+    <string name="summary_cursorblink_preference">Choose cursor blink.</string>
+    <string name="summary_cursorstyle_preference">İmleç stili seçin.</string>
+    <string name="summary_fontsize_preference">Karakter büyüklüğü seçin.</string>
+    <string name="summary_ime_preference">Ekran klavyesi için giriş yöntemi seçin.</string>
+    <string name="summary_initialcommand_preference">Başlangıçta kabukta çalıştır.</string>
+    <string name="summary_shell_preference">Kabukta kullanılacak komut satırını belirtin.</string>
+    <string name="summary_statusbar_preference">Uyarı çubuğunu göster/gizle.</string>
+    <string name="text_preferences">Metin</string>
+    <string name="title_color_preference">Renkler</string>
+    <string name="title_controlkey_preference">Kontrol tuşu</string>
+    <string name="title_cursorblink_preference">Cursor blink</string>
+    <string name="title_cursorstyle_preference">İmleç stili</string>
+    <string name="title_fontsize_preference">Karakter boyutu</string>
+    <string name="title_ime_preference">Giriş yöntemi</string>
+    <string name="title_initialcommand_preference">Başlangıç komutu</string>
+    <string name="title_shell_preference">Komut satırı</string>
+    <string name="title_statusbar_preference">Uyarı çubuğu</string>
+    <string name="toggle_soft_keyboard">Ekran klavyesine geç</string>
+</resources>

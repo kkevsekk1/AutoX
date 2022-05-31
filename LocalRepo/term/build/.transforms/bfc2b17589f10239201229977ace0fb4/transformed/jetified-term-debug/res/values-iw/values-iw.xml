@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="control_keys_short_names">
+    <item>כדור</item>
+    <item>\@</item>
+    <item>ALT-שמאלי</item>
+    <item>ALT-ימני</item>
+    <item>קול עליון</item>
+    <item>קול תחתון</item>
+    <item>מצלמה</item>
+    <item>ריק</item>
+  </string-array>
+    <string-array name="entries_actionbar_preference">
+    <item>הצג תמיד שורת מצב</item>
+    <item>הסתר בר פעולות (הקש בחלק עליון של המסך או על כפתור תפריט כדי להציג)</item>
+  </string-array>
+    <string-array name="entries_backaction_preference">
+    <item>סוגר את חלונות מסוף</item>
+    <item>סוגר את חלון המסוף הנוכחי בלבד</item>
+    <item>סוגר פעילות, ומשאיר הפעלות רצות</item>
+    <item>שולח ESC למסוף</item>
+    <item>שולח TAB למסוף</item>
+  </string-array>
+    <string-array name="entries_color_preference">
+    <item>טקסט שחור על לבן</item>
+    <item>טקסט לבן על שחור</item>
+    <item>טקסט לבן על כחול</item>
+    <item>טקסט ירוק על שחור</item>
+    <item>טקסט אמבר על שחור</item>
+    <item>טקסט אדום על שחור</item>
+    <item>טקסט כחול הולו על שחור</item>
+    <item>Solarized Light</item>
+    <item>Solarized Dark</item>
+    <item>מסוף לינוקס</item>
+  </string-array>
+    <string-array name="entries_controlkey_preference">
+    <item>רענון הכדור</item>
+    <item>\@ מפתח</item>
+    <item>מקש ALT שמאלי</item>
+    <item>מקש ALT ימני</item>
+    <item>מקש קול עליון</item>
+    <item>מקש קוך תחתון</item>
+    <item>לחצן מצלמה</item>
+    <item>ריק</item>
+  </string-array>
+    <string-array name="entries_cursorblink_preference">
+    <item>סמן לא מהבהב</item>
+    <item>סמן מהבהב</item>
+  </string-array>
+    <string-array name="entries_cursorstyle_preference">
+    <item>מלבן</item>
+    <item>קו תחתון</item>
+    <item>קו ניצב</item>
+  </string-array>
+    <string-array name="entries_fnkey_preference">
+    <item>רענון הכדור</item>
+    <item>\@ מפתח</item>
+    <item>מקש ALT שמאלי</item>
+    <item>מקש ALT ימני</item>
+    <item>מקש קול עליון</item>
+    <item>מקש קוך תחתון</item>
+    <item>לחצן מצלמה</item>
+    <item>ריק</item>
+  </string-array>
+    <string-array name="entries_fontsize_preference">
+    <item>4 * 8 פיקסלים</item>
+    <item>6 נק\'</item>
+    <item>7 נק\'</item>
+    <item>8 נק\'</item>
+    <item>9 נק\'</item>
+    <item>10 נק\'</item>
+    <item>12 נק\'</item>
+    <item>14 נק\'</item>
+    <item>16 נק\'</item>
+    <item>20 נק\'</item>
+    <item>24 נק\'</item>
+    <item>28 נק\'</item>
+    <item>32 נק\'</item>
+    <item>36 נק\'</item>
+    <item>42 נק\'</item>
+    <item>48 נק\'</item>
+    <item>64 נק\'</item>
+    <item>72 נק\'</item>
+    <item>96 נק\'</item>
+    <item>144 נק\'</item>
+    <item>288 נק\'</item>
+  </string-array>
+    <string-array name="entries_ime_preference">
+    <item>מבוסס תווים</item>
+    <item>מבוסס מילים</item>
+  </string-array>
+    <string-array name="entries_orientation_preference">
+    <item>אוטומטי</item>
+    <item>שוכב</item>
+    <item>עומד</item>
+  </string-array>
+    <string-array name="entries_statusbar_preference">
+    <item>הצג שורת המצב</item>
+    <item>הסתר שורת מצב</item>
+  </string-array>
+    <string-array name="fn_keys_short_names">
+    <item>כדור</item>
+    <item>\@</item>
+    <item>ALT-שמאלי</item>
+    <item>ALT-ימני</item>
+    <item>קול עליון</item>
+    <item>קול תחתון</item>
+    <item>מצלמה</item>
+    <item>ריק</item>
+  </string-array>
+    <string name="alt_sends_esc">ALT שולח ESC</string>
+    <string name="alt_sends_esc_summary_off">מקש ALT לא שולח ESC.</string>
+    <string name="alt_sends_esc_summary_on">ALT שולח ESC.</string>
+    <string name="application_terminal">אמולטור מסוף</string>
+    <string name="close_window">סגור חלון</string>
+    <string name="confirm_window_close_message">לסגור חלון זה?</string>
+    <string name="control_key_dialog_control_disabled_text">לא הוגדר מקש CTRL.</string>
+    <string name="control_key_dialog_fn_disabled_text">לא הוגדר מקש FN.</string>
+    <string name="control_key_dialog_title">מקשי CTRL ו-FN</string>
+    <string name="copy_all">העתק הכל</string>
+    <string name="dialog_title_actionbar_preference">התנהגות בר הפעלה</string>
+    <string name="dialog_title_backaction_preference">אופן הפעולה של לחצן החזרה</string>
+    <string name="dialog_title_color_preference">צבע טקסט</string>
+    <string name="dialog_title_controlkey_preference">מקש CTRL</string>
+    <string name="dialog_title_cursorblink_preference">הבהוב הסמן</string>
+    <string name="dialog_title_cursorstyle_preference">סגנון הסמן</string>
+    <string name="dialog_title_fnkey_preference">מקש FN</string>
+    <string name="dialog_title_fontsize_preference">גודל גופן</string>
+    <string name="dialog_title_ime_preference">שיטת קלט</string>
+    <string name="dialog_title_initialcommand_preference">פקודה ראשונית</string>
+    <string name="dialog_title_orientation_preference">התנהגות כיוון מסך</string>
+    <string name="dialog_title_shell_preference">מעטפת</string>
+    <string name="dialog_title_statusbar_preference">שורת מצב</string>
+    <string name="dialog_title_termtype_preference">סוג המסוף</string>
+    <string name="disable_wakelock">אפשר כיבוי מסך</string>
+    <string name="disable_wifilock">אפשר כיבוי WiFi</string>
+    <string name="edit_text">ערוך טקסט</string>
+    <string name="email_transcript_chooser_title">תעתיק מייל באמצעות:</string>
+    <string name="email_transcript_no_email_activity_found">לא הצליחתי למצוא לקוח מייל כדי לשלוח תעתיק.</string>
+    <string name="email_transcript_subject">תעתיק של אימולטור מסוף באנדרואיד</string>
+    <string name="enable_wakelock">אל תכבה מסך</string>
+    <string name="enable_wifilock">אל תכבה WiFi</string>
+    <string name="keyboard_preferences">מקלדת</string>
+    <string name="new_window">חלון חדש</string>
+    <string name="next_window">החלון הבא</string>
+    <string name="paste">הדבק</string>
+    <string name="perm_append_to_path">הוסף פקודות למסוף</string>
+    <string name="perm_prepend_to_path">דרוס פקודות ב-Terminal Emulator</string>
+    <string name="perm_run_script">הפעל פקודות שרירותיות במסוף</string>
+    <string name="preferences">העדפות</string>
+    <string name="prev_window">החלון הקודם</string>
+    <string name="process_exit_message">מסוף הסתיים</string>
+    <string name="reset">איפוס המונח</string>
+    <string name="reset_toast_notification">מצב חלון המסוף אופס.</string>
+    <string name="screen_preferences">מסך</string>
+    <string name="select_text">בחר טקסט</string>
+    <string name="send_control_key">שלח CTRL</string>
+    <string name="send_email">דואר אלקטרוני ל</string>
+    <string name="send_fn_key">שלח FN</string>
+    <string name="service_notify_text">מסוף פועל</string>
+    <string name="shell_preferences">מעטפת</string>
+    <string name="special_keys">מקשים מיוחדים</string>
+    <string name="summary_actionbar_preference">בחר התנהגות של בר הפעלה (אנרואיד 3.0 ומעלה).</string>
+    <string name="summary_allow_prepend_path_preference">האם יישומים אחרים יוכלו לשנות פקודות קיימות (להוסיף לתחילת PATH).</string>
+    <string name="summary_backaction_preference">בחר פעולה בעת לחיצה על לחצן חזור.</string>
+    <string name="summary_close_window_on_process_exit_preference">האם בסגירת shell חלון ייסגר.</string>
+    <string name="summary_color_preference">בחר בצע טקסט.</string>
+    <string name="summary_controlkey_preference">בחר מקש CTRL.</string>
+    <string name="summary_cursorblink_preference">בחר הבהוב הסמן.</string>
+    <string name="summary_cursorstyle_preference">בחר סגנון לסמן.</string>
+    <string name="summary_do_path_extensions_preference">האם יישומים אחרים יקבלו גישה להוסיף פקודות (להוסיף ל-PATH).</string>
+    <string name="summary_fnkey_preference">בחר מקש FN.</string>
+    <string name="summary_fontsize_preference">בחר גובה תווים בנקודות.</string>
+    <string name="summary_home_path_preference">נתיב לתיקייה שתשומש כתיקיית HOME.</string>
+    <string name="summary_ime_preference">בחר בשיטת הקלט עבור מקלדת מסך.</string>
+    <string name="summary_initialcommand_preference">נשלח בעת הפעלת shell.</string>
+    <string name="summary_orientation_preference">בחר פעולה בשינוי כיוון מסך.</string>
+    <string name="summary_shell_preference">ציין את שורת הפקודה.</string>
+    <string name="summary_statusbar_preference">הצגת/הסתרת שורת מצב.</string>
+    <string name="summary_termtype_preference">איזה סוג מסוף לדווח ל-shell.</string>
+    <string name="summary_utf8_by_default_preference">האם UTF-8 מופעל כברירת מחדל.</string>
+    <string name="summary_verify_path_preference">האם תיקיות בלתי נגישות צריכות לרדת מ-PATH.</string>
+    <string name="text_preferences">טקסט</string>
+    <string name="title_actionbar_preference">בר הפעלות</string>
+    <string name="title_allow_prepend_path_preference">אפשר שינוי נתיב PATH</string>
+    <string name="title_backaction_preference">אופן הפעולה של לחצן החזרה</string>
+    <string name="title_close_window_on_process_exit_preference">סגור חלון ביציאה</string>
+    <string name="title_color_preference">צבעים</string>
+    <string name="title_controlkey_preference">מקש CTRL</string>
+    <string name="title_cursorblink_preference">הבהוב הסמן</string>
+    <string name="title_cursorstyle_preference">סגנון הסמן</string>
+    <string name="title_do_path_extensions_preference">אפשר הרחבות PATH</string>
+    <string name="title_fnkey_preference">מקש FN</string>
+    <string name="title_fontsize_preference">גודל גופן</string>
+    <string name="title_home_path_preference">תיקיית HOME</string>
+    <string name="title_ime_preference">שיטת קלט</string>
+    <string name="title_initialcommand_preference">פקודה ראשונית</string>
+    <string name="title_mouse_tracking_preference">שלח אירועי עכבר</string>
+    <string name="title_orientation_preference">כיוון מסך</string>
+    <string name="title_shell_preference">שורת הפקודה</string>
+    <string name="title_statusbar_preference">שורת מצב</string>
+    <string name="title_termtype_preference">סוג המסוף</string>
+    <string name="title_use_keyboard_shortcuts">השתמש בקיצורי מקלדת</string>
+    <string name="title_utf8_by_default_preference">ברירת מחדל UTF-8</string>
+    <string name="title_verify_path_preference">אמת ערך PATH</string>
+    <string name="toggle_soft_keyboard">מתג מקלדת מסך</string>
+    <string name="use_keyboard_shortcuts_summary_off">קיצורי מקלדת מושבתים.</string>
+    <string name="window_list">חלונות</string>
+    <string name="window_title">חלון %1$d</string>
+</resources>

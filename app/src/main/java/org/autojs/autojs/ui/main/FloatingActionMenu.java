@@ -132,6 +132,12 @@ public class FloatingActionMenu extends FrameLayout implements View.OnClickListe
         }
     }
 
+    public void setFabLabels(String[] labels) {
+        for (int i = 0; i < labels.length; i++) {
+            mLabels[i].setText(labels[i]);
+        }
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);

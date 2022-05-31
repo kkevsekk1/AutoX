@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="control_keys_short_names">
+        <item>Görgő</item>
+        <item>\@</item>
+        <item>Bal-Alt</item>
+        <item>Jobb-Alt</item>
+        <item>Hangerő-fel</item>
+        <item>Hangerő-le</item>
+        <item>Kamera</item>
+        <item>Nincs</item>
+    </string-array>
+    <string-array name="entries_actionbar_preference">
+        <!-- <item>Akciósáv letiltva</item> -->
+        <item>Mindig jelenjen meg</item>
+        <item>Elrejtés (a megjelenítéshez érintsd meg a képernyő tetejét vagy a menü gombot)</item>
+    </string-array>
+    <string-array name="entries_backaction_preference">
+        <item>Bezárja az összes terminál ablakot</item>
+        <item>Bezárja az aktív terminál ablakot</item>
+        <item>Kilép a programból, de a munkamenetből nem</item>
+        <item>ESC-et küld a terminálra</item>
+        <item>TAB-ot küld a terminálra</item>
+    </string-array>
+    <string-array name="entries_color_preference">
+        <item>Fekete szöveg, fehér háttér</item>
+        <item>Fehér szöveg, fekete háttér</item>
+        <item>Fehér szöveg, kék háttér</item>
+        <item>Zöld szöveg, fekete háttér</item>
+        <item>Sárga szöveg, fekete háttér</item>
+        <item>Piros szöveg, fekete háttér</item>
+        <item>Holo kék szöveg, fekete háttér</item>
+        <item>Solarized világos</item>
+        <item>Solarized sötét</item>
+        <item>Linux konzol</item>
+    </string-array>
+    <string-array name="entries_controlkey_preference">
+        <item>Görgő</item>
+        <item>\@ billentyű</item>
+        <item>Bal Alt billentyű</item>
+        <item>Jobb Alt billentyű</item>
+        <item>Hangerő fel gomb</item>
+        <item>Hangerő le gomb</item>
+        <item>Kamera gomb</item>
+        <item>Nincs</item>
+    </string-array>
+    <string-array name="entries_cursorblink_preference">
+        <item>Statikus kurzor</item>
+        <item>Villogó kurzor</item>
+    </string-array>
+    <string-array name="entries_cursorstyle_preference">
+        <item>Téglalap</item>
+        <item>Aláhúzás</item>
+        <item>Függőleges</item>
+    </string-array>
+    <string-array name="entries_fnkey_preference">
+        <item>Görgő</item>
+        <item>\@ billentyű</item>
+        <item>Bal Alt billentyű</item>
+        <item>Jobb Alt billentyű</item>
+        <item>Hangerő fel gomb</item>
+        <item>Hangerő le gomb</item>
+        <item>Kamera gomb</item>
+        <item>Nincs</item>
+    </string-array>
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8 képpont</item>
+        <item>6 pt</item>
+        <item>7 pt</item>
+        <item>8 pt</item>
+        <item>9 pt</item>
+        <item>10 pt</item>
+        <item>12 pt</item>
+        <item>14 pt</item>
+        <item>16 pt</item>
+        <item>20 pt</item>
+        <item>24 pt</item>
+        <item>28 pt</item>
+        <item>32 pt</item>
+        <item>36 pt</item>
+        <item>42 pt</item>
+        <item>48 pt</item>
+        <item>64 pt</item>
+        <item>72 pt</item>
+        <item>96 pt</item>
+        <item>144 pt</item>
+        <item>288 pt</item>
+    </string-array>
+    <string-array name="entries_ime_preference">
+        <item>Karakterenkénti bevitel</item>
+        <item>Szavankénti bevitel</item>
+    </string-array>
+    <string-array name="entries_orientation_preference">
+        <item>Automatikus</item>
+        <item>Fekvő</item>
+        <item>Álló</item>
+    </string-array>
+    <string-array name="entries_statusbar_preference">
+        <item>Megjelenítés</item>
+        <item>Elrejtés</item>
+    </string-array>
+    <string-array name="fn_keys_short_names">
+        <item>Görgő</item>
+        <item>\@</item>
+        <item>Bal-Alt</item>
+        <item>Jobb-Alt</item>
+        <item>Hangerő-fel</item>
+        <item>Hangerő-le</item>
+        <item>Kamera</item>
+        <item>Nincs</item>
+    </string-array>
+    <string name="activity_shortcut_create">"Terminál parancsikon"</string>
+    <string name="addshortcut_arguments_label">Paraméterek\:</string>
+    <string name="addshortcut_button_find_command">Parancs keresése</string>
+    <string name="addshortcut_button_text_icon">Szöveges ikon</string>
+    <string name="addshortcut_command_hint">parancs</string>
+    <string name="addshortcut_command_window_instructions">A parancs mezőbe teljes útvonalat kell megadni, paraméterek nélkül. A parancs paramétereit a Paraméterek mezőben lehet megadni (pl.: cd /sdcard).</string>
+    <string name="addshortcut_example_hint">--példa=\""a\"</string>
+    <string name="addshortcut_make_text_icon">SZÖVEGES IKON LÉTREHOZÁSA</string>
+    <string name="addshortcut_navigator_title">PARANCS KERESÉSE</string>
+    <string name="addshortcut_shortcut_label">Ikon címkéje\:</string>
+    <string name="addshortcut_title">Terminál parancsikon</string>
+    <string name="alt_sends_esc">Az Alt billentyű ESC-et küld</string>
+    <string name="alt_sends_esc_summary_off">Az Alt billentyű nem ESC-et küld.</string>
+    <string name="alt_sends_esc_summary_on">Az Alt billentyű ESC-et küld.</string>
+    <string name="application_terminal">Terminál Emulátor</string>
+    <string name="close_window">Ablak bezárása</string>
+    <string name="colorvalue_icon_text_entry_hint">Adjon meg szöveget az ikonhoz</string>
+    <string name="colorvalue_label_lock_button_column">RÖGZÍT</string>
+    <string name="colorvalue_letter_alpha">α</string>
+    <string name="colorvalue_letter_blue">B</string>
+    <string name="colorvalue_letter_green">G</string>
+    <string name="colorvalue_letter_red">R</string>
+    <string name="confirm_window_close_message">Bezárja ezt az ablakot?</string>
+    <string name="control_key_dialog_control_disabled_text">Nincs beállítva Control billentyű.</string>
+    <string name="control_key_dialog_control_text">CTRLKEY Szóköz : Control-@ (NUL)\nCTRLKEY A..Z : Control-A..Z\nCTRLKEY 5 : Control-]\nCTRLKEY 6 : Control-^\nCTRLKEY 7 : Control-_\nCTRLKEY 9 : F11\nCTRLKEY 0 : F12</string>
+    <string name="control_key_dialog_fn_disabled_text">Nincs beállítva funkció billentyű.</string>
+    <string name="control_key_dialog_fn_text">FNKEY 1..9 : F1-F9\nFNKEY 0 : F10\nFNKEY W : Fel\nFNKEY A : Balra\nFNKEY S : Le\nFNKEY D : Jobbra\nFNKEY P : PageUp\nFNKEY N : PageDown\nFNKEY T : Tab\nFNKEY L : | (pipe)\nFNKEY U : _ (aláhúzás)\nFNKEY E : Control-[ (ESC)\nFNKEY X : Delete\nFNKEY I : Insert\nFNKEY H : Home\nFNKEY F : End\nFNKEY . : Control-\\\n</string>
+    <string name="control_key_dialog_title">Control és funkció billentyűk</string>
+    <string name="copy_all">Az összes másolása</string>
+    <string name="dialog_title_actionbar_preference">Akciósáv viselkedése</string>
+    <string name="dialog_title_backaction_preference">Vissza gomb viselkedése</string>
+    <string name="dialog_title_color_preference">Színek</string>
+    <string name="dialog_title_controlkey_preference">Control billentyű</string>
+    <string name="dialog_title_cursorblink_preference">Kurzor villogás</string>
+    <string name="dialog_title_cursorstyle_preference">Kurzor stílusa</string>
+    <string name="dialog_title_fnkey_preference">Funkció billentyű</string>
+    <string name="dialog_title_fontsize_preference">Betűméret</string>
+    <string name="dialog_title_ime_preference">Beviteli mód</string>
+    <string name="dialog_title_initialcommand_preference">Indító parancs</string>
+    <string name="dialog_title_orientation_preference">Kijelző tájolása</string>
+    <string name="dialog_title_shell_preference">Konzol</string>
+    <string name="dialog_title_statusbar_preference">Értesítési sáv</string>
+    <string name="dialog_title_termtype_preference">Terminál típusa</string>
+    <string name="disable_wakelock">Alvás engedélyezése</string>
+    <string name="disable_wifilock">Wi-Fi-alvás engedélyezése</string>
+    <string name="edit_text">Szöveg szerkesztése</string>
+    <string name="email_transcript_chooser_title">Terminál küldése:</string>
+    <string name="email_transcript_no_email_activity_found">Nem sikerült kiválasztani az email alkalmazást.</string>
+    <string name="email_transcript_subject">Android Terminal Emulátor terminál másolat</string>
+    <string name="enable_wakelock">Alvás megakadályozása</string>
+    <string name="enable_wifilock">Wi-Fi-alvás megakadályozása</string>
+    <string name="fsnavigator_change_theme">Téma váltása</string>
+    <string name="fsnavigator_no_external_storage">Külső tároló nem elérhető</string>
+    <string name="fsnavigator_optional_enter_path">vagy adja meg az útvonalat</string>
+    <string name="fsnavigator_title">FÁJL MEGNYITÁSA</string>
+    <string name="help">Súgó</string>
+    <string name="keyboard_preferences">Billentyűzet</string>
+    <string name="new_window">Új ablak</string>
+    <string name="next_window">Következő ablak</string>
+    <string name="paste">Beillesztés</string>
+    <string name="perm_append_to_path">Parancsok hozzáadása a Terminál Emulátorhoz</string>
+    <string name="perm_prepend_to_path">Parancsok felülírása a Terminál Emulátorban</string>
+    <string name="perm_run_script">Tetszőleges parancsok futtatása a Terminál Emulátorban</string>
+    <string name="permdesc_append_to_path">Az alkalmazások felvehetnek új parancsokat (hozzáfűzhetnek a PATH változóhoz) az Android Terminál Emulátorban.</string>
+    <string name="permdesc_prepend_to_path">Az alkalmazások felülírhatják a meglévő parancsokat (hozzáfűzhetnek a PATH változó elejéhez) az Android Terminál Emulátorban.</string>
+    <string name="permdesc_run_script">Lehetővé teszi az alkalmazások számára új ablakok megnyitását az Android Terminál Emulátorban és a megnyitott ablakokban tetszőleges parancsokat futtathatnak az Android Terminál Emulátor összes jogosultságával, beleértve a teljes hozzáférést az Internethez és az SD-kártyához.</string>
+    <string name="preferences">Beállítások</string>
+    <string name="prev_window">Előző ablak</string>
+    <string name="process_exit_message">A munkamenet befejeződött</string>
+    <string name="reset">Alaphelyzet</string>
+    <string name="reset_toast_notification">A terminál ablak alaphelyzetbe állítva.</string>
+    <string name="screen_preferences">Képernyő</string>
+    <string name="select_text">Szöveg kijelölése</string>
+    <string name="send_control_key">Control billentyű küldése</string>
+    <string name="send_email">Küldés emailben</string>
+    <string name="send_fn_key">Fn billentyű küldése</string>
+    <string name="service_notify_text">Aktív munkamenet</string>
+    <string name="shell_preferences">Konzol</string>
+    <string name="special_keys">Speciális billentyűk</string>
+    <string name="summary_actionbar_preference">Válassza ki az akciósáv viselkedési módját (csak Android 3.0-tól).</string>
+    <string name="summary_allow_prepend_path_preference">Az alkalmazások felülírhatják a meglévő parancsokat (hozzáfűzhetnek a PATH változó elejéhez).</string>
+    <string name="summary_backaction_preference">Válassza ki, mi történjen a Vissza gomb megnyomásakor.</string>
+    <string name="summary_close_window_on_process_exit_preference">Terminál ablak bezárása, ha a konzol is bezáródik.</string>
+    <string name="summary_color_preference">Válassza ki a szöveg és a háttér színét.</string>
+    <string name="summary_controlkey_preference">Válassza ki a Control billentyűleütést kiváltó gombot.</string>
+    <string name="summary_cursorblink_preference">Állítsa be a kurzor villogását.</string>
+    <string name="summary_cursorstyle_preference">Válassza ki a kurzor stílusát.</string>
+    <string name="summary_do_path_extensions_preference">Az alkalmazások felvehetnek új parancsokat (hozzáfűzhetnek a PATH változóhoz).</string>
+    <string name="summary_fnkey_preference">Válassza ki a funkció billentyűket kiváltó gombot.</string>
+    <string name="summary_fontsize_preference">Karakterek magasságának megadása pontokban.</string>
+    <string name="summary_home_path_preference">Egy írható könyvtár útvonala, amely HOME-ként szolgál.</string>
+    <string name="summary_ime_preference">Beviteli mód kiválasztása a szoftveres billentyűzethez.</string>
+    <string name="summary_initialcommand_preference">Induláskor lefuttatja a konzol.</string>
+    <string name="summary_mouse_tracking_preference">Érintés és görgetés események küldése a terminálra escape szekvenciaként.</string>
+    <string name="summary_orientation_preference">Válassza ki a képernyő tájolásának módját.</string>
+    <string name="summary_shell_preference">Adja meg a konzolt elindító parancsot.</string>
+    <string name="summary_statusbar_preference">Értesítési sáv megjelenítése/elrejtése.</string>
+    <string name="summary_termtype_preference">Milyen terminál típust jelentsen a konzolnak.</string>
+    <string name="summary_utf8_by_default_preference">UTF-8 mód engedélyezése alapértelmezésként.</string>
+    <string name="summary_verify_path_preference">A nem hozzáférhető útvonalak eltávolítása a PATH változóból.</string>
+    <string name="text_preferences">Szöveg</string>
+    <string name="title_actionbar_preference">Akciósáv</string>
+    <string name="title_allow_prepend_path_preference">PATH felülírásának engedélyezése</string>
+    <string name="title_backaction_preference">Vissza gomb viselkedése</string>
+    <string name="title_close_window_on_process_exit_preference">Ablak bezárása kilépéskor</string>
+    <string name="title_color_preference">Színek</string>
+    <string name="title_controlkey_preference">Control billentyű</string>
+    <string name="title_cursorblink_preference">Kurzor villogás</string>
+    <string name="title_cursorstyle_preference">Kurzor stílusa</string>
+    <string name="title_do_path_extensions_preference">PATH kiterjesztésének engedélyezése</string>
+    <string name="title_fnkey_preference">Funkció billentyű</string>
+    <string name="title_fontsize_preference">Betűméret</string>
+    <string name="title_home_path_preference">HOME könyvtár</string>
+    <string name="title_ime_preference">Beviteli mód</string>
+    <string name="title_initialcommand_preference">Indító parancs</string>
+    <string name="title_mouse_tracking_preference">Egér események küldése</string>
+    <string name="title_orientation_preference">Kijelző tájolása</string>
+    <string name="title_shell_preference">Parancssor</string>
+    <string name="title_statusbar_preference">Értesítési sáv</string>
+    <string name="title_termtype_preference">Terminál típusa</string>
+    <string name="title_use_keyboard_shortcuts">Billentyű-parancsok használata</string>
+    <string name="title_utf8_by_default_preference">UTF-8 alapértelmezett</string>
+    <string name="title_verify_path_preference">PATH bejegyzések ellenőrzése</string>
+    <string name="toggle_soft_keyboard">Billentyűzet ki/be</string>
+    <string name="use_keyboard_shortcuts_summary_off">Billentyű-parancsok letiltva.</string>
+    <string name="use_keyboard_shortcuts_summary_on">Ctrl-Tab: váltás az ablakok között, Ctrl-Shift-N: új ablak, Ctrl-Shift-V: beillesztés.</string>
+    <string name="window_list">Ablakok</string>
+    <string name="window_title">Ablak %1$d</string>
+</resources>
