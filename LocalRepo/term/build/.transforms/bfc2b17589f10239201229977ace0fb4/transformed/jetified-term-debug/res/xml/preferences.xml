@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+            android:title="@string/screen_preferences"
+            android:key="screen">
+
+        <ListPreference
+                android:key="statusbar"
+                android:defaultValue="@string/pref_statusbar_default"
+                android:title="@string/title_statusbar_preference"
+                android:summary="@string/summary_statusbar_preference"
+                android:entries="@array/entries_statusbar_preference"
+                android:entryValues="@array/entryvalues_statusbar_preference"
+                android:dialogTitle="@string/dialog_title_statusbar_preference" />
+
+        <ListPreference
+                android:key="actionbar"
+                android:defaultValue="@integer/pref_actionbar_default"
+                android:title="@string/title_actionbar_preference"
+                android:summary="@string/summary_actionbar_preference"
+                android:entries="@array/entries_actionbar_preference"
+                android:entryValues="@array/entryvalues_actionbar_preference"
+                android:dialogTitle="@string/dialog_title_actionbar_preference" />
+
+        <ListPreference
+                android:key="orientation"
+                android:defaultValue="@integer/pref_orientation_default"
+                android:title="@string/title_orientation_preference"
+                android:summary="@string/summary_orientation_preference"
+                android:entries="@array/entries_orientation_preference"
+                android:entryValues="@array/entryvalues_orientation_preference"
+                android:dialogTitle="@string/dialog_title_orientation_preference" />
+
+<!--
+        <ListPreference
+                android:key="cursorstyle"
+                android:defaultValue="@string/pref_cursorstyle_default"
+                android:title="@string/title_cursorstyle_preference"
+                android:summary="@string/summary_cursorstyle_preference"
+                android:entries="@array/entries_cursorstyle_preference"
+                android:entryValues="@array/entryvalues_cursorstyle_preference"
+                android:dialogTitle="@string/dialog_title_cursorstyle_preference" />
+
+        <ListPreference
+                android:key="cursorblink"
+                android:defaultValue="@string/pref_cursorblink_default"
+                android:title="@string/title_cursorblink_preference"
+                android:summary="@string/summary_cursorblink_preference"
+                android:entries="@array/entries_cursorblink_preference"
+                android:entryValues="@array/entryvalues_cursorblink_preference"
+                android:dialogTitle="@string/dialog_title_cursorblink_preference" />
+-->
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            android:title="@string/text_preferences">
+
+        <ListPreference
+                android:key="fontsize"
+                android:defaultValue="@string/pref_fontsize_default"
+                android:title="@string/title_fontsize_preference"
+                android:summary="@string/summary_fontsize_preference"
+                android:entries="@array/entries_fontsize_preference"
+                android:entryValues="@array/entryvalues_fontsize_preference"
+                android:dialogTitle="@string/dialog_title_fontsize_preference" />
+
+        <ListPreference
+                android:key="color"
+                android:defaultValue="@string/pref_color_default"
+                android:title="@string/title_color_preference"
+                android:summary="@string/summary_color_preference"
+                android:entries="@array/entries_color_preference"
+                android:entryValues="@array/entryvalues_color_preference"
+                android:dialogTitle="@string/dialog_title_color_preference" />
+
+        <CheckBoxPreference
+                android:key="utf8_by_default"
+                android:defaultValue="@bool/pref_utf8_by_default_default"
+                android:title="@string/title_utf8_by_default_preference"
+                android:summary="@string/summary_utf8_by_default_preference" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            android:title="@string/keyboard_preferences">
+
+        <ListPreference
+                android:key="backaction"
+                android:defaultValue="@string/pref_backaction_default"
+                android:title="@string/title_backaction_preference"
+                android:summary="@string/summary_backaction_preference"
+                android:entries="@array/entries_backaction_preference"
+                android:entryValues="@array/entryvalues_backaction_preference"
+                android:dialogTitle="@string/dialog_title_backaction_preference" />
+
+        <ListPreference
+                android:key="controlkey"
+                android:defaultValue="@string/pref_controlkey_default"
+                android:title="@string/title_controlkey_preference"
+                android:summary="@string/summary_controlkey_preference"
+                android:entries="@array/entries_controlkey_preference"
+                android:entryValues="@array/entryvalues_controlkey_preference"
+                android:dialogTitle="@string/dialog_title_controlkey_preference" />
+
+        <ListPreference
+                android:key="fnkey"
+                android:defaultValue="@string/pref_fnkey_default"
+                android:title="@string/title_fnkey_preference"
+                android:summary="@string/summary_fnkey_preference"
+                android:entries="@array/entries_fnkey_preference"
+                android:entryValues="@array/entryvalues_fnkey_preference"
+                android:dialogTitle="@string/dialog_title_fnkey_preference" />
+
+        <ListPreference
+                android:key="ime"
+                android:defaultValue="@string/pref_ime_default"
+                android:title="@string/title_ime_preference"
+                android:summary="@string/summary_ime_preference"
+                android:entries="@array/entries_ime_preference"
+                android:entryValues="@array/entryvalues_ime_preference"
+                android:dialogTitle="@string/dialog_title_ime_preference" />
+
+        <CheckBoxPreference android:title="@string/alt_sends_esc"
+                android:key="alt_sends_esc"
+                android:defaultValue="@bool/pref_alt_sends_esc_default"
+                android:summaryOn="@string/alt_sends_esc_summary_on"
+                android:summaryOff="@string/alt_sends_esc_summary_off" />
+
+        <CheckBoxPreference android:title="@string/title_use_keyboard_shortcuts"
+                android:key="use_keyboard_shortcuts"
+                android:defaultValue="@bool/pref_use_keyboard_shortcuts_default"
+                android:summaryOn="@string/use_keyboard_shortcuts_summary_on"
+                android:summaryOff="@string/use_keyboard_shortcuts_summary_off" />
+
+        </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/shell_preferences">
+
+    <EditTextPreference
+            android:key="shell"
+            android:defaultValue="@string/pref_shell_default"
+            android:title="@string/title_shell_preference"
+            android:summary="@string/summary_shell_preference"
+            android:dialogTitle="@string/dialog_title_shell_preference" />
+    <EditTextPreference
+            android:key="initialcommand"
+            android:defaultValue="@string/pref_initialcommand_default"
+            android:title="@string/title_initialcommand_preference"
+            android:summary="@string/summary_initialcommand_preference"
+            android:dialogTitle="@string/dialog_title_initialcommand_preference" />
+    <ListPreference
+            android:key="termtype"
+            android:defaultValue="@string/pref_termtype_default"
+            android:title="@string/title_termtype_preference"
+            android:summary="@string/summary_termtype_preference"
+            android:entries="@array/entries_termtype_preference"
+            android:entryValues="@array/entries_termtype_preference"
+            android:dialogTitle="@string/dialog_title_termtype_preference" />
+    <CheckBoxPreference android:title="@string/title_mouse_tracking_preference"
+            android:key="mouse_tracking"
+            android:defaultValue="@bool/pref_mouse_tracking_default"
+            android:summary="@string/summary_mouse_tracking_preference" />
+    <CheckBoxPreference
+            android:key="close_window_on_process_exit"
+            android:defaultValue="@bool/pref_close_window_on_process_exit_default"
+            android:title="@string/title_close_window_on_process_exit_preference"
+            android:summary="@string/summary_close_window_on_process_exit_preference" />
+    <CheckBoxPreference
+            android:key="verify_path"
+            android:defaultValue="@bool/pref_verify_path_default"
+            android:title="@string/title_verify_path_preference"
+            android:summary="@string/summary_verify_path_preference" />
+    <CheckBoxPreference
+            android:key="do_path_extensions"
+            android:defaultValue="@bool/pref_do_path_extensions_default"
+            android:title="@string/title_do_path_extensions_preference"
+            android:summary="@string/summary_do_path_extensions_preference" />
+    <CheckBoxPreference
+            android:key="allow_prepend_path"
+            android:dependency="do_path_extensions"
+            android:defaultValue="@bool/pref_allow_prepend_path_default"
+            android:title="@string/title_allow_prepend_path_preference"
+            android:summary="@string/summary_allow_prepend_path_preference" />
+    <!-- the home_path default is set dynamically in Term.onResume() -->
+    <EditTextPreference
+            android:key="home_path"
+            android:title="@string/title_home_path_preference"
+            android:summary="@string/summary_home_path_preference" />
+    </PreferenceCategory>
+</PreferenceScreen>

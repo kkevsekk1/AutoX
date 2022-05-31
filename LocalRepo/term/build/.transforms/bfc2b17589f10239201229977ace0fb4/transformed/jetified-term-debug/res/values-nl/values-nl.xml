@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="control_keys_short_names">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Alt-links</item>
+        <item>Alt-rechts</item>
+        <item>Volume+</item>
+        <item>Volume-</item>
+        <item>Camera</item>
+        <item>Geen</item>
+    </string-array>
+    <string-array name="entries_actionbar_preference">
+        <item>Menubalk altijd tonen</item>
+        <item>Menubalk verbergen (op bovenkant scherm of menuknop tikken om te tonen)</item>
+    </string-array>
+    <string-array name="entries_backaction_preference">
+        <item>Alle terminalvensters sluiten</item>
+        <item>Alleen huidige terminalvensters sluiten</item>
+        <item>App sluiten, sessies open laten</item>
+        <item>ESC naar terminal sturen</item>
+        <item>TAB naar terminal sturen</item>
+    </string-array>
+    <string-array name="entries_color_preference">
+        <item>Zwarte tekst op wit</item>
+        <item>Witte tekst op zwart</item>
+        <item>Witte tekst op blauw</item>
+        <item>Groene tekst op zwart</item>
+        <item>Oranje tekst op zwart</item>
+        <item>Rode tekst op zwart</item>
+        <item>Holo-blauwe tekst op zwart</item>
+        <item>Gesolariseerd licht</item>
+        <item>Gesolariseerd donker</item>
+        <item>Linux console</item>
+    </string-array>
+    <string-array name="entries_controlkey_preference">
+        <item>Trackball</item>
+        <item>\@-knop</item>
+        <item>Linker Alt-knop</item>
+        <item>Rechter Alt-knop</item>
+        <item>Volume omhoog-knop</item>
+        <item>Volume omlaag-knop</item>
+        <item>Cameraknop</item>
+        <item>Geen</item>
+    </string-array>
+    <string-array name="entries_cursorblink_preference">
+        <item>Geen knipperende cursor</item>
+        <item>Knipperende cursor</item>
+    </string-array>
+    <string-array name="entries_cursorstyle_preference">
+        <item>Rechthoek</item>
+        <item>Onderlijnd</item>
+        <item>Verticale balk</item>
+    </string-array>
+    <string-array name="entries_fnkey_preference">
+        <item>Trackball</item>
+        <item>\@-knop</item>
+        <item>Linker Alt-knop</item>
+        <item>Rechter Alt-knop</item>
+        <item>Volume omhoog-knop</item>
+        <item>Volume omlaag-knop</item>
+        <item>Cameraknop</item>
+        <item>Geen</item>
+    </string-array>
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8 pixels</item>
+        <item>6 pnt.</item>
+        <item>7 pnt.</item>
+        <item>8 pnt.</item>
+        <item>9 pnt.</item>
+        <item>10 pnt.</item>
+        <item>12 pnt.</item>
+        <item>14 pnt.</item>
+        <item>16 pnt.</item>
+        <item>20 pnt.</item>
+        <item>24 pnt.</item>
+        <item>28 pnt.</item>
+        <item>32 pnt.</item>
+        <item>36 pnt.</item>
+        <item>42 pnt.</item>
+        <item>48 pnt.</item>
+        <item>64 pnt.</item>
+        <item>72 pnt.</item>
+        <item>96 pnt.</item>
+        <item>144 pnt.</item>
+        <item>288 pnt.</item>
+    </string-array>
+    <string-array name="entries_ime_preference">
+        <item>Karaktergebaseerd</item>
+        <item>Woordgebaseerd</item>
+    </string-array>
+    <string-array name="entries_orientation_preference">
+        <item>Automatisch</item>
+        <item>Liggend</item>
+        <item>Staand</item>
+    </string-array>
+    <string-array name="entries_statusbar_preference">
+        <item>Statusbalk tonen</item>
+        <item>Statusbalk verbergen</item>
+    </string-array>
+    <string-array name="fn_keys_short_names">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Alt-links</item>
+        <item>Alt-rechts</item>
+        <item>Volume+</item>
+        <item>Volume-</item>
+        <item>Camera</item>
+        <item>Geen</item>
+    </string-array>
+    <string name="activity_shortcut_create">"Terminal snelkoppeling"</string>
+    <string name="activity_term_here_title">Terminal</string>
+    <string name="addshortcut_arguments_label">Toevoeging\:</string>
+    <string name="addshortcut_button_find_command">Opdracht vinden</string>
+    <string name="addshortcut_button_text_icon">Tekstpictogram</string>
+    <string name="addshortcut_command_hint">opdracht</string>
+    <string name="addshortcut_command_window_instructions">Opdrachtvenster vereist volledig pad, zonder toevoegingen. Voor extra opdrachten, gebruikt het veld \'Toevoeging\' (bijv: cd /sdcard).</string>
+    <string name="addshortcut_example_hint">--voorbeeld=\""a\"</string>
+    <string name="addshortcut_make_text_icon">TEKSTPICTOGRAM MAKEN</string>
+    <string name="addshortcut_navigator_title">DOEL SNELKOPPELING KIEZEN</string>
+    <string name="addshortcut_shortcut_label">Naam snelkoppeling\:</string>
+    <string name="addshortcut_title">Terminal snelkoppeling</string>
+    <string name="alt_sends_esc">Alt-knop stuurt ESC</string>
+    <string name="alt_sends_esc_summary_off">Alt-knop stuurt geen ESC</string>
+    <string name="alt_sends_esc_summary_on">Alt-knop stuurt ESC</string>
+    <string name="application_terminal">Terminal</string>
+    <string name="close_window">Venster sluiten</string>
+    <string name="colorvalue_icon_text_entry_hint">Pictogramtekst</string>
+    <string name="colorvalue_label_lock_button_column">VAST</string>
+    <string name="confirm_window_close_message">Dit venster sluiten?</string>
+    <string name="control_key_dialog_control_disabled_text">Geen controlknop ingesteld</string>
+    <string name="control_key_dialog_control_text">CTRLKEY spatie : Control-@ (NUL)\nCTRLKEY A..Z : Control-A..Z\nCTRLKEY 5 : Control-]\nCTRLKEY 6 : Control-^\nCTRLKEY 7 : Control-_\nCTRLKEY 9 : F11\nCTRLKEY 0 : F12</string>
+    <string name="control_key_dialog_fn_disabled_text">Geen functieknop ingesteld</string>
+    <string name="control_key_dialog_fn_text">FNKEY 1..9 : F1-F9\nFNKEY 0 : F10\nFNKEY W : Omhoog\nFNKEY A : Links\nFNKEY S : Omlaag\nFNKEY D : Rechts\nFNKEY P : PageUp\nFNKEY N : PageDown\nFNKEY T : Tab\nFNKEY L : | (pijpje)\nFNKEY U : _ (underscore)\nFNKEY E : Control-[ (ESC)\nFNKEY X : Delete\nFNKEY I : Insert\nFNKEY H : Home\nFNKEY F : End\nFNKEY . : Control-\\\n</string>
+    <string name="control_key_dialog_title">Control- en functieknoppen</string>
+    <string name="copy_all">Alles kopiëren</string>
+    <string name="dialog_title_actionbar_preference">Gedrag menubalk</string>
+    <string name="dialog_title_backaction_preference">Gedrag terugknop</string>
+    <string name="dialog_title_color_preference">Tekstkleur</string>
+    <string name="dialog_title_controlkey_preference">Control-knop</string>
+    <string name="dialog_title_cursorblink_preference">Cursorblink</string>
+    <string name="dialog_title_cursorstyle_preference">Cursorstijl</string>
+    <string name="dialog_title_fnkey_preference">Fn-knop</string>
+    <string name="dialog_title_fontsize_preference">Lettergrootte</string>
+    <string name="dialog_title_ime_preference">Invoermethode</string>
+    <string name="dialog_title_initialcommand_preference">Beginopdracht</string>
+    <string name="dialog_title_orientation_preference">Oriëntatie van het scherm</string>
+    <string name="dialog_title_shell_preference">Shell</string>
+    <string name="dialog_title_statusbar_preference">Statusbalk</string>
+    <string name="dialog_title_termtype_preference">Soort terminal</string>
+    <string name="disable_wakelock">Slaapblokkering uit</string>
+    <string name="disable_wifilock">Wifi-blokkering uit</string>
+    <string name="edit_text">Tekst wijzigen</string>
+    <string name="email_transcript_chooser_title">Gegevens e-mailen via:</string>
+    <string name="email_transcript_no_email_activity_found">Kon geen e-mail activity kiezen om gegevens te sturen</string>
+    <string name="email_transcript_subject">Gegevens uit Terminal Emulator for Android</string>
+    <string name="enable_wakelock">Slaapblokkering aan</string>
+    <string name="enable_wifilock">Wifi-blokkering aan</string>
+    <string name="fsnavigator_change_theme">Thema veranderen</string>
+    <string name="fsnavigator_no_external_storage">Externe opslag niet beschikbaar</string>
+    <string name="fsnavigator_optional_enter_path">Of voer hier pad in</string>
+    <string name="fsnavigator_title">BESTANDSKIEZER</string>
+    <string name="keyboard_preferences">Toetsenbord</string>
+    <string name="new_window">Nieuw venster</string>
+    <string name="next_window">Volgend venster</string>
+    <string name="paste">Plakken</string>
+    <string name="preferences">Instellingen</string>
+    <string name="prev_window">Vorig venster</string>
+    <string name="reset">Herstellen</string>
+    <string name="screen_preferences">Scherm</string>
+    <string name="select_text">Selecteer tekst</string>
+    <string name="send_email">E-mail sturen naar</string>
+    <string name="service_notify_text">Terminalsessie is actief</string>
+    <string name="shell_preferences">Shell</string>
+    <string name="special_keys">Speciale knoppen</string>
+    <string name="summary_actionbar_preference">Gedrag van menubalk kiezen (Android 3.0 en hoger)</string>
+    <string name="summary_allow_prepend_path_preference">Andere apps toestaan om bestaande opdrachten te overschrijven (voor PATH invoegen).</string>
+    <string name="summary_backaction_preference">Bepalen wat de terugknop doet</string>
+    <string name="summary_close_window_on_process_exit_preference">Venster sluiten als de shell afgesloten wordt</string>
+    <string name="summary_color_preference">Tekstkleur kiezen</string>
+    <string name="summary_controlkey_preference">Control-knop kiezen</string>
+    <string name="summary_cursorblink_preference">Cursorblink kiezen</string>
+    <string name="summary_cursorstyle_preference">Cursorstijl kiezen</string>
+    <string name="summary_do_path_extensions_preference">Andere apps toestaan om extra opdrachten te verstrekken (aan PATH toevoegen)</string>
+    <string name="summary_fnkey_preference">Functieknop kiezen</string>
+    <string name="summary_fontsize_preference">Karakterhoogte in punten kiezen</string>
+    <string name="summary_home_path_preference">Pad naar een beschrijfbare map te gebruiken als HOME</string>
+    <string name="summary_ime_preference">Invoermethode voor toetsenbord kiezen</string>
+    <string name="summary_initialcommand_preference">Wordt naar de shell verzonden bij opstarten</string>
+    <string name="summary_mouse_tracking_preference">Tikken en scrollen naar de terminal sturen als \'escape sequences\'</string>
+    <string name="summary_orientation_preference">Oriëntatie van het scherm kiezen</string>
+    <string name="summary_shell_preference">Opdrachtregel-shell opgeven</string>
+    <string name="summary_statusbar_preference">Statusbalk tonen/verbergen</string>
+    <string name="summary_termtype_preference">Welk soort terminal te melden aan de shell</string>
+    <string name="summary_utf8_by_default_preference">UTF-8 standaard inschakelen</string>
+    <string name="summary_verify_path_preference">Controleren of ontoegankelijk directories verwijderd moeten worden uit het PATH</string>
+    <string name="text_preferences">Tekst</string>
+    <string name="title_actionbar_preference">Menubalk</string>
+    <string name="title_allow_prepend_path_preference">PATH prepend toestaan</string>
+    <string name="title_backaction_preference">Terugknop</string>
+    <string name="title_close_window_on_process_exit_preference">Venster sluiten bij exit</string>
+    <string name="title_color_preference">Kleuren</string>
+    <string name="title_controlkey_preference">Control-knop</string>
+    <string name="title_cursorblink_preference">Cursorblink</string>
+    <string name="title_cursorstyle_preference">Cursorstijl</string>
+    <string name="title_do_path_extensions_preference">PATH-extensies toestaan</string>
+    <string name="title_fnkey_preference">Fn-knop</string>
+    <string name="title_fontsize_preference">Lettergrootte</string>
+    <string name="title_home_path_preference">HOME folder</string>
+    <string name="title_ime_preference">Invoermethode</string>
+    <string name="title_initialcommand_preference">Beginopdracht</string>
+    <string name="title_mouse_tracking_preference">Muisgebeurtenissen sturen</string>
+    <string name="title_orientation_preference">Oriëntatie van het scherm</string>
+    <string name="title_shell_preference">Opdrachtregel</string>
+    <string name="title_statusbar_preference">Statusbalk</string>
+    <string name="title_termtype_preference">Soort terminal</string>
+    <string name="title_use_keyboard_shortcuts">Sneltoesten gebruiken</string>
+    <string name="title_utf8_by_default_preference">UTF-8</string>
+    <string name="title_verify_path_preference">PATH entries controleren</string>
+    <string name="toggle_soft_keyboard">Toetsenbord aan/uit</string>
+    <string name="use_keyboard_shortcuts_summary_off">Sneltoesten zijn uitgeschakeld</string>
+    <string name="use_keyboard_shortcuts_summary_on">Ctrl-Tab: venster wisselen, Ctrl-Shift-N: nieuw venster, Ctrl-Shift-V: plakken</string>
+    <string name="window_list">Vensters</string>
+</resources>

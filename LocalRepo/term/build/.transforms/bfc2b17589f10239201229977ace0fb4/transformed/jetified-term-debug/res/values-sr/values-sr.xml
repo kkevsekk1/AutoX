@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="control_keys_short_names">
+        <item>Куглица</item>
+        <item>\@</item>
+        <item>Леви-Алт</item>
+        <item>Десни-Алт</item>
+        <item>Звук-Горе</item>
+        <item>Звук-Доле</item>
+        <item>Камера</item>
+        <item>Ниједан</item>
+    </string-array>
+    <string-array name="entries_actionbar_preference">
+        <!-- <item>Трака радњи онемогућена</item> -->
+        <item>Увек прикажи траку радњи</item>
+        <item>Сакриј траку радњи (за приказ додирните врх екрана или Мени тастер)</item>
+    </string-array>
+    <string-array name="entries_backaction_preference">
+        <item>Затвара све прозоре терминала</item>
+        <item>Затвара само овај прозор терминала</item>
+        <item>Затвара активност, оставља сесије покренуте</item>
+        <item>Шаље ESC терминалу</item>
+        <item>Шаље TAB терминалу</item>
+    </string-array>
+    <string-array name="entries_color_preference">
+        <item>Црни текст на белом</item>
+        <item>Бели текст на црном</item>
+        <item>Бели текст на плавом</item>
+        <item>Зелени текст на црном</item>
+        <item>Јантарни текст на црном</item>
+        <item>Црвени текст на црном</item>
+        <item>Холо плави текст на црном</item>
+        <item>Светла соларизована</item>
+        <item>Тамна соларизована</item>
+        <item>Линукс конзола</item>
+    </string-array>
+    <string-array name="entries_controlkey_preference">
+        <item>Џог куглица</item>
+        <item>\@ тастер</item>
+        <item>Леви Алт тастер</item>
+        <item>Десни Алт тастер</item>
+        <item>Звук Горе тастер</item>
+        <item>Звук Доле тастер</item>
+        <item>Камера тастер</item>
+        <item>Ниједан</item>
+    </string-array>
+    <string-array name="entries_cursorblink_preference">
+        <item>Статични курсор</item>
+        <item>Трепћући курсор</item>
+    </string-array>
+    <string-array name="entries_cursorstyle_preference">
+        <item>Правоугаоник</item>
+        <item>Подвлака</item>
+        <item>Вертикална трака</item>
+    </string-array>
+    <string-array name="entries_fnkey_preference">
+        <item>Џог куглица</item>
+        <item>\@ тастер</item>
+        <item>Леви Алт тастер</item>
+        <item>Десни Алт тастер</item>
+        <item>Звук Горе тастер</item>
+        <item>Звук Доле тастер</item>
+        <item>Камера тастер</item>
+        <item>Ниједан</item>
+    </string-array>
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8 px</item>
+        <item>6 pt</item>
+        <item>7 pt</item>
+        <item>8 pt</item>
+        <item>9 pt</item>
+        <item>10 pt</item>
+        <item>12 pt</item>
+        <item>14 pt</item>
+        <item>16 pt</item>
+        <item>20 pt</item>
+        <item>24 pt</item>
+        <item>28 pt</item>
+        <item>32 pt</item>
+        <item>36 pt</item>
+        <item>42 pt</item>
+        <item>48 pt</item>
+        <item>64 pt</item>
+        <item>72 pt</item>
+        <item>96 pt</item>
+        <item>144 pt</item>
+        <item>288 pt</item>
+    </string-array>
+    <string-array name="entries_ime_preference">
+        <item>Заснована на знаковима</item>
+        <item>Заснована на речима</item>
+    </string-array>
+    <string-array name="entries_orientation_preference">
+        <item>Аутоматски</item>
+        <item>Пејзаж</item>
+        <item>Портрет</item>
+    </string-array>
+    <string-array name="entries_statusbar_preference">
+        <item>Прикажи траку стања</item>
+        <item>Сакриј траку стања</item>
+    </string-array>
+    <string-array name="fn_keys_short_names">
+        <item>Куглица</item>
+        <item>\@</item>
+        <item>Леви-Алт</item>
+        <item>Десни-Алт</item>
+        <item>Звук-Горе</item>
+        <item>Звук-Доле</item>
+        <item>Камера</item>
+        <item>Ниједан</item>
+    </string-array>
+    <string name="activity_shortcut_create">"Терминалска пречица"</string>
+    <string name="activity_term_here_title">Терминал овде</string>
+    <string name="addshortcut_arguments_label">Аргументи\:</string>
+    <string name="addshortcut_button_find_command">Нађи наредбу</string>
+    <string name="addshortcut_button_text_icon">Текстуална икона</string>
+    <string name="addshortcut_command_hint">наредба</string>
+    <string name="addshortcut_command_window_instructions">Окно наредбе захтева пуну путању, без аргумената. За остале наредбе користите окно аргумената (нпр: cd /sdcard).</string>
+    <string name="addshortcut_example_hint">--пример=\""a\"</string>
+    <string name="addshortcut_make_text_icon">ТЕКСТУАЛНА ИКОНА</string>
+    <string name="addshortcut_navigator_title">ИЗБОР МЕТЕ ПРЕЧИЦЕ</string>
+    <string name="addshortcut_shortcut_label">Етикета пречице\:</string>
+    <string name="addshortcut_title">Пречица терминала</string>
+    <string name="alt_sends_esc">Алт тастер шаље ESC</string>
+    <string name="alt_sends_esc_summary_off">Алт тастер не шаље ESC.</string>
+    <string name="alt_sends_esc_summary_on">Алт тастер шаље ESC.</string>
+    <string name="application_terminal">Емулатор терминала</string>
+    <string name="close_window">Затвори прозор</string>
+    <string name="colorvalue_icon_text_entry_hint">Унесите текст иконе</string>
+    <string name="colorvalue_label_lock_button_column">ЗАКЉУЧАЈ</string>
+    <string name="colorvalue_letter_alpha">α</string>
+    <string name="colorvalue_letter_blue">Б</string>
+    <string name="colorvalue_letter_green">Г</string>
+    <string name="colorvalue_letter_red">Р</string>
+    <string name="confirm_window_close_message">Затворити овај прозор?</string>
+    <string name="control_key_dialog_control_disabled_text">Контролни тастер није постављен.</string>
+    <string name="control_key_dialog_control_text">CTRLKEY Размак : Control-@ (NUL)\nCTRLKEY A..Z : Control-A..Z\nCTRLKEY 5 : Control-]\nCTRLKEY 6 : Control-^\nCTRLKEY 7 : Control-_\nCTRLKEY 9 : F11\nCTRLKEY 0 : F12</string>
+    <string name="control_key_dialog_fn_disabled_text">Функцијски тастер није постављен.</string>
+    <string name="control_key_dialog_fn_text">FNKEY 1..9 : F1-F9\nFNKEY 0 : F10\nFNKEY W : Горе\nFNKEY A : Лево\nFNKEY S : Доле\nFNKEY D : Десно\nFNKEY P : СтрГоре\nFNKEY N : СтрДоле\nFNKEY T : Таб\nFNKEY L : | (цев)\nFNKEY U : _ (подвлака)\nFNKEY E : Control-[ (ESC)\nFNKEY X : Обриши\nFNKEY I : Уметни\nFNKEY H : Почетак\nFNKEY F : Крај\nFNKEY . : Control-\\\n</string>
+    <string name="control_key_dialog_title">Контролни и функцијски тастери</string>
+    <string name="copy_all">Копирај све</string>
+    <string name="dialog_title_actionbar_preference">Понашање траке радњи</string>
+    <string name="dialog_title_backaction_preference">Понашање дугмета за назад</string>
+    <string name="dialog_title_color_preference">Боја текста</string>
+    <string name="dialog_title_controlkey_preference">Контрол тастер</string>
+    <string name="dialog_title_cursorblink_preference">Трептање курсора</string>
+    <string name="dialog_title_cursorstyle_preference">Стил курсора</string>
+    <string name="dialog_title_fnkey_preference">Фн тастер</string>
+    <string name="dialog_title_fontsize_preference">Величина фонта</string>
+    <string name="dialog_title_ime_preference">Метода уноса</string>
+    <string name="dialog_title_initialcommand_preference">Почетна наредба</string>
+    <string name="dialog_title_orientation_preference">Оријентација екрана</string>
+    <string name="dialog_title_shell_preference">Шкољка</string>
+    <string name="dialog_title_statusbar_preference">Трака стања</string>
+    <string name="dialog_title_termtype_preference">Тип терминала</string>
+    <string name="disable_wakelock">Отпусти блокаду буђења</string>
+    <string name="disable_wifilock">Отпусти блокаду бежичног</string>
+    <string name="edit_text">Уреди текст</string>
+    <string name="email_transcript_chooser_title">Пошаљи препис користећи:</string>
+    <string name="email_transcript_no_email_activity_found">Не могу да изаберем активност е-поште за слање преписа.</string>
+    <string name="email_transcript_subject">Препис са Емулатора Терминала за Андроид</string>
+    <string name="enable_wakelock">Узми блокаду буђења</string>
+    <string name="enable_wifilock">Узми блокаду бежичног</string>
+    <string name="fsnavigator_change_theme">Промени тему</string>
+    <string name="fsnavigator_no_external_storage">Спољашње складиште није доступно</string>
+    <string name="fsnavigator_optional_enter_path">Или унесите путању овде.</string>
+    <string name="fsnavigator_title">ИЗБОР ФАЈЛА</string>
+    <string name="help">Помоћ</string>
+    <string name="keyboard_preferences">Тастатура</string>
+    <string name="new_window">Нови прозор</string>
+    <string name="next_window">След. прозор</string>
+    <string name="paste">Налепи</string>
+    <string name="perm_append_to_path">Додавање наредби у Емулатор Терминала</string>
+    <string name="perm_prepend_to_path">Премошћавање наредби у Емулатору Терминала</string>
+    <string name="perm_run_script">Покретање произвољних наредби у Емулатору Терминала</string>
+    <string name="permdesc_append_to_path">Дозвољава апликацији да пружи додатне наредбе (додавање директоријума у PATH) за Емулатор Терминала за Андроид.</string>
+    <string name="permdesc_prepend_to_path">Дозвољава апликацији да премости постојеће наредбе својим (префиксује директоријуме у PATH) у Емулатору Терминала за Андроид.</string>
+    <string name="permdesc_run_script">Омогућава апликацији да отвара нове прозоре у Емулатору Терминала за Андроид и покреће наредбе у тим прозорима са свим дозволама Емулатора Терминала, укључујући приступ интернету и вашој СД картици.</string>
+    <string name="preferences">Поставке</string>
+    <string name="prev_window">Прет. прозор</string>
+    <string name="process_exit_message">Сесија терминала је завршена</string>
+    <string name="reset">Поново постави терм</string>
+    <string name="reset_toast_notification">Стање терминала овог прозора је поново постављено.</string>
+    <string name="screen_preferences">Екран</string>
+    <string name="select_text">Изабери текст</string>
+    <string name="send_control_key">Пошаљи Цтрл унос</string>
+    <string name="send_email">Пошаљи е-поштом</string>
+    <string name="send_fn_key">Пошаљи Фн унос</string>
+    <string name="service_notify_text">Сесија терминала је у току</string>
+    <string name="shell_preferences">Шкољка</string>
+    <string name="special_keys">Посебни тастери</string>
+    <string name="summary_actionbar_preference">Одредите понашање траке радњи (Андроид 3.0 и новији).</string>
+    <string name="summary_allow_prepend_path_preference">Да ли осталим апликацијама дозволити премошћавање постојеће наредбе (да додају на почетку PATH).</string>
+    <string name="summary_backaction_preference">Шта ће да деси притиском на дугме за назад.</string>
+    <string name="summary_close_window_on_process_exit_preference">Да ли да прозор буде затворен по излазу из његове шкољке.</string>
+    <string name="summary_color_preference">Изаберите боју текста.</string>
+    <string name="summary_controlkey_preference">Изаберите контрол (Цтрл) тастер.</string>
+    <string name="summary_cursorblink_preference">Одредите трептање курсора.</string>
+    <string name="summary_cursorstyle_preference">Изаберите стил курсора.</string>
+    <string name="summary_do_path_extensions_preference">Да ли осталим апликацијама дозволити додавање додатне наредбе (да додају у PATH).</string>
+    <string name="summary_fnkey_preference">Изаберите функцијски (Фн) тастер.</string>
+    <string name="summary_fontsize_preference">Одредите величину фонта у тачкама.</string>
+    <string name="summary_home_path_preference">Путања до уписиве фасцикле која ће бити коришћена као HOME.</string>
+    <string name="summary_ime_preference">Изаберите методу уноса за софтверску тастатуру.</string>
+    <string name="summary_initialcommand_preference">Наредба послата шкољки по покретању.</string>
+    <string name="summary_mouse_tracking_preference">Слање додира и клизања терминалу као секвенце излаза.</string>
+    <string name="summary_orientation_preference">Одредите понашање оријентације екрана.</string>
+    <string name="summary_shell_preference">Одредите командну линију шкољке.</string>
+    <string name="summary_statusbar_preference">Прикажи/сакриј траку стања.</string>
+    <string name="summary_termtype_preference">Који тип терминала да буде пријављен шкољки.</string>
+    <string name="summary_utf8_by_default_preference">Да ли је УТФ-8 режим подразумевано омогућен.</string>
+    <string name="summary_verify_path_preference">Да ли да недоступни директоријуми буду уклољени из PATH.</string>
+    <string name="text_preferences">Текст</string>
+    <string name="title_actionbar_preference">Трака радњи</string>
+    <string name="title_allow_prepend_path_preference">Дозволи PATH префиксе</string>
+    <string name="title_backaction_preference">Понашање дугмета за назад</string>
+    <string name="title_close_window_on_process_exit_preference">Затвори прозор по излазу</string>
+    <string name="title_color_preference">Боје</string>
+    <string name="title_controlkey_preference">Контрол тастер</string>
+    <string name="title_cursorblink_preference">Трептање курсора</string>
+    <string name="title_cursorstyle_preference">Стил курсора</string>
+    <string name="title_do_path_extensions_preference">Дозволи PATH проширења</string>
+    <string name="title_fnkey_preference">Фн тастер</string>
+    <string name="title_fontsize_preference">Величина фонта</string>
+    <string name="title_home_path_preference">Домаћа фасцикла</string>
+    <string name="title_ime_preference">Метода уноса</string>
+    <string name="title_initialcommand_preference">Почетна наредба</string>
+    <string name="title_mouse_tracking_preference">Шаљи догађаје миша</string>
+    <string name="title_orientation_preference">Оријентација екрана</string>
+    <string name="title_shell_preference">Командна линија</string>
+    <string name="title_statusbar_preference">Трака стања</string>
+    <string name="title_termtype_preference">Тип терминала</string>
+    <string name="title_use_keyboard_shortcuts">Користи пречице тастатуре</string>
+    <string name="title_utf8_by_default_preference">Подразумевај УТФ-8</string>
+    <string name="title_verify_path_preference">Овери PATH уносе</string>
+    <string name="toggle_soft_keyboard">Пребаци софтверску тастатуру</string>
+    <string name="use_keyboard_shortcuts_summary_off">Пречице тастатуре су онемогућене.</string>
+    <string name="use_keyboard_shortcuts_summary_on">Ctrl-Tab: пребаци прозор, Ctrl-Shift-N: нови прозор, Ctrl-Shift-V: налепи.</string>
+    <string name="window_list">Прозори</string>
+    <string name="window_title">Прозор %1$d</string>
+</resources>

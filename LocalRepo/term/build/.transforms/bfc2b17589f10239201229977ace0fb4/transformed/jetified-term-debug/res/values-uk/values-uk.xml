@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="control_keys_short_names">
+        <item>Куля Jog</item>
+        <item>Клавіша @</item>
+        <item>Лівий Alt</item>
+        <item>Правий Alt</item>
+        <item>Гучність вверх</item>
+        <item>Гучність вниз</item>
+        <item>Клавіша камери</item>
+        <item>Нема</item>
+    </string-array>
+    <string-array name="entries_actionbar_preference">
+        <item>Завжди показувати бар дії</item>
+        <item>Сховати дії бару (торкніться верху екрану або клавіші Меню, щоб показати)</item>
+    </string-array>
+    <string-array name="entries_backaction_preference">
+        <item>Закрити всі вікна терміналу</item>
+        <item>Закрити тільки це вікно терміналу</item>
+        <item>Активне закриття, решти запущених сеансів</item>
+        <item>Послати ESC в термінал</item>
+        <item>Послати TAB в термінал</item>
+    </string-array>
+    <string-array name="entries_color_preference">
+        <item>Чорний на білому</item>
+        <item>Білий на чорному</item>
+        <item>Білий на синьому</item>
+        <item>Зелений на чорному</item>
+        <item>Жовтий на чорному</item>
+        <item>Червоний на чорному</item>
+        <item>Solarized Light</item>
+        <item>Solarized Dark</item>
+        <item>Linux Console</item>
+    </string-array>
+    <string-array name="entries_controlkey_preference">
+        <item>Куля Jog</item>
+        <item>Клавіша @</item>
+        <item>Лівий Alt</item>
+        <item>Правий Alt</item>
+        <item>Гучність вверх</item>
+        <item>Гучність вниз</item>
+        <item>Клавіша камери</item>
+        <item>Нема</item>
+    </string-array>
+    <string-array name="entries_cursorblink_preference">
+        <item>Не-миготливий курсор</item>
+        <item>Миготливий курсор</item>
+    </string-array>
+    <string-array name="entries_cursorstyle_preference">
+        <item>Прямокутник</item>
+        <item>Підкреслення</item>
+        <item>Вертикальний бар</item>
+    </string-array>
+    <string-array name="entries_fnkey_preference">
+        <item>Куля Jog</item>
+        <item>Клавіша @</item>
+        <item>Лівий Alt</item>
+        <item>Правий Alt</item>
+        <item>Гучність вверх</item>
+        <item>Гучність вниз</item>
+        <item>Клавіша камери</item>
+        <item>Нема</item>
+    </string-array>
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8 пікселів</item>
+        <item>6 пікселів</item>
+        <item>7 пікселів</item>
+        <item>8 пікселів</item>
+        <item>9 пікселів</item>
+        <item>10 пікселів</item>
+        <item>12 пікселів</item>
+        <item>14 пікселів</item>
+        <item>16 пікселів</item>
+        <item>20 пікселів</item>
+        <item>24 пікселів</item>
+        <item>28 пікселів</item>
+        <item>32 пікселів</item>
+        <item>36 пікселів</item>
+        <item>42 пікселів</item>
+        <item>48 пікселів</item>
+        <item>64 пікселів</item>
+        <item>72 пікселів</item>
+        <item>96 пікселів</item>
+        <item>144 пікселів</item>
+        <item>288 пікселів</item>
+    </string-array>
+    <string-array name="entries_ime_preference">
+        <item>За знаками</item>
+        <item>За словами</item>
+    </string-array>
+    <string-array name="entries_statusbar_preference">
+        <item>Показувати</item>
+        <item>Приховувати</item>
+    </string-array>
+    <string-array name="fn_keys_short_names">
+        <item>Куля Jog</item>
+        <item>Клавіша @</item>
+        <item>Лівий Alt</item>
+        <item>Правий Alt</item>
+        <item>Гучність вверх</item>
+        <item>Гучність вниз</item>
+        <item>Клавіша камери</item>
+        <item>Нема</item>
+    </string-array>
+    <string name="alt_sends_esc">Клавіша Alt посилає ESC</string>
+    <string name="alt_sends_esc_summary_off">Клавіша Alt не посилає ESC.</string>
+    <string name="alt_sends_esc_summary_on">Клавіша Alt посилає ESC.</string>
+    <string name="application_terminal">Емулятор Терміналу</string>
+    <string name="close_window">Закрити вікно</string>
+    <string name="confirm_window_close_message">Закрити це вікно?</string>
+    <string name="control_key_dialog_control_disabled_text">Нема установок керуючих клавіш.</string>
+    <string name="control_key_dialog_control_text">CTRLKEY Space : Control-@ (NUL)
+CTRLKEY A..Z : Control-A..Z
+CTRLKEY 5 : Control-]
+CTRLKEY 6 : Control-^
+CTRLKEY 7 : Control-_
+CTRLKEY 9 : F11
+CTRLKEY 0 : F12</string>
+    <string name="control_key_dialog_fn_disabled_text">Нема установок функціональних клавіш.</string>
+    <string name="control_key_dialog_fn_text">FNKEY 1..9 : F1-F9
+FNKEY 0 : F10
+FNKEY W : Up
+FNKEY A : Left
+FNKEY S : Down
+FNKEY D : Right
+FNKEY P : PageUp
+FNKEY N : PageDown
+FNKEY T : Tab
+FNKEY L : | (pipe)
+FNKEY U : _ (underscore)
+FNKEY E : Control-[ (ESC)
+FNKEY X : Delete
+FNKEY I : Insert
+FNKEY H : Home
+FNKEY F : End
+FNKEY . : Control-\\
+</string>
+    <string name="control_key_dialog_title">Керуючі та Функціональні Клавіші</string>
+    <string name="copy_all">Копіювати все</string>
+    <string name="dialog_title_actionbar_preference">Поведінка бару дії</string>
+    <string name="dialog_title_backaction_preference">Поведінка кнопки Назад</string>
+    <string name="dialog_title_color_preference">Колір тексту</string>
+    <string name="dialog_title_controlkey_preference">Клавіша Control</string>
+    <string name="dialog_title_fnkey_preference">Клавіша Fn</string>
+    <string name="dialog_title_fontsize_preference">Розмір шрифту</string>
+    <string name="dialog_title_ime_preference">Спосіб введення</string>
+    <string name="dialog_title_initialcommand_preference">Команди запуску</string>
+    <string name="dialog_title_shell_preference">Оболонка</string>
+    <string name="dialog_title_statusbar_preference">Статус бар</string>
+    <string name="dialog_title_termtype_preference">Тип терміналу</string>
+    <string name="disable_wakelock">Вимкнути WakeLock</string>
+    <string name="disable_wifilock">Вимкнути WifiLock</string>
+    <string name="edit_text">Змінити</string>
+    <string name="email_transcript_chooser_title">Поштове розшифрування за допомогою:</string>
+    <string name="email_transcript_no_email_activity_found">Не можу вибрати поштову діяльність для відправки розшифрування.</string>
+    <string name="email_transcript_subject">Розшифрування для Емулятора Терміналу Android</string>
+    <string name="enable_wakelock">Ввімкнути WakeLock</string>
+    <string name="enable_wifilock">Ввімкнути WifiLock</string>
+    <string name="keyboard_preferences">Клавіатура</string>
+    <string name="new_window">Нове вікно</string>
+    <string name="next_window">Наступне вікно</string>
+    <string name="paste">Вставити</string>
+    <string name="perm_append_to_path">Додавання команд в Емулятор Терміналу</string>
+    <string name="perm_prepend_to_path">Перевизначення команд в Емуляторі Терміналу</string>
+    <string name="perm_run_script">Виконання довільних команд в Емуляторі Терміналу</string>
+    <string name="permdesc_append_to_path">Програма зможе забезпечити додаткові команди (додати каталоги в ШЛЯХ) для емулятора терміналу Android.</string>
+    <string name="permdesc_prepend_to_path">Дозволяє програмі перевизначити існуючі команди з власною версією (додайте на початку каталогів ШЛЯХ) в Емуляторі Терміналу Android.</string>
+    <string name="permdesc_run_script">Дозволяє програмі відкриття нових вікон в Емуляторі Терміналу Android та запуск команд в цих вікнах з усіма дозволами Емулятора Терміналу Android, в тому числі доступ до Інтернету та SD-карти.</string>
+    <string name="preferences">Налаштування</string>
+    <string name="prev_window">Попереднє вікно</string>
+    <string name="process_exit_message">Термінальний сеанс завершений</string>
+    <string name="reset">Скинути термінал</string>
+    <string name="reset_toast_notification">"Термінальний стан цього вікна було скинуто."</string>
+    <string name="screen_preferences">Екран</string>
+    <string name="select_text">Вибрати текст</string>
+    <string name="send_control_key">Відіслати кнопкою Control</string>
+    <string name="send_email">Відіслати Email</string>
+    <string name="send_fn_key">Відіслати кнопкою Fn</string>
+    <string name="service_notify_text">Термінальний сеанс запущений</string>
+    <string name="shell_preferences">Командна оболонка</string>
+    <string name="special_keys">Спеціальні клавіші</string>
+    <string name="summary_actionbar_preference">Виберіть поведінку бару дії (Android 3.0 і вище).</string>
+    <string name="summary_allow_prepend_path_preference">Дозволити іншим програмам анулювати існуючі команди (додавання до початку ШЛЯХУ).</string>
+    <string name="summary_backaction_preference">Вибір дії при натисканні кнопки назад.</string>
+    <string name="summary_close_window_on_process_exit_preference">Вікно закриється якщо вийти з оболонки.</string>
+    <string name="summary_color_preference">Виберіть колір тексту.</string>
+    <string name="summary_controlkey_preference">Виберіть що буде клавішею Control.</string>
+    <string name="summary_do_path_extensions_preference">Дозволити іншим програмам забезпечувати додаткові команди (додавання до ШЛЯХУ).</string>
+    <string name="summary_fnkey_preference">Виберіть що буде клавішею Fn.</string>
+    <string name="summary_fontsize_preference">Виберіть розмір шрифту.</string>
+    <string name="summary_ime_preference">Виберіть спосіб введення для екранної клавіатури.</string>
+    <string name="summary_initialcommand_preference">Передаються облонці при запуску терміналу.</string>
+    <string name="summary_shell_preference">Вкажіть рядок звернення до командної оболонки.</string>
+    <string name="summary_statusbar_preference">Показати/Приховати статус бар.</string>
+    <string name="summary_termtype_preference">Вибір типу терміналу, для використання в оболонці.</string>
+    <string name="summary_utf8_by_default_preference">Застосувати режим UTF-8 за замовчуванням.</string>
+    <string name="summary_verify_path_preference">Видаляти недоступні директорії з ШЛЯХУ.</string>
+    <string name="text_preferences">Текст</string>
+    <string name="title_actionbar_preference">Бар дії</string>
+    <string name="title_allow_prepend_path_preference">Допускати ШЛЯХ додавання</string>
+    <string name="title_backaction_preference">Поведінка кнопки Назад</string>
+    <string name="title_close_window_on_process_exit_preference">Закриття вікна при виході</string>
+    <string name="title_color_preference">Кольори</string>
+    <string name="title_controlkey_preference">Клавіша Control</string>
+    <string name="title_do_path_extensions_preference">Допустимі дозволи ШЛЯХУ</string>
+    <string name="title_fnkey_preference">Клавіша Fn</string>
+    <string name="title_fontsize_preference">Розмір шрифту</string>
+    <string name="title_ime_preference">Спосіб введення</string>
+    <string name="title_initialcommand_preference">Команди запуску</string>
+    <string name="title_shell_preference">Командний рядок</string>
+    <string name="title_statusbar_preference">Статус бар</string>
+    <string name="title_termtype_preference">Тип терміналу</string>
+    <string name="title_utf8_by_default_preference">За замовчуванням UTF-8</string>
+    <string name="title_verify_path_preference">Перевіряти ШЛЯХ даних</string>
+    <string name="toggle_soft_keyboard">Екранна клавіатура</string>
+    <string name="window_list">Вікна</string>
+    <string name="window_title">Вікно %1$d</string>
+</resources>

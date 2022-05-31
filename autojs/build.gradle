@@ -68,7 +68,12 @@ dependencies {
     api group: 'log4j', name: 'log4j', version: '1.2.17'
     api project(path: ':common')
     api project(path: ':automator')
+    api project(path: ':LocalRepo:libtermexec')
+    api project(path: ':LocalRepo:emulatorview')
+    api project(path: ':LocalRepo:term')
+    api project(path: ':LocalRepo:p7zip')
+    api project(path: ':LocalRepo:OpenCV')
     // libs
-    api fileTree(dir: '../app/libs', include: ['*.jar','*.aar'])
+    api fileTree(dir: '../app/libs', include: ['*.jar'])
 }
 

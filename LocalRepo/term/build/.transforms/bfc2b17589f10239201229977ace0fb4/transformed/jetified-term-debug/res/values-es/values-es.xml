@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="control_keys_short_names">
+        <item>T.Ball</item>
+        <item>\@</item>
+        <item>Alt.Izq.</item>
+        <item>Alt.Dcha.</item>
+        <item>Vol.Subir</item>
+        <item>Vol.Bajar</item>
+        <item>Cámara</item>
+        <item>Ninguna</item>
+    </string-array>
+    <string-array name="entries_actionbar_preference">
+        <!-- <item>Action bar disabled</item> -->
+        <item>Mostrar</item>
+        <item>Ocultar (Pulsa MENÚ para mostrarla)</item>
+    </string-array>
+    <string-array name="entries_backaction_preference">
+        <item>Cierra todas las ventanas</item>
+        <item>Cierra sólo la ventana actual</item>
+        <item>Sale del terminal, dejándolo en segundo plano</item>
+        <item>Envía ESC al terminal</item>
+        <item>Envía TAB al terminal</item>
+    </string-array>
+    <string-array name="entries_color_preference">
+        <item>Negro en fondo blanco</item>
+        <item>Blanco en fondo negro</item>
+        <item>Blanco en fondo azul</item>
+        <item>Verde en fondo negro</item>
+        <item>Ámbar en fondo negro</item>
+        <item>Rojo en fondo negro</item>
+        <item>Azul en fondo negro</item>
+        <item>Solarized Light</item>
+        <item>Solarized Dark</item>
+        <item>Linux Console</item>
+    </string-array>
+    <string-array name="entries_controlkey_preference">
+        <item>Track ball</item>
+        <item>Tecla \@</item>
+        <item>Tecla Alt izquierda</item>
+        <item>Tecla Alt derecha</item>
+        <item>Tecla de subir volumen</item>
+        <item>Tecla de bajar volumen</item>
+        <item>Tecla de la cámara</item>
+        <item>Ninguna</item>
+    </string-array>
+    <string-array name="entries_cursorblink_preference">
+        <item>Cursor no-parpadeante</item>
+        <item>Cursor parpadeante</item>
+    </string-array>
+    <string-array name="entries_cursorstyle_preference">
+        <item>Rectángulo</item>
+        <item>Subrayado</item>
+        <item>Barra vertical</item>
+    </string-array>
+    <string-array name="entries_fnkey_preference">
+        <item>Track ball</item>
+        <item>Tecla \@</item>
+        <item>Tecla Alt izquierda</item>
+        <item>Tecla Alt derecha</item>
+        <item>Tecla de subir volumen</item>
+        <item>Tecla de bajar volumen</item>
+        <item>Tecla de la cámara</item>
+        <item>Ninguna</item>
+    </string-array>
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8 píxeles</item>
+        <item>6 pt</item>
+        <item>7 pt</item>
+        <item>8 pt</item>
+        <item>9 pt</item>
+        <item>10 pt</item>
+        <item>12 pt</item>
+        <item>14 pt</item>
+        <item>16 pt</item>
+        <item>20 pt</item>
+        <item>24 pt</item>
+        <item>28 pt</item>
+        <item>32 pt</item>
+        <item>36 pt</item>
+        <item>42 pt</item>
+        <item>48 pt</item>
+        <item>64 pt</item>
+        <item>72 pt</item>
+        <item>96 pt</item>
+        <item>144 pt</item>
+        <item>288 pt</item>
+    </string-array>
+    <string-array name="entries_ime_preference">
+        <item>Basada en carácteres</item>
+        <item>Basada en palabras</item>
+    </string-array>
+    <string-array name="entries_orientation_preference">
+        <item>Automática</item>
+        <item>Horizontal</item>
+        <item>Vertical</item>
+    </string-array>
+    <string-array name="entries_statusbar_preference">
+        <item>Mostrar</item>
+        <item>Ocultar</item>
+    </string-array>
+    <string-array name="fn_keys_short_names">
+        <item>T.Ball</item>
+        <item>\@</item>
+        <item>Alt.Izq.</item>
+        <item>Alt.Dcha.</item>
+        <item>Vol.Subir</item>
+        <item>Vol.Bajar</item>
+        <item>Cámara</item>
+        <item>Ninguna</item>
+    </string-array>
+    <string name="activity_shortcut_create">"Terminal (acceso directo)"</string>
+    <string name="activity_term_here_title">Terminal aquí</string>
+    <string name="addshortcut_arguments_label">Argumentos\:</string>
+    <string name="addshortcut_button_find_command">Encontrar comando</string>
+    <string name="addshortcut_button_text_icon">Texto del icono</string>
+    <string name="addshortcut_command_hint">comando</string>
+    <string name="addshortcut_command_window_instructions">La ventana de comandos necesita la ruta completa, sin argumentos. Para otros comandos usa la ventana de Argumentos (ej: cd /sdcard).</string>
+    <string name="addshortcut_example_hint">--ejemplo=\""a\"</string>
+    <string name="addshortcut_make_text_icon">HACER ICONO DE TEXTO</string>
+    <string name="addshortcut_navigator_title">ELIJE DESTINO DEL ACCESO DIRECTO</string>
+    <string name="addshortcut_shortcut_label">Etiqueta acceso directo\:</string>
+    <string name="addshortcut_title">Acceso directo a terminal</string>
+    <string name="alt_sends_esc">Tecla Alt como ESC</string>
+    <string name="alt_sends_esc_summary_off">La tecla Alt no funciona como ESC.</string>
+    <string name="alt_sends_esc_summary_on">La tecla Alt funciona como ESC.</string>
+    <string name="application_terminal">Terminal</string>
+    <string name="close_window">Cerrar ventana</string>
+    <string name="colorvalue_icon_text_entry_hint">Introduce texto del icono</string>
+    <string name="colorvalue_label_lock_button_column">BLOQUEAR</string>
+    <string name="colorvalue_letter_alpha">α</string>
+    <string name="colorvalue_letter_blue">B</string>
+    <string name="colorvalue_letter_green">G</string>
+    <string name="colorvalue_letter_red">R</string>
+    <string name="confirm_window_close_message">¿Cerrar esta ventana?</string>
+    <string name="control_key_dialog_control_disabled_text">No hay tecla definida para Ctrl.</string>
+    <string name="control_key_dialog_control_text">CTRLKEY Espacio : Control-@ (NUL)\nCTRLKEY A..Z : Control-A..Z\nCTRLKEY 5 : Control-]\nCTRLKEY 6 : Control-^\nCTRLKEY 7 : Control-_\nCTRLKEY 9 : F11\nCTRLKEY 0 : F12</string>
+    <string name="control_key_dialog_fn_disabled_text">No hay tecla definida para FN.</string>
+    <string name="control_key_dialog_fn_text">FNKEY 1..9 : F1-F9\nFNKEY 0 : F10\nFNKEY W : Up\nFNKEY A : Left\nFNKEY S : Down\nFNKEY D : Right\nFNKEY P : AvPágina\nFNKEY N : RetPágina\nFNKEY T : Tab\nFNKEY L : | (tubería)\nFNKEY U : _ (subrayado)\nFNKEY E : Control-[ (ESC)\nFNKEY X : Suprimir\nFNKEY I : Insertar\nFNKEY H : Inicio\nFNKEY F : Fin\nFNKEY . : Control-\\\n</string>
+    <string name="control_key_dialog_title">Teclas FN y Ctrl</string>
+    <string name="copy_all">Copiar todo</string>
+    <string name="dialog_title_actionbar_preference">Barra de tareas</string>
+    <string name="dialog_title_backaction_preference">Acción del botón ATRÁS</string>
+    <string name="dialog_title_color_preference">Color del texto</string>
+    <string name="dialog_title_controlkey_preference">Tecla Ctrl</string>
+    <string name="dialog_title_cursorblink_preference">Parpadeo del cursor</string>
+    <string name="dialog_title_cursorstyle_preference">Diseño del cursor</string>
+    <string name="dialog_title_fnkey_preference">Tecla FN</string>
+    <string name="dialog_title_fontsize_preference">Tamaño de fuente</string>
+    <string name="dialog_title_ime_preference">Método de introducción</string>
+    <string name="dialog_title_initialcommand_preference">Comando inicial</string>
+    <string name="dialog_title_orientation_preference">Comportamiento de orientación de pantalla</string>
+    <string name="dialog_title_shell_preference">Shell</string>
+    <string name="dialog_title_statusbar_preference">Barra de estado</string>
+    <string name="dialog_title_termtype_preference">Tipo de terminal</string>
+    <string name="disable_wakelock">Desactivar WakeLock</string>
+    <string name="disable_wifilock">Desactivar WifiLock</string>
+    <string name="edit_text">Editar texto</string>
+    <string name="email_transcript_chooser_title">Enviar correo usando:</string>
+    <string name="email_transcript_no_email_activity_found">No hay aplicaciones de email disponibles.</string>
+    <string name="email_transcript_subject">Enviar correo electrónico sobre Terminal</string>
+    <string name="enable_wakelock">Activar WakeLock</string>
+    <string name="enable_wifilock">Activar WifiLock</string>
+    <string name="fsnavigator_change_theme">Cambiar tema</string>
+    <string name="fsnavigator_no_external_storage">Almacenamiento externo no disponible</string>
+    <string name="fsnavigator_optional_enter_path">O intruduce ruta aquí.</string>
+    <string name="fsnavigator_title">EXPLORADOR DE ARCHIVOS</string>
+    <string name="help">Ayuda</string>
+    <string name="keyboard_preferences">Teclado</string>
+    <string name="new_window">Nueva ventana</string>
+    <string name="next_window">Ventana posterior</string>
+    <string name="paste">Pegar</string>
+    <string name="perm_append_to_path">Añadir comandos al Terminal</string>
+    <string name="perm_prepend_to_path">Sobreescribir comandos del Terminal</string>
+    <string name="perm_run_script">Permitir que la aplicación ejecute comandos arbitrarios</string>
+    <string name="permdesc_append_to_path">Otras aplicaciones pueden añadir nuevos comandos al PATH.</string>
+    <string name="permdesc_prepend_to_path">Otras aplicaciones pueden sobreescribir comandos ya existentes del PATH.</string>
+    <string name="permdesc_run_script">Permitir a las aplicaciones abrir nuevas ventanas de terminal con todos los permisos concedidos, incluso los de acceso a Internet y a la tarjeta SD.</string>
+    <string name="preferences">Preferencias</string>
+    <string name="prev_window">Ventana anterior</string>
+    <string name="process_exit_message">Sesión de Terminal finalizada</string>
+    <string name="reset">Reiniciar consola</string>
+    <string name="reset_toast_notification">Ventana de terminal reiniciada.</string>
+    <string name="screen_preferences">Pantalla</string>
+    <string name="select_text">Seleccionar texto</string>
+    <string name="send_control_key">Tecla asignada a Ctrl</string>
+    <string name="send_email">Enviar email</string>
+    <string name="send_fn_key">Tecla asignada a FN</string>
+    <string name="service_notify_text">Sesión de terminal en ejecución</string>
+    <string name="shell_preferences">Shell</string>
+    <string name="special_keys">Teclas especiales</string>
+    <string name="summary_actionbar_preference">Elije el comportamiente de la barra de tareas (Android 3.0+).</string>
+    <string name="summary_allow_prepend_path_preference">Otras aplicaciones pueden sobreescribir entradas ya existentes del PATH</string>
+    <string name="summary_backaction_preference">Selecciona la acción al pulsar el botón ATRÁS.</string>
+    <string name="summary_close_window_on_process_exit_preference">Elegir si la ventana se cerrará al salir de ella.</string>
+    <string name="summary_color_preference">Elije el color del texto.</string>
+    <string name="summary_controlkey_preference">Elije la tecla Ctrl.</string>
+    <string name="summary_cursorblink_preference">Elije el parpadeo del cursor.</string>
+    <string name="summary_cursorstyle_preference">Selecciona el diseño del cursor.</string>
+    <string name="summary_do_path_extensions_preference">Se permite a otras aplicaciones añadir entradas al PATH.</string>
+    <string name="summary_fnkey_preference">Elije la tecla FN.</string>
+    <string name="summary_fontsize_preference">Elije el tamaño de la fuente.</string>
+    <string name="summary_home_path_preference">Ruta a una carpeta con permisos de escritura para usar como HOME.</string>
+    <string name="summary_ime_preference">Elige el método de introducción.</string>
+    <string name="summary_initialcommand_preference">Comando que se envía a la consola al iniciarla.</string>
+    <string name="summary_mouse_tracking_preference">Cuando los eventos de pulsación y desplazamiento deben mandarse como secuencias de escape al terminal.</string>
+    <string name="summary_orientation_preference">Elije el comportamiento de la orientación de pantalla.</string>
+    <string name="summary_shell_preference">Especifique el shell para la línea de comandos.</string>
+    <string name="summary_statusbar_preference">Ver/ocultar barra de estado.</string>
+    <string name="summary_termtype_preference">Que tipo de terminal se indica al shell.</string>
+    <string name="summary_utf8_by_default_preference">Activa por defecto la codificación UTF-8</string>
+    <string name="summary_verify_path_preference">Los directorios inaccesibles serán eliminados de PATH.</string>
+    <string name="text_preferences">Texto</string>
+    <string name="title_actionbar_preference">Barra de tareas</string>
+    <string name="title_allow_prepend_path_preference">Permitir anteponer adiciones</string>
+    <string name="title_backaction_preference">Acción del botón ATRÁS</string>
+    <string name="title_close_window_on_process_exit_preference">Cerrar ventana al salir</string>
+    <string name="title_color_preference">Colores</string>
+    <string name="title_controlkey_preference">Tecla Ctrl</string>
+    <string name="title_cursorblink_preference">Parpadeo del cursor</string>
+    <string name="title_cursorstyle_preference">Diseño del cursor</string>
+    <string name="title_do_path_extensions_preference">Permitir adiciones</string>
+    <string name="title_fnkey_preference">Tecla FN</string>
+    <string name="title_fontsize_preference">Tamaño de fuente</string>
+    <string name="title_home_path_preference">Carpeta HOME</string>
+    <string name="title_ime_preference">Método de introducción</string>
+    <string name="title_initialcommand_preference">Comando inicial</string>
+    <string name="title_mouse_tracking_preference">Enviar eventos de ratón</string>
+    <string name="title_orientation_preference">Orientación de pantalla</string>
+    <string name="title_shell_preference">Lineas de comandos</string>
+    <string name="title_statusbar_preference">Barra de estado</string>
+    <string name="title_termtype_preference">Tipo de terminal</string>
+    <string name="title_use_keyboard_shortcuts">Usar Atajos de Teclado</string>
+    <string name="title_utf8_by_default_preference">UTF-8 por defecto</string>
+    <string name="title_verify_path_preference">Verificar entradas de PATH</string>
+    <string name="toggle_soft_keyboard">Ver/ocultar teclado</string>
+    <string name="use_keyboard_shortcuts_summary_off">Atajos de teclado desactivados.</string>
+    <string name="use_keyboard_shortcuts_summary_on">Ctrl-Tab: cambiar ventana, Ctrl-Shift-N: nueva ventana, Ctrl-Shift-V: pegar.</string>
+    <string name="window_list">Ventanas</string>
+    <string name="window_title">Ventana %1$d</string>
+</resources>

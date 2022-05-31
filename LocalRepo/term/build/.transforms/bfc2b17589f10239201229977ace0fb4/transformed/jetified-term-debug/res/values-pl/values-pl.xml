@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="control_keys_short_names">
+        <item>Kulka</item>
+        <item>\@</item>
+        <item>Lewy Alt</item>
+        <item>Prawy Alt</item>
+        <item>Vol-Up</item>
+        <item>Vol-Dn</item>
+        <item>Aparat</item>
+        <item>Żaden</item>
+    </string-array>
+    <string-array name="entries_actionbar_preference">
+        <!-- <item>Pasek narzędziowy wyłączony</item> -->
+        <item>Zawsze pokazuj pasek narzędziowy</item>
+        <item>Ukryj pasek narzędzi (dotknij góry ekranu lub przycisk Menu, aby wyświetlić)</item>
+    </string-array>
+    <string-array name="entries_backaction_preference">
+        <item>Zamyka wszystkie okna terminala</item>
+        <item>Zamyka tylko aktualne okno terminala</item>
+        <item>Ukrywa program, pozostawiając sesję w tle</item>
+        <item>Wysyła klawisz ESC do terminala</item>
+        <item>Wysyła klawisz TAB do terminala</item>
+    </string-array>
+    <string-array name="entries_color_preference">
+        <item>Czarny tekst na białym tle</item>
+        <item>Biały tekst na czarnym tle</item>
+        <item>Biały tekst na niebieskim tle</item>
+        <item>Zielony tekst na czarnym tle</item>
+        <item>Bursztynowy tekst na czarnym tle</item>
+        <item>Czerwony tekst na czarnym tle</item>
+        <item>Błękitny tekst na czarnym tle</item>
+        <item>Solarized Light</item>
+        <item>Solarized Dark</item>
+        <item>Linux Console</item>
+    </string-array>
+    <string-array name="entries_controlkey_preference">
+        <item>Kulka/tackball</item>
+        <item>Przycisk \@</item>
+        <item>Lewy Alt</item>
+        <item>Prawy Alt</item>
+        <item>Przycisk zwiększania głośności</item>
+        <item>Przycisk zmniejszania głośności</item>
+        <item>Przycisk aparatu</item>
+        <item>Żaden</item>
+    </string-array>
+    <string-array name="entries_cursorblink_preference">
+        <item>Niemigający kursor</item>
+        <item>Migający kursor</item>
+    </string-array>
+    <string-array name="entries_cursorstyle_preference">
+        <item>Prostokąt</item>
+        <item>Podkreślenie</item>
+        <item>Poziomy pasek</item>
+    </string-array>
+    <string-array name="entries_fnkey_preference">
+        <item>Kulka/tackball</item>
+        <item>Przycisk \@</item>
+        <item>Lewy Alt</item>
+        <item>Prawy Alt</item>
+        <item>Przycisk zwiększania głośności</item>
+        <item>Przycisk zmniejszania głośności</item>
+        <item>Przycisk aparatu</item>
+        <item>Żaden</item>
+    </string-array>
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8 pixeli</item>
+        <item>6 pt</item>
+        <item>7 pt</item>
+        <item>8 pt</item>
+        <item>9 pt</item>
+        <item>10 pt</item>
+        <item>12 pt</item>
+        <item>14 pt</item>
+        <item>16 pt</item>
+        <item>20 pt</item>
+        <item>24 pt</item>
+        <item>28 pt</item>
+        <item>32 pt</item>
+        <item>36 pt</item>
+        <item>42 pt</item>
+        <item>48 pt</item>
+        <item>64 pt</item>
+        <item>72 pt</item>
+        <item>96 pt</item>
+        <item>144 pt</item>
+        <item>288 pt</item>
+    </string-array>
+    <string-array name="entries_ime_preference">
+        <item>Oparta o litery</item>
+        <item>Oparta o słowa</item>
+    </string-array>
+    <string-array name="entries_statusbar_preference">
+        <item>Pokaż pasek stanu</item>
+        <item>Ukryj pasek stanu</item>
+    </string-array>
+    <string-array name="fn_keys_short_names">
+        <item>Kulka</item>
+        <item>\@</item>
+        <item>Lewy Alt</item>
+        <item>Prawy</item>
+        <item>Vol-Up</item>
+        <item>Vol-Dn</item>
+        <item>Aparat</item>
+        <item>Żaden</item>
+    </string-array>
+    <string name="alt_sends_esc">Przycisk Alt wysyła ESC</string>
+    <string name="alt_sends_esc_summary_off">Przycisk Alt nie wysyła ESC.</string>
+    <string name="alt_sends_esc_summary_on">Przycisk Alt wysyła ESC.</string>
+    <string name="application_terminal">Terminal Emulator</string>
+    <string name="close_window">Zamknij okno</string>
+    <string name="confirm_window_close_message">Zamknąć to okno?</string>
+    <string name="control_key_dialog_control_disabled_text">Brak ustawionego przycisku Control.</string>
+    <string name="control_key_dialog_control_text">CTRLKEY Spacja : Control-@ (NUL)\nCTRLKEY A..Z : Control-A..Z\nCTRLKEY 5 : Control-]\nCTRLKEY 6 : Control-^\nCTRLKEY 7 : Control-_\nCTRLKEY 9 : F11\nCTRLKEY 0 : F12</string>
+    <string name="control_key_dialog_fn_disabled_text">Brak ustawionego przycisku Fn.</string>
+    <string name="control_key_dialog_fn_text">FNKEY 1..9 : F1-F9\nFNKEY 0 : F10\nFNKEY W : Góra\nFNKEY A : Lewo\nFNKEY S : Dół\nFNKEY D : Prawo\nFNKEY P : PageUp\nFNKEY N : PageDown\nFNKEY T : Tab\nFNKEY L : | (pipe)\nFNKEY U : _ (underscore)\nFNKEY E : Control-[ (ESC)\nFNKEY X : Delete\nFNKEY I : Insert\nFNKEY H : Home\nFNKEY F : End\nFNKEY . : Control-\\\n</string>
+    <string name="control_key_dialog_title">Przyciski Control i Fn</string>
+    <string name="copy_all">Kopiuj wszystko</string>
+    <string name="dialog_title_actionbar_preference">Zachowanie paska akcji</string>
+    <string name="dialog_title_backaction_preference">Zachowanie przycisku wstecz</string>
+    <string name="dialog_title_color_preference">Kolor tekstu</string>
+    <string name="dialog_title_controlkey_preference">Przycisk control</string>
+    <string name="dialog_title_cursorblink_preference">Miganie kursora</string>
+    <string name="dialog_title_cursorstyle_preference">Styl kursora</string>
+    <string name="dialog_title_fnkey_preference">Przycisk Fn</string>
+    <string name="dialog_title_fontsize_preference">Rozmiar czcionki</string>
+    <string name="dialog_title_ime_preference">Metoda wprowadzania</string>
+    <string name="dialog_title_initialcommand_preference">Komenda początkowa</string>
+    <string name="dialog_title_shell_preference">Powłoka</string>
+    <string name="dialog_title_statusbar_preference">Pasek stanu</string>
+    <string name="dialog_title_termtype_preference">Typ Terminala</string>
+    <string name="disable_wakelock">Zwolnij WakeLock</string>
+    <string name="disable_wifilock">Zwolnij WifiLock</string>
+    <string name="edit_text">Edytuj tekst</string>
+    <string name="email_transcript_chooser_title">Wyślij transkrypt używając:</string>
+    <string name="email_transcript_no_email_activity_found">Nie można wybrać aktywności e-mail żeby wysłać transkrypt.</string>
+    <string name="email_transcript_subject">Transkrypt z Terminal Emulator for Android</string>
+    <string name="enable_wakelock">Weź WakeLock</string>
+    <string name="enable_wifilock">Weź WifiLock</string>
+    <string name="keyboard_preferences">Klawiatura</string>
+    <string name="new_window">Nowe okno</string>
+    <string name="next_window">Następne okno</string>
+    <string name="paste">Wklej</string>
+    <string name="perm_append_to_path">Dodawanie komend w Terminal Emulator</string>
+    <string name="perm_prepend_to_path">Nadpisuj komendy Terminal Emulator</string>
+    <string name="perm_run_script">Uruchamiaj komendy w Terminal Emulator</string>
+    <string name="permdesc_append_to_path">Pozwól aplikacjom na dodawanie dodatkowych komend (odawanie katalogów do PATH) w Terminal Emulator for Android.</string>
+    <string name="permdesc_prepend_to_path">Pozwól aplikacjom na nadpisywanie istniejących komend ich własnymi wersjami (dodawanie katalogów na początku PATH) w Terminal Emulator for Android.</string>
+    <string name="permdesc_run_script">Pozwalaj na otwieranie okien w Terminal Emulator for Android i wykonywanie komend w tych oknach z wszystkimi prawami Terminal Emulator for Android, wliczając dostęp do internetu i karty SD.</string>
+    <string name="preferences">Ustawienia</string>
+    <string name="prev_window">Poprzednie okno</string>
+    <string name="process_exit_message">Sesja Terminala została zakończona</string>
+    <string name="reset">Wyczyść terminal</string>
+    <string name="reset_toast_notification">Stan tego okna terminala został zresetowany</string>
+    <string name="screen_preferences">Ekran</string>
+    <string name="select_text">Wybierz tekst</string>
+    <string name="send_control_key">Wyślij przycisk control</string>
+    <string name="send_email">Wyślij e-mail</string>
+    <string name="send_fn_key">Wyślij przycisk fn</string>
+    <string name="service_notify_text">Sesja Terminala jest włączona</string>
+    <string name="shell_preferences">Powłoka</string>
+    <string name="special_keys">Przyciski specjalne</string>
+    <string name="summary_actionbar_preference">Wybierz zachowanie paska akcji (Android 3.0 i nowsze).</string>
+    <string name="summary_allow_prepend_path_preference">Czy inne aplikacje powinny mieć możliwość nadpisywania istniejących komend (dodawanie na początku PATH).</string>
+    <string name="summary_backaction_preference">Wybierz co ma robić wciśniecie przycisku wstecz.</string>
+    <string name="summary_close_window_on_process_exit_preference">Czy okno powinno się zamknąć gdy jego shell się zamyka.</string>
+    <string name="summary_color_preference">Wybierz kolor tekstu.</string>
+    <string name="summary_controlkey_preference">Wybierz przycisk control.</string>
+    <string name="summary_cursorblink_preference">Wybierz miganie kursora.</string>
+    <string name="summary_cursorstyle_preference">Wybierz styl kursora.</string>
+    <string name="summary_do_path_extensions_preference">Czy inne aplikacje powinny mieć możliwość dostarczania dodatkowych komend (dodawanie do PATH).</string>
+    <string name="summary_fnkey_preference">Wybierz przycisk Fn.</string>
+    <string name="summary_fontsize_preference">Wybierz wielkość liter.</string>
+    <string name="summary_ime_preference">Wybierz metodę wprowadzania.</string>
+    <string name="summary_initialcommand_preference">Wysyłana do powłoki podczas startu.</string>
+    <string name="summary_shell_preference">Określ linię powłokę.</string>
+    <string name="summary_statusbar_preference">Pokaż/ukryj pasek stanu.</string>
+    <string name="summary_termtype_preference">Jaki typ terminala zgłosić do shella.</string>
+    <string name="summary_utf8_by_default_preference">Czy tryb UTF-8 jest włączony domyślnie.</string>
+    <string name="summary_verify_path_preference">Czy niedostępne katalogi powinny być usunięte z PATH.</string>
+    <string name="text_preferences">Tekst</string>
+    <string name="title_actionbar_preference">Pasek akcji</string>
+    <string name="title_allow_prepend_path_preference">Zazwól na dodawanie na początku PATH</string>
+    <string name="title_backaction_preference">Zachowanie przycisku wstecz</string>
+    <string name="title_close_window_on_process_exit_preference">Zamknij okno przy wyjściu</string>
+    <string name="title_color_preference">Kolory</string>
+    <string name="title_controlkey_preference">Przycisk control</string>
+    <string name="title_cursorblink_preference">Miganie kursora</string>
+    <string name="title_cursorstyle_preference">Styl kursora</string>
+    <string name="title_do_path_extensions_preference">Zezwól na rozszerzanie PATH</string>
+    <string name="title_fnkey_preference">Przycisk Fn</string>
+    <string name="title_fontsize_preference">Rozmiar czcionki</string>
+    <string name="title_ime_preference">Metoda wprowadzania</string>
+    <string name="title_initialcommand_preference">Komenda początkowa</string>
+    <string name="title_shell_preference">Linia poleceń</string>
+    <string name="title_statusbar_preference">Pasek stanu</string>
+    <string name="title_termtype_preference">Typ Terminala</string>
+    <string name="title_utf8_by_default_preference">Domyślnie do UTF-8</string>
+    <string name="title_verify_path_preference">Weryfikuj ścieżki PATH</string>
+    <string name="toggle_soft_keyboard">Pokaż klawiaturę</string>
+    <string name="window_list">Okna</string>
+    <string name="window_title">Okno %1$d</string>
+</resources>

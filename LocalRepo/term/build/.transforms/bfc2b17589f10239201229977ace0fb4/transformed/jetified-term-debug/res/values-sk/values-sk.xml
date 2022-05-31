@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="control_keys_short_names">
+    <item>Gulička</item>
+    <item>\@</item>
+    <item>Ľavý Alt</item>
+    <item>Pravý Alt</item>
+    <item>Hlasitosť+</item>
+    <item>Hlasitosť-</item>
+    <item>Fotoaparát</item>
+    <item>Žiadny</item>
+  </string-array>
+    <string-array name="entries_actionbar_preference">
+      <item>Vždy zobraziť panel akcií</item>
+      <item>Skryť panel akcií (pre zobrazenie sa dotknite vrchu obrazovky alebo tlačidla Ponuka)</item>
+  </string-array>
+    <string-array name="entries_backaction_preference">
+      <item>Zavrieť všetky okná terminálu</item>
+      <item>Zavrieť iba aktuálne okno terminálu</item>
+      <item>Zavrieť aktivitu, ponechať reláciu bežiacou</item>
+      <item>Odoslať ESC do terminálu</item>
+      <item>Odoslať TAB do terminálu</item>
+  </string-array>
+    <string-array name="entries_color_preference">
+    <item>Čierny text na bbielom</item>
+    <item>Biely text na čiernom</item>
+    <item>Biely text na modrom</item>
+    <item>Zelený text na čiernom</item>
+    <item>Jantárový text na čiernom</item>
+    <item>Červený text na čiernom</item>
+    <item>Holo modrý text na čiernom</item>
+    <item>Solarizovaná svetlá</item>
+    <item>Solarizovaná tmavá</item>
+    <item>Linuxová konzola</item>
+  </string-array>
+    <string-array name="entries_controlkey_preference">
+    <item>Gulička</item>
+    <item>Kláves \@</item>
+    <item>Kláves Ľavý Alt</item>
+    <item>Kláves Pravý Alt</item>
+    <item>Kláves Hlasitosť+</item>
+    <item>Kláves Hlasitosť-</item>
+    <item>Kláves Fotoaparát</item>
+    <item>Žiadny</item>
+  </string-array>
+    <string-array name="entries_cursorblink_preference">
+    <item>Neblikajúci kurzor</item>
+    <item>Blikajúci kurzor</item>
+  </string-array>
+    <string-array name="entries_cursorstyle_preference">
+    <item>Obdĺžnikový</item>
+    <item>Podčiarknutý</item>
+    <item>Zvislá čiara</item>
+  </string-array>
+    <string-array name="entries_fnkey_preference">
+    <item>Gulička</item>
+    <item>Kláves \@</item>
+    <item>Kláves Ľavý Alt</item>
+    <item>Kláves Pravý Alt</item>
+    <item>Kláves Hlasitosť+</item>
+    <item>Kláves Hlasitosť-</item>
+    <item>Kláves Fotoaparát</item>
+    <item>Žiadny</item>
+  </string-array>
+    <string-array name="entries_fontsize_preference">
+    <item>4 x 8 pixelov</item>
+    <item>6 bodov</item>
+    <item>7 bodov</item>
+    <item>8 bodov</item>
+    <item>9 bodov</item>
+    <item>10 bodov</item>
+    <item>12 bodov</item>
+    <item>14 bodov</item>
+    <item>16 bodov</item>
+    <item>20 bodov</item>
+    <item>24 bodov</item>
+    <item>28 bodov</item>
+    <item>32 bodov</item>
+    <item>36 bodov</item>
+    <item>42 bodov</item>
+    <item>48 bodov</item>
+    <item>64 bodov</item>
+    <item>72 bodov</item>
+    <item>96 bodov</item>
+    <item>144 bodov</item>
+    <item>288 bodov</item>
+  </string-array>
+    <string-array name="entries_ime_preference">
+    <item>Po znakoch</item>
+    <item>Po slovách</item>
+  </string-array>
+    <string-array name="entries_orientation_preference">
+        <item>Automatická</item>
+        <item>Na šírku</item>
+        <item>Na výšku</item>
+  </string-array>
+    <string-array name="entries_statusbar_preference">
+    <item>Zobraziť stavový riadok</item>
+    <item>Skryť stavový riadok</item>
+  </string-array>
+    <string-array name="fn_keys_short_names">
+    <item>Gulička</item>
+    <item>\@</item>
+    <item>Ľavý Alt</item>
+    <item>Pravý Alt</item>
+    <item>Hlasitosť+</item>
+    <item>Hlasitosť-</item>
+    <item>Fotoaparát</item>
+    <item>Žiadny</item>
+  </string-array>
+    <string name="activity_shortcut_create">Skratka terminálu</string>
+    <string name="activity_term_here_title">Otvoriť terminál</string>
+    <string name="addshortcut_arguments_label">Argumenty\:</string>
+    <string name="addshortcut_button_find_command">Nájsť príkaz</string>
+    <string name="addshortcut_button_text_icon">Text ikony</string>
+    <string name="addshortcut_command_hint">príkaz</string>
+    <string name="addshortcut_command_window_instructions">Príkazové okno vyžaduje celé umiestnenie, žiadne argumenty. Pre ostatné príkazy použite okno pre argumenty (napríklad: cd /sdcard).</string>
+    <string name="addshortcut_example_hint">--príklad=\""a\"</string>
+    <string name="addshortcut_make_text_icon">Vytvoriť text ikony</string>
+    <string name="addshortcut_navigator_title">VYBERTE CIEĽ SKRATKY</string>
+    <string name="addshortcut_shortcut_label">Názov skratky\:</string>
+    <string name="addshortcut_title">Skratka terminálu</string>
+    <string name="alt_sends_esc">Posielať ESC pomocou klávesu Alt</string>
+    <string name="alt_sends_esc_summary_off">Kláves Alt neposiela ESC.</string>
+    <string name="alt_sends_esc_summary_on">Kláves Alt posiela ESC.</string>
+    <string name="application_terminal">Emulátor terminálu</string>
+    <string name="close_window">Zavrieť okno</string>
+    <string name="colorvalue_icon_text_entry_hint">Zadajte text ikony</string>
+    <string name="colorvalue_label_lock_button_column">Zamknúť</string>
+    <string name="colorvalue_letter_alpha">α</string>
+    <string name="colorvalue_letter_blue">M</string>
+    <string name="colorvalue_letter_green">Z</string>
+    <string name="colorvalue_letter_red">Č</string>
+    <string name="confirm_window_close_message">Zavrieť toto okno?</string>
+    <string name="control_key_dialog_control_disabled_text">Ovládacie klávesy nie sú nastavené.</string>
+    <string name="control_key_dialog_control_text">CTRLKEY medzera : Ctrl-@ (NUL)\nCTRLKEY A..Z : Ctrl-A..Z\nCTRLKEY 5 : Ctrl-]\nCTRLKEY 6 : Ctrl-^\nCTRLKEY 7 : Ctrl-_\nCTRLKEY 9 : F11\nCTRLKEY 0 : F12</string>
+    <string name="control_key_dialog_fn_disabled_text">Funkčné klávesy nie sú nastavené.</string>
+    <string name="control_key_dialog_fn_text">FNKEY 1..9 : F1-F9\nFNKEY 0 : F10\nFNKEY W : hore\nFNKEY A : vľavo\nFNKEY S : dole\nFNKEY D : vpravo\nFNKEY P : stránka hore\nFNKEY N : stránka dole\nFNKEY T : tabulátor\nFNKEY L : | (zvislá čiara)\nFNKEY U : _ (podčiarkovník)\nFNKEY E : Ctrl-[ (ESC)\nFNKEY X : vymazať\nFNKEY I : vložiť\nFNKEY H : domov\nFNKEY F : koniec\nFNKEY . : Ctrl-\\\n</string>
+    <string name="control_key_dialog_title">Ovládacie a funkčné klávesy</string>
+    <string name="copy_all">Kopírovať všetko</string>
+    <string name="dialog_title_actionbar_preference">Správanie panela akcií</string>
+    <string name="dialog_title_backaction_preference">Správanie tlačidla Späť</string>
+    <string name="dialog_title_color_preference">Farba textu</string>
+    <string name="dialog_title_controlkey_preference">Ovládací kláves</string>
+    <string name="dialog_title_cursorblink_preference">Blikanie kurzoru</string>
+    <string name="dialog_title_cursorstyle_preference">Štýl kurzoru</string>
+    <string name="dialog_title_fnkey_preference">Funkčný kláves</string>
+    <string name="dialog_title_fontsize_preference">Veľkosť fontu</string>
+    <string name="dialog_title_ime_preference">Metóda vstupu</string>
+    <string name="dialog_title_initialcommand_preference">Počiatočný príkaz</string>
+    <string name="dialog_title_orientation_preference">Správanie orientácie obrazovky</string>
+    <string name="dialog_title_shell_preference">Konzola</string>
+    <string name="dialog_title_statusbar_preference">Stavový riadok</string>
+    <string name="dialog_title_termtype_preference">Typ terminálu</string>
+    <string name="disable_wakelock">Povoliť uspanie</string>
+    <string name="disable_wifilock">Povoliť odpojenie Wi-Fi</string>
+    <string name="edit_text">Upraviť text</string>
+    <string name="email_transcript_chooser_title">Poslať prepis prostredníctvom</string>
+    <string name="email_transcript_no_email_activity_found">Nie je možné vybrať e-mailovú aktivitu na poslanie prepisu.</string>
+    <string name="email_transcript_subject">Prepis z Emulátora terminálu pre Android</string>
+    <string name="enable_wakelock">Zabrániť uspaniu</string>
+    <string name="enable_wifilock">Zabrániť odpojeniu Wi-Fi</string>
+    <string name="fsnavigator_change_theme">Zmeniť tému</string>
+    <string name="fsnavigator_no_external_storage">Nedostupný externý ukladací priestor</string>
+    <string name="fsnavigator_optional_enter_path">Alebo zadajte umiestnenie sem.</string>
+    <string name="fsnavigator_title">VYBERTE SÚBOR</string>
+    <string name="help">Pomocník</string>
+    <string name="keyboard_preferences">Klávesnica</string>
+    <string name="new_window">Nové okno</string>
+    <string name="next_window">Predchádzajúce okno</string>
+    <string name="paste">Prilepiť</string>
+    <string name="perm_append_to_path">Pridať príkazy do Emulátora terminálu Android</string>
+    <string name="perm_prepend_to_path">Prepísať príkazy v Emulátori terminálu Android</string>
+    <string name="perm_run_script">Spustiť ľubovoľné príkazy</string>
+    <string name="permdesc_append_to_path">Umožňuje aplikáciám poskytnúť ďalšie príkazy (pridať priečinky do PATH) v Emulátori terminálu pre Android.</string>
+    <string name="permdesc_prepend_to_path">Umožňuje aplikáciám prepísať existujúce príkazy so svojimi vlastnými verziami (podradiť priečinky v PATH) v Emulátori terminálu pre Android.</string>
+    <string name="permdesc_run_script">Umožniť aplikáciám otvoriť nové okno v Emulátori terminálu pre Android a spustiť príkazy v tomto okne so všetkými povoleniami terminálu a to vrátane prístupu na Internet a ku karte SD.</string>
+    <string name="preferences">Nastavenia</string>
+    <string name="prev_window">Dalšie okno</string>
+    <string name="process_exit_message">Terminálová relácia bola ukončená</string>
+    <string name="reset">Obnoviť terminál</string>
+    <string name="reset_toast_notification">Stav terminálu pre toto okno bol obnovený.</string>
+    <string name="screen_preferences">Obrazovka</string>
+    <string name="select_text">Vybrať text</string>
+    <string name="send_control_key">Poslať ovládací kláves</string>
+    <string name="send_email">Poslať e-mailom</string>
+    <string name="send_fn_key">Poslať funkčný kláves</string>
+    <string name="service_notify_text">Terminálová relácia je spustená</string>
+    <string name="shell_preferences">Konzola</string>
+    <string name="special_keys">Špeciálne klávesy</string>
+    <string name="summary_actionbar_preference">Vybrať správanie panela akcií (Android 3.0 a vyšší).</string>
+    <string name="summary_allow_prepend_path_preference">Umožniť ostatným aplikáciám prepísať existujúce príkazy (pridať na začiatok PATH).</string>
+    <string name="summary_backaction_preference">Vybrať správanie tlačidla Späť.</string>
+    <string name="summary_close_window_on_process_exit_preference">Po ukončení konzoly zavrieť okno.</string>
+    <string name="summary_color_preference">Vybrať farbu textu.</string>
+    <string name="summary_controlkey_preference">Vybrať ovládací kláves.</string>
+    <string name="summary_cursorblink_preference">Vybrať blikanie kurzoru.</string>
+    <string name="summary_cursorstyle_preference">Vybrať štýl kurzoru.</string>
+    <string name="summary_do_path_extensions_preference">Umožniť ostatným aplikáciám poskytnúť ďalšie príkazy (pridať do PATH).</string>
+    <string name="summary_fnkey_preference">Vybrať funkčný kláves.</string>
+    <string name="summary_fontsize_preference">Vybrať výšku znaku v bodoch.</string>
+    <string name="summary_home_path_preference">Umiestnenie zapisovateľného priečinka, ktorý bude použitý ako domovský.</string>
+    <string name="summary_ime_preference">Vybrať metódu zadávania pre softvérovú klávesnicu.</string>
+    <string name="summary_initialcommand_preference">Poslať do konzoly po spustení.</string>
+    <string name="summary_mouse_tracking_preference">Posielať udalosti kliknutia a posunu ako sekvencie ESCAPE do terminálu.</string>
+    <string name="summary_orientation_preference">Vybrať správanie orientácie obrazovky.</string>
+    <string name="summary_shell_preference">Vybrať príkaz pre konzolu.</string>
+    <string name="summary_statusbar_preference">Zobraziť/skryť stavový riadok.</string>
+    <string name="summary_termtype_preference">Typ terminálu pre nahlásenie do konzoly.</string>
+    <string name="summary_utf8_by_default_preference">Režim UTF-8 je predvolene povolený.</string>
+    <string name="summary_verify_path_preference">Odstrániť neprístupné priečinky z PATH.</string>
+    <string name="text_preferences">Text</string>
+    <string name="title_actionbar_preference">Panel akcií</string>
+    <string name="title_allow_prepend_path_preference">Povoliť podradenie PATH</string>
+    <string name="title_backaction_preference">Správanie tlačidla Späť</string>
+    <string name="title_close_window_on_process_exit_preference">Zavrieť okno po ukončení</string>
+    <string name="title_color_preference">Farby</string>
+    <string name="title_controlkey_preference">Ovládací kláves</string>
+    <string name="title_cursorblink_preference">Blikanie kurzoru</string>
+    <string name="title_cursorstyle_preference">Štýl kurzoru</string>
+    <string name="title_do_path_extensions_preference">Povoliť rozšírenia PATH</string>
+    <string name="title_fnkey_preference">Funkčný kláves</string>
+    <string name="title_fontsize_preference">Veľkosť písma</string>
+    <string name="title_home_path_preference">Domovský priečinok</string>
+    <string name="title_ime_preference">Metóda vstupu</string>
+    <string name="title_initialcommand_preference">Počiatočný príkaz</string>
+    <string name="title_mouse_tracking_preference">Posielať udalosti myši</string>
+    <string name="title_orientation_preference">Orientácia obrazovky</string>
+    <string name="title_shell_preference">Príkazový riadok</string>
+    <string name="title_statusbar_preference">Stavový riadok</string>
+    <string name="title_termtype_preference">Typ terminálu</string>
+    <string name="title_use_keyboard_shortcuts">Používať klávesové skratky</string>
+    <string name="title_utf8_by_default_preference">Predvolene do UTF-8</string>
+    <string name="title_verify_path_preference">Overiť položky v PATH</string>
+    <string name="toggle_soft_keyboard">Prepnúť softvérovú klávesnicu</string>
+    <string name="use_keyboard_shortcuts_summary_off">Klávesové skratky sú zakázané.</string>
+    <string name="use_keyboard_shortcuts_summary_on">Ctrl-Tab: prepnúť okno, Ctrl-Shift-N: nové okno, Ctrl-Shift-V: prilepiť.</string>
+    <string name="window_list">Okná</string>
+    <string name="window_title">Okno %1$d</string>
+</resources>

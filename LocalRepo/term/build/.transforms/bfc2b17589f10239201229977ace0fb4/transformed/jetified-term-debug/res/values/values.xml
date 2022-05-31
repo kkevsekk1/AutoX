@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="control_keys_short_names">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Left-Alt</item>
+        <item>Right-Alt</item>
+        <item>Vol-Up</item>
+        <item>Vol-Dn</item>
+        <item>Camera</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="entries_actionbar_preference">
+        <!-- <item>Action bar disabled</item> -->
+        <item>Always show action bar</item>
+        <item>Hide action bar (touch top of screen or Menu key to show)</item>
+    </string-array>
+    <string-array name="entries_backaction_preference">
+        <item>Closes all terminal windows</item>
+        <item>Closes this terminal window only</item>
+        <item>Closes activity, leaving sessions running</item>
+        <item>Sends ESC to terminal</item>
+        <item>Sends TAB to terminal</item>
+    </string-array>
+    <string-array name="entries_color_preference">
+        <item>Black text on white</item>
+        <item>White text on black</item>
+        <item>White text on blue</item>
+        <item>Green text on black</item>
+        <item>Amber text on black</item>
+        <item>Red text on black</item>
+        <item>Holo blue text on black</item>
+        <item>Solarized Light</item>
+        <item>Solarized Dark</item>
+        <item>Linux Console</item>
+    </string-array>
+    <string-array name="entries_controlkey_preference">
+        <item>Jog ball</item>
+        <item>\@ key</item>
+        <item>Left Alt key</item>
+        <item>Right Alt key</item>
+        <item>Vol Up key</item>
+        <item>Vol Down key</item>
+        <item>Camera key</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="entries_cursorblink_preference">
+        <item>Non-blinking cursor</item>
+        <item>Blinking cursor</item>
+    </string-array>
+    <string-array name="entries_cursorstyle_preference">
+        <item>Rectangle</item>
+        <item>Underline</item>
+        <item>Vertical bar</item>
+    </string-array>
+    <string-array name="entries_fnkey_preference">
+        <item>Jog ball</item>
+        <item>\@ key</item>
+        <item>Left Alt key</item>
+        <item>Right Alt key</item>
+        <item>Vol Up key</item>
+        <item>Vol Down key</item>
+        <item>Camera key</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8 pixels</item>
+        <item>6 pt</item>
+        <item>7 pt</item>
+        <item>8 pt</item>
+        <item>9 pt</item>
+        <item>10 pt</item>
+        <item>12 pt</item>
+        <item>14 pt</item>
+        <item>16 pt</item>
+        <item>20 pt</item>
+        <item>24 pt</item>
+        <item>28 pt</item>
+        <item>32 pt</item>
+        <item>36 pt</item>
+        <item>42 pt</item>
+        <item>48 pt</item>
+        <item>64 pt</item>
+        <item>72 pt</item>
+        <item>96 pt</item>
+        <item>144 pt</item>
+        <item>288 pt</item>
+    </string-array>
+    <string-array name="entries_ime_preference">
+        <item>Character-based</item>
+        <item>Word-based</item>
+    </string-array>
+    <string-array name="entries_orientation_preference">
+        <item>Automatic</item>
+        <item>Landscape</item>
+        <item>Portrait</item>
+    </string-array>
+    <string-array name="entries_statusbar_preference">
+        <item>Show status bar</item>
+        <item>Hide status bar</item>
+    </string-array>
+    <string-array name="entries_termtype_preference">
+        <item>vt100</item>
+        <item>screen</item>
+        <item>linux</item>
+        <item>screen-256color</item>
+        <item>xterm</item>
+    </string-array>
+    <string-array name="entryvalues_actionbar_preference">
+        <!-- <item>0</item> -->
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="entryvalues_backaction_preference">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="entryvalues_color_preference">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+    <string-array name="entryvalues_controlkey_preference">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="entryvalues_cursorblink_preference">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="entryvalues_cursorstyle_preference">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="entryvalues_fnkey_preference">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="entryvalues_fontsize_preference">
+        <item>0</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>12</item>
+        <item>14</item>
+        <item>16</item>
+        <item>20</item>
+        <item>24</item>
+        <item>28</item>
+        <item>32</item>
+        <item>36</item>
+        <item>42</item>
+        <item>48</item>
+        <item>64</item>
+        <item>72</item>
+        <item>96</item>
+        <item>144</item>
+        <item>288</item>
+    </string-array>
+    <string-array name="entryvalues_ime_preference">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="entryvalues_orientation_preference">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="entryvalues_statusbar_preference">
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="fn_keys_short_names">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Left-Alt</item>
+        <item>Right-Alt</item>
+        <item>Vol-Up</item>
+        <item>Vol-Dn</item>
+        <item>Camera</item>
+        <item>None</item>
+    </string-array>
+    <bool name="pref_allow_prepend_path_default">true</bool>
+    <bool name="pref_alt_sends_esc_default">false</bool>
+    <bool name="pref_close_window_on_process_exit_default">true</bool>
+    <bool name="pref_do_path_extensions_default">true</bool>
+    <bool name="pref_mouse_tracking_default">false</bool>
+    <bool name="pref_use_keyboard_shortcuts_default">true</bool>
+    <bool name="pref_utf8_by_default_default">false</bool>
+    <bool name="pref_verify_path_default">true</bool>
+    <declare-styleable name="EmulatorView"/>
+    <item name="imageview" type="id"/>
+    <item name="mainview" type="id"/>
+    <item name="scrollview" type="id"/>
+    <item name="textview" type="id"/>
+    <integer name="pref_actionbar_default">1</integer>
+    <integer name="pref_orientation_default">0</integer>
+    <string name="activity_shortcut_create">"Term shortcut"</string>
+    <string name="activity_term_here_title">Term here</string>
+    <string name="addshortcut_arguments_label">Arguments\:</string>
+    <string name="addshortcut_button_find_command">Find command</string>
+    <string name="addshortcut_button_text_icon">Text icon</string>
+    <string name="addshortcut_command_hint">command</string>
+    <string name="addshortcut_command_window_instructions">Command window requires full path, no arguments. For other commands use Arguments window (ex: cd /sdcard).</string>
+    <string name="addshortcut_example_hint">--example=\""a\"</string>
+    <string name="addshortcut_make_text_icon">MAKE TEXT ICON</string>
+    <string name="addshortcut_navigator_title">SELECT SHORTCUT TARGET</string>
+    <string name="addshortcut_shortcut_label">Shortcut label\:</string>
+    <string name="addshortcut_text_icon_instructions"/>
+    <string name="addshortcut_title">Term shortcut</string>
+    <string name="alt_sends_esc">Alt key sends ESC</string>
+    <string name="alt_sends_esc_summary_off">Alt key does not send ESC.</string>
+    <string name="alt_sends_esc_summary_on">Alt key sends ESC.</string>
+    <string name="application_terminal">Terminal Emulator</string>
+    <string name="close_window">Close window</string>
+    <string name="colorvalue_icon_text_entry_hint">Enter icon text</string>
+    <string name="colorvalue_label_lock_button_column">LOCK</string>
+    <string name="colorvalue_letter_alpha">α</string>
+    <string name="colorvalue_letter_blue">B</string>
+    <string name="colorvalue_letter_green">G</string>
+    <string name="colorvalue_letter_red">R</string>
+    <string name="confirm_window_close_message">Close this window?</string>
+    <string name="control_key_dialog_control_disabled_text">No control key set.</string>
+    <string name="control_key_dialog_control_text">CTRLKEY Space : Control-@ (NUL)\nCTRLKEY A..Z : Control-A..Z\nCTRLKEY 5 : Control-]\nCTRLKEY 6 : Control-^\nCTRLKEY 7 : Control-_\nCTRLKEY 9 : F11\nCTRLKEY 0 : F12</string>
+    <string name="control_key_dialog_fn_disabled_text">No function key set.</string>
+    <string name="control_key_dialog_fn_text">FNKEY 1..9 : F1-F9\nFNKEY 0 : F10\nFNKEY W : Up\nFNKEY A : Left\nFNKEY S : Down\nFNKEY D : Right\nFNKEY P : PageUp\nFNKEY N : PageDown\nFNKEY T : Tab\nFNKEY L : | (pipe)\nFNKEY U : _ (underscore)\nFNKEY E : Control-[ (ESC)\nFNKEY X : Delete\nFNKEY I : Insert\nFNKEY H : Home\nFNKEY F : End\nFNKEY . : Control-\\\n</string>
+    <string name="control_key_dialog_title">Control and Function Keys</string>
+    <string name="copy_all">Copy all</string>
+    <string name="dialog_title_actionbar_preference">Action bar behavior</string>
+    <string name="dialog_title_backaction_preference">Back button behavior</string>
+    <string name="dialog_title_color_preference">Text color</string>
+    <string name="dialog_title_controlkey_preference">Control key</string>
+    <string name="dialog_title_cursorblink_preference">Cursor blink</string>
+    <string name="dialog_title_cursorstyle_preference">Cursor style</string>
+    <string name="dialog_title_fnkey_preference">Fn key</string>
+    <string name="dialog_title_fontsize_preference">Font size</string>
+    <string name="dialog_title_ime_preference">Input method</string>
+    <string name="dialog_title_initialcommand_preference">Initial Command</string>
+    <string name="dialog_title_orientation_preference">Screen orientation behavior</string>
+    <string name="dialog_title_shell_preference">Shell</string>
+    <string name="dialog_title_statusbar_preference">Status bar</string>
+    <string name="dialog_title_termtype_preference">Terminal type</string>
+    <string name="disable_wakelock">Drop WakeLock</string>
+    <string name="disable_wifilock">Drop WifiLock</string>
+    <string name="edit_text">Edit text</string>
+    <string name="email_transcript_chooser_title">Mail transcript using:</string>
+    <string name="email_transcript_no_email_activity_found">Could not choose an email activity to send transcript.</string>
+    <string name="email_transcript_subject">Transcript from Terminal Emulator for Android</string>
+    <string name="enable_wakelock">Take WakeLock</string>
+    <string name="enable_wifilock">Take WifiLock</string>
+    <string name="fsnavigator_change_theme">Change theme</string>
+    <string name="fsnavigator_no_external_storage">External storage not available</string>
+    <string name="fsnavigator_optional_enter_path">Or enter path here.</string>
+    <string name="fsnavigator_title">FILE SELECTOR</string>
+    <string name="help">Help</string>
+    <string name="help_url" translatable="false">http://jackpal.github.com/Android-Terminal-Emulator/help/index.html</string>
+    <string name="keyboard_preferences">Keyboard</string>
+    <string name="new_window">New window</string>
+    <string name="next_window">Next window</string>
+    <string name="paste">Paste</string>
+    <string name="perm_append_to_path">Add commands to Terminal Emulator</string>
+    <string name="perm_prepend_to_path">Override commands in Terminal Emulator</string>
+    <string name="perm_run_script">Run arbitrary commands in Terminal Emulator</string>
+    <string name="permdesc_append_to_path">Allows application to provide additional commands (add directories to the PATH) for Terminal Emulator for Android.</string>
+    <string name="permdesc_prepend_to_path">Allows application to override existing commands with its own versions (prepend directories to the PATH) in Terminal Emulator for Android.</string>
+    <string name="permdesc_run_script">Allows application to open new windows in Terminal Emulator for Android and run commands in those windows with all of Terminal Emulator for Android\'s permissions, including access to the Internet and your SD Card.</string>
+    <string name="pref_backaction_default" translatable="false">2</string>
+    <string name="pref_color_default" translatable="false">1</string>
+    <string name="pref_controlkey_default" translatable="false">5</string>
+    <string name="pref_cursorblink_default" translatable="false">0</string>
+    <string name="pref_cursorstyle_default" translatable="false">0</string>
+    <string name="pref_fnkey_default" translatable="false">4</string>
+    <string name="pref_fontsize_default" translatable="false">10</string>
+    <string name="pref_ime_default" translatable="false">0</string>
+    <string name="pref_initialcommand_default" translatable="false"/>
+    <string name="pref_shell_default" translatable="false">/system/bin/sh -</string>
+    <string name="pref_statusbar_default" translatable="false">1</string>
+    <string name="pref_termtype_default" translatable="false">screen</string>
+    <string name="preferences">Preferences</string>
+    <string name="prev_window">Prev window</string>
+    <string name="process_exit_message">Terminal session finished</string>
+    <string name="reset">Reset term</string>
+    <string name="reset_toast_notification">This window\'s terminal state has been reset.</string>
+    <string name="screen_preferences">Screen</string>
+    <string name="select_text">Select text</string>
+    <string name="send_control_key">Send control key</string>
+    <string name="send_email">Email to</string>
+    <string name="send_fn_key">Send fn key</string>
+    <string name="service_notify_text">Terminal session is running</string>
+    <string name="shell_preferences">Shell</string>
+    <string name="special_keys">Special keys</string>
+    <string name="summary_actionbar_preference">Choose the action bar\'s behavior (Android 3.0 and up).</string>
+    <string name="summary_allow_prepend_path_preference">Whether other apps should be allowed to override existing commands (add to the beginning of PATH).</string>
+    <string name="summary_backaction_preference">Choose what pressing the back button does.</string>
+    <string name="summary_close_window_on_process_exit_preference">Whether a window should close when its shell exits.</string>
+    <string name="summary_color_preference">Choose text color.</string>
+    <string name="summary_controlkey_preference">Choose control key.</string>
+    <string name="summary_cursorblink_preference">Choose cursor blink.</string>
+    <string name="summary_cursorstyle_preference">Choose cursor style.</string>
+    <string name="summary_do_path_extensions_preference">Whether other apps should be allowed to provide additional commands (add to PATH).</string>
+    <string name="summary_fnkey_preference">Choose Fn key.</string>
+    <string name="summary_fontsize_preference">Choose character height in points.</string>
+    <string name="summary_home_path_preference">Path to a writable folder to be used as HOME.</string>
+    <string name="summary_ime_preference">Choose input method for soft keyboard.</string>
+    <string name="summary_initialcommand_preference">Sent to the shell when it starts.</string>
+    <string name="summary_mouse_tracking_preference">Whether tap and scroll events should be sent as escape sequences to the terminal.</string>
+    <string name="summary_orientation_preference">Choose the screen orientation behavior.</string>
+    <string name="summary_shell_preference">Specify the shell command line.</string>
+    <string name="summary_statusbar_preference">Show/hide status bar.</string>
+    <string name="summary_termtype_preference">What terminal type to report to the shell.</string>
+    <string name="summary_utf8_by_default_preference">Whether UTF-8 mode is enabled by default.</string>
+    <string name="summary_verify_path_preference">Whether inaccessible directories should be removed from the PATH.</string>
+    <string name="text_preferences">Text</string>
+    <string name="title_actionbar_preference">Action bar</string>
+    <string name="title_allow_prepend_path_preference">Allow PATH prepend</string>
+    <string name="title_backaction_preference">Back button behavior</string>
+    <string name="title_close_window_on_process_exit_preference">Close window on exit</string>
+    <string name="title_color_preference">Colors</string>
+    <string name="title_controlkey_preference">Control key</string>
+    <string name="title_cursorblink_preference">Cursor blink</string>
+    <string name="title_cursorstyle_preference">Cursor style</string>
+    <string name="title_do_path_extensions_preference">Allow PATH extensions</string>
+    <string name="title_fnkey_preference">Fn key</string>
+    <string name="title_fontsize_preference">Font size</string>
+    <string name="title_home_path_preference">HOME folder</string>
+    <string name="title_ime_preference">Input method</string>
+    <string name="title_initialcommand_preference">Initial command</string>
+    <string name="title_mouse_tracking_preference">Send mouse events</string>
+    <string name="title_orientation_preference">Screen orientation</string>
+    <string name="title_shell_preference">Command line</string>
+    <string name="title_statusbar_preference">Status bar</string>
+    <string name="title_termtype_preference">Terminal type</string>
+    <string name="title_use_keyboard_shortcuts">Use Keyboard Shortcuts</string>
+    <string name="title_utf8_by_default_preference">Default to UTF-8</string>
+    <string name="title_verify_path_preference">Verify PATH entries</string>
+    <string name="toggle_soft_keyboard">Toggle soft keyboard</string>
+    <string name="use_keyboard_shortcuts_summary_off">Keyboard shortcuts disabled.</string>
+    <string name="use_keyboard_shortcuts_summary_on">Ctrl-Tab: cycle window, Ctrl-Shift-N: new window, Ctrl-Shift-V: paste.</string>
+    <string name="window_list">Windows</string>
+    <string name="window_title">Window %1$d</string>
+    <style name="Theme" parent="@android:style/Theme.Light">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+</resources>

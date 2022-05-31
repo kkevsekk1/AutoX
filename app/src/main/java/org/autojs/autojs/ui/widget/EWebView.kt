@@ -90,11 +90,11 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
             defaultTextEncodingName = "utf-8"//设置编码格式
             setSupportMultipleWindows(false)
             layoutAlgorithm = com.tencent.smtt.sdk.WebSettings.LayoutAlgorithm.NORMAL
-            loadWithOverviewMode = true
+            loadWithOverviewMode = false
             setSupportZoom(true) //支持缩放，默认为true。是下面那个的前提。
             builtInZoomControls = true //设置内置的缩放控件。若为false，则该WebView不可缩放
             displayZoomControls = false //设置原生的缩放控件，启用时被leakcanary检测到内存泄露
-            useWideViewPort = true //让WebView读取网页设置的viewport，pc版网页
+            useWideViewPort = false //让WebView读取网页设置的viewport，pc版网页
             loadsImagesAutomatically = true //设置自动加载图片
             blockNetworkImage = false
             blockNetworkLoads = false;

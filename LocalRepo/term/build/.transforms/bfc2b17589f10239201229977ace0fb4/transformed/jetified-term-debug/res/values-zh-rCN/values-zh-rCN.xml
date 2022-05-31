@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="control_keys_short_names">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Left-Alt</item>
+        <item>Right-Alt</item>
+        <item>Vol-Up</item>
+        <item>Vol-Dn</item>
+        <item>Camera</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="entries_actionbar_preference">
+        <!-- <item>Action bar disabled</item> -->
+        <item>显示操作栏</item>
+        <item>隐藏操作栏 (点击屏幕上方或按菜单键显示)</item>
+    </string-array>
+    <string-array name="entries_backaction_preference">
+        <item>关闭所有窗口</item>
+        <item>关闭当前窗口</item>
+        <item>关闭当前实例，保留正在运行的会话</item>
+        <item>给终端发送 ESC</item>
+        <item>给终端发送 TAB</item>
+    </string-array>
+    <string-array name="entries_color_preference">
+        <item>白底黑字</item>
+        <item>黑底白字</item>
+        <item>蓝底白字</item>
+        <item>黑底绿字</item>
+        <item>黑底黄字</item>
+        <item>黑底红字</item>
+        <item>Holo 风格</item>
+        <item>爆光过度</item>
+        <item>爆光不足</item>
+        <item>Linux 终端</item>
+    </string-array>
+    <string-array name="entries_controlkey_preference">
+        <item>轨迹球</item>
+        <item>\@ 键</item>
+        <item>左 Alt 键</item>
+        <item>右 Alt 键</item>
+        <item>提升音量键</item>
+        <item>降低音量键</item>
+        <item>相机快门键</item>
+        <item>无</item>
+    </string-array>
+    <string-array name="entries_cursorblink_preference">
+        <item>非闪烁光标</item>
+        <item>闪烁光标</item>
+    </string-array>
+    <string-array name="entries_cursorstyle_preference">
+        <item>方块</item>
+        <item>下划线</item>
+        <item>竖线</item>
+    </string-array>
+    <string-array name="entries_fnkey_preference">
+        <item>轨迹球</item>
+        <item>\@ 键</item>
+        <item>左 Alt 键</item>
+        <item>右 Alt 键</item>
+        <item>提升音量键</item>
+        <item>降低音量键</item>
+        <item>相机快门键</item>
+        <item>无</item>
+    </string-array>
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8 像素</item>
+        <item>6 磅</item>
+        <item>7 磅</item>
+        <item>8 磅</item>
+        <item>9 磅</item>
+        <item>10 磅</item>
+        <item>12 磅</item>
+        <item>14 磅</item>
+        <item>16 磅</item>
+        <item>20 磅</item>
+        <item>24 磅</item>
+        <item>28 磅</item>
+        <item>32 磅</item>
+        <item>36 磅</item>
+        <item>42 磅</item>
+        <item>48 磅</item>
+        <item>64 磅</item>
+        <item>72 磅</item>
+        <item>96 磅</item>
+        <item>144 磅</item>
+        <item>288 磅</item>
+    </string-array>
+    <string-array name="entries_ime_preference">
+        <item>字本</item>
+        <item>词本</item>
+    </string-array>
+    <string-array name="entries_orientation_preference">
+        <item>自动</item>
+        <item>横屏</item>
+        <item>竖屏</item>
+    </string-array>
+    <string-array name="entries_statusbar_preference">
+        <item>显示状态栏</item>
+        <item>隐藏状态栏</item>
+    </string-array>
+    <string-array name="fn_keys_short_names">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Left-Alt</item>
+        <item>Right-Alt</item>
+        <item>Vol-Up</item>
+        <item>Vol-Dn</item>
+        <item>Camera</item>
+        <item>None</item>
+    </string-array>
+    <string name="alt_sends_esc">Alt 键发送 ESC</string>
+    <string name="alt_sends_esc_summary_off">关闭 Alt 键发送 ESC</string>
+    <string name="alt_sends_esc_summary_on">开启 Alt 键发送 ESC</string>
+    <string name="application_terminal">终端模拟器</string>
+    <string name="close_window">关闭窗口</string>
+    <string name="confirm_window_close_message">关闭窗口吗？</string>
+    <string name="control_key_dialog_control_disabled_text">未设置 Ctrl 键</string>
+    <string name="control_key_dialog_control_text">CTRLKEY Space : Control-@ (NUL)\nCTRLKEY A..Z : Control-A..Z\nCTRLKEY 5 : Control-]\nCTRLKEY 6 : Control-^\nCTRLKEY 7 : Control-_\nCTRLKEY 9 : F11\nCTRLKEY 0 : F12</string>
+    <string name="control_key_dialog_fn_disabled_text">未设置 Fn 键</string>
+    <string name="control_key_dialog_fn_text">FNKEY 1..9 : F1-F9\nFNKEY 0 : F10\nFNKEY W : Up\nFNKEY A : Left\nFNKEY S : Down\nFNKEY D : Right\nFNKEY P : PageUp\nFNKEY N : PageDown\nFNKEY T : Tab\nFNKEY L : | (pipe)\nFNKEY U : _ (underscore)\nFNKEY E : Control-[ (ESC)\nFNKEY X : Delete\nFNKEY I : Insert\nFNKEY H : Home\nFNKEY F : End\nFNKEY . : Control-\\\n</string>
+    <string name="control_key_dialog_title">Ctrl 与 Fn 键</string>
+    <string name="copy_all">全部复制</string>
+    <string name="dialog_title_actionbar_preference">操作栏行为</string>
+    <string name="dialog_title_backaction_preference">返回键行为</string>
+    <string name="dialog_title_color_preference">文本颜色</string>
+    <string name="dialog_title_controlkey_preference">Ctrl 键</string>
+    <string name="dialog_title_cursorblink_preference">光标闪烁</string>
+    <string name="dialog_title_cursorstyle_preference">光标样式</string>
+    <string name="dialog_title_fnkey_preference">Fn 键</string>
+    <string name="dialog_title_fontsize_preference">文本大小</string>
+    <string name="dialog_title_ime_preference">输入方式</string>
+    <string name="dialog_title_initialcommand_preference">初始命令</string>
+    <string name="dialog_title_orientation_preference">屏幕方位行为</string>
+    <string name="dialog_title_shell_preference">Shell</string>
+    <string name="dialog_title_statusbar_preference">状态栏</string>
+    <string name="dialog_title_termtype_preference">终端类型</string>
+    <string name="disable_wakelock">关闭唤醒锁</string>
+    <string name="disable_wifilock">关闭 Wifi 锁</string>
+    <string name="edit_text">编辑文本</string>
+    <string name="email_transcript_chooser_title">发送副本的邮件实例：</string>
+    <string name="email_transcript_no_email_activity_found">找不到邮件实例发送副本</string>
+    <string name="email_transcript_subject">终端模拟器副本</string>
+    <string name="enable_wakelock">开启唤醒锁</string>
+    <string name="enable_wifilock">开启 Wifi 锁</string>
+    <string name="keyboard_preferences">键盘</string>
+    <string name="new_window">新窗口</string>
+    <string name="next_window">后一窗口</string>
+    <string name="paste">粘贴</string>
+    <string name="perm_append_to_path">添加命令到终端模拟器</string>
+    <string name="perm_prepend_to_path">覆盖终端模拟器中已有命令</string>
+    <string name="perm_run_script">在终端模拟器中运行命令</string>
+    <string name="permdesc_append_to_path">允许程序添加额外命令</string>
+    <string name="permdesc_prepend_to_path">允许程序覆盖终端模拟器中已有命令</string>
+    <string name="permdesc_run_script">允许程序开启新窗口并运行包括与网络、存储卡相关命令在内的所有命令</string>
+    <string name="preferences">首选项</string>
+    <string name="prev_window">前一窗口</string>
+    <string name="process_exit_message">会话已结束</string>
+    <string name="reset">重置终端</string>
+    <string name="reset_toast_notification">当前窗口终端状态将被重置</string>
+    <string name="screen_preferences">屏幕</string>
+    <string name="select_text">选择文本</string>
+    <string name="send_control_key">发送 Ctrl 键</string>
+    <string name="send_email">发送电子邮件到...</string>
+    <string name="send_fn_key">发送 Fn 键</string>
+    <string name="service_notify_text">会话正在运行</string>
+    <string name="shell_preferences">Shell</string>
+    <string name="special_keys">特殊键</string>
+    <string name="summary_actionbar_preference">选择操作栏行为 (Android 3.0 及以上)</string>
+    <string name="summary_allow_prepend_path_preference">是否允许程序覆盖 PATH 中已有命令</string>
+    <string name="summary_backaction_preference">选择返回键行为</string>
+    <string name="summary_close_window_on_process_exit_preference">退出 Shell 时是否关闭窗口</string>
+    <string name="summary_color_preference">选择文本颜色</string>
+    <string name="summary_controlkey_preference">设置 Ctrl 键</string>
+    <string name="summary_cursorblink_preference">选择光标闪烁模式</string>
+    <string name="summary_cursorstyle_preference">选择光标样式</string>
+    <string name="summary_do_path_extensions_preference">是否允许程序添加额外命令到 PATH</string>
+    <string name="summary_fnkey_preference">设置 Fn 键</string>
+    <string name="summary_fontsize_preference">选择文本大小</string>
+    <string name="summary_home_path_preference">用作 HOME 的可写文件夹路径</string>
+    <string name="summary_ime_preference">选择输入方式或软键盘</string>
+    <string name="summary_initialcommand_preference">启动 Shell 时自动执行的命令</string>
+    <string name="summary_mouse_tracking_preference">触摸与滚屏事件是否被终端忽略</string>
+    <string name="summary_orientation_preference">选择屏幕方位行为</string>
+    <string name="summary_shell_preference">指定命令行使用的 Shell</string>
+    <string name="summary_statusbar_preference">显示/隐藏状态栏。</string>
+    <string name="summary_termtype_preference">设置 Shell 的终端类型</string>
+    <string name="summary_utf8_by_default_preference">是否将 UTF-8 模式设为默认</string>
+    <string name="summary_verify_path_preference">是否将 PATH 中无效的路径清除</string>
+    <string name="text_preferences">文本</string>
+    <string name="title_actionbar_preference">操作栏</string>
+    <string name="title_allow_prepend_path_preference">允许 PATH 前置</string>
+    <string name="title_backaction_preference">返回键行为</string>
+    <string name="title_close_window_on_process_exit_preference">退出时关闭窗口</string>
+    <string name="title_color_preference">颜色</string>
+    <string name="title_controlkey_preference">Ctrl 键</string>
+    <string name="title_cursorblink_preference">光标闪烁</string>
+    <string name="title_cursorstyle_preference">光标样式</string>
+    <string name="title_do_path_extensions_preference">允许 PATH 后扩</string>
+    <string name="title_fnkey_preference">Fn 键</string>
+    <string name="title_fontsize_preference">文本大小</string>
+    <string name="title_home_path_preference">HOME 文件夹</string>
+    <string name="title_ime_preference">输入方式</string>
+    <string name="title_initialcommand_preference">初始命令</string>
+    <string name="title_mouse_tracking_preference">发送鼠标事件</string>
+    <string name="title_orientation_preference">屏幕方位</string>
+    <string name="title_shell_preference">命令行</string>
+    <string name="title_statusbar_preference">状态栏</string>
+    <string name="title_termtype_preference">终端类型</string>
+    <string name="title_utf8_by_default_preference">默认 UTF-8</string>
+    <string name="title_verify_path_preference">验证 PATH 路径</string>
+    <string name="toggle_soft_keyboard">打开/关闭软键盘</string>
+    <string name="window_list">窗口列表</string>
+    <string name="window_title">窗口 %1$d</string>
+</resources>
