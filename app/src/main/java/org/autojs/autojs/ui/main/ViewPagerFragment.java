@@ -34,13 +34,13 @@ public abstract class ViewPagerFragment extends Fragment implements BackPressedH
     @CallSuper
     public void onPageShow() {
         mShown = true;
-        if (mFabRotation == ROTATION_GONE) {
-            if (mFab.getVisibility() == View.VISIBLE) {
-                mFab.hide();
-            }
-            mFab.setOnClickListener(null);
-            return;
-        }
+//        if (mFabRotation == ROTATION_GONE) {
+//            if (mFab.getVisibility() == View.VISIBLE) {
+//                mFab.hide();
+//            }
+//            mFab.setOnClickListener(null);
+//            return;
+//        }
         mFab.setOnClickListener(mOnFabClickListener);
         if (mFab.getVisibility() != View.VISIBLE) {
             mFab.setRotation(mFabRotation);

@@ -24,7 +24,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.webkit.WebView;
 
-public class NestedWebView extends WebView implements NestedScrollingChild {
+public class NestedWebView extends com.tencent.smtt.sdk.WebView implements NestedScrollingChild {
     private int mLastY;
     private final int[] mScrollOffset = new int[2];
     private final int[] mScrollConsumed = new int[2];

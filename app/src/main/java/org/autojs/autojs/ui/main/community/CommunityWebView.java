@@ -111,7 +111,7 @@ public class CommunityWebView extends EWebView {
         private final Pattern UPLOAD_FILE_PATTERN = Pattern.compile(NodeBB.url("assets/uploads/files/.+(\\.js|\\.auto)"));
 
         @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        public boolean shouldOverrideUrlLoading(com.tencent.smtt.sdk.WebView view, String url) {
             if (UPLOAD_FILE_PATTERN.matcher(url).matches()) {
                 shouldScriptOptionsDialog(url);
                 return true;
@@ -120,7 +120,7 @@ public class CommunityWebView extends EWebView {
         }
 
         @Override
-        public void onPageFinished(WebView view, String url) {
+        public void onPageFinished(com.tencent.smtt.sdk.WebView view, String url) {
             evalJavaScript("$('#header').hide();$('#content').css({ top: '0', position: 'absolute' });");
         }
     }

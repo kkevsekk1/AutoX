@@ -195,10 +195,10 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
         TabLayout tabLayout = $(R.id.tab);
         mPagerAdapter = new FragmentPagerAdapterBuilder(this)
                 .add(new MyScriptListFragment_(), R.string.text_file)
-                .add(new DocsFragment_(), R.string.text_tutorial)
-                .add(new CommunityFragment_(), R.string.text_community)
-                .add(new MarketFragment_(), R.string.text_market)
                 .add(new TaskManagerFragment_(), R.string.text_manage)
+                .add(new DocsFragment_(), R.string.text_tutorial)
+//                .add(new CommunityFragment_(), R.string.text_community)
+//                .add(new MarketFragment_(), R.string.text_market)
                 .build();
         mViewPager.setAdapter(mPagerAdapter);
         tabLayout.setupWithViewPager(mViewPager);
