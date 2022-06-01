@@ -277,8 +277,9 @@ dependencies {
     implementation 'com.twofortyfouram:android-plugin-client-sdk-for-locale:4.0.3'
     // Flurry
     implementation 'com.flurry.android:analytics:13.1.0@aar'
-    // Bugly
+    // tencent
     implementation 'com.tencent.bugly:crashreport:4.0.0'
+    api 'com.tencent.tbs:tbssdk:44181'
     // MaterialDialogCommon
     implementation('com.afollestad.material-dialogs:commons:0.9.2.3', {
         exclude group: 'com.android.support'

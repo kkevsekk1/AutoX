@@ -72,8 +72,13 @@ public class MyScriptListFragment extends ViewPagerFragment implements FloatingA
     @Override
     protected void onFabClick(FloatingActionButton fab) {
         initFloatingActionMenuIfNeeded(fab);
+        int[] fabIcons = {
+                R.drawable.ic_floating_action_menu_dir,
+                R.drawable.ic_floating_action_menu_file,
+                R.drawable.ic_floating_action_menu_open,
+                R.drawable.ic_project};
         String[] fabLabs = {"文件夹", "文件", "导入", "项目"};
-        mFloatingActionMenu.setFabLabels(fabLabs);
+        mFloatingActionMenu.buildFabs(fabIcons,fabLabs);
         mFloatingActionMenu.setOnFloatingActionButtonClickListener(this);
         if (mFloatingActionMenu.isExpanded()) {
             mFloatingActionMenu.collapse();

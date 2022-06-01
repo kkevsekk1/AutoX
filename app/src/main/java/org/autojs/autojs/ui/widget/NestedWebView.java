@@ -22,7 +22,7 @@ import androidx.core.view.NestedScrollingChildHelper;
 import androidx.core.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.WebView;
 
 public class NestedWebView extends com.tencent.smtt.sdk.WebView implements NestedScrollingChild {
     private int mLastY;

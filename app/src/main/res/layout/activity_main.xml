@@ -8,72 +8,84 @@
                                    tools:context="org.autojs.autojs.ui.main.MainActivity">
 
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <RelativeLayout
+        android:id="@+id/webviewBox"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipChildren="false"
-        android:clipToPadding="false">
+        android:orientation="vertical">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="16dp"
+            android:layout_height="52dp"
+            android:layout_alignParentTop="true"
+            android:paddingTop="12dp"
             android:theme="@style/AppTheme.AppBarOverlay">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:theme="@style/ToolBarStyle"
-                android:title="@string/app_name"
-                app:layout_scrollFlags="scroll|enterAlways"
-                app:popupTheme="@style/AppTheme.PopupOverlay"/>
-
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tab"
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:tabGravity="fill"
-                app:tabIndicatorColor="@color/tab_indicator"
-                app:tabMode="scrollable"
-                app:tabSelectedTextColor="@color/tab_indicator"
-                app:tabTextColor="@color/tab_text"/>
+                android:theme="@style/ToolBarStyle"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
         </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary"
+            android:padding="0dp"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/tab_indicator"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/tab_indicator"
+            app:tabTextColor="@color/tab_text" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+            android:layout_above="@id/tab"
+            android:layout_below="@id/app_bar"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
 
         <com.stardust.theme.widget.ThemeColorFloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|end|bottom"
-            android:layout_margin="16dp"
+            android:layout_gravity="end|center|bottom"
+            android:layout_alignParentEnd="true"
+            android:layout_above="@id/tab"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="-30dp"
             android:src="@drawable/ic_add_white_48dp"
             app:backgroundTint="@color/colorPrimary"
             app:layout_anchor="@id/viewpager"
             app:layout_anchorGravity="bottom|right|end"
-            app:layout_behavior="org.autojs.autojs.ui.widget.ScrollAwareFABBehavior"/>
+            app:layout_behavior=".ui.widget.ScrollAwareFABBehavior" />
 
         <org.autojs.autojs.ui.main.FloatingActionMenu
             android:id="@+id/floating_action_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|end|bottom"
-            android:layout_margin="16dp"
+            android:layout_gravity="end|center|bottom"
+            android:layout_alignParentEnd="true"
+            android:layout_above="@id/tab"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="-30dp"
             android:clipChildren="false"
             android:clipToPadding="false"
             android:visibility="invisible"
             app:layout_anchor="@id/viewpager"
-            app:layout_anchorGravity="bottom|right|end"/>
+            app:layout_anchorGravity="bottom|right|end" />
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </RelativeLayout>
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_drawer"
         android:name="org.autojs.autojs.ui.main.drawer.DrawerFragment_"
         android:layout_width="match_parent"

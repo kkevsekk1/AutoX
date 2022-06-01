@@ -490,5 +490,6 @@
     <string name="apk_icon">APK图标</string>
     <string name="compile_options">编译选项</string>
     <string name="text_verification_failed">验证失败</string>
+    <string name="text_WWW">万维网</string>
 
 </resources>
