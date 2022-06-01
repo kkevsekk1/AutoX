@@ -7,8 +7,8 @@ import android.net.Uri;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.snackbar.Snackbar;
 import android.util.AttributeSet;
-import android.webkit.ValueCallback;
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.ValueCallback;
+import com.tencent.smtt.sdk.WebView;
 import android.widget.Toast;
 
 import org.autojs.autojs.Pref;

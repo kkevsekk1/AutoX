@@ -1,8 +1,8 @@
 package com.stardust.autojs.core.web;
 
 import android.content.Context;
-import android.webkit.ValueCallback;
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.ValueCallback;
+import com.tencent.smtt.sdk.WebView;
 
 import com.stardust.autojs.annotation.ScriptClass;
 import com.stardust.autojs.annotation.ScriptInterface;

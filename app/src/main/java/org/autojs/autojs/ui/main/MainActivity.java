@@ -2,7 +2,6 @@ package org.autojs.autojs.ui.main;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -10,14 +9,20 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.Settings;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.afollestad.materialdialogs.MaterialDialog;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.stardust.app.FragmentPagerAdapterBuilder;
@@ -29,20 +34,18 @@ import com.stardust.enhancedfloaty.FloatyService;
 import com.stardust.pio.PFiles;
 import com.stardust.theme.ThemeColorManager;
 import com.stardust.util.BackPressedHandler;
-import com.stardust.util.DeveloperUtils;
 import com.stardust.util.DrawerAutoClose;
+import com.tencent.smtt.sdk.QbSdk;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
-import org.autojs.autojs.BuildConfig;
 import org.autojs.autojs.Pref;
 import org.autojs.autojs.R;
 import org.autojs.autojs.autojs.AutoJs;
 import org.autojs.autojs.external.foreground.ForegroundService;
 import org.autojs.autojs.model.explorer.Explorers;
-import org.autojs.autojs.timing.TimedTaskScheduler;
 import org.autojs.autojs.tool.AccessibilityServiceTool;
 import org.autojs.autojs.ui.BaseActivity;
 import org.autojs.autojs.ui.common.NotAskAgainDialog;
@@ -50,12 +53,9 @@ import org.autojs.autojs.ui.doc.DocsFragment_;
 import org.autojs.autojs.ui.floating.FloatyWindowManger;
 import org.autojs.autojs.ui.log.LogActivity_;
 import org.autojs.autojs.ui.main.community.CommunityFragment;
-import org.autojs.autojs.ui.main.community.CommunityFragment_;
-import org.autojs.autojs.ui.main.market.MarketFragment_;
 import org.autojs.autojs.ui.main.scripts.MyScriptListFragment_;
 import org.autojs.autojs.ui.main.task.TaskManagerFragment_;
 import org.autojs.autojs.ui.settings.SettingsActivity_;
-import org.autojs.autojs.ui.update.VersionGuard;
 import org.autojs.autojs.ui.widget.CommonMarkdownView;
 import org.autojs.autojs.ui.widget.SearchViewItem;
 import org.greenrobot.eventbus.EventBus;
@@ -63,16 +63,6 @@ import org.greenrobot.eventbus.Subscribe;
 
 import java.util.Arrays;
 import java.util.regex.Pattern;
-
-//import androidx.activity.result.ActivityResultLauncher;
-//import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends BaseActivity implements OnActivityResultDelegate.DelegateHost, BackPressedHandler.HostActivity, PermissionRequestProxyActivity {
@@ -114,6 +104,21 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
         showAnnunciationIfNeeded();
         EventBus.getDefault().register(this);
         applyDayNightMode();
+        QbSdk.initX5Environment(this, new QbSdk.PreInitCallback() {
+            @Override
+            public void onCoreInitFinished() {
+                // 内核初始化完成，可能为系统内核，也可能为系统内核
+            }
+
+            /**
+             * 预初始化结束
+             * 由于X5内核体积较大，需要依赖网络动态下发，所以当内核不存在的时候，默认会回调false，此时将会使用系统内核代替
+             * @param isX5 是否使用X5内核
+             */
+            @Override
+            public void onViewInitFinished(boolean isX5) {
+            }
+        });
     }
 
     @AfterViews
@@ -196,7 +201,7 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
         mPagerAdapter = new FragmentPagerAdapterBuilder(this)
                 .add(new MyScriptListFragment_(), R.string.text_file)
                 .add(new TaskManagerFragment_(), R.string.text_manage)
-                .add(new DocsFragment_(), R.string.text_tutorial)
+                .add(new DocsFragment_(), R.string.text_WWW)
 //                .add(new CommunityFragment_(), R.string.text_community)
 //                .add(new MarketFragment_(), R.string.text_market)
                 .build();

@@ -4,10 +4,10 @@ import android.content.Context;
 import android.os.Build;
 import androidx.annotation.RequiresApi;
 import android.util.AttributeSet;
-import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import com.tencent.smtt.sdk.WebChromeClient;
+import com.tencent.smtt.sdk.WebSettings;
+import com.tencent.smtt.sdk.WebView;
+import com.tencent.smtt.sdk.WebViewClient;
 
 /**
  * Created by Stardust on 2017/11/29.
@@ -32,7 +32,7 @@ public class JsWebView extends WebView {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public JsWebView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
+        super(context, attrs, defStyleAttr);
         init();
     }
 

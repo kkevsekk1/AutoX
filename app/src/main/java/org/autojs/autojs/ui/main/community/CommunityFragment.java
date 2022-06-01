@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.WebView;
 
 import org.autojs.autojs.R;
 import org.autojs.autojs.network.NodeBB;

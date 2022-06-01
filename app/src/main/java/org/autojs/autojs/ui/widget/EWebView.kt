@@ -12,16 +12,12 @@ import android.text.InputFilter
 import android.util.AttributeSet
 import android.util.Log
 import android.webkit.JavascriptInterface
-import android.webkit.URLUtil
-import android.webkit.ValueCallback
-import android.webkit.WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import org.autojs.autojs.ui.widget.DownloadManagerUtil
 import com.stardust.app.GlobalAppContext
 import com.stardust.app.OnActivityResultDelegate
 import com.stardust.app.OnActivityResultDelegate.DelegateHost
@@ -30,7 +26,7 @@ import com.stardust.autojs.script.StringScriptSource
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import org.autojs.autojs.R
-import org.autojs.autojs.model.script.Scripts.run
+import org.autojs.autojs.model.script.Scripts
 import org.autojs.autojs.tool.ImageSelector
 import java.io.IOException
 import java.io.InputStream
@@ -66,8 +62,6 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
         map[com.tencent.smtt.export.external.TbsCoreSettings.TBS_SETTINGS_USE_DEXLOADER_SERVICE] =
             true
         com.tencent.smtt.sdk.QbSdk.initTbsSettings(map)
-
-
         mWebView = findViewById(R.id.web_view);
         mSwipeRefreshLayout = findViewById(R.id.swipe_refresh_layout)
         mProgressBar = findViewById(R.id.progress_bar)
@@ -77,9 +71,6 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
     }
 
     private fun webInit(mWebView: com.tencent.smtt.sdk.WebView) {
-        if (Build.VERSION.SDK_INT >= 26) {
-            mWebView.settings.safeBrowsingEnabled = false
-        }
         with(mWebView.settings) {
             javaScriptEnabled = true  //设置支持Javascript交互
             javaScriptCanOpenWindowsAutomatically = true //支持通过JS打开新窗口
@@ -99,16 +90,16 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
             blockNetworkImage = false
             blockNetworkLoads = false;
             loadWithOverviewMode = true;
-            cacheMode = android.webkit.WebSettings.LOAD_CACHE_ELSE_NETWORK //使用缓存
+            cacheMode = com.tencent.smtt.sdk.WebSettings.LOAD_CACHE_ELSE_NETWORK //使用缓存
             domStorageEnabled = true
             databaseEnabled = true   //开启 database storage API 功能
             saveFormData = true;
             setNeedInitialFocus(true);
+            if (Build.VERSION.SDK_INT >= 26) {
+                safeBrowsingEnabled = false
+            }
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 mediaPlaybackRequiresUserGesture = false;
-            }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                mixedContentMode = MIXED_CONTENT_ALWAYS_ALLOW;
             }
         }
         mWebView.webViewClient = MyWebViewClient()
@@ -116,7 +107,7 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
         mWebView.setDownloadListener { url: String, userAgent: String, contentDisposition: String, mimeType: String, contentLength: Long ->
             run {
 
-                val fileName: String = URLUtil.guessFileName(
+                val fileName: String = android.webkit.URLUtil.guessFileName(
                     url, contentDisposition,
                     mimeType
                 )
@@ -168,19 +159,14 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
             mProgressBar!!.progress = 0
             mProgressBar!!.visibility = VISIBLE
             if (url != null) {
-                if ((url.startsWith("http") && url.indexOf("autoxjs.com") < 0) || (url.startsWith("file") && !url.startsWith(
-                        "file:///android_asset"
-                    ))
-                ) {
-                    var jsCode =
-                        "javascript: " + readAssetsTxt(context, "modules/vconsole.min.js")
-                    Log.i("onPageStarted", jsCode)
-                    view.evaluateJavascript(
-                        jsCode,
-                        com.tencent.smtt.sdk.ValueCallback<String> {
-                            Log.i("evaluateJavascript", "JS　return:  $it")
-                        })
-                }
+                var jsCode =
+                    "javascript: " + readAssetsTxt(context, "modules/vconsole.min.js")
+                Log.i("onPageStarted", jsCode)
+                view.evaluateJavascript(
+                    jsCode,
+                    com.tencent.smtt.sdk.ValueCallback<String> {
+                        Log.i("evaluateJavascript", "JS　return:  $it")
+                    })
             }
         }
 
@@ -288,8 +274,8 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
         }
 
         //For Android  >= 4.1
-        fun openFileChooser(
-            valueCallback: ValueCallback<Uri?>,
+        override fun openFileChooser(
+            valueCallback: com.tencent.smtt.sdk.ValueCallback<Uri?>,
             acceptType: String?, capture: String?
         ) {
             if (acceptType == null) {
@@ -300,7 +286,7 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
         }
 
         open fun openFileChooser(
-            valueCallback: ValueCallback<Uri?>,
+            valueCallback: com.tencent.smtt.sdk.ValueCallback<Uri?>,
             acceptType: Array<String>?
         ): Boolean {
             if (context is DelegateHost &&
@@ -332,7 +318,7 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
         }
     }
 
-    private fun chooseImage(valueCallback: ValueCallback<Uri?>) {
+    private fun chooseImage(valueCallback: com.tencent.smtt.sdk.ValueCallback<Uri?>) {
         val delegateHost = context as DelegateHost
         val mediator = delegateHost.onActivityResultDelegateMediator
         val activity = context as Activity
@@ -377,13 +363,13 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
         @JavascriptInterface
         fun run(code: String?, name: String?) {
             stop(execution)
-            execution = run(StringScriptSource(name, code))
+            execution = Scripts.run(StringScriptSource(name, code))
         }
 
         @JavascriptInterface
         fun run(code: String?) {
             stop(execution)
-            execution = run(StringScriptSource("", code))
+            execution = Scripts.run(StringScriptSource("", code))
         }
 
         @JavascriptInterface

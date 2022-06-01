@@ -3,7 +3,7 @@ package org.autojs.autojs.ui.main.market;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.WebView;
 
 import androidx.annotation.Nullable;
 

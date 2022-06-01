@@ -3,17 +3,22 @@ package org.autojs.autojs.ui.main;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Interpolator;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.animation.Interpolator;
-import android.widget.FrameLayout;
-import android.widget.TextView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.autojs.autojs.R;
 
@@ -70,7 +75,7 @@ public class FloatingActionMenu extends FrameLayout implements View.OnClickListe
 
     public void expand() {
         setVisibility(VISIBLE);
-        int h = mFabs[0].getHeight();
+        int h = Math.max(150, mFabs[0].getHeight());
         for (int i = 0; i < mFabContainers.length; i++) {
             animateY(mFabContainers[i], -(h + mInterval) * (i + 1), null);
             rotate(mFabs[i]);
@@ -132,11 +137,31 @@ public class FloatingActionMenu extends FrameLayout implements View.OnClickListe
         }
     }
 
-    public void setFabLabels(String[] labels) {
-        for (int i = 0; i < labels.length; i++) {
+    public void buildFabs(int[] icons, String[] labels) {
+        for (int i = 0; i < mFabContainers.length; i++) {
+            removeView(mFabContainers[i]);
+        }
+        if (icons.length != labels.length)
+            throw new IllegalArgumentException("icons.length = " + icons.length + " is not equal to labels.length = " + labels.length);
+        mFabs = new FloatingActionButton[icons.length];
+        mLabels = new TextView[icons.length];
+        mFabContainers = new View[icons.length];
+        LayoutInflater inflater = LayoutInflater.from(getContext());
+        for (int i = 0; i < icons.length; i++) {
+            mFabContainers[i] = inflater.inflate(R.layout.item_floating_action_menu, this, false);
+            mFabs[i] = (FloatingActionButton) mFabContainers[i].findViewById(R.id.floating_action_button);
+            mFabs[i].setImageResource(icons[i]);
+            mFabs[i].setOnClickListener(this);
+            mFabs[i].setTag(i);
+            mLabels[i] = (TextView) mFabContainers[i].findViewById(R.id.label);
             mLabels[i].setText(labels[i]);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            layoutParams.setMargins(10, 60, 10, 60);
+            mFabs[i].setLayoutParams(layoutParams);
+            addView(mFabContainers[i]);
         }
     }
+
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
