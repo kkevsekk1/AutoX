@@ -7,10 +7,8 @@ import android.preference.PreferenceManager;
 
 import com.stardust.app.GlobalAppContext;
 import com.stardust.autojs.runtime.accessibility.AccessibilityConfig;
-import com.stardust.theme.ThemeColorManager;
 
 import org.autojs.autojs.autojs.key.GlobalKeyObserver;
-import org.autojs.autojs.theme.ThemeColorManagerCompat;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -135,7 +133,7 @@ public class Pref {
 
     public static String getDocumentationUrl() {
 //        String docSource = def().getString(getString(R.string.key_documentation_source), null);
-            return "http://doc.autoxjs.com/";
+        return "http://doc.autoxjs.com/";
     }
 
     public static boolean isFloatingMenuShown() {
@@ -196,6 +194,13 @@ public class Pref {
         return def().getString("user_code", defValue);
     }
 
+    public static void setWebData(String webDataJson) {
+        def().edit().putString("WebData", webDataJson).apply();
+    }
+
+    public static String getWebData() {
+        return def().getString("WebData", "");
+    }
 
 
 }

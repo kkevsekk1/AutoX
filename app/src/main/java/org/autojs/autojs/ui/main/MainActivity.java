@@ -201,7 +201,7 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
         mPagerAdapter = new FragmentPagerAdapterBuilder(this)
                 .add(new MyScriptListFragment_(), R.string.text_file)
                 .add(new TaskManagerFragment_(), R.string.text_manage)
-                .add(new DocsFragment_(), R.string.text_WWW)
+                .add(new DocsFragment_(), R.string.text_WebX)
 //                .add(new CommunityFragment_(), R.string.text_community)
 //                .add(new MarketFragment_(), R.string.text_market)
                 .build();
