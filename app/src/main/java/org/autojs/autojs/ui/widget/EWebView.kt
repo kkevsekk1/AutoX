@@ -81,32 +81,36 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
             defaultTextEncodingName = "utf-8"//设置编码格式
             setSupportMultipleWindows(false)
             layoutAlgorithm = com.tencent.smtt.sdk.WebSettings.LayoutAlgorithm.NORMAL
-            loadWithOverviewMode = false
             setSupportZoom(true) //支持缩放，默认为true。是下面那个的前提。
             builtInZoomControls = true //设置内置的缩放控件。若为false，则该WebView不可缩放
             displayZoomControls = false //设置原生的缩放控件，启用时被leakcanary检测到内存泄露
             useWideViewPort = false //让WebView读取网页设置的viewport，pc版网页
+            loadWithOverviewMode = false
             loadsImagesAutomatically = true //设置自动加载图片
             blockNetworkImage = false
             blockNetworkLoads = false;
-            loadWithOverviewMode = true;
+            setNeedInitialFocus(true);
+            saveFormData = true;
             cacheMode = com.tencent.smtt.sdk.WebSettings.LOAD_CACHE_ELSE_NETWORK //使用缓存
+            setAppCacheEnabled(true);
             domStorageEnabled = true
             databaseEnabled = true   //开启 database storage API 功能
-            saveFormData = true;
-            setNeedInitialFocus(true);
+            pluginState = com.tencent.smtt.sdk.WebSettings.PluginState.ON
             if (Build.VERSION.SDK_INT >= 26) {
                 safeBrowsingEnabled = false
             }
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 mediaPlaybackRequiresUserGesture = false;
             }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                // 5.0以上允许加载http和https混合的页面(5.0以下默认允许，5.0+默认禁止)
+                mixedContentMode = android.webkit.WebSettings.MIXED_CONTENT_ALWAYS_ALLOW;
+            }
         }
         mWebView.webViewClient = MyWebViewClient()
         mWebView.webChromeClient = MyWebChromeClient()
         mWebView.setDownloadListener { url: String, userAgent: String, contentDisposition: String, mimeType: String, contentLength: Long ->
             run {
-
                 val fileName: String = android.webkit.URLUtil.guessFileName(
                     url, contentDisposition,
                     mimeType

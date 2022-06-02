@@ -4,10 +4,10 @@ import android.annotation.SuppressLint;
 import android.util.Log;
 import android.util.Pair;
 import android.webkit.JavascriptInterface;
-import com.tencent.smtt.sdk.ValueCallback;
-import com.tencent.smtt.sdk.WebSettings;
-import com.tencent.smtt.sdk.WebView;
-import com.tencent.smtt.sdk.WebViewClient;
+import android.webkit.ValueCallback;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 
 import com.stardust.autojs.runtime.exception.ScriptInterruptedException;

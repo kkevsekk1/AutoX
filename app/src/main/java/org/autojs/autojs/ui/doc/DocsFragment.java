@@ -10,12 +10,16 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.stardust.util.BackPressedHandler;
 
@@ -122,13 +126,14 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
     protected void onFabClick(FloatingActionButton fab) {
         initFloatingActionMenuIfNeeded(fab);
         int[] fabIcons = {
-                R.drawable.ic_homepage,
+                R.drawable.ic_home_black_48dp,
                 R.drawable.ic_star,
                 R.drawable.ic_floating_action_menu_open,
+                R.drawable.ic_check_for_updates,
+                R.drawable.ic_web,
                 R.drawable.ic_search_white_36dp,
-                R.drawable.ic_project,
-                R.drawable.ic_qq_black};
-        String[] fabLabs = {"主站", "万花筒", "本地文档", "脚本搜索", "脚本商店", "腾讯TBS文档"};
+                R.drawable.ic_project};
+        String[] fabLabs = {"主站", "收藏", "本地文档", "切换UA", "网址/搜索", "脚本搜索", "脚本商店"};
         mFloatingActionMenu.buildFabs(fabIcons, fabLabs);
         mFloatingActionMenu.setOnFloatingActionButtonClickListener(this);
         if (mFloatingActionMenu.isExpanded()) {
@@ -253,13 +258,109 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                 mDialog.show();
                 break;
             case 3:
-                mWebView.loadUrl("https://github.com/search?q=auto+js+%E8%84%9A%E6%9C%AC&type=repositories");
+                String[] UALabelList = {
+                        "小米5X/UC浏览器",
+                        "荣耀畅玩6X/QQ浏览器",
+                        "华为P20 Pro/手机百度",
+                        "华为Mate20/微信",
+                        "iPhone/Safari",
+                        "iPhone/微信",
+                        "Mac OS X/Safari",
+                        "Mac OS X/微信",
+                        "Windows 10/Chrome"
+                };
+                String[] UAList = {
+                        "Mozilla/5.0 (Linux; U; Android 8.1.0; zh-CN; MI 5X Build/OPM1.171019.019) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 UCBrowser/12.1.2.992 Mobile Safari/537.36",
+                        "Mozilla/5.0 (Linux; Android 7.0; BLN-AL40 Build/HONORBLN-AL40; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045130 Mobile Safari/537.36 V1_AND_SQ_8.2.7_1334_YYB_D QQ/8.2.7.4410 NetType/4G WebP/0.3.0 Pixel/1080 StatusBarHeight/72 SimpleUISwitch/0",
+                        "Mozilla/5.0 (Linux; Android 10; CLT-AL00 Build/HUAWEICLT-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/76.0.3809.89 Mobile Safari/537.36 T7/11.20 SP-engine/2.16.0 baiduboxapp/11.20.0.14 (Baidu; P1 10) NABar/1.0",
+                        "Mozilla/5.0 (Linux; Android 9; HMA-AL00 Build/HUAWEIHMA-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/72.0.3626.121 Mobile Safari/537.36 MMWEBID/1247 MicroMessenger/7.0.10.1561(0x27000A41) Process/tools NetType/4G Language/zh_CN ABI/arm64 GPVersion/1",
+                        "Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X), AppleWebKit/605.1.15 (KHTML, like Gecko), Version/14.0.3 Safari/605.1.15",
+                        "Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X), AppleWebKit/605.1.15 (KHTML, like Gecko), Mobile/15E148 MicroMessenger/8.0.17(0x18001122), NetType/4G Language/zh_CN",
+                        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6), AppleWebKit/605.1.15 (KHTML, like Gecko), Version/14.0.3 Safari/605.1.15",
+                        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4), AppleWebKit/537.36 (KHTML, like Gecko), Chrome/99.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/8.0.17(0x18001122), WindowsWechat(0x63030522),",
+                        "Mozilla/5.0 (Windows NT 10.0; WOW64), AppleWebKit/537.36 (KHTML, like Gecko), Chrome/99.0.3904.62 Safari/537.36"
+                };
+                new MaterialDialog.Builder(requireContext())
+                        .title("请选择要使用的User-Agent：")
+                        .negativeText("取消")
+                        .items(UALabelList)
+                        .itemsCallback(new MaterialDialog.ListCallback() {
+                            @Override
+                            public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
+                                mWebView.getSettings().setUserAgentString(UAList[which]);
+                                mWebView.reload();
+                                Toast.makeText(
+                                        getContext(),
+                                        "UA: " + UAList[which],
+                                        Toast.LENGTH_LONG
+                                ).show();
+                                dialog.dismiss();
+                            }
+                        })
+                        .show();
                 break;
             case 4:
-                mWebView.loadUrl("http://mk.autoxjs.com/pages/controlMine/controlMine");
+                String[] searchEngineLabelList = {
+                        "必应",
+                        "Yandex",
+                        "百度",
+                        "搜狗",
+                        "知乎",
+                        "360",
+                        "谷歌",
+                        "谷歌SSL"
+                };
+                String[] searchEngineList = {
+                        "https://cn.bing.com/search?q=",
+                        "https://yandex.eu/search/?text=",
+                        "https://www.baidu.com/baidu?word=",
+                        "https://www.sogou.com/sogou?query=",
+                        "https://www.zhihu.com/search?type=content&q=",
+                        "https://www.so.com/s?ie=utf-8&fr=so.com&src=home_so.com&q=",
+                        "https://www.google.com.hk/search?hl=zh-CN&q",
+                        "https://www.ggssl.com/search?hl=zh-cn&ie=utf-8&q="
+                };
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                EditText et = new EditText(getContext());
+                et.setText(mWebView.getOriginalUrl());
+                et.selectAll();
+                new MaterialDialog.Builder(requireContext())
+                        .title("编辑网址或搜索内容：")
+                        .customView(et, false)
+                        .positiveText("确定")
+                        .negativeText("取消")
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                if (et.getText().toString()
+                                        .startsWith("http:") || et.getText().toString()
+                                        .startsWith("https:") || et.getText().toString()
+                                        .startsWith("file://") || et.getText().toString()
+                                        .startsWith("www.")
+                                ) {
+                                    mWebView.loadUrl(et.getText().toString());
+                                } else {
+                                    new MaterialDialog.Builder(requireContext())
+                                            .title("选择搜索引擎：")
+                                            .negativeText("取消")
+                                            .items(searchEngineLabelList)
+                                            .itemsCallback(new MaterialDialog.ListCallback() {
+                                                @Override
+                                                public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
+                                                    mWebView.loadUrl(searchEngineList[which] + et.getText().toString());
+                                                    dialog.dismiss();
+                                                }
+                                            }).show();
+                                }
+                                dialog.dismiss();
+                            }
+                        }).show();
                 break;
             case 5:
-                mWebView.loadUrl("https://x5.tencent.com/docs/index.html");
+                mWebView.loadUrl("https://github.com/search?q=auto+js+%E8%84%9A%E6%9C%AC&type=repositories");
+                break;
+            case 6:
+                mWebView.loadUrl("http://mk.autoxjs.com/pages/controlMine/controlMine");
                 break;
             default:
                 mWebView.loadUrl("http://www.autoxjs.com/");
