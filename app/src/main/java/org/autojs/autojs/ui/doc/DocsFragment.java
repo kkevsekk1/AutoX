@@ -42,6 +42,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
@@ -75,7 +76,6 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
 
     static class WebData {
         public String[] bookmarks = {
-                "",
                 "http://doc.autoxjs.com/#/",
                 "https://wht.im",
                 "https://github.com/search?q=auto+js+%E8%84%9A%E6%9C%AC&type=repositories",
@@ -83,7 +83,6 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                 "http://mk.autoxjs.com/pages/controlMine/controlMine",
         };
         public String[] bookmarkLabels = {
-                "添加书签",
                 "主站",
                 "万花筒",
                 "脚本搜索",
@@ -96,6 +95,7 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                 "https://www.baidu.com/baidu?word=",
                 "https://www.sogou.com/sogou?query=",
                 "https://www.zhihu.com/search?type=content&q=",
+                "https://github.com/search?q=",
                 "https://www.so.com/s?ie=utf-8&fr=so.com&src=home_so.com&q=",
                 "https://www.google.com.hk/search?hl=zh-CN&q",
                 "https://www.ggssl.com/search?hl=zh-cn&ie=utf-8&q="
@@ -106,6 +106,7 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                 "百度",
                 "搜狗",
                 "知乎",
+                "GitHub",
                 "360",
                 "谷歌",
                 "谷歌SSL"
@@ -272,24 +273,8 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                         .itemsCallback(new MaterialDialog.ListCallback() {
                             @Override
                             public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
-                                if (which == 0) {
-                                    String[] strList = new String[mWebData.bookmarks.length + 1];
-                                    String[] strLabelList = new String[mWebData.bookmarks.length + 1];
-                                    int j = 0;
-                                    for (int i = 0; i < mWebData.bookmarks.length; i++) {
-                                        strList[j] = mWebData.bookmarks[i];
-                                        strLabelList[j] = mWebData.bookmarkLabels[i];
-                                        j += 1;
-                                    }
-                                    strList[j] = mWebView.getOriginalUrl();
-                                    strLabelList[j] = mWebView.getTitle();
-                                    mWebData.bookmarks = strList;
-                                    mWebData.bookmarkLabels = strLabelList;
-                                    Pref.setWebData(gson.toJson(mWebData));
-                                } else {
                                     mWebView.loadUrl(mWebData.bookmarks[which]);
                                     dialog.dismiss();
-                                }
                             }
                         })
                         .show();
@@ -374,13 +359,30 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                 break;
             case 4:
                 EditText et = new EditText(getContext());
-                et.setText(mWebView.getOriginalUrl());
-                et.selectAll();
                 new MaterialDialog.Builder(requireContext())
-                        .title("编辑网址或搜索内容：")
+                        .title(mWebView.getOriginalUrl())
                         .customView(et, false)
-                        .positiveText("确定")
+                        .positiveText("打开/搜索")
                         .negativeText("取消")
+                        .neutralText("加入收藏")
+                        .onNeutral(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(MaterialDialog dialog, DialogAction which) {
+                                String[] strList = new String[mWebData.bookmarks.length + 1];
+                                String[] strLabelList = new String[mWebData.bookmarks.length + 1];
+                                int j = 0;
+                                for (int i = 0; i < mWebData.bookmarks.length; i++) {
+                                    strList[j] = mWebData.bookmarks[i];
+                                    strLabelList[j] = mWebData.bookmarkLabels[i];
+                                    j += 1;
+                                }
+                                strList[j] = mWebView.getOriginalUrl();
+                                strLabelList[j] = mWebView.getTitle();
+                                mWebData.bookmarks = strList;
+                                mWebData.bookmarkLabels = strLabelList;
+                                Pref.setWebData(gson.toJson(mWebData));
+                            }
+                        })
                         .onPositive(new MaterialDialog.SingleButtonCallback() {
                             @Override
                             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
