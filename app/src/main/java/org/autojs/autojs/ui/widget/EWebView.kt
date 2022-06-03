@@ -28,8 +28,10 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import org.autojs.autojs.R
 import org.autojs.autojs.model.script.Scripts
 import org.autojs.autojs.tool.ImageSelector
+import java.io.File
 import java.io.IOException
 import java.io.InputStream
+import java.nio.charset.Charset
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -55,7 +57,6 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
 
     private fun init() {
         inflate(context, R.layout.ewebview, this)
-
         val map: java.util.HashMap<String, Any> = HashMap<String, Any>()
         map[com.tencent.smtt.export.external.TbsCoreSettings.TBS_SETTINGS_USE_SPEEDY_CLASSLOADER] =
             true
@@ -126,6 +127,7 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
             }
         }
         mWebView.addJavascriptInterface(JsAPI(), "android")
+        mWebView.addJavascriptInterface(this, "_web")
     }
 
     fun evalJavaScript(script: String) {
@@ -133,6 +135,23 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
             mWebView!!.evaluateJavascript(script, null)
         } else {
             mWebView!!.loadUrl("javascript:$script")
+        }
+    }
+
+
+    @JavascriptInterface
+    fun saveSource(content: String?, fileName: String?) {
+        if (content != null) {
+            if (!File(context.getExternalFilesDir(null)!!.path).isDirectory) {
+                File(context.getExternalFilesDir(null)!!.path).mkdirs()
+            }
+            File(
+                context.getExternalFilesDir(null)!!.path,
+                "$fileName.txt"
+            ).writeText(
+                content,
+                Charset.defaultCharset()
+            )
         }
     }
 
@@ -148,7 +167,6 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {}
 
     protected open inner class MyWebViewClient() : com.tencent.smtt.sdk.WebViewClient() {
-        //如果只是为了获取网页源代码的话，可以重写onPageFinished方法，在onPageFinished方法里执行相应的逻辑就好。但是当框架里显示的内容发生变化时，onPageFinished方法不会再掉用，只会调用onLoadResource方法，所以此处需要重写此方法。
         override fun onLoadResource(view: com.tencent.smtt.sdk.WebView, url: String?) {
             super.onLoadResource(view, url)
         }
@@ -179,6 +197,10 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
             super.onPageFinished(view, url)
             mProgressBar!!.visibility = GONE
             mSwipeRefreshLayout!!.isRefreshing = false
+            view.evaluateJavascript(
+                "javascript: window._web.saveSource('<html>' + document.getElementsByTagName('html')[0].innerHTML + '</html>', 'html_source');",
+                null
+            )
         }
 
         override fun shouldOverrideUrlLoading(
