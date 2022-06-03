@@ -265,13 +265,31 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                 new MaterialDialog.Builder(requireContext())
                         .title("请选择书签(多选)：")
                         .positiveText("打开")
-                        .negativeText("取消")
                         .neutralText("删除")
+                        .negativeText("添加当前页")
                         .items(mWebData.bookmarkLabels)
                         .itemsCallbackMultiChoice(null, new MaterialDialog.ListCallbackMultiChoice() {
                             @Override
                             public boolean onSelection(MaterialDialog dialog, Integer[] which, CharSequence[] text) {
                                 return true;
+                            }
+                        })
+                        .onNegative(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(MaterialDialog dialog, DialogAction which) {
+                                String[] strList = new String[mWebData.bookmarks.length + 1];
+                                String[] strLabelList = new String[mWebData.bookmarks.length + 1];
+                                int j = 0;
+                                for (int i = 0; i < mWebData.bookmarks.length; i++) {
+                                    strList[j] = mWebData.bookmarks[i];
+                                    strLabelList[j] = mWebData.bookmarkLabels[i];
+                                    j += 1;
+                                }
+                                strList[j] = mWebView.getOriginalUrl();
+                                strLabelList[j] = mWebView.getTitle();
+                                mWebData.bookmarks = strList;
+                                mWebData.bookmarkLabels = strLabelList;
+                                Pref.setWebData(gson.toJson(mWebData));
                             }
                         })
                         .onPositive(new MaterialDialog.SingleButtonCallback() {
@@ -294,12 +312,17 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                                     String[] strLabelList = new String[mWebData.bookmarks.length - dialog.getSelectedIndices().length];
                                     int j = 0;
                                     for (int i = 0; i < mWebData.bookmarks.length; i++) {
+                                        boolean flag = true;
                                         for (Integer index : dialog.getSelectedIndices()) {
-                                            if (i != index) {
-                                                strList[j] = mWebData.bookmarks[i];
-                                                strLabelList[j] = mWebData.bookmarkLabels[i];
-                                                j += 1;
+                                            if (i == index) {
+                                                flag = false;
+                                                break;
                                             }
+                                        }
+                                        if (flag) {
+                                            strList[j] = mWebData.bookmarks[i];
+                                            strLabelList[j] = mWebData.bookmarkLabels[i];
+                                            j += 1;
                                         }
                                     }
                                     mWebData.bookmarks = strList;
@@ -395,7 +418,7 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                         .customView(et, false)
                         .positiveText("打开/搜索")
                         .negativeText("取消")
-                        .neutralText("加入收藏")
+                        .neutralText("将网址加入收藏")
                         .onNeutral(new MaterialDialog.SingleButtonCallback() {
                             @Override
                             public void onClick(MaterialDialog dialog, DialogAction which) {
