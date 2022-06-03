@@ -189,11 +189,12 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                 R.drawable.ic_home_black_48dp,
                 R.drawable.ic_star,
                 R.drawable.ic_floating_action_menu_open,
+                R.drawable.ic_pc_mode,
                 R.drawable.ic_check_for_updates,
                 R.drawable.ic_web,
                 R.drawable.ic_code_black_48dp,
                 R.drawable.ic_project};
-        String[] fabLabs = {"主站", "收藏", "本地文档", "切换UA", "网址/搜索", "网页源码", "脚本市场"};
+        String[] fabLabs = {"主站", "收藏", "本地文档", "切换桌面模式", "切换UA", "网址/搜索", "网页源码", "脚本市场"};
         mFloatingActionMenu.buildFabs(fabIcons, fabLabs);
         mFloatingActionMenu.setOnFloatingActionButtonClickListener(this);
         if (mFloatingActionMenu.isExpanded()) {
@@ -252,7 +253,7 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
 
     @Override
     public void onClick(FloatingActionButton button, int pos) {
-        if (!Objects.equals(Pref.getWebData(), "")) {
+                if (!Objects.equals(Pref.getWebData(), "")) {
             mWebData = gson.fromJson(Pref.getWebData(), WebData.class);
         } else {
             mWebData = new WebData();
@@ -392,6 +393,17 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                 mDialog.show();
                 break;
             case 3:
+                mEWebView.switchRescale();
+                if (mEWebView.getIsRescale()) {
+                    mWebView.getSettings().setLoadWithOverviewMode(true);
+                    mWebView.getSettings().setUserAgentString(mWebData.userAgents[6]);
+                } else {
+                    mWebView.getSettings().setLoadWithOverviewMode(false);
+                    mWebView.getSettings().setUserAgentString(mWebData.userAgents[4]);
+                }
+                mWebView.reload();
+                break;
+            case 4:
                 new MaterialDialog.Builder(requireContext())
                         .title("请选择要使用的User-Agent：")
                         .negativeText("取消")
@@ -411,7 +423,7 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                         })
                         .show();
                 break;
-            case 4:
+            case 5:
                 EditText et = new EditText(getContext());
                 new MaterialDialog.Builder(requireContext())
                         .title(mWebView.getOriginalUrl())
@@ -423,37 +435,37 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                             @Override
                             public void onClick(MaterialDialog dialog, DialogAction which) {
                                 new MaterialDialog.Builder(requireContext())
-                                            .title("选择搜索引擎：")
-                                            .negativeText("取消")
-                                            .items(mWebData.searchEngineLabels)
-                                            .itemsCallback(new MaterialDialog.ListCallback() {
-                                                @Override
-                                                public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
-                                                    mWebView.loadUrl(mWebData.searchEngines[which] + et.getText().toString());
-                                                    dialog.dismiss();
-                                                }
-                                            })
-                                            .show();
+                                        .title("选择搜索引擎：")
+                                        .negativeText("取消")
+                                        .items(mWebData.searchEngineLabels)
+                                        .itemsCallback(new MaterialDialog.ListCallback() {
+                                            @Override
+                                            public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
+                                                mWebView.loadUrl(mWebData.searchEngines[which] + et.getText().toString());
+                                                dialog.dismiss();
+                                            }
+                                        })
+                                        .show();
                                 dialog.dismiss();
                             }
                         })
                         .onPositive(new MaterialDialog.SingleButtonCallback() {
                             @Override
                             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                                mWebView.loadUrl(et.getText().toString());  
+                                mWebView.loadUrl(et.getText().toString());
                                 dialog.dismiss();
                             }
                         })
                         .show();
                 break;
-            case 5:
+            case 6:
                 mWebView.loadUrl(
                         "file://" + getContext().getExternalFilesDir(
                                 null
                         ).getPath() + File.separator + "html_source.txt"
                 );
                 break;
-            case 6:
+            case 7:
                 mWebView.loadUrl("http://mk.autoxjs.com/pages/controlMine/controlMine");
                 break;
             default:
