@@ -416,39 +416,13 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                 new MaterialDialog.Builder(requireContext())
                         .title(mWebView.getOriginalUrl())
                         .customView(et, false)
-                        .positiveText("打开/搜索")
+                        .positiveText("打开")
                         .negativeText("取消")
-                        .neutralText("将网址加入收藏")
+                        .neutralText("搜索")
                         .onNeutral(new MaterialDialog.SingleButtonCallback() {
                             @Override
                             public void onClick(MaterialDialog dialog, DialogAction which) {
-                                String[] strList = new String[mWebData.bookmarks.length + 1];
-                                String[] strLabelList = new String[mWebData.bookmarks.length + 1];
-                                int j = 0;
-                                for (int i = 0; i < mWebData.bookmarks.length; i++) {
-                                    strList[j] = mWebData.bookmarks[i];
-                                    strLabelList[j] = mWebData.bookmarkLabels[i];
-                                    j += 1;
-                                }
-                                strList[j] = mWebView.getOriginalUrl();
-                                strLabelList[j] = mWebView.getTitle();
-                                mWebData.bookmarks = strList;
-                                mWebData.bookmarkLabels = strLabelList;
-                                Pref.setWebData(gson.toJson(mWebData));
-                            }
-                        })
-                        .onPositive(new MaterialDialog.SingleButtonCallback() {
-                            @Override
-                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                                if (et.getText().toString()
-                                        .startsWith("http:") || et.getText().toString()
-                                        .startsWith("https:") || et.getText().toString()
-                                        .startsWith("file://") || et.getText().toString()
-                                        .startsWith("www.")
-                                ) {
-                                    mWebView.loadUrl(et.getText().toString());
-                                } else {
-                                    new MaterialDialog.Builder(requireContext())
+                                new MaterialDialog.Builder(requireContext())
                                             .title("选择搜索引擎：")
                                             .negativeText("取消")
                                             .items(mWebData.searchEngineLabels)
@@ -458,11 +432,19 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                                                     mWebView.loadUrl(mWebData.searchEngines[which] + et.getText().toString());
                                                     dialog.dismiss();
                                                 }
-                                            }).show();
-                                }
+                                            })
+                                            .show();
                                 dialog.dismiss();
                             }
-                        }).show();
+                        })
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                mWebView.loadUrl(et.getText().toString());  
+                                dialog.dismiss();
+                            }
+                        })
+                        .show();
                 break;
             case 5:
                 mWebView.loadUrl(
