@@ -60,7 +60,6 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
 
     com.tencent.smtt.sdk.WebView mWebView;
 
-    private String mIndexUrl;
     private String mPreviousQuery;
     private FloatingActionMenu mFloatingActionMenu;
     static private Dialog mDialog;
@@ -74,15 +73,18 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
     WebData mWebData;
 
     static class WebData {
+        public String homepage = "";
         public String[] bookmarks = new String[]{
                 "https://wht.im",
                 "https://github.com/search?q=auto+js+%E8%84%9A%E6%9C%AC&type=repositories",
+                "http://mk.autoxjs.com/pages/controlMine/controlMine",
                 "http://www.autoxjs.com/"
         };
         public String[] bookmarkLabels = new String[]{
                 "万花筒",
                 "脚本搜索",
-                "AutoX社区"
+                "脚本市场",
+                "交流社区"
         };
         public String[] searchEngines = new String[]{
                 "https://cn.bing.com/search?q=",
@@ -145,7 +147,7 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
     void setUpViews() {
         mWebView = mEWebView.getWebView();
         mEWebView.getSwipeRefreshLayout().setOnRefreshListener(() -> {
-            if (TextUtils.equals(mWebView.getUrl(), mIndexUrl)) {
+            if (TextUtils.equals(mWebView.getUrl(), mWebData.homepage)) {
                 loadUrl();
             } else {
                 mEWebView.onRefresh();
@@ -160,8 +162,13 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
     }
 
     private void loadUrl() {
-        mIndexUrl = getArguments().getString(ARGUMENT_URL, Pref.getDocumentationUrl() + "index.html");
-        mWebView.loadUrl(mIndexUrl);
+        if (!Objects.equals(Pref.getWebData(), "")) {
+            mWebData = gson.fromJson(Pref.getWebData(), WebData.class);
+        } else {
+            mWebData = new WebData();
+            mWebData.homepage = getArguments().getString(ARGUMENT_URL, Pref.getDocumentationUrl() + "index.html");
+        }
+        mWebView.loadUrl(mWebData.homepage);
     }
 
 
@@ -194,7 +201,7 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                 R.drawable.ic_web,
                 R.drawable.ic_code_black_48dp,
                 R.drawable.ic_project};
-        String[] fabLabs = {"主站", "收藏", "本地文档", "切换桌面模式", "切换UA", "网址/搜索", "网页源码", "脚本市场"};
+        String[] fabLabs = {"主页", "收藏", "本地文档", "切换桌面模式", "切换UA", "网址/搜索", "网页源码", "问题反馈"};
         mFloatingActionMenu.buildFabs(fabIcons, fabLabs);
         mFloatingActionMenu.setOnFloatingActionButtonClickListener(this);
         if (mFloatingActionMenu.isExpanded()) {
@@ -253,20 +260,21 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
 
     @Override
     public void onClick(FloatingActionButton button, int pos) {
-                if (!Objects.equals(Pref.getWebData(), "")) {
+        if (!Objects.equals(Pref.getWebData(), "")) {
             mWebData = gson.fromJson(Pref.getWebData(), WebData.class);
         } else {
             mWebData = new WebData();
+            mWebData.homepage = getArguments().getString(ARGUMENT_URL, Pref.getDocumentationUrl() + "index.html");
         }
         switch (pos) {
             case 0:
-                mWebView.loadUrl(mIndexUrl);
+                mWebView.loadUrl(mWebData.homepage);
                 break;
             case 1:
                 new MaterialDialog.Builder(requireContext())
-                        .title("请选择书签(多选)：")
-                        .positiveText("打开")
-                        .neutralText("删除")
+                        .title("请选择书签：")
+                        .positiveText("打开(单选)")
+                        .neutralText("删除(多选)")
                         .negativeText("添加当前页")
                         .items(mWebData.bookmarkLabels)
                         .itemsCallbackMultiChoice(null, new MaterialDialog.ListCallbackMultiChoice() {
@@ -429,7 +437,7 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                         .title(mWebView.getOriginalUrl())
                         .customView(et, false)
                         .positiveText("打开")
-                        .negativeText("取消")
+                        .negativeText("设为主页")
                         .neutralText("搜索")
                         .onNeutral(new MaterialDialog.SingleButtonCallback() {
                             @Override
@@ -456,17 +464,26 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                                 dialog.dismiss();
                             }
                         })
+                        .onNegative(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                mWebData.homepage = mWebView.getOriginalUrl();
+                                Pref.setWebData(gson.toJson(mWebData));
+                                Toast.makeText(getContext(), "设置为主页：" + mWebView.getTitle(), Toast.LENGTH_LONG).show();
+                                dialog.dismiss();
+                            }
+                        })
                         .show();
                 break;
             case 6:
                 mWebView.loadUrl(
-                        "file://" + getContext().getExternalFilesDir(
+                        "file://" + requireContext().getExternalFilesDir(
                                 null
                         ).getPath() + File.separator + "html_source.txt"
                 );
                 break;
             case 7:
-                mWebView.loadUrl("http://mk.autoxjs.com/pages/controlMine/controlMine");
+                mWebView.loadUrl("https://github.com/kkevsekk1/AutoX/issues");
                 break;
             default:
                 mWebView.loadUrl("http://www.autoxjs.com/");
