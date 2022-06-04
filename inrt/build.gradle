@@ -102,8 +102,30 @@ android {
             manifestPlaceholders = [appName: "AIX云控"]
         }
     }
-
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['/libs']
+        }
+    }
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging true
+        }
+        pickFirst 'lib/arm64-v8a/libc++_shared.so'
+        pickFirst 'lib/arm64-v8a/libhiai.so'
+        pickFirst 'lib/arm64-v8a/libhiai_ir.so'
+        pickFirst 'lib/arm64-v8a/libhiai_ir_build.so'
+        pickFirst 'lib/arm64-v8a/libNative.so'
+        pickFirst 'lib/arm64-v8a/libpaddle_light_api_shared.so'
+        pickFirst 'lib/armeabi-v7a/libc++_shared.so'
+        pickFirst 'lib/armeabi-v7a/libhiai.so'
+        pickFirst 'lib/armeabi-v7a/libhiai_ir.so'
+        pickFirst 'lib/armeabi-v7a/libhiai_ir_build.so'
+        pickFirst 'lib/armeabi-v7a/libNative.so'
+        pickFirst 'lib/armeabi-v7a/libpaddle_light_api_shared.so'
+    }
 }
+
 task publishMarket(group: 'build') {
     println "publish app"
     println "$rootDir"
@@ -151,8 +173,8 @@ task cp2APP(group: 'build') {
             return
         }
         println pluginProjectDir
-       // buildApkPluginForAbi(pluginProjectDir, 'armeabi-v7a')
-          buildApkPluginForAbi(pluginProjectDir, 'arm64-v8a')
+        // buildApkPluginForAbi(pluginProjectDir, 'armeabi-v7a')
+        buildApkPluginForAbi(pluginProjectDir, 'arm64-v8a')
     }
 }
 
@@ -160,13 +182,6 @@ task cp2APP(group: 'build') {
 tasks.whenTaskAdded { task ->
     println("=================task " + task.name + " added=================")
 
-}
-
-repositories {
-    flatDir {
-        dirs 'libs'
-    }
-    google()
 }
 
 dependencies {
@@ -197,5 +212,5 @@ dependencies {
     implementation project(':common')
     implementation project(':autojs')
     implementation 'androidx.multidex:multidex:2.0.1'
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: '../app/libs', include: ['*.jar'])
 }

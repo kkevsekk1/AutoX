@@ -27,13 +27,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-}
-
-repositories {
-    flatDir {
-        dirs 'libs'
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['/libs']
+        }
     }
-    google()
 }
 
 dependencies {

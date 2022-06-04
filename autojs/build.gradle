@@ -31,11 +31,10 @@ android {
     lintOptions {
         abortOnError false
     }
-}
-
-repositories {
-    flatDir {
-        dirs '../app/libs'
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['../app/libs']
+        }
     }
 }
 
@@ -71,6 +70,7 @@ dependencies {
     api project(path: ':LocalRepo:term')
     api project(path: ':LocalRepo:p7zip')
     api project(path: ':LocalRepo:OpenCV')
+    api project(path: ':LocalRepo:PaddleOCR4Android')
     // libs
     api fileTree(dir: '../app/libs', include: ['*.jar'])
 }
