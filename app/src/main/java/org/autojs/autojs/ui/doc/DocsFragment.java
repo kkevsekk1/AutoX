@@ -10,13 +10,18 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.gson.Gson;
 import com.stardust.util.BackPressedHandler;
 
 import org.androidannotations.annotations.AfterViews;
@@ -38,6 +43,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
@@ -54,7 +60,6 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
 
     com.tencent.smtt.sdk.WebView mWebView;
 
-    private String mIndexUrl;
     private String mPreviousQuery;
     private FloatingActionMenu mFloatingActionMenu;
     static private Dialog mDialog;
@@ -64,7 +69,68 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
     static final public String sFolder = ".";
     static final public String sEmpty = "";
     static final private String sOnErrorMsg = "No rights to access!";
+    Gson gson = new Gson();
+    WebData mWebData;
 
+    static class WebData {
+        public String homepage = "";
+        public String[] bookmarks = new String[]{
+                "https://wht.im",
+                "https://github.com/search?q=auto+js+%E8%84%9A%E6%9C%AC&type=repositories",
+                "http://mk.autoxjs.com/pages/controlMine/controlMine",
+                "http://www.autoxjs.com/"
+        };
+        public String[] bookmarkLabels = new String[]{
+                "万花筒",
+                "脚本搜索",
+                "脚本市场",
+                "交流社区"
+        };
+        public String[] searchEngines = new String[]{
+                "https://cn.bing.com/search?q=",
+                "https://yandex.eu/search/?text=",
+                "https://www.baidu.com/baidu?word=",
+                "https://www.sogou.com/sogou?query=",
+                "https://www.zhihu.com/search?type=content&q=",
+                "https://github.com/search?q=",
+                "https://www.so.com/s?ie=utf-8&fr=so.com&src=home_so.com&q=",
+                "https://www.google.com.hk/search?hl=zh-CN&q",
+                "https://www.ggssl.com/search?hl=zh-cn&ie=utf-8&q="
+        };
+        public String[] searchEngineLabels = new String[]{
+                "必应",
+                "Yandex",
+                "百度",
+                "搜狗",
+                "知乎",
+                "GitHub",
+                "360",
+                "谷歌",
+                "谷歌SSL"
+        };
+        public String[] userAgents = new String[]{
+                "Mozilla/5.0 (Linux; U; Android 8.1.0; zh-CN; MI 5X Build/OPM1.171019.019) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 UCBrowser/12.1.2.992 Mobile Safari/537.36",
+                "Mozilla/5.0 (Linux; Android 7.0; BLN-AL40 Build/HONORBLN-AL40; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045130 Mobile Safari/537.36 V1_AND_SQ_8.2.7_1334_YYB_D QQ/8.2.7.4410 NetType/4G WebP/0.3.0 Pixel/1080 StatusBarHeight/72 SimpleUISwitch/0",
+                "Mozilla/5.0 (Linux; Android 10; CLT-AL00 Build/HUAWEICLT-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/76.0.3809.89 Mobile Safari/537.36 T7/11.20 SP-engine/2.16.0 baiduboxapp/11.20.0.14 (Baidu; P1 10) NABar/1.0",
+                "Mozilla/5.0 (Linux; Android 9; HMA-AL00 Build/HUAWEIHMA-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/72.0.3626.121 Mobile Safari/537.36 MMWEBID/1247 MicroMessenger/7.0.10.1561(0x27000A41) Process/tools NetType/4G Language/zh_CN ABI/arm64 GPVersion/1",
+                "Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X), AppleWebKit/605.1.15 (KHTML, like Gecko), Version/14.0.3 Safari/605.1.15",
+                "Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X), AppleWebKit/605.1.15 (KHTML, like Gecko), Mobile/15E148 MicroMessenger/8.0.17(0x18001122), NetType/4G Language/zh_CN",
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6), AppleWebKit/605.1.15 (KHTML, like Gecko), Version/14.0.3 Safari/605.1.15",
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4), AppleWebKit/537.36 (KHTML, like Gecko), Chrome/99.0.4044.138 Safari/537.36 NetType/WIFI MicroMessenger/8.0.17(0x18001122), WindowsWechat(0x63030522),",
+                "Mozilla/5.0 (Windows NT 10.0; WOW64), AppleWebKit/537.36 (KHTML, like Gecko), Chrome/99.0.3904.62 Safari/537.36"
+        };
+        public String[] userAgentLabels = new String[]{
+                "小米5X/UC浏览器",
+                "荣耀畅玩6X/QQ浏览器",
+                "华为P20 Pro/手机百度",
+                "华为Mate20/微信",
+                "iPhone/Safari",
+                "iPhone/微信",
+                "Mac OS X/Safari",
+                "Mac OS X/微信",
+                "Windows 10/Chrome"
+        };
+    }
 
     public DocsFragment() {
         super(ROTATION_GONE);
@@ -81,7 +147,7 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
     void setUpViews() {
         mWebView = mEWebView.getWebView();
         mEWebView.getSwipeRefreshLayout().setOnRefreshListener(() -> {
-            if (TextUtils.equals(mWebView.getUrl(), mIndexUrl)) {
+            if (TextUtils.equals(mWebView.getUrl(), mWebData.homepage)) {
                 loadUrl();
             } else {
                 mEWebView.onRefresh();
@@ -96,8 +162,13 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
     }
 
     private void loadUrl() {
-        mIndexUrl = getArguments().getString(ARGUMENT_URL, Pref.getDocumentationUrl() + "index.html");
-        mWebView.loadUrl(mIndexUrl);
+        if (!Objects.equals(Pref.getWebData(), "")) {
+            mWebData = gson.fromJson(Pref.getWebData(), WebData.class);
+        } else {
+            mWebData = new WebData();
+            mWebData.homepage = getArguments().getString(ARGUMENT_URL, Pref.getDocumentationUrl() + "index.html");
+        }
+        mWebView.loadUrl(mWebData.homepage);
     }
 
 
@@ -122,13 +193,15 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
     protected void onFabClick(FloatingActionButton fab) {
         initFloatingActionMenuIfNeeded(fab);
         int[] fabIcons = {
-                R.drawable.ic_homepage,
+                R.drawable.ic_home_black_48dp,
                 R.drawable.ic_star,
                 R.drawable.ic_floating_action_menu_open,
-                R.drawable.ic_search_white_36dp,
-                R.drawable.ic_project,
-                R.drawable.ic_qq_black};
-        String[] fabLabs = {"主站", "万花筒", "本地文档", "脚本搜索", "脚本商店", "腾讯TBS文档"};
+                R.drawable.ic_pc_mode,
+                R.drawable.ic_check_for_updates,
+                R.drawable.ic_web,
+                R.drawable.ic_code_black_48dp,
+                R.drawable.ic_project};
+        String[] fabLabs = {"主页", "收藏", "本地文档", "切换桌面模式", "切换UA", "网址/搜索", "网页源码", "问题反馈"};
         mFloatingActionMenu.buildFabs(fabIcons, fabLabs);
         mFloatingActionMenu.setOnFloatingActionButtonClickListener(this);
         if (mFloatingActionMenu.isExpanded()) {
@@ -187,12 +260,87 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
 
     @Override
     public void onClick(FloatingActionButton button, int pos) {
+        if (!Objects.equals(Pref.getWebData(), "")) {
+            mWebData = gson.fromJson(Pref.getWebData(), WebData.class);
+        } else {
+            mWebData = new WebData();
+            mWebData.homepage = getArguments().getString(ARGUMENT_URL, Pref.getDocumentationUrl() + "index.html");
+        }
         switch (pos) {
             case 0:
-                mWebView.loadUrl(mIndexUrl);
+                mWebView.loadUrl(mWebData.homepage);
                 break;
             case 1:
-                mWebView.loadUrl("https://0x3.com/");
+                new MaterialDialog.Builder(requireContext())
+                        .title("请选择书签：")
+                        .positiveText("打开(单选)")
+                        .neutralText("删除(多选)")
+                        .negativeText("添加当前页")
+                        .items(mWebData.bookmarkLabels)
+                        .itemsCallbackMultiChoice(null, new MaterialDialog.ListCallbackMultiChoice() {
+                            @Override
+                            public boolean onSelection(MaterialDialog dialog, Integer[] which, CharSequence[] text) {
+                                return true;
+                            }
+                        })
+                        .onNegative(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(MaterialDialog dialog, DialogAction which) {
+                                String[] strList = new String[mWebData.bookmarks.length + 1];
+                                String[] strLabelList = new String[mWebData.bookmarks.length + 1];
+                                int j = 0;
+                                for (int i = 0; i < mWebData.bookmarks.length; i++) {
+                                    strList[j] = mWebData.bookmarks[i];
+                                    strLabelList[j] = mWebData.bookmarkLabels[i];
+                                    j += 1;
+                                }
+                                strList[j] = mWebView.getOriginalUrl();
+                                strLabelList[j] = mWebView.getTitle();
+                                mWebData.bookmarks = strList;
+                                mWebData.bookmarkLabels = strLabelList;
+                                Pref.setWebData(gson.toJson(mWebData));
+                            }
+                        })
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(MaterialDialog dialog, DialogAction which) {
+                                if (Objects.requireNonNull(dialog.getSelectedIndices()).length > 0) {
+                                    mWebView.loadUrl(mWebData.bookmarks[dialog.getSelectedIndices()[0]]);
+                                }
+                            }
+                        })
+                        .onNeutral(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(MaterialDialog dialog, DialogAction which) {
+                                if (Objects.requireNonNull(dialog.getSelectedIndices()).length >= mWebData.bookmarks.length) {
+                                    mWebData.bookmarks = new String[]{};
+                                    mWebData.bookmarkLabels = new String[]{};
+                                    Pref.setWebData(gson.toJson(mWebData));
+                                } else if (Objects.requireNonNull(dialog.getSelectedIndices()).length > 0) {
+                                    String[] strList = new String[mWebData.bookmarks.length - dialog.getSelectedIndices().length];
+                                    String[] strLabelList = new String[mWebData.bookmarks.length - dialog.getSelectedIndices().length];
+                                    int j = 0;
+                                    for (int i = 0; i < mWebData.bookmarks.length; i++) {
+                                        boolean flag = true;
+                                        for (Integer index : dialog.getSelectedIndices()) {
+                                            if (i == index) {
+                                                flag = false;
+                                                break;
+                                            }
+                                        }
+                                        if (flag) {
+                                            strList[j] = mWebData.bookmarks[i];
+                                            strLabelList[j] = mWebData.bookmarkLabels[i];
+                                            j += 1;
+                                        }
+                                    }
+                                    mWebData.bookmarks = strList;
+                                    mWebData.bookmarkLabels = strLabelList;
+                                    Pref.setWebData(gson.toJson(mWebData));
+                                }
+                            }
+                        })
+                        .show();
                 break;
             case 2:
                 HashMap<String, Integer> images = new HashMap<String, Integer>();
@@ -253,13 +401,89 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                 mDialog.show();
                 break;
             case 3:
-                mWebView.loadUrl("https://github.com/search?q=auto+js+%E8%84%9A%E6%9C%AC&type=repositories");
+                mEWebView.switchRescale();
+                if (mEWebView.getIsRescale()) {
+                    mWebView.getSettings().setLoadWithOverviewMode(true);
+                    mWebView.getSettings().setUserAgentString(mWebData.userAgents[6]);
+                } else {
+                    mWebView.getSettings().setLoadWithOverviewMode(false);
+                    mWebView.getSettings().setUserAgentString(mWebData.userAgents[4]);
+                }
+                mWebView.reload();
                 break;
             case 4:
-                mWebView.loadUrl("http://mk.autoxjs.com/pages/controlMine/controlMine");
+                new MaterialDialog.Builder(requireContext())
+                        .title("请选择要使用的User-Agent：")
+                        .negativeText("取消")
+                        .items(mWebData.userAgentLabels)
+                        .itemsCallback(new MaterialDialog.ListCallback() {
+                            @Override
+                            public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
+                                mWebView.getSettings().setUserAgentString(mWebData.userAgents[which]);
+                                mWebView.reload();
+                                Toast.makeText(
+                                        getContext(),
+                                        "UA: " + mWebData.userAgents[which],
+                                        Toast.LENGTH_LONG
+                                ).show();
+                                dialog.dismiss();
+                            }
+                        })
+                        .show();
                 break;
             case 5:
-                mWebView.loadUrl("https://x5.tencent.com/docs/index.html");
+                EditText et = new EditText(getContext());
+                new MaterialDialog.Builder(requireContext())
+                        .title(mWebView.getOriginalUrl())
+                        .customView(et, false)
+                        .positiveText("打开")
+                        .negativeText("设为主页")
+                        .neutralText("搜索")
+                        .onNeutral(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(MaterialDialog dialog, DialogAction which) {
+                                new MaterialDialog.Builder(requireContext())
+                                        .title("选择搜索引擎：")
+                                        .negativeText("取消")
+                                        .items(mWebData.searchEngineLabels)
+                                        .itemsCallback(new MaterialDialog.ListCallback() {
+                                            @Override
+                                            public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
+                                                mWebView.loadUrl(mWebData.searchEngines[which] + et.getText().toString());
+                                                dialog.dismiss();
+                                            }
+                                        })
+                                        .show();
+                                dialog.dismiss();
+                            }
+                        })
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                mWebView.loadUrl(et.getText().toString());
+                                dialog.dismiss();
+                            }
+                        })
+                        .onNegative(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                mWebData.homepage = mWebView.getOriginalUrl();
+                                Pref.setWebData(gson.toJson(mWebData));
+                                Toast.makeText(getContext(), "设置为主页：" + mWebView.getTitle(), Toast.LENGTH_LONG).show();
+                                dialog.dismiss();
+                            }
+                        })
+                        .show();
+                break;
+            case 6:
+                mWebView.loadUrl(
+                        "file://" + requireContext().getExternalFilesDir(
+                                null
+                        ).getPath() + File.separator + "html_source.txt"
+                );
+                break;
+            case 7:
+                mWebView.loadUrl("https://github.com/kkevsekk1/AutoX/issues");
                 break;
             default:
                 mWebView.loadUrl("http://www.autoxjs.com/");
@@ -288,8 +512,6 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
     }
 
     static class FileSelectView extends ListView implements AdapterView.OnItemClickListener {
-
-
         private CallbackBundle callback = null;
         private String path = sRoot;
         private List<Map<String, Object>> list = null;
@@ -394,11 +616,8 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                     }
                 }
             }
-
             list.addAll(lfolders); // 先添加文件夹，确保文件夹显示在上面
             list.addAll(lfiles);    //再添加文件
-
-
             SimpleAdapter adapter = new SimpleAdapter(getContext(), list, R.layout.filedialogitem, new String[]{"img", "name", "path"}, new int[]{R.id.filedialogitem_img, R.id.filedialogitem_name, R.id.filedialogitem_path});
             this.setAdapter(adapter);
             return files.length;

@@ -75,7 +75,7 @@ public class FloatingActionMenu extends FrameLayout implements View.OnClickListe
 
     public void expand() {
         setVisibility(VISIBLE);
-        int h = Math.max(150, mFabs[0].getHeight());
+        int h = Math.max(140, mFabs[0].getHeight());
         for (int i = 0; i < mFabContainers.length; i++) {
             animateY(mFabContainers[i], -(h + mInterval) * (i + 1), null);
             rotate(mFabs[i]);

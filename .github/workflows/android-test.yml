@@ -12,7 +12,7 @@ jobs:
       - name: set up kotlin
         uses: fwilhe2/setup-kotlin@main
         with:
-          version: 1.5.31
+          version: 1.6.20
       - name: Build with Gradle
         run: chmod 777 ./gradlew && ./gradlew :inrt:assemble &&  ./gradlew inrt:cp2APP && ./gradlew :app:assembleRelease
 

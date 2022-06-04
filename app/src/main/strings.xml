@@ -48,8 +48,8 @@
     <string name="text_already_copy_to_clip">已复制到剪贴板</string>
     <string name="donate_developer">Donate</string>
     <string name="text_email">邮箱</string>
-    <string name="my_github">https://github.com/hyb1996/NoRootScriptDroid</string>
-    <string name="share_app">[免Root脚本精灵]下载地址：https://github.com/hyb1996/NoRootScriptDroid/releases</string>
+    <string name="my_github">https://github.com/kkevsekk1/AutoX</string>
+    <string name="share_app">[免Root脚本精灵]下载地址：https://github.com/kkevsekk1/AutoX/releases</string>
     <string name="text_assist_service">点击区域辅助服务</string>
     <string name="text_assist_service_notification">通知栏点击区域辅助开关</string>
     <string name="text_others">Others</string>

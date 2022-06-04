@@ -32,7 +32,7 @@
     <string name="developer">Stardust</string>
     <string name="github">Source Code</string>
     <string name="text_already_copy_to_clip">Copied</string>
-    <string name="my_github">https://github.com/hyb1996/NoRootScriptDroid</string>
+    <string name="my_github">https://github.com/kkevsekk1/AutoX</string>
     <string name="share_app">[UiAutomator]Download：http://www.coolapk.com/apk/org.autojs.autojs </string>
     <string name="text_floating_window">Floating Window</string>
     <string name="text_error_report">Bug Report</string>
@@ -159,5 +159,6 @@
     <string name="text_show_layout_hierarchy">View in layout bounds\' view</string>
     <string name="default_value_script_dir_path">/Scripts/</string>
     <string name="text_template_apk_not_found">The template apk cannot be found, please copy the apk file in the "build\outputs\apk\common\release" directory to "app\src\main\assets" and name it "template.apk" and rebuild it</string>
+    <string name="text_WebX">WebX</string>
 
 </resources>

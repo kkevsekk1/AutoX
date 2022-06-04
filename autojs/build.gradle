@@ -31,11 +31,10 @@ android {
     lintOptions {
         abortOnError false
     }
-}
-
-repositories {
-    flatDir {
-        dirs '../app/libs'
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['../app/libs']
+        }
     }
 }
 
@@ -61,7 +60,6 @@ dependencies {
     api 'com.github.Stericson:RootShell:1.6'
     // Gson
     api 'com.google.code.gson:gson:2.9.0'
-    api 'com.tencent.tbs:tbssdk:44181'
     // log4j
     api group: 'de.mindpipe.android', name: 'android-logging-log4j', version: '1.0.3'
     api group: 'log4j', name: 'log4j', version: '1.2.17'
@@ -72,6 +70,7 @@ dependencies {
     api project(path: ':LocalRepo:term')
     api project(path: ':LocalRepo:p7zip')
     api project(path: ':LocalRepo:OpenCV')
+    api project(path: ':LocalRepo:PaddleOCR4Android')
     // libs
     api fileTree(dir: '../app/libs', include: ['*.jar'])
 }
