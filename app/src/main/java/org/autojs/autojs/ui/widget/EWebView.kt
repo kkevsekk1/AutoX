@@ -133,8 +133,7 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
                     .show()
             }
         }
-        mWebView.addJavascriptInterface(JsAPI(), "android")
-        mWebView.addJavascriptInterface(this, "_web")
+        mWebView.addJavascriptInterface(this, "_WebX")
     }
 
     fun evalJavaScript(script: String) {
@@ -396,25 +395,25 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
         return mSwipeRefreshLayout
     }
 
-    internal class JsAPI {
-        private var execution: ScriptExecution? = null
+    private var execution: ScriptExecution? = null
 
-        @JavascriptInterface
-        fun run(code: String?, name: String?) {
-            stop(execution)
-            execution = Scripts.run(StringScriptSource(name, code))
-        }
+    @JavascriptInterface
+    fun run(code: String?, name: String?): String {
+        stop(execution)
+        execution = Scripts.run(StringScriptSource(name, code))
+        return if (execution == null) "Fail!" else "Success!"
+    }
 
-        @JavascriptInterface
-        fun run(code: String?) {
-            stop(execution)
-            execution = Scripts.run(StringScriptSource("", code))
-        }
+    @JavascriptInterface
+    fun run(code: String?): String {
+        stop(execution)
+        execution = Scripts.run(StringScriptSource("", code))
+        return if (execution == null) "Fail!" else "Success!"
+    }
 
-        @JavascriptInterface
-        fun stop(execution: ScriptExecution?) {
-            execution?.engine?.forceStop()
-        }
+    @JavascriptInterface
+    fun stop(execution: ScriptExecution?) {
+        execution?.engine?.forceStop()
     }
 
     fun readAssetsTxt(context: Context, fileName: String): String? {
