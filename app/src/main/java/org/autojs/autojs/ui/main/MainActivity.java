@@ -23,6 +23,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.stardust.app.FragmentPagerAdapterBuilder;
@@ -156,17 +157,43 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
         mBackPressObserver.registerHandler(new BackPressedHandler.DoublePressExit(this, R.string.text_press_again_to_exit));
     }
 
+
     private void checkPermissions() {
         // 检测存储权限
         if (Build.VERSION.SDK_INT >= 30) {
-            if (!Environment.isExternalStorageManager()) {
-                Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
-                intent.setData(Uri.parse("package:" + getApplicationContext().getPackageName()));
-                Toast.makeText(this, "请授予AutoX“所有文件访问权限”", Toast.LENGTH_LONG).show();
-                startActivity(intent);
-                return;
+            if (Pref.getPermissionCheck() && !Environment.isExternalStorageManager()) {
+                new MaterialDialog.Builder(this)
+                        .title("文件访问权限")
+                        .content("Android 11或更高版本读写文件需要，请点击选择授予本应用权限的方式：")
+                        .items(new String[]{"授予“所有文件访问权限”(某些系统可能出现文件读写异常)", "打开“权限管理”，授予“读写手机存储”权限(较稳定，部分设备上可能存在不兼容)"})
+                        .negativeText("取消")
+                        .neutralText("不再提起")
+                        .onNeutral((dialog, which) -> {
+                            Pref.setPermissionCheck(false);
+                        })
+                        .itemsCallbackSingleChoice(-1, new MaterialDialog.ListCallbackSingleChoice() {//0 表示第一个选中 -1 不选
+                            @Override
+                            public boolean onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
+                                switch (which) {
+                                    case 0:
+                                        Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+                                        intent.setData(Uri.parse("package:" + getApplicationContext().getPackageName()));
+                                        startActivity(intent);
+                                        break;
+                                    case 1:
+                                        Intent intent2 = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                                        intent2.setData(Uri.parse("package:" + getApplicationContext().getPackageName()));
+                                        startActivity(intent2);
+//                                        checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                return true;
+                            }
+                        })
+                        .show();
             }
-            return;
         } else {
             checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         }

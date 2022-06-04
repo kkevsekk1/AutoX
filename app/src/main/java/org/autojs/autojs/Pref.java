@@ -202,5 +202,13 @@ public class Pref {
         return def().getString("WebData", "");
     }
 
+    public static void setPermissionCheck(Boolean flag) {
+        def().edit().putBoolean("permissionCheck", flag).apply();
+    }
+
+    public static Boolean getPermissionCheck() {
+        return def().getBoolean("permissionCheck", true);
+    }
+
 
 }
