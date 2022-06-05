@@ -72,6 +72,6 @@ dependencies {
     api project(path: ':LocalRepo:OpenCV')
     api project(path: ':LocalRepo:PaddleOCR4Android')
     // libs
-    api fileTree(dir: '../app/libs', include: ['*.jar'])
+    api fileTree(dir: '../app/libs', include: ['dx.jar', 'rhino-1.7.14-jdk7.jar'])
 }
 

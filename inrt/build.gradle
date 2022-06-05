@@ -212,5 +212,5 @@ dependencies {
     implementation project(':common')
     implementation project(':autojs')
     implementation 'androidx.multidex:multidex:2.0.1'
-    implementation fileTree(dir: '../app/libs', include: ['*.jar'])
+    api fileTree(dir: '../app/libs', include: ['dx.jar', 'rhino-1.7.14-jdk7.jar'])
 }

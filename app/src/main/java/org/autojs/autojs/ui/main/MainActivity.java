@@ -1,5 +1,7 @@
 package org.autojs.autojs.ui.main;
 
+import static android.content.pm.PackageManager.PERMISSION_DENIED;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -160,42 +162,27 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
 
     private void checkPermissions() {
         // 检测存储权限
+        checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         if (Build.VERSION.SDK_INT >= 30) {
             if (Pref.getPermissionCheck() && !Environment.isExternalStorageManager()) {
                 new MaterialDialog.Builder(this)
                         .title("文件访问权限")
-                        .content("Android 11或更高版本读写文件需要，请点击选择授予本应用权限的方式：")
-                        .items(new String[]{"授予“所有文件访问权限”(某些系统可能出现文件读写异常)", "打开“权限管理”，授予“读写手机存储”权限(较稳定，部分设备上可能存在不兼容)"})
+                        .content("Android 11或更高版本读写文件需要授予“所有文件访问权限”(可能导致部分设备文件读写异常，建议仅在无法读写文件时授予)，请选择是否授予该权限：")
+                        .positiveText("前往授权")
                         .negativeText("取消")
-                        .neutralText("不再提起")
+                        .neutralText("不再询问")
                         .onNeutral((dialog, which) -> {
                             Pref.setPermissionCheck(false);
+                            dialog.dismiss();
                         })
-                        .itemsCallbackSingleChoice(-1, new MaterialDialog.ListCallbackSingleChoice() {//0 表示第一个选中 -1 不选
-                            @Override
-                            public boolean onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
-                                switch (which) {
-                                    case 0:
-                                        Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
-                                        intent.setData(Uri.parse("package:" + getApplicationContext().getPackageName()));
-                                        startActivity(intent);
-                                        break;
-                                    case 1:
-                                        Intent intent2 = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                                        intent2.setData(Uri.parse("package:" + getApplicationContext().getPackageName()));
-                                        startActivity(intent2);
-//                                        checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-                                        break;
-                                    default:
-                                        break;
-                                }
-                                return true;
-                            }
+                        .onPositive((dialog, which) -> {
+                            dialog.dismiss();
+                            Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+                            intent.setData(Uri.parse("package:" + getApplicationContext().getPackageName()));
+                            startActivity(intent);
                         })
                         .show();
             }
-        } else {
-            checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         }
     }
 
