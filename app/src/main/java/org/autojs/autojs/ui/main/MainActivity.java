@@ -166,20 +166,12 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
         if (Build.VERSION.SDK_INT >= 30) {
             if (Pref.getPermissionCheck() && !Environment.isExternalStorageManager()) {
                 new MaterialDialog.Builder(this)
-                        .title("文件访问权限")
-                        .content("Android 11或更高版本读写文件需要授予“所有文件访问权限”(可能导致部分设备文件读写异常，建议仅在无法读写文件时授予)，请选择是否授予该权限：")
-                        .positiveText("前往授权")
-                        .negativeText("取消")
-                        .neutralText("不再询问")
+                        .title("“所有文件访问权限”说明")
+                        .content("在Android 11+ 的系统中，读写非应用目录外文件需要授予“所有文件访问权限”（左侧侧滑菜单中设置），部分设备授予后可能出现文件读写异常，建议仅在无法读写文件时授予。")
+                        .positiveText("确定")
+                        .neutralText("不再提示")
                         .onNeutral((dialog, which) -> {
                             Pref.setPermissionCheck(false);
-                            dialog.dismiss();
-                        })
-                        .onPositive((dialog, which) -> {
-                            dialog.dismiss();
-                            Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
-                            intent.setData(Uri.parse("package:" + getApplicationContext().getPackageName()));
-                            startActivity(intent);
                         })
                         .show();
             }
