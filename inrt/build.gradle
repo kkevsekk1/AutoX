@@ -70,7 +70,6 @@ android {
             // Specifies a list of ABIs that Gradle should create APKs for.
             // include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
             include 'arm64-v8a'
-            //默认提供64位版本，相比于32位，尤其在opencv、7zip、ocr等原生模块上性能提升显著，且Google明确在Android 12上只支持64位的APP，32位App将会被抛弃
             // Specifies that we do not want to also generate a universal APK that includes all ABIs.
             universalApk false
         }
@@ -212,5 +211,5 @@ dependencies {
     implementation project(':common')
     implementation project(':autojs')
     implementation 'androidx.multidex:multidex:2.0.1'
-    implementation fileTree(dir: '../app/libs', include: ['*.jar'])
+    api fileTree(dir: '../app/libs', include: ['dx.jar', 'rhino-1.7.14-jdk7.jar'])
 }

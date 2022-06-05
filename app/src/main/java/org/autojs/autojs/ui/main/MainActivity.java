@@ -1,5 +1,7 @@
 package org.autojs.autojs.ui.main;
 
+import static android.content.pm.PackageManager.PERMISSION_DENIED;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -23,6 +25,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.stardust.app.FragmentPagerAdapterBuilder;
@@ -156,19 +159,22 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
         mBackPressObserver.registerHandler(new BackPressedHandler.DoublePressExit(this, R.string.text_press_again_to_exit));
     }
 
+
     private void checkPermissions() {
         // 检测存储权限
+        checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         if (Build.VERSION.SDK_INT >= 30) {
-            if (!Environment.isExternalStorageManager()) {
-                Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
-                intent.setData(Uri.parse("package:" + getApplicationContext().getPackageName()));
-                Toast.makeText(this, "请授予AutoX“所有文件访问权限”", Toast.LENGTH_LONG).show();
-                startActivity(intent);
-                return;
+            if (Pref.getPermissionCheck() && !Environment.isExternalStorageManager()) {
+                new MaterialDialog.Builder(this)
+                        .title("“所有文件访问权限”说明")
+                        .content("在Android 11+ 的系统中，读写非应用目录外文件需要授予“所有文件访问权限”（左侧侧滑菜单中设置），部分设备授予后可能出现文件读写异常，建议仅在无法读写文件时授予。")
+                        .positiveText("确定")
+                        .neutralText("不再提示")
+                        .onNeutral((dialog, which) -> {
+                            Pref.setPermissionCheck(false);
+                        })
+                        .show();
             }
-            return;
-        } else {
-            checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         }
     }
 

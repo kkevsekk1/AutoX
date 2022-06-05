@@ -491,5 +491,6 @@
     <string name="compile_options">编译选项</string>
     <string name="text_verification_failed">验证失败</string>
     <string name="text_WebX">WebX</string>
+    <string name="text_file_manager_permission">所有文件访问权限</string>
 
 </resources>

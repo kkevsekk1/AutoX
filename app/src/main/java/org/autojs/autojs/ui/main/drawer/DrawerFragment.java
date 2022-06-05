@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -130,6 +131,7 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
     private DrawerMenuItem mNotificationPermissionItem = new DrawerMenuItem(R.drawable.ic_ali_notification, R.string.text_notification_permission, 0, this::goToNotificationServiceSettings);
     private DrawerMenuItem mUsageStatsPermissionItem = new DrawerMenuItem(R.drawable.ic_ali_notification, R.string.text_usage_stats_permission, 0, this::goToUsageStatsSettings);
     private DrawerMenuItem mForegroundServiceItem = new DrawerMenuItem(R.drawable.ic_service_green, R.string.text_foreground_service, R.string.key_foreground_servie, this::toggleForegroundService);
+    private DrawerMenuItem mManageFilePermissionItem = new DrawerMenuItem(R.drawable.ic_floating_action_menu_file, R.string.text_file_manager_permission, 0, this::goToUsageStatsSettings);
 
     private DrawerMenuItem mFloatingWindowItem = new DrawerMenuItem(R.drawable.ic_robot_64, R.string.text_floating_window, 0, this::showOrDismissFloatingWindow);
     private DrawerMenuItem mCheckForUpdatesItem = new DrawerMenuItem(R.drawable.ic_check_for_updates, R.string.text_check_for_updates, this::checkForUpdates);
@@ -167,7 +169,7 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
         }
         setChecked(mConnectionItem, DevPluginService.getInstance().isConnected());
         if (Pref.isForegroundServiceEnabled()) {
-            ForegroundService.start(GlobalAppContext.get());
+            ForegroundService.start(getContext());
             setChecked(mForegroundServiceItem, true);
         }
     }
@@ -190,9 +192,9 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
                 new DrawerMenuItem(R.drawable.ic_personalize, R.string.regist, this::regist),
                 mConnectionItem,
                 new DrawerMenuItem(R.drawable.ic_personalize, R.string.text_theme_color, this::openThemeColorSettings),
+                new DrawerMenuItem(R.drawable.ic_floating_action_menu_file, R.string.text_file_manager_permission, this::manageFilePermission)
 
-               // new DrawerMenuItem(R.drawable.ic_night_mode, R.string.text_night_mode, R.string.key_night_mode, this::toggleNightMode),
-                mCheckForUpdatesItem
+                // new DrawerMenuItem(R.drawable.ic_night_mode, R.string.text_night_mode, R.string.key_night_mode, this::toggleNightMode),
         )));
         mDrawerMenu.setAdapter(mDrawerMenuAdapter);
         mDrawerMenu.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -232,6 +234,25 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
             if (!AccessibilityService.Companion.disable()) {
                 AccessibilityServiceTool.goToAccessibilitySetting();
             }
+        }
+    }
+
+    private void manageFilePermission(DrawerMenuItemViewHolder holder) {
+        if (Build.VERSION.SDK_INT >= 30) {
+            new MaterialDialog.Builder(getContext())
+                    .title("所有文件访问权限")
+                    .content("在Android 11+ 的系统中，读写非应用目录外文件需要授予“所有文件访问权限”（左侧侧滑菜单中设置），部分设备授予后可能出现文件读写异常，建议仅在无法读写文件时授予。请选择是否授予该权限：")
+                    .positiveText("前往授权")
+                    .negativeText("取消")
+                    .onPositive((dialog, which) -> {
+                        dialog.dismiss();
+                        Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+                        intent.setData(Uri.parse("package:" + getContext().getPackageName()));
+                        startActivity(intent);
+                    })
+                    .show();
+        } else {
+            Toast.makeText(getContext(), "Android 10 及以下版本系统无需设置该项", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -312,34 +333,34 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
     }
 
     void regist(DrawerMenuItemViewHolder holder) {
-        if(!checkPermission()){
+        if (!checkPermission()) {
             GlobalAppContext.toast("你没有授权");
             return;
         }
         String host = Pref.getServerAddressOrDefault(WifiTool.getRouterIp(getActivity()));
         String code = Pref.getCode("2");
         MaterialDialog tmpDialog = new MaterialDialog.Builder(getActivity()).title("连接到商店服务器")
-                .customView(R.layout.dialog_regist_user_code,false)
+                .customView(R.layout.dialog_regist_user_code, false)
                 .positiveText("确定")
-                .onPositive((dialog,which)->{
+                .onPositive((dialog, which) -> {
                     View customeView = dialog.getCustomView();
-                    EditText  userCodeInput= (EditText) customeView.findViewById(R.id.user_code);
-                    EditText  serverAddrInput= (EditText) customeView.findViewById(R.id.server_addr);
-                    String code1 =userCodeInput.getText().toString().trim();
+                    EditText userCodeInput = (EditText) customeView.findViewById(R.id.user_code);
+                    EditText serverAddrInput = (EditText) customeView.findViewById(R.id.server_addr);
+                    String code1 = userCodeInput.getText().toString().trim();
                     Pref.setCode(code1);
-                    String host1 =serverAddrInput.getText().toString().trim();
+                    String host1 = serverAddrInput.getText().toString().trim();
                     Pref.saveServerAddress(host1);
-                    String params="iemi="+getIMEI()+"&usercode="+code1;
-                    DevPluginService.getInstance().connectToServer(host1,params)
+                    String params = "iemi=" + getIMEI() + "&usercode=" + code1;
+                    DevPluginService.getInstance().connectToServer(host1, params)
                             .subscribe(Observers.emptyConsumer(), this::onConnectException);
-                    VersionService.getInstance().deviceInfo(getIMEI(),"2").subscribe();
-                 //   Toast.makeText(getContext(),"正在连接...",Toast.LENGTH_SHORT).show();
+                    VersionService.getInstance().deviceInfo(getIMEI(), "2").subscribe();
+                    //   Toast.makeText(getContext(),"正在连接...",Toast.LENGTH_SHORT).show();
 
                 }).show();
 
         View customeView = tmpDialog.getCustomView();
-        EditText  userCodeInput= (EditText) customeView.findViewById(R.id.user_code);
-        EditText  serverAddrInput= (EditText) customeView.findViewById(R.id.server_addr);
+        EditText userCodeInput = (EditText) customeView.findViewById(R.id.user_code);
+        EditText serverAddrInput = (EditText) customeView.findViewById(R.id.server_addr);
         userCodeInput.setText(code);
         serverAddrInput.setText(host);
 
@@ -349,27 +370,28 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
     private void toggleForegroundService(DrawerMenuItemViewHolder holder) {
         boolean checked = holder.getSwitchCompat().isChecked();
         if (checked) {
-            ForegroundService.start(GlobalAppContext.get());
+            ForegroundService.start(getContext());
         } else {
-            ForegroundService.stop(GlobalAppContext.get());
+            ForegroundService.stop(getContext());
         }
     }
 
     @SuppressLint("MissingPermission")
     private String getIMEI() {
-        if(!checkPermission()){
+        if (!checkPermission()) {
             return "错误数据";
         }
-        String deviceId=null;
-            TelephonyManager tm = (TelephonyManager) getActivity().getApplication().getSystemService(TELEPHONY_SERVICE);
-            deviceId = tm.getDeviceId();
-        if(TextUtils.isEmpty(deviceId)){
+        String deviceId = null;
+        TelephonyManager tm = (TelephonyManager) getActivity().getApplication().getSystemService(TELEPHONY_SERVICE);
+        deviceId = tm.getDeviceId();
+        if (TextUtils.isEmpty(deviceId)) {
             deviceId = Settings.System.getString(
                     getActivity().getApplication().getContentResolver(), Settings.Secure.ANDROID_ID);
         }
         return deviceId;
     }
-    private boolean checkPermission(){
+
+    private boolean checkPermission() {
         int permissionCheck = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_PHONE_STATE);
         if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_PHONE_STATE}, 123);
@@ -381,18 +403,18 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
     private void inputRemoteHost() {
         String host = Pref.getServerAddressOrDefault(WifiTool.getRouterIp(getActivity()));
         String code = Pref.getCode("2");
-        String params="iemi="+getIMEI()+"&usercode="+code;
+        String params = "iemi=" + getIMEI() + "&usercode=" + code;
         new MaterialDialog.Builder(getActivity())
                 .title(R.string.text_server_address)
                 .input("", host, (dialog, input) -> {
-                    try{
-                        DevPluginService.getInstance().connectToServer(input.toString(),params)
+                    try {
+                        DevPluginService.getInstance().connectToServer(input.toString(), params)
                                 .subscribe(Observers.emptyConsumer(), this::onConnectException);
-                    }catch (Exception exception){
+                    } catch (Exception exception) {
                         GlobalAppContext.toast(R.string.text_server_address_error);
                     }
                     Pref.saveServerAddress(input.toString());
-                    VersionService.getInstance().deviceInfo(getIMEI(),"2").subscribe();
+                    VersionService.getInstance().deviceInfo(getIMEI(), "2").subscribe();
                 })
                 .neutralText(R.string.text_help)
                 .onNeutral((dialog, which) -> {
@@ -404,10 +426,9 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
     }
 
 
-
     private void onConnectException(Throwable e) {
         setChecked(mConnectionItem, false);
-        Toast.makeText(GlobalAppContext.get(), getString(R.string.error_connect_to_remote, e.getMessage()),
+        Toast.makeText(getContext(), getString(R.string.error_connect_to_remote, e.getMessage()),
                 Toast.LENGTH_LONG).show();
     }
 
@@ -425,7 +446,7 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
                                     .forgetAskAgin()
                                     .show();
                         } else {
-                            Toast.makeText(GlobalAppContext.get(), R.string.text_is_latest_version, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), R.string.text_is_latest_version, Toast.LENGTH_SHORT).show();
                         }
                         setProgress(mCheckForUpdatesItem, false);
                     }
@@ -433,7 +454,7 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
                     @Override
                     public void onError(@io.reactivex.annotations.NonNull Throwable e) {
                         e.printStackTrace();
-                        Toast.makeText(GlobalAppContext.get(), R.string.text_check_update_error, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), R.string.text_check_update_error, Toast.LENGTH_SHORT).show();
                         setProgress(mCheckForUpdatesItem, false);
                     }
                 });
@@ -444,8 +465,8 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
     public void onResume() {
         super.onResume();
         syncSwitchState();
-      //  syncUserInfo();
-       // checkPermission();
+        //  syncUserInfo();
+        // checkPermission();
     }
 
     private void syncUserInfo() {
@@ -510,6 +531,7 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
         enableAccessibilityServiceByRoot();
     }
 
+    @SuppressLint("CheckResult")
     private void enableAccessibilityServiceByRoot() {
         setProgress(mAccessibilityServiceItem, true);
         Observable.fromCallable(() -> AccessibilityServiceTool.enableAccessibilityServiceByRootAndWaitFor(4000))
