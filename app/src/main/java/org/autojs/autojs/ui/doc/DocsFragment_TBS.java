@@ -11,7 +11,6 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -38,6 +37,7 @@ import org.autojs.autojs.ui.main.QueryEvent;
 import org.autojs.autojs.ui.main.ViewPagerFragment;
 import org.autojs.autojs.ui.widget.CallbackBundle;
 import org.autojs.autojs.ui.widget.EWebView;
+import org.autojs.autojs.ui.widget.EWebViewTBS;
 import org.autojs.autojs.ui.widget.WebData;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -54,15 +54,15 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 /**
  * Created by Stardust on 2017/8/22.
  */
-@EFragment(R.layout.fragment_online_docs)
-public class DocsFragment extends ViewPagerFragment implements BackPressedHandler, FloatingActionMenu.OnFloatingActionButtonClickListener {
+@EFragment(R.layout.fragment_online_docs_tbs)
+public class DocsFragment_TBS extends ViewPagerFragment implements BackPressedHandler, FloatingActionMenu.OnFloatingActionButtonClickListener {
 
     public static final String ARGUMENT_URL = "url";
 
-    @ViewById(R.id.eweb_view_docs)
-    EWebView mEWebView;
+    @ViewById(R.id.eweb_view_docs_tbs)
+    EWebViewTBS mEWebView;
 
-    WebView mWebView;
+    com.tencent.smtt.sdk.WebView mWebView;
 
     private String mPreviousQuery;
     private FloatingActionMenu mFloatingActionMenu;
@@ -77,7 +77,7 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
     WebData mWebData;
 
 
-    public DocsFragment() {
+    public DocsFragment_TBS() {
         super(ROTATION_GONE);
         setArguments(new Bundle());
     }

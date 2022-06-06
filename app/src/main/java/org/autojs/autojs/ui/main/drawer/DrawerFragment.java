@@ -134,7 +134,6 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
     private DrawerMenuItem mNotificationPermissionItem = new DrawerMenuItem(R.drawable.ic_ali_notification, R.string.text_notification_permission, 0, this::goToNotificationServiceSettings);
     private DrawerMenuItem mUsageStatsPermissionItem = new DrawerMenuItem(R.drawable.ic_ali_notification, R.string.text_usage_stats_permission, 0, this::goToUsageStatsSettings);
     private DrawerMenuItem mForegroundServiceItem = new DrawerMenuItem(R.drawable.ic_service_green, R.string.text_foreground_service, R.string.key_foreground_servie, this::toggleForegroundService);
-    private DrawerMenuItem mManageFilePermissionItem = new DrawerMenuItem(R.drawable.ic_floating_action_menu_file, R.string.text_file_manager_permission, 0, this::goToUsageStatsSettings);
 
     private DrawerMenuItem mFloatingWindowItem = new DrawerMenuItem(R.drawable.ic_robot_64, R.string.text_floating_window, 0, this::showOrDismissFloatingWindow);
     private DrawerMenuItem mCheckForUpdatesItem = new DrawerMenuItem(R.drawable.ic_check_for_updates, R.string.text_check_for_updates, this::checkForUpdates);
@@ -193,12 +192,7 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
 
                 new DrawerMenuGroup(R.string.text_others),
                 new DrawerMenuItem(R.drawable.ic_personalize, R.string.regist, this::regist),
-                mConnectionItem,
-                new DrawerMenuItem(R.drawable.ic_personalize, R.string.text_theme_color, this::openThemeColorSettings),
-                new DrawerMenuItem(R.drawable.ic_floating_action_menu_file, R.string.text_file_manager_permission, this::manageFilePermission),
-                new DrawerMenuItem(R.drawable.ic_ali_settings, R.string.text_setting, this::aliSettings),
-                new DrawerMenuItem(R.drawable.ic_ali_exit, R.string.text_exit, this::aliExit)
-
+                mConnectionItem
                 // new DrawerMenuItem(R.drawable.ic_night_mode, R.string.text_night_mode, R.string.key_night_mode, this::toggleNightMode),
         )));
         mDrawerMenu.setAdapter(mDrawerMenuAdapter);
@@ -239,25 +233,6 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
             if (!AccessibilityService.Companion.disable()) {
                 AccessibilityServiceTool.goToAccessibilitySetting();
             }
-        }
-    }
-
-    private void manageFilePermission(DrawerMenuItemViewHolder holder) {
-        if (Build.VERSION.SDK_INT >= 30) {
-            new MaterialDialog.Builder(getContext())
-                    .title("所有文件访问权限")
-                    .content("在Android 11+ 的系统中，读写非应用目录外文件需要授予“所有文件访问权限”（左侧侧滑菜单中设置），部分设备授予后可能出现文件读写异常，建议仅在无法读写文件时授予。请选择是否授予该权限：")
-                    .positiveText("前往授权")
-                    .negativeText("取消")
-                    .onPositive((dialog, which) -> {
-                        dialog.dismiss();
-                        Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
-                        intent.setData(Uri.parse("package:" + getContext().getPackageName()));
-                        startActivity(intent);
-                    })
-                    .show();
-        } else {
-            Toast.makeText(getContext(), "Android 10 及以下版本系统无需设置该项", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -305,10 +280,6 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
         } else if (!checked && isFloatingWindowShowing) {
             FloatyWindowManger.hideCircularMenu();
         }
-    }
-
-    void openThemeColorSettings(DrawerMenuItemViewHolder holder) {
-        SettingsActivity.selectThemeColor(getActivity());
     }
 
     void toggleNightMode(DrawerMenuItemViewHolder holder) {
@@ -619,18 +590,6 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
 
     private boolean isAccessibilityServiceEnabled() {
         return AccessibilityServiceTool.isAccessibilityServiceEnabled(getActivity());
-    }
-
-    private void aliExit(DrawerMenuItemViewHolder holder) {
-        requireActivity().finish();
-        FloatyWindowManger.hideCircularMenu();
-        ForegroundService.stop(requireContext());
-        requireContext().stopService(new Intent(requireContext(), FloatyService.class));
-        AutoJs.getInstance().getScriptEngineService().stopAll();
-    }
-
-    private void aliSettings(DrawerMenuItemViewHolder holder) {
-        startActivity(new Intent(requireContext(), SettingsActivity_.class));
     }
 
 }

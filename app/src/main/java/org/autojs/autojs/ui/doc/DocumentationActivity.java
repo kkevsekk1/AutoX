@@ -1,6 +1,6 @@
 package org.autojs.autojs.ui.doc;
 
-import com.tencent.smtt.sdk.WebView;
+import android.webkit.WebView;
 
 import org.autojs.autojs.Pref;
 import org.autojs.autojs.R;
@@ -22,7 +22,7 @@ public class DocumentationActivity extends BaseActivity {
     @ViewById(R.id.eweb_view)
     EWebView mEWebView;
 
-    com.tencent.smtt.sdk.WebView mWebView;
+    WebView mWebView;
 
     @AfterViews
     void setUpViews() {
