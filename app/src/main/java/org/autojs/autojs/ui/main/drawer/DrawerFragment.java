@@ -35,10 +35,12 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.stardust.app.AppOpsKt;
 import com.stardust.app.GlobalAppContext;
+import com.stardust.enhancedfloaty.FloatyService;
 import com.stardust.notification.NotificationListenerService;
 
 import org.autojs.autojs.Pref;
 import org.autojs.autojs.R;
+import org.autojs.autojs.autojs.AutoJs;
 import org.autojs.autojs.external.foreground.ForegroundService;
 import org.autojs.autojs.network.UserService;
 import org.autojs.autojs.tool.Observers;
@@ -54,6 +56,7 @@ import org.autojs.autojs.network.entity.VersionInfo;
 import org.autojs.autojs.tool.SimpleObserver;
 import org.autojs.autojs.ui.main.MainActivity;
 import org.autojs.autojs.ui.main.community.CommunityFragment;
+import org.autojs.autojs.ui.settings.SettingsActivity_;
 import org.autojs.autojs.ui.user.LoginActivity_;
 import org.autojs.autojs.ui.settings.SettingsActivity;
 import org.autojs.autojs.ui.update.UpdateInfoDialogBuilder;
@@ -192,7 +195,9 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
                 new DrawerMenuItem(R.drawable.ic_personalize, R.string.regist, this::regist),
                 mConnectionItem,
                 new DrawerMenuItem(R.drawable.ic_personalize, R.string.text_theme_color, this::openThemeColorSettings),
-                new DrawerMenuItem(R.drawable.ic_floating_action_menu_file, R.string.text_file_manager_permission, this::manageFilePermission)
+                new DrawerMenuItem(R.drawable.ic_floating_action_menu_file, R.string.text_file_manager_permission, this::manageFilePermission),
+                new DrawerMenuItem(R.drawable.ic_ali_settings, R.string.text_setting, this::aliSettings),
+                new DrawerMenuItem(R.drawable.ic_ali_exit, R.string.text_exit, this::aliExit)
 
                 // new DrawerMenuItem(R.drawable.ic_night_mode, R.string.text_night_mode, R.string.key_night_mode, this::toggleNightMode),
         )));
@@ -614,6 +619,18 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
 
     private boolean isAccessibilityServiceEnabled() {
         return AccessibilityServiceTool.isAccessibilityServiceEnabled(getActivity());
+    }
+
+    private void aliExit(DrawerMenuItemViewHolder holder) {
+        requireActivity().finish();
+        FloatyWindowManger.hideCircularMenu();
+        ForegroundService.stop(requireContext());
+        requireContext().stopService(new Intent(requireContext(), FloatyService.class));
+        AutoJs.getInstance().getScriptEngineService().stopAll();
+    }
+
+    private void aliSettings(DrawerMenuItemViewHolder holder) {
+        startActivity(new Intent(requireContext(), SettingsActivity_.class));
     }
 
 }

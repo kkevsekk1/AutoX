@@ -13,6 +13,7 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="170dp"
+        android:visibility="gone"
         android:layout_marginBottom="5dp">
 
         <View
@@ -78,6 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="44dp"
             android:layout_gravity="bottom"
+            android:visibility="gone"
             android:baselineAligned="false">
 
             <LinearLayout

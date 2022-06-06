@@ -407,7 +407,7 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                     mWebView.getSettings().setUserAgentString(mWebData.userAgents[6]);
                 } else {
                     mWebView.getSettings().setLoadWithOverviewMode(false);
-                    mWebView.getSettings().setUserAgentString(mWebData.userAgents[4]);
+                    mWebView.getSettings().setUserAgentString(mWebData.userAgents[1]);
                 }
                 mWebView.reload();
                 break;
