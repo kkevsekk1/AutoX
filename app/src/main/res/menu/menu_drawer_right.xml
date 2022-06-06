@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/web_kernel"
+        android:icon="@drawable/ic_check_for_updates"
+        android:title="切换Web内核"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/web_bookmarks"
+        android:icon="@drawable/ic_star"
+        android:title="收藏管理"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/web_ua"
+        android:icon="@drawable/ic_ua"
+        android:title="UA设置"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/theme_color"
+        android:icon="@drawable/ic_personalize"
+        android:title="@string/text_theme_color"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/file_manager_permission"
+        android:icon="@drawable/ic_floating_action_menu_file"
+        android:title="@string/text_file_manager_permission"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/ali_settings"
+        android:icon="@drawable/ic_ali_settings"
+        android:title="@string/text_setting"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/ali_exit"
+        android:icon="@drawable/ic_ali_exit"
+        android:title="@string/text_exit"
+        app:showAsAction="ifRoom" />
+
+
+</menu>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                   xmlns:tools="http://schemas.android.com/tools"
-                                   android:id="@+id/drawer_layout"
-                                   android:layout_width="match_parent"
-                                   android:layout_height="match_parent"
-                                   tools:context="org.autojs.autojs.ui.main.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="org.autojs.autojs.ui.main.MainActivity">
 
 
     <RelativeLayout
@@ -57,9 +58,9 @@
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|center|bottom"
-            android:layout_alignParentEnd="true"
             android:layout_above="@id/tab"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="end|center|bottom"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="-30dp"
             android:src="@drawable/ic_add_white_48dp"
@@ -72,9 +73,9 @@
             android:id="@+id/floating_action_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|center|bottom"
-            android:layout_alignParentEnd="true"
             android:layout_above="@id/tab"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="end|center|bottom"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="-30dp"
             android:clipChildren="false"
@@ -91,7 +92,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="false"/>
+        android:fitsSystemWindows="false" />
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view_right"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        app:headerLayout="@layout/drawer_header"
+        app:menu="@menu/menu_drawer_right" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
 

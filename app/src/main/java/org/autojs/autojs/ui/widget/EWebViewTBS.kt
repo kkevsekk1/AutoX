@@ -11,11 +11,12 @@ import android.os.Build
 import android.text.InputFilter
 import android.util.AttributeSet
 import android.util.Log
-import android.webkit.*
+import android.webkit.JavascriptInterface
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.gson.Gson
 import com.stardust.app.GlobalAppContext
@@ -38,21 +39,19 @@ import java.util.concurrent.TimeUnit
 /**
  * Created by Stardust on 2017/8/22.
  */
-open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActivityResultDelegate {
-    private lateinit var mWebView: WebView
+open class EWebViewTBS : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActivityResultDelegate {
+    private lateinit var mWebView: com.tencent.smtt.sdk.WebView
     private lateinit var mProgressBar: ProgressBar
     private lateinit var mSwipeRefreshLayout: SwipeRefreshLayout
     private lateinit var downloadManagerUtil: DownloadManagerUtil
     private lateinit var mWebData: WebData
     val gson = Gson()
-
     companion object {
         private var downloadId = 0L
         private var isRescale = false
         private val IMAGE_TYPES = listOf("png", "jpg", "bmp")
         private const val CHOOSE_IMAGE = 42222
     }
-
 
     constructor(context: Context?) : super(context!!) {
         init()
@@ -65,8 +64,14 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
     }
 
     private fun init() {
-        inflate(context, R.layout.ewebview, this)
-        mWebView = findViewById(R.id.web_view);
+        inflate(context, R.layout.ewebview_tbs, this)
+        val map: java.util.HashMap<String, Any> = HashMap<String, Any>()
+        map[com.tencent.smtt.export.external.TbsCoreSettings.TBS_SETTINGS_USE_SPEEDY_CLASSLOADER] =
+            true
+        map[com.tencent.smtt.export.external.TbsCoreSettings.TBS_SETTINGS_USE_DEXLOADER_SERVICE] =
+            true
+        com.tencent.smtt.sdk.QbSdk.initTbsSettings(map)
+        mWebView = findViewById(R.id.web_view_tbs);
         mSwipeRefreshLayout = findViewById(R.id.swipe_refresh_layout)
         mProgressBar = findViewById(R.id.progress_bar)
         mSwipeRefreshLayout.setOnRefreshListener(this)
@@ -74,7 +79,7 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
         webInit(mWebView)
     }
 
-    private fun webInit(mWebView: WebView) {
+    private fun webInit(mWebView: com.tencent.smtt.sdk.WebView) {
         with(mWebView.settings) {
             javaScriptEnabled = true  //设置支持Javascript交互
             javaScriptCanOpenWindowsAutomatically = true //支持通过JS打开新窗口
@@ -84,7 +89,7 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
             allowContentAccess = true;
             defaultTextEncodingName = "utf-8"//设置编码格式
             setSupportMultipleWindows(false)
-            layoutAlgorithm = WebSettings.LayoutAlgorithm.NORMAL
+            layoutAlgorithm = com.tencent.smtt.sdk.WebSettings.LayoutAlgorithm.NORMAL
             setSupportZoom(true) //支持缩放，默认为true。是下面那个的前提。
             builtInZoomControls = true //设置内置的缩放控件。若为false，则该WebView不可缩放
             displayZoomControls = false //设置原生的缩放控件，启用时被leakcanary检测到内存泄露
@@ -95,11 +100,11 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
             blockNetworkLoads = false;
             setNeedInitialFocus(true);
             saveFormData = true;
-            cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK //使用缓存
+            cacheMode = com.tencent.smtt.sdk.WebSettings.LOAD_CACHE_ELSE_NETWORK //使用缓存
             setAppCacheEnabled(true);
             domStorageEnabled = true
             databaseEnabled = true   //开启 database storage API 功能
-            pluginState = WebSettings.PluginState.ON
+            pluginState = com.tencent.smtt.sdk.WebSettings.PluginState.ON
             if (Build.VERSION.SDK_INT >= 26) {
                 safeBrowsingEnabled = false
             }
@@ -168,13 +173,13 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {}
 
-    protected open inner class MyWebViewClient() : WebViewClient() {
-        override fun onLoadResource(view: WebView, url: String?) {
+    protected open inner class MyWebViewClient() : com.tencent.smtt.sdk.WebViewClient() {
+        override fun onLoadResource(view: com.tencent.smtt.sdk.WebView, url: String?) {
             super.onLoadResource(view, url)
         }
 
         override fun onPageStarted(
-            view: WebView,
+            view: com.tencent.smtt.sdk.WebView,
             url: String,
             favicon: Bitmap?
         ) {
@@ -195,18 +200,18 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
             Log.i("onPageStarted", jsCode)
             view.evaluateJavascript(
                 jsCode,
-                ValueCallback<String> {
+                com.tencent.smtt.sdk.ValueCallback<String> {
                     Log.i("evaluateJavascript", "JS　return:  $it")
                 })
         }
 
-        override fun onPageFinished(view: WebView, url: String) {
+        override fun onPageFinished(view: com.tencent.smtt.sdk.WebView, url: String) {
             view.settings.blockNetworkImage = false
             super.onPageFinished(view, url)
             mProgressBar.visibility = GONE
             mSwipeRefreshLayout.isRefreshing = false
             view.evaluateJavascript(
-                "javascript: window._webx.saveSource('<html>' + document.getElementsByTagName('html')[0].innerHTML + '</html>', 'html_source');",
+                "javascript: window._web.saveSource('<html>' + document.getElementsByTagName('html')[0].innerHTML + '</html>', 'html_source');",
                 null
             )
             if (isRescale) {
@@ -214,21 +219,21 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
                     "javascript: " + readAssetsTxt(context, "modules/rescale.js")
                 view.evaluateJavascript(
                     jsCode,
-                    ValueCallback<String> {
+                    com.tencent.smtt.sdk.ValueCallback<String> {
                         Log.i("evaluateJavascript", "JS　return:  $it")
                     })
             }
         }
 
         override fun shouldOverrideUrlLoading(
-            view: WebView,
-            request: WebResourceRequest
+            view: com.tencent.smtt.sdk.WebView,
+            request: com.tencent.smtt.export.external.interfaces.WebResourceRequest
         ): Boolean {
             return shouldOverrideUrlLoading(view, request.url.toString())
         }
 
         override fun shouldOverrideUrlLoading(
-            view: WebView,
+            view: com.tencent.smtt.sdk.WebView,
             url: String
         ): Boolean {
 
@@ -241,13 +246,13 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
         }
     }
 
-    protected open inner class MyWebChromeClient : WebChromeClient() {
+    protected open inner class MyWebChromeClient : com.tencent.smtt.sdk.WebChromeClient() {
         //设置响应js 的Alert()函数
         override fun onJsAlert(
-            p0: WebView?,
+            p0: com.tencent.smtt.sdk.WebView?,
             url: String?,
             message: String?,
-            result: JsResult?
+            result: com.tencent.smtt.export.external.interfaces.JsResult?
         ): Boolean {
             val b: android.app.AlertDialog.Builder =
                 android.app.AlertDialog.Builder(GlobalAppContext.get())
@@ -263,10 +268,10 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
 
         //设置响应js 的Confirm()函数
         override fun onJsConfirm(
-            p0: WebView?,
+            p0: com.tencent.smtt.sdk.WebView?,
             url: String?,
             message: String?,
-            result: JsResult?
+            result: com.tencent.smtt.export.external.interfaces.JsResult?
         ): Boolean {
             val b: android.app.AlertDialog.Builder =
                 android.app.AlertDialog.Builder(GlobalAppContext.get())
@@ -284,11 +289,11 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
 
         //设置响应js 的Prompt()函数
         override fun onJsPrompt(
-            p0: WebView?,
+            p0: com.tencent.smtt.sdk.WebView?,
             url: String?,
             message: String?,
             defaultValue: String?,
-            result: JsPromptResult
+            result: com.tencent.smtt.export.external.interfaces.JsPromptResult
         ): Boolean {
             val b: android.app.AlertDialog.Builder =
                 android.app.AlertDialog.Builder(GlobalAppContext.get())
@@ -311,23 +316,26 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
             return true
         }
 
-        override fun onProgressChanged(view: WebView, newProgress: Int) {
+        override fun onProgressChanged(view: com.tencent.smtt.sdk.WebView, newProgress: Int) {
             super.onProgressChanged(view, newProgress)
             mProgressBar.progress = newProgress
         }
 
         //For Android  >= 4.1
-        fun openFileChooser(uploadFile: ValueCallback<Uri>, acceptType: String, capture: String) {
+        override fun openFileChooser(
+            valueCallback: com.tencent.smtt.sdk.ValueCallback<Uri?>,
+            acceptType: String?, capture: String?
+        ) {
             if (acceptType == null) {
-                openFileChooser(uploadFile, acceptType)
+                openFileChooser(valueCallback, null)
             } else {
-                openFileChooser(uploadFile, acceptType.split(",").toTypedArray())
+                openFileChooser(valueCallback, acceptType.split(",").toTypedArray())
             }
         }
 
         open fun openFileChooser(
-            valueCallback: ValueCallback<Uri>,
-            acceptType: Array<String>
+            valueCallback: com.tencent.smtt.sdk.ValueCallback<Uri?>,
+            acceptType: Array<String>?
         ): Boolean {
             if (context is DelegateHost &&
                 context is Activity && isImageType(acceptType)
@@ -337,9 +345,28 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
             }
             return false
         }
+
+
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+        override fun onShowFileChooser(
+            webView: com.tencent.smtt.sdk.WebView?,
+            p1: com.tencent.smtt.sdk.ValueCallback<Array<Uri>>?,
+            fileChooserParams: FileChooserParams?
+        ): Boolean {
+            if (fileChooserParams != null) {
+                openFileChooser({ value: Uri? ->
+                    if (value == null) {
+                        p1?.onReceiveValue(null)
+                    } else {
+                        p1?.onReceiveValue(arrayOf(value))
+                    }
+                }, fileChooserParams.acceptTypes)
+            }
+            return true
+        }
     }
 
-    private fun chooseImage(valueCallback: ValueCallback<Uri>) {
+    private fun chooseImage(valueCallback: com.tencent.smtt.sdk.ValueCallback<Uri?>) {
         val delegateHost = context as DelegateHost
         val mediator = delegateHost.onActivityResultDelegateMediator
         val activity = context as Activity
@@ -365,7 +392,7 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActiv
         return false
     }
 
-    fun getWebView(): WebView {
+    fun getWebView(): com.tencent.smtt.sdk.WebView {
         return mWebView
     }
 

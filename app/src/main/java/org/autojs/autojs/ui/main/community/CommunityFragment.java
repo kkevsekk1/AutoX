@@ -2,9 +2,10 @@ package org.autojs.autojs.ui.main.community;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.webkit.WebView;
+
 import androidx.annotation.Nullable;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.tencent.smtt.sdk.WebView;
 
 import org.autojs.autojs.R;
 import org.autojs.autojs.network.NodeBB;
@@ -47,7 +48,7 @@ public class CommunityFragment extends ViewPagerFragment implements BackPressedH
 
     @ViewById(R.id.eweb_view)
     CommunityWebView mEWebView;
-    com.tencent.smtt.sdk.WebView mWebView;
+    WebView mWebView;
 
     public CommunityFragment() {
         super(0);

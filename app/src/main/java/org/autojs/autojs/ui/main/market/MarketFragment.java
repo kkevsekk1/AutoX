@@ -3,7 +3,7 @@ package org.autojs.autojs.ui.main.market;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.tencent.smtt.sdk.WebView;
+import android.webkit.WebView;
 
 import androidx.annotation.Nullable;
 
@@ -29,7 +29,7 @@ public class MarketFragment extends ViewPagerFragment implements BackPressedHand
 
     @ViewById(R.id.eweb_view_market)
     EWebView mEWebView;
-    com.tencent.smtt.sdk.WebView mWebView;
+    WebView mWebView;
 
      MarketJavascriptInterface javascriptInterface ;
 
