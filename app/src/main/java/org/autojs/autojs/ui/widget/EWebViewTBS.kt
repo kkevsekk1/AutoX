@@ -211,7 +211,7 @@ open class EWebViewTBS : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnAc
             mProgressBar.visibility = GONE
             mSwipeRefreshLayout.isRefreshing = false
             view.evaluateJavascript(
-                "javascript: window._web.saveSource('<html>' + document.getElementsByTagName('html')[0].innerHTML + '</html>', 'html_source');",
+                "javascript: window._autojs.saveSource('<html>' + document.getElementsByTagName('html')[0].innerHTML + '</html>', 'html_source');",
                 null
             )
             if (isRescale) {
