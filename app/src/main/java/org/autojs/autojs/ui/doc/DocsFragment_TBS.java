@@ -363,7 +363,28 @@ public class DocsFragment_TBS extends ViewPagerFragment implements BackPressedHa
                                 ) {
                                     mWebView.loadUrl("file://" + filepath);
                                 } else {
-                                    Toast.makeText(getContext(), "系统Web内核不支持查看该格式文档！", Toast.LENGTH_LONG).show();
+                                    HashMap<String, String> extraParams = new HashMap<String, String>(); //define empty hashmap
+                                    extraParams.put("style", "1");
+                                    extraParams.put("local", "true");
+                                    com.tencent.smtt.sdk.QbSdk.openFileReader(
+                                            getContext(),
+                                            filepath,
+                                            extraParams,
+                                            new com.tencent.smtt.sdk.ValueCallback<String>() {
+                                                @Override
+                                                public void onReceiveValue(String it) {
+                                                    Log.i("TAG", "OpenFile Callback: $it");
+                                                    if ("openFileReader open in QB" == it
+                                                            || "filepath error" == it
+                                                            || "TbsReaderDialogClosed" == it
+                                                            || "fileReaderClosed" == it
+                                                    ) {
+                                                        com.tencent.smtt.sdk.QbSdk.closeFileReader(
+                                                                getActivity()
+                                                        );
+                                                    }
+                                                }
+                                            });
                                 }
                             }
                         },
