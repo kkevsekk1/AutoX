@@ -1,7 +1,5 @@
 package org.autojs.autojs.ui.main;
 
-import static android.content.pm.PackageManager.PERMISSION_DENIED;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -15,6 +13,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,8 +26,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.internal.NavigationMenuItemView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
@@ -57,7 +56,6 @@ import org.autojs.autojs.tool.AccessibilityServiceTool;
 import org.autojs.autojs.ui.BaseActivity;
 import org.autojs.autojs.ui.common.NotAskAgainDialog;
 import org.autojs.autojs.ui.doc.DocsFragment_;
-import org.autojs.autojs.ui.doc.DocsFragment_TBS;
 import org.autojs.autojs.ui.doc.DocsFragment_TBS_;
 import org.autojs.autojs.ui.floating.FloatyWindowManger;
 import org.autojs.autojs.ui.log.LogActivity_;
@@ -110,6 +108,9 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
     private boolean mDocsSearchItemExpanded;
     Gson gson = new Gson();
     WebData mWebData;
+    private TabLayout mTabLayout;
+    private Toolbar mToolbar;
+    private AppBarLayout mAppBarLayout;
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -154,7 +155,8 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
         registerBackPressHandlers();
-        ThemeColorManager.addViewBackground(findViewById(R.id.app_bar));
+        mAppBarLayout = findViewById(R.id.app_bar);
+        ThemeColorManager.addViewBackground(mAppBarLayout);
         mDrawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
             public void onDrawerOpened(View drawerView) {
@@ -252,6 +254,23 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
                         Toast.makeText(this, "默认Web内核已切换为：系统 WebView，重启APP后生效！", Toast.LENGTH_LONG).show();
                     }
                     break;
+                case R.id.switch_fullscreen:
+                    if (((getWindow().getDecorView().getWindowSystemUiVisibility() & View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN) == 0) | ((getWindow().getDecorView().getWindowSystemUiVisibility() & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0)) {
+                        mTabLayout.setVisibility(View.GONE);
+                        mAppBarLayout.setVisibility(View.GONE);
+                        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                                | View.SYSTEM_UI_FLAG_LOW_PROFILE
+                                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                                | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
+                                | View.SYSTEM_UI_FLAG_IMMERSIVE);
+                    } else {
+                        mTabLayout.setVisibility(View.VISIBLE);
+                        mAppBarLayout.setVisibility(View.VISIBLE);
+                        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+                    }
+                    break;
                 case R.id.web_ua:
                     new MaterialDialog.Builder(this)
                             .title("请选择默认的User-Agent：")
@@ -325,17 +344,17 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
     }
 
     private void setUpToolbar() {
-        Toolbar toolbar = $(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setTitle(R.string.app_name);
-        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.text_drawer_open,
+        mToolbar = $(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        mToolbar.setTitle(R.string.app_name);
+        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.text_drawer_open,
                 R.string.text_drawer_close);
         drawerToggle.syncState();
         mDrawerLayout.addDrawerListener(drawerToggle);
     }
 
     private void setUpTabViewPager() {
-        TabLayout tabLayout = $(R.id.tab);
+        mTabLayout = $(R.id.tab);
         if (Pref.getWebData().contains("isTbs")) {
             mWebData = gson.fromJson(Pref.getWebData(), WebData.class);
         } else {
@@ -360,7 +379,7 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
                     .build();
         }
         mViewPager.setAdapter(mPagerAdapter);
-        tabLayout.setupWithViewPager(mViewPager);
+        mTabLayout.setupWithViewPager(mViewPager);
         setUpViewPagerFragmentBehaviors();
     }
 
@@ -459,6 +478,12 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
 
     @Override
     public void onBackPressed() {
+        if (mAppBarLayout.getVisibility() != View.VISIBLE || mTabLayout.getVisibility() != View.VISIBLE) {
+            mTabLayout.setVisibility(View.VISIBLE);
+            mAppBarLayout.setVisibility(View.VISIBLE);
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        }
         Fragment fragment = mPagerAdapter.getStoredFragment(mViewPager.getCurrentItem());
         if (fragment instanceof BackPressedHandler) {
             if (((BackPressedHandler) fragment).onBackPressed(this)) {
