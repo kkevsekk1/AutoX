@@ -12,20 +12,19 @@
         android:title="收藏管理"
          />
     <item
-        android:id="@+id/switch_fullscreen"
-        android:icon="@drawable/ic_ali_fullscreen_white"
-        android:title="切换全屏模式"
-         />
-    <item
         android:id="@+id/web_ua"
         android:icon="@drawable/ic_ua"
         android:title="UA设置"
         />
     <item
-        android:id="@+id/theme_color"
-        android:icon="@drawable/ic_personalize"
-        android:title="@string/text_theme_color"
+        android:id="@+id/switch_fullscreen"
+        android:icon="@drawable/ic_fullscreen"
+        android:title="切换全屏模式2"
          />
+    <item
+        android:id="@+id/switch_line_wrap"
+        android:icon="@drawable/ic_format_line_spacing_black_48dp"
+        android:title="切换编辑器自动换行" />
     <item
         android:id="@+id/file_manager_permission"
         android:icon="@drawable/ic_floating_action_menu_file"

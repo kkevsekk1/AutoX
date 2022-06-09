@@ -2,19 +2,19 @@ package org.autojs.autojs.ui.edit.editor;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import com.google.android.material.snackbar.Snackbar;
+import android.text.InputType;
 import android.text.Layout;
 import android.util.AttributeSet;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.android.material.snackbar.Snackbar;
 import com.stardust.autojs.script.JsBeautifier;
+import com.stardust.util.ClipboardUtil;
+import com.stardust.util.TextUtils;
 
 import org.autojs.autojs.R;
 import org.autojs.autojs.ui.edit.theme.Theme;
-
-import com.stardust.util.ClipboardUtil;
-import com.stardust.util.TextUtils;
 
 import java.util.LinkedHashMap;
 import java.util.regex.Matcher;
@@ -86,7 +86,6 @@ public class CodeEditor extends HVScrollView {
         mTextViewRedoUndo = new TextViewUndoRedo(mCodeEditText);
         mJavaScriptHighlighter = new JavaScriptHighlighter(mTheme, mCodeEditText);
         mJsBeautifier = new JsBeautifier(this, "js/js-beautify");
-
     }
 
     public Observable<Integer> getLineCount() {
@@ -231,7 +230,7 @@ public class CodeEditor extends HVScrollView {
         if (usingRegex) {
             try {
                 mMatcher = Pattern.compile(keywords).matcher(mCodeEditText.getText());
-            }catch (PatternSyntaxException e){
+            } catch (PatternSyntaxException e) {
                 throw new CheckedPatternSyntaxException(e);
             }
             mKeywords = null;
@@ -254,7 +253,7 @@ public class CodeEditor extends HVScrollView {
         String text = mCodeEditText.getText().toString();
         try {
             text = text.replaceAll(keywords, replacement);
-        }catch (PatternSyntaxException e){
+        } catch (PatternSyntaxException e) {
             throw new CheckedPatternSyntaxException(e);
         }
         setText(text);
@@ -386,7 +385,7 @@ public class CodeEditor extends HVScrollView {
         mCodeEditText.removeAllBreakpoints();
     }
 
-    public void destroy(){
+    public void destroy() {
         mJavaScriptHighlighter.shutdown();
         mJsBeautifier.shutdown();
     }

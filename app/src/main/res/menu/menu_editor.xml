@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/action_force_stop"
         android:title="@string/text_force_stop"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
     <item android:title="@string/text_edit">
 
@@ -14,32 +14,32 @@
             <item
                 android:id="@+id/action_find_or_replace"
                 android:title="@string/text_find_or_replace"
-                app:showAsAction="never"/>
+                app:showAsAction="never" />
 
             <item
                 android:id="@+id/action_copy_all"
                 android:title="@string/text_copy_all"
-                app:showAsAction="never"/>
+                app:showAsAction="never" />
 
             <item
                 android:id="@+id/action_copy_line"
                 android:title="@string/text_copy_line"
-                app:showAsAction="never"/>
+                app:showAsAction="never" />
 
             <item
                 android:id="@+id/action_delete_line"
                 android:title="@string/text_delete_line"
-                app:showAsAction="never"/>
+                app:showAsAction="never" />
 
             <item
                 android:id="@+id/action_clear"
                 android:title="@string/text_clear"
-                app:showAsAction="never"/>
+                app:showAsAction="never" />
 
             <item
                 android:id="@+id/action_beautify"
                 android:title="@string/text_code_beautify"
-                app:showAsAction="never"/>
+                app:showAsAction="never" />
 
         </menu>
 
@@ -54,27 +54,27 @@
             <item
                 android:id="@+id/action_jump_to_line"
                 android:title="@string/text_jump_to_line"
-                app:showAsAction="never"/>
+                app:showAsAction="never" />
 
             <item
                 android:id="@+id/action_jump_to_start"
                 android:title="@string/text_jump_to_start"
-                app:showAsAction="never"/>
+                app:showAsAction="never" />
 
             <item
                 android:id="@+id/action_jump_to_end"
                 android:title="@string/text_jump_to_end"
-                app:showAsAction="never"/>
+                app:showAsAction="never" />
 
             <item
                 android:id="@+id/action_jump_to_line_start"
                 android:title="@string/text_jump_to_line_start"
-                app:showAsAction="never"/>
+                app:showAsAction="never" />
 
             <item
                 android:id="@+id/action_jump_to_line_end"
                 android:title="@string/text_jump_to_line_end"
-                app:showAsAction="never"/>
+                app:showAsAction="never" />
         </menu>
 
     </item>
@@ -88,17 +88,17 @@
             <item
                 android:id="@+id/action_breakpoint"
                 android:title="@string/text_set_breakpoint"
-                app:showAsAction="never"/>
+                app:showAsAction="never" />
 
             <item
                 android:id="@+id/action_launch_debugger"
                 android:title="@string/text_launch_debugger"
-                app:showAsAction="never"/>
+                app:showAsAction="never" />
 
             <item
                 android:id="@+id/action_remove_all_breakpoints"
                 android:title="@string/text_remove_all_breakpoints"
-                app:showAsAction="never"/>
+                app:showAsAction="never" />
         </menu>
 
     </item>
@@ -106,44 +106,44 @@
     <item
         android:id="@+id/action_build_apk"
         android:title="@string/text_build_apk"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_log"
         android:title="@string/text_log"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
     <item android:title="@string/text_more">
         <menu>
             <item
                 android:id="@+id/action_console"
                 android:title="@string/text_console"
-                app:showAsAction="never"/>
+                app:showAsAction="never" />
 
             <item
                 android:id="@+id/action_import_java_class"
                 android:title="@string/text_search_java_class"
-                app:showAsAction="never"/>
+                app:showAsAction="never" />
 
             <item
                 android:id="@+id/action_info"
                 android:title="@string/text_info"
-                app:showAsAction="never"/>
+                app:showAsAction="never" />
 
             <item
                 android:id="@+id/action_editor_text_size"
                 android:title="@string/text_text_size"
-                app:showAsAction="never"/>
+                app:showAsAction="never" />
 
             <item
                 android:id="@+id/action_editor_theme"
                 android:title="@string/text_editor_theme"
-                app:showAsAction="never"/>
+                app:showAsAction="never" />
 
             <item
                 android:id="@+id/action_open_by_other_apps"
                 android:title="@string/text_open_by_other_apps"
-                app:showAsAction="never"/>
+                app:showAsAction="never" />
 
         </menu>
     </item>

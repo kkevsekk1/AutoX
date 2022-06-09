@@ -1,6 +1,7 @@
 package com.stardust.autojs.runtime.api;
 
 import android.content.Context;
+import android.webkit.JavascriptInterface;
 
 import com.hzy.libp7zip.P7ZipApi;
 import com.stardust.autojs.runtime.ScriptRuntime;
@@ -16,6 +17,7 @@ public class SevenZip {
 
     }
 
+    @JavascriptInterface
     public int cmdExec(String cmdStr) {
         try {
             return P7ZipApi.executeCommand(cmdStr);
@@ -24,6 +26,7 @@ public class SevenZip {
         }
     }
 
+    @JavascriptInterface
     public int A(String type, String destFilePath, String srcPath) {
         String typeOption = "";
         if (!type.trim().isEmpty()) {
@@ -42,6 +45,7 @@ public class SevenZip {
         }
     }
 
+    @JavascriptInterface
     public int A(String type, String destFilePath, String srcPath, String password) {
         String typeOption = "";
         if (!type.trim().isEmpty()) {
@@ -60,6 +64,7 @@ public class SevenZip {
         }
     }
 
+    @JavascriptInterface
     public int X(String filePath0, String dirPath1) {
         String cmdStr = "7z x -y -aos " + filePath0;
         if (PFiles.isFile(filePath0)) {
@@ -76,6 +81,7 @@ public class SevenZip {
         }
     }
 
+    @JavascriptInterface
     public int X(String filePath0, String dirPath1, String password) {
         String cmdStr = "7z x -y -aos " + filePath0 + "";
         if (password == "") {

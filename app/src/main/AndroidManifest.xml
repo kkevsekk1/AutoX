@@ -283,6 +283,8 @@
     <uses-permission android:name= "android.permission.WRITE_SYNC_SETTINGS" />
     <uses-permission android:name= "com.android.voicemail.permission.WRITE_VOICEMAIL"
         tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        tools:ignore="ProtectedPermissions" />
 
     <application
         android:name=".App"
@@ -579,6 +581,14 @@
             <intent-filter>
                 <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
                 <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".timing.work.AlarmManagerProvider"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.stardust.autojs.action.check_task" />
+                <action android:name="com.android.deskclock.ALARM_ALERT" />
             </intent-filter>
         </receiver>
     </application>

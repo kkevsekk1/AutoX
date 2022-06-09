@@ -36,7 +36,6 @@ import org.autojs.autojs.ui.main.FloatingActionMenu;
 import org.autojs.autojs.ui.main.QueryEvent;
 import org.autojs.autojs.ui.main.ViewPagerFragment;
 import org.autojs.autojs.ui.widget.CallbackBundle;
-import org.autojs.autojs.ui.widget.EWebView;
 import org.autojs.autojs.ui.widget.EWebViewTBS;
 import org.autojs.autojs.ui.widget.WebData;
 import org.greenrobot.eventbus.EventBus;
@@ -142,11 +141,12 @@ public class DocsFragment_TBS extends ViewPagerFragment implements BackPressedHa
                 R.drawable.ic_homepage,
                 R.drawable.ic_star,
                 R.drawable.ic_pc_mode,
+                R.drawable.ic_console,
                 R.drawable.ic_web,
                 R.drawable.ic_code_black_48dp,
                 R.drawable.ic_floating_action_menu_open
         };
-        String[] fabLabs = {"主页1", "主页2", "收藏", "切换桌面模式", "网址/搜索", "网页源码", "本地文档"};
+        String[] fabLabs = {"主页1", "主页2", "收藏", "切换桌面模式", "开关控制台", "网址/搜索", "网页源码", "本地文档"};
         mFloatingActionMenu.buildFabs(fabIcons, fabLabs);
         mFloatingActionMenu.setOnFloatingActionButtonClickListener(this);
         if (mFloatingActionMenu.isExpanded()) {
@@ -283,6 +283,15 @@ public class DocsFragment_TBS extends ViewPagerFragment implements BackPressedHa
                 mWebView.reload();
                 break;
             case 4:
+                mEWebView.switchConsole();
+                if (mEWebView.getIsConsole()) {
+                    com.tencent.smtt.sdk.WebView.setWebContentsDebuggingEnabled(true);
+                } else {
+                    com.tencent.smtt.sdk.WebView.setWebContentsDebuggingEnabled(false);
+                }
+                mWebView.reload();
+                break;
+            case 5:
                 EditText et = new EditText(getContext());
                 new MaterialDialog.Builder(requireContext())
                         .title(mWebView.getOriginalUrl())
@@ -327,14 +336,14 @@ public class DocsFragment_TBS extends ViewPagerFragment implements BackPressedHa
                         })
                         .show();
                 break;
-            case 5:
+            case 6:
                 mWebView.loadUrl(
                         "file://" + requireContext().getExternalFilesDir(
                                 null
                         ).getPath() + File.separator + "html_source.txt"
                 );
                 break;
-            case 6:
+            case 7:
                 HashMap<String, Integer> images = new HashMap<String, Integer>();
                 // 下面几句设置各文件类型的图标， 需要你先把图标添加到资源文件夹
                 images.put(sRoot, R.drawable.filedialog_root);    // 根目录图标
@@ -393,7 +402,50 @@ public class DocsFragment_TBS extends ViewPagerFragment implements BackPressedHa
                 mDialog.show();
                 break;
             default:
-                mWebView.loadUrl("http://www.autoxjs.com/");
+                new MaterialDialog.Builder(requireContext())
+                        .title("请选择书签：")
+                        .positiveText("删除(多选)")
+                        .negativeText("取消")
+                        .items(mWebData.bookmarkLabels)
+                        .itemsCallbackMultiChoice(null, new MaterialDialog.ListCallbackMultiChoice() {
+                            @Override
+                            public boolean onSelection(MaterialDialog dialog, Integer[] which, CharSequence[] text) {
+                                return true;
+                            }
+                        })
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(MaterialDialog dialog, DialogAction which) {
+                                if (Objects.requireNonNull(dialog.getSelectedIndices()).length >= mWebData.bookmarks.length) {
+                                    mWebData.bookmarks = new String[]{};
+                                    mWebData.bookmarkLabels = new String[]{};
+                                    Pref.setWebData(gson.toJson(mWebData));
+                                } else if (Objects.requireNonNull(dialog.getSelectedIndices()).length > 0) {
+                                    String[] strList = new String[mWebData.bookmarks.length - dialog.getSelectedIndices().length];
+                                    String[] strLabelList = new String[mWebData.bookmarks.length - dialog.getSelectedIndices().length];
+                                    int j = 0;
+                                    for (int i = 0; i < mWebData.bookmarks.length; i++) {
+                                        boolean flag = true;
+                                        for (Integer index : dialog.getSelectedIndices()) {
+                                            if (i == index) {
+                                                flag = false;
+                                                break;
+                                            }
+                                        }
+                                        if (flag) {
+                                            strList[j] = mWebData.bookmarks[i];
+                                            strLabelList[j] = mWebData.bookmarkLabels[i];
+                                            j += 1;
+                                        }
+                                    }
+                                    mWebData.bookmarks = strList;
+                                    mWebData.bookmarkLabels = strLabelList;
+                                    Pref.setWebData(gson.toJson(mWebData));
+                                }
+                                dialog.dismiss();
+                            }
+                        })
+                        .show();
                 break;
         }
     }

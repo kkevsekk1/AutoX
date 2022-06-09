@@ -18,9 +18,8 @@
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="36dp"
             android:layout_alignParentTop="true"
-            android:paddingTop="12dp"
             android:theme="@style/AppTheme.AppBarOverlay">
 
             <androidx.appcompat.widget.Toolbar
@@ -35,7 +34,7 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="36dp"
             android:layout_alignParentBottom="true"
             android:background="@color/colorPrimary"
             android:padding="0dp"
@@ -49,8 +48,8 @@
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/tab"
             android:layout_below="@id/app_bar"
+            android:layout_above="@id/tab"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 
@@ -58,11 +57,11 @@
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:layout_gravity="end|center|bottom"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="0dp"
             android:src="@drawable/ic_add_white_48dp"
             app:backgroundTint="@color/colorPrimary"
             app:layout_anchor="@id/viewpager"
@@ -73,11 +72,11 @@
             android:id="@+id/floating_action_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:layout_gravity="end|center|bottom"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="0dp"
             android:clipChildren="false"
             android:clipToPadding="false"
             android:visibility="invisible"
@@ -89,16 +88,18 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_drawer"
         android:name="org.autojs.autojs.ui.main.drawer.DrawerFragment_"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="false" />
+        android:fitsSystemWindows="false"
+        />
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view_right"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="end"
+        android:fitsSystemWindows="false"
         app:headerLayout="@layout/drawer_header"
         app:menu="@menu/menu_drawer_right" />
 

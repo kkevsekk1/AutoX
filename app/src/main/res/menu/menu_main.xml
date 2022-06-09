@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <item
-        android:id="@+id/action_log"
-        android:icon="@drawable/ic_ali_log"
-        android:title="@string/text_log"
-        app:showAsAction="always"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/action_search"
@@ -15,5 +9,18 @@
         android:inputType="text"
         android:title="@string/text_search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
-        app:showAsAction="always|collapseActionView"/>
+        app:showAsAction="always|collapseActionView" />
+
+    <item
+        android:id="@+id/action_log"
+        android:icon="@drawable/ic_ali_log"
+        android:title="@string/text_log"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_fullscreen"
+        android:icon="@drawable/ic_fullscreen_white"
+        android:title="@string/text_fullscreen"
+        app:showAsAction="always" />
+
 </menu>

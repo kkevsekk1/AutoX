@@ -62,7 +62,6 @@ import org.autojs.autojs.ui.log.LogActivity_;
 import org.autojs.autojs.ui.main.community.CommunityFragment;
 import org.autojs.autojs.ui.main.scripts.MyScriptListFragment_;
 import org.autojs.autojs.ui.main.task.TaskManagerFragment_;
-import org.autojs.autojs.ui.settings.SettingsActivity;
 import org.autojs.autojs.ui.settings.SettingsActivity_;
 import org.autojs.autojs.ui.widget.CommonMarkdownView;
 import org.autojs.autojs.ui.widget.SearchViewItem;
@@ -196,8 +195,32 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
                         Toast.makeText(this, "Android 10 及以下系统无需设置该项", Toast.LENGTH_LONG).show();
                     }
                     break;
-                case R.id.theme_color:
-                    SettingsActivity.selectThemeColor(this);
+                case R.id.switch_fullscreen:
+                    if (mAppBarLayout.getVisibility() != View.GONE) {
+                        mTabLayout.setVisibility(View.GONE);
+                        mAppBarLayout.setVisibility(View.GONE);
+                        mFab.hide();
+                        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                        getWindow().getDecorView().setSystemUiVisibility(
+                                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+                                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                                        | View.SYSTEM_UI_FLAG_IMMERSIVE);
+                    } else {
+                        mTabLayout.setVisibility(View.VISIBLE);
+                        mAppBarLayout.setVisibility(View.VISIBLE);
+                        mFab.show();
+                        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+                    }
+                    break;
+                case R.id.switch_line_wrap:
+                    Pref.setLineWrap(!Pref.getLineWrap());
+                    if (Pref.getLineWrap()) {
+                        Toast.makeText(this, "已打开编辑器自动换行，重启编辑器后生效！", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(this, "已关闭编辑器自动换行，重启编辑器后生效！", Toast.LENGTH_LONG).show();
+                    }
                     break;
                 case R.id.web_bookmarks:
                     new MaterialDialog.Builder(this)
@@ -252,23 +275,6 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
                         Toast.makeText(this, "默认Web内核已切换为：TBS WebView，重启APP后生效！", Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(this, "默认Web内核已切换为：系统 WebView，重启APP后生效！", Toast.LENGTH_LONG).show();
-                    }
-                    break;
-                case R.id.switch_fullscreen:
-                    if (((getWindow().getDecorView().getWindowSystemUiVisibility() & View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN) == 0) | ((getWindow().getDecorView().getWindowSystemUiVisibility() & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0)) {
-                        mTabLayout.setVisibility(View.GONE);
-                        mAppBarLayout.setVisibility(View.GONE);
-                        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-                        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                                | View.SYSTEM_UI_FLAG_LOW_PROFILE
-                                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                                | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
-                                | View.SYSTEM_UI_FLAG_IMMERSIVE);
-                    } else {
-                        mTabLayout.setVisibility(View.VISIBLE);
-                        mAppBarLayout.setVisibility(View.VISIBLE);
-                        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-                        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
                     }
                     break;
                 case R.id.web_ua:
@@ -478,12 +484,6 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
 
     @Override
     public void onBackPressed() {
-        if (mAppBarLayout.getVisibility() != View.VISIBLE || mTabLayout.getVisibility() != View.VISIBLE) {
-            mTabLayout.setVisibility(View.VISIBLE);
-            mAppBarLayout.setVisibility(View.VISIBLE);
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
-        }
         Fragment fragment = mPagerAdapter.getStoredFragment(mViewPager.getCurrentItem());
         if (fragment instanceof BackPressedHandler) {
             if (((BackPressedHandler) fragment).onBackPressed(this)) {
@@ -530,6 +530,21 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
                 LogActivity_.intent(this).start();
             }
             return true;
+        } else if (item.getItemId() == R.id.action_fullscreen) {
+            if (((getWindow().getDecorView().getWindowSystemUiVisibility() & View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN) == 0) | ((getWindow().getDecorView().getWindowSystemUiVisibility() & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0)) {
+                mTabLayout.setVisibility(View.GONE);
+                getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LOW_PROFILE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE);
+            } else {
+                mTabLayout.setVisibility(View.VISIBLE);
+                mAppBarLayout.setVisibility(View.VISIBLE);
+                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+            }
         }
         return super.onOptionsItemSelected(item);
     }

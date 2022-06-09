@@ -1,7 +1,6 @@
 package com.stardust.autojs.runtime.api;
 
 import android.graphics.Bitmap;
-import android.os.Looper;
 import android.util.Log;
 
 import com.baidu.paddle.lite.demo.ocr.OcrResult;
@@ -13,7 +12,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class Paddle {
-
     private Predictor mPredictor = new Predictor();
 
     public synchronized boolean initOcr(boolean useSlim) {
@@ -30,7 +28,7 @@ public class Paddle {
             return Collections.emptyList();
         }
         initOcr(useSlim);
-        return mPredictor.runOcr(bitmap, cpuThreadNum,useSlim);
+        return mPredictor.runOcr(bitmap, cpuThreadNum, useSlim);
     }
 
     public List<OcrResult> ocr(ImageWrapper image, int cpuThreadNum) {
@@ -63,6 +61,3 @@ public class Paddle {
         mPredictor.releaseModel();
     }
 }
-
-
-
