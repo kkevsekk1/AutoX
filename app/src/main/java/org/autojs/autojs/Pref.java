@@ -210,5 +210,12 @@ public class Pref {
         return def().getBoolean("permissionCheck", true);
     }
 
+    public static void setLineWrap(Boolean flag) {
+        def().edit().putBoolean("LineWrap", flag).apply();
+    }
+
+    public static Boolean getLineWrap() {
+        return def().getBoolean("LineWrap", true);
+    }
 
 }

@@ -19,10 +19,11 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.gson.Gson
-import com.stardust.app.GlobalAppContext
 import com.stardust.app.OnActivityResultDelegate
 import com.stardust.app.OnActivityResultDelegate.DelegateHost
 import com.stardust.autojs.execution.ScriptExecution
+import com.stardust.autojs.runtime.api.Files
+import com.stardust.autojs.runtime.api.SevenZip
 import com.stardust.autojs.script.StringScriptSource
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -39,16 +40,20 @@ import java.util.concurrent.TimeUnit
 /**
  * Created by Stardust on 2017/8/22.
  */
-open class EWebViewTBS : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnActivityResultDelegate {
+open class EWebViewTBS : FrameLayout, SwipeRefreshLayout.OnRefreshListener,
+    OnActivityResultDelegate {
     private lateinit var mWebView: com.tencent.smtt.sdk.WebView
     private lateinit var mProgressBar: ProgressBar
     private lateinit var mSwipeRefreshLayout: SwipeRefreshLayout
     private lateinit var downloadManagerUtil: DownloadManagerUtil
     private lateinit var mWebData: WebData
     val gson = Gson()
+
     companion object {
         private var downloadId = 0L
         private var isRescale = false
+        private var isConsole = false
+        private var isTbs = true
         private val IMAGE_TYPES = listOf("png", "jpg", "bmp")
         private const val CHOOSE_IMAGE = 42222
     }
@@ -75,7 +80,17 @@ open class EWebViewTBS : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnAc
         mSwipeRefreshLayout = findViewById(R.id.swipe_refresh_layout)
         mProgressBar = findViewById(R.id.progress_bar)
         mSwipeRefreshLayout.setOnRefreshListener(this)
-        downloadManagerUtil = DownloadManagerUtil(GlobalAppContext.get())
+        downloadManagerUtil = DownloadManagerUtil(context)
+        if (Pref.getWebData().contains("isTbs")) {
+            mWebData = gson.fromJson(
+                Pref.getWebData(),
+                WebData::class.java
+            )
+        } else {
+            mWebData = WebData()
+            Pref.setWebData(gson.toJson(mWebData))
+        }
+        setIsTbs(mWebData.isTbs)
         webInit(mWebView)
     }
 
@@ -130,18 +145,20 @@ open class EWebViewTBS : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnAc
                     downloadManagerUtil.clearCurrentTask(downloadId)
                 }
                 downloadId = downloadManagerUtil.download(url, fileName, fileName)
-                Toast.makeText(GlobalAppContext.get(), "正在后台下载：$fileName", Toast.LENGTH_LONG)
+                Toast.makeText(context, "正在后台下载：$fileName", Toast.LENGTH_LONG)
                     .show()
             }
         }
         mWebView.addJavascriptInterface(this, "_autojs")
+        mWebView.addJavascriptInterface(Files(null), "\$files")
+        mWebView.addJavascriptInterface(SevenZip(), "\$zips")
     }
 
     fun evalJavaScript(script: String) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            mWebView!!.evaluateJavascript(script, null)
+            mWebView.evaluateJavascript(script, null)
         } else {
-            mWebView!!.loadUrl("javascript:$script")
+            mWebView.loadUrl("javascript:$script")
         }
     }
 
@@ -195,14 +212,16 @@ open class EWebViewTBS : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnAc
             super.onPageStarted(view, url, favicon)
             mProgressBar.progress = 0
             mProgressBar.visibility = VISIBLE
-            var jsCode =
-                "javascript: " + readAssetsTxt(context, "modules/vconsole.min.js")
-            Log.i("onPageStarted", jsCode)
-            view.evaluateJavascript(
-                jsCode,
-                com.tencent.smtt.sdk.ValueCallback<String> {
-                    Log.i("evaluateJavascript", "JS　return:  $it")
-                })
+            if (getIsConsole()) {
+                var jsCode =
+                    "javascript: " + readAssetsTxt(context, "modules/vconsole.min.js")
+                Log.i("onPageStarted", jsCode)
+                view.evaluateJavascript(
+                    jsCode,
+                    com.tencent.smtt.sdk.ValueCallback<String> {
+                        Log.i("evaluateJavascript", "JS　return:  $it")
+                    })
+            }
         }
 
         override fun onPageFinished(view: com.tencent.smtt.sdk.WebView, url: String) {
@@ -255,7 +274,7 @@ open class EWebViewTBS : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnAc
             result: com.tencent.smtt.export.external.interfaces.JsResult?
         ): Boolean {
             val b: android.app.AlertDialog.Builder =
-                android.app.AlertDialog.Builder(GlobalAppContext.get())
+                android.app.AlertDialog.Builder(context)
             b.setTitle("Alert")
             b.setMessage(message)
             b.setPositiveButton(
@@ -274,7 +293,7 @@ open class EWebViewTBS : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnAc
             result: com.tencent.smtt.export.external.interfaces.JsResult?
         ): Boolean {
             val b: android.app.AlertDialog.Builder =
-                android.app.AlertDialog.Builder(GlobalAppContext.get())
+                android.app.AlertDialog.Builder(context)
             b.setTitle("Confirm")
             b.setMessage(message)
             b.setPositiveButton(
@@ -296,8 +315,8 @@ open class EWebViewTBS : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnAc
             result: com.tencent.smtt.export.external.interfaces.JsPromptResult
         ): Boolean {
             val b: android.app.AlertDialog.Builder =
-                android.app.AlertDialog.Builder(GlobalAppContext.get())
-            val inputServer = EditText(GlobalAppContext.get())
+                android.app.AlertDialog.Builder(context)
+            val inputServer = EditText(context)
             inputServer.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(255))
             inputServer.setText(defaultValue)
             b.setTitle("Prompt")
@@ -400,6 +419,26 @@ open class EWebViewTBS : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnAc
         return isRescale
     }
 
+    fun switchRescale() {
+        isRescale = !isRescale;
+    }
+
+    fun getIsConsole(): Boolean {
+        return isConsole
+    }
+
+    fun switchConsole() {
+        isConsole = !isConsole;
+    }
+
+    fun getIsTbs(): Boolean {
+        return isTbs
+    }
+
+    fun setIsTbs(flag: Boolean) {
+        isTbs = flag
+    }
+
     fun getSwipeRefreshLayout(): SwipeRefreshLayout {
         return mSwipeRefreshLayout
     }
@@ -410,14 +449,14 @@ open class EWebViewTBS : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnAc
     fun run(code: String?, name: String?): String {
         stop(execution)
         execution = Scripts.run(StringScriptSource(name, code))
-        return if (execution == null) "Fail! Code: "+code.toString() else "Success! Code: "+code.toString()
+        return if (execution == null) "Fail! Code: " + code.toString() else "Success! Code: " + code.toString()
     }
 
     @JavascriptInterface
     fun run(code: String?): String {
         stop(execution)
         execution = Scripts.run(StringScriptSource("", code))
-        return if (execution == null) "Fail! Code: "+code.toString() else "Success! Code: "+code.toString()
+        return if (execution == null) "Fail! Code: " + code.toString() else "Success! Code: " + code.toString()
     }
 
     @JavascriptInterface
@@ -434,18 +473,11 @@ open class EWebViewTBS : FrameLayout, SwipeRefreshLayout.OnRefreshListener, OnAc
             val buffer = ByteArray(size)
             `is`.read(buffer)
             `is`.close()
-
-
             return String(buffer, Charsets.UTF_8)
         } catch (e: IOException) {
-
-
             e.message?.let { Log.e("", it) }
         }
         return "读取错误，请检查文件名"
     }
 
-    fun switchRescale() {
-        isRescale = !isRescale;
-    }
 }

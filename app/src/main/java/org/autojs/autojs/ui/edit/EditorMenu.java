@@ -2,27 +2,27 @@ package org.autojs.autojs.ui.edit;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import com.google.android.material.snackbar.Snackbar;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.android.material.snackbar.Snackbar;
 import com.stardust.autojs.script.JavaScriptSource;
 import com.stardust.pio.PFiles;
+import com.stardust.util.ClipboardUtil;
+import com.stardust.util.IntentUtil;
 
+import org.autojs.autojs.Pref;
 import org.autojs.autojs.R;
 import org.autojs.autojs.model.indices.AndroidClass;
 import org.autojs.autojs.model.indices.ClassSearchingItem;
-import org.autojs.autojs.ui.project.BuildActivity;
+import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
 import org.autojs.autojs.ui.common.NotAskAgainDialog;
 import org.autojs.autojs.ui.edit.editor.CodeEditor;
 import org.autojs.autojs.ui.log.LogActivity_;
-import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
-
-import com.stardust.util.ClipboardUtil;
-import com.stardust.util.IntentUtil;
+import org.autojs.autojs.ui.project.BuildActivity;
 
 import java.util.Locale;
 
@@ -243,10 +243,10 @@ public class EditorMenu {
 
     private void showInfo() {
         Observable.zip(Observable.just(mEditor.getText()), mEditor.getLineCount(), (text, lineCount) -> {
-            String size = PFiles.getHumanReadableSize(text.length());
-            return String.format(Locale.getDefault(), mContext.getString(R.string.format_editor_info),
-                    text.length(), lineCount, size);
-        })
+                    String size = PFiles.getHumanReadableSize(text.length());
+                    return String.format(Locale.getDefault(), mContext.getString(R.string.format_editor_info),
+                            text.length(), lineCount, size);
+                })
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::showInfo);
 

@@ -1,21 +1,6 @@
-/**
- * Copyright 2018 WHO<980008027@qq.com>
- * <p>
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * <p>
- * Modified by project: https://github.com/980008027/JsDroidEditor
- */
 package org.autojs.autojs.ui.edit.editor;
+
+import static org.autojs.autojs.ui.edit.editor.BracketMatching.UNMATCHED_BRACKET;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -25,8 +10,6 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.Layout;
 import android.util.AttributeSet;
@@ -34,20 +17,20 @@ import android.util.Log;
 import android.util.TimingLogger;
 import android.view.Gravity;
 import android.view.MotionEvent;
-import android.widget.TextView;
 import android.widget.TextViewHelper;
 
-import org.autojs.autojs.ui.edit.theme.Theme;
-import org.autojs.autojs.ui.edit.theme.TokenMapping;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.widget.AppCompatEditText;
 
 import com.stardust.util.TextUtils;
 
+import org.autojs.autojs.Pref;
+import org.autojs.autojs.ui.edit.theme.Theme;
+import org.autojs.autojs.ui.edit.theme.TokenMapping;
 import org.mozilla.javascript.Token;
 
 import java.util.LinkedHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-
-import static org.autojs.autojs.ui.edit.editor.BracketMatching.UNMATCHED_BRACKET;
 
 /**
  * Created by Administrator on 2018/2/11.
@@ -122,8 +105,8 @@ public class CodeEditText extends AppCompatEditText {
         mLogger.reset();
         if (mParentScrollView == null) {
             mParentScrollView = (HVScrollView) getParent();
-            mParentScrollView.setHorizontalScrollBarEnabled(false);
         }
+        mParentScrollView.setHorizontalScrollBarEnabled(false);
         if (getLayout() == null) {
             super.onDraw(canvas);
             invalidate();
@@ -211,13 +194,42 @@ public class CodeEditText extends AppCompatEditText {
         if (DEBUG)
             Log.d(LOG_TAG, "draw line: " + (mLastLineForDraw - mFirstLineForDraw + 1));
         mLogger.addSplit("before draw line");
+        int lineStart = 0;
+        int lineEnd = 0;
+        int lineNumber = 1;
+        int lineNumberPrevious = 0;
+        String lineNumberText;
         for (int line = mFirstLineForDraw; line <= mLastLineForDraw && line < lineCount; line++) {
             int lineBottom = layout.getLineTop(line + 1);
             int lineTop = layout.getLineTop(line);
             int lineBaseline = lineBottom - layout.getLineDescent(line);
-
+            lineStart = layout.getLineStart(line);
+            if (lineStart >= textLength) {
+                return;
+            }
+            lineEnd = Math.min(layout.getLineVisibleEnd(line), highlightTokens.colors.length);
             //drawLineNumber
-            String lineNumberText = Integer.toString(line + 1);
+            if (lineStart != lineEnd) {
+                lineNumber = text.toString().substring(0, lineEnd).split("\n").length;
+            } else {
+                lineNumber = text.toString().substring(0, lineEnd).split("\n").length + 1;
+            }
+            lineNumberText = Integer.toString(lineNumber);
+            if (lineNumberPrevious == lineNumber) {
+                lineNumberText = "";
+            }
+//            if (text.toString().length() <= lineEnd) {
+//                lineNumber += 1;
+//                lineNumberText = Integer.toString(lineNumber);
+//            } else if (text.toString().substring(lineStart, lineEnd + 1).contains("\n")) {
+//                lineNumber += 1;
+//                lineNumberText = Integer.toString(lineNumber);
+//            } else if (lineStart == 0) {
+//                lineNumber = 1;
+//                lineNumberText = Integer.toString(lineNumber);
+//            } else {
+//                lineNumberText = "";
+//            }
             // if there is a breakpoint at this line, draw highlight background for line number
             if (mBreakpoints.containsKey(line)) {
                 paint.setColor(breakPointColor);
@@ -231,13 +243,13 @@ public class CodeEditText extends AppCompatEditText {
                 continue;
 
             //drawCode
-            int lineStart = layout.getLineStart(line);
-            if (lineStart >= textLength) {
-                return;
-            }
-            int lineEnd = Math.min(layout.getLineVisibleEnd(line), highlightTokens.colors.length);
             int visibleCharStart = getVisibleCharIndex(paint, scrollX, lineStart, lineEnd);
             int visibleCharEnd = getVisibleCharIndex(paint, scrollX + mParentScrollView.getWidth(), lineStart, lineEnd) + 1;
+//            Log.e("lineStart", Integer.toString(lineStart));
+//            Log.e("lineEnd", Integer.toString(lineEnd));
+//            Log.e("visibleCharStart", Integer.toString(visibleCharStart));
+//            Log.e("visibleCharEnd", Integer.toString(visibleCharEnd));
+//            Log.e("substring", text.toString().substring(visibleCharStart, visibleCharEnd));
             int previousColorPos = visibleCharStart;
             int previousColor;
             if (previousColorPos == mUnmatchedBracket) {
@@ -261,6 +273,7 @@ public class CodeEditText extends AppCompatEditText {
                     paint.setColor(previousColor);
                     float offsetX = paint.measureText(text, lineStart, previousColorPos);
                     canvas.drawText(text, previousColorPos, i, paddingLeft + offsetX, lineBaseline, paint);
+//                    Log.e("text",text.toString());
                     previousColor = color;
                     previousColorPos = i;
                 }
@@ -277,6 +290,7 @@ public class CodeEditText extends AppCompatEditText {
             if (DEBUG) {
                 mLogger.addSplit("draw line " + line + " (" + (visibleCharEnd - visibleCharStart) + ") ");
             }
+            lineNumberPrevious = lineNumber;
         }
     }
 
@@ -345,6 +359,7 @@ public class CodeEditText extends AppCompatEditText {
         //调用父类的onSelectionChanged时会发送一个AccessibilityEvent，当文本过大时造成异常
         //super.onSelectionChanged(selStart, selEnd);
         //父类构造函数会调用onSelectionChanged, 此时mCursorChangeCallbacks还没有初始化
+        super.onSelectionChanged(selStart, selEnd);
         if (mCursorChangeCallbacks == null || mCursorChangeCallbacks.isEmpty() || selStart != selEnd) {
             return;
         }

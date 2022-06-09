@@ -4,9 +4,10 @@
     android:id="@+id/code_edit_text"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:scrollHorizontally="true"
+    android:scrollHorizontally="false"
+    android:inputType="textMultiLine"
     android:imeOptions="flagNoExtractUi"
     android:textColor="@android:color/transparent"
     android:textCursorDrawable="@drawable/code_edit_text_cursor"
-    android:textSize="15sp"/>
+    />
 
