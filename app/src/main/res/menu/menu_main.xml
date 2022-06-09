@@ -23,4 +23,10 @@
         android:title="@string/text_fullscreen"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/action_drawer_right"
+        android:icon="@drawable/ic_ali_pin_to_left_white"
+        android:title="@string/text_drawer_right"
+        app:showAsAction="ifRoom" />
+
 </menu>
