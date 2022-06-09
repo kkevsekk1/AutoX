@@ -545,6 +545,8 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
                 getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
             }
+        } else if (item.getItemId() == R.id.action_drawer_right) {
+            mDrawerLayout.openDrawer(rightDrawer);
         }
         return super.onOptionsItemSelected(item);
     }

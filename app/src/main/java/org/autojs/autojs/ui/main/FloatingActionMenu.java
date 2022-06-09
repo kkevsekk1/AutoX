@@ -4,7 +4,6 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,8 +43,9 @@ public class FloatingActionMenu extends FrameLayout implements View.OnClickListe
     private FloatingActionButton[] mFabs;
     private View[] mFabContainers;
     private boolean mExpanded = false;
-    private int mInterval = 30;
+    private int mInterval = 10;
     private int mDuration = 250;
+    private int h = 0;
     private final Interpolator mInterpolator = new FastOutSlowInInterpolator();
     private final PublishSubject<Boolean> mState = PublishSubject.create();
     private OnFloatingActionButtonClickListener mOnFloatingActionButtonClickListener;
@@ -75,9 +75,9 @@ public class FloatingActionMenu extends FrameLayout implements View.OnClickListe
 
     public void expand() {
         setVisibility(VISIBLE);
-        int h = Math.max(140, mFabs[0].getHeight());
+        h = Math.max(150, h);
         for (int i = 0; i < mFabContainers.length; i++) {
-            animateY(mFabContainers[i], -(h + mInterval) * (i + 1), null);
+            animateY(mFabContainers[i], -(h + mInterval) * (i + 1) + 60, null);
             rotate(mFabs[i]);
         }
         mExpanded = true;
@@ -153,6 +153,7 @@ public class FloatingActionMenu extends FrameLayout implements View.OnClickListe
             mFabs[i].setImageResource(icons[i]);
             mFabs[i].setOnClickListener(this);
             mFabs[i].setTag(i);
+            if (h < mFabs[i].getHeight()) h = mFabs[i].getHeight();
             mLabels[i] = (TextView) mFabContainers[i].findViewById(R.id.label);
             mLabels[i].setText(labels[i]);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
