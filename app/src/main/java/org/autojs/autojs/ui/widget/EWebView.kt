@@ -285,8 +285,14 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener,
                 WebData()
             }
             Pref.setWebData(gson.toJson(mWebData))
-            with(mWebViewTbs.settings) {
-                userAgentString = mWebData?.userAgent
+            if (isRescale) {
+                with(mWebViewTbs.settings) {
+                    userAgentString = mWebData.userAgents[6]
+                }
+            } else {
+                with(mWebViewTbs.settings) {
+                    userAgentString = mWebData.userAgent
+                }
             }
             super.onPageStarted(view, url, favicon)
             mProgressBar.progress = 0
@@ -480,8 +486,14 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener,
                 WebData()
             }
             Pref.setWebData(gson.toJson(mWebData))
-            with(mWebView.settings) {
-                userAgentString = mWebData.userAgent
+            if (isRescale) {
+                with(mWebView.settings) {
+                    userAgentString = mWebData.userAgents[6]
+                }
+            } else {
+                with(mWebView.settings) {
+                    userAgentString = mWebData.userAgent
+                }
             }
             super.onPageStarted(view, url, favicon)
             mProgressBar.progress = 0
