@@ -2,14 +2,13 @@ package org.autojs.autojs.ui.doc;
 
 import android.webkit.WebView;
 
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
 import org.autojs.autojs.Pref;
 import org.autojs.autojs.R;
 import org.autojs.autojs.ui.BaseActivity;
 import org.autojs.autojs.ui.widget.EWebView;
-
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.ViewById;
 
 /**
  * Created by Stardust on 2017/10/24.
@@ -23,24 +22,41 @@ public class DocumentationActivity extends BaseActivity {
     EWebView mEWebView;
 
     WebView mWebView;
+    com.tencent.smtt.sdk.WebView mWebViewTbs;
 
     @AfterViews
     void setUpViews() {
         setToolbarAsBack(getString(R.string.text_tutorial));
-        mWebView = mEWebView.getWebView();
+        if (mEWebView.getIsTbs()) {
+            mWebViewTbs = mEWebView.getWebViewTbs();
+        } else {
+            mWebView = mEWebView.getWebView();
+        }
         String url = getIntent().getStringExtra(EXTRA_URL);
         if (url == null) {
             url = Pref.getDocumentationUrl() + "index.html";
         }
-        mWebView.loadUrl(url);
+        if (mEWebView.getIsTbs()) {
+            mWebViewTbs.loadUrl(url);
+        } else {
+            mWebView.loadUrl(url);
+        }
     }
 
     @Override
     public void onBackPressed() {
-        if (mWebView.canGoBack()) {
-            mWebView.goBack();
+        if (mEWebView.getIsTbs()) {
+            if (mWebViewTbs.canGoBack()) {
+                mWebViewTbs.goBack();
+            } else {
+                super.onBackPressed();
+            }
         } else {
-            super.onBackPressed();
+            if (mWebView.canGoBack()) {
+                mWebView.goBack();
+            } else {
+                super.onBackPressed();
+            }
         }
     }
 }

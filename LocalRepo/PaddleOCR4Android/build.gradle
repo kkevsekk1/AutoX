@@ -1,2 +1,2 @@
 configurations.maybeCreate("default")
-artifacts.add("default", file('PaddleOCR4Android-1.0.0.aar'))
+artifacts.add("default", file('PaddleOCR4Android-1.0.1.aar'))
