@@ -1,5 +1,10 @@
 package org.autojs.autojs.ui.edit;
 
+import static org.autojs.autojs.model.script.Scripts.ACTION_ON_EXECUTION_FINISHED;
+import static org.autojs.autojs.model.script.Scripts.EXTRA_EXCEPTION_COLUMN_NUMBER;
+import static org.autojs.autojs.model.script.Scripts.EXTRA_EXCEPTION_LINE_NUMBER;
+import static org.autojs.autojs.model.script.Scripts.EXTRA_EXCEPTION_MESSAGE;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -7,35 +12,26 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Matrix;
-import android.graphics.PointF;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.text.TextUtils;
+import android.util.AttributeSet;
+import android.util.SparseBooleanArray;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
-import android.text.TextUtils;
-import android.util.AttributeSet;
-import android.util.Log;
-import android.util.SparseBooleanArray;
-import android.view.Gravity;
-import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.Toast;
-
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.android.material.snackbar.Snackbar;
 import com.stardust.autojs.engine.JavaScriptEngine;
 import com.stardust.autojs.engine.ScriptEngine;
 import com.stardust.autojs.execution.ScriptExecution;
@@ -83,11 +79,6 @@ import java.util.List;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-
-import static org.autojs.autojs.model.script.Scripts.ACTION_ON_EXECUTION_FINISHED;
-import static org.autojs.autojs.model.script.Scripts.EXTRA_EXCEPTION_COLUMN_NUMBER;
-import static org.autojs.autojs.model.script.Scripts.EXTRA_EXCEPTION_LINE_NUMBER;
-import static org.autojs.autojs.model.script.Scripts.EXTRA_EXCEPTION_MESSAGE;
 
 /**
  * Created by Stardust on 2017/9/28.
@@ -289,18 +280,13 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
         setUpInputMethodEnhancedBar();
         setUpFunctionsKeyboard();
         setMenuItemStatus(R.id.save, false);
-        setTextSize(Pref.getEditorTextSize((int) ViewUtils.pxToSp(getContext(), mEditor.getCodeEditText().getTextSize())));
-        mDocsWebView.getWebView().getSettings().setDisplayZoomControls(true);
-        mDocsWebView.getWebView().loadUrl(Pref.getDocumentationUrl() + "index.html");
-        mEditor.setOnTouchListener(new OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (2 == event.getPointerCount()) {
-                    scaleGestureDetector.onTouchEvent(event);
-                }
-                return  false;
-            }
-        });
+        if (mDocsWebView.getIsTbs()) {
+            mDocsWebView.getWebViewTbs().getSettings().setDisplayZoomControls(true);
+            mDocsWebView.getWebViewTbs().loadUrl(Pref.getDocumentationUrl() + "index.html");
+        } else {
+            mDocsWebView.getWebView().getSettings().setDisplayZoomControls(true);
+            mDocsWebView.getWebView().loadUrl(Pref.getDocumentationUrl() + "index.html");
+        }
         Themes.getCurrent(getContext())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::setTheme);
@@ -372,10 +358,18 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
 
     public boolean onBackPressed() {
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-            if (mDocsWebView.getWebView().canGoBack()) {
-                mDocsWebView.getWebView().goBack();
+            if (mDocsWebView.getIsTbs()) {
+                if (mDocsWebView.getWebViewTbs().canGoBack()) {
+                    mDocsWebView.getWebViewTbs().goBack();
+                } else {
+                    mDrawerLayout.closeDrawer(GravityCompat.START);
+                }
             } else {
-                mDrawerLayout.closeDrawer(GravityCompat.START);
+                if (mDocsWebView.getWebView().canGoBack()) {
+                    mDocsWebView.getWebView().goBack();
+                } else {
+                    mDrawerLayout.closeDrawer(GravityCompat.START);
+                }
             }
             return true;
         }
@@ -449,9 +443,8 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
 
     public Observable<String> save() {
         String path = mUri.getPath();
-        if (Pref.isAutoBack()) {
-            PFiles.move(path, path + ".bak");
-        }
+        String backPath = path + ".b_a_k";
+        PFiles.move(path, backPath);
         return Observable.just(mEditor.getText())
                 .observeOn(Schedulers.io())
                 .doOnNext(s -> PFiles.write(getContext().getContentResolver().openOutputStream(mUri), s))
@@ -459,7 +452,8 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
                 .doOnNext(s -> {
                     mEditor.markTextAsSaved();
                     setMenuItemStatus(R.id.save, false);
-                });
+                })
+                .doOnNext(s -> new File(backPath).delete());
     }
 
     public void forceStop() {
@@ -668,8 +662,13 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
                 .title(title)
                 .url(absUrl)
                 .pinToLeft(v -> {
-                    mDocsWebView.getWebView().loadUrl(absUrl);
-                    mDrawerLayout.openDrawer(GravityCompat.START);
+                    if (mDocsWebView.getIsTbs()) {
+                        mDocsWebView.getWebViewTbs().loadUrl(absUrl);
+                        mDrawerLayout.openDrawer(GravityCompat.START);
+                    } else {
+                        mDocsWebView.getWebView().loadUrl(absUrl);
+                        mDrawerLayout.openDrawer(GravityCompat.START);
+                    }
                 })
                 .show();
     }
@@ -737,34 +736,4 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
         mEditor.destroy();
         mAutoCompletion.shutdown();
     }
-
-    ScaleGestureDetector scaleGestureDetector = new ScaleGestureDetector(getContext(),
-            new ScaleGestureDetector.OnScaleGestureListener() {
-                @Override
-                public boolean onScale(ScaleGestureDetector detector) {
-                    float scaleFactor = detector.getScaleFactor();
-                    Log.i("--------onScale", String.valueOf(scaleFactor));
-                    if(scaleFactor>1){
-                        setTextSizePlus();
-                    }else{
-                        setTextSizeMinus();
-                    }
-                  //  invalidate();
-                    return true;
-                }
-                @Override
-                public boolean onScaleBegin(ScaleGestureDetector detector) {
-                    Log.i("--------onScaleBegin", String.valueOf(detector.getScaleFactor()));
-                    return true;
-                }
-                @Override
-                public void onScaleEnd(ScaleGestureDetector detector) {
-                    Log.i("--------onScaleEnd", String.valueOf(detector.getScaleFactor()));
-                }
-            });
-
-
-
-
-
 }

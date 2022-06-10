@@ -24,20 +24,24 @@ import io.reactivex.Observable;
 //TODO rx
 public class TimedTaskManager {
 
-    private static TimedTaskManager sInstance;
+    private static volatile TimedTaskManager sInstance;
     private Context mContext;
     private TimedTaskDatabase mTimedTaskDatabase;
     private IntentTaskDatabase mIntentTaskDatabase;
 
     public static TimedTaskManager getInstance() {
         if (sInstance == null) {
-            sInstance = new TimedTaskManager(GlobalAppContext.get());
+            synchronized (TimedTaskManager.class) {
+                if (sInstance == null) {
+                    sInstance = new TimedTaskManager(GlobalAppContext.get());
+                }
+            }
         }
         return sInstance;
     }
 
     @SuppressLint("CheckResult")
-    public TimedTaskManager(Context context) {
+    private TimedTaskManager(Context context) {
         mContext = context;
         mTimedTaskDatabase = new TimedTaskDatabase(context);
         mIntentTaskDatabase = new IntentTaskDatabase(context);
@@ -53,6 +57,7 @@ public class TimedTaskManager {
                     .subscribe(Observers.emptyConsumer(), Throwable::printStackTrace);
         } else {
             task.setScheduled(false);
+            task.setExecuted(true);
             mTimedTaskDatabase.update(task)
                     .subscribe(Observers.emptyConsumer(), Throwable::printStackTrace);
         }
@@ -60,7 +65,7 @@ public class TimedTaskManager {
 
     @SuppressLint("CheckResult")
     public void removeTask(TimedTask timedTask) {
-        TimedTaskScheduler.cancel(timedTask);
+        TimedTaskScheduler.cancel(timedTask, mContext);
         mTimedTaskDatabase.delete(timedTask)
                 .subscribe(Observers.emptyConsumer(), Throwable::printStackTrace);
     }
@@ -70,7 +75,7 @@ public class TimedTaskManager {
         mTimedTaskDatabase.insert(timedTask)
                 .subscribe(id -> {
                     timedTask.setId(id);
-                    TimedTaskScheduler.scheduleTaskIfNeeded(mContext, timedTask, false);
+                    TimedTaskScheduler.getWorkProvider(mContext).scheduleTaskIfNeeded(mContext, timedTask, false);
                 }, Throwable::printStackTrace);
     }
 
@@ -129,8 +134,8 @@ public class TimedTaskManager {
     public void updateTask(TimedTask task) {
         mTimedTaskDatabase.update(task)
                 .subscribe(Observers.emptyConsumer(), Throwable::printStackTrace);
-        TimedTaskScheduler.cancel(task);
-        TimedTaskScheduler.scheduleTaskIfNeeded(mContext, task, false);
+        TimedTaskScheduler.cancel(task, mContext);
+        TimedTaskScheduler.getWorkProvider(mContext).scheduleTaskIfNeeded(mContext, task, false);
     }
 
     @SuppressLint("CheckResult")

@@ -55,7 +55,6 @@ import org.autojs.autojs.network.entity.user.User;
 import org.autojs.autojs.network.entity.VersionInfo;
 import org.autojs.autojs.tool.SimpleObserver;
 import org.autojs.autojs.ui.main.MainActivity;
-import org.autojs.autojs.ui.main.community.CommunityFragment;
 import org.autojs.autojs.ui.settings.SettingsActivity_;
 import org.autojs.autojs.ui.user.LoginActivity_;
 import org.autojs.autojs.ui.settings.SettingsActivity;
@@ -140,7 +139,6 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
 
     private DrawerMenuAdapter mDrawerMenuAdapter;
     private Disposable mConnectionStateDisposable;
-    private CommunityDrawerMenu mCommunityDrawerMenu = new CommunityDrawerMenu();
 
 
     @Override
@@ -528,31 +526,6 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
         setChecked(mFloatingWindowItem, event.getCurrentState() != CircularMenu.STATE_CLOSED);
     }
 
-    @Subscribe
-    public void onCommunityPageVisibilityChange(CommunityFragment.VisibilityChange change) {
-        if (change.visible) {
-            mCommunityDrawerMenu.showCommunityMenu(mDrawerMenuAdapter);
-        } else {
-            mCommunityDrawerMenu.hideCommunityMenu(mDrawerMenuAdapter);
-        }
-        mDrawerMenu.scrollToPosition(0);
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onLoginStateChange(UserService.LoginStateChange change) {
-        syncUserInfo();
-        if (mCommunityDrawerMenu.isShown()) {
-            mCommunityDrawerMenu.setUserOnlineStatus(mDrawerMenuAdapter, change.isOnline());
-        }
-    }
-
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onDrawerOpen(MainActivity.DrawerOpenEvent event) {
-        if (mCommunityDrawerMenu.isShown()) {
-            mCommunityDrawerMenu.refreshNotificationCount(mDrawerMenuAdapter);
-        }
-    }
 
     private void showStableModePromptIfNeeded() {
         new NotAskAgainDialog.Builder(getContext(), "DrawerFragment.stable_mode")

@@ -1,11 +1,14 @@
 package org.autojs.autojs.timing;
 
 import android.app.PendingIntent;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 
 import com.stardust.autojs.execution.ExecutionConfig;
 
+import org.autojs.autojs.BuildConfig;
 import org.autojs.autojs.external.ScriptIntents;
 import org.autojs.autojs.storage.database.BaseModel;
 import org.joda.time.DateTime;
@@ -43,6 +46,15 @@ public class TimedTask extends BaseModel {
 
     long mMillis;
 
+    /**
+     * 目标执行时间
+     */
+    long targetExecuteMillis;
+    /**
+     * 已执行过
+     */
+    boolean executed;
+
     String mScriptPath;
 
     public TimedTask() {
@@ -56,6 +68,10 @@ public class TimedTask extends BaseModel {
         mDelay = config.getDelay();
         mLoopTimes = config.getLoopTimes();
         mInterval = config.getInterval();
+        executed = false;
+        targetExecuteMillis = 0;
+        // 重新计算目标执行时间点
+        getNextTime();
     }
 
     public boolean isDisposable() {
@@ -70,20 +86,31 @@ public class TimedTask extends BaseModel {
         mScheduled = scheduled;
     }
 
+    public void setExecuted(boolean executed) {
+        this.executed = executed;
+    }
+
     public long getNextTime() {
         if (isDisposable()) {
+            targetExecuteMillis = mMillis;
             return mMillis;
         }
-        if (isDaily()) {
-            LocalTime time = LocalTime.fromMillisOfDay(mMillis);
-            long nextTimeMillis = time.toDateTimeToday().getMillis();
-            if (System.currentTimeMillis() > nextTimeMillis) {
-                return nextTimeMillis + TimeUnit.DAYS.toMillis(1);
-            }
+        if (targetExecuteMillis < 10 || targetExecuteMillis < System.currentTimeMillis() && executed) {
+            // 更新目标执行时间，并标记为未执行
+            executed = false;
+            targetExecuteMillis = isDaily() ? getNextTimeOfDailyTask() : getNextTimeOfWeeklyTask();
+        }
+        return targetExecuteMillis;
+    }
+
+    private long getNextTimeOfDailyTask() {
+        LocalTime time = LocalTime.fromMillisOfDay(mMillis);
+        long nextTimeMillis = time.toDateTimeToday().getMillis();
+        if (System.currentTimeMillis() > nextTimeMillis) {
+            return nextTimeMillis + TimeUnit.DAYS.toMillis(1);
+        } else {
             return nextTimeMillis;
         }
-        return getNextTimeOfWeeklyTask();
-
     }
 
     private long getNextTimeOfWeeklyTask() {
@@ -182,17 +209,23 @@ public class TimedTask extends BaseModel {
 
     public Intent createIntent() {
         return new Intent(TaskReceiver.ACTION_TASK)
+                .setComponent(new ComponentName(BuildConfig.APPLICATION_ID, "org.autojs.autojs.timing.TaskReceiver"))
                 .putExtra(TaskReceiver.EXTRA_TASK_ID, getId())
                 .putExtra(ScriptIntents.EXTRA_KEY_PATH, mScriptPath)
                 .putExtra(ScriptIntents.EXTRA_KEY_DELAY, mDelay)
                 .putExtra(ScriptIntents.EXTRA_KEY_LOOP_TIMES, mLoopTimes)
-                .putExtra(ScriptIntents.EXTRA_KEY_LOOP_INTERVAL, mInterval);
+                .putExtra(ScriptIntents.EXTRA_KEY_LOOP_INTERVAL, mInterval)
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     }
 
 
     public PendingIntent createPendingIntent(Context context) {
+        int flags = PendingIntent.FLAG_UPDATE_CURRENT;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            flags |= PendingIntent.FLAG_IMMUTABLE;
+        }
         return PendingIntent.getBroadcast(context, (int) ((REQUEST_CODE + 1 + getId()) % 65535),
-                createIntent(), PendingIntent.FLAG_UPDATE_CURRENT);
+                createIntent(), flags);
     }
 
     @Override
@@ -205,6 +238,8 @@ public class TimedTask extends BaseModel {
                 ", mInterval=" + mInterval +
                 ", mLoopTimes=" + mLoopTimes +
                 ", mMillis=" + mMillis +
+                ", targetExecuteMillis=" + targetExecuteMillis +
+                ", executed=" + executed +
                 ", mScriptPath='" + mScriptPath + '\'' +
                 '}';
     }

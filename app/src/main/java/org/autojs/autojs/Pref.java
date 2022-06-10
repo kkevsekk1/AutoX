@@ -215,7 +215,15 @@ public class Pref {
     }
 
     public static Boolean getLineWrap() {
-        return def().getBoolean("LineWrap", true);
+        return def().getBoolean("LineWrap", false);
+    }
+
+    public static void setTaskManager(int number) {
+        def().edit().putInt("TaskManager", number).apply();
+    }
+
+    public static int getTaskManager() {
+        return def().getInt("TaskManager", 0);
     }
 
 }
