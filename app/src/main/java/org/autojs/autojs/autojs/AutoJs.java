@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Looper;
+import android.util.Log;
+
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.stardust.app.GlobalAppContext;
@@ -47,6 +49,7 @@ public class AutoJs extends com.stardust.autojs.AutoJs {
         return instance;
     }
 
+    private boolean enableDebugLog = false;
 
     public synchronized static void initInstance(Application application) {
         if (instance != null) {
@@ -187,4 +190,13 @@ public class AutoJs extends com.stardust.autojs.AutoJs {
         return runtime;
     }
 
+    public void debugInfo(String content) {
+        if (this.enableDebugLog) {
+            AutoJs.getInstance().getGlobalConsole().println(Log.VERBOSE, content);
+        }
+    }
+
+    public void setDebugEnabled(boolean enableDebugLog) {
+        this.enableDebugLog = enableDebugLog;
+    }
 }

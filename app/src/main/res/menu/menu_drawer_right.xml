@@ -22,6 +22,10 @@
         android:title="切换全屏模式2"
          />
     <item
+        android:id="@+id/switch_task_manager"
+        android:icon="@drawable/ic_track_changes_black_48dp"
+        android:title="切换定时任务调度器" />
+    <item
         android:id="@+id/switch_line_wrap"
         android:icon="@drawable/ic_format_line_spacing_black_48dp"
         android:title="切换编辑器自动换行" />

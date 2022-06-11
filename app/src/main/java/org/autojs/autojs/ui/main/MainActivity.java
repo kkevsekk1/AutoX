@@ -52,14 +52,13 @@ import org.autojs.autojs.R;
 import org.autojs.autojs.autojs.AutoJs;
 import org.autojs.autojs.external.foreground.ForegroundService;
 import org.autojs.autojs.model.explorer.Explorers;
+import org.autojs.autojs.timing.TimedTaskScheduler;
 import org.autojs.autojs.tool.AccessibilityServiceTool;
 import org.autojs.autojs.ui.BaseActivity;
 import org.autojs.autojs.ui.common.NotAskAgainDialog;
 import org.autojs.autojs.ui.doc.DocsFragment_;
-import org.autojs.autojs.ui.doc.DocsFragment_TBS_;
 import org.autojs.autojs.ui.floating.FloatyWindowManger;
 import org.autojs.autojs.ui.log.LogActivity_;
-import org.autojs.autojs.ui.main.community.CommunityFragment;
 import org.autojs.autojs.ui.main.scripts.MyScriptListFragment_;
 import org.autojs.autojs.ui.main.task.TaskManagerFragment_;
 import org.autojs.autojs.ui.settings.SettingsActivity_;
@@ -222,6 +221,56 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
                         Toast.makeText(this, "已关闭编辑器自动换行，重启编辑器后生效！", Toast.LENGTH_LONG).show();
                     }
                     break;
+                case R.id.switch_task_manager:
+                    String[] taskManagerList = new String[]{"WorkManager", "AndroidJob", "AlarmManager"};
+                    new MaterialDialog.Builder(this)
+                            .title("请选择定时任务调度器：")
+                            .negativeText("取消")
+                            .items(taskManagerList)
+                            .itemsCallback(new MaterialDialog.ListCallback() {
+                                @Override
+                                public void onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
+                                    Pref.setTaskManager(which);
+                                    Toast.makeText(getApplicationContext(), "定时任务调度器已切换为：" + taskManagerList[which] + "，重启APP后生效！", Toast.LENGTH_LONG).show();
+                                    AutoJs.getInstance().debugInfo("切换任务调度模式为：" + taskManagerList[which] + "，重启APP后生效！");
+                                    dialog.dismiss();
+                                }
+                            })
+                            .onPositive(new MaterialDialog.SingleButtonCallback() {
+                                @Override
+                                public void onClick(MaterialDialog dialog, DialogAction which) {
+                                    if (Objects.requireNonNull(dialog.getSelectedIndices()).length >= mWebData.bookmarks.length) {
+                                        mWebData.bookmarks = new String[]{};
+                                        mWebData.bookmarkLabels = new String[]{};
+                                        Pref.setWebData(gson.toJson(mWebData));
+                                    } else if (Objects.requireNonNull(dialog.getSelectedIndices()).length > 0) {
+                                        String[] strList = new String[mWebData.bookmarks.length - dialog.getSelectedIndices().length];
+                                        String[] strLabelList = new String[mWebData.bookmarks.length - dialog.getSelectedIndices().length];
+                                        int j = 0;
+                                        for (int i = 0; i < mWebData.bookmarks.length; i++) {
+                                            boolean flag = true;
+                                            for (Integer index : dialog.getSelectedIndices()) {
+                                                if (i == index) {
+                                                    flag = false;
+                                                    break;
+                                                }
+                                            }
+                                            if (flag) {
+                                                strList[j] = mWebData.bookmarks[i];
+                                                strLabelList[j] = mWebData.bookmarkLabels[i];
+                                                j += 1;
+                                            }
+                                        }
+                                        mWebData.bookmarks = strList;
+                                        mWebData.bookmarkLabels = strLabelList;
+                                        Pref.setWebData(gson.toJson(mWebData));
+                                    }
+                                    dialog.dismiss();
+                                }
+                            })
+                            .show();
+                    TimedTaskScheduler.ensureCheckTaskWorks(this);
+                    break;
                 case R.id.web_bookmarks:
                     new MaterialDialog.Builder(this)
                             .title("请选择书签：")
@@ -367,23 +416,11 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
             mWebData = new WebData();
             Pref.setWebData(gson.toJson(mWebData));
         }
-        if (mWebData.isTbs) {
-            mPagerAdapter = new FragmentPagerAdapterBuilder(this)
-                    .add(new MyScriptListFragment_(), R.string.text_file)
-                    .add(new TaskManagerFragment_(), R.string.text_manage)
-                    .add(new DocsFragment_TBS_(), R.string.text_WebX)
-//                .add(new CommunityFragment_(), R.string.text_community)
-//                .add(new MarketFragment_(), R.string.text_market)
-                    .build();
-        } else {
-            mPagerAdapter = new FragmentPagerAdapterBuilder(this)
-                    .add(new MyScriptListFragment_(), R.string.text_file)
-                    .add(new TaskManagerFragment_(), R.string.text_manage)
-                    .add(new DocsFragment_(), R.string.text_WebX)
-//                .add(new CommunityFragment_(), R.string.text_community)
-//                .add(new MarketFragment_(), R.string.text_market)
-                    .build();
-        }
+        mPagerAdapter = new FragmentPagerAdapterBuilder(this)
+                .add(new MyScriptListFragment_(), R.string.text_file)
+                .add(new TaskManagerFragment_(), R.string.text_manage)
+                .add(new DocsFragment_(), R.string.text_WebX)
+                .build();
         mViewPager.setAdapter(mPagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
         setUpViewPagerFragmentBehaviors();
@@ -438,7 +475,7 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
     protected void onResume() {
         super.onResume();
 
-        //TimedTaskScheduler.ensureCheckTaskWorks(getApplicationContext());
+        TimedTaskScheduler.ensureCheckTaskWorks(getApplicationContext());
     }
 
     @Override
@@ -552,7 +589,7 @@ public class MainActivity extends BaseActivity implements OnActivityResultDelega
     }
 
     @Subscribe
-    public void onLoadUrl(CommunityFragment.LoadUrl loadUrl) {
+    public void onLoadUrl(DocsFragment_.LoadUrl loadUrl) {
         mDrawerLayout.closeDrawer(GravityCompat.START);
     }
 

@@ -11,7 +11,6 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -57,12 +56,22 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 @EFragment(R.layout.fragment_online_docs)
 public class DocsFragment extends ViewPagerFragment implements BackPressedHandler, FloatingActionMenu.OnFloatingActionButtonClickListener {
 
+    public static class LoadUrl {
+        public final String url;
+
+        public LoadUrl(String url) {
+            this.url = url;
+        }
+
+    }
+
     public static final String ARGUMENT_URL = "url";
 
     @ViewById(R.id.eweb_view_docs)
     EWebView mEWebView;
 
-    WebView mWebView;
+    com.tencent.smtt.sdk.WebView mWebViewTbs;
+    android.webkit.WebView mWebView;
 
     private String mPreviousQuery;
     private FloatingActionMenu mFloatingActionMenu;
@@ -90,19 +99,36 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
 
     @AfterViews
     void setUpViews() {
-        mWebView = mEWebView.getWebView();
-        mEWebView.getSwipeRefreshLayout().setOnRefreshListener(() -> {
-            if (TextUtils.equals(mWebView.getUrl(), mWebData.homepage)) {
-                loadUrl();
+        if (mEWebView.getIsTbs()) {
+            mWebViewTbs = mEWebView.getWebViewTbs();
+            mEWebView.getSwipeRefreshLayout().setOnRefreshListener(() -> {
+                if (TextUtils.equals(mWebViewTbs.getUrl(), mWebData.homepage)) {
+                    loadUrl();
+                } else {
+                    mEWebView.onRefresh();
+                }
+            });
+            Bundle savedWebViewState = getArguments().getBundle("savedWebViewState");
+            if (savedWebViewState != null) {
+                mWebViewTbs.restoreState(savedWebViewState);
             } else {
-                mEWebView.onRefresh();
+                loadUrl();
             }
-        });
-        Bundle savedWebViewState = getArguments().getBundle("savedWebViewState");
-        if (savedWebViewState != null) {
-            mWebView.restoreState(savedWebViewState);
         } else {
-            loadUrl();
+            mWebView = mEWebView.getWebView();
+            mEWebView.getSwipeRefreshLayout().setOnRefreshListener(() -> {
+                if (TextUtils.equals(mWebView.getUrl(), mWebData.homepage)) {
+                    loadUrl();
+                } else {
+                    mEWebView.onRefresh();
+                }
+            });
+            Bundle savedWebViewState = getArguments().getBundle("savedWebViewState");
+            if (savedWebViewState != null) {
+                mWebView.restoreState(savedWebViewState);
+            } else {
+                loadUrl();
+            }
         }
     }
 
@@ -113,7 +139,11 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
             mWebData = new WebData();
             Pref.setWebData(gson.toJson(mWebData));
         }
-        mWebView.loadUrl(mWebData.homepage);
+        if (mEWebView.getIsTbs()) {
+            mWebViewTbs.loadUrl(mWebData.homepage);
+        } else {
+            mWebView.loadUrl(mWebData.homepage);
+        }
     }
 
 
@@ -121,15 +151,28 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
     public void onPause() {
         super.onPause();
         Bundle savedWebViewState = new Bundle();
-        mWebView.saveState(savedWebViewState);
+        if (mEWebView.getIsTbs()) {
+            mWebViewTbs.saveState(savedWebViewState);
+        } else {
+            mWebView.saveState(savedWebViewState);
+        }
         getArguments().putBundle("savedWebViewState", savedWebViewState);
     }
 
     @Override
     public boolean onBackPressed(Activity activity) {
-        if (mWebView.canGoBack()) {
-            mWebView.goBack();
-            return true;
+        if (mEWebView.getIsTbs()) {
+            if (mWebViewTbs.canGoBack()) {
+                mWebViewTbs.goBack();
+                return true;
+            }
+
+        } else {
+            if (mWebView.canGoBack()) {
+                mWebView.goBack();
+                return true;
+            }
+
         }
         return false;
     }
@@ -181,20 +224,37 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
         if (!isShown()) {
             return;
         }
-        if (event == QueryEvent.CLEAR) {
-            mWebView.clearMatches();
-            mPreviousQuery = null;
-            return;
+        if (mEWebView.getIsTbs()) {
+            if (event == QueryEvent.CLEAR) {
+                mWebViewTbs.clearMatches();
+                mPreviousQuery = null;
+                return;
+            }
+            if (event.isFindForward()) {
+                mWebViewTbs.findNext(false);
+                return;
+            }
+            if (event.getQuery().equals(mPreviousQuery)) {
+                mWebViewTbs.findNext(true);
+                return;
+            }
+            mWebViewTbs.findAllAsync(event.getQuery());
+        } else {
+            if (event == QueryEvent.CLEAR) {
+                mWebView.clearMatches();
+                mPreviousQuery = null;
+                return;
+            }
+            if (event.isFindForward()) {
+                mWebView.findNext(false);
+                return;
+            }
+            if (event.getQuery().equals(mPreviousQuery)) {
+                mWebView.findNext(true);
+                return;
+            }
+            mWebView.findAllAsync(event.getQuery());
         }
-        if (event.isFindForward()) {
-            mWebView.findNext(false);
-            return;
-        }
-        if (event.getQuery().equals(mPreviousQuery)) {
-            mWebView.findNext(true);
-            return;
-        }
-        mWebView.findAllAsync(event.getQuery());
         mPreviousQuery = event.getQuery();
     }
 
@@ -212,7 +272,250 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
             mWebData = new WebData();
             Pref.setWebData(gson.toJson(mWebData));
         }
-        switch (pos) {
+        if (mEWebView.getIsTbs()) {
+            switch (pos) {
+                case 0:
+                    mWebViewTbs.loadUrl(mWebData.homepage);
+                    break;
+                case 1:
+                    mWebViewTbs.loadUrl(mWebData.homepage2);
+                    break;
+                case 2:
+                    new MaterialDialog.Builder(requireContext())
+                            .title("当前页：" + mWebViewTbs.getTitle() + "（设置当前页面或点击打开书签：）")
+                            .positiveText("添加收藏")
+                            .negativeText("设为主页1")
+                            .neutralText("设为主页2")
+                            .items(mWebData.bookmarkLabels)
+                            .itemsCallback(new MaterialDialog.ListCallback() {
+                                @Override
+                                public void onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
+                                    mWebViewTbs.loadUrl(mWebData.bookmarks[which]);
+                                    dialog.dismiss();
+                                }
+                            })
+                            .onPositive(new MaterialDialog.SingleButtonCallback() {
+                                @Override
+                                public void onClick(MaterialDialog dialog, DialogAction which) {
+                                    String[] strList = new String[mWebData.bookmarks.length + 1];
+                                    String[] strLabelList = new String[mWebData.bookmarks.length + 1];
+                                    int j = 0;
+                                    for (int i = 0; i < mWebData.bookmarks.length; i++) {
+                                        strList[j] = mWebData.bookmarks[i];
+                                        strLabelList[j] = mWebData.bookmarkLabels[i];
+                                        j += 1;
+                                    }
+                                    strList[j] = mWebViewTbs.getOriginalUrl();
+                                    strLabelList[j] = mWebViewTbs.getTitle();
+                                    mWebData.bookmarks = strList;
+                                    mWebData.bookmarkLabels = strLabelList;
+                                    Pref.setWebData(gson.toJson(mWebData));
+                                    dialog.dismiss();
+                                }
+                            })
+                            .onNegative(new MaterialDialog.SingleButtonCallback() {
+                                @Override
+                                public void onClick(MaterialDialog dialog, DialogAction which) {
+                                    mWebData.homepage = mWebViewTbs.getOriginalUrl();
+                                    Pref.setWebData(gson.toJson(mWebData));
+                                    Toast.makeText(getContext(), "设置为主页1：" + mWebViewTbs.getTitle(), Toast.LENGTH_LONG).show();
+                                    dialog.dismiss();
+                                }
+                            })
+                            .onNeutral(new MaterialDialog.SingleButtonCallback() {
+                                @Override
+                                public void onClick(MaterialDialog dialog, DialogAction which) {
+                                    mWebData.homepage2 = mWebViewTbs.getOriginalUrl();
+                                    Pref.setWebData(gson.toJson(mWebData));
+                                    Toast.makeText(getContext(), "设置为主页2：" + mWebViewTbs.getTitle(), Toast.LENGTH_LONG).show();
+                                    dialog.dismiss();
+                                }
+                            })
+                            .show();
+                    break;
+                case 3:
+                    mEWebView.switchRescale();
+                    if (mEWebView.getIsRescale()) {
+                        mWebViewTbs.getSettings().setLoadWithOverviewMode(true);
+                        mWebViewTbs.getSettings().setUserAgentString(mWebData.userAgents[6]);
+                    } else {
+                        mWebViewTbs.getSettings().setLoadWithOverviewMode(false);
+                        mWebViewTbs.getSettings().setUserAgentString(mWebData.userAgents[1]);
+                    }
+                    mWebViewTbs.reload();
+                    break;
+                case 4:
+                    mEWebView.switchConsole();
+                    if (mEWebView.getIsConsole()) {
+                        com.tencent.smtt.sdk.WebView.setWebContentsDebuggingEnabled(true);
+                    } else {
+                        com.tencent.smtt.sdk.WebView.setWebContentsDebuggingEnabled(false);
+                    }
+                    mWebViewTbs.reload();
+                    break;
+                case 5:
+                    EditText et = new EditText(getContext());
+                    new MaterialDialog.Builder(requireContext())
+                            .title(mWebViewTbs.getOriginalUrl())
+                            .customView(et, false)
+                            .positiveText("打开")
+                            .negativeText("复制网址")
+                            .neutralText("搜索")
+                            .onNeutral(new MaterialDialog.SingleButtonCallback() {
+                                @Override
+                                public void onClick(MaterialDialog dialog, DialogAction which) {
+                                    new MaterialDialog.Builder(requireContext())
+                                            .title("选择搜索引擎：")
+                                            .negativeText("取消")
+                                            .items(mWebData.searchEngineLabels)
+                                            .itemsCallback(new MaterialDialog.ListCallback() {
+                                                @Override
+                                                public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
+                                                    mWebViewTbs.loadUrl(mWebData.searchEngines[which] + et.getText().toString());
+                                                    dialog.dismiss();
+                                                }
+                                            })
+                                            .show();
+                                    dialog.dismiss();
+                                }
+                            })
+                            .onPositive(new MaterialDialog.SingleButtonCallback() {
+                                @Override
+                                public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                    mWebViewTbs.loadUrl(et.getText().toString());
+                                    dialog.dismiss();
+                                }
+                            })
+                            .onNegative(new MaterialDialog.SingleButtonCallback() {
+                                @Override
+                                public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                    ClipboardManager mClipboardManager = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                                    ClipData mClipData = ClipData.newPlainText("Label", mWebViewTbs.getOriginalUrl());
+                                    mClipboardManager.setPrimaryClip(mClipData);
+                                    Toast.makeText(getContext(), "当前网址已复制到剪贴板！", Toast.LENGTH_SHORT).show();
+                                    dialog.dismiss();
+                                }
+                            })
+                            .show();
+                    break;
+                case 6:
+                    mWebViewTbs.loadUrl(
+                            "file://" + requireContext().getExternalFilesDir(
+                                    null
+                            ).getPath() + File.separator + "html_source.txt"
+                    );
+                    break;
+                case 7:
+                    HashMap<String, Integer> images = new HashMap<String, Integer>();
+                    // 下面几句设置各文件类型的图标， 需要你先把图标添加到资源文件夹
+                    images.put(sRoot, R.drawable.filedialog_root);    // 根目录图标
+                    images.put(sParent, R.drawable.filedialog_folder_up);    //返回上一层的图标
+                    images.put(sFolder, R.drawable.filedialog_folder);    //文件夹图标
+                    images.put(sEmpty, R.drawable.filedialog_file);
+                    mDialog = createDialog(getActivity(), "打开本地文档", new CallbackBundle() {
+                                @Override
+                                public void callback(Bundle bundle) {
+                                    String filepath = bundle.getString("filepath").toLowerCase();
+                                    if (filepath.endsWith(".html") || filepath.endsWith(".htm") || filepath.endsWith(
+                                            ".xhtml"
+                                    ) || filepath.endsWith(
+                                            ".xml"
+                                    ) || filepath.endsWith(
+                                            ".mhtml"
+                                    ) || filepath.endsWith(
+                                            ".mht"
+                                    ) || filepath.endsWith(
+                                            ".txt"
+                                    ) || filepath.endsWith(
+                                            ".js"
+                                    ) || filepath.endsWith(
+                                            ".log"
+                                    )
+                                    ) {
+                                        mWebViewTbs.loadUrl("file://" + filepath);
+                                    } else {
+                                        if (mEWebView.getIsTbs()) {
+                                            HashMap<String, String> extraParams = new HashMap<String, String>(); //define empty hashmap
+                                            extraParams.put("style", "1");
+                                            extraParams.put("local", "true");
+                                            com.tencent.smtt.sdk.QbSdk.openFileReader(
+                                                    getContext(),
+                                                    filepath,
+                                                    extraParams,
+                                                    new com.tencent.smtt.sdk.ValueCallback<String>() {
+                                                        @Override
+                                                        public void onReceiveValue(String it) {
+                                                            Log.i("TAG", "OpenFile Callback: $it");
+                                                            if ("openFileReader open in QB" == it
+                                                                    || "filepath error" == it
+                                                                    || "TbsReaderDialogClosed" == it
+                                                                    || "fileReaderClosed" == it
+                                                            ) {
+                                                                com.tencent.smtt.sdk.QbSdk.closeFileReader(
+                                                                        getActivity()
+                                                                );
+                                                            }
+                                                        }
+                                                    });
+                                        } else {
+                                            Toast.makeText(getContext(), "系统Web内核不支持查看该格式文档！", Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                }
+                            },
+                            "html;htm;xhtml;xml;mhtml;mht;doc;docx;ppt;pptx;xls;xlsx;pdf;txt;js;log;epub",
+                            images);
+                    mDialog.show();
+                    break;
+                default:
+                    new MaterialDialog.Builder(requireContext())
+                            .title("请选择书签：")
+                            .positiveText("删除(多选)")
+                            .negativeText("取消")
+                            .items(mWebData.bookmarkLabels)
+                            .itemsCallbackMultiChoice(null, new MaterialDialog.ListCallbackMultiChoice() {
+                                @Override
+                                public boolean onSelection(MaterialDialog dialog, Integer[] which, CharSequence[] text) {
+                                    return true;
+                                }
+                            })
+                            .onPositive(new MaterialDialog.SingleButtonCallback() {
+                                @Override
+                                public void onClick(MaterialDialog dialog, DialogAction which) {
+                                    if (Objects.requireNonNull(dialog.getSelectedIndices()).length >= mWebData.bookmarks.length) {
+                                        mWebData.bookmarks = new String[]{};
+                                        mWebData.bookmarkLabels = new String[]{};
+                                        Pref.setWebData(gson.toJson(mWebData));
+                                    } else if (Objects.requireNonNull(dialog.getSelectedIndices()).length > 0) {
+                                        String[] strList = new String[mWebData.bookmarks.length - dialog.getSelectedIndices().length];
+                                        String[] strLabelList = new String[mWebData.bookmarks.length - dialog.getSelectedIndices().length];
+                                        int j = 0;
+                                        for (int i = 0; i < mWebData.bookmarks.length; i++) {
+                                            boolean flag = true;
+                                            for (Integer index : dialog.getSelectedIndices()) {
+                                                if (i == index) {
+                                                    flag = false;
+                                                    break;
+                                                }
+                                            }
+                                            if (flag) {
+                                                strList[j] = mWebData.bookmarks[i];
+                                                strLabelList[j] = mWebData.bookmarkLabels[i];
+                                                j += 1;
+                                            }
+                                        }
+                                        mWebData.bookmarks = strList;
+                                        mWebData.bookmarkLabels = strLabelList;
+                                        Pref.setWebData(gson.toJson(mWebData));
+                                    }
+                                    dialog.dismiss();
+                                }
+                            })
+                            .show();
+                    break;
+            }
+        } else {
+            switch (pos) {
                 case 0:
                     mWebView.loadUrl(mWebData.homepage);
                     break;
@@ -373,7 +676,32 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                                     ) {
                                         mWebView.loadUrl("file://" + filepath);
                                     } else {
-                                        Toast.makeText(getContext(), "系统Web内核不支持查看该格式文档！", Toast.LENGTH_LONG).show();
+                                        if (mEWebView.getIsTbs()) {
+                                            HashMap<String, String> extraParams = new HashMap<String, String>(); //define empty hashmap
+                                            extraParams.put("style", "1");
+                                            extraParams.put("local", "true");
+                                            com.tencent.smtt.sdk.QbSdk.openFileReader(
+                                                    getContext(),
+                                                    filepath,
+                                                    extraParams,
+                                                    new com.tencent.smtt.sdk.ValueCallback<String>() {
+                                                        @Override
+                                                        public void onReceiveValue(String it) {
+                                                            Log.i("TAG", "OpenFile Callback: $it");
+                                                            if ("openFileReader open in QB" == it
+                                                                    || "filepath error" == it
+                                                                    || "TbsReaderDialogClosed" == it
+                                                                    || "fileReaderClosed" == it
+                                                            ) {
+                                                                com.tencent.smtt.sdk.QbSdk.closeFileReader(
+                                                                        getActivity()
+                                                                );
+                                                            }
+                                                        }
+                                                    });
+                                        } else {
+                                            Toast.makeText(getContext(), "系统Web内核不支持查看该格式文档！", Toast.LENGTH_LONG).show();
+                                        }
                                     }
                                 }
                             },
@@ -428,6 +756,7 @@ public class DocsFragment extends ViewPagerFragment implements BackPressedHandle
                             .show();
                     break;
             }
+        }
     }
 
     public Dialog createDialog(Context context, String title, CallbackBundle callback, String suffix, Map<String, Integer> images, String rootDir) {

@@ -70,7 +70,7 @@
                     android:background="?selectableItemBackgroundBorderless"
                     android:padding="6dp"
                     android:src="@drawable/ic_ali_fx"
-                    android:tint="#222329"/>
+                    app:tint="#222329" />
 
                 <org.autojs.autojs.ui.edit.completion.CodeCompletionBar
                     android:id="@+id/code_completion_bar"
