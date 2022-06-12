@@ -15,8 +15,8 @@ import java.util.List;
 public class Paddle {
     private Predictor mPredictor = new Predictor();
 
-    public boolean initOcr(Context context, int cpuThreadNum, boolean useSlim) {
-        return mPredictor.initOcr(context, cpuThreadNum, useSlim);
+    public void initOcr(Context context, int cpuThreadNum, boolean useSlim) {
+        mPredictor.initOcr(context, cpuThreadNum, useSlim);
     }
 
     public boolean initOcr(Context context, int cpuThreadNum, String myModelPath) {
@@ -34,7 +34,7 @@ public class Paddle {
         if (!mPredictor.isLoaded()) {
             initOcr(GlobalAppContext.get(), cpuThreadNum, useSlim);
         }
-        return mPredictor.runOcr(bitmap);
+        return mPredictor.runOcr(bitmap, 4, true);
     }
 
     public List<OcrResult> ocr(ImageWrapper image, int cpuThreadNum, String myModelPath) {
@@ -48,7 +48,7 @@ public class Paddle {
         if (!mPredictor.isLoaded()) {
             initOcr(GlobalAppContext.get(), cpuThreadNum, myModelPath);
         }
-        return mPredictor.runOcr(bitmap);
+        return mPredictor.runOcr(bitmap, 4, true);
     }
 
     public List<OcrResult> ocr(ImageWrapper image, int cpuThreadNum) {
