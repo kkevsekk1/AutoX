@@ -11,6 +11,9 @@ object Constant {
         const val `7ZIP`="7zip"
         const val TERMINAL_EMULATOR="terminal_emulator"
     }
+    object Assets{
+        const val OCR_MODELS="models"
+    }
     object Permissions {
         const val ACCESSIBILITY_SERVICES = "accessibility_services"
         const val BACKGROUND_START = "background_start"
