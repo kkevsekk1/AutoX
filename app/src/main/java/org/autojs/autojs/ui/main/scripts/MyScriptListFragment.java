@@ -1,12 +1,14 @@
 package org.autojs.autojs.ui.main.scripts;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import androidx.annotation.Nullable;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import com.stardust.app.GlobalAppContext;
+import com.stardust.enhancedfloaty.FloatyService;
 import com.stardust.util.IntentUtil;
 
 import org.androidannotations.annotations.AfterViews;
@@ -14,21 +16,27 @@ import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 import org.autojs.autojs.Pref;
 import org.autojs.autojs.R;
+import org.autojs.autojs.autojs.AutoJs;
 import org.autojs.autojs.external.fileprovider.AppFileProvider;
+import org.autojs.autojs.external.foreground.ForegroundService;
 import org.autojs.autojs.model.explorer.ExplorerDirPage;
 import org.autojs.autojs.model.explorer.Explorers;
 import org.autojs.autojs.model.script.Scripts;
 import org.autojs.autojs.tool.SimpleObserver;
 import org.autojs.autojs.ui.common.ScriptOperations;
 import org.autojs.autojs.ui.explorer.ExplorerView;
+import org.autojs.autojs.ui.floating.FloatyWindowManger;
 import org.autojs.autojs.ui.main.FloatingActionMenu;
 import org.autojs.autojs.ui.main.QueryEvent;
 import org.autojs.autojs.ui.main.ViewPagerFragment;
 import org.autojs.autojs.ui.project.ProjectConfigActivity;
 import org.autojs.autojs.ui.project.ProjectConfigActivity_;
+import org.autojs.autojs.ui.settings.SettingsActivity_;
 import org.autojs.autojs.ui.viewmodel.ExplorerItemList;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+
+import java.util.Objects;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
@@ -76,8 +84,10 @@ public class MyScriptListFragment extends ViewPagerFragment implements FloatingA
                 R.drawable.ic_floating_action_menu_dir,
                 R.drawable.ic_floating_action_menu_file,
                 R.drawable.ic_floating_action_menu_open,
-                R.drawable.ic_project};
-        String[] fabLabs = {"文件夹", "文件", "导入", "项目"};
+                R.drawable.ic_project,
+                R.drawable.ic_ali_settings,
+                R.drawable.ic_ali_exit};
+        String[] fabLabs = {"文件夹", "文件", "导入", "项目", "设置", "退出"};
         mFloatingActionMenu.buildFabs(fabIcons,fabLabs);
         mFloatingActionMenu.setOnFloatingActionButtonClickListener(this);
         if (mFloatingActionMenu.isExpanded()) {
@@ -183,7 +193,18 @@ public class MyScriptListFragment extends ViewPagerFragment implements FloatingA
                         .extra(ProjectConfigActivity.EXTRA_NEW_PROJECT, true)
                         .start();
                 break;
-
+            case 4:
+                startActivity(new Intent(getContext(), SettingsActivity_.class));
+                break;
+            case 5:
+                requireActivity().finish();
+                FloatyWindowManger.hideCircularMenu();
+                ForegroundService.stop(requireContext());
+                requireActivity().stopService(new Intent(getContext(), FloatyService.class));
+                AutoJs.getInstance().getScriptEngineService().stopAll();
+                break;
+            default:
+                break;
         }
     }
 }
