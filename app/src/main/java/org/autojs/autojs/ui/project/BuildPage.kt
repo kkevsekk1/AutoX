@@ -150,6 +150,12 @@ private fun CompileOptionCard(
                     onCheckedChange = { model.isRequired7Zip = it })
                 Text(text = stringResource(id = R.string.text_required_7zip))
             }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(
+                    checked = model.isRequiredDefaultOcrModel,
+                    onCheckedChange = { model.isRequiredDefaultOcrModel = it })
+                Text(text = stringResource(id = R.string.text_required_default_ocr_model))
+            }
             //目前必须为true
             /*Row(verticalAlignment = Alignment.CenterVertically) {
                 Checkbox(

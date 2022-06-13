@@ -43,6 +43,7 @@ class BuildViewModel(private val app: Application) : AndroidViewModel(app) {
     var isRequiredOCR by mutableStateOf(false)
     var isRequired7Zip by mutableStateOf(false)
     var isRequiredTerminalEmulator by mutableStateOf(true)
+    var isRequiredDefaultOcrModel by mutableStateOf(false)
     /* const val ACCESSIBILITY_SERVICES = "accessibility_services"
     const val BACKGROUND_START = "background_start"
     const val DRAW_OVERLAY = "draw_overlay"*/

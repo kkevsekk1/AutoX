@@ -17,7 +17,6 @@ import androidx.compose.ui.Modifier
 import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
 import com.google.accompanist.appcompattheme.AppCompatTheme
-import com.stardust.autojs.core.permission.Permissions
 import com.stardust.autojs.project.ProjectConfigKt
 import com.stardust.autojs.project.ProjectConfigKt.Companion.configFileOfDir
 import com.stardust.autojs.project.ProjectConfigKt.Companion.fromProjectDir
@@ -36,7 +35,6 @@ import org.autojs.autojs.external.fileprovider.AppFileProvider
 import org.autojs.autojs.model.explorer.ExplorerFileItem
 import org.autojs.autojs.model.explorer.Explorers
 import org.autojs.autojs.model.script.ScriptFile
-import org.autojs.autojs.ui.theme.AutoXJsTheme
 import java.io.File
 
 /**
@@ -337,10 +335,14 @@ open class BuildActivity : ComponentActivity(), ApkBuilder.ProgressCallback {
         if (!viewModel.isRequired7Zip) excludeLibraries.add(Constant.Libraries.`7ZIP`)
         if (!viewModel.isRequiredTerminalEmulator) excludeLibraries.add(Constant.Libraries.TERMINAL_EMULATOR)
 
+        val excludeAssets = mutableListOf<String>()
+        if (!viewModel.isRequiredDefaultOcrModel) excludeAssets.add(Constant.Assets.OCR_MODELS)
+
         if (viewModel.projectConfig != null) {
             var appConfig = fromProjectConfig(source!!, viewModel.projectConfig!!)
             // 设置了logo/splashIcon没有保存对应文件的时候
             appConfig.excludeLibraries = excludeLibraries
+            appConfig.excludeAssets = excludeAssets
             if (appConfig.icon == null) {
                 viewModel.iconDrawable?.let {
                     appConfig = appConfig.setIcon { it }

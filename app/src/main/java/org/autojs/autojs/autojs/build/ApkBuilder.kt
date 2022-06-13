@@ -60,7 +60,8 @@ class ApkBuilder(
         var splashText: String? = null,
         var hideLauncher: Boolean = false,
         var serviceDesc: String? = null,
-        var excludeLibraries: MutableList<String> = mutableListOf()
+        var excludeLibraries: MutableList<String> = mutableListOf(),
+        var excludeAssets: MutableList<String> = mutableListOf()
     ) {
 
         fun addExcludeLibrary(library: String) {
@@ -232,6 +233,7 @@ class ApkBuilder(
 
         Log.d(TAG, config.excludeLibraries.toString())
         deleteLibraries(config)
+        deleteAssets(config)
         setScriptFile(config.sourcePath)
         return this
     }
@@ -260,6 +262,12 @@ class ApkBuilder(
                     }
                 }
             }
+        }
+    }
+
+    private fun deleteAssets(config: AppConfig) {
+        config.excludeAssets.forEach { name ->
+            delete(File(mWorkspacePath, "/assets/${name}"))
         }
     }
 
