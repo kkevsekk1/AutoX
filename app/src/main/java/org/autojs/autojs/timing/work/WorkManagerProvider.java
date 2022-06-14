@@ -28,6 +28,11 @@ import androidx.work.WorkManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
+/**
+ * Created by TonyJiangWJ(https://github.com/TonyJiangWJ).
+ * From [TonyJiangWJ/Auto.js](https://github.com/TonyJiangWJ/Auto.js)
+ */
+
 public class WorkManagerProvider extends TimedTaskScheduler implements WorkProvider {
 
     private static final String LOG_TAG = "WorkManagerProvider";

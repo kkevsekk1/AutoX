@@ -1,5 +1,10 @@
 package org.autojs.autojs.timing.work;
 
+/**
+ * Created by TonyJiangWJ(https://github.com/TonyJiangWJ).
+ * From [TonyJiangWJ/Auto.js](https://github.com/TonyJiangWJ/Auto.js)
+ */
+
 public interface WorkProviderConstants {
 
     String ACTIVE_PROVIDER = "ACTIVITY_PROVIDER";

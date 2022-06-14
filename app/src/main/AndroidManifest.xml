@@ -577,7 +577,8 @@
                 <action android:name="com.stardust.autojs.action.task" />
             </intent-filter>
         </receiver>
-        <receiver android:name="org.autojs.autojs.ui.widget.DownloadReceiver">
+        <receiver android:name="org.autojs.autojs.ui.widget.DownloadReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
                 <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED" />
