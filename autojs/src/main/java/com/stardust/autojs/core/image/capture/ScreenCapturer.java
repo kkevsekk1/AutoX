@@ -30,7 +30,10 @@ import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * Created by Stardust on 2017/5/17.
+ * Improvedd by TonyJiangWJ(https://github.com/TonyJiangWJ).
+ * From [TonyJiangWJ/Auto.js](https://github.com/TonyJiangWJ/Auto.js)
  */
+
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 public class ScreenCapturer {
 
@@ -62,7 +65,9 @@ public class ScreenCapturer {
         mScreenDensity = screenDensity;
         mHandler = handler;
         mProjectionManager = (MediaProjectionManager) context.getSystemService(Context.MEDIA_PROJECTION_SERVICE);
-        mMediaProjection = mProjectionManager.getMediaProjection(Activity.RESULT_OK, (Intent) mData.clone());
+        if (mMediaProjection == null) {
+            mMediaProjection = mProjectionManager.getMediaProjection(Activity.RESULT_OK, (Intent) mData.clone());
+        }
         mHandler = handler;
         setOrientation(orientation);
         observeOrientation();
@@ -109,10 +114,9 @@ public class ScreenCapturer {
         if (mVirtualDisplay != null) {
             mVirtualDisplay.release();
         }
-        if (mMediaProjection != null) {
-            mMediaProjection.stop();
+        if (mMediaProjection == null) {
+            mMediaProjection = mProjectionManager.getMediaProjection(Activity.RESULT_OK, (Intent) mData.clone());
         }
-        mMediaProjection = mProjectionManager.getMediaProjection(Activity.RESULT_OK, (Intent) mData.clone());
         int screenHeight = ScreenMetrics.getOrientationAwareScreenHeight(orientation);
         int screenWidth = ScreenMetrics.getOrientationAwareScreenWidth(orientation);
         initVirtualDisplay(screenWidth, screenHeight, mScreenDensity);
@@ -153,7 +157,6 @@ public class ScreenCapturer {
             } catch (Exception e) {
                 mException = e;
             }
-
         }, handler);
     }
 
@@ -189,7 +192,6 @@ public class ScreenCapturer {
         }
         if (mMediaProjection != null) {
             mMediaProjection.stop();
-            mMediaProjection = null;
         }
         if (mVirtualDisplay != null) {
             mVirtualDisplay.release();
