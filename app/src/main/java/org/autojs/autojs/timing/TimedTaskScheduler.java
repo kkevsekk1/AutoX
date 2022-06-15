@@ -22,6 +22,8 @@ import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by Stardust on 2017/11/27.
+ * Improvedd by TonyJiangWJ(https://github.com/TonyJiangWJ).
+ * From [TonyJiangWJ/Auto.js](https://github.com/TonyJiangWJ/Auto.js)
  */
 
 public class TimedTaskScheduler {

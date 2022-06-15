@@ -4,6 +4,11 @@ import android.content.Context;
 
 import org.autojs.autojs.timing.TimedTask;
 
+/**
+ * Created by TonyJiangWJ(https://github.com/TonyJiangWJ).
+ * From [TonyJiangWJ/Auto.js](https://github.com/TonyJiangWJ/Auto.js)
+ */
+
 public interface WorkProvider {
 
     /**

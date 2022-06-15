@@ -1,5 +1,6 @@
 package com.stardust.autojs.core.image.capture;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -14,10 +15,11 @@ import android.media.projection.MediaProjectionManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import android.util.Log;
 import android.view.OrientationEventListener;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 import com.stardust.autojs.runtime.exception.ScriptException;
 import com.stardust.autojs.runtime.exception.ScriptInterruptedException;
@@ -28,13 +30,16 @@ import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * Created by Stardust on 2017/5/17.
+ * Improvedd by TonyJiangWJ(https://github.com/TonyJiangWJ).
+ * From [TonyJiangWJ/Auto.js](https://github.com/TonyJiangWJ/Auto.js)
  */
+
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 public class ScreenCapturer {
 
     public static final int ORIENTATION_AUTO = Configuration.ORIENTATION_UNDEFINED;
-    public static final int ORIENTATION_LANDSCAPE = Configuration.ORIENTATION_LANDSCAPE ;
-    public static final int ORIENTATION_PORTRAIT = Configuration.ORIENTATION_PORTRAIT ;
+    public static final int ORIENTATION_LANDSCAPE = Configuration.ORIENTATION_LANDSCAPE;
+    public static final int ORIENTATION_PORTRAIT = Configuration.ORIENTATION_PORTRAIT;
 
 
     private static final String LOG_TAG = "ScreenCapturer";
@@ -60,7 +65,9 @@ public class ScreenCapturer {
         mScreenDensity = screenDensity;
         mHandler = handler;
         mProjectionManager = (MediaProjectionManager) context.getSystemService(Context.MEDIA_PROJECTION_SERVICE);
-        mMediaProjection = mProjectionManager.getMediaProjection(Activity.RESULT_OK, (Intent) mData.clone());
+        if (mMediaProjection == null) {
+            mMediaProjection = mProjectionManager.getMediaProjection(Activity.RESULT_OK, (Intent) mData.clone());
+        }
         mHandler = handler;
         setOrientation(orientation);
         observeOrientation();
@@ -75,7 +82,7 @@ public class ScreenCapturer {
                     mDetectedOrientation = orientation;
                     try {
                         refreshVirtualDisplay(orientation);
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         e.printStackTrace();
                         mException = e;
                     }
@@ -107,16 +114,16 @@ public class ScreenCapturer {
         if (mVirtualDisplay != null) {
             mVirtualDisplay.release();
         }
-        if (mMediaProjection != null) {
-            mMediaProjection.stop();
+        if (mMediaProjection == null) {
+            mMediaProjection = mProjectionManager.getMediaProjection(Activity.RESULT_OK, (Intent) mData.clone());
         }
-        mMediaProjection = mProjectionManager.getMediaProjection(Activity.RESULT_OK, (Intent) mData.clone());
         int screenHeight = ScreenMetrics.getOrientationAwareScreenHeight(orientation);
         int screenWidth = ScreenMetrics.getOrientationAwareScreenWidth(orientation);
         initVirtualDisplay(screenWidth, screenHeight, mScreenDensity);
         startAcquireImageLoop();
     }
 
+    @SuppressLint("WrongConstant")
     private void initVirtualDisplay(int width, int height, int screenDensity) {
         mImageReader = ImageReader.newInstance(width, height, PixelFormat.RGBA_8888, 3);
         mVirtualDisplay = mMediaProjection.createVirtualDisplay(LOG_TAG,
@@ -150,7 +157,6 @@ public class ScreenCapturer {
             } catch (Exception e) {
                 mException = e;
             }
-
         }, handler);
     }
 
@@ -186,7 +192,6 @@ public class ScreenCapturer {
         }
         if (mMediaProjection != null) {
             mMediaProjection.stop();
-            mMediaProjection = null;
         }
         if (mVirtualDisplay != null) {
             mVirtualDisplay.release();

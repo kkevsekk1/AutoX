@@ -24,6 +24,11 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * Created by TonyJiangWJ(https://github.com/TonyJiangWJ).
+ * From [TonyJiangWJ/Auto.js](https://github.com/TonyJiangWJ/Auto.js)
+ */
+
 public class AlarmManagerProvider extends BroadcastReceiver implements WorkProvider {
 
     private Context context;
