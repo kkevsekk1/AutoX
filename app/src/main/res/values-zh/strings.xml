@@ -28,5 +28,6 @@
     <string name="text_file_manager_permission">所有文件访问权限</string>
     <string name="text_fullscreen">切换全屏模式1</string>
     <string name="text_drawer_right">打开右侧菜单</string>
+    <string name="switch_fullscreen">切换全屏模式</string>
 
 </resources>

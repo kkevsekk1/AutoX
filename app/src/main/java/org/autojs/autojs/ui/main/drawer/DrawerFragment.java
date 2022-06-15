@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +34,9 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.CustomViewTarget;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.tabs.TabLayout;
 import com.stardust.app.AppOpsKt;
 import com.stardust.app.GlobalAppContext;
 import com.stardust.enhancedfloaty.FloatyService;
@@ -189,6 +193,7 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
                 new DrawerMenuItem(R.drawable.ic_backup_black_48dp, R.string.text_auto_back, R.string.key_auto_back, null),
 
                 new DrawerMenuGroup(R.string.text_others),
+                new DrawerMenuItem(R.drawable.ic_fullscreen, R.string.switch_fullscreen, this::switchFullscreen),
                 new DrawerMenuItem(R.drawable.ic_personalize, R.string.regist, this::regist),
                 mConnectionItem
                 // new DrawerMenuItem(R.drawable.ic_night_mode, R.string.text_night_mode, R.string.key_night_mode, this::toggleNightMode),
@@ -282,6 +287,29 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
 
     void toggleNightMode(DrawerMenuItemViewHolder holder) {
         ((BaseActivity) getActivity()).setNightModeEnabled(holder.getSwitchCompat().isChecked());
+    }
+
+    void switchFullscreen(DrawerMenuItemViewHolder holder) {
+        AppBarLayout mAppBarLayout = requireActivity().findViewById(R.id.app_bar);
+        TabLayout mTabLayout = requireActivity().findViewById(R.id.tab);
+        FloatingActionButton mFab = requireActivity().findViewById(R.id.fab);
+        if (mAppBarLayout.getVisibility() != View.GONE) {
+            mTabLayout.setVisibility(View.GONE);
+            mAppBarLayout.setVisibility(View.GONE);
+            mFab.hide();
+            requireActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            requireActivity().getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE);
+        } else {
+            mTabLayout.setVisibility(View.VISIBLE);
+            mAppBarLayout.setVisibility(View.VISIBLE);
+            mFab.show();
+            requireActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            requireActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        }
     }
 
     @SuppressLint("CheckResult")

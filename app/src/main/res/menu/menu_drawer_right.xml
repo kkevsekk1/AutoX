@@ -19,7 +19,7 @@
     <item
         android:id="@+id/switch_fullscreen"
         android:icon="@drawable/ic_fullscreen"
-        android:title="切换全屏模式2"
+        android:title="@string/switch_fullscreen"
          />
     <item
         android:id="@+id/switch_task_manager"
