@@ -16,6 +16,7 @@ import org.autojs.autojs.build.ApkKeyStore
 class BuildViewModel(private val app: Application) : AndroidViewModel(app) {
     var sourcePath by mutableStateOf("")
     var outputPath by mutableStateOf("")
+    var customOcrModelPath by mutableStateOf("")
     var appName by mutableStateOf("")
     var packageName by mutableStateOf("")
     var versionName by mutableStateOf("1.0.0")
@@ -44,8 +45,5 @@ class BuildViewModel(private val app: Application) : AndroidViewModel(app) {
     var isRequired7Zip by mutableStateOf(false)
     var isRequiredTerminalEmulator by mutableStateOf(true)
     var isRequiredDefaultOcrModel by mutableStateOf(false)
-    /* const val ACCESSIBILITY_SERVICES = "accessibility_services"
-    const val BACKGROUND_START = "background_start"
-    const val DRAW_OVERLAY = "draw_overlay"*/
     var projectConfig: ProjectConfigKt? = null
 }

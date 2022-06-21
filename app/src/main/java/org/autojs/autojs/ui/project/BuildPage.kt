@@ -36,6 +36,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
@@ -412,7 +413,7 @@ private fun FileCard(model: BuildViewModel) {
                 .padding(24.dp)
         ) {
             Text(text = stringResource(id = R.string.text_file))
-            Row(Modifier.fillMaxWidth()) {
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                 MyTextField(
                     value = model.sourcePath,
                     onValueChange = { model.sourcePath = it },
@@ -431,7 +432,7 @@ private fun FileCard(model: BuildViewModel) {
                     Text(text = stringResource(id = R.string.text_select))
                 }
             }
-            Row(Modifier.fillMaxWidth()) {
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                 MyTextField(
                     value = model.outputPath,
                     onValueChange = { model.outputPath = it },
@@ -443,6 +444,24 @@ private fun FileCard(model: BuildViewModel) {
                         context = context,
                         outputPath = model.outputPath,
                         onResult = { model.outputPath = it.absolutePath },
+                    )
+                }) {
+                    Text(text = stringResource(id = R.string.text_select))
+                }
+            }
+
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                MyTextField(
+                    value = model.customOcrModelPath,
+                    onValueChange = { model.customOcrModelPath = it },
+                    label = { Text(text = stringResource(id = R.string.text_custom_ocr_model_path)) },
+                    modifier = Modifier.weight(1f),
+                )
+                TextButton(onClick = {
+                    selectCustomOcrModelPath(
+                        context = context,
+                        scriptPath = model.sourcePath,
+                        onResult = { model.customOcrModelPath = it.absolutePath },
                     )
                 }) {
                     Text(text = stringResource(id = R.string.text_select))
@@ -575,6 +594,18 @@ private fun selectSourceFilePath(context: Context, scriptPath: String, onResult:
     val initialDir = File(scriptPath).parent
     FileChooserDialogBuilder(context)
         .title(R.string.text_source_file_path)
+        .dir(
+            Environment.getExternalStorageDirectory().path,
+            initialDir ?: Pref.getScriptDirPath()
+        )
+        .singleChoice { file: PFile -> onResult(file) }
+        .show()
+}
+
+private fun selectCustomOcrModelPath(context: Context, scriptPath: String, onResult: (File) -> Unit) {
+    val initialDir = File(scriptPath).parent
+    FileChooserDialogBuilder(context)
+        .title(R.string.text_custom_ocr_model_path)
         .dir(
             Environment.getExternalStorageDirectory().path,
             initialDir ?: Pref.getScriptDirPath()

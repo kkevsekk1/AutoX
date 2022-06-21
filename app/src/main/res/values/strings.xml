@@ -496,5 +496,6 @@
     <string name="text_drawer_right">打开右侧菜单</string>
     <string name="text_required_default_ocr_model">打包默认OCR训练模型</string>
     <string name="switch_fullscreen">切换全屏模式</string>
+    <string name="text_custom_ocr_model_path">打包自定义OCR模型目录</string>
 
 </resources>

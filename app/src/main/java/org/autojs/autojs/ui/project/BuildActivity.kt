@@ -336,13 +336,17 @@ open class BuildActivity : ComponentActivity(), ApkBuilder.ProgressCallback {
         if (!viewModel.isRequiredTerminalEmulator) excludeLibraries.add(Constant.Libraries.TERMINAL_EMULATOR)
 
         val excludeAssets = mutableListOf<String>()
-        if (!viewModel.isRequiredDefaultOcrModel) excludeAssets.add(Constant.Assets.OCR_MODELS)
+        if (!viewModel.isRequiredDefaultOcrModel) {
+            excludeAssets.add(Constant.Assets.OCR_MODELS + "/ocr_v2_for_cpu")
+            excludeAssets.add(Constant.Assets.OCR_MODELS + "/ocr_v2_for_cpu(slim)")
+        }
 
         if (viewModel.projectConfig != null) {
             var appConfig = fromProjectConfig(source!!, viewModel.projectConfig!!)
             // 设置了logo/splashIcon没有保存对应文件的时候
             appConfig.excludeLibraries = excludeLibraries
             appConfig.excludeAssets = excludeAssets
+            appConfig.customOcrModelPath = viewModel.customOcrModelPath
             if (appConfig.icon == null) {
                 viewModel.iconDrawable?.let {
                     appConfig = appConfig.setIcon { it }
@@ -365,7 +369,9 @@ open class BuildActivity : ComponentActivity(), ApkBuilder.ProgressCallback {
             versionName = viewModel.versionName,
             splashText = viewModel.splashText,
             serviceDesc = viewModel.serviceDesc,
-            excludeLibraries = excludeLibraries
+            excludeLibraries = excludeLibraries,
+            excludeAssets=excludeAssets,
+            customOcrModelPath = viewModel.customOcrModelPath
         ).apply {
             viewModel.iconDrawable?.let {
                 setIcon { it }
