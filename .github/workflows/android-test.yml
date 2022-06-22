@@ -1,5 +1,12 @@
 name: Android CI test
-on: [ push,pull_request ]
+on:
+  push:
+    paths-ignore:
+      - "Readme.md"
+  pull_request:
+    paths-ignore:
+      - "Readme.md"
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -15,5 +22,3 @@ jobs:
           version: 1.6.20
       - name: Build with Gradle
         run: chmod 777 ./gradlew && ./gradlew :inrt:assemble &&  ./gradlew inrt:cp2APP && ./gradlew :app:assembleRelease
-
-
