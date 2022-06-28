@@ -1,5 +1,6 @@
 name: Android CI test
 on:
+  workflow_dispatch:
   push:
     paths-ignore:
       - "Readme.md"
