@@ -1,5 +1,8 @@
 package com.stardust.autojs.core.http;
 
+import androidx.annotation.NonNull;
+
+import java.io.IOException;
 import java.net.SocketTimeoutException;
 import java.util.Collections;
 import java.util.concurrent.TimeUnit;
@@ -15,51 +18,34 @@ import okhttp3.Response;
 
 public class MutableOkHttp extends OkHttpClient {
 
-    private OkHttpClient mOkHttpClient;
     private int mMaxRetries = 3;
     private long mTimeout = 30 * 1000;
-    private Interceptor mRetryInterceptor = chain -> {
+
+    // okhttp3.Interceptor
+    public Interceptor mRetryInterceptor = MutableOkHttp.this::retryResponse;
+
+    @NonNull
+    private Response retryResponse(Interceptor.Chain chain) throws IOException {
         Request request = chain.request();
-        Response response = null;
         int tryCount = 0;
-        do {
-            boolean succeed;
-            try {
-                response = chain.proceed(request);
-                succeed = response.isSuccessful();
-            } catch (SocketTimeoutException e) {
-                succeed = false;
-                if (tryCount >= getMaxRetries()) {
-                    throw e;
-                }
-            }
-            if (succeed || tryCount >= getMaxRetries()) {
-                return response;
-            }
+        Response response = chain.proceed(request);
+        while (!response.isSuccessful() && tryCount < getMaxRetries()) {
             tryCount++;
-        } while (true);
+            response.close();
+            response = chain.proceed(request);
+        }
+        return response;
     };
 
-    public MutableOkHttp() {
-        mOkHttpClient = newClient(new OkHttpClient.Builder());
-    }
+    public OkHttpClient mOkHttpClient = new OkHttpClient.Builder().readTimeout(getTimeout(), TimeUnit.MILLISECONDS).writeTimeout(getTimeout(), TimeUnit.MILLISECONDS).connectTimeout(getTimeout(), TimeUnit.MILLISECONDS).addInterceptor(this.mRetryInterceptor).build();
 
     public OkHttpClient client() {
         return mOkHttpClient;
     }
 
-    protected OkHttpClient newClient(Builder builder) {
-        builder.readTimeout(getTimeout(), TimeUnit.MILLISECONDS)
-                .writeTimeout(getTimeout(), TimeUnit.MILLISECONDS)
-                .connectTimeout(getTimeout(), TimeUnit.MILLISECONDS);
-        for (Interceptor interceptor : getInterceptors()) {
-            builder.addInterceptor(interceptor);
-        }
+    public OkHttpClient newClient(OkHttpClient.Builder builder) {
+        builder.readTimeout(getTimeout(), TimeUnit.MILLISECONDS).writeTimeout(getTimeout(), TimeUnit.MILLISECONDS).connectTimeout(getTimeout(), TimeUnit.MILLISECONDS);
         return builder.build();
-    }
-
-    public Iterable<? extends Interceptor> getInterceptors() {
-        return Collections.singletonList(mRetryInterceptor);
     }
 
     public int getMaxRetries() {
