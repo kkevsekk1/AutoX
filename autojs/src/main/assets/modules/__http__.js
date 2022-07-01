@@ -1,6 +1,13 @@
 module.exports = function (runtime, scope) {
-    importPackage(Packages["okhttp3"]);
-    importClass(com.stardust.autojs.core.http.MutableOkHttp);
+    var okhttp3 = Packages["okhttp3"];
+    var MutableOkHttp = com.stardust.autojs.core.http.MutableOkHttp;
+    var Request = okhttp3.Request;
+    var RequestBody = okhttp3.RequestBody;
+    var MultipartBody = okhttp3.MultipartBody;
+    var MediaType = okhttp3.MediaType;
+    var FormBody = okhttp3.FormBody;
+    var Callback = okhttp3.Callback;
+    var $files = scope.$files;
     var http = {};
 
     http.__okhttp__ = new MutableOkHttp();
@@ -41,12 +48,19 @@ module.exports = function (runtime, scope) {
 
     http.request = function (url, options, callback) {
         var cont = null;
+        var disposable = null;
         if (!callback && ui.isUiThread() && continuation.enabled) {
             cont = continuation.create();
         }
         var call = http.client().newCall(http.buildRequest(url, options));
         if (!callback && !cont) {
-            return wrapResponse(call.execute());
+            disposable = threads.disposable();
+            callback = function (res, ex) {
+                disposable.setAndNotify({
+                    error: ex,
+                    response: res
+                });
+            }
         }
         call.enqueue(new Callback({
             onResponse: function (call, res) {
@@ -62,6 +76,19 @@ module.exports = function (runtime, scope) {
         if (cont) {
             return cont.await();
         }
+        if (disposable) {
+            try {
+                var result = disposable.blockedGet(http.__okhttp__.timeout);
+                if (result.error) {
+                    throw result.error;
+                }
+                return result.response;
+            } catch (e) {
+                call.cancel();
+                throw e;
+            }
+        }
+
     }
 
     http.buildRequest = function (url, options) {
@@ -106,9 +133,9 @@ module.exports = function (runtime, scope) {
                 mimeType = value[1]
                 path = value[2];
             }
-            var file = new com.stardust.pio.PFile(path);
+            var file = new java.io.File(path);
             fileName = fileName || file.getName();
-            mimeType = mimeType || parseMimeType(file.getExtension());
+            mimeType = mimeType || parseMimeType($files.getExtension(fileName));
             builder.addFormDataPart(key, fileName, RequestBody.create(MediaType.parse(mimeType), file));
         }
         return builder.build();
