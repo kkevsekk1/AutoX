@@ -1,4 +1,5 @@
 package com.stardust.concurrent;
+import java.util.concurrent.TimeoutException;
 
 /**
  * Created by Stardust on 2017/10/28.
@@ -21,6 +22,23 @@ public class VolatileDispose<T> {
         }
         return mValue;
     }
+    
+    public T blockedGet(long j) {
+        synchronized (this) {
+            if (this.mValue != null) {
+                return this.mValue;
+            }
+            try {
+                wait(j);
+                if (this.mValue != null) {
+                    return this.mValue;
+                }
+                throw new TimeoutException();
+            } catch (InterruptedException | TimeoutException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }    
 
     public T blockedGetOrThrow(Class<? extends RuntimeException> exception) {
         synchronized (this) {
