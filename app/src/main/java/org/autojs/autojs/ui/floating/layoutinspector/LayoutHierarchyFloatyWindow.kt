@@ -36,6 +36,7 @@ import com.stardust.enhancedfloaty.FloatyService
 import com.stardust.view.accessibility.NodeInfo
 import org.autojs.autojs.R
 import org.autojs.autojs.ui.codegeneration.CodeGenerateDialog
+import org.autojs.autojs.ui.compose.theme.AutoXJsTheme
 import org.autojs.autojs.ui.floating.FloatyWindowManger
 import org.autojs.autojs.ui.floating.FullScreenFloatyWindow
 import org.autojs.autojs.ui.floating.MyLifecycleOwner
@@ -69,7 +70,7 @@ open class LayoutHierarchyFloatyWindow(private val mRootNode: NodeInfo) : FullSc
         }
 
         view.setContent {
-            AppCompatTheme {
+            AutoXJsTheme {
                 Content()
             }
         }

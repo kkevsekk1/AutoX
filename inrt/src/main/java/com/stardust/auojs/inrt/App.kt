@@ -116,7 +116,7 @@ class App : Application() {
             { context, intent ->
                 Log.d(TAG, "foregroundNotificationClick: ");
                 val splashActivityintent = Intent(context, ScriptExecuteActivity::class.java)
-                splashActivityintent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
+                splashActivityintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK );
                 context!!.startActivity(splashActivityintent)
             }
             KeepLive.startWork(
@@ -133,9 +133,9 @@ class App : Application() {
     }
 
     private fun showNotification(context: Context) {
-        var manager: NotificationManager =
+        val manager: NotificationManager =
             context.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-        var builder: Notification.Builder = Notification.Builder(context)
+        val builder: Notification.Builder = Notification.Builder(context)
         builder.setWhen(System.currentTimeMillis())
             .setOngoing(true)
             .setSmallIcon(R.mipmap.ic_launcher)
@@ -143,15 +143,14 @@ class App : Application() {
             .setContentText("点击打开【" + GlobalAppContext.appName + "】")
             .setDefaults(NotificationCompat.FLAG_ONGOING_EVENT)
             .setPriority(Notification.PRIORITY_MAX)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) { //SDK版本>=21才能设置悬挂式通知栏
-            builder.setCategory(Notification.FLAG_ONGOING_EVENT.toString())
-                .setVisibility(Notification.VISIBILITY_PUBLIC)
-            val intent = Intent(context, SplashActivity::class.java)
-            val pi =
-                PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-            builder.setContentIntent(pi)
-            manager.notify(null, 0, builder.build())
-        }
+        //SDK版本>=21才能设置悬挂式通知栏
+        builder.setCategory(Notification.FLAG_ONGOING_EVENT.toString())
+            .setVisibility(Notification.VISIBILITY_PUBLIC)
+        val intent = Intent(context, SplashActivity::class.java)
+        val pi =
+            PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        builder.setContentIntent(pi)
+        manager.notify(null, 0, builder.build())
     }
 
 }

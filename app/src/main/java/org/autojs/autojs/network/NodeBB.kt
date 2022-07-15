@@ -57,6 +57,7 @@ class NodeBB internal constructor() {
 
     companion object {
         const val BASE_URL = "http://www.autoxjs.com/"
+        @JvmField
         val instance = NodeBB()
         private const val LOG_TAG = "NodeBB"
         fun getErrorMessage(e: Throwable?, context: Context, defaultMsg: String): String {

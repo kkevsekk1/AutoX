@@ -70,6 +70,7 @@ import org.greenrobot.eventbus.Subscribe
 import java.util.*
 import java.util.regex.Pattern
 
+@Deprecated("Use MainActivityCompose")
 @EActivity(R.layout.activity_main)
 open class MainActivity : BaseActivity(), DelegateHost, HostActivity,
     PermissionRequestProxyActivity {

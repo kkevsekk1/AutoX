@@ -42,7 +42,7 @@ public class UserService {
     private volatile User mUser;
 
     UserService() {
-        mRetrofit = NodeBB.getInstance().getRetrofit();
+        mRetrofit = NodeBB.instance.getRetrofit();
         mUserApi = mRetrofit.create(UserApi.class);
     }
 
@@ -51,13 +51,13 @@ public class UserService {
     }
 
     public Observable<ResponseBody> login(String userName, final String password) {
-        return NodeBB.getInstance()
+        return NodeBB.instance
                 .getXCsrfToken()
                 .flatMap(token ->
                         mUserApi.login(token, userName, password)
                                 .doOnError(error -> {
                                     if (error instanceof HttpException && ((HttpException) error).code() == 403) {
-                                        NodeBB.getInstance().invalidateXCsrfToken();
+                                        NodeBB.instance.invalidateXCsrfToken();
                                     }
                                 }))
                 .doOnComplete(this::refreshOnlineStatus);
@@ -66,7 +66,7 @@ public class UserService {
 
 
     public Observable<ResponseBody> register(String email, String userName, String password) {
-        return NodeBB.getInstance()
+        return NodeBB.instance
                 .getXCsrfToken()
                 .flatMap(token -> mUserApi.register(token, email, userName, password, password));
     }
@@ -83,7 +83,7 @@ public class UserService {
         }
         if (!Objects.equals(old, mUser)) {
             if (user == null) {
-                NodeBB.getInstance().invalidateXCsrfToken();
+                NodeBB.instance.invalidateXCsrfToken();
             }
             EventBus.getDefault().post(new LoginStateChange(user != null));
         }
@@ -107,7 +107,7 @@ public class UserService {
     }
 
     public Observable<ResponseBody> logout() {
-        return NodeBB.getInstance()
+        return NodeBB.instance
                 .getXCsrfToken()
                 .flatMap(mUserApi::logout)
                 .doOnError(Throwable::printStackTrace)
@@ -115,7 +115,7 @@ public class UserService {
     }
 
     public Observable<User> me() {
-        return NodeBB.getInstance().getRetrofit()
+        return NodeBB.instance.getRetrofit()
                 .create(UserApi.class)
                 .me()
                 .doOnNext(this::setUser)
@@ -124,7 +124,7 @@ public class UserService {
 
 
     public Observable<List<Notification>> getNotifications() {
-        return NodeBB.getInstance().getRetrofit()
+        return NodeBB.instance.getRetrofit()
                 .create(UserApi.class)
                 .getNotifitions()
                 .map(NotificationResponse::getNotifications);

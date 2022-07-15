@@ -16,7 +16,7 @@ import org.autojs.autojs.model.explorer.ExplorerDirPage;
 import org.autojs.autojs.model.explorer.ExplorerFileProvider;
 import org.autojs.autojs.model.script.Scripts;
 import org.autojs.autojs.ui.BaseActivity;
-import org.autojs.autojs.ui.explorer.ExplorerView;
+import org.autojs.autojs.ui.explorer.ExplorerViewKt;
 
 /**
  * Created by Stardust on 2017/7/11.
@@ -43,11 +43,12 @@ public class ScriptWidgetSettingsActivity extends BaseActivity {
 
     private void initScriptListRecyclerView() {
         mExplorer = new Explorer(new ExplorerFileProvider(Scripts.INSTANCE.getFILE_FILTER()), 0);
-        ExplorerView explorerView = findViewById(R.id.script_list);
+        ExplorerViewKt explorerView = findViewById(R.id.script_list);
         explorerView.setExplorer(mExplorer, ExplorerDirPage.createRoot(Environment.getExternalStorageDirectory()));
         explorerView.setOnItemClickListener((view, file) -> {
             mSelectedScriptFilePath = file.getPath();
             finish();
+            return null;
         });
     }
 

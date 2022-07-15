@@ -141,7 +141,7 @@
     <string name="text_clear_pre_execute_script">Clear pre-execute script</string>
     <string name="text_clear_file_selection">Reset</string>
     <string name="summary_pre_execute_script">Executed before the script file is executed</string>
-    <string name="text_check_update_error">Check for updates failed</string>
+    <string name="text_check_update_error">Check for updates failed: %s</string>
     <string name="text_download_url">Download</string>
     <string name="text_directly_download">Download now</string>
     <string name="text_download_failed">Download failed</string>

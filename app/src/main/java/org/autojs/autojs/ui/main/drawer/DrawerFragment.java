@@ -3,16 +3,12 @@ package org.autojs.autojs.ui.main.drawer;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AppOpsManager;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -31,23 +27,17 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.request.target.CustomViewTarget;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.transition.Transition;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.stardust.app.AppOpsKt;
 import com.stardust.app.GlobalAppContext;
-import com.stardust.enhancedfloaty.FloatyService;
 import com.stardust.notification.NotificationListenerService;
 
 import org.autojs.autojs.Pref;
 import org.autojs.autojs.R;
-import org.autojs.autojs.autojs.AutoJs;
 import org.autojs.autojs.external.foreground.ForegroundService;
 import org.autojs.autojs.network.UserService;
-import org.autojs.autojs.tool.Observers;
 import org.autojs.autojs.ui.BaseActivity;
 import org.autojs.autojs.ui.common.NotAskAgainDialog;
 import org.autojs.autojs.ui.floating.CircularMenu;
@@ -58,10 +48,7 @@ import org.autojs.autojs.network.api.UserApi;
 import org.autojs.autojs.network.entity.user.User;
 import org.autojs.autojs.network.entity.VersionInfo;
 import org.autojs.autojs.tool.SimpleObserver;
-import org.autojs.autojs.ui.main.MainActivity;
-import org.autojs.autojs.ui.settings.SettingsActivity_;
 import org.autojs.autojs.ui.user.LoginActivity_;
-import org.autojs.autojs.ui.settings.SettingsActivity;
 import org.autojs.autojs.ui.update.UpdateInfoDialogBuilder;
 import org.autojs.autojs.ui.user.WebActivity;
 import org.autojs.autojs.ui.user.WebActivity_;
@@ -73,24 +60,21 @@ import org.autojs.autojs.theme.ThemeColorManagerCompat;
 
 import com.stardust.view.accessibility.AccessibilityService;
 
-import org.autojs.autojs.pluginclient.DevPluginService;
+import org.autojs.autojs.devplugin.DevPluginService;
 import org.autojs.autojs.tool.AccessibilityServiceTool;
 import org.autojs.autojs.tool.WifiTool;
 
 import com.stardust.util.IntentUtil;
 
 import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 import org.autojs.autojs.ui.widget.BackgroundTarget;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -104,6 +88,7 @@ import static android.content.Context.TELEPHONY_SERVICE;
  * Created by Stardust on 2017/1/30.
  * TODO these codes are so ugly!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  */
+@Deprecated()
 @EFragment(R.layout.fragment_drawer)
 public class DrawerFragment extends androidx.fragment.app.Fragment {
 
@@ -123,7 +108,7 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
     RecyclerView mDrawerMenu;
 
 
-    private DrawerMenuItem mConnectionItem = new DrawerMenuItem(R.drawable.ic_connect_to_pc, R.string.debug, 0, this::connectOrDisconnectToRemote);
+    private DrawerMenuItem mConnectionItem = new DrawerMenuItem(R.drawable.ic_connect_to_pc, R.string.text_connect_computer, 0, this::connectOrDisconnectToRemote);
     private DrawerMenuItem mAccessibilityServiceItem = new DrawerMenuItem(R.drawable.ic_service_green, R.string.text_accessibility_service, 0, this::enableOrDisableAccessibilityService);
     private DrawerMenuItem mStableModeItem = new DrawerMenuItem(R.drawable.ic_stable, R.string.text_stable_mode, R.string.key_stable_mode, null) {
         @Override
@@ -148,7 +133,7 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mConnectionStateDisposable = DevPluginService.getInstance().connectionState()
+        mConnectionStateDisposable = DevPluginService.instance.connectionState()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(state -> {
                     if (mConnectionItem != null) {
@@ -171,7 +156,7 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
             FloatyWindowManger.showCircularMenuIfNeeded();
             setChecked(mFloatingWindowItem, true);
         }
-        setChecked(mConnectionItem, DevPluginService.getInstance().isConnected());
+        setChecked(mConnectionItem, DevPluginService.instance.isConnected());
         if (Pref.isForegroundServiceEnabled()) {
             ForegroundService.start(getContext());
             setChecked(mForegroundServiceItem, true);
@@ -190,7 +175,7 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
                 new DrawerMenuGroup(R.string.text_script_record),
                 mFloatingWindowItem,
                 new DrawerMenuItem(R.drawable.ic_volume, R.string.text_volume_down_control, R.string.key_use_volume_control_record, null),
-                new DrawerMenuItem(R.drawable.ic_backup_black_48dp, R.string.text_auto_back, R.string.key_auto_back, null),
+                new DrawerMenuItem(R.drawable.ic_backup_black_48dp, R.string.text_auto_backup, R.string.key_auto_backup, null),
 
                 new DrawerMenuGroup(R.string.text_others),
                 new DrawerMenuItem(R.drawable.ic_fullscreen, R.string.switch_fullscreen, this::switchFullscreen),
@@ -251,9 +236,6 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
     }
 
     void goToUsageStatsSettings(DrawerMenuItemViewHolder holder) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            return;
-        }
         boolean enabled = AppOpsKt.isOpPermissionGranted(getContext(), AppOpsManager.OPSTR_GET_USAGE_STATS);
         boolean checked = holder.getSwitchCompat().isChecked();
         if (checked && !enabled) {
@@ -326,11 +308,11 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
 
     void connectOrDisconnectToRemote(DrawerMenuItemViewHolder holder) {
         boolean checked = holder.getSwitchCompat().isChecked();
-        boolean connected = DevPluginService.getInstance().isConnected();
+        boolean connected = DevPluginService.instance.isConnected();
         if (checked && !connected) {
             inputRemoteHost();
         } else if (!checked && connected) {
-            DevPluginService.getInstance().disconnectIfNeeded();
+            DevPluginService.instance.disconnectIfNeeded();
         }
     }
 
@@ -353,8 +335,8 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
                     String host1 = serverAddrInput.getText().toString().trim();
                     Pref.saveServerAddress(host1);
                     String params = "iemi=" + getIMEI() + "&usercode=" + code1;
-                    DevPluginService.getInstance().connectToServer(host1, params)
-                            .subscribe(Observers.emptyConsumer(), this::onConnectException);
+//                    DevPluginService.instance.connectToServer(host1, params)
+//                            .subscribe(Observers.emptyConsumer(), this::onConnectException);
                     VersionService.getInstance().deviceInfo(getIMEI(), "2").subscribe();
                     //   Toast.makeText(getContext(),"正在连接...",Toast.LENGTH_SHORT).show();
 
@@ -410,8 +392,8 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
                 .title(R.string.text_server_address)
                 .input("", host, (dialog, input) -> {
                     try {
-                        DevPluginService.getInstance().connectToServer(input.toString(), params)
-                                .subscribe(Observers.emptyConsumer(), this::onConnectException);
+//                        DevPluginService.instance.connectToServer(input.toString(), params)
+//                                .subscribe(Observers.emptyConsumer(), this::onConnectException);
                     } catch (Exception exception) {
                         GlobalAppContext.toast(R.string.text_server_address_error);
                     }
@@ -472,7 +454,7 @@ public class DrawerFragment extends androidx.fragment.app.Fragment {
     }
 
     private void syncUserInfo() {
-        NodeBB.getInstance().getRetrofit()
+        NodeBB.instance.getRetrofit()
                 .create(UserApi.class)
                 .me()
                 .subscribeOn(Schedulers.io())

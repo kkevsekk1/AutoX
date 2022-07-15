@@ -92,9 +92,9 @@ object GlobalAppContext {
     val appName: String
         get() {
             try {
-                val packageManager = get()!!.packageManager
+                val packageManager = get().packageManager
                 val packageInfo = packageManager.getPackageInfo(
-                    get()!!.packageName, 0
+                    get().packageName, 0
                 )
                 return packageManager.getApplicationLabel(packageInfo.applicationInfo).toString()
             } catch (e: Exception) {

@@ -291,9 +291,9 @@ public class ScriptOperations {
     public void delete(final ScriptFile scriptFile) {
         DialogUtils.showDialog(new ThemeColorMaterialDialogBuilder(mContext)
                 .title(mContext.getString(R.string.text_are_you_sure_to_delete, scriptFile.getName()))
-                .positiveText(R.string.cancel)
-                .negativeText(R.string.ok)
-                .onNegative((dialog, which) -> {
+                .positiveText(R.string.ok)
+                .negativeText(R.string.cancel)
+                .onPositive((dialog, which) -> {
                     deleteWithoutConfirm(scriptFile);
                 })
                 .build());

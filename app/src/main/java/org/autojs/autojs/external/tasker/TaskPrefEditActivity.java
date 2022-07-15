@@ -19,7 +19,7 @@ import org.autojs.autojs.external.ScriptIntents;
 import org.autojs.autojs.model.explorer.ExplorerDirPage;
 import org.autojs.autojs.model.explorer.Explorers;
 import org.autojs.autojs.ui.BaseActivity;
-import org.autojs.autojs.ui.explorer.ExplorerView;
+import org.autojs.autojs.ui.explorer.ExplorerViewKt;
 
 import static org.autojs.autojs.ui.edit.EditorView.EXTRA_CONTENT;
 
@@ -41,11 +41,12 @@ public class TaskPrefEditActivity extends AbstractAppCompatPluginActivity {
 
 
     private void initScriptListRecyclerView() {
-        ExplorerView explorerView = (ExplorerView) findViewById(R.id.script_list);
+        ExplorerViewKt explorerView = (ExplorerViewKt) findViewById(R.id.script_list);
         explorerView.setExplorer(Explorers.external(), ExplorerDirPage.createRoot(Environment.getExternalStorageDirectory()));
         explorerView.setOnItemClickListener((view, item) -> {
             mSelectedScriptFilePath = item.getPath();
             finish();
+            return null;
         });
     }
 
@@ -110,6 +111,7 @@ public class TaskPrefEditActivity extends AbstractAppCompatPluginActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             mPreExecuteScript = data.getStringExtra(EXTRA_CONTENT);
         }

@@ -141,7 +141,7 @@ public class Pref {
     }
 
     public static boolean isAutoBack() {
-        return def().getBoolean(getString(R.string.key_auto_back), true);
+        return def().getBoolean(getString(R.string.key_auto_backup), true);
     }
 
     public static void setFloatingMenuShown(boolean checked) {

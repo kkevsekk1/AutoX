@@ -14,6 +14,11 @@ import com.stardust.app.OperationDialogBuilder;
 import com.stardust.autojs.core.record.Recorder;
 import com.stardust.enhancedfloaty.FloatyService;
 import com.stardust.enhancedfloaty.FloatyWindow;
+import com.stardust.util.ClipboardUtil;
+import com.stardust.util.Func1;
+import com.stardust.view.accessibility.AccessibilityService;
+import com.stardust.view.accessibility.LayoutInspector;
+import com.stardust.view.accessibility.NodeInfo;
 
 import org.autojs.autojs.Pref;
 import org.autojs.autojs.R;
@@ -22,21 +27,14 @@ import org.autojs.autojs.autojs.record.GlobalActionRecorder;
 import org.autojs.autojs.model.explorer.ExplorerDirPage;
 import org.autojs.autojs.model.explorer.Explorers;
 import org.autojs.autojs.model.script.Scripts;
+import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
 import org.autojs.autojs.tool.AccessibilityServiceTool;
 import org.autojs.autojs.tool.RootTool;
 import org.autojs.autojs.ui.common.NotAskAgainDialog;
+import org.autojs.autojs.ui.explorer.ExplorerViewKt;
 import org.autojs.autojs.ui.floating.layoutinspector.LayoutBoundsFloatyWindow;
 import org.autojs.autojs.ui.floating.layoutinspector.LayoutHierarchyFloatyWindow;
-import org.autojs.autojs.ui.main.MainActivity_;
-import org.autojs.autojs.ui.explorer.ExplorerView;
-import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
-
-import com.stardust.util.ClipboardUtil;
-import com.stardust.util.Func1;
-import com.stardust.view.accessibility.AccessibilityService;
-import com.stardust.view.accessibility.LayoutInspector;
-import com.stardust.view.accessibility.NodeInfo;
-
+import org.autojs.autojs.ui.main.MainActivityCompose;
 import org.greenrobot.eventbus.EventBus;
 import org.jdeferred.Deferred;
 import org.jdeferred.impl.DeferredObject;
@@ -135,7 +133,7 @@ public class CircularMenu implements Recorder.OnStateChangedListener, LayoutInsp
     @OnClick(R.id.script_list)
     void showScriptList() {
         mWindow.collapse();
-        ExplorerView explorerView = new ExplorerView(mContext);
+        ExplorerViewKt explorerView = new ExplorerViewKt(mContext);
         explorerView.setExplorer(Explorers.workspace(), ExplorerDirPage.createRoot(Pref.getScriptDirPath()));
         explorerView.setDirectorySpanSize(2);
         final MaterialDialog dialog = new ThemeColorMaterialDialogBuilder(mContext)
@@ -143,8 +141,14 @@ public class CircularMenu implements Recorder.OnStateChangedListener, LayoutInsp
                 .customView(explorerView, false)
                 .positiveText(R.string.cancel)
                 .build();
-        explorerView.setOnItemOperatedListener(file -> dialog.dismiss());
-        explorerView.setOnItemClickListener((view, item) -> Scripts.INSTANCE.run(item.toScriptFile()));
+        explorerView.setOnItemOperatedListener(file -> {
+            dialog.dismiss();
+            return null;
+        });
+        explorerView.setOnItemClickListener((view, item) -> {
+            Scripts.INSTANCE.run(item.toScriptFile());
+            return null;
+        });
         DialogUtils.showDialog(dialog);
 
     }
@@ -318,8 +322,9 @@ public class CircularMenu implements Recorder.OnStateChangedListener, LayoutInsp
     @OnClick(R.id.open_launcher)
     void openLauncher() {
         dismissSettingsDialog();
-        mContext.startActivity(new Intent(mContext, MainActivity_.class)
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+        Intent intent = new Intent(mContext, MainActivityCompose.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        mContext.startActivity(intent);
     }
 
     @Optional

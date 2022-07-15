@@ -22,7 +22,7 @@ import static android.view.View.VISIBLE;
 /**
  * Created by Stardust on 2017/12/10.
  */
-
+@Deprecated
 public class DrawerMenuItemViewHolder extends BindableViewHolder<DrawerMenuItem> {
 
     private static final long CLICK_TIMEOUT = 1000;

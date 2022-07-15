@@ -35,6 +35,7 @@ import org.autojs.autojs.external.fileprovider.AppFileProvider
 import org.autojs.autojs.model.explorer.ExplorerFileItem
 import org.autojs.autojs.model.explorer.Explorers
 import org.autojs.autojs.model.script.ScriptFile
+import org.autojs.autojs.ui.compose.theme.AutoXJsTheme
 import java.io.File
 
 /**
@@ -70,7 +71,7 @@ open class BuildActivity : ComponentActivity(), ApkBuilder.ProgressCallback {
         init()
 
         setContent {
-            AppCompatTheme {
+            AutoXJsTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
