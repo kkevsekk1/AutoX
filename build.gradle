@@ -4,12 +4,12 @@ import groovy.json.JsonSlurper
 buildscript {
     ext {
         kotlin_version = '1.6.20'
-        compose_version = '1.2.0-alpha08'
+        compose_version = '1.2.0-rc01'
     }
 
     repositories {
         mavenLocal()
-
+        //首X加快github CI
         google()
         mavenCentral()
         maven { url 'https://www.jitpack.io' }
@@ -29,7 +29,7 @@ buildscript {
 allprojects {
     repositories {
         mavenLocal()
-
+        //加快github CI
         google()
         mavenCentral()
         maven { url 'https://www.jitpack.io' }

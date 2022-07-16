@@ -7,6 +7,42 @@
         <license>Mozilla Public License 2.0</license>
     </notice>
     <notice>
+        <name>Ktor: Framework for quickly creating connected applications in Kotlin with minimal effort</name>
+        <url>https://github.com/ktorio/ktor</url>
+        <copyright/>
+        <license>Apache Software License 2.0</license>
+    </notice>
+    <notice>
+        <name>Markwon : Android markdown library (no WebView)</name>
+        <url>https://github.com/noties/Markwon</url>
+        <copyright/>
+        <license>Apache Software License 2.0</license>
+    </notice>
+    <notice>
+        <name>Coil : Image loading for Android backed by Kotlin Coroutines.</name>
+        <url>https://github.com/coil-kt/coil</url>
+        <copyright/>
+        <license>Apache Software License 2.0</license>
+    </notice>
+    <notice>
+        <name>FloatingActionButtonSpeedDial : A Floating Action Button Speed Dial implementation for Android that follows the Material Design specification</name>
+        <url>https://github.com/leinardi/FloatingActionButtonSpeedDial</url>
+        <copyright/>
+        <license>Apache Software License 2.0</license>
+    </notice>
+    <notice>
+        <name>accompanist : A collection of extension libraries for Jetpack Compose</name>
+        <url>https://github.com/google/accompanist</url>
+        <copyright/>
+        <license>Apache Software License 2.0</license>
+    </notice>
+    <notice>
+        <name>quickie : Android QR code scanning library</name>
+        <url>https://github.com/G00fY2/quickie</url>
+        <copyright/>
+        <license>MIT License</license>
+    </notice>
+    <notice>
         <name>LeakCanary</name>
         <copyright>Copyright 2015 Square, Inc.</copyright>
         <url>https://github.com/square/leakcanary</url>

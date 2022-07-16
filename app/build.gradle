@@ -56,7 +56,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.2.0-alpha08'
+        kotlinCompilerExtensionVersion = "1.2.0-rc01"
         kotlinCompilerVersion '1.6.20'
     }
     signingConfigs {
@@ -194,8 +194,10 @@ task publishDevApp(group: "build") {
 
 dependencies {
 
-    def accompanist_version = "0.24.11-rc"
-    implementation "com.google.accompanist:accompanist-permissions:$accompanist_version"
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.1.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    def accompanist_version = "0.24.13-rc"
+    implementation "com.google.accompanist:accompanist-permissions:0.24.13-rc"
     implementation "com.google.accompanist:accompanist-pager-indicators:$accompanist_version"
     implementation "com.google.accompanist:accompanist-pager:$accompanist_version"
     implementation "com.google.accompanist:accompanist-swiperefresh:$accompanist_version"
@@ -252,7 +254,7 @@ dependencies {
     //MultiLevelListView
     implementation 'com.github.hyb1996:android-multi-level-listview:1.1'
     //Licenses Dialog
-    implementation 'de.psdev.licensesdialog:licensesdialog:1.8.1'
+    implementation 'de.psdev.licensesdialog:licensesdialog:1.9.0'
     //Expandable RecyclerView
     implementation 'com.bignerdranch.android:expandablerecyclerview:3.0.0-RC1'
     //FlexibleDivider
@@ -321,13 +323,11 @@ dependencies {
     // Annotation processor
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-service:$lifecycle_version"
-    implementation "androidx.savedstate:savedstate-ktx:1.1.0"
-    implementation "androidx.savedstate:savedstate:1.1.0"
+    implementation "androidx.savedstate:savedstate-ktx:1.2.0"
+    implementation "androidx.savedstate:savedstate:1.2.0"
 
     def ktor_version = "2.0.3"
     implementation "io.ktor:ktor-server-core:$ktor_version"
-    implementation "io.ktor:ktor-server-status-pages:$ktor_version"
-    implementation "io.ktor:ktor-server-default-headers:$ktor_version"
     implementation "io.ktor:ktor-server-netty:$ktor_version"
     implementation("io.ktor:ktor-server-websockets:$ktor_version")
     implementation("io.ktor:ktor-client-websockets:$ktor_version")
