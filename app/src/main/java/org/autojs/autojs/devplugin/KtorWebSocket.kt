@@ -1,6 +1,5 @@
 package org.autojs.autojs.devplugin
 
-import android.annotation.SuppressLint
 import android.util.Log
 import io.ktor.client.*
 import io.ktor.client.engine.okhttp.*
@@ -11,15 +10,13 @@ import io.ktor.server.netty.*
 import io.ktor.server.routing.*
 import io.ktor.server.websocket.*
 import io.ktor.server.websocket.WebSockets
-import java.time.Duration
 
 class WebSocketServer {
 
     private var engine: ApplicationEngine? = null
     var isActive: Boolean = false
-    private set
+        private set
 
-    @SuppressLint("NewApi")
     fun listen(
         port: Int,
         path: String,
@@ -28,8 +25,8 @@ class WebSocketServer {
     ) {
         engine = embeddedServer(Netty, port, host) {
             install(WebSockets) {
-                pingPeriod = Duration.ofSeconds(15)
-                timeout = Duration.ofSeconds(15)
+                pingPeriodMillis = 10 * 1000
+                timeoutMillis = 10 * 1000
                 maxFrameSize = Long.MAX_VALUE
                 masking = false
             }

@@ -74,7 +74,6 @@ final public class AndrolibResources {
 		mAXMLDecoder = AXMLDecoder.read(AXMLStream);
 	}
 
-	@SuppressLint("NewApi")
 	private void generateValuesFile(ResValuesFile valuesFile, ARSCCallBack callback) throws IOException {
 		for (ResResource res : valuesFile.listResources()) {
 			if (valuesFile.isSynthesized(res)) {

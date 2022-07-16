@@ -33,6 +33,7 @@ object DevPlugin {
     private const val CLIENT_VERSION = 2
     private const val LOG_TAG = "ConnectComputer"
     private const val TYPE_HELLO = "hello"
+    private const val TYPE_CLOSE = "close"
     private const val TYPE_BYTES_COMMAND = "bytes_command"
     private const val HANDSHAKE_TIMEOUT = (10 * 1000).toLong()
 
@@ -72,7 +73,7 @@ object DevPlugin {
     }
 
     fun startUSBDebug() {
-        server.listen(SERVER_PORT, "/") {
+        server.listen(SERVER_PORT, "/", host = "127.0.0.1") {
             Log.i("startUSBDebug:", this.call.request.origin.remoteHost)
             if (!DevPlugin.isActive) {
                 handle()
@@ -118,6 +119,10 @@ object DevPlugin {
             when (typeElement.asString) {
                 TYPE_HELLO -> {
                     serveHello(obj)
+                    return
+                }
+                TYPE_CLOSE -> {
+                    this.close()
                     return
                 }
                 TYPE_BYTES_COMMAND -> {

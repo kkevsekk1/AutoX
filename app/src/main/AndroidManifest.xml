@@ -380,7 +380,7 @@
         android:allowBackup="true"
         android:extractNativeLibs="true"
         android:hardwareAccelerated="true"
-        android:icon="@drawable/autojs_material"
+        android:icon="@mipmap/ic_launcher"
         android:label="${appName}"
         android:largeHeap="true"
         android:requestLegacyExternalStorage="true"
@@ -390,10 +390,6 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:label, android:allowBackup"
         tools:targetApi="m">
-        <service
-            android:name=".USBDebugService"
-            android:enabled="true"
-            android:exported="true"></service>
 
         <meta-data
             android:name="android.max_aspect"

@@ -54,8 +54,8 @@ import kotlinx.coroutines.launch
 import org.autojs.autojs.Pref
 import org.autojs.autojs.R
 import org.autojs.autojs.autojs.AutoJs
-import org.autojs.autojs.external.foreground.ForegroundService
 import org.autojs.autojs.devplugin.DevPlugin
+import org.autojs.autojs.external.foreground.ForegroundService
 import org.autojs.autojs.tool.AccessibilityServiceTool
 import org.autojs.autojs.tool.WifiTool
 import org.autojs.autojs.ui.compose.widget.MyIcon
@@ -63,9 +63,6 @@ import org.autojs.autojs.ui.compose.widget.MySwitch
 import org.autojs.autojs.ui.floating.FloatyWindowManger
 import org.autojs.autojs.ui.project.MyTextField
 import org.autojs.autojs.ui.settings.SettingsActivity_
-import java.time.Instant
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
 
 private const val TAG = "DrawerPage"
 private const val URL_DEV_PLUGIN = "https://github.com/kkevsekk1/Auto.js-VSCode-Extension"
@@ -156,7 +153,6 @@ fun DrawerPage() {
     }
 }
 
-@SuppressLint("NewApi")
 @Composable
 private fun CheckForUpdate(model: DrawerViewModel = viewModel()) {
     val context = LocalContext.current
@@ -195,9 +191,7 @@ private fun CheckForUpdate(model: DrawerViewModel = viewModel()) {
                 )
             },
             text = {
-                val instant = Instant.parse(model.githubReleaseInfo!!.publishedAt)
-                val date = instant.atZone(ZoneId.systemDefault())
-                    .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+                val date = model.githubReleaseInfo!!.publishedAt
                 Column(
                     Modifier
                         .fillMaxWidth()

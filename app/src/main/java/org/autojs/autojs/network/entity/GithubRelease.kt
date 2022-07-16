@@ -1,8 +1,7 @@
 package org.autojs.autojs.network.entity
 
-import android.annotation.SuppressLint
 import com.google.gson.annotations.SerializedName
-import java.time.Instant
+import kotlin.time.Duration
 
 class GithubReleaseInfoList : ArrayList<GithubReleaseInfo>()
 
@@ -51,11 +50,11 @@ data class GithubReleaseInfo(
  * Check latest version
  * @return Returns null if targetCommitish is prerelease or not "dev-test"
  */
-@SuppressLint("NewApi")
 fun GithubReleaseInfo.isLatestVersion(anotherReleaseInfo: GithubReleaseInfo): Boolean? {
     if (targetCommitish != "dev-test" || prerelease) return null
-    return Instant.parse(publishedAt)
-        .toEpochMilli() >= Instant.parse(anotherReleaseInfo.publishedAt).toEpochMilli()
+    return Duration.parseIsoString(publishedAt).inWholeMilliseconds >= Duration.parseIsoString(
+        anotherReleaseInfo.publishedAt
+    ).inWholeMilliseconds
 }
 
 data class Asset(

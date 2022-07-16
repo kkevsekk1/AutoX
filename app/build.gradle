@@ -52,7 +52,6 @@ android {
         disable 'ExtraTranslation'
     }
     compileOptions {
-        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -344,8 +343,4 @@ dependencies {
     implementation "io.noties.markwon:core:4.6.2"
     implementation "androidx.viewpager2:viewpager2:1.1.0-beta01"
     implementation("io.coil-kt:coil-compose:2.0.0-rc03")
-
-    //please do not upgrade, the upgrade will be error
-    //noinspection GradleDependency
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.6'
 }
