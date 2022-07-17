@@ -63,7 +63,7 @@ public class ForegroundService extends Service {
         return new NotificationCompat.Builder(this, CHANEL_ID)
                 .setContentTitle(getString(R.string.foreground_notification_title))
                 .setContentText(getString(R.string.foreground_notification_text))
-                .setSmallIcon(R.drawable.autojs_material)
+                .setSmallIcon(R.drawable.autojs_logo)
                 .setWhen(System.currentTimeMillis())
                 .setContentIntent(contentIntent)
                 .setChannelId(CHANEL_ID)

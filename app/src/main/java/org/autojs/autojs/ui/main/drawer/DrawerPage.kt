@@ -36,6 +36,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.window.Dialog
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.preference.PreferenceManager
+import coil.compose.rememberAsyncImagePainter
 import com.stardust.app.GlobalAppContext
 import com.stardust.app.isOpPermissionGranted
 import com.stardust.app.permission.DrawOverlaysPermission
@@ -87,7 +88,7 @@ fun DrawerPage() {
         ) {
             Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
                 Image(
-                    painter = painterResource(id = R.drawable.autojs_material),
+                    painter = rememberAsyncImagePainter(R.drawable.autojs_logo1),
                     contentDescription = null,
                     modifier = Modifier.size(120.dp),
                 )

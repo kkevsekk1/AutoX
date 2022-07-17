@@ -384,7 +384,7 @@
         android:label="${appName}"
         android:largeHeap="true"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@drawable/autojs_material"
+        android:roundIcon="@drawable/autojs_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
@@ -588,7 +588,7 @@
         <activity
             android:name=".external.open.EditIntentActivity"
             android:exported="true"
-            android:icon="@drawable/autojs_material"
+            android:icon="@drawable/autojs_logo"
             android:label="@string/text_edit_script">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -606,7 +606,7 @@
         <activity
             android:name=".external.open.RunIntentActivity"
             android:exported="true"
-            android:icon="@drawable/autojs_material"
+            android:icon="@drawable/autojs_logo"
             android:label="@string/text_run_script"
             android:taskAffinity=".external.open.RunIntentActivity"
             android:theme="@android:style/Theme.NoDisplay">
@@ -626,7 +626,7 @@
         <activity
             android:name=".external.open.ImportIntentActivity"
             android:exported="true"
-            android:icon="@drawable/autojs_material"
+            android:icon="@drawable/autojs_logo"
             android:label="@string/text_import_script"
             android:theme="@style/AppTheme.Transparent">
             <intent-filter>

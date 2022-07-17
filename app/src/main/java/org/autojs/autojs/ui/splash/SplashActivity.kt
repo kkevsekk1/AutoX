@@ -23,6 +23,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.lifecycleScope
+import coil.compose.rememberAsyncImagePainter
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -81,7 +82,7 @@ class SplashActivity : ComponentActivity() {
                         .fillMaxWidth(), contentAlignment = Alignment.Center
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.autojs_material),
+                        painter = rememberAsyncImagePainter(R.drawable.autojs_logo1),
                         contentDescription = null,
                         modifier = Modifier.size(120.dp),
                     )

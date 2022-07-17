@@ -10,6 +10,6 @@
         android:id="@+id/iv_head"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:src="@drawable/autojs_material" />
+        android:src="@drawable/autojs_logo" />
 
 </LinearLayout>
