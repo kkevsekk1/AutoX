@@ -64,6 +64,8 @@ import org.autojs.autojs.ui.compose.widget.MySwitch
 import org.autojs.autojs.ui.floating.FloatyWindowManger
 import org.autojs.autojs.ui.project.MyTextField
 import org.autojs.autojs.ui.settings.SettingsActivity_
+import org.joda.time.DateTimeZone
+import org.joda.time.Instant
 
 private const val TAG = "DrawerPage"
 private const val URL_DEV_PLUGIN = "https://github.com/kkevsekk1/Auto.js-VSCode-Extension"
@@ -192,7 +194,10 @@ private fun CheckForUpdate(model: DrawerViewModel = viewModel()) {
                 )
             },
             text = {
-                val date = model.githubReleaseInfo!!.publishedAt
+                val date = rememberSaveable {
+                    Instant.parse(model.githubReleaseInfo!!.createdAt).toDateTime(DateTimeZone.getDefault())
+                        .toString("yyyy-MM-dd HH:mm:ss")
+                }
                 Column(
                     Modifier
                         .fillMaxWidth()

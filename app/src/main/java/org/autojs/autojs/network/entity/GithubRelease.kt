@@ -1,7 +1,7 @@
 package org.autojs.autojs.network.entity
 
 import com.google.gson.annotations.SerializedName
-import kotlin.time.Duration
+import org.joda.time.Instant
 
 class GithubReleaseInfoList : ArrayList<GithubReleaseInfo>()
 
@@ -52,9 +52,8 @@ data class GithubReleaseInfo(
  */
 fun GithubReleaseInfo.isLatestVersion(anotherReleaseInfo: GithubReleaseInfo): Boolean? {
     if (targetCommitish != "dev-test" || prerelease) return null
-    return Duration.parseIsoString(publishedAt).inWholeMilliseconds >= Duration.parseIsoString(
-        anotherReleaseInfo.publishedAt
-    ).inWholeMilliseconds
+    return Instant.parse(createdAt).toDateTime().millis >=
+            Instant.parse(anotherReleaseInfo.createdAt).toDateTime().millis
 }
 
 data class Asset(

@@ -288,7 +288,7 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.12.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
     //joda time
-    implementation 'joda-time:joda-time:2.10.13'
+    implementation 'net.danlew:android.joda:2.10.14'
     // Tasker Plugin
     implementation 'com.twofortyfouram:android-plugin-client-sdk-for-locale:4.0.3'
     // Flurry
