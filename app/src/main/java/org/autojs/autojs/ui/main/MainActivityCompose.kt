@@ -15,7 +15,6 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -27,11 +26,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
-import com.google.accompanist.appcompattheme.AppCompatTheme
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.google.gson.Gson
 import com.stardust.app.permission.DrawOverlaysPermission
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -44,7 +41,6 @@ import org.autojs.autojs.ui.floating.FloatyWindowManger
 import org.autojs.autojs.ui.log.LogActivity_
 import org.autojs.autojs.ui.main.drawer.DrawerPage
 import org.autojs.autojs.ui.main.scripts.ScriptListFragment
-import org.autojs.autojs.ui.widget.WebData
 import org.autojs.autojs.ui.widget.fillMaxSize
 
 data class BottomNavigationItem(val icon: Int, val label: String)
@@ -258,33 +254,28 @@ fun BottomBar(
     currentSelected: Int,
     onSelectedChange: (Int) -> Unit
 ) {
-
-    AppCompatTheme {
-        Surface(elevation = 4.dp) {
-            BottomNavigation(backgroundColor = MaterialTheme.colors.background) {
-                items.forEachIndexed { index, item ->
-                    val selected = currentSelected == index
-                    val color = if (selected) MaterialTheme.colors.primary else Color.Gray
-                    BottomNavigationItem(
-                        selected = selected,
-                        onClick = {
-                            if (!selected) {
-                                onSelectedChange(index)
-                            }
-                        },
-                        icon = {
-                            Icon(
-                                painter = painterResource(id = item.icon),
-                                contentDescription = item.label,
-                                tint = color
-                            )
-                        },
-                        label = {
-                            Text(text = item.label, color = color)
-                        }
+    BottomNavigation(elevation = 4.dp, backgroundColor = MaterialTheme.colors.background) {
+        items.forEachIndexed { index, item ->
+            val selected = currentSelected == index
+            val color = if (selected) MaterialTheme.colors.primary else Color.Gray
+            BottomNavigationItem(
+                selected = selected,
+                onClick = {
+                    if (!selected) {
+                        onSelectedChange(index)
+                    }
+                },
+                icon = {
+                    Icon(
+                        painter = painterResource(id = item.icon),
+                        contentDescription = item.label,
+                        tint = color
                     )
+                },
+                label = {
+                    Text(text = item.label, color = color)
                 }
-            }
+            )
         }
     }
 }
@@ -308,7 +299,10 @@ private fun TopBar(requestOpenDrawer: () -> Unit, onSearch: (String) -> Unit) {
                 }
 
                 ProvideTextStyle(value = MaterialTheme.typography.h6) {
-                    Text(modifier = Modifier.weight(1f), text = stringResource(id = R.string.app_name))
+                    Text(
+                        modifier = Modifier.weight(1f),
+                        text = stringResource(id = R.string.app_name)
+                    )
                 }
 
                 IconButton(onClick = { isSearch = true }) {

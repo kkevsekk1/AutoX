@@ -16,7 +16,6 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
-import com.google.accompanist.appcompattheme.AppCompatTheme
 import com.stardust.autojs.project.ProjectConfigKt
 import com.stardust.autojs.project.ProjectConfigKt.Companion.configFileOfDir
 import com.stardust.autojs.project.ProjectConfigKt.Companion.fromProjectDir
