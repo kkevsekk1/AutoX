@@ -1,7 +1,7 @@
 package org.autojs.autojs.ui.widget;
 
 public class WebData {
-    public boolean isTbs = true;
+    public boolean isTbs = false;
     public String homepage = "http://doc.autoxjs.com/";
     public String homepage2 = "https://wht.im";
     public String userAgent = "Mozilla/5.0 (Linux; Android 7.0; BLN-AL40 Build/HONORBLN-AL40; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/045130 Mobile Safari/537.36 V1_AND_SQ_8.2.7_1334_YYB_D QQ/8.2.7.4410 NetType/4G WebP/0.3.0 Pixel/1080 StatusBarHeight/72 SimpleUISwitch/0";

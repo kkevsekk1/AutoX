@@ -7,7 +7,7 @@ import org.autojs.autojs.network.entity.topic.Topic
 object TopicService {
 
     private const val CID_SCRIPTS = 9L
-    private val mRetrofit = NodeBB.getInstance().retrofit
+    private val mRetrofit = NodeBB.instance.retrofit
     private val mTopicApi = mRetrofit.create(TopicApi::class.java)
 
     suspend fun getTopics(cid: Long): List<Topic> {

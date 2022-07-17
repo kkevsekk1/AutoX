@@ -32,11 +32,11 @@ open class AccessibilityService : android.accessibilityservice.AccessibilityServ
     private var mFastRootInActiveWindow: AccessibilityNodeInfo? = null
     private val eventExecutor: ExecutorService
         get() {
-            return mEventExecutor ?: {
+            return mEventExecutor ?: run {
                 val executor = Executors.newSingleThreadExecutor()
                 mEventExecutor = executor
                 executor
-            }()
+            }
         }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
@@ -140,8 +140,8 @@ open class AccessibilityService : android.accessibilityservice.AccessibilityServ
         }
 
         fun disable(): Boolean {
-            if (instance != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                instance!!.disableSelf()
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                instance?.disableSelf()
                 return true
             }
             return false

@@ -41,7 +41,7 @@ public class FloatyWindowManger {
             // SecurityException: https://github.com/hyb1996-guest/AutoJsIssueReport/issues/4781
         } catch (Exception e) {
             e.printStackTrace();
-            if(hasPermission){
+            if (hasPermission) {
                 manageDrawOverlays(context);
                 GlobalAppContext.toast(R.string.text_no_floating_window_permission);
             }
@@ -61,16 +61,10 @@ public class FloatyWindowManger {
     }
 
     public static boolean showCircularMenu() {
-        if (!FloatingPermission.canDrawOverlays(GlobalAppContext.get())) {
-            Toast.makeText(GlobalAppContext.get(), R.string.text_no_floating_window_permission, Toast.LENGTH_SHORT).show();
-            manageDrawOverlays(GlobalAppContext.get());
-            return false;
-        } else {
-            GlobalAppContext.get().startService(new Intent(GlobalAppContext.get(), FloatyService.class));
-            CircularMenu menu = new CircularMenu(GlobalAppContext.get());
-            sCircularMenu = new WeakReference<>(menu);
-            return true;
-        }
+        GlobalAppContext.get().startService(new Intent(GlobalAppContext.get(), FloatyService.class));
+        CircularMenu menu = new CircularMenu(GlobalAppContext.get());
+        sCircularMenu = new WeakReference<>(menu);
+        return true;
     }
 
     public static void hideCircularMenu() {

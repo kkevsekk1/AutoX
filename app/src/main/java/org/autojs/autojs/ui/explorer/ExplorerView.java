@@ -61,7 +61,7 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * Created by Stardust on 2017/8/21.
  */
-
+@Deprecated
 public class ExplorerView extends ThemeColorSwipeRefreshLayout implements SwipeRefreshLayout.OnRefreshListener, PopupMenu.OnMenuItemClickListener {
 
     private static final String LOG_TAG = "ExplorerView";

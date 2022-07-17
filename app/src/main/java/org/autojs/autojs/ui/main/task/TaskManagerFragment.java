@@ -18,6 +18,7 @@ import org.androidannotations.annotations.ViewById;
 /**
  * Created by Stardust on 2017/3/24.
  */
+@Deprecated
 @EFragment(R.layout.fragment_task_manager)
 public class TaskManagerFragment extends ViewPagerFragment {
 

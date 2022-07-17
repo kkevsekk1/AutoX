@@ -56,7 +56,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.2.0-alpha08'
+        kotlinCompilerExtensionVersion = "1.2.0-rc01"
         kotlinCompilerVersion '1.6.20'
     }
     signingConfigs {
@@ -138,9 +138,15 @@ android {
 
     configurations.all {
         resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.1'
+        exclude group: 'org.jetbrains', module: 'annotations-java5'
+//        exclude group: 'com.atlassian.commonmark', module: 'commonmark'
+        exclude group: 'com.github.atlassian.commonmark-java', module: 'commonmark'
     }
 
     packagingOptions {
+        //ktor netty implementation "io.ktor:ktor-server-netty:2.0.1"
+        pickFirst "META-INF/io.netty.versions.properties"
+        pickFirst "META-INF/INDEX.LIST"
         jniLibs {
             useLegacyPackaging true
         }
@@ -188,14 +194,19 @@ task publishDevApp(group: "build") {
 
 dependencies {
 
-    def accompanist_version = "0.24.9-beta"
-    implementation "com.google.accompanist:accompanist-permissions:$accompanist_version"
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.1.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    def accompanist_version = "0.24.13-rc"
+    implementation "com.google.accompanist:accompanist-permissions:0.24.13-rc"
     implementation "com.google.accompanist:accompanist-pager-indicators:$accompanist_version"
     implementation "com.google.accompanist:accompanist-pager:$accompanist_version"
     implementation "com.google.accompanist:accompanist-swiperefresh:$accompanist_version"
     implementation "com.google.accompanist:accompanist-appcompat-theme:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-insets:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-insets-ui:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-webview:$accompanist_version"
 
-    implementation("io.coil-kt:coil-compose:2.0.0-rc01")
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
@@ -210,7 +221,7 @@ dependencies {
     })
     testImplementation 'junit:junit:4.13.2'
     // Kotlin
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2"
     // Android Annotations
     annotationProcessor "org.androidannotations:androidannotations:$AAVersion"
     kapt "org.androidannotations:androidannotations:$AAVersion"
@@ -223,10 +234,10 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
     kapt 'com.jakewharton:butterknife-compiler:10.2.3'
     // Android supports
-    implementation 'androidx.preference:preference-ktx:1.1.1'
-    implementation 'androidx.appcompat:appcompat:1.4.1' //
+    implementation 'androidx.preference:preference-ktx:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.4.2' //
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'com.google.android.material:material:1.5.0-alpha01'
+    implementation 'com.google.android.material:material:1.7.0-alpha03'
     // Personal libraries
     implementation 'com.github.hyb1996:MutableTheme:1.0.0'
     // Material Dialogs
@@ -243,7 +254,7 @@ dependencies {
     //MultiLevelListView
     implementation 'com.github.hyb1996:android-multi-level-listview:1.1'
     //Licenses Dialog
-    implementation 'de.psdev.licensesdialog:licensesdialog:1.8.1'
+    implementation 'de.psdev.licensesdialog:licensesdialog:1.9.0'
     //Expandable RecyclerView
     implementation 'com.bignerdranch.android:expandablerecyclerview:3.0.0-RC1'
     //FlexibleDivider
@@ -277,7 +288,7 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.12.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
     //joda time
-    implementation 'joda-time:joda-time:2.10.13'
+    implementation 'net.danlew:android.joda:2.10.14'
     // Tasker Plugin
     implementation 'com.twofortyfouram:android-plugin-client-sdk-for-locale:4.0.3'
     // Flurry
@@ -312,6 +323,24 @@ dependencies {
     // Annotation processor
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-service:$lifecycle_version"
-    implementation "androidx.savedstate:savedstate-ktx:1.1.0"
-    implementation "androidx.savedstate:savedstate:1.1.0"
+    implementation "androidx.savedstate:savedstate-ktx:1.2.0"
+    implementation "androidx.savedstate:savedstate:1.2.0"
+
+    def ktor_version = "2.0.3"
+    implementation "io.ktor:ktor-server-core:$ktor_version"
+    implementation "io.ktor:ktor-server-netty:$ktor_version"
+    implementation("io.ktor:ktor-server-websockets:$ktor_version")
+    implementation("io.ktor:ktor-client-websockets:$ktor_version")
+    implementation("io.ktor:ktor-client-okhttp:$ktor_version")
+    implementation("io.ktor:ktor-client-core:$ktor_version")
+
+    //qr scan
+    implementation("io.github.g00fy2.quickie:quickie-bundled:1.5.0")
+    //Fab button with menu, please do not upgrade, download dependencies will be error after upgrade
+    //noinspection GradleDependency
+    implementation "com.leinardi.android:speed-dial.compose:1.0.0-alpha03"
+    //TextView markdown
+    implementation "io.noties.markwon:core:4.6.2"
+    implementation "androidx.viewpager2:viewpager2:1.1.0-beta01"
+    implementation("io.coil-kt:coil-compose:2.0.0-rc03")
 }

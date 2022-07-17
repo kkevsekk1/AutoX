@@ -26,7 +26,7 @@ import io.reactivex.subjects.PublishSubject;
 /**
  * Created by Stardust on 2017/9/24.
  */
-
+@Deprecated
 public class FloatingActionMenu extends FrameLayout implements View.OnClickListener {
 
     public interface OnFloatingActionButtonClickListener {
@@ -138,8 +138,8 @@ public class FloatingActionMenu extends FrameLayout implements View.OnClickListe
     }
 
     public void buildFabs(int[] icons, String[] labels) {
-        for (int i = 0; i < mFabContainers.length; i++) {
-            removeView(mFabContainers[i]);
+        for (View mFabContainer : mFabContainers) {
+            removeView(mFabContainer);
         }
         if (icons.length != labels.length)
             throw new IllegalArgumentException("icons.length = " + icons.length + " is not equal to labels.length = " + labels.length);

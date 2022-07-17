@@ -6,6 +6,7 @@ import android.content.pm.PackageManager.PERMISSION_DENIED
 import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
@@ -16,16 +17,15 @@ import androidx.annotation.Nullable
 import androidx.annotation.RequiresApi
 import com.afollestad.materialdialogs.MaterialDialog
 import com.google.gson.Gson
-import com.stardust.auojs.inrt.permission.BackgroundStartPermission
-import com.linsh.utilseverywhere.IntentUtils
 import com.stardust.app.GlobalAppContext
+import com.stardust.app.permission.BackgroundStartPermission
+import com.stardust.app.permission.DrawOverlaysPermission
+import com.stardust.app.permission.DrawOverlaysPermission.launchCanDrawOverlaysSettings
+import com.stardust.app.permission.Permissions
+import com.stardust.app.permission.PermissionsSettingsUtil.launchAppPermissionsSettings
 import com.stardust.auojs.inrt.autojs.AccessibilityServiceTool
 import com.stardust.auojs.inrt.autojs.AutoJs
 import com.stardust.auojs.inrt.launch.GlobalProjectLauncher
-import com.stardust.auojs.inrt.permission.Permissions
-import com.stardust.auojs.inrt.permission.DrawOverlaysPermission
-import com.stardust.auojs.inrt.permission.DrawOverlaysPermission.launchCanDrawOverlaysSettings
-import com.stardust.auojs.inrt.permission.PermissionsSettingsUtil.launchAppPermissionsSettings
 import com.stardust.autojs.project.ProjectConfigKt
 import com.stardust.util.IntentUtil
 
@@ -188,13 +188,7 @@ class SplashActivity : ComponentActivity() {
             .negativeText("取消")
             .onPositive { dialog, which ->
                 dialog.dismiss()
-                if (AccessibilityServiceTool.isAccessibilityServiceEnabled(this)) {
-                    permissionsResult[Permissions.ACCESSIBILITY_SERVICES] = true
-                    checkPermissions()
-                    Toast.makeText(this, "无障碍服务已开启", Toast.LENGTH_SHORT).show()
-                }else{
-                    accessibilitySettingsLauncher.launch(IntentUtils.getAccessibilitySettingIntent())
-                }
+                accessibilitySettingsLauncher.launch(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
             }
             .onNegative { dialog, which ->
                 finish()

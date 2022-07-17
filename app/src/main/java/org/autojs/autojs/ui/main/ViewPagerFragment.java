@@ -11,7 +11,7 @@ import com.stardust.util.BackPressedHandler;
 /**
  * Created by Stardust on 2017/8/22.
  */
-
+@Deprecated
 public abstract class ViewPagerFragment extends Fragment implements BackPressedHandler {
 
     protected static final int ROTATION_GONE = -1;

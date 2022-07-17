@@ -54,7 +54,7 @@ public class CaptureForegroundService extends Service {
 
         return new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle("Recording")
-                .setSmallIcon(R.drawable.autojs_material)
+                .setSmallIcon(R.drawable.autojs_logo)
                 .setWhen(System.currentTimeMillis())
                 .setContentIntent(contentIntent)
                 .setChannelId(CHANNEL_ID)

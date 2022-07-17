@@ -3,7 +3,6 @@ package com.stardust.autojs;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -13,9 +12,9 @@ import androidx.annotation.RequiresApi;
 import com.stardust.app.OnActivityResultDelegate;
 import com.stardust.app.SimpleActivityLifecycleCallbacks;
 import com.stardust.autojs.core.accessibility.AccessibilityBridge;
-import com.stardust.autojs.core.console.GlobalConsole;
+import com.stardust.autojs.core.activity.ActivityInfoProvider;
 import com.stardust.autojs.core.console.ConsoleImpl;
-import com.stardust.autojs.core.image.capture.CaptureForegroundService;
+import com.stardust.autojs.core.console.GlobalConsole;
 import com.stardust.autojs.core.image.capture.ScreenCaptureRequestActivity;
 import com.stardust.autojs.core.image.capture.ScreenCaptureRequester;
 import com.stardust.autojs.core.record.accessibility.AccessibilityActionRecorder;
@@ -32,7 +31,6 @@ import com.stardust.autojs.script.JavaScriptSource;
 import com.stardust.util.ResourceMonitor;
 import com.stardust.util.ScreenMetrics;
 import com.stardust.util.UiHandler;
-import com.stardust.autojs.core.activity.ActivityInfoProvider;
 import com.stardust.view.accessibility.AccessibilityNotificationObserver;
 import com.stardust.view.accessibility.AccessibilityService;
 import com.stardust.view.accessibility.LayoutInspector;
@@ -99,9 +97,9 @@ public abstract class AutoJs {
         });
 //        ResourceMonitor.setUnclosedResourceDetectedHandler(detectedException -> mGlobalConsole.error(detectedException));
         ResourceMonitor.setUnclosedResourceDetectedHandler(mGlobalConsole::error);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+  /*      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             mContext.startForegroundService(new Intent(mContext, CaptureForegroundService.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-        }
+        }*/
     }
 
     public abstract void ensureAccessibilityServiceEnabled();

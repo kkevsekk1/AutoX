@@ -4,11 +4,11 @@
              android:layout_height="match_parent"
              android:orientation="vertical">
 
-    <ImageView
+   <!-- <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:src="@drawable/autojs_material"/>
+        android:src="@drawable/autojs_logo"/>-->
 
     <TextView
         android:id="@+id/slug"

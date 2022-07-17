@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -30,7 +29,6 @@ import com.afollestad.materialdialogs.MaterialDialog
 import com.google.accompanist.appcompattheme.AppCompatTheme
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.stardust.app.DialogUtils
-import com.stardust.autojs.core.image.Colors
 import com.stardust.pio.PFiles
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -41,8 +39,7 @@ import org.autojs.autojs.build.ApkSigner
 import org.autojs.autojs.build.ApkSigner.checkKeyStore
 import org.autojs.autojs.build.ApkSigner.loadApkKeyStore
 import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder
-import org.autojs.autojs.ui.theme.AutoXJsTheme
-import org.autojs.autojs.ui.widget.MySwipeRefresh
+import org.autojs.autojs.ui.compose.widget.MySwipeRefresh
 
 /**
  * @author wilinz

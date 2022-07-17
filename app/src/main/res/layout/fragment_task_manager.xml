@@ -23,7 +23,6 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:text="@string/notice_no_running_script"
-        android:textColor="#adadad"
         android:textSize="16sp"/>
 
 </FrameLayout>

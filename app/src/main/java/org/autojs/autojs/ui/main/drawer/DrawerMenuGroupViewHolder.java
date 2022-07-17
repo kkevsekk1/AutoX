@@ -10,7 +10,7 @@ import org.autojs.autojs.ui.widget.BindableViewHolder;
 /**
  * Created by Stardust on 2017/12/10.
  */
-
+@Deprecated
 public class DrawerMenuGroupViewHolder extends BindableViewHolder<DrawerMenuItem> {
 
     private TextView mTextView;

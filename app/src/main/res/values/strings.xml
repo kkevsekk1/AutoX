@@ -6,7 +6,8 @@
     <string name="text_please_input_name">请输入名称</string>
     <string name="text_name">名称</string>
     <string name="text_go_to_setting">去设置</string>
-    <string name="explain_accessibility_permission">软件需要打开\"无障碍服务\"才能运行，请打开”设置->无障碍服务“或”设置->无障碍服务->更多已下载的服务“，找到本应用，开启无障碍服务\n您也可以稍后在侧拉菜单中设置。</string>
+    <string name="explain_accessibility_permission">软件需要打开“无障碍服务”才能运行，请打开“设置->无障碍服务”或“设置->无障碍服务->更多已下载的服务”，找到本应用，开启无障碍服务\n您也可以稍后在侧拉菜单中设置。</string>
+    <string name="explain_accessibility_permission2">软件需要打开“无障碍服务”才能运行，请打开“设置->无障碍服务”或“设置->无障碍服务->更多已下载的服务”，找到本应用，开启无障碍服务</string>
     <string name="text_cancel">取消</string>
     <string name="text_path_is_empty">路径为空</string>
     <string name="text_file_not_exists">文件不存在</string>
@@ -68,7 +69,7 @@
     <string name="text_use_volume_control_record">使用音量下键控制</string>
     <string name="summary_use_volume_control_record">开启悬浮窗后每次音量下键会开始或停止脚本录制</string>
     <string name="key_use_volume_control_record">key_use_volume_control_record</string>
-    <string name="key_auto_back">key_auto_back</string>
+    <string name="key_auto_backup">key_auto_back</string>
     <string name="text_qq_group">这是qq群号,若无法打开请手动搜索</string>
     <string name="text_mobile_qq_not_installed">未安装手机QQ</string>
     <string name="text_edit">编辑</string>
@@ -113,7 +114,8 @@
     <string name="summary_pre_execute_script">将在脚本文件执行前执行</string>
     <string name="text_checking_update">正在检查更新</string>
     <string name="text_new_version">新版本</string>
-    <string name="text_check_update_error">检查更新失败Orz</string>
+    <string name="text_new_version2">新版本：%s</string>
+    <string name="text_check_update_error">检查更新失败：%s</string>
     <string name="text_check_for_updates">检查更新</string>
     <string name="text_is_latest_version">已经是最新版本</string>
     <string name="text_version_too_old">版本过低</string>
@@ -136,7 +138,7 @@
     <string name="text_again_and_again">又双</string>
     <string name="text_again_and_again_again">又双叒</string>
     <string name="text_again_and_again_again_again">又双叒叕</string>
-    <string name="debug">连接电脑</string>
+    <string name="text_connect_computer">连接电脑</string>
     <string name="regist">连接到应用商店</string>
     <string name="text_server_address">服务器地址</string>
     <string name="text_server_address_error">链接地址错误</string>
@@ -167,7 +169,7 @@
     <string name="key_root_record_out_file_type">key_root_record_out_file_type</string>
     <string name="text_root_record_out_file_type">Root录制生成文件类型</string>
     <string name="text_binary">binary</string>
-    <string name="key_stable_mode">key_stable_mode</string>
+    <string name="key_stable_mode" translatable="false">key_stable_mode</string>
     <string name="summary_stable_mode">开启后布局分析更稳定，但小部分脚本可能无法正常运行。重启无障碍服务生效</string>
     <string name="text_hideLaucher">隐藏桌面图标(通过adb或其他方法启动应用)</string>
     <string name="text_stable_mode">稳定模式</string>
@@ -182,7 +184,7 @@
     <string name="text_manage">管理</string>
     <string name="not_login">普通功能无需登录</string>
     <string name="text_volume_down_control">音量下键控制</string>
-    <string name="text_auto_back">自动备份脚本</string>
+    <string name="text_auto_backup">自动备份脚本</string>
     <string name="text_others">其他</string>
     <string name="text_import">导入</string>
     <string name="text_click_too_frequently">您的操作太快啦ヽ(#`Д´)ﾉ</string>
@@ -442,7 +444,7 @@
     <string name="text_night_mode">夜间模式</string>
     <string name="key_night_mode">key_night_mode</string>
     <string name="text_run_on_startup">Autox.js启动时</string>
-    <string name="text_usage_stats_permission">查看使用统计权限</string>
+    <string name="text_usage_stats_permission">使用情况访问权限</string>
     <string name="description_usage_stats_permission">通过\"查看使用统计\"权限可以获取本设备过去使用应用的情况，从而使获取当前应用(currentPackage)时更准确。</string>
     <string name="text_open_with">打开方式</string>
     <string name="text_root">Root</string>
@@ -497,5 +499,29 @@
     <string name="text_required_default_ocr_model">打包默认OCR训练模型</string>
     <string name="switch_fullscreen">切换全屏模式</string>
     <string name="text_custom_ocr_model_path">打包自定义OCR模型目录</string>
-
+    <string name="desc_more">更多</string>
+    <string name="text_switch_web_kernel">切换web内核</string>
+    <string name="text_favorites_management">收藏管理</string>
+    <string name="text_switch_timed_task_scheduler">切换定时任务调度器</string>
+    <string name="text_go_to_open">去打开</string>
+    <string name="text_home">主页</string>
+    <string name="text_management">管理</string>
+    <string name="text_document">文档</string>
+    <string name="text_open_usb_debug">打开USB调试</string>
+    <string name="text_scan_qr">扫码</string>
+    <string name="text_connect_failed">连接失败：%s</string>
+    <string name="text_start_service_failed">服务启动失败：%s</string>
+    <string name="text_unsupported_qr_code">不支持此格式的二维码</string>
+    <string name="text_connected_to_computer">已连接电脑</string>
+    <string name="text_press_again_to_exit_app">再按一次退出APP</string>
+    <string name="text_app_download_link">下载地址</string>
+    <string name="text_project_link">项目地址</string>
+    <string name="text_release_date">发布时间：%s</string>
+    <string name="text_checking_for_updates">正在检查更新</string>
+    <string name="text_update_information_not_found">未查询到更新信息</string>
+    <string name="text_please_enable_external_storage">请先开启外部储存权限</string>
+    <string name="text_app_detail_settings">应用详情设置</string>
+    <string name="text_logcat">日志</string>
+    <string name="text_menu">菜单</string>
+    <string name="text_exit_search">退出搜索</string>
 </resources>
