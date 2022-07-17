@@ -9,7 +9,7 @@ buildscript {
 
     repositories {
         mavenLocal()
-        //首X加快github CI
+        //首选国外镜像加快github CI
         google()
         mavenCentral()
         maven { url 'https://www.jitpack.io' }
@@ -29,7 +29,7 @@ buildscript {
 allprojects {
     repositories {
         mavenLocal()
-        //加快github CI
+        //首选国外镜像加快github CI
         google()
         mavenCentral()
         maven { url 'https://www.jitpack.io' }
