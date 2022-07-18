@@ -29,6 +29,7 @@ object DevPlugin {
         }
     }
 
+    private val gson = Gson()
     const val SERVER_PORT = 9317
     private const val CLIENT_VERSION = 2
     private const val LOG_TAG = "ConnectComputer"
@@ -159,7 +160,7 @@ object DevPlugin {
                 appVersionCode = BuildConfig.VERSION_CODE
             )
         )
-        send(Gson().toJson(message))
+        send(gson.toJson(message))
         withContext(Dispatchers.IO) {
             launch {
                 delay(HANDSHAKE_TIMEOUT)
@@ -196,6 +197,19 @@ object DevPlugin {
             Log.d(LOG_TAG, "serveHello: 连接成功")
         } else {
             close()
+        }
+    }
+
+    fun log(log: String) {
+        if (!isActive) return
+        val data = Message(
+            type = "log",
+            data = LogData(log = log)
+        )
+        session?.let {
+            it.launch {
+                it.send(gson.toJson(data))
+            }
         }
     }
 
