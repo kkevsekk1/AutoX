@@ -11,6 +11,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
+import com.stardust.pio.PFiles;
 import com.stardust.theme.app.ColorSelectActivity;
 import com.stardust.theme.util.ListBuilder;
 import com.stardust.util.MapBuilder;
@@ -21,6 +22,7 @@ import org.autojs.autojs.R;
 import org.autojs.autojs.ui.BaseActivity;
 import org.autojs.autojs.ui.error.IssueReporterActivity;
 import org.autojs.autojs.ui.update.UpdateCheckDialog;
+import org.autojs.autojs.ui.widget.CommonMarkdownView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,7 +73,7 @@ public class SettingsActivity extends BaseActivity {
     @AfterViews
     void setUpUI() {
         setUpToolbar();
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_setting,new PreferenceFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_setting, new PreferenceFragment()).commit();
     }
 
     private void setUpToolbar() {
@@ -86,12 +88,6 @@ public class SettingsActivity extends BaseActivity {
             }
         });
     }
-
-
-
-
-
-
 
 
     public static class PreferenceFragment extends PreferenceFragmentCompat {
@@ -115,12 +111,12 @@ public class SettingsActivity extends BaseActivity {
 
             DialogFragment dialogFragment = null;
             if (preference instanceof ScriptDirPathPreference) {
-                dialogFragment= ScriptDirPathPreferenceFragmentCompat.newInstance(preference.getKey());
+                dialogFragment = ScriptDirPathPreferenceFragmentCompat.newInstance(preference.getKey());
             }
             if (dialogFragment != null) {
                 dialogFragment.setTargetFragment(this, 1234);
                 dialogFragment.show(this.getParentFragmentManager(), "androidx.preference.PreferenceFragment.DIALOG1");
-            }else{
+            } else {
                 super.onDisplayPreferenceDialog(preference);
             }
 
@@ -136,12 +132,13 @@ public class SettingsActivity extends BaseActivity {
                     .put(getString(R.string.text_issue_report), () -> startActivity(new Intent(getActivity(), IssueReporterActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)))
                     .put(getString(R.string.text_about_me_and_repo), () -> startActivity(new Intent(getActivity(), AboutActivity_.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)))
                     .put(getString(R.string.text_licenses), () -> showLicenseDialog())
+                    .put(getString(R.string.text_licenses_other), () -> showLicenseDialog2())
                     .build();
         }
 
 
         @Override
-        public boolean onPreferenceTreeClick( Preference preference) {
+        public boolean onPreferenceTreeClick(Preference preference) {
             Runnable action = ACTION_MAP.get(preference.getTitle().toString());
             if (action != null) {
                 action.run();
@@ -157,6 +154,16 @@ public class SettingsActivity extends BaseActivity {
                     .setNotices(R.raw.licenses)
                     .setIncludeOwnLicense(true)
                     .build()
+                    .show();
+        }
+
+        private void showLicenseDialog2() {
+            new CommonMarkdownView.DialogBuilder(getActivity())
+                    .padding(36, 0, 36, 0)
+                    .markdown(PFiles.read(getResources().openRawResource(R.raw.licenses_other)))
+                    .title(R.string.text_licenses_other)
+                    .positiveText(R.string.ok)
+                    .canceledOnTouchOutside(false)
                     .show();
         }
 

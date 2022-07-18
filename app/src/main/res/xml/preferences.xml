@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:widgetLayout="@layout/preference_custom">
+    android:widgetLayout="@layout/preference_custom">
 
     <PreferenceCategory
         android:layout="@layout/preference_category_custom"
@@ -12,21 +12,20 @@
             android:key="@string/key_use_volume_control_record"
             android:layout="@layout/preference_custom"
             android:summary="@string/summary_use_volume_control_record"
-            android:title="@string/text_use_volume_control_record"/>
+            android:title="@string/text_use_volume_control_record" />
 
         <SwitchPreference
             android:defaultValue="true"
             android:key="@string/key_record_toast"
             android:layout="@layout/preference_custom"
-            android:title="@string/text_record_msg"/>
+            android:title="@string/text_record_msg" />
         <ListPreference
             android:defaultValue="@string/text_binary"
             android:entries="@array/root_record_out_file_type_keys"
             android:entryValues="@array/root_record_out_file_type_values"
             android:key="@string/key_root_record_out_file_type"
             android:layout="@layout/preference_custom"
-            android:title="@string/text_root_record_out_file_type"
-            />
+            android:title="@string/text_root_record_out_file_type" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -37,14 +36,14 @@
             android:defaultValue="false"
             android:key="@string/key_use_volume_control_running"
             android:layout="@layout/preference_custom"
-            android:title="@string/text_use_volume_to_stop_running"/>
+            android:title="@string/text_use_volume_to_stop_running" />
 
         <SwitchPreference
             android:defaultValue="false"
             android:key="@string/key_guard_mode"
             android:layout="@layout/preference_custom"
             android:summary="@string/summary_guard_mode"
-            android:title="@string/text_guard_mode"/>
+            android:title="@string/text_guard_mode" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -55,7 +54,7 @@
             android:inputType="number"
             android:key="@string/key_max_length_for_code_completion"
             android:layout="@layout/preference_custom"
-            android:title="@string/text_max_length_for_code_completion"/>
+            android:title="@string/text_max_length_for_code_completion" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -67,14 +66,14 @@
             android:key="@string/key_enable_accessibility_service_by_root"
             android:layout="@layout/preference_custom"
             android:summary="@string/summary_enable_accessibility_service_by_root"
-            android:title="@string/text_enable_accessibility_service_by_root"/>
+            android:title="@string/text_enable_accessibility_service_by_root" />
 
         <SwitchPreference
             android:defaultValue="false"
             android:key="@string/key_stable_mode"
             android:layout="@layout/preference_custom"
             android:summary="@string/summary_stable_mode"
-            android:title="@string/text_stable_mode"/>
+            android:title="@string/text_stable_mode" />
 
     </PreferenceCategory>
 
@@ -83,8 +82,7 @@
         android:title="@string/text_appearance">
         <Preference
             android:layout="@layout/preference_custom"
-            android:title="@string/text_theme_color"
-            />
+            android:title="@string/text_theme_color" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -96,7 +94,7 @@
             android:key="@string/key_single_build_clean_mode"
             android:layout="@layout/preference_custom"
             android:summary="@string/summary_single_build_clean_mode"
-            android:title="@string/text_single_build_clean_mode"/>
+            android:title="@string/text_single_build_clean_mode" />
 
         <org.autojs.autojs.ui.settings.ScriptDirPathPreference
             android:defaultValue="@string/default_value_script_dir_path"
@@ -104,9 +102,7 @@
             android:entryValues="@array/values_documentation_source"
             android:key="@string/key_script_dir_path"
             android:layout="@layout/preference_custom"
-            android:title="@string/text_change_script_dir"
-            >
-        </org.autojs.autojs.ui.settings.ScriptDirPathPreference>
+            android:title="@string/text_change_script_dir"></org.autojs.autojs.ui.settings.ScriptDirPathPreference>
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -115,18 +111,18 @@
 
         <Preference
             android:layout="@layout/preference_custom"
-            android:title="@string/text_issue_report"
-            />
+            android:title="@string/text_issue_report" />
 
         <Preference
             android:layout="@layout/preference_custom"
-            android:title="@string/text_about_me_and_repo"
-            />
+            android:title="@string/text_about_me_and_repo" />
 
         <Preference
             android:layout="@layout/preference_custom"
-            android:title="@string/text_licenses"
-            />
+            android:title="@string/text_licenses" />
+        <Preference
+            android:layout="@layout/preference_custom"
+            android:title="@string/text_licenses_other" />
     </PreferenceCategory>
 
 </PreferenceScreen>
