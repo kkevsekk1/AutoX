@@ -177,7 +177,7 @@ object DevPlugin {
 
 
     private suspend fun handleBytes(obj: JsonObject, bytes: Bytes) {
-        withContext(Dispatchers.Main) {
+        withContext(Dispatchers.IO) {
             responseHandler.handleBytes1(obj, bytes)
                 .flowOn(Dispatchers.Main)
                 .onEach {

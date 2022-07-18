@@ -72,11 +72,14 @@ class DevPluginResponseHandler(private val cacheDir: File) : Handler {
                 saveProject(data["name"].asString, data["dir"].asString)
                 true
             })
+
     private val mScriptExecutions = HashMap<String, ScriptExecution?>()
+
     override fun handle(data: JsonObject): Boolean {
         return router.handle(data)
     }
 
+    @Deprecated("use handleBytes1")
     fun handleBytes(data: JsonObject, bytes: Bytes): Observable<File> {
         val id = data["data"].asJsonObject["id"].asString
         val idMd5 = MD5.md5(id)
@@ -91,21 +94,17 @@ class DevPluginResponseHandler(private val cacheDir: File) : Handler {
     fun handleBytes1(data: JsonObject, bytes: Bytes): Flow<File> {
         val id = data["data"].asJsonObject["id"].asString
         val idMd5 = MD5.md5(id)
-        return flow<File> {
+        return flow {
             val dir = File(cacheDir, idMd5)
             Zip.unzip(ByteArrayInputStream(bytes.bytes), dir)
-            dir
+            emit(dir)
         }.flowOn(Dispatchers.IO)
     }
 
     private fun runScript(viewId: String, name: String, script: String) {
-        var name = name
-        name = if (TextUtils.isEmpty(name)) {
-            "[$viewId]"
-        } else {
-            PFiles.getNameWithoutExtension(name)
-        }
-        mScriptExecutions[viewId] = run(StringScriptSource("[remote]$name", script))
+        val name1 = if (name.isEmpty()) "[$viewId]"
+        else PFiles.getNameWithoutExtension(name)
+        mScriptExecutions[viewId] = run(StringScriptSource("[remote]$name1", script))
     }
 
     private fun launchProject(dir: String) {
@@ -120,10 +119,8 @@ class DevPluginResponseHandler(private val cacheDir: File) : Handler {
 
     private fun stopScript(viewId: String) {
         val execution = mScriptExecutions[viewId]
-        if (execution != null) {
-            execution.engine.forceStop()
-            mScriptExecutions.remove(viewId)
-        }
+        execution?.engine?.forceStop()
+        mScriptExecutions.remove(viewId)
     }
 
     private fun getName(data: JsonObject): String? {
@@ -134,15 +131,12 @@ class DevPluginResponseHandler(private val cacheDir: File) : Handler {
     }
 
     private fun saveScript(name: String, script: String) {
-        var name = name
-        if (TextUtils.isEmpty(name)) {
-            name = "untitled"
-        }
-        name = PFiles.getName(name) //PFiles.getNameWithoutExtension(name);
-        if (!name.endsWith(".js")) {
+        val name1 = if (name.isEmpty())"untitled" else PFiles.getName(name)
+         //PFiles.getNameWithoutExtension(name);
+//        if (!name1.endsWith(".js")) {
 //            name = name + ".js";
-        }
-        val file = File(Pref.getScriptDirPath(), name)
+//        }
+        val file = File(Pref.getScriptDirPath(), name1)
         PFiles.ensureDir(file.path)
         PFiles.write(file, script)
         toast(R.string.text_script_save_successfully)
@@ -150,12 +144,8 @@ class DevPluginResponseHandler(private val cacheDir: File) : Handler {
 
     @SuppressLint("CheckResult")
     private fun saveProject(name: String, dir: String) {
-        var name: String? = name
-        if (TextUtils.isEmpty(name)) {
-            name = "untitled"
-        }
-        name = PFiles.getNameWithoutExtension(name)
-        val toDir = File(Pref.getScriptDirPath(), name)
+        val name1 = if (name.isEmpty())  "untitled" else PFiles.getNameWithoutExtension(name)
+        val toDir = File(Pref.getScriptDirPath(), name1)
         Observable.fromCallable {
             copyDir(File(dir), toDir)
             toDir.path
@@ -170,7 +160,7 @@ class DevPluginResponseHandler(private val cacheDir: File) : Handler {
     private fun copyDir(fromDir: File, toDir: File) {
         toDir.mkdirs()
         val files = fromDir.listFiles()
-        if (files == null || files.size == 0) {
+        if (files == null || files.isEmpty()) {
             return
         }
         for (file in files) {
