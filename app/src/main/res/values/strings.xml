@@ -524,4 +524,5 @@
     <string name="text_logcat">日志</string>
     <string name="text_menu">菜单</string>
     <string name="text_exit_search">退出搜索</string>
+    <string name="text_licenses_other">非开源许可</string>
 </resources>
