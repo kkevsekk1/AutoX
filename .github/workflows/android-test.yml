@@ -5,7 +5,7 @@ on:
     paths-ignore:
       - "Readme.md"
     tags-ignore:
-      - '*'
+      - '6.*'
   pull_request:
     paths-ignore:
       - "Readme.md"
