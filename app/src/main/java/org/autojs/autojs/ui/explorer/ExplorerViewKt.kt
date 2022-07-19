@@ -46,8 +46,8 @@ import java.util.*
 open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
     PopupMenu.OnMenuItemClickListener, ViewTreeObserver.OnGlobalFocusChangeListener {
 
-    private var onItemClickListener: ((view: View, item: ExplorerItem) -> Unit)? = null
-    private var onItemOperatedListener: ((item: ExplorerItem) -> Unit)? = null
+    private var onItemClickListener: ((view: View, item: ExplorerItem?) -> Unit)? = null
+    private var onItemOperatedListener: ((item: ExplorerItem?) -> Unit)? = null
     private var explorerItemList = ExplorerItemList()
     protected var explorerItemListView: RecyclerView? = null
         private set
@@ -76,6 +76,14 @@ open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
         loadItemList()
     }
 
+    override fun dispatchKeyEvent(event: KeyEvent): Boolean {
+        if (event.keyCode == KeyEvent.KEYCODE_BACK && canGoBack()) {
+            goBack()
+            return true
+        }
+        return super.dispatchKeyEvent(event)
+    }
+
     private fun setCurrentPageState(currentPageState: ExplorerPageState) {
         this.currentPageState = currentPageState
         if (this.currentPageState.currentPage is ExplorerProjectPage) {
@@ -94,7 +102,7 @@ open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
         loadItemList()
     }
 
-    fun setOnItemClickListener(listener: (view: View, item: ExplorerItem) -> Unit) {
+    fun setOnItemClickListener(listener: (view: View, item: ExplorerItem?) -> Unit) {
         this.onItemClickListener = listener
     }
 
@@ -142,7 +150,7 @@ open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
         loadItemList()
     }
 
-    fun setOnItemOperatedListener(listener: (item: ExplorerItem) -> Unit) {
+    fun setOnItemOperatedListener(listener: (item: ExplorerItem?) -> Unit) {
         this.onItemOperatedListener = listener
     }
 
@@ -338,7 +346,7 @@ open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
     }
 
     protected fun notifyOperated() {
-        selectedItem?.let { onItemOperatedListener?.invoke(it) }
+        onItemOperatedListener?.invoke(selectedItem)
     }
 
     @SuppressLint("CheckResult", "NotifyDataSetChanged")
@@ -511,7 +519,7 @@ open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
 
         @OnClick(R.id.item)
         fun onItemClick() {
-            explorerItem?.let { onItemClickListener?.invoke(itemView, it) }
+            onItemClickListener?.invoke(itemView, selectedItem)
             notifyOperated()
         }
 

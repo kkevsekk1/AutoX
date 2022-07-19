@@ -234,10 +234,12 @@ class ScriptListFragment : Fragment() {
             ExplorerDirPage.createRoot(Pref.getScriptDirPath())
         )
         setOnItemClickListener { _, item ->
-            if (item.isEditable) {
-                edit(requireContext(), item.toScriptFile())
-            } else {
-                IntentUtil.viewFile(get(), item.path, AppFileProvider.AUTHORITY)
+            item?.let {
+                if (item.isEditable) {
+                    edit(requireContext(), item.toScriptFile())
+                } else {
+                    IntentUtil.viewFile(get(), item.path, AppFileProvider.AUTHORITY)
+                }
             }
         }
     }

@@ -26,7 +26,6 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
-import com.google.accompanist.appcompattheme.AppCompatTheme
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.stardust.app.DialogUtils
 import com.stardust.pio.PFiles
@@ -39,6 +38,7 @@ import org.autojs.autojs.build.ApkSigner
 import org.autojs.autojs.build.ApkSigner.checkKeyStore
 import org.autojs.autojs.build.ApkSigner.loadApkKeyStore
 import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder
+import org.autojs.autojs.ui.compose.theme.AutoXJsTheme
 import org.autojs.autojs.ui.compose.widget.MySwipeRefresh
 
 /**
@@ -54,7 +54,7 @@ class SignManageActivityKt : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            AppCompatTheme {
+            AutoXJsTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background

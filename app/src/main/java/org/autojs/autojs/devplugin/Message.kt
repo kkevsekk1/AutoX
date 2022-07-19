@@ -3,8 +3,15 @@ package org.autojs.autojs.devplugin
 import com.google.gson.annotations.SerializedName
 
 data class Message(
+    @SerializedName("type")
     val type: String,
+    @SerializedName("data")
     val data: Any,
+)
+
+data class LogData(
+    @SerializedName("log")
+    val log: String
 )
 
 data class Hello(
