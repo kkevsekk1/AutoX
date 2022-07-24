@@ -2,9 +2,7 @@ package com.stardust.auojs.inrt
 
 import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager.PERMISSION_DENIED
 import android.graphics.Typeface
-import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
@@ -12,9 +10,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.NonNull
 import androidx.annotation.Nullable
-import androidx.annotation.RequiresApi
+import androidx.lifecycle.lifecycleScope
 import com.afollestad.materialdialogs.MaterialDialog
 import com.google.gson.Gson
 import com.stardust.app.GlobalAppContext
@@ -27,7 +24,8 @@ import com.stardust.auojs.inrt.autojs.AccessibilityServiceTool
 import com.stardust.auojs.inrt.autojs.AutoJs
 import com.stardust.auojs.inrt.launch.GlobalProjectLauncher
 import com.stardust.autojs.project.ProjectConfigKt
-import com.stardust.util.IntentUtil
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 /**
  * Created by Stardust on 2018/2/2.
@@ -35,18 +33,20 @@ import com.stardust.util.IntentUtil
  */
 
 class SplashActivity : ComponentActivity() {
-    var TAG = "SplashActivity"
-    var step = 1 //打开悬浮权限，而打开权限，请求权限
+
+    companion object{
+        const val TAG = "SplashActivity"
+    }
 
     private val accessibilitySettingsLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (AccessibilityServiceTool.isAccessibilityServiceEnabled(this)) {
                 permissionsResult[Permissions.ACCESSIBILITY_SERVICES] = true
                 Toast.makeText(this, "无障碍服务已开启", Toast.LENGTH_SHORT).show()
-            }else{
+            } else {
                 Toast.makeText(this, "无障碍服务未开启", Toast.LENGTH_SHORT).show()
             }
-            checkPermissions()
+            checkSpecialPermissions()
         }
 
     private val backgroundStartSettingsLauncher =
@@ -54,7 +54,7 @@ class SplashActivity : ComponentActivity() {
             if (BackgroundStartPermission.isBackgroundStartAllowed(this)) {
                 permissionsResult[Permissions.BACKGROUND_START] = true
             }
-            checkPermissions()
+            checkSpecialPermissions()
         }
 
     private val drawOverlaysSettingsLauncher =
@@ -62,7 +62,17 @@ class SplashActivity : ComponentActivity() {
             if (DrawOverlaysPermission.isCanDrawOverlays(this)) {
                 permissionsResult[Permissions.DRAW_OVERLAY] = true
             }
-            checkPermissions()
+            checkSpecialPermissions()
+        }
+
+    private val storagePermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { result ->
+            if (result.all { it.value }) {
+                checkSpecialPermissions()
+            } else {
+                GlobalAppContext.toast("请开启权限后，再运行!")
+                requestExternalStoragePermission()
+            }
         }
 
     private val projectConfig by lazy {
@@ -71,7 +81,7 @@ class SplashActivity : ComponentActivity() {
 
     private val permissionsResult = mutableMapOf<String, Boolean>()
 
-    private fun checkPermissions() {
+    private fun checkSpecialPermissions() {
         if (permissionsResult.all { it.value }) {
             runScript()
         } else {
@@ -111,28 +121,38 @@ class SplashActivity : ComponentActivity() {
             }
 
         }
-        if (!checkStoragePermissions()) {
-            GlobalAppContext.toast("请开启权限后，再运行!")
+        lifecycleScope.launch {
+            delay(800)
+            readSpecialPermissionConfiguration()
+            requestExternalStoragePermission()
         }
-        projectConfig.launchConfig.let {
-            it.permissions.forEach {
-                when (it) {
-                    Permissions.ACCESSIBILITY_SERVICES -> {
-                        permissionsResult[it] =
-                            AccessibilityServiceTool.isAccessibilityServiceEnabled(this)
-                    }
-                    Permissions.BACKGROUND_START -> {
-                        permissionsResult[it] =
-                            BackgroundStartPermission.isBackgroundStartAllowed(this)
-                    }
-                    Permissions.DRAW_OVERLAY -> {
-                        permissionsResult[it] = DrawOverlaysPermission.isCanDrawOverlays(this)
-                    }
+    }
+
+    private fun readSpecialPermissionConfiguration() {
+        projectConfig.launchConfig.permissions.forEach { permission ->
+            when (permission) {
+                Permissions.ACCESSIBILITY_SERVICES -> {
+                    permissionsResult[permission] =
+                        AccessibilityServiceTool.isAccessibilityServiceEnabled(this)
+                }
+                Permissions.BACKGROUND_START -> {
+                    permissionsResult[permission] =
+                        BackgroundStartPermission.isBackgroundStartAllowed(this)
+                }
+                Permissions.DRAW_OVERLAY -> {
+                    permissionsResult[permission] = DrawOverlaysPermission.isCanDrawOverlays(this)
                 }
             }
         }
-        Log.d(TAG, "onCreate: ${permissionsResult}")
-        checkPermissions()
+    }
+
+    private fun requestExternalStoragePermission(){
+        storagePermissionLauncher.launch(
+            arrayOf(
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+            )
+        )
     }
 
     private fun requestDrawOverlays() {
@@ -140,26 +160,15 @@ class SplashActivity : ComponentActivity() {
             MaterialDialog.Builder(this).title("需要悬浮窗权限").content("需要悬浮窗权限")//内容
                 .positiveText("去打开") //肯定按键
                 .negativeText("取消")
-                .onPositive { dialog, which ->
+                .onPositive { dialog, _ ->
                     dialog.dismiss()
                     drawOverlaysSettingsLauncher.launchCanDrawOverlaysSettings(packageName)
-                }.onNegative { dialog, which ->
+                }.onNegative { _, _ ->
                     finish()
                 }
                 .canceledOnTouchOutside(false)
-                .build();
-        dialog.show();
-    }
-
-    private fun manageWriteSettings() {
-        val dialog = MaterialDialog.Builder(this).title("继续进入权限设置")
-            .content("请打开所有权限!\r\n 请打开所有权限 \r\n 请打开所有权限")//内容
-            .positiveText("确定") //肯定按键
-            .onPositive { _, _ ->
-                IntentUtil.goToAppDetailSettings(this);
-            }.canceledOnTouchOutside(false)
-            .build();
-        dialog.show();
+                .build()
+        dialog.show()
     }
 
     private fun requestBackgroundStart() {
@@ -168,16 +177,16 @@ class SplashActivity : ComponentActivity() {
             .content("需要后台打开界面权限才能运行，请前往设置打开")
             .positiveText("去打开") //肯定按键
             .negativeText("取消")
-            .onPositive { dialog, which ->
+            .onPositive { dialog, _ ->
                 dialog.dismiss()
                 backgroundStartSettingsLauncher.launchAppPermissionsSettings(packageName)
             }
-            .onNegative { dialog, which ->
+            .onNegative { _, _ ->
                 finish()
             }
             .canceledOnTouchOutside(false)
-            .build();
-        dialog.show();
+            .build()
+        dialog.show()
     }
 
     private fun requestAccessibilityService() {
@@ -186,23 +195,23 @@ class SplashActivity : ComponentActivity() {
             .content(R.string.explain_accessibility_permission, GlobalAppContext.appName)
             .positiveText("去打开") //肯定按键
             .negativeText("取消")
-            .onPositive { dialog, which ->
+            .onPositive { dialog, _ ->
                 dialog.dismiss()
                 accessibilitySettingsLauncher.launch(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
             }
-            .onNegative { dialog, which ->
+            .onNegative { _, _ ->
                 finish()
             }
             .canceledOnTouchOutside(false)
-            .build();
-        dialog.show();
+            .build()
+        dialog.show()
     }
 
     private fun runScript() {
         Thread {
             try {
                 GlobalProjectLauncher.launch(this)
-                this.finish();
+                this.finish()
             } catch (e: Exception) {
                 e.printStackTrace()
                 runOnUiThread {
@@ -212,57 +221,6 @@ class SplashActivity : ComponentActivity() {
                 }
             }
         }.start()
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        @NonNull permissions: Array<String>,
-        @NonNull grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        Log.d(TAG, "onRequestPermissionsResult: " + requestCode);
-    }
-
-    private fun checkPermission(vararg permissions: String): Boolean {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            val requestPermissions = getRequestPermissions(permissions)
-            if (requestPermissions.isNotEmpty()) {
-                requestPermissions(requestPermissions, PERMISSION_REQUEST_CODE)
-                return false;
-            } else {
-                return true;
-            }
-        } else {
-            return true;
-        }
-    }
-
-    private fun checkStoragePermissions(): Boolean {
-        return checkPermission(
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
-        )
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.M)
-    private fun getRequestPermissions(permissions: Array<out String>): Array<String> {
-        val list = ArrayList<String>()
-        for (permission in permissions) {
-            if (checkSelfPermission(permission) == PERMISSION_DENIED) {
-                list.add(permission)
-            }
-        }
-        return list.toTypedArray()
-    }
-
-    companion object {
-
-        private const val PERMISSION_REQUEST_CODE = 11186
-        private const val INIT_TIMEOUT: Long = 2500
-    }
-
-    override fun onResume() {
-        super.onResume()
     }
 
 }

@@ -62,7 +62,8 @@ import org.autojs.autojs.tool.WifiTool
 import org.autojs.autojs.ui.compose.widget.MyIcon
 import org.autojs.autojs.ui.compose.widget.MySwitch
 import org.autojs.autojs.ui.floating.FloatyWindowManger
-import org.autojs.autojs.ui.project.MyTextField
+import org.autojs.autojs.ui.build.MyTextField
+import org.autojs.autojs.ui.compose.theme.AutoXJsTheme
 import org.autojs.autojs.ui.settings.SettingsActivity_
 import org.joda.time.DateTimeZone
 import org.joda.time.Instant
@@ -146,7 +147,7 @@ fun DrawerPage() {
             modifier = Modifier
                 .height(1.dp)
                 .fillMaxWidth()
-                .background(Color(0xFFF2F3F5))
+                .background(AutoXJsTheme.colors.divider)
         )
         BottomButtons()
         Spacer(

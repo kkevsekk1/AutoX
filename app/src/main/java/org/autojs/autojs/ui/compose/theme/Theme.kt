@@ -17,8 +17,8 @@ private val DarkColorPalette = darkColors(
     background = Color(0xFF121212),
     surface = Color(0xFF121212),
     error = Color(0xFFCF6679),
-    onPrimary = Color.Black,
-    onSecondary = Color.Black,
+    onPrimary = Color.White,
+    onSecondary = Color.White,
     onBackground = Color.White,
     onSurface = Color.White,
     onError = Color.Black
@@ -46,11 +46,17 @@ fun AutoXJsTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composabl
         LightColorPalette
     }
 
-    val extendedColors = ExtendedColors(
-        onBackgroundVariant = if (darkTheme) Color.Gray else Color(0xFF8D8D8D),
-        switchUncheckedThumbColor = if (darkTheme) Color(0xFFA9A9A9) else colors.surface
+    val darkExtendedColors = ExtendedColors(
+        onBackgroundVariant = Color.Gray,
+        switchUncheckedThumbColor = Color(0xFFA9A9A9) ,
+        divider = Color(0xff262626)
     )
-    CompositionLocalProvider(LocalExtendedColors provides extendedColors) {
+    val lightExtendedColors = ExtendedColors(
+        onBackgroundVariant = Color(0xFF8D8D8D),
+        switchUncheckedThumbColor = MaterialTheme.colors.surface,
+        divider = Color(0xFFF2F3F5)
+    )
+    CompositionLocalProvider(LocalExtendedColors provides if (darkTheme) darkExtendedColors else lightExtendedColors) {
         MaterialTheme(
             colors = colors,
             typography = Typography,
@@ -65,12 +71,14 @@ fun AutoXJsTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composabl
 data class ExtendedColors(
     val onBackgroundVariant: Color,
     val switchUncheckedThumbColor: Color,
+    val divider: Color
 )
 
 val LocalExtendedColors = staticCompositionLocalOf {
     ExtendedColors(
         onBackgroundVariant = Color.Unspecified,
-        switchUncheckedThumbColor = Color.Unspecified
+        switchUncheckedThumbColor = Color.Unspecified,
+        divider = Color.Unspecified
     )
 }
 

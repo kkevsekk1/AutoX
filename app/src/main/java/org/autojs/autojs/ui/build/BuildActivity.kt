@@ -1,4 +1,4 @@
-package org.autojs.autojs.ui.project
+package org.autojs.autojs.ui.build
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -35,6 +35,7 @@ import org.autojs.autojs.model.explorer.ExplorerFileItem
 import org.autojs.autojs.model.explorer.Explorers
 import org.autojs.autojs.model.script.ScriptFile
 import org.autojs.autojs.ui.compose.theme.AutoXJsTheme
+import org.autojs.autojs.ui.compose.util.SetSystemUI
 import java.io.File
 
 /**
@@ -75,6 +76,7 @@ open class BuildActivity : ComponentActivity(), ApkBuilder.ProgressCallback {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
+                    SetSystemUI()
                     BuildPage()
                 }
             }

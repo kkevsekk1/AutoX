@@ -1,5 +1,6 @@
-package com.stardust.app;
+package org.autojs.autojs.ui.common;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -75,6 +76,7 @@ public class OperationDialogBuilder extends MaterialDialog.Builder {
         return this;
     }
 
+    @SuppressLint("NonConstantResourceId")
     class ViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.icon)

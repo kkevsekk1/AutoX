@@ -32,9 +32,11 @@
     <string name="copyright">Copyright©2020-2022 All right reserves.</string>
     <string name="developer">aaron</string>
     <string name="qq" translatable="false">895775483</string>
+    <string name="text_qq" translatable="false">QQ群：895775483</string>
     <string name="email" translatable="false">chengshulun@live.com</string>
     <string name="github">软件源代码</string>
     <string name="text_already_copy_to_clip">已复制到剪贴板</string>
+    <string name="text_qq_already_copy_to_clip">QQ群号已复制到剪贴板</string>
     <string name="my_github">https://github.com/kkevsekk1/autox</string>
     <string name="share_app">[Autox.js]下载地址：https://github.com/kkevsekk1/AutoX/releases </string>
     <string name="text_floating_window">悬浮窗</string>
@@ -484,7 +486,7 @@
     <string name="air_dialog_description_failed_issues_not_available">Issues不可用，请联系软件开发者.</string>
     <string name="air_dialog_description_failed_unknown">未知错误</string>
     <string name="air_dialog_action_failed">OK</string>
-    <string name="text_template_apk_not_found">找不到模板apk，请把"build\outputs\apk\common\release"目录下的apk文件复制到"app/src/main/assets"并命名为"template.apk"再重新构建</string>
+    <string name="text_template_apk_not_found">找不到模板apk，请把"build/outputs/apk/common/release"目录下的apk文件复制到"app/src/main/assets"并命名为"template.apk"再重新构建</string>
     <string name="desc_back">后退</string>
     <string name="desc_add_icon">添加图标</string>
     <string name="text_default_signature">默认签名</string>

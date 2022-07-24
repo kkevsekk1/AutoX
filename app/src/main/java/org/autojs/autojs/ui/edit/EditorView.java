@@ -69,7 +69,7 @@ import org.autojs.autojs.ui.edit.toolbar.NormalToolbarFragment_;
 import org.autojs.autojs.ui.edit.toolbar.SearchToolbarFragment;
 import org.autojs.autojs.ui.edit.toolbar.SearchToolbarFragment_;
 import org.autojs.autojs.ui.edit.toolbar.ToolbarFragment;
-import org.autojs.autojs.ui.log.LogActivity_;
+import org.autojs.autojs.ui.log.LogActivityKt;
 import org.autojs.autojs.ui.widget.EWebView;
 import org.autojs.autojs.ui.widget.SimpleTextWatcher;
 
@@ -83,6 +83,7 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * Created by Stardust on 2017/9/28.
  */
+@SuppressLint("NonConstantResourceId")
 @EViewGroup(R.layout.editor_view)
 public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintClickListener, FunctionsKeyboardView.ClickCallback, ToolbarFragment.OnMenuItemClickListener {
 
@@ -638,7 +639,7 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
 
     private void showErrorMessage(String msg) {
         Snackbar.make(EditorView.this, getResources().getString(R.string.text_error) + ": " + msg, Snackbar.LENGTH_LONG)
-                .setAction(R.string.text_detail, v -> LogActivity_.intent(getContext()).start())
+                .setAction(R.string.text_detail, v -> LogActivityKt.start(getContext()) )
                 .show();
     }
 

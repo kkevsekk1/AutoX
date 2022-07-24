@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/surface"
+    android:orientation="vertical">
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="#EDEEEF"/>
+        android:background="@color/divider" />
 
     <LinearLayout
         android:id="@+id/item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
+        android:background="@color/item_background_dark"
         android:clickable="true"
         android:foreground="?selectableItemBackground"
         android:orientation="horizontal"
@@ -25,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:gravity="center"/>
+            android:gravity="center" />
 
         <TextView
             android:id="@+id/first_char"
@@ -37,7 +38,7 @@
             android:gravity="center"
             android:textColor="@android:color/white"
             android:textSize="24sp"
-            tools:text="J"/>
+            tools:text="J" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -54,9 +55,9 @@
                 android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:maxLines="1"
-                android:textColor="#484C4F"
+                android:textColor="@color/on_surface"
                 android:textSize="14sp"
-                tools:text="正在运行的服务"/>
+                tools:text="正在运行的服务" />
 
             <TextView
                 android:id="@+id/desc"
@@ -69,7 +70,7 @@
                 android:maxLines="1"
                 android:textColor="#9DA0A2"
                 android:textSize="11sp"
-                tools:text="18 KB"/>
+                tools:text="18 KB" />
 
         </LinearLayout>
 
@@ -78,7 +79,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="#EDEEEF"/>
+        android:background="@color/divider" />
 
 </LinearLayout>
 

@@ -6,7 +6,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material.*
@@ -38,7 +37,7 @@ import org.autojs.autojs.external.foreground.ForegroundService
 import org.autojs.autojs.ui.compose.theme.AutoXJsTheme
 import org.autojs.autojs.ui.compose.widget.SearchBox2
 import org.autojs.autojs.ui.floating.FloatyWindowManger
-import org.autojs.autojs.ui.log.LogActivity_
+import org.autojs.autojs.ui.log.LogActivityKt
 import org.autojs.autojs.ui.main.drawer.DrawerPage
 import org.autojs.autojs.ui.main.scripts.ScriptListFragment
 import org.autojs.autojs.ui.widget.fillMaxSize
@@ -146,32 +145,32 @@ fun MainPage(
         scaffoldState = scaffoldState,
         drawerGesturesEnabled = scaffoldState.drawerState.isOpen,
         topBar = {
-            Column() {
-                Spacer(
-                    modifier = Modifier
-                        .windowInsetsTopHeight(WindowInsets.statusBars)
-                        .fillMaxWidth()
-                        .background(MaterialTheme.colors.primarySurface)
-                )
-                TopBar(
-                    requestOpenDrawer = {
-                        scope.launch { scaffoldState.drawerState.open() }
-                    },
-                    onSearch = { keyword ->
-                        scriptListFragment.explorerView.setFilter { it.name.contains(keyword) }
-                    }
-                )
+            Surface(elevation = 4.dp, color = MaterialTheme.colors.primarySurface) {
+                Column() {
+                    Spacer(
+                        modifier = Modifier
+                            .windowInsetsTopHeight(WindowInsets.statusBars)
+                    )
+                    TopBar(
+                        requestOpenDrawer = {
+                            scope.launch { scaffoldState.drawerState.open() }
+                        },
+                        onSearch = { keyword ->
+                            scriptListFragment.explorerView.setFilter { it.name.contains(keyword) }
+                        }
+                    )
+                }
             }
         },
         bottomBar = {
-            Column {
-                BottomBar(bottomBarItems, currentPage, onSelectedChange = { currentPage = it })
-                Spacer(
-                    modifier = Modifier
-                        .windowInsetsBottomHeight(WindowInsets.navigationBars)
-                        .fillMaxWidth()
-                        .background(MaterialTheme.colors.background)
-                )
+            Surface(elevation = 4.dp, color = MaterialTheme.colors.surface) {
+                Column {
+                    BottomBar(bottomBarItems, currentPage, onSelectedChange = { currentPage = it })
+                    Spacer(
+                        modifier = Modifier
+                            .windowInsetsBottomHeight(WindowInsets.navigationBars)
+                    )
+                }
             }
         },
         drawerContent = {
@@ -224,12 +223,16 @@ private fun SetSystemUI(scaffoldState: ScaffoldState) {
             scaffoldState.drawerState.isOpen || scaffoldState.drawerState.isAnimationRunning
         } else false
 
+    val navigationUseDarkIcons = MaterialTheme.colors.isLight
     SideEffect {
         systemUiController.setStatusBarColor(
             color = Color.Transparent,
             darkIcons = useDarkIcons
         )
-        systemUiController.setNavigationBarColor(Color.Transparent)
+        systemUiController.setNavigationBarColor(
+            Color.Transparent,
+            darkIcons = navigationUseDarkIcons
+        )
     }
 }
 
@@ -254,7 +257,7 @@ fun BottomBar(
     currentSelected: Int,
     onSelectedChange: (Int) -> Unit
 ) {
-    BottomNavigation(elevation = 4.dp, backgroundColor = MaterialTheme.colors.background) {
+    BottomNavigation(elevation = 0.dp, backgroundColor = MaterialTheme.colors.background) {
         items.forEachIndexed { index, item ->
             val selected = currentSelected == index
             val color = if (selected) MaterialTheme.colors.primary else Color.Gray
@@ -286,7 +289,7 @@ private fun TopBar(requestOpenDrawer: () -> Unit, onSearch: (String) -> Unit) {
         mutableStateOf(false)
     }
     val context = LocalContext.current
-    TopAppBar(elevation = 0.dp, contentColor = Color(0xFFFFFFFF)) {
+    TopAppBar(elevation = 0.dp) {
         CompositionLocalProvider(
             LocalContentAlpha provides ContentAlpha.high,
         ) {
@@ -332,7 +335,7 @@ private fun TopBar(requestOpenDrawer: () -> Unit, onSearch: (String) -> Unit) {
                     })
                 )
             }
-            IconButton(onClick = { LogActivity_.intent(context).start() }) {
+            IconButton(onClick = { LogActivityKt.start(context) }) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_logcat),
                     contentDescription = stringResource(id = R.string.text_logcat)

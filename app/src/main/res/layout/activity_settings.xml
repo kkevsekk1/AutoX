@@ -4,6 +4,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:fitsSystemWindows="true"
+    android:background="@color/background"
               android:orientation="vertical">
 
 
@@ -26,5 +27,5 @@
         android:id="@+id/fragment_setting"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white"/>
+        android:background="@color/surface" />
 </LinearLayout>

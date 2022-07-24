@@ -33,8 +33,8 @@ import org.autojs.autojs.theme.widget.ThemeColorSwipeRefreshLayout
 import org.autojs.autojs.tool.Observers
 import org.autojs.autojs.ui.common.ScriptLoopDialog
 import org.autojs.autojs.ui.common.ScriptOperations
-import org.autojs.autojs.ui.project.BuildActivity
-import org.autojs.autojs.ui.project.BuildActivity.Companion.getIntent
+import org.autojs.autojs.ui.build.BuildActivity
+import org.autojs.autojs.ui.build.BuildActivity.Companion.getIntent
 import org.autojs.autojs.ui.viewmodel.ExplorerItemList
 import org.autojs.autojs.ui.viewmodel.ExplorerItemList.SortConfig
 import org.autojs.autojs.ui.widget.BindableViewHolder
@@ -519,7 +519,7 @@ open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
 
         @OnClick(R.id.item)
         fun onItemClick() {
-            onItemClickListener?.invoke(itemView, selectedItem)
+            onItemClickListener?.invoke(itemView, explorerItem)
             notifyOperated()
         }
 
@@ -708,8 +708,8 @@ open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
 
     companion object {
         private const val LOG_TAG = "ExplorerView"
-        protected const val VIEW_TYPE_ITEM = 0
-        protected const val VIEW_TYPE_PAGE = 1
+        const val VIEW_TYPE_ITEM = 0
+        const val VIEW_TYPE_PAGE = 1
 
         //category是类别，也即"文件", "文件夹"那两个
         protected const val VIEW_TYPE_CATEGORY = 2

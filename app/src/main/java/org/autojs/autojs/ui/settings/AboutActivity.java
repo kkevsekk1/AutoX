@@ -5,10 +5,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+
 import org.autojs.autojs.tool.IntentTool;
 import org.autojs.autojs.ui.BaseActivity;
 import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
+
+import com.stardust.util.ClipboardUtil;
 import com.stardust.util.IntentUtil;
+import com.stardust.util.IntentUtilKt;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import org.autojs.autojs.BuildConfig;
@@ -51,9 +55,10 @@ public class AboutActivity extends BaseActivity {
     @Click(R.id.qq)
     void openQQToChatWithMe() {
         String qq = getString(R.string.qq);
-        Toast.makeText(this, R.string.text_mobile_qq_not_installed, Toast.LENGTH_SHORT).show();
-        if (!IntentUtil.joinQQGroup(this, qq)) {
-           // Toast.makeText(this, R.string.text_mobile_qq_not_installed, Toast.LENGTH_SHORT).show();
+        ClipboardUtil.setClip(this, qq);
+        Toast.makeText(this, R.string.text_qq_already_copy_to_clip, Toast.LENGTH_SHORT).show();
+        if (!IntentUtilKt.INSTANCE.launchQQ(this)) {
+            Toast.makeText(this, R.string.text_mobile_qq_not_installed, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -62,6 +67,7 @@ public class AboutActivity extends BaseActivity {
         String email = getString(R.string.email);
         IntentUtil.sendMailTo(this, email);
     }
+
     @Click(R.id.share)
     void share() {
         IntentUtil.shareText(this, getString(R.string.share_app));

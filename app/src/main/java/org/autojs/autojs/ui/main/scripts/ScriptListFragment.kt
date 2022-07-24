@@ -42,8 +42,8 @@ import org.autojs.autojs.ui.common.ScriptOperations
 import org.autojs.autojs.ui.explorer.ExplorerViewKt
 import org.autojs.autojs.ui.main.rememberExternalStoragePermissionsState
 import org.autojs.autojs.ui.main.showExternalStoragePermissionToast
-import org.autojs.autojs.ui.project.ProjectConfigActivity
-import org.autojs.autojs.ui.project.ProjectConfigActivity_
+import org.autojs.autojs.ui.build.ProjectConfigActivity
+import org.autojs.autojs.ui.build.ProjectConfigActivity_
 import org.autojs.autojs.ui.viewmodel.ExplorerItemList.SortConfig
 import org.autojs.autojs.ui.widget.fillMaxSize
 

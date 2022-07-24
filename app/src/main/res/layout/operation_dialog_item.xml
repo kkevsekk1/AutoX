@@ -21,6 +21,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:gravity="center_vertical"
-        android:textColor="@android:color/primary_text_light"
+        android:textColor="@color/on_surface"
         android:textSize="16sp"/>
 </LinearLayout>

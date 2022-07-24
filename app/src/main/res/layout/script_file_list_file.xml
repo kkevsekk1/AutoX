@@ -8,7 +8,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="?android:divider"/>
+        android:background="@color/divider"/>
 
     <LinearLayout
         android:id="@+id/item"
@@ -18,7 +18,8 @@
         android:clickable="true"
         android:foreground="?selectableItemBackground"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:focusable="true">
 
         <TextView
             android:id="@+id/first_char"

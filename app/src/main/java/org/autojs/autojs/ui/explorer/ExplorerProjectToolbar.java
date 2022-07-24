@@ -16,9 +16,9 @@ import org.autojs.autojs.autojs.AutoJs;
 import org.autojs.autojs.model.explorer.ExplorerChangeEvent;
 import org.autojs.autojs.model.explorer.ExplorerItem;
 import org.autojs.autojs.model.explorer.Explorers;
-import org.autojs.autojs.ui.project.BuildActivity;
-import org.autojs.autojs.ui.project.ProjectConfigActivity;
-import org.autojs.autojs.ui.project.ProjectConfigActivity_;
+import org.autojs.autojs.ui.build.BuildActivity;
+import org.autojs.autojs.ui.build.ProjectConfigActivity;
+import org.autojs.autojs.ui.build.ProjectConfigActivity_;
 import org.greenrobot.eventbus.Subscribe;
 
 import butterknife.BindView;

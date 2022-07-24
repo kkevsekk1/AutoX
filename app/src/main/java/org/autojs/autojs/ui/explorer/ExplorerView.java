@@ -37,7 +37,7 @@ import org.autojs.autojs.model.explorer.Explorers;
 import org.autojs.autojs.model.script.ScriptFile;
 import org.autojs.autojs.model.script.Scripts;
 import org.autojs.autojs.tool.Observers;
-import org.autojs.autojs.ui.project.BuildActivity;
+import org.autojs.autojs.ui.build.BuildActivity;
 import org.autojs.autojs.ui.common.ScriptLoopDialog;
 import org.autojs.autojs.ui.common.ScriptOperations;
 import org.autojs.autojs.ui.viewmodel.ExplorerItemList;

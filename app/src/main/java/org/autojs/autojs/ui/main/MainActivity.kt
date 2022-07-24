@@ -58,7 +58,8 @@ import org.autojs.autojs.ui.common.NotAskAgainDialog
 import org.autojs.autojs.ui.doc.DocsFragment.LoadUrl
 import org.autojs.autojs.ui.doc.DocsFragment_
 import org.autojs.autojs.ui.floating.FloatyWindowManger
-import org.autojs.autojs.ui.log.LogActivity_
+import org.autojs.autojs.ui.log.LogActivityKt
+//import org.autojs.autojs.ui.log.LogActivity_
 //import org.autojs.autojs.ui.main.scripts.MyScriptListFragment_
 import org.autojs.autojs.ui.main.task.TaskManagerFragment_
 import org.autojs.autojs.ui.settings.SettingsActivity_
@@ -548,7 +549,7 @@ open class MainActivity : BaseActivity(), DelegateHost, HostActivity,
             if (mDocsSearchItemExpanded) {
                 submitForwardQuery()
             } else {
-                LogActivity_.intent(this).start()
+                LogActivityKt.start(this)
             }
             return true
         } else if (item.itemId == R.id.action_fullscreen) {

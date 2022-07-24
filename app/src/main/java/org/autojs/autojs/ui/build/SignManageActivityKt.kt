@@ -1,4 +1,4 @@
-package org.autojs.autojs.ui.project
+package org.autojs.autojs.ui.build
 
 import android.content.Context
 import android.content.Intent
@@ -39,6 +39,7 @@ import org.autojs.autojs.build.ApkSigner.checkKeyStore
 import org.autojs.autojs.build.ApkSigner.loadApkKeyStore
 import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder
 import org.autojs.autojs.ui.compose.theme.AutoXJsTheme
+import org.autojs.autojs.ui.compose.util.SetSystemUI
 import org.autojs.autojs.ui.compose.widget.MySwipeRefresh
 
 /**
@@ -59,6 +60,7 @@ class SignManageActivityKt : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
+                    SetSystemUI()
                     val context = LocalContext.current
                     val model: SignManageViewModel = viewModel()
                     val scope = rememberCoroutineScope()

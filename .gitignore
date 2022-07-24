@@ -24,4 +24,4 @@ app/common/release/output-metadata.json
 autojs/.cxx/ndk_locator_record_68547592.json
 autojs/.cxx/ndk_locator_record_68547592_key.json
 *.aab
-/app/dev
+output-metadata.json

@@ -12,7 +12,7 @@
     <color name="divider_functions_keyboard">#f0f0f0</color>
     <color name="theme_color_black">#111214</color>
 
-    <color name="window_background">#FFFFFF</color>
+    <color name="background">#FFFFFF</color>
     <color name="item_background">#FFFFFF</color>
     <color name="item_background_dark">#FFFFFF</color>
     <color name="text_color_secondary">#484C4F</color>
@@ -28,6 +28,8 @@
     <color name="console_verbose">#dfc0c0c0</color>
     <color name="market_button_selected">#e14123</color>
     <color name="market_button_unselected">#939393</color>
-
-
+    <color name="surface">#FFFFFFFF</color>
+    <color name="on_surface">#FF000000</color>
+    <color name="on_secondary">#FFFFFFFF</color>
+    <color name="on_background">#FF000000</color>
 </resources>
