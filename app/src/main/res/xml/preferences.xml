@@ -78,14 +78,14 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:layout="@layout/preference_category_custom"
-        android:title="@string/text_appearance">
-        <Preference
-            android:layout="@layout/preference_custom"
-            android:title="@string/text_theme_color"
-            />
-    </PreferenceCategory>
+<!--    <PreferenceCategory-->
+<!--        android:layout="@layout/preference_category_custom"-->
+<!--        android:title="@string/text_appearance">-->
+<!--        <Preference-->
+<!--            android:layout="@layout/preference_custom"-->
+<!--            android:title="@string/text_theme_color"-->
+<!--            />-->
+<!--    </PreferenceCategory>-->
 
     <PreferenceCategory
         android:layout="@layout/preference_category_custom"
