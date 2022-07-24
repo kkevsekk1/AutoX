@@ -169,7 +169,7 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
                 R.string.text_inspect_layout_bounds
             )
             .item(
-                R.id.layout_hierarchy, R.drawable.ic_circular_menu_hierarchy,
+                R.id.layout_hierarchy, R.drawable.ic_layout_hierarchy,
                 R.string.text_inspect_layout_hierarchy
             )
             .bindItemClick(this)
@@ -242,28 +242,28 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
         mSettingsDialog = OperationDialogBuilder(mContext)
             .item(
                 R.id.accessibility_service,
-                R.drawable.ic_service_green,
+                R.drawable.ic_settings,
                 R.string.text_accessibility_settings
             )
             .item(
-                R.id.package_name, R.drawable.ic_ali_app,
+                R.id.package_name, R.drawable.ic_android,
                 mContext.getString(R.string.text_current_package) + mRunningPackage
             )
             .item(
-                R.id.class_name, R.drawable.ic_ali_android,
+                R.id.class_name, R.drawable.ic_window,
                 mContext.getString(R.string.text_current_activity) + mRunningActivity
             )
             .item(
                 R.id.open_launcher,
-                R.drawable.ic_android_eat_js,
+                R.drawable.ic_home_light,
                 R.string.text_open_main_activity
             )
             .item(
                 R.id.pointer_location,
-                R.drawable.ic_zoom_out_map_white_24dp,
+                R.drawable.ic_coordinate,
                 R.string.text_pointer_location
             )
-            .item(R.id.exit, R.drawable.ic_close_black_48dp, R.string.text_exit_floating_window)
+            .item(R.id.exit, R.drawable.ic_close, R.string.text_exit_floating_window)
             .bindItemClick(this)
             .title(R.string.text_more)
             .build()

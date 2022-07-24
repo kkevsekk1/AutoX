@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <org.autojs.autojs.ui.floating.CircularActionMenu xmlns:android="http://schemas.android.com/apk/res/android"
-                                                            xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                            android:layout_width="wrap_content"
-                                                            android:layout_height="wrap_content"
-                                                            android:clickable="false"
-                                                            app:cam_angle="165"
-                                                            app:cam_radius="80dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clickable="false"
+    app:cam_angle="165"
+    app:cam_radius="80dp">
 
     <ImageView
         android:id="@+id/script_list"
@@ -16,7 +16,7 @@
         android:foreground="?selectableItemBackgroundBorderless"
         android:padding="8dp"
         android:src="@drawable/ic_menu"
-        android:tint="@android:color/white"/>
+        app:tint="@android:color/white" />
 
     <ImageView
         android:id="@+id/record"
@@ -26,7 +26,7 @@
         android:background="@drawable/circle_red"
         android:foreground="?selectableItemBackgroundBorderless"
         android:padding="8dp"
-        android:src="@drawable/ic_ali_record"/>
+        android:src="@drawable/ic_record" />
 
     <ImageView
         android:id="@+id/layout_inspect"
@@ -46,7 +46,7 @@
         android:background="@drawable/circle_yellow"
         android:foreground="?selectableItemBackgroundBorderless"
         android:padding="8dp"
-        android:src="@drawable/ic_close_white_48dp" />
+        android:src="@drawable/ic_close" />
 
 
     <ImageView
@@ -57,7 +57,7 @@
         android:background="@drawable/circle_gray"
         android:foreground="?selectableItemBackgroundBorderless"
         android:padding="8dp"
-        android:src="@drawable/ic_circular_menu_settings"/>
+        android:src="@drawable/ic_setting_fill" />
 
 
 </org.autojs.autojs.ui.floating.CircularActionMenu>
