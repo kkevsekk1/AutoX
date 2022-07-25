@@ -40,10 +40,10 @@
             android:ellipsize="marquee"
             android:fadingEdge="horizontal"
             android:fontFamily="sans-serif"
-            android:maxLines="1"
-            android:textColor="?android:textColorPrimary"
+            android:textColor="@color/on_surface"
             android:textSize="15sp"
-            tools:text="Title"/>
+            tools:text="Title"
+            android:singleLine="true" />
 
         <TextView
             android:id="@android:id/summary"

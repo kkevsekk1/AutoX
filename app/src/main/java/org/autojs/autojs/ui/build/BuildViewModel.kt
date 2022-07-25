@@ -1,4 +1,4 @@
-package org.autojs.autojs.ui.project
+package org.autojs.autojs.ui.build
 
 import android.app.Application
 import android.graphics.Bitmap

@@ -42,6 +42,9 @@ android {
                 ]
             }
         }
+        ndk {
+            abiFilters "arm64-v8a", "armeabi-v7a"
+        }
     }
     buildFeatures {
         compose true
@@ -84,11 +87,10 @@ android {
             reset()
 
             // Specifies a list of ABIs that Gradle should create APKs for.
-            // include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
-            include 'arm64-v8a'
+            include 'armeabi-v7a', 'arm64-v8a'
 
             // Specifies that we do not want to also generate a universal APK that includes all ABIs.
-            universalApk false
+            universalApk true
         }
     }
     buildTypes {
@@ -119,13 +121,13 @@ android {
             buildConfigField "String", "APPID", '"?id=21"'
             manifestPlaceholders = [appName: "@string/app_name"]
         }
-        dev {
+        v6 {
             applicationIdSuffix ".dev"
             versionCode versions.devVersionCode
             versionName versions.devVersionName
-            buildConfigField "String", "CHANNEL", '"dev"'
+            buildConfigField "String", "CHANNEL", '"v6"'
             buildConfigField "String", "APPID", '"?id=23"'
-            manifestPlaceholders = [appName: "Autox.js[dev]"]
+            manifestPlaceholders = [appName: "Autox6.js"]
         }
 
     }

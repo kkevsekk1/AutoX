@@ -53,7 +53,7 @@ dependencies {
     api 'com.github.hyb1996:EnhancedFloaty:0.31'
     api 'com.makeramen:roundedimageview:2.3.0'
     // OkHttp
-    api 'com.squareup.okhttp3:okhttp:4.9.3'
+    api 'com.squareup.okhttp3:okhttp:4.10.0'
     // JDeferred
     api 'org.jdeferred:jdeferred-android-aar:1.2.6'
     // RootShell

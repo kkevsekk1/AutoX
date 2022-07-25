@@ -36,12 +36,12 @@ jobs:
           pwd
           mv  build/inrt/signed/*.apk  app/src/main/assets/template.apk
           ls  app/src/main/assets
-          ./gradlew app:assembleDev
+          ./gradlew app:assembleV6
       - uses: Tlaster/android-sign@v1.2.2
         name: Sign app APK
         with:
           releaseDirectory: |
-            app/build/outputs/apk/dev/release
+            app/build/outputs/apk/v6/release
           signingKeyBase64: ${{ secrets.ASIGNING_KEY }}
           output: build/app/signed
           alias: ${{ secrets.AALIAS }}

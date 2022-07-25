@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_marginTop="12dp"
-              android:background="@android:color/white"
+              android:background="@color/surface"
               android:orientation="vertical">
 
 
@@ -20,13 +21,14 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_margin="16dp"
-            android:src="@drawable/ic_developer"/>
+            android:src="@drawable/ic_developer"
+            app:tint="@color/on_surface" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/developer"
-            android:textColor="@android:color/secondary_text_light"
+            android:textColor="@color/on_surface"
             android:textSize="16sp"/>
     </LinearLayout>
 
@@ -45,13 +47,14 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_margin="16dp"
-            android:src="@drawable/ic_github_mark"/>
+            android:src="@drawable/ic_github"
+            app:tint="@color/on_surface"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/github"
-            android:textColor="@android:color/secondary_text_light"
+            android:textColor="@color/on_surface"
             android:textSize="16sp"/>
     </LinearLayout>
 
@@ -70,13 +73,14 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_margin="16dp"
-            android:src="@drawable/ic_email_black_48dp"/>
+            android:src="@drawable/ic_email_black_48dp"
+            app:tint="@color/on_surface"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/email"
-            android:textColor="@android:color/secondary_text_light"
+            android:textColor="@color/on_surface"
             android:textIsSelectable="true"
             android:textSize="16sp"/>
     </LinearLayout>
@@ -90,19 +94,21 @@
         android:background="?selectableItemBackground"
         android:clickable="true"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:focusable="true">
 
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_margin="16dp"
-            android:src="@drawable/ic_qq_black"/>
+            android:src="@drawable/ic_qq_black"
+            app:tint="@color/on_surface"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/qq"
-            android:textColor="@android:color/secondary_text_light"
+            android:text="@string/text_qq"
+            android:textColor="@color/on_surface"
             android:textIsSelectable="true"
             android:textSize="16sp"/>
 

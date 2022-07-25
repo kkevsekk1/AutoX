@@ -1,16 +1,21 @@
-package com.stardust.app;
+package org.autojs.autojs.ui.common;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.stardust.theme.ThemeColor;
+import com.stardust.theme.widget.ThemeColorImageView;
+
 import org.autojs.autojs.R;
 
 import java.util.ArrayList;
@@ -45,6 +50,7 @@ public class OperationDialogBuilder extends MaterialDialog.Builder {
                 holder.itemView.setId(mIds.get(position));
                 holder.text.setText(mTexts.get(position));
                 holder.icon.setImageResource(mIcons.get(position));
+                holder.icon.setThemeColor(new ThemeColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.on_surface)));
                 if (mOnItemClickTarget != null) {
                     //// TODO: 2017/6/26   效率
                     ButterKnife.bind(mOnItemClickTarget, holder.itemView);
@@ -75,10 +81,11 @@ public class OperationDialogBuilder extends MaterialDialog.Builder {
         return this;
     }
 
+    @SuppressLint("NonConstantResourceId")
     class ViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.icon)
-        ImageView icon;
+        ThemeColorImageView icon;
         @BindView(R.id.text)
         TextView text;
 

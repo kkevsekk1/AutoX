@@ -2,6 +2,6 @@
 <View xmlns:android="http://schemas.android.com/apk/res/android"
       android:layout_width="match_parent"
       android:layout_height="1dp"
-      android:background="#e4e4e4"
+      android:background="@color/divider"
       android:paddingEnd="16dp"
       android:paddingStart="16dp"/>

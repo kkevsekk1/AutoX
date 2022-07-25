@@ -85,6 +85,10 @@ public class ConsoleView extends FrameLayout implements ConsoleImpl.LogListener 
         mColors = colors;
     }
 
+    public SparseArray<Integer> getColors(){
+        return mColors;
+    }
+
     private void init(AttributeSet attrs) {
         inflate(getContext(), R.layout.console_view, this);
         if (attrs != null) {

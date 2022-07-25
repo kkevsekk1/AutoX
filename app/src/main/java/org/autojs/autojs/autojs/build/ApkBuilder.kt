@@ -3,7 +3,6 @@ package org.autojs.autojs.autojs.build
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
-import android.widget.Toast
 import com.stardust.app.GlobalAppContext
 import com.stardust.autojs.apkbuilder.ApkPackager
 import com.stardust.autojs.apkbuilder.ManifestEditor
@@ -20,7 +19,7 @@ import org.apache.commons.io.IOUtils
 import org.apache.commons.lang3.StringUtils
 import org.autojs.autojs.build.ApkSigner
 import org.autojs.autojs.build.TinySign
-import org.autojs.autojs.ui.project.Constant
+import org.autojs.autojs.ui.build.Constant
 import pxb.android.StringItem
 import pxb.android.axml.AxmlWriter
 import zhao.arsceditor.ArscUtil

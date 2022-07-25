@@ -41,7 +41,6 @@ public class ToolbarMenuItem extends LinearLayout {
         init(attrs);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public ToolbarMenuItem(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         mColorDisabled = ContextCompat.getColor(context, R.color.toolbar_disabled);

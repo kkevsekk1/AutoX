@@ -440,7 +440,7 @@
 
         <activity
             android:name=".ui.edit.EditActivity_"
-            android:configChanges="orientation|screenSize"
+            android:configChanges="orientation|screenSize|uiMode"
             android:launchMode="standard"
             android:multiprocess="true"
             android:taskAffinity="org.autojs.autojs.edit"
@@ -462,11 +462,11 @@
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".ui.user.WebActivity_" />
         <activity
-            android:name=".ui.project.BuildActivity"
+            android:name=".ui.build.BuildActivity"
             android:configChanges="orientation|screenSize" />
-        <activity android:name=".ui.project.SignManageActivityKt" />
-        <activity android:name=".ui.project.ProjectConfigActivity_" />
-        <activity android:name=".ui.log.LogActivity_" />
+        <activity android:name=".ui.build.SignManageActivityKt" />
+        <activity android:name=".ui.build.ProjectConfigActivity_" />
+        <activity android:name=".ui.log.LogActivityKt" />
         <activity android:name=".ui.doc.DocumentationActivity_" />
         <activity android:name=".ui.shortcut.ShortcutIconSelectActivity_" />
         <activity android:name=".ui.timing.TimedTaskSettingActivity_" />
@@ -493,7 +493,7 @@
         <service android:name=".external.ScriptExecutionIntentService" />
 
         <activity android:name=".external.tasker.TaskPrefEditActivity_" />
-
+        <activity android:name=".ui.log.LogActivity_"/>
         <activity-alias
             android:name=".external.tasker.PluginActivity"
             android:exported="true"

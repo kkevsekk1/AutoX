@@ -81,12 +81,7 @@ public class SettingsActivity extends BaseActivity {
         toolbar.setTitle(R.string.text_setting);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        toolbar.setNavigationOnClickListener(v -> finish());
     }
 
 
@@ -126,10 +121,9 @@ public class SettingsActivity extends BaseActivity {
         public void onStart() {
             super.onStart();
             ACTION_MAP = new MapBuilder<String, Runnable>()
-                    .put(getString(R.string.text_theme_color), () -> selectThemeColor(getActivity()))
-                    .put(getString(R.string.text_check_for_updates), () -> new UpdateCheckDialog(getActivity())
-                            .show())
-                    .put(getString(R.string.text_issue_report), () -> startActivity(new Intent(getActivity(), IssueReporterActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)))
+//                    .put(getString(R.string.text_theme_color), () -> selectThemeColor(getActivity()))
+//                    .put(getString(R.string.text_check_for_updates), () -> new UpdateCheckDialog(getActivity()).show())
+//                    .put(getString(R.string.text_issue_report), () -> startActivity(new Intent(getActivity(), IssueReporterActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)))
                     .put(getString(R.string.text_about_me_and_repo), () -> startActivity(new Intent(getActivity(), AboutActivity_.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)))
                     .put(getString(R.string.text_licenses), () -> showLicenseDialog())
                     .put(getString(R.string.text_licenses_other), () -> showLicenseDialog2())

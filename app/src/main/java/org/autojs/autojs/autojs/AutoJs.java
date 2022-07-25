@@ -17,25 +17,23 @@ import com.stardust.autojs.runtime.accessibility.AccessibilityConfig;
 import com.stardust.autojs.runtime.api.AppUtils;
 import com.stardust.autojs.runtime.exception.ScriptException;
 import com.stardust.autojs.runtime.exception.ScriptInterruptedException;
+import com.stardust.view.accessibility.AccessibilityService;
+import com.stardust.view.accessibility.LayoutInspector;
+import com.stardust.view.accessibility.NodeInfo;
 
 import org.autojs.autojs.BuildConfig;
 import org.autojs.autojs.Pref;
 import org.autojs.autojs.R;
 import org.autojs.autojs.devplugin.DevPlugin;
-import org.autojs.autojs.external.fileprovider.AppFileProvider;
 import org.autojs.autojs.devplugin.DevPluginService;
+import org.autojs.autojs.external.fileprovider.AppFileProvider;
+import org.autojs.autojs.tool.AccessibilityServiceTool;
 import org.autojs.autojs.ui.floating.FloatyWindowManger;
 import org.autojs.autojs.ui.floating.FullScreenFloatyWindow;
 import org.autojs.autojs.ui.floating.layoutinspector.LayoutBoundsFloatyWindow;
 import org.autojs.autojs.ui.floating.layoutinspector.LayoutHierarchyFloatyWindow;
-import org.autojs.autojs.ui.log.LogActivity_;
+import org.autojs.autojs.ui.log.LogActivityKt;
 import org.autojs.autojs.ui.settings.SettingsActivity_;
-
-import com.stardust.view.accessibility.AccessibilityService;
-import com.stardust.view.accessibility.LayoutInspector;
-import com.stardust.view.accessibility.NodeInfo;
-
-import org.autojs.autojs.tool.AccessibilityServiceTool;
 
 
 /**
@@ -186,7 +184,7 @@ public class AutoJs extends com.stardust.autojs.AutoJs {
     protected ScriptRuntime createRuntime() {
         ScriptRuntime runtime = super.createRuntime();
         runtime.putProperty("class.settings", SettingsActivity_.class);
-        runtime.putProperty("class.console", LogActivity_.class);
+        runtime.putProperty("class.console", LogActivityKt.class);
         runtime.putProperty("broadcast.inspect_layout_bounds", LayoutBoundsFloatyWindow.class.getName());
         runtime.putProperty("broadcast.inspect_layout_hierarchy", LayoutHierarchyFloatyWindow.class.getName());
         return runtime;

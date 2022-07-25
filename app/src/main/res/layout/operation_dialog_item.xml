@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="?selectableItemBackground"
-              android:gravity="center_vertical"
-              android:orientation="horizontal"
-              android:paddingBottom="16dp"
-              android:paddingLeft="24dp"
-              android:paddingRight="16dp"
-              android:paddingTop="16dp">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?selectableItemBackground"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="16dp"
+    android:paddingLeft="24dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp">
 
     <com.stardust.theme.widget.ThemeColorImageView
         android:id="@+id/icon"
+        app:tint="@color/on_surface"
         android:layout_width="20dp"
         android:layout_height="20dp"/>
 
@@ -21,6 +23,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:gravity="center_vertical"
-        android:textColor="@android:color/primary_text_light"
+        android:textColor="@color/on_surface"
         android:textSize="16sp"/>
 </LinearLayout>
