@@ -89,7 +89,7 @@ No one in the original text states that the license is MPL2.0, and the newly add
 * Commercial products can be open source, such as redhat!
 * If you do not use open source products according to the open source agreement, you can understand the source of openwrt and the domestic infringement cases in recent years!
 
-#### For js scripts developed by other people, run it on this. Does it need to follow GPL-2.0 for open source
+#### For js scripts developed by other people, run it on this. Does it need to follow GPL-2.0
 * That is your freedom, not restricted by this agreement, just like linux runs software
 
 #### Is it possible to use this product or autojs product for commercial use?
