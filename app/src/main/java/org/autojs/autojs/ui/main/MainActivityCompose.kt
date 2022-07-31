@@ -10,15 +10,14 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.view.ViewCompat
@@ -33,13 +32,20 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.autojs.autojs.Pref
 import org.autojs.autojs.R
+import org.autojs.autojs.autojs.AutoJs
 import org.autojs.autojs.external.foreground.ForegroundService
+import org.autojs.autojs.ui.build.ProjectConfigActivity
+import org.autojs.autojs.ui.build.ProjectConfigActivity_
+import org.autojs.autojs.ui.common.ScriptOperations
 import org.autojs.autojs.ui.compose.theme.AutoXJsTheme
+import org.autojs.autojs.ui.compose.widget.MyIcon
 import org.autojs.autojs.ui.compose.widget.SearchBox2
+import org.autojs.autojs.ui.explorer.ExplorerViewKt
 import org.autojs.autojs.ui.floating.FloatyWindowManger
 import org.autojs.autojs.ui.log.LogActivityKt
 import org.autojs.autojs.ui.main.drawer.DrawerPage
 import org.autojs.autojs.ui.main.scripts.ScriptListFragment
+import org.autojs.autojs.ui.main.task.TaskManagerFragmentKt
 import org.autojs.autojs.ui.widget.fillMaxSize
 
 data class BottomNavigationItem(val icon: Int, val label: String)
@@ -52,6 +58,7 @@ class MainActivityCompose : FragmentActivity() {
     }
 
     private val scriptListFragment by lazy { ScriptListFragment() }
+    private val taskManagerFragment by lazy { TaskManagerFragmentKt() }
     private var lastBackPressedTime = 0L
     private var drawerState: DrawerState? = null
     private val viewPager: ViewPager2 by lazy { ViewPager2(this) }
@@ -82,7 +89,9 @@ class MainActivityCompose : FragmentActivity() {
                         permission.launchMultiplePermissionRequest()
                     })
                     MainPage(
-                        activity = this, scriptListFragment = scriptListFragment,
+                        activity = this,
+                        scriptListFragment = scriptListFragment,
+                        taskManagerFragment = taskManagerFragment,
                         onDrawerState = {
                             this.drawerState = it
                         },
@@ -122,6 +131,7 @@ class MainActivityCompose : FragmentActivity() {
 fun MainPage(
     activity: FragmentActivity,
     scriptListFragment: ScriptListFragment,
+    taskManagerFragment: TaskManagerFragmentKt,
     onDrawerState: (DrawerState) -> Unit,
     viewPager: ViewPager2
 ) {
@@ -152,12 +162,14 @@ fun MainPage(
                             .windowInsetsTopHeight(WindowInsets.statusBars)
                     )
                     TopBar(
+                        currentPage = currentPage,
                         requestOpenDrawer = {
                             scope.launch { scaffoldState.drawerState.open() }
                         },
                         onSearch = { keyword ->
                             scriptListFragment.explorerView.setFilter { it.name.contains(keyword) }
-                        }
+                        },
+                        scriptListFragment = scriptListFragment,
                     )
                 }
             }
@@ -183,7 +195,7 @@ fun MainPage(
             factory = {
                 viewPager.apply {
                     fillMaxSize()
-                    adapter = ViewPager2Adapter(activity, scriptListFragment)
+                    adapter = ViewPager2Adapter(activity, scriptListFragment, taskManagerFragment)
                     isUserInputEnabled = false
                     ViewCompat.setNestedScrollingEnabled(this, true)
                 }
@@ -284,7 +296,12 @@ fun BottomBar(
 }
 
 @Composable
-private fun TopBar(requestOpenDrawer: () -> Unit, onSearch: (String) -> Unit) {
+private fun TopBar(
+    currentPage: Int,
+    requestOpenDrawer: () -> Unit,
+    onSearch: (String) -> Unit,
+    scriptListFragment: ScriptListFragment,
+) {
     var isSearch by remember {
         mutableStateOf(false)
     }
@@ -341,52 +358,52 @@ private fun TopBar(requestOpenDrawer: () -> Unit, onSearch: (String) -> Unit) {
                     contentDescription = stringResource(id = R.string.text_logcat)
                 )
             }
-            //            var expanded by remember {
-//                mutableStateOf(false)
-//            }
-//            IconButton(onClick = { expanded = true }) {
-//                Icon(
-//                    imageVector = Icons.Default.MoreVert,
-//                    contentDescription = stringResource(id = R.string.desc_more)
-//                )
-//            }
-//            TopAppBarMenu(expanded = expanded, onDismissRequest = { expanded = false })
+            when (currentPage) {
+                0 -> {
+                    var expanded by remember {
+                        mutableStateOf(false)
+                    }
+                    Box() {
+                        IconButton(onClick = { expanded = true }) {
+                            Icon(
+                                imageVector = Icons.Default.Add,
+                                contentDescription = stringResource(id = R.string.desc_more)
+                            )
+                        }
+                        TopAppBarMenu(
+                            expanded = expanded,
+                            onDismissRequest = { expanded = false },
+                            scriptListFragment = scriptListFragment
+                        )
+                    }
+                }
+                1 -> {
+                    IconButton(onClick = { AutoJs.getInstance().scriptEngineService.stopAll()}) {
+                        Icon(
+                            imageVector = Icons.Default.Clear,
+                            contentDescription = stringResource(id = R.string.desc_more)
+                        )
+                    }
+                }
+            }
 
         }
     }
 }
 
-//@Composable
-//fun TopAppBarMenu(
-//    expanded: Boolean,
-//    onDismissRequest: () -> Unit,
-//    offset: DpOffset = DpOffset(0.dp, 0.dp),
-//) {
-//    DropdownMenu(expanded = expanded, onDismissRequest = onDismissRequest, offset = offset) {
-//        DropdownMenuItem(onClick = { /*TODO*/ }) {
-//            MyIcon(
-//                painter = painterResource(id = R.drawable.ic_cutover),
-//                contentDescription = stringResource(id = R.string.text_switch_web_kernel)
-//            )
-//            Spacer(modifier = Modifier.width(8.dp))
-//            Text(text = stringResource(id = R.string.text_switch_web_kernel))
-//        }
-//        DropdownMenuItem(onClick = { /*TODO*/ }) {
-//            MyIcon(
-//                painter = painterResource(id = R.drawable.ic_favorites),
-//                contentDescription = stringResource(id = R.string.text_favorites_management)
-//            )
-//            Spacer(modifier = Modifier.width(8.dp))
-//            Text(text = stringResource(id = R.string.text_favorites_management))
-//        }
-//        DropdownMenuItem(onClick = { /*TODO*/ }) {
-//            MyIcon(
-//                painter = painterResource(id = R.drawable.ic_user_agent),
-//                contentDescription = stringResource(id = R.string.text_favorites_management)
-//            )
-//            Spacer(modifier = Modifier.width(8.dp))
-//            Text(text = stringResource(id = R.string.text_favorites_management))
-//        }
+@Composable
+fun TopAppBarMenu(
+    expanded: Boolean,
+    onDismissRequest: () -> Unit,
+    offset: DpOffset = DpOffset.Zero,
+    scriptListFragment: ScriptListFragment
+) {
+    DropdownMenu(expanded = expanded, onDismissRequest = onDismissRequest, offset = offset) {
+        val context = LocalContext.current
+        newDirectory(context, scriptListFragment)
+        NewFile(context, scriptListFragment)
+        ImportFile(context, scriptListFragment)
+        NewProject(context, scriptListFragment)
 //        DropdownMenuItem(onClick = { /*TODO*/ }) {
 //            MyIcon(
 //                painter = painterResource(id = R.drawable.ic_timed_task),
@@ -395,5 +412,108 @@ private fun TopBar(requestOpenDrawer: () -> Unit, onSearch: (String) -> Unit) {
 //            Spacer(modifier = Modifier.width(8.dp))
 //            Text(text = stringResource(id = R.string.text_switch_timed_task_scheduler))
 //        }
-//    }
-//}
+    }
+}
+
+@OptIn(ExperimentalPermissionsApi::class)
+@Composable
+private fun newDirectory(
+    context: Context,
+    scriptListFragment: ScriptListFragment
+) {
+    val permission = rememberExternalStoragePermissionsState {
+        if (it) getScriptOperations(
+            context,
+            scriptListFragment.explorerView
+        ).newDirectory()
+        else showExternalStoragePermissionToast(context)
+    }
+    DropdownMenuItem(onClick = { permission.launchMultiplePermissionRequest() }) {
+        MyIcon(
+            painter = painterResource(id = R.drawable.ic_floating_action_menu_dir),
+            contentDescription = null
+        )
+        Spacer(modifier = Modifier.width(8.dp))
+        Text(text = stringResource(id = R.string.text_directory))
+    }
+}
+
+@OptIn(ExperimentalPermissionsApi::class)
+@Composable
+private fun NewFile(
+    context: Context,
+    scriptListFragment: ScriptListFragment
+) {
+    val permission = rememberExternalStoragePermissionsState {
+        if (it) getScriptOperations(
+            context,
+            scriptListFragment.explorerView
+        ).newFile()
+        else showExternalStoragePermissionToast(context)
+    }
+    DropdownMenuItem(onClick = { permission.launchMultiplePermissionRequest() }) {
+        MyIcon(
+            painter = painterResource(id = R.drawable.ic_floating_action_menu_file),
+            contentDescription = null
+        )
+        Spacer(modifier = Modifier.width(8.dp))
+        Text(text = stringResource(id = R.string.text_file))
+    }
+}
+
+@OptIn(ExperimentalPermissionsApi::class)
+@Composable
+private fun ImportFile(
+    context: Context,
+    scriptListFragment: ScriptListFragment
+) {
+    val permission = rememberExternalStoragePermissionsState {
+        if (it) getScriptOperations(
+            context,
+            scriptListFragment.explorerView
+        ).importFile()
+        else showExternalStoragePermissionToast(context)
+    }
+    DropdownMenuItem(onClick = { permission.launchMultiplePermissionRequest() }) {
+        MyIcon(
+            painter = painterResource(id = R.drawable.ic_floating_action_menu_open),
+            contentDescription = null
+        )
+        Spacer(modifier = Modifier.width(8.dp))
+        Text(text = stringResource(id = R.string.text_import))
+    }
+}
+
+@Composable
+private fun NewProject(
+    context: Context,
+    scriptListFragment: ScriptListFragment
+) {
+    DropdownMenuItem(onClick = {
+        ProjectConfigActivity_.intent(context)
+            .extra(
+                ProjectConfigActivity.EXTRA_PARENT_DIRECTORY,
+                scriptListFragment.explorerView.currentPage?.path
+            )
+            .extra(ProjectConfigActivity.EXTRA_NEW_PROJECT, true)
+            .start()
+    }) {
+        MyIcon(
+            painter = painterResource(id = R.drawable.ic_project2),
+            contentDescription = null
+        )
+        Spacer(modifier = Modifier.width(8.dp))
+        Text(text = stringResource(id = R.string.text_project))
+    }
+}
+
+private fun getScriptOperations(
+    context: Context,
+    explorerView: ExplorerViewKt
+): ScriptOperations {
+    return ScriptOperations(
+        context,
+        explorerView,
+        explorerView.currentPage
+    )
+}

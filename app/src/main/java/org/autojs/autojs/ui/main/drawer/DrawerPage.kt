@@ -208,7 +208,7 @@ private fun CheckForUpdate(model: DrawerViewModel = viewModel()) {
                     AndroidView(
                         factory = { context ->
                             TextView(context).apply {
-                                val content = model.githubReleaseInfo!!.body.trim()
+                                val content = model.githubReleaseInfo!!.body.trim().replace("\n","\n\n")
                                 val markdwon = Markwon.builder(context).build()
                                 markdwon.setMarkdown(this, content)
                             }

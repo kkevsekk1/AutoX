@@ -65,7 +65,7 @@ class ScriptListFragment : Fragment() {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     floatingActionButton = {
-                        FloatingButton()
+//                        FloatingButton()
                     },
                 ) {
                     AndroidView(

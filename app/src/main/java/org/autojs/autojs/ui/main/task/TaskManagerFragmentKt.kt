@@ -63,12 +63,12 @@ class TaskManagerFragmentKt : Fragment() {
 //        }
         Scaffold(
             floatingActionButton = {
-                FloatingActionButton(onClick = { AutoJs.getInstance().scriptEngineService.stopAll() }) {
-                    Icon(
-                        imageVector = Icons.Default.Clear,
-                        contentDescription = stringResource(id = R.string.text_clear),
-                    )
-                }
+//                FloatingActionButton(onClick = { AutoJs.getInstance().scriptEngineService.stopAll() }) {
+//                    Icon(
+//                        imageVector = Icons.Default.Clear,
+//                        contentDescription = stringResource(id = R.string.text_clear),
+//                    )
+//                }
             },
         ) {
             Box(

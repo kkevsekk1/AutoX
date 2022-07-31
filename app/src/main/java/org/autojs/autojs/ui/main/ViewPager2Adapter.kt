@@ -9,22 +9,11 @@ import org.autojs.autojs.ui.main.scripts.ScriptListFragment
 import org.autojs.autojs.ui.main.task.TaskManagerFragmentKt
 import org.autojs.autojs.ui.main.web.WebViewFragment
 
-class ViewPager2Adapter : FragmentStateAdapter {
-    constructor(
-        fragmentActivity: FragmentActivity,
-        scriptListFragment: ScriptListFragment
-    ) : super(fragmentActivity) {
-        this.scriptListFragment = scriptListFragment
-    }
-
-    constructor(fragment: Fragment) : super(fragment) {}
-    constructor(fragmentManager: FragmentManager, lifecycle: Lifecycle) : super(
-        fragmentManager,
-        lifecycle
-    ) {
-    }
-
-    private lateinit var scriptListFragment: ScriptListFragment
+class ViewPager2Adapter(
+    fragmentActivity: FragmentActivity,
+    private val scriptListFragment: ScriptListFragment,
+    private val taskManagerFragment: TaskManagerFragmentKt
+) : FragmentStateAdapter(fragmentActivity) {
 
     override fun createFragment(position: Int): Fragment {
         val fragment = when (position) {
@@ -32,7 +21,7 @@ class ViewPager2Adapter : FragmentStateAdapter {
                 scriptListFragment
             }
             1 -> {
-                TaskManagerFragmentKt()
+                taskManagerFragment
             }
             else -> {
                 WebViewFragment()
