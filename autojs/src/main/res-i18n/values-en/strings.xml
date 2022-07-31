@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Mistake:</string>
+  <string name="text_start_running">Start operation</string>
+  <string name="text_path_is_empty">Path is empty</string>
+  <string name="text_file_not_exists">File does not exist</string>
+  <string name="text_no_file_rw_permission">No file read and write permissions</string>
+  <string name="text_no_running_script">No running script</string>
+  <string name="text_already_stop_n_scripts">%d running scripts stopped</string>
+  <string name="text_requires_sdk_version_to_run_the_script">This script requires this Android version to run:</string>
+  <string name="ok">Sure</string>
+  <string name="cancel">Cancel</string>
+  <string name="text_console">Console</string>
+  <string name="text_no_floating_window_permission">No floating window permission</string>
+  <string name="text_accessibility_service_description">Required to automate script operations (click, long press, swipe, etc.), if disabled, only scripts that do not involve automatic operations can be executed.</string>
+  <string name="text_should_enable_key_observing">Key monitoring is not enabled, please enable it in the software settings</string>
+  <string name="text_should_enable_gesture_observing">Gesture monitoring is not enabled, please enable it in software settings</string>
+  <string name="no_write_settings_permissin">No permission to modify system settings</string>
+  <string name="exception_notification_service_disabled">Notification service is not running, please re-enable notification permission</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">This script requires Auto.js version number %d or higher to run</string>
+  <string name="text_drawer_open">Open the drop down menu</string>
+  <string name="text_drawer_close">Close the drop down menu</string>
+  <string name="no_read_phone_state_permissin">No permission to read device information</string>
+</resources>

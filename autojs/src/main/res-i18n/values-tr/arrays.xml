@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Varsayılan</item>  
+    <item>Günde bir kez göster</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>Rastgele</item>  
+    <item>Haberler</item>  
+    <item>Sosyal iletişim</item>  
+    <item>Karikatür</item>  
+    <item>Oyun</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>Düzenlenebilir js dosyası</item>  
+    <item>Düzenlenemez ikili</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Yerel belgeler</item>  
+    <item>Çevrimiçi belgeler</item> 
+  </string-array>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Mbeba</item>  
+    <item>Lakisa mbala moko na mokolo</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>Kaka ndenge wana</item>  
+    <item>Bansango</item>  
+    <item>Contact social</item>  
+    <item>Dessin animé</item>  
+    <item>Lisano</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>Fichier js oyo ekoki kobongisama</item>  
+    <item>Binaire oyo ekoki kobongisama te</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Mikanda ya mboka</item>  
+    <item>Mikanda oyo ezali na Internet</item> 
+  </string-array>
+</resources>

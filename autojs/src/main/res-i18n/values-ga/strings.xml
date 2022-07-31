@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Botún:</string>
+  <string name="text_start_running">Oibríocht a thosú</string>
+  <string name="text_path_is_empty">Cosán folamh</string>
+  <string name="text_file_not_exists">Níl an comhad ann</string>
+  <string name="text_no_file_rw_permission">Níl cead léamh agus scríobh comhaid</string>
+  <string name="text_no_running_script">Gan script rith</string>
+  <string name="text_already_stop_n_scripts">Stopadh %d script a rith</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Éilíonn an script seo an leagan Android seo a rith:</string>
+  <string name="ok">Cinnte</string>
+  <string name="cancel">Cealaigh</string>
+  <string name="text_console">Consól</string>
+  <string name="text_no_floating_window_permission">Níl cead fuinneog ar snámh</string>
+  <string name="text_accessibility_service_description">Ag teastáil chun oibríochtaí scripte a uathoibriú (cliceáil, brúigh fhada, svaidhpeáil, etc.), má tá sé díchumasaithe, ní féidir ach scripteanna nach mbaineann oibríochtaí uathoibríocha leo a fhorghníomhú.</string>
+  <string name="text_should_enable_key_observing">Níl an mhonatóireacht eochrach cumasaithe, le do thoil cumasaigh é sna socruithe bogearraí</string>
+  <string name="text_should_enable_gesture_observing">Níl monatóireacht gothaí cumasaithe, le do thoil cumasaigh é i socruithe bogearraí</string>
+  <string name="no_write_settings_permissin">Níl cead socruithe córais a mhodhnú</string>
+  <string name="exception_notification_service_disabled">Níl an tseirbhís fógra ag rith, le do thoil athchumasaigh cead fógartha</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Teastaíonn uimhir leagain Auto.js %d nó níos airde chun an script seo a rith</string>
+  <string name="text_drawer_open">Oscail an roghchlár anuas</string>
+  <string name="text_drawer_close">Dún an roghchlár anuas</string>
+  <string name="no_read_phone_state_permissin">Níl cead faisnéis ghléis a léamh</string>
+</resources>

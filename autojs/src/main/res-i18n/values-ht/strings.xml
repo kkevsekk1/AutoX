@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Erè:</string>
+  <string name="text_start_running">Kòmanse operasyon</string>
+  <string name="text_path_is_empty">Chemen an vid</string>
+  <string name="text_file_not_exists">Dosye pa egziste</string>
+  <string name="text_no_file_rw_permission">Pa gen otorizasyon pou li ak ekri dosye</string>
+  <string name="text_no_running_script">Pa gen script kouri</string>
+  <string name="text_already_stop_n_scripts">%d kouri script sispann</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Script sa a egzije vèsyon android sa a pou kouri:</string>
+  <string name="ok">Asire w</string>
+  <string name="cancel">Anile</string>
+  <string name="text_console">Konsole</string>
+  <string name="text_no_floating_window_permission">Pa gen pèmisyon fenèt k ap flote</string>
+  <string name="text_accessibility_service_description">Obligatwa pou otomatize operasyon script (klike, peze long, glise, elatriye), si enfim, sèlman scripts ki pa enplike operasyon otomatik yo ka egzekite.</string>
+  <string name="text_should_enable_key_observing">Siveyans kle pa pèmèt, tanpri pèmèt li nan paramèt lojisyèl yo</string>
+  <string name="text_should_enable_gesture_observing">Siveyans jès pa pèmèt, tanpri pèmèt li nan anviwònman lojisyèl</string>
+  <string name="no_write_settings_permissin">Pa gen pèmisyon pou modifye paramèt sistèm lan</string>
+  <string name="exception_notification_service_disabled">Sèvis notifikasyon pa fonksyone, tanpri re-aktive pèmisyon notifikasyon</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Script sa a egzije nimewo vèsyon Auto.js %d oswa pi wo pou kouri</string>
+  <string name="text_drawer_open">Louvri meni an drop-down</string>
+  <string name="text_drawer_close">Fèmen meni an desann</string>
+  <string name="no_read_phone_state_permissin">Pa gen pèmisyon pou li enfòmasyon sou aparèy la</string>
+</resources>

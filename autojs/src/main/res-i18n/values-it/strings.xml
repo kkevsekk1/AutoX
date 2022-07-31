@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Errore:</string>
+  <string name="text_start_running">Avviare l\'operazione</string>
+  <string name="text_path_is_empty">Il percorso è vuoto</string>
+  <string name="text_file_not_exists">Il file non esiste</string>
+  <string name="text_no_file_rw_permission">Nessun file permessi di lettura e scrittura</string>
+  <string name="text_no_running_script">Nessuno script in esecuzione</string>
+  <string name="text_already_stop_n_scripts">%d script in esecuzione interrotti</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Questo script richiede l\'esecuzione di questa versione di Android:</string>
+  <string name="ok">Sicuro</string>
+  <string name="cancel">Annulla</string>
+  <string name="text_console">Consolle</string>
+  <string name="text_no_floating_window_permission">Nessun permesso per finestra mobile</string>
+  <string name="text_accessibility_service_description">Necessario per automatizzare le operazioni di script (clic, pressione prolungata, swipe, ecc.), se disabilitato, possono essere eseguiti solo gli script che non comportano operazioni automatiche.</string>
+  <string name="text_should_enable_key_observing">Il monitoraggio dei tasti non è abilitato, abilitalo nelle impostazioni del software</string>
+  <string name="text_should_enable_gesture_observing">Il monitoraggio dei gesti non è abilitato, abilitalo nelle impostazioni del software</string>
+  <string name="no_write_settings_permissin">Nessuna autorizzazione per modificare le impostazioni di sistema</string>
+  <string name="exception_notification_service_disabled">Il servizio di notifica non è in esecuzione, riattiva l\'autorizzazione di notifica</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Questo script richiede il numero di versione di Auto.js %d o superiore per essere eseguito</string>
+  <string name="text_drawer_open">Apri il menu a discesa</string>
+  <string name="text_drawer_close">Chiudi il menu a tendina</string>
+  <string name="no_read_phone_state_permissin">Nessun permesso per leggere le informazioni sul dispositivo</string>
+</resources>

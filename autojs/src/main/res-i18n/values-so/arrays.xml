@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Default</item>  
+    <item>Muuji hal mar maalintii</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>Random</item>  
+    <item>War</item>  
+    <item>Xiriirka bulshada</item>  
+    <item>Kartoon</item>  
+    <item>Ciyaarta</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>Js file la daabici karo</item>  
+    <item>Binary aan la daabici karin</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Dukumentiyada maxaliga ah</item>  
+    <item>Dukumeenti online</item> 
+  </string-array>
+</resources>

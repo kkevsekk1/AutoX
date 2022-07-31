@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>පෙරනිමිය</item>  
+    <item>දිනකට වරක් පෙන්වන්න</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>අහඹු</item>  
+    <item>පුවත්</item>  
+    <item>සමාජ සම්බන්ධතා</item>  
+    <item>කාටූන්</item>  
+    <item>ක්රීඩාව</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>සංස්කරණය කළ හැකි js ගොනුව</item>  
+    <item>සංස්කරණය කළ නොහැකි ද්විමය</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>දේශීය ලියකියවිලි</item>  
+    <item>මාර්ගගත ලියකියවිලි</item> 
+  </string-array>
+</resources>

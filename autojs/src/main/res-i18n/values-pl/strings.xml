@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Błąd:</string>
+  <string name="text_start_running">Rozpocząć pracę</string>
+  <string name="text_path_is_empty">Ścieżka jest pusta</string>
+  <string name="text_file_not_exists">Plik nie istnieje</string>
+  <string name="text_no_file_rw_permission">Brak uprawnień do odczytu i zapisu plików</string>
+  <string name="text_no_running_script">Brak działającego skryptu</string>
+  <string name="text_already_stop_n_scripts">%d uruchomione skrypty zatrzymane</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Ten skrypt wymaga uruchomienia tej wersji Androida:</string>
+  <string name="ok">Pewnie</string>
+  <string name="cancel">Anulować</string>
+  <string name="text_console">Konsola</string>
+  <string name="text_no_floating_window_permission">Brak uprawnień do pływającego okna</string>
+  <string name="text_accessibility_service_description">Wymagane do automatyzacji operacji skryptowych (kliknięcie, długie naciśnięcie, przeciągnięcie itp.), jeśli wyłączone, mogą być wykonywane tylko skrypty, które nie obejmują operacji automatycznych.</string>
+  <string name="text_should_enable_key_observing">Monitorowanie kluczy nie jest włączone, włącz je w ustawieniach oprogramowania</string>
+  <string name="text_should_enable_gesture_observing">Monitorowanie gestów nie jest włączone, włącz je w ustawieniach oprogramowania</string>
+  <string name="no_write_settings_permissin">Brak uprawnień do zmiany ustawień systemu</string>
+  <string name="exception_notification_service_disabled">Usługa powiadomień nie działa, włącz ponownie uprawnienia do powiadomień</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Ten skrypt wymaga do uruchomienia wersji Auto.js %d lub wyższej</string>
+  <string name="text_drawer_open">Otwórz menu rozwijane</string>
+  <string name="text_drawer_close">Zamknij menu rozwijane</string>
+  <string name="no_read_phone_state_permissin">Brak uprawnień do odczytu informacji o urządzeniu</string>
+</resources>

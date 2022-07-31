@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">실수:</string>
+  <string name="text_start_running">작업 시작</string>
+  <string name="text_path_is_empty">경로가 비어 있습니다</string>
+  <string name="text_file_not_exists">파일이 없습니다</string>
+  <string name="text_no_file_rw_permission">파일 읽기 및 쓰기 권한 없음</string>
+  <string name="text_no_running_script">실행 중인 스크립트 없음</string>
+  <string name="text_already_stop_n_scripts">%d 실행 중인 스크립트가 중지되었습니다.</string>
+  <string name="text_requires_sdk_version_to_run_the_script">이 스크립트를 실행하려면 다음 Android 버전이 필요합니다.</string>
+  <string name="ok">확신하는</string>
+  <string name="cancel">취소</string>
+  <string name="text_console">콘솔</string>
+  <string name="text_no_floating_window_permission">부동 창 권한 없음</string>
+  <string name="text_accessibility_service_description">스크립트 작업(클릭, 길게 누르기, 스와이프 등)을 자동화하는 데 필요하며 비활성화된 경우 자동 작업이 포함되지 않은 스크립트만 실행할 수 있습니다.</string>
+  <string name="text_should_enable_key_observing">키 모니터링이 활성화되지 않았습니다. 소프트웨어 설정에서 활성화하십시오.</string>
+  <string name="text_should_enable_gesture_observing">제스처 모니터링이 활성화되지 않았습니다. 소프트웨어 설정에서 활성화하십시오.</string>
+  <string name="no_write_settings_permissin">시스템 설정을 수정할 권한이 없습니다.</string>
+  <string name="exception_notification_service_disabled">알림 서비스가 실행되지 않습니다. 알림 권한을 다시 활성화하세요.</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">이 스크립트를 실행하려면 Auto.js 버전 번호 %d 이상이 필요합니다.</string>
+  <string name="text_drawer_open">드롭다운 메뉴 열기</string>
+  <string name="text_drawer_close">드롭다운 메뉴 닫기</string>
+  <string name="no_read_phone_state_permissin">기기 정보를 읽을 수 있는 권한이 없습니다.</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">間違い：</string>
+  <string name="text_start_running">運転開始</string>
+  <string name="text_path_is_empty">パスが空です</string>
+  <string name="text_file_not_exists">ファイルが存在しません</string>
+  <string name="text_no_file_rw_permission">ファイルの読み取りおよび書き込み権限がありません</string>
+  <string name="text_no_running_script">実行中のスクリプトがありません</string>
+  <string name="text_already_stop_n_scripts">%d実行中のスクリプトが停止しました</string>
+  <string name="text_requires_sdk_version_to_run_the_script">このスクリプトを実行するには、次の Android バージョンが必要です。</string>
+  <string name="ok">もちろん</string>
+  <string name="cancel">キャンセル</string>
+  <string name="text_console">コンソール</string>
+  <string name="text_no_floating_window_permission">フローティング ウィンドウの権限なし</string>
+  <string name="text_accessibility_service_description">スクリプト操作 (クリック、長押し、スワイプなど) を自動化するために必要です。無効にすると、自動操作を伴わないスクリプトのみを実行できます。</string>
+  <string name="text_should_enable_key_observing">キー監視が有効になっていません。ソフトウェア設定で有効にしてください</string>
+  <string name="text_should_enable_gesture_observing">ジェスチャー監視が有効になっていません。ソフトウェア設定で有効にしてください</string>
+  <string name="no_write_settings_permissin">システム設定を変更する権限がありません</string>
+  <string name="exception_notification_service_disabled">通知サービスが実行されていません。通知許可を再度有効にしてください</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">このスクリプトを実行するには、Auto.js バージョン番号%d以降が必要です</string>
+  <string name="text_drawer_open">ドロップダウンメニューを開く</string>
+  <string name="text_drawer_close">ドロップダウンメニューを閉じる</string>
+  <string name="no_read_phone_state_permissin">デバイス情報の読み取り権限がありません</string>
+</resources>

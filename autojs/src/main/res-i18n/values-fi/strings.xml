@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Virhe:</string>
+  <string name="text_start_running">Aloita toiminta</string>
+  <string name="text_path_is_empty">Polku on tyhjä</string>
+  <string name="text_file_not_exists">Tiedostoa ei ole</string>
+  <string name="text_no_file_rw_permission">Ei tiedostojen luku- ja kirjoitusoikeuksia</string>
+  <string name="text_no_running_script">Ei käynnissä olevaa skriptiä</string>
+  <string name="text_already_stop_n_scripts">%d käynnissä olevaa komentosarjaa pysäytettiin</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Tämä komentosarja vaatii tämän Android-version toimiakseen:</string>
+  <string name="ok">Varma</string>
+  <string name="cancel">Peruuttaa</string>
+  <string name="text_console">Konsoli</string>
+  <string name="text_no_floating_window_permission">Ei kelluvan ikkunan lupaa</string>
+  <string name="text_accessibility_service_description">Vaaditaan komentosarjatoimintojen automatisoimiseen (napsautus, pitkä painallus, pyyhkäisy jne.), jos tämä ei ole käytössä, vain skriptit, joihin ei liity automaattisia toimintoja, voidaan suorittaa.</string>
+  <string name="text_should_enable_key_observing">Avaimen valvonta ei ole käytössä, ota se käyttöön ohjelmiston asetuksista</string>
+  <string name="text_should_enable_gesture_observing">Elevalvonta ei ole käytössä, ota se käyttöön ohjelmistoasetuksissa</string>
+  <string name="no_write_settings_permissin">Ei lupaa muuttaa järjestelmäasetuksia</string>
+  <string name="exception_notification_service_disabled">Ilmoituspalvelu ei ole käynnissä, ota ilmoitusoikeus uudelleen käyttöön</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Tämä komentosarja vaatii Auto.js-version %d tai uudemman suorittaakseen</string>
+  <string name="text_drawer_open">Avaa pudotusvalikko</string>
+  <string name="text_drawer_close">Sulje pudotusvalikko</string>
+  <string name="no_read_phone_state_permissin">Ei lupaa lukea laitetietoja</string>
+</resources>

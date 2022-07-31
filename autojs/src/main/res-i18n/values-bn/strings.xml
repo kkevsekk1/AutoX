@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">ভুল:</string>
+  <string name="text_start_running">অপারেশন শুরু</string>
+  <string name="text_path_is_empty">পথ ফাঁকা</string>
+  <string name="text_file_not_exists">ফাইল বিদ্যমান নেই</string>
+  <string name="text_no_file_rw_permission">কোনো ফাইল পড়ার এবং লেখার অনুমতি নেই</string>
+  <string name="text_no_running_script">চলমান স্ক্রিপ্ট নেই</string>
+  <string name="text_already_stop_n_scripts">%d চলমান স্ক্রিপ্ট বন্ধ করা হয়েছে</string>
+  <string name="text_requires_sdk_version_to_run_the_script">এই স্ক্রিপ্টটি চালানোর জন্য এই Android সংস্করণ প্রয়োজন:</string>
+  <string name="ok">নিশ্চিত</string>
+  <string name="cancel">বাতিল করুন</string>
+  <string name="text_console">কনসোল</string>
+  <string name="text_no_floating_window_permission">ভাসমান জানালার অনুমতি নেই</string>
+  <string name="text_accessibility_service_description">স্ক্রিপ্ট ক্রিয়াকলাপগুলিকে স্বয়ংক্রিয় করার জন্য প্রয়োজনীয় (ক্লিক, দীর্ঘক্ষণ প্রেস, সোয়াইপ, ইত্যাদি), যদি নিষ্ক্রিয় করা থাকে, শুধুমাত্র স্বয়ংক্রিয় ক্রিয়াকলাপ জড়িত নয় এমন স্ক্রিপ্টগুলি কার্যকর করা যেতে পারে৷</string>
+  <string name="text_should_enable_key_observing">কী পর্যবেক্ষণ সক্ষম করা নেই, দয়া করে সফ্টওয়্যার সেটিংসে এটি সক্ষম করুন৷</string>
+  <string name="text_should_enable_gesture_observing">অঙ্গভঙ্গি পর্যবেক্ষণ সক্ষম করা নেই, দয়া করে সফ্টওয়্যার সেটিংসে এটি সক্ষম করুন৷</string>
+  <string name="no_write_settings_permissin">সিস্টেম সেটিংস পরিবর্তন করার জন্য কোন অনুমতি নেই</string>
+  <string name="exception_notification_service_disabled">বিজ্ঞপ্তি পরিষেবা চলছে না, দয়া করে বিজ্ঞপ্তি অনুমতি পুনরায় সক্ষম করুন৷</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">এই স্ক্রিপ্টটি চালানোর জন্য Auto.js সংস্করণ নম্বর %d বা উচ্চতর প্রয়োজন৷</string>
+  <string name="text_drawer_open">ড্রপ ডাউন মেনু খুলুন</string>
+  <string name="text_drawer_close">ড্রপ ডাউন মেনু বন্ধ করুন</string>
+  <string name="no_read_phone_state_permissin">ডিভাইসের তথ্য পড়ার অনুমতি নেই</string>
+</resources>

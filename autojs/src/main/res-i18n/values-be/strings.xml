@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Памылка:</string>
+  <string name="text_start_running">Пачаць працу</string>
+  <string name="text_path_is_empty">Шлях пусты</string>
+  <string name="text_file_not_exists">Файл не існуе</string>
+  <string name="text_no_file_rw_permission">Няма дазволаў на чытанне і запіс файла</string>
+  <string name="text_no_running_script">Няма запушчанага скрыпту</string>
+  <string name="text_already_stop_n_scripts">%d запушчаныя скрыпты спынены</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Для працы гэтага сцэнарыя патрабуецца наступная версія Android:</string>
+  <string name="ok">Вядома</string>
+  <string name="cancel">Адмяніць</string>
+  <string name="text_console">Кансоль</string>
+  <string name="text_no_floating_window_permission">Няма дазволу на плаваючае акно</string>
+  <string name="text_accessibility_service_description">Патрабуецца для аўтаматызацыі аперацый сцэнарыя (пстрычка, доўгае націсканне, правядзенне пальцам і г.д.), калі адключана, могуць быць выкананы толькі сцэнарыі, якія не прадугледжваюць аўтаматычных аперацый.</string>
+  <string name="text_should_enable_key_observing">Маніторынг ключоў не ўключаны, уключыце яго ў наладах праграмнага забеспячэння</string>
+  <string name="text_should_enable_gesture_observing">Маніторынг жэстамі не ўключаны, уключыце яго ў наладах праграмнага забеспячэння</string>
+  <string name="no_write_settings_permissin">Няма дазволу на змяненне налад сістэмы</string>
+  <string name="exception_notification_service_disabled">Служба апавяшчэнняў не працуе, паўторна ўключыце дазвол на апавяшчэнні</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Для выканання гэтага сцэнарыя патрабуецца версія Auto.js з нумарам %d або вышэй</string>
+  <string name="text_drawer_open">Адкрыйце выпадальнае меню</string>
+  <string name="text_drawer_close">Зачыніце выпадальнае меню</string>
+  <string name="no_read_phone_state_permissin">Няма дазволу на чытанне інфармацыі аб прыладзе</string>
+</resources>

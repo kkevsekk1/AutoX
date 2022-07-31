@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Стандардно</item>  
+    <item>Прикажи еднаш дневно</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>Случајно</item>  
+    <item>Вести</item>  
+    <item>Социјален контакт</item>  
+    <item>Цртан филм</item>  
+    <item>Игра</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>Js датотека што може да се уредува</item>  
+    <item>Бинарен неуредлив</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Локална документација</item>  
+    <item>Онлајн документација</item> 
+  </string-array>
+</resources>

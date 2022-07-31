@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>ค่าเริ่มต้น</item>  
+    <item>โชว์วันละครั้ง</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>สุ่ม</item>  
+    <item>ข่าว</item>  
+    <item>การติดต่อทางสังคม</item>  
+    <item>การ์ตูน</item>  
+    <item>เกม</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>ไฟล์ js ที่แก้ไขได้</item>  
+    <item>ไบนารีที่ไม่สามารถแก้ไขได้</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>เอกสารท้องถิ่น</item>  
+    <item>เอกสารออนไลน์</item> 
+  </string-array>
+</resources>

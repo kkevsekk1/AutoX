@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">تېروتنه:</string>
+  <string name="text_start_running">عملیات پیل کړئ</string>
+  <string name="text_path_is_empty">لاره خالي ده</string>
+  <string name="text_file_not_exists">فایل شتون نلري</string>
+  <string name="text_no_file_rw_permission">د فایل لوستلو او لیکلو اجازه نشته</string>
+  <string name="text_no_running_script">هیڅ روان سکریپټ نشته</string>
+  <string name="text_already_stop_n_scripts">%d روان سکریپټونه ودرول شول</string>
+  <string name="text_requires_sdk_version_to_run_the_script">دا سکریپټ د دې Android نسخه چلولو ته اړتیا لري:</string>
+  <string name="ok">ډاډمن</string>
+  <string name="cancel">لغوه کړئ</string>
+  <string name="text_console">کنسول</string>
+  <string name="text_no_floating_window_permission">د تیرولو کړکۍ اجازه نشته</string>
+  <string name="text_accessibility_service_description">د سکریپټ عملیاتو اتومات کولو ته اړتیا لري (کلک ، اوږد پریس ، سوائپ ، او داسې نور) ، که چیرې غیر فعال وي ، یوازې هغه سکریپټونه چې اتوماتیک عملیات پکې شامل نه وي اجرا کیدی شي.</string>
+  <string name="text_should_enable_key_observing">کلیدي څارنه فعاله شوې نه ده، مهرباني وکړئ دا د سافټویر ترتیباتو کې فعال کړئ</string>
+  <string name="text_should_enable_gesture_observing">د اشارې څارنه فعاله شوې نه ده، مهرباني وکړئ دا د سافټویر ترتیباتو کې فعال کړئ</string>
+  <string name="no_write_settings_permissin">د سیسټم ترتیباتو بدلولو اجازه نشته</string>
+  <string name="exception_notification_service_disabled">د خبرتیا خدمت نه روان دی، مهرباني وکړئ د خبرتیا اجازه بیا فعاله کړئ</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">دا سکریپټ د چلولو لپاره د Auto.js نسخه شمیره %d یا لوړ ته اړتیا لري</string>
+  <string name="text_drawer_open">د ډراپ ډاون مینو خلاص کړئ</string>
+  <string name="text_drawer_close">د ډراپ ډاون مینو بند کړئ</string>
+  <string name="no_read_phone_state_permissin">د وسیلې معلوماتو لوستلو اجازه نشته</string>
+</resources>

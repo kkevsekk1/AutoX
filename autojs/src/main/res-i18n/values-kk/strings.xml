@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Қате:</string>
+  <string name="text_start_running">Операцияны бастау</string>
+  <string name="text_path_is_empty">Жол бос</string>
+  <string name="text_file_not_exists">Файл жоқ</string>
+  <string name="text_no_file_rw_permission">Файлды оқу және жазу рұқсаттары жоқ</string>
+  <string name="text_no_running_script">Жұмыс істейтін сценарий жоқ</string>
+  <string name="text_already_stop_n_scripts">%d жұмыс істейтін сценарий тоқтатылды</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Бұл сценарий іске қосу үшін осы Android нұсқасын қажет етеді:</string>
+  <string name="ok">Әрине</string>
+  <string name="cancel">Болдырмау</string>
+  <string name="text_console">Консоль</string>
+  <string name="text_no_floating_window_permission">Қалқымалы терезе рұқсаты жоқ</string>
+  <string name="text_accessibility_service_description">Сценарий әрекеттерін автоматтандыру үшін қажет (нұқу, ұзақ басу, сырғыту және т.б.), егер өшірілсе, тек автоматты әрекеттерді қамтымайтын сценарийлер орындалуы мүмкін.</string>
+  <string name="text_should_enable_key_observing">Кілтті бақылау қосылмаған, оны бағдарламалық құрал параметрлерінде қосыңыз</string>
+  <string name="text_should_enable_gesture_observing">Қимылды бақылау қосылмаған, оны бағдарламалық құрал параметрлерінде қосыңыз</string>
+  <string name="no_write_settings_permissin">Жүйе параметрлерін өзгертуге рұқсат жоқ</string>
+  <string name="exception_notification_service_disabled">Хабарландыру қызметі жұмыс істемейді, хабарландыру рұқсатын қайта қосыңыз</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Бұл сценарийді іске қосу үшін Auto.js нұсқасының нөмірі %d немесе одан жоғары болуы керек</string>
+  <string name="text_drawer_open">Ашылмалы мәзірді ашыңыз</string>
+  <string name="text_drawer_close">Ашылмалы мәзірді жабыңыз</string>
+  <string name="no_read_phone_state_permissin">Құрылғы ақпаратын оқуға рұқсат жоқ</string>
+</resources>

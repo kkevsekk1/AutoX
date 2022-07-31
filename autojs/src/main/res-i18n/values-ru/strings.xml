@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Ошибка:</string>
+  <string name="text_start_running">Начать работу</string>
+  <string name="text_path_is_empty">Путь пуст</string>
+  <string name="text_file_not_exists">Файл не существует</string>
+  <string name="text_no_file_rw_permission">Нет прав на чтение и запись файлов</string>
+  <string name="text_no_running_script">Нет запущенного скрипта</string>
+  <string name="text_already_stop_n_scripts">%d работающие скрипты остановлены</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Для запуска этого скрипта требуется эта версия Android:</string>
+  <string name="ok">Конечно</string>
+  <string name="cancel">Отмена</string>
+  <string name="text_console">Приставка</string>
+  <string name="text_no_floating_window_permission">Нет разрешения плавающего окна</string>
+  <string name="text_accessibility_service_description">Требуется для автоматизации операций скриптов (щелчок, длительное нажатие, пролистывание и т. д.), если отключено, могут выполняться только скрипты, не использующие автоматические операции.</string>
+  <string name="text_should_enable_key_observing">Мониторинг ключей не включен, включите его в настройках программы.</string>
+  <string name="text_should_enable_gesture_observing">Мониторинг жестов не включен, включите его в настройках программы.</string>
+  <string name="no_write_settings_permissin">Нет разрешения на изменение системных настроек</string>
+  <string name="exception_notification_service_disabled">Служба уведомлений не работает, повторно включите разрешение на уведомления</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Для запуска этого скрипта требуется номер версии Auto.js %d или выше.</string>
+  <string name="text_drawer_open">Откройте выпадающее меню</string>
+  <string name="text_drawer_close">Закрыть выпадающее меню</string>
+  <string name="no_read_phone_state_permissin">Нет разрешения на чтение информации об устройстве</string>
+</resources>

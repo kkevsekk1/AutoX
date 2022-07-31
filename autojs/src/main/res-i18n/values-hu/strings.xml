@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Hiba:</string>
+  <string name="text_start_running">Indítsa el a működést</string>
+  <string name="text_path_is_empty">Az út üres</string>
+  <string name="text_file_not_exists">A fájl nem létezik</string>
+  <string name="text_no_file_rw_permission">Nincs fájl olvasási és írási engedély</string>
+  <string name="text_no_running_script">Nincs futó szkript</string>
+  <string name="text_already_stop_n_scripts">%d futó szkript leállt</string>
+  <string name="text_requires_sdk_version_to_run_the_script">A szkript futtatásához a következő Android-verzió szükséges:</string>
+  <string name="ok">Biztos</string>
+  <string name="cancel">Megszünteti</string>
+  <string name="text_console">Konzol</string>
+  <string name="text_no_floating_window_permission">Nincs lebegő ablak engedély</string>
+  <string name="text_accessibility_service_description">Szükséges a szkriptműveletek automatizálásához (kattintás, hosszan lenyomva, csúsztatás stb.), ha le van tiltva, csak olyan szkriptek hajthatók végre, amelyek nem tartalmaznak automatikus műveleteket.</string>
+  <string name="text_should_enable_key_observing">A kulcsfigyelés nincs engedélyezve, kérjük, engedélyezze a szoftver beállításainál</string>
+  <string name="text_should_enable_gesture_observing">A gesztusfigyelés nincs engedélyezve, kérjük, engedélyezze a szoftverbeállításokban</string>
+  <string name="no_write_settings_permissin">Nincs engedély a rendszerbeállítások módosítására</string>
+  <string name="exception_notification_service_disabled">Az értesítési szolgáltatás nem fut, kérjük, engedélyezze újra az értesítési engedélyt</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">A szkript futtatásához az Auto.js %d vagy magasabb verziószámú verziója szükséges</string>
+  <string name="text_drawer_open">Nyissa meg a legördülő menüt</string>
+  <string name="text_drawer_close">Zárja be a legördülő menüt</string>
+  <string name="no_read_phone_state_permissin">Nincs engedély az eszköz információinak olvasására</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Kesilapan:</string>
+  <string name="text_start_running">Mulakan operasi</string>
+  <string name="text_path_is_empty">Laluan kosong</string>
+  <string name="text_file_not_exists">Fail tidak wujud</string>
+  <string name="text_no_file_rw_permission">Tiada kebenaran membaca dan menulis fail</string>
+  <string name="text_no_running_script">Tiada skrip berjalan</string>
+  <string name="text_already_stop_n_scripts">%d skrip berjalan berhenti</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Skrip ini memerlukan versi Android ini untuk dijalankan:</string>
+  <string name="ok">Pasti</string>
+  <string name="cancel">Batal</string>
+  <string name="text_console">Konsol</string>
+  <string name="text_no_floating_window_permission">Tiada kebenaran tingkap terapung</string>
+  <string name="text_accessibility_service_description">Diperlukan untuk mengautomasikan operasi skrip (klik, tekan lama, leret, dsb.), jika dilumpuhkan, hanya skrip yang tidak melibatkan operasi automatik boleh dilaksanakan.</string>
+  <string name="text_should_enable_key_observing">Pemantauan utama tidak didayakan, sila dayakannya dalam tetapan perisian</string>
+  <string name="text_should_enable_gesture_observing">Pemantauan gerak isyarat tidak didayakan, sila dayakannya dalam tetapan perisian</string>
+  <string name="no_write_settings_permissin">Tiada kebenaran untuk mengubah suai tetapan sistem</string>
+  <string name="exception_notification_service_disabled">Perkhidmatan pemberitahuan tidak berjalan, sila dayakan semula kebenaran pemberitahuan</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Skrip ini memerlukan nombor versi Auto.js %d atau lebih tinggi untuk dijalankan</string>
+  <string name="text_drawer_open">Buka menu lungsur turun</string>
+  <string name="text_drawer_close">Tutup menu lungsur turun</string>
+  <string name="no_read_phone_state_permissin">Tiada kebenaran untuk membaca maklumat peranti</string>
+</resources>

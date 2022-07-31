@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Impazamo:</string>
+  <string name="text_start_running">Qala ukusebenza</string>
+  <string name="text_path_is_empty">Indlela ayinanto</string>
+  <string name="text_file_not_exists">Ifayile ayikho</string>
+  <string name="text_no_file_rw_permission">Akukho fayile yokufunda nokubhala iimvume</string>
+  <string name="text_no_running_script">Akukho script siqhutywayo</string>
+  <string name="text_already_stop_n_scripts">%d ukubaleka kwezikripthi kuyekiwe</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Esi script sifuna olu hlobo lwe-Android lusebenze:</string>
+  <string name="ok">Ngokuqinisekileyo</string>
+  <string name="cancel">Rhoxisa</string>
+  <string name="text_console">Ikhonsoli</string>
+  <string name="text_no_floating_window_permission">Akukho mvume yefestile edadayo</string>
+  <string name="text_accessibility_service_description">Kuyafuneka ukwenza imisebenzi yeskripthi ngokuzenzekelayo (cofa, ucinezele ixesha elide, swayipha, njl. njl.), ukuba ivaliwe, kuphela izikripthi ezingabandakanyi imisebenzi ezenzekelayo ezinokuphunyezwa.</string>
+  <string name="text_should_enable_key_observing">Ukubeka iliso okungundoqo akwenziwanga, nceda uyivule kwiisethingi zesoftware</string>
+  <string name="text_should_enable_gesture_observing">Ujongo lwentshukumo alwenziwanga lusebenze, nceda uluvule kuseto lwesoftware</string>
+  <string name="no_write_settings_permissin">Akukho mvume yokuguqula imimiselo yenkqubo</string>
+  <string name="exception_notification_service_disabled">Inkonzo yesaziso ayisebenzi, nceda uvule kwakhona imvume yesaziso</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Le script ifuna i-Auto.js inombolo yoguqulelo %d okanye ngaphezulu ukuze isebenze</string>
+  <string name="text_drawer_open">Vula imenyu eyehlayo</string>
+  <string name="text_drawer_close">Vala imenyu eyehlayo</string>
+  <string name="no_read_phone_state_permissin">Akukho mvume yokufunda ulwazi lwesixhobo</string>
+</resources>

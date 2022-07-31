@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>സ്ഥിരസ്ഥിതി</item>  
+    <item>ദിവസത്തിൽ ഒരിക്കൽ കാണിക്കുക</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>ക്രമരഹിതമായ</item>  
+    <item>വാർത്ത</item>  
+    <item>സാമൂഹിക സമ്പർക്കം</item>  
+    <item>ഹാസചിതം</item>  
+    <item>കളി</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>എഡിറ്റ് ചെയ്യാവുന്ന js ഫയൽ</item>  
+    <item>എഡിറ്റ് ചെയ്യാനാവാത്ത ബൈനറി</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>പ്രാദേശിക ഡോക്യുമെന്റേഷൻ</item>  
+    <item>ഓൺലൈൻ ഡോക്യുമെന്റേഷൻ</item> 
+  </string-array>
+</resources>

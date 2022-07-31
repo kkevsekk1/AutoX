@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">ভুল:</string>
+  <string name="text_start_running">কাৰ্য্য আৰম্ভ কৰক</string>
+  <string name="text_path_is_empty">পথ খালী হৈ আছে</string>
+  <string name="text_file_not_exists">ফাইলটোৰ অস্তিত্ব নাই</string>
+  <string name="text_no_file_rw_permission">কোনো নথিপত্ৰ পঢ়া আৰু লিখাৰ অনুমতি নাই</string>
+  <string name="text_no_running_script">কোনো চলি থকা লিপি নাই</string>
+  <string name="text_already_stop_n_scripts">%d চলি থকা স্ক্ৰিপ্টসমূহ বন্ধ কৰা হৈছে</string>
+  <string name="text_requires_sdk_version_to_run_the_script">এই লিপিটো চলাবলৈ এই Android সংস্কৰণৰ প্ৰয়োজন:</string>
+  <string name="ok">নিশ্চয়</string>
+  <string name="cancel">বাতিল কৰক</string>
+  <string name="text_console">কনছ\'ল</string>
+  <string name="text_no_floating_window_permission">কোনো ভাসমান উইণ্ড\'ৰ অনুমতি নাই</string>
+  <string name="text_accessibility_service_description">স্ক্ৰিপ্ট কাৰ্য্যসমূহ স্বয়ংক্ৰিয় কৰিবলে প্ৰয়োজনীয় (ক্লিক, দীঘল টিপক, চুইপ, ইত্যাদি), যদি নিষ্ক্ৰিয় কৰা হয়, কেৱল স্বয়ংক্ৰিয় কাৰ্য্যসমূহ জড়িত নথকা লিপিসমূহ এক্সিকিউট কৰিব পাৰি।</string>
+  <string name="text_should_enable_key_observing">চাবি নিৰীক্ষণ সামৰ্থবান কৰা হোৱা নাই, অনুগ্ৰহ কৰি চফ্টৱেৰ সংহতিসমূহত ইয়াক সামৰ্থবান কৰক</string>
+  <string name="text_should_enable_gesture_observing">ইংগিত নিৰীক্ষণ সামৰ্থবান কৰা হোৱা নাই, অনুগ্ৰহ কৰি চফ্টৱেৰ সংহতিসমূহত ইয়াক সামৰ্থবান কৰক</string>
+  <string name="no_write_settings_permissin">ব্যৱস্থাপ্ৰণালীৰ সংহতিসমূহ পৰিবৰ্তন কৰাৰ কোনো অনুমতি নাই</string>
+  <string name="exception_notification_service_disabled">অধিসূচনা সেৱা চলি থকা নাই, অনুগ্ৰহ কৰি অধিসূচনা অনুমতি পুনৰ সামৰ্থবান কৰক</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">এই স্ক্ৰিপ্ট চলাবলৈ Auto.js সংস্কৰণ সংখ্যা %d বা উচ্চতৰ প্ৰয়োজন</string>
+  <string name="text_drawer_open">ড্ৰপ ডাউন মেনু খোলক</string>
+  <string name="text_drawer_close">ড্ৰপ ডাউন মেনু বন্ধ কৰক</string>
+  <string name="no_read_phone_state_permissin">ডিভাইচৰ তথ্য পঢ়িবলৈ কোনো অনুমতি নাই</string>
+</resources>

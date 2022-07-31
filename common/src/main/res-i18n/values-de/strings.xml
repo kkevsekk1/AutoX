@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_no_floating_window_permission">Keine schwebende Fensterberechtigung</string>
+  <string name="error_activity_not_found_for_apk_installing">App zum Installieren von apk kann nicht gefunden werden</string>
+</resources>

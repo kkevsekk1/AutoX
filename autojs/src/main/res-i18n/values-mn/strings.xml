@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Алдаа:</string>
+  <string name="text_start_running">Үйл ажиллагааг эхлүүлэх</string>
+  <string name="text_path_is_empty">Зам хоосон байна</string>
+  <string name="text_file_not_exists">Файл байхгүй байна</string>
+  <string name="text_no_file_rw_permission">Файл унших, бичих зөвшөөрөл байхгүй</string>
+  <string name="text_no_running_script">Ажиллаж байгаа скрипт байхгүй</string>
+  <string name="text_already_stop_n_scripts">%d ажиллаж байгаа скрипт зогссон</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Энэ скриптийг ажиллуулахын тулд энэ Android хувилбар шаардлагатай:</string>
+  <string name="ok">Мэдээж</string>
+  <string name="cancel">Цуцлах</string>
+  <string name="text_console">Консол</string>
+  <string name="text_no_floating_window_permission">Хөвөгч цонхны зөвшөөрөл байхгүй</string>
+  <string name="text_accessibility_service_description">Скриптийн үйлдлүүдийг автоматжуулахад шаардлагатай (товших, удаан дарах, шудрах гэх мэт), хэрэв идэвхгүй бол зөвхөн автомат ажиллагаагүй скриптүүдийг ажиллуулж болно.</string>
+  <string name="text_should_enable_key_observing">Түлхүүрийн хяналт идэвхжээгүй тул програм хангамжийн тохиргооноос идэвхжүүлнэ үү</string>
+  <string name="text_should_enable_gesture_observing">Дохио хяналтыг идэвхжүүлээгүй тул програм хангамжийн тохиргооноос идэвхжүүлнэ үү</string>
+  <string name="no_write_settings_permissin">Системийн тохиргоог өөрчлөх зөвшөөрөл байхгүй</string>
+  <string name="exception_notification_service_disabled">Мэдэгдлийн үйлчилгээ ажиллахгүй байгаа тул мэдэгдлийн зөвшөөрлийг дахин идэвхжүүлнэ үү</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Энэ скриптийг ажиллуулахын тулд Auto.js хувилбарын дугаар %d буюу түүнээс дээш байх шаардлагатай</string>
+  <string name="text_drawer_open">Унждаг цэсийг нээнэ үү</string>
+  <string name="text_drawer_close">Унждаг цэсийг хаа</string>
+  <string name="no_read_phone_state_permissin">Төхөөрөмжийн мэдээллийг унших зөвшөөрөл байхгүй</string>
+</resources>

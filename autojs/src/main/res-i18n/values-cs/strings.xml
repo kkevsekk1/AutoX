@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Chyba:</string>
+  <string name="text_start_running">Spustit provoz</string>
+  <string name="text_path_is_empty">Cesta je prázdná</string>
+  <string name="text_file_not_exists">Soubor neexistuje</string>
+  <string name="text_no_file_rw_permission">Žádná oprávnění ke čtení a zápisu souborů</string>
+  <string name="text_no_running_script">Žádný běžící skript</string>
+  <string name="text_already_stop_n_scripts">%d spuštěné skripty zastaveny</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Tento skript vyžaduje ke spuštění tuto verzi systému Android:</string>
+  <string name="ok">Tak určitě</string>
+  <string name="cancel">Zrušení</string>
+  <string name="text_console">Řídicí panel</string>
+  <string name="text_no_floating_window_permission">Žádné oprávnění pro plovoucí okno</string>
+  <string name="text_accessibility_service_description">Vyžaduje se pro automatizaci operací se skripty (kliknutí, dlouhé stisknutí, přejetí atd.), pokud je zakázáno, lze spouštět pouze skripty, které nezahrnují automatické operace.</string>
+  <string name="text_should_enable_key_observing">Sledování klíčů není povoleno, povolte jej prosím v nastavení softwaru</string>
+  <string name="text_should_enable_gesture_observing">Sledování gest není povoleno, povolte jej prosím v nastavení softwaru</string>
+  <string name="no_write_settings_permissin">Nemáte oprávnění měnit nastavení systému</string>
+  <string name="exception_notification_service_disabled">Notifikační služba neběží, prosím znovu povolte oprávnění k upozornění</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Tento skript vyžaduje ke spuštění Auto.js číslo verze %d nebo vyšší</string>
+  <string name="text_drawer_open">Otevřete rozbalovací nabídku</string>
+  <string name="text_drawer_close">Zavřete rozevírací nabídku</string>
+  <string name="no_read_phone_state_permissin">Žádné oprávnění ke čtení informací o zařízení</string>
+</resources>

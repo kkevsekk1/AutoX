@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>デフォルト</item>  
+    <item>1日1回表示</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>ランダム</item>  
+    <item>ニュース</item>  
+    <item>社会的接触</item>  
+    <item>アニメーション</item>  
+    <item>ゲーム</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>編集可能なjsファイル</item>  
+    <item>編集不可能なバイナリ</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>ローカル ドキュメント</item>  
+    <item>オンライン ドキュメント</item> 
+  </string-array>
+</resources>

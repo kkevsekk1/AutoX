@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Rhagosodedig</item>  
+    <item>Dangoswch unwaith y dydd</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>Ar hap</item>  
+    <item>Newyddion</item>  
+    <item>Cyswllt cymdeithasol</item>  
+    <item>Cartwn</item>  
+    <item>Gem</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>Ffeil js y gellir ei golygu</item>  
+    <item>Deuaidd anaddas</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Dogfennaeth leol</item>  
+    <item>Dogfennaeth ar-lein</item> 
+  </string-array>
+</resources>

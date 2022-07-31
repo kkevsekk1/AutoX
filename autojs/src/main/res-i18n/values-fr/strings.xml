@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Erreur:</string>
+  <string name="text_start_running">Démarrer l\'opération</string>
+  <string name="text_path_is_empty">Le chemin est vide</string>
+  <string name="text_file_not_exists">Fichier ne existe pas</string>
+  <string name="text_no_file_rw_permission">Aucune autorisation de lecture et d\'écriture de fichier</string>
+  <string name="text_no_running_script">Pas de script en cours d\'exécution</string>
+  <string name="text_already_stop_n_scripts">%d scripts en cours d\'exécution arrêtés</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Ce script nécessite cette version d\'Android pour s\'exécuter :</string>
+  <string name="ok">Bien sûr</string>
+  <string name="cancel">Annuler</string>
+  <string name="text_console">Console</string>
+  <string name="text_no_floating_window_permission">Aucune autorisation de fenêtre flottante</string>
+  <string name="text_accessibility_service_description">Nécessaire pour automatiser les opérations de script (clic, appui long, balayage, etc.), si désactivé, seuls les scripts qui n\'impliquent pas d\'opérations automatiques peuvent être exécutés.</string>
+  <string name="text_should_enable_key_observing">La surveillance des clés n\'est pas activée, veuillez l\'activer dans les paramètres du logiciel</string>
+  <string name="text_should_enable_gesture_observing">La surveillance des gestes n\'est pas activée, veuillez l\'activer dans les paramètres du logiciel</string>
+  <string name="no_write_settings_permissin">Aucune autorisation de modifier les paramètres du système</string>
+  <string name="exception_notification_service_disabled">Le service de notification n\'est pas en cours d\'exécution, veuillez réactiver l\'autorisation de notification</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Ce script nécessite le numéro de version Auto.js %d ou supérieur pour s\'exécuter</string>
+  <string name="text_drawer_open">Ouvrir le menu déroulant</string>
+  <string name="text_drawer_close">Fermer le menu déroulant</string>
+  <string name="no_read_phone_state_permissin">Aucune autorisation de lire les informations sur l\'appareil</string>
+</resources>

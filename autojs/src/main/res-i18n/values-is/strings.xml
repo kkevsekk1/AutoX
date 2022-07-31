@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Mistök:</string>
+  <string name="text_start_running">Hefja rekstur</string>
+  <string name="text_path_is_empty">Leiðin er auð</string>
+  <string name="text_file_not_exists">Skrá er ekki til</string>
+  <string name="text_no_file_rw_permission">Engar heimildir til að lesa og skrifa skrár</string>
+  <string name="text_no_running_script">Ekkert handrit í gangi</string>
+  <string name="text_already_stop_n_scripts">%d keyrandi forskriftir hætt</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Þetta forskrift krefst þess að þessi Android útgáfa sé keyrð:</string>
+  <string name="ok">Jú</string>
+  <string name="cancel">Hætta við</string>
+  <string name="text_console">Vélinni</string>
+  <string name="text_no_floating_window_permission">Engin leyfi fyrir fljótandi glugga</string>
+  <string name="text_accessibility_service_description">Nauðsynlegt til að gera skriftuaðgerðir sjálfvirkar (smella, ýta lengi, strjúka o.s.frv.), ef óvirkt er hægt að framkvæma aðeins skriftur sem ekki fela í sér sjálfvirkar aðgerðir.</string>
+  <string name="text_should_enable_key_observing">Lyklavöktun er ekki virkjuð, vinsamlegast virkjaðu það í hugbúnaðarstillingunum</string>
+  <string name="text_should_enable_gesture_observing">Bendingavöktun er ekki virkjuð, vinsamlegast virkjaðu það í hugbúnaðarstillingum</string>
+  <string name="no_write_settings_permissin">Engin heimild til að breyta kerfisstillingum</string>
+  <string name="exception_notification_service_disabled">Tilkynningaþjónusta er ekki í gangi, vinsamlegast virkjaðu tilkynningaheimild aftur</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Þetta skriftu krefst Auto.js útgáfunúmer %d eða hærra til að keyra</string>
+  <string name="text_drawer_open">Opnaðu fellivalmyndina</string>
+  <string name="text_drawer_close">Lokaðu fellivalmyndinni</string>
+  <string name="no_read_phone_state_permissin">Engin heimild til að lesa upplýsingar um tæki</string>
+</resources>

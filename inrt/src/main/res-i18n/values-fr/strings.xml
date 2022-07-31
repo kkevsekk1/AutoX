@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_no_accessibility_permission">Service d\'accessibilité non démarré</string>
+  <string name="text_auto_operate_service_enabled_but_not_running">Les services d\'accessibilité sont activés mais ne fonctionnent pas, vous pouvez essayer de réactiver ou de redémarrer votre téléphone</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">Impossible d\'activer le service d\'accessibilité avec les privilèges root</string>
+  <string name="text_settings">D\'installation</string>
+  <string name="text_script_running">Exécution de script</string>
+  <string name="text_keep_running_with_foreground_service">Utilisez un service de premier plan pour assurer le fonctionnement de votre application</string>
+  <string name="text_use_accessibility_service">Services d\'accessibilité</string>
+  <string name="text_use_floating_window">Fenêtre flottante</string>
+  <string name="summary_enable_accessibility_service">Les tâches du service d\'accessibilité doivent être activées pour s\'exécuter (réservées)</string>
+  <string name="summary_enable_floating_window">Vous devez ouvrir la fenêtre flottante pour visualiser le journal (élément réservé)</string>
+  <string name="text_use_volume_to_stop_running">La touche d\'augmentation du volume arrête tous les scripts</string>
+  <string name="summary_enable_accessibility_service_by_root">Après l\'ouverture, l\'exécution du script ouvrira automatiquement le service d\'accessibilité avec les privilèges Root (élément réservé)</string>
+  <string name="text_enable_accessibility_service_by_root">Activer automatiquement les services avec les privilèges root</string>
+  <string name="summary_stable_mode">L\'analyse de la mise en page est plus stable lorsqu\'elle est activée, mais un petit nombre de scripts peuvent ne pas fonctionner correctement. Redémarrez le service d\'accessibilité pour prendre effet</string>
+  <string name="text_stable_mode">Mode stable</string>
+  <string name="text_accessibility_service">Services d\'accessibilité</string>
+  <string name="text_dont_show_main_activity">Ne pas afficher l\'interface principale</string>
+  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
+  <string name="summary_dont_show_main_activity">Exécutez le script directement après avoir ouvert l\'application</string>
+  <string name="text_hide_logs">Masquer le journal</string>
+  <string name="key_hide_logs">Key_hide_logs</string>
+  <string name="summary_hide_logs">L\'interface du journal ne s\'affiche pas et la prise en charge des scripts est requise pour ouvrir cette interface la prochaine fois</string>
+  <string name="text_others">Autre</string>
+  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Exécution terminée en %f secondes</string>
+  <string name="prompt_email">E-mail</string>
+  <string name="prompt_password">Le mot de passe</string>
+  <string name="action_sign_in">Connectez-vous ou enregistrez-vous</string>
+  <string name="action_sign_in_short">Connexion</string>
+  <string name="welcome">\"accueillir!\"</string>
+  <string name="invalid_username">N\'est pas un nom d\'utilisateur valide</string>
+  <string name="invalid_password">Le mot de passe doit comporter plus de 5 caractères</string>
+  <string name="login_failed">\"Échec de la connexion\"</string>
+  <string name="explain_accessibility_permission">Le logiciel doit ouvrir \"Services d\'accessibilité\" pour fonctionner, veuillez ouvrir \"Paramètres-> Services d\'accessibilité\" ou \"Paramètres-> Services d\'accessibilité-> Autres services téléchargés\", recherchez \" %s \" et activez les services d\'accessibilité</string>
+  <string name="text_need_to_enable_accessibility_service">Les services d\'accessibilité doivent être activés</string>
+  <string name="summary_use_volume_to_stop_running">La barre de notification affichera toujours la notification \"Cette application est en cours d\'exécution\" pour que le programme continue de fonctionner</string>
+</resources>

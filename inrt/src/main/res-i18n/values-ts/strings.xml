@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_no_accessibility_permission">Vukorhokeri bya ku fikelela a byi sunguriwanga</string>
+  <string name="text_auto_operate_service_enabled_but_not_running">Vukorhokeri bya ku fikelela byi tirhisiwile kambe a byi tirhi, u nga ringeta ku tlhela u tirha kumbe ku sungula riqingho ra wena nakambe</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">Ku tsandzekile ku endla leswaku vukorhokeri bya mfikelelo byi tirha hi malunghelo ya timitsu</string>
+  <string name="text_settings">Ku lulamisa</string>
+  <string name="text_script_running">Ku tsutsuma ka tsalwa</string>
+  <string name="text_keep_running_with_foreground_service">Tirhisa vukorhokeri bya le mahlweni ku hlayisa app ya wena yi ri karhi yi tirha</string>
+  <string name="text_use_accessibility_service">Vukorhokeri bya ku Fikeleleka</string>
+  <string name="text_use_floating_window">Fasitere leri papamalaka</string>
+  <string name="summary_enable_accessibility_service">Mintirho ya vukorhokeri bya mfikelelo yi fanele ku endliwa leswaku yi tirha (yi hlayisiwile) .</string>
+  <string name="summary_enable_floating_window">U fanele ku pfula fasitere leri papamalaka ku vona log (nchumu lowu hlayisiweke) .</string>
+  <string name="text_use_volume_to_stop_running">Volume up key yi yimisa switshuriwa hinkwaswo</string>
+  <string name="summary_enable_accessibility_service_by_root">Endzhaku ko pfula, ku tirhisa xitshuriwa swi ta pfula hi ku tisungulela vukorhokeri bya mfikelelo hi malunghelo ya Root (nchumu lowu hlayisiweke) .</string>
+  <string name="text_enable_accessibility_service_by_root">Endla leswaku vukorhokeri lebyi nga ni malunghelo ya timitsu byi tirha hi ku tisungulela</string>
+  <string name="summary_stable_mode">Nxopaxopo wa layout wu tshamisekile swinene loko wu tirhisiwa, kambe nhlayo yitsongo ya switshuriwa yi nga ha va yi nga tirhi kahle. Sungula nakambe vukorhokeri bya mfikelelo leswaku byi sungula ku tirha</string>
+  <string name="text_stable_mode">Movha lowu tiyeke</string>
+  <string name="text_accessibility_service">Vukorhokeri bya ku Fikeleleka</string>
+  <string name="text_dont_show_main_activity">U nga kombisi xihlanganisi lexikulu</string>
+  <string name="key_dont_show_main_activity">Key_dont_show_ntirho_nkulu</string>
+  <string name="summary_dont_show_main_activity">Tirhisa script hi ku kongoma endzhaku ko pfula app</string>
+  <string name="text_hide_logs">Fihla log</string>
+  <string name="key_hide_logs">Swilotlelo_fihla_swilo</string>
+  <string name="summary_hide_logs">Xihlanganisi xa log a xi kombisiwi, naswona nseketelo wa script wa laveka ku pfula xihlanganisi lexi nkarhi lowu taka</string>
+  <string name="text_others">Xin\'wana</string>
+  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Ku hetiwa ku tirha hi %f tisekoni</string>
+  <string name="prompt_email">Imeyili</string>
+  <string name="prompt_password">Phasiwedi</string>
+  <string name="action_sign_in">Nghena kumbe u tsarisile</string>
+  <string name="action_sign_in_short">Ku nghena</string>
+  <string name="welcome">\"amukela!\"</string>
+  <string name="invalid_username">A hi vito ra mutirhisi leri tirhaka</string>
+  <string name="invalid_password">Password yi fanele ku tlula 5 wa swihlawulekisi</string>
+  <string name="login_failed">\"Ku nghena swi tsandzekile\".</string>
+  <string name="explain_accessibility_permission">Software yi lava ku pfula \"Accessibility Services\" leswaku yi tirha, hi kombela u pfula \"Settings->Accessibility Services\" kumbe \"Settings->Accessibility Services->More Downloaded Services\", kuma \" %s \", naswona u pfumelela Vukorhokeri bya Mfikelelo</string>
+  <string name="text_need_to_enable_accessibility_service">Vukorhokeri bya mfikelelo byi lava ku tirhisiwa</string>
+  <string name="summary_use_volume_to_stop_running">Bar ya switiviso yi ta tshama yi ri karhi yi kombisa xitiviso xa \"App leyi ya tirha\" ku hlayisa nongonoko wu ri karhi wu tirha</string>
+</resources>

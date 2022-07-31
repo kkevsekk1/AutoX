@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_no_accessibility_permission">無障礙服務未啟動</string>
+  <string name="text_auto_operate_service_enabled_but_not_running">無障礙服務已啟用但沒有運行，您可以嘗試重新啟用或重啟手機</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">使用root權限啟用無障礙服務失敗</string>
+  <string name="text_settings">設置</string>
+  <string name="text_script_running">腳本運行</string>
+  <string name="text_keep_running_with_foreground_service">使用前台服務使應用保持運行</string>
+  <string name="text_use_accessibility_service">無障礙服務</string>
+  <string name="text_use_floating_window">懸浮窗</string>
+  <string name="summary_enable_accessibility_service">必須要開啟無障礙服務任務才能執行(保留項)</string>
+  <string name="summary_enable_floating_window">必須要開啟懸浮窗才能查看日誌(保留項)</string>
+  <string name="text_use_volume_to_stop_running">音量上鍵停止所有腳本</string>
+  <string name="summary_enable_accessibility_service_by_root">開啟後運行腳本會使用Root權限自動開啟無障礙服務(保留項)</string>
+  <string name="text_enable_accessibility_service_by_root">使用Root權限自動啟用服務</string>
+  <string name="summary_stable_mode">開啟後佈局分析更穩定，但小部分腳本可能無法正常運行。 重啟無障礙服務生效</string>
+  <string name="text_stable_mode">穩定模式</string>
+  <string name="text_accessibility_service">無障礙服務</string>
+  <string name="text_dont_show_main_activity">不顯示主界面</string>
+  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
+  <string name="summary_dont_show_main_activity">打開應用後直接運行腳本</string>
+  <string name="text_hide_logs">隱藏日誌</string>
+  <string name="key_hide_logs">Key_hide_logs</string>
+  <string name="summary_hide_logs">不顯示日誌界面,在次打開本界面需要腳本支持</string>
+  <string name="text_others">其他</string>
+  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ]運行結束，用時%f秒</string>
+  <string name="prompt_email">電子郵件</string>
+  <string name="prompt_password">密碼</string>
+  <string name="action_sign_in">登錄或註冊</string>
+  <string name="action_sign_in_short">登入</string>
+  <string name="welcome">“歡迎！”</string>
+  <string name="invalid_username">不是有效的用戶名</string>
+  <string name="invalid_password">密碼必須大於5 個字符</string>
+  <string name="login_failed">“登錄失敗”</string>
+  <string name="explain_accessibility_permission">軟件需要打開\"無障礙服務\"才能運行，請打開”設置->無障礙服務“或”設置->無障礙服務->更多已下載的服務“，找到” %s “，開啟無障礙服務</string>
+  <string name="text_need_to_enable_accessibility_service">需要啟用無障礙服務</string>
+  <string name="summary_use_volume_to_stop_running">通知欄將會一直顯示“此應用運行中”的通知，使程序保持運行</string>
+</resources>

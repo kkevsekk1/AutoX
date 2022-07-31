@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Lehenetsia</item>  
+    <item>Erakutsi egunean behin</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>Ausaz</item>  
+    <item>Albisteak</item>  
+    <item>Harreman soziala</item>  
+    <item>Marrazki bizidunak</item>  
+    <item>Jokoa</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>Js fitxategi editagarria</item>  
+    <item>Bitar editaezina</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Tokiko dokumentazioa</item>  
+    <item>Sareko dokumentazioa</item> 
+  </string-array>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Pantjaña:</string>
+  <string name="text_start_running">Qalltaña lurawi</string>
+  <string name="text_path_is_empty">Thakhix ch’usakiwa</string>
+  <string name="text_file_not_exists">Arsuwix janiw utjkiti</string>
+  <string name="text_no_file_rw_permission">Janiw mä qillqat uñakipañ qillqañ permisos utjkiti</string>
+  <string name="text_no_running_script">Janiw t’ijtir script ukax utjkiti</string>
+  <string name="text_already_stop_n_scripts">%d t’ijtir qillqatanakax sayt’ayatawa</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Aka script ukax aka Android versión ukar apnaqañatakiw wakisi:</string>
+  <string name="ok">Sijuru</string>
+  <string name="cancel">Kansilaña</string>
+  <string name="text_console">Ukax consola satawa</string>
+  <string name="text_no_floating_window_permission">Janiw flotante ventana permiso ukax utjkiti</string>
+  <string name="text_accessibility_service_description">Script lurawinakata automáticamente lurañatakixa wakisiwa (clic, jaya pacha ch’iqt’aña, swipe, juk’ampinaka), jan ch’amanchatächi ukhaxa, scripts ukanakakiw jan automático lurawinakampi phuqhasispa.</string>
+  <string name="text_should_enable_key_observing">Llave uñjañax janiw ch’amanchatäkiti, software ukan utt’ayat ukanx ch’amanchañaw wakisi</string>
+  <string name="text_should_enable_gesture_observing">Gesto uñakipañax janiw ch’amanchatäkiti, software ukan utt’ayat ukan ch’amanchañamawa</string>
+  <string name="no_write_settings_permissin">Janiw sistema ukan utt’ayatanakap mayjt’ayañatakix permiso ukax utjkiti</string>
+  <string name="exception_notification_service_disabled">Yatiyaw yanapt’awix janiw phuqhaskiti, yatiyaw permiso wasitat ch’amanchañamawa</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Aka script ukax Auto.js versión %d jan ukax juk’amp jach’a jakhuwimp apnaqañatakiw wakisi</string>
+  <string name="text_drawer_open">Ukaxa mä menú desplegable ukankiwa</string>
+  <string name="text_drawer_close">Ukax mä menú desplegable ukankiwa</string>
+  <string name="no_read_phone_state_permissin">Dispositivo ukan yatiyawinak uñakipañatakix janiw permiso ukax utjkiti</string>
+</resources>

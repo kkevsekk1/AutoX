@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Ua ntej</item>  
+    <item>Qhia ib hnub ib zaug</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>Random</item>  
+    <item>Xov xwm</item>  
+    <item>Kev sib cuag</item>  
+    <item>Tas luav</item>  
+    <item>Kev ua si</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>Editable js cov ntaub ntawv</item>  
+    <item>Uneditable binary</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Cov ntaub ntawv hauv zos</item>  
+    <item>Cov ntaub ntawv online</item> 
+  </string-array>
+</resources>

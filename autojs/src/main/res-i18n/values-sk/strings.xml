@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Chyba:</string>
+  <string name="text_start_running">Spustiť prevádzku</string>
+  <string name="text_path_is_empty">Cesta je prázdna</string>
+  <string name="text_file_not_exists">Súbor neexistuje</string>
+  <string name="text_no_file_rw_permission">Žiadne povolenia na čítanie a zápis súborov</string>
+  <string name="text_no_running_script">Žiadny spustený skript</string>
+  <string name="text_already_stop_n_scripts">%d spustených skriptov bolo zastavených</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Tento skript vyžaduje na spustenie túto verziu systému Android:</string>
+  <string name="ok">Samozrejme</string>
+  <string name="cancel">Zrušiť</string>
+  <string name="text_console">Konzoly</string>
+  <string name="text_no_floating_window_permission">Žiadne povolenie plávajúceho okna</string>
+  <string name="text_accessibility_service_description">Vyžaduje sa na automatizáciu operácií skriptov (kliknutie, dlhé stlačenie, potiahnutie atď.), ak je zakázané, možno spustiť iba skripty, ktoré nezahŕňajú automatické operácie.</string>
+  <string name="text_should_enable_key_observing">Monitorovanie kľúčov nie je povolené, povoľte ho v nastaveniach softvéru</string>
+  <string name="text_should_enable_gesture_observing">Monitorovanie gest nie je povolené, povoľte ho v nastaveniach softvéru</string>
+  <string name="no_write_settings_permissin">Žiadne povolenie na úpravu systémových nastavení</string>
+  <string name="exception_notification_service_disabled">Služba upozornení nie je spustená, znova povoľte povolenie na upozornenia</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Tento skript vyžaduje na spustenie verziu Auto.js %d alebo vyššiu</string>
+  <string name="text_drawer_open">Otvorte rozbaľovaciu ponuku</string>
+  <string name="text_drawer_close">Zatvorte rozbaľovaciu ponuku</string>
+  <string name="no_read_phone_state_permissin">Žiadne povolenie na čítanie informácií o zariadení</string>
+</resources>

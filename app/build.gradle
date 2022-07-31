@@ -135,6 +135,7 @@ android {
     sourceSets {
         main {
             jniLibs.srcDirs = ['/libs']
+            res.srcDirs += "src/main/res-i18n"
         }
     }
 

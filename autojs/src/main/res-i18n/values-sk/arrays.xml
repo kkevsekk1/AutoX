@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Predvolená</item>  
+    <item>Ukážte raz denne</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>Náhodný</item>  
+    <item>Správy</item>  
+    <item>Sociálny kontakt</item>  
+    <item>Karikatúra</item>  
+    <item>Hra</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>Upraviteľný súbor js</item>  
+    <item>Neupraviteľný binárny súbor</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Miestna dokumentácia</item>  
+    <item>Online dokumentáciu</item> 
+  </string-array>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>默認</item>  
+    <item>每天顯示一次</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>隨機</item>  
+    <item>新聞</item>  
+    <item>社交</item>  
+    <item>動漫</item>  
+    <item>遊戲</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>可編輯的js文件</item>  
+    <item>不可編輯的二進製文件</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>本地文檔</item>  
+    <item>在線文檔</item> 
+  </string-array>
+</resources>

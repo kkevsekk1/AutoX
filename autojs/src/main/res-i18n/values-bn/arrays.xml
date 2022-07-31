@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>ডিফল্ট</item>  
+    <item>দিনে একবার দেখান</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>এলোমেলো</item>  
+    <item>খবর</item>  
+    <item>সামাজিক যোগাযোগ</item>  
+    <item>কার্টুন</item>  
+    <item>খেলা</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>সম্পাদনাযোগ্য js ফাইল</item>  
+    <item>অসম্পাদনযোগ্য বাইনারি</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>স্থানীয় ডকুমেন্টেশন</item>  
+    <item>অনলাইন ডকুমেন্টেশন</item> 
+  </string-array>
+</resources>

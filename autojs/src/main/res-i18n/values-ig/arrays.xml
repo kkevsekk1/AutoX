@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Ndabara</item>  
+    <item>Gosi otu ugboro n\'ụbọchị</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>Random</item>  
+    <item>Ozi</item>  
+    <item>Kọntaktị mmekọrịta</item>  
+    <item>Katuunu</item>  
+    <item>Egwuregwu</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>Js faịlụ edezi</item>  
+    <item>Ọnụọgụ abụọ anaghị edezi</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Akwụkwọ mpaghara</item>  
+    <item>Akwụkwọ ntanetị</item> 
+  </string-array>
+</resources>

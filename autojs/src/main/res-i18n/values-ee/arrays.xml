@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Gᴐmedzeƒe</item>  
+    <item>Ðee fia zi ɖeka gbesiagbe</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>Si mele ɖoɖonu o</item>  
+    <item>Nyadzɔdzɔ</item>  
+    <item>Hadome kadodo kple amewo</item>  
+    <item>Nutata ƒe nutata</item>  
+    <item>Hoʋiʋli</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>Js faɛl si woate ŋu atrɔ asi le</item>  
+    <item>Binary si womate ŋu atrɔ asi le o</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Nutoa me nuŋlɔɖiwo</item>  
+    <item>Nuŋlɔɖiwo wɔwɔ le Internet dzi</item> 
+  </string-array>
+</resources>

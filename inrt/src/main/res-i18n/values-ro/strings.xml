@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_no_accessibility_permission">Serviciul de accesibilitate nu a pornit</string>
+  <string name="text_auto_operate_service_enabled_but_not_running">Serviciile de accesibilitate sunt activate, dar nu rulează, puteți încerca să reactivați sau să reporniți telefonul</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">Nu s-a activat serviciul de accesibilitate cu privilegii root</string>
+  <string name="text_settings">Înființat</string>
+  <string name="text_script_running">Rularea scriptului</string>
+  <string name="text_keep_running_with_foreground_service">Utilizați un serviciu din prim-plan pentru a vă menține aplicația în funcțiune</string>
+  <string name="text_use_accessibility_service">Servicii de accesibilitate</string>
+  <string name="text_use_floating_window">Fereastra plutitoare</string>
+  <string name="summary_enable_accessibility_service">Sarcinile de serviciu de accesibilitate trebuie să fie activate pentru a fi executate (rezervate)</string>
+  <string name="summary_enable_floating_window">Trebuie să deschideți fereastra flotantă pentru a vizualiza jurnalul (articol rezervat)</string>
+  <string name="text_use_volume_to_stop_running">Tasta de creștere a volumului oprește toate scripturile</string>
+  <string name="summary_enable_accessibility_service_by_root">După deschidere, rularea scriptului va deschide automat serviciul de accesibilitate cu privilegii Root (element rezervat)</string>
+  <string name="text_enable_accessibility_service_by_root">Activați automat serviciile cu privilegii root</string>
+  <string name="summary_stable_mode">Analiza aspectului este mai stabilă atunci când este activată, dar este posibil ca un număr mic de scripturi să nu funcționeze corect. Reporniți serviciul de accesibilitate pentru a intra în vigoare</string>
+  <string name="text_stable_mode">Modul stabil</string>
+  <string name="text_accessibility_service">Servicii de accesibilitate</string>
+  <string name="text_dont_show_main_activity">Nu afișați interfața principală</string>
+  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
+  <string name="summary_dont_show_main_activity">Rulați scriptul direct după deschiderea aplicației</string>
+  <string name="text_hide_logs">Ascunde jurnalul</string>
+  <string name="key_hide_logs">Key_hide_logs</string>
+  <string name="summary_hide_logs">Interfața de jurnal nu este afișată și este necesar suport pentru scripturi pentru a deschide această interfață data viitoare</string>
+  <string name="text_others">Alte</string>
+  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] S-a terminat rularea în %f secunde</string>
+  <string name="prompt_email">E-mail</string>
+  <string name="prompt_password">Parola</string>
+  <string name="action_sign_in">Autentificare sau înregistrat</string>
+  <string name="action_sign_in_short">Autentificare</string>
+  <string name="welcome">\"Bine ati venit!\"</string>
+  <string name="invalid_username">Nu este un nume de utilizator valid</string>
+  <string name="invalid_password">Parola trebuie să aibă mai mult de 5 caractere</string>
+  <string name="login_failed">\"Autentificare esuata\"</string>
+  <string name="explain_accessibility_permission">Software-ul trebuie să deschidă „Servicii de accesibilitate” pentru a rula, deschideți „Setări->Servicii de accesibilitate” sau „Setări->Servicii de accesibilitate->Mai multe servicii descărcate”, găsiți „ %s ” și activați Serviciile de accesibilitate</string>
+  <string name="text_need_to_enable_accessibility_service">Serviciile de accesibilitate trebuie să fie activate</string>
+  <string name="summary_use_volume_to_stop_running">Bara de notificări va afișa întotdeauna notificarea „Această aplicație rulează” pentru a menține programul în funcțiune</string>
+</resources>

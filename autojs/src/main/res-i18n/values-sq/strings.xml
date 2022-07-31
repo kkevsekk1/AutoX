@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Gabim:</string>
+  <string name="text_start_running">Filloni funksionimin</string>
+  <string name="text_path_is_empty">Rruga është bosh</string>
+  <string name="text_file_not_exists">Skedari nuk ekziston</string>
+  <string name="text_no_file_rw_permission">Nuk ka leje leximi dhe shkrimi të skedarit</string>
+  <string name="text_no_running_script">Asnjë skenar ekzekutues</string>
+  <string name="text_already_stop_n_scripts">%d skripta ekzekutimi u ndaluan</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Ky skript kërkon që ky version Android të ekzekutohet:</string>
+  <string name="ok">Sigurisht</string>
+  <string name="cancel">Anulo</string>
+  <string name="text_console">Konsol</string>
+  <string name="text_no_floating_window_permission">Nuk ka leje për dritare lundruese</string>
+  <string name="text_accessibility_service_description">Kërkohet për të automatizuar operacionet e skriptit (klikoni, shtypni gjatë, rrëshqitni, etj.), nëse është i çaktivizuar, mund të ekzekutohen vetëm skriptet që nuk përfshijnë operacione automatike.</string>
+  <string name="text_should_enable_key_observing">Monitorimi i çelësave nuk është i aktivizuar, ju lutemi aktivizoni atë në cilësimet e softuerit</string>
+  <string name="text_should_enable_gesture_observing">Monitorimi i gjesteve nuk është i aktivizuar, aktivizojeni te cilësimet e softuerit</string>
+  <string name="no_write_settings_permissin">Nuk ka leje për të modifikuar cilësimet e sistemit</string>
+  <string name="exception_notification_service_disabled">Shërbimi i njoftimit nuk funksionon, ju lutemi riaktivizoni lejen e njoftimit</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Ky skript kërkon numrin e versionit të Auto.js %d ose më të lartë për të ekzekutuar</string>
+  <string name="text_drawer_open">Hapni menunë rënëse</string>
+  <string name="text_drawer_close">Mbyllni menunë rënëse</string>
+  <string name="no_read_phone_state_permissin">Nuk ka leje për të lexuar informacionin e pajisjes</string>
+</resources>

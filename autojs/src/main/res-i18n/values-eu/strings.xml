@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Akatsa:</string>
+  <string name="text_start_running">Martxan jarri</string>
+  <string name="text_path_is_empty">Bidea hutsik dago</string>
+  <string name="text_file_not_exists">Fitxategia ez da existitzen</string>
+  <string name="text_no_file_rw_permission">Ez dago fitxategiak irakurtzeko eta idazteko baimenik</string>
+  <string name="text_no_running_script">Ez dago martxan gidoirik</string>
+  <string name="text_already_stop_n_scripts">%d script exekutatzen gelditu dira</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Script honek Android bertsio hau behar du exekutatzeko:</string>
+  <string name="ok">Noski</string>
+  <string name="cancel">Utzi</string>
+  <string name="text_console">Kontsola</string>
+  <string name="text_no_floating_window_permission">Ez dago leiho mugikorren baimenik</string>
+  <string name="text_accessibility_service_description">Script-eragiketak automatizatzeko beharrezkoa da (klik, sakatu luzea, irristatu, etab.), desgaituta badago, eragiketa automatikorik ez duten script-ak bakarrik exekutatu ahal izango dira.</string>
+  <string name="text_should_enable_key_observing">Gakoen monitorizazioa ez dago gaituta, gaitu ezazu softwarearen ezarpenetan</string>
+  <string name="text_should_enable_gesture_observing">Keinuen monitorizazioa ez dago gaituta, gaitu ezazu softwarearen ezarpenetan</string>
+  <string name="no_write_settings_permissin">Ez dago sistemaren ezarpenak aldatzeko baimenik</string>
+  <string name="exception_notification_service_disabled">Jakinarazpen-zerbitzua ez dago martxan. Mesedez, gaitu berriro jakinarazpen-baimena</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Script honek Auto.js bertsio-zenbakia %d edo handiagoa behar du exekutatzeko</string>
+  <string name="text_drawer_open">Ireki goitibeherako menua</string>
+  <string name="text_drawer_close">Itxi goitibeherako menua</string>
+  <string name="no_read_phone_state_permissin">Ez dago baimenik gailuaren informazioa irakurtzeko</string>
+</resources>

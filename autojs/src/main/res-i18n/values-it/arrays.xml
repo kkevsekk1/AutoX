@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Predefinito</item>  
+    <item>Mostra una volta al giorno</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>A caso</item>  
+    <item>Notizia</item>  
+    <item>Contatto sociale</item>  
+    <item>Cartone animato</item>  
+    <item>Gioco</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>File js modificabile</item>  
+    <item>Binario non modificabile</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Documentazione locale</item>  
+    <item>Documentazione in linea</item> 
+  </string-array>
+</resources>

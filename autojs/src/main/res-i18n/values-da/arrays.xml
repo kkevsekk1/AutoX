@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Standard</item>  
+    <item>Vis en gang om dagen</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>Tilfældig</item>  
+    <item>Nyheder</item>  
+    <item>Social kontakt</item>  
+    <item>Tegneserie</item>  
+    <item>Spil</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>Redigerbar js-fil</item>  
+    <item>Uredigerbar binær</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Lokal dokumentation</item>  
+    <item>Online dokumentation</item> 
+  </string-array>
+</resources>
