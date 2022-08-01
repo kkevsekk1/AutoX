@@ -508,7 +508,7 @@
 
         <service
             android:name=".external.tile.LayoutBoundsTile"
-            android:exported="false"
+            android:exported="true"
             android:icon="@drawable/ic_circular_menu_bounds"
             android:label="@string/text_inspect_layout_bounds"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
@@ -522,7 +522,7 @@
         </service>
         <service
             android:name=".external.tile.LayoutHierarchyTile"
-            android:exported="false"
+            android:exported="true"
             android:icon="@drawable/ic_circular_menu_hierarchy"
             android:label="@string/text_inspect_layout_hierarchy"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
