@@ -23,7 +23,7 @@ import com.stardust.app.permission.PermissionsSettingsUtil.launchAppPermissionsS
 import com.stardust.auojs.inrt.autojs.AccessibilityServiceTool
 import com.stardust.auojs.inrt.autojs.AutoJs
 import com.stardust.auojs.inrt.launch.GlobalProjectLauncher
-import com.stardust.autojs.project.ProjectConfigKt
+import com.stardust.autojs.project.ProjectConfig
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -34,7 +34,7 @@ import kotlinx.coroutines.launch
 
 class SplashActivity : ComponentActivity() {
 
-    companion object{
+    companion object {
         const val TAG = "SplashActivity"
     }
 
@@ -76,7 +76,7 @@ class SplashActivity : ComponentActivity() {
         }
 
     private val projectConfig by lazy {
-        ProjectConfigKt.fromAssets(this, ProjectConfigKt.configFileOfDir("project"))!!
+        ProjectConfig.fromAssets(this, ProjectConfig.configFileOfDir("project"))!!
     }
 
     private val permissionsResult = mutableMapOf<String, Boolean>()
@@ -111,6 +111,7 @@ class SplashActivity : ComponentActivity() {
         val slug = findViewById<TextView>(R.id.slug)
         slug.typeface = Typeface.createFromAsset(assets, "roboto_medium.ttf")
         Log.d(TAG, "onCreate: ${Gson().toJson(projectConfig)}")
+        slug.text = projectConfig.launchConfig.splashText
         if (Pref.getHost("d") == "d") { //非第一次运行
             Pref.setHost("112.74.161.35")
             projectConfig.launchConfig.let {
@@ -122,7 +123,7 @@ class SplashActivity : ComponentActivity() {
 
         }
         lifecycleScope.launch {
-            delay(800)
+            delay(1000)
             readSpecialPermissionConfiguration()
             requestExternalStoragePermission()
         }
@@ -146,7 +147,7 @@ class SplashActivity : ComponentActivity() {
         }
     }
 
-    private fun requestExternalStoragePermission(){
+    private fun requestExternalStoragePermission() {
         storagePermissionLauncher.launch(
             arrayOf(
                 Manifest.permission.READ_EXTERNAL_STORAGE,
