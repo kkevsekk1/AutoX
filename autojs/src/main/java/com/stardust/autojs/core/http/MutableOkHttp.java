@@ -25,6 +25,9 @@ public class MutableOkHttp extends OkHttpClient {
         do {
             boolean succeed;
             try {
+                if (response != null) {
+                    response.close();
+                }
                 response = chain.proceed(request);
                 succeed = response.isSuccessful();
             } catch (SocketTimeoutException e) {
