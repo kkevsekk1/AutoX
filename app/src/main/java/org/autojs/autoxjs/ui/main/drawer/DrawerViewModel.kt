@@ -8,7 +8,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import org.autojs.autoxjs.BuildConfig
 import org.autojs.autoxjs.R
 import org.autojs.autoxjs.network.VersionService2
 import org.autojs.autoxjs.network.entity.GithubReleaseInfo
@@ -29,30 +28,20 @@ class DrawerViewModel(private val context: Application) : AndroidViewModel(conte
         viewModelScope.launch {
             try {
                 var releaseInfo = VersionService2.gitUpdateCheckApi.getGithubLastReleaseInfo()
-                val currentInfoResponse =
-                    VersionService2.gitUpdateCheckApi.getGithubLastReleaseInfo(BuildConfig.VERSION_NAME)
 
-                if (currentInfoResponse.code() != 200) {
-                    versionInformationFound()
-                    return@launch
-                }
-                val currentInfo = currentInfoResponse.body() ?: kotlin.run {
-                    versionInformationFound()
-                    return@launch
-                }
-                var isLatestVersion = currentInfo.isLatestVersion(releaseInfo)
+                var isLatestVersion = releaseInfo.isLatestVersion()
                 if (isLatestVersion == null) {
                     //Get release list
                     VersionService2.gitUpdateCheckApi.getGithubReleaseInfoList()
                         .firstOrNull { it.targetCommitish == "dev-test" && !it.prerelease }
                         ?.let {
                             releaseInfo = it
-                            isLatestVersion = currentInfo.isLatestVersion(releaseInfo)
+                            isLatestVersion = releaseInfo.isLatestVersion()
                         }
                 }
                 if (isLatestVersion == null) {
                     //Can't find information
-                    versionInformationFound()
+                    versionInformationNotFound()
                     return@launch
                 }
                 if (isLatestVersion == true) {
@@ -84,7 +73,7 @@ class DrawerViewModel(private val context: Application) : AndroidViewModel(conte
 
     }
 
-    private fun versionInformationFound() {
+    private fun versionInformationNotFound() {
         Toast.makeText(
             context,
             context.getString(

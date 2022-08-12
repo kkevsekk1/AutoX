@@ -1,6 +1,7 @@
 package org.autojs.autoxjs.network.entity
 
 import com.google.gson.annotations.SerializedName
+import org.autojs.autoxjs.BuildConfig
 import org.joda.time.Instant
 
 class GithubReleaseInfoList : ArrayList<GithubReleaseInfo>()
@@ -50,10 +51,13 @@ data class GithubReleaseInfo(
  * Check latest version
  * @return Returns null if targetCommitish is prerelease or not "dev-test"
  */
-fun GithubReleaseInfo.isLatestVersion(anotherReleaseInfo: GithubReleaseInfo): Boolean? {
+fun GithubReleaseInfo.isLatestVersion(): Boolean? {
     if (targetCommitish != "dev-test" || prerelease) return null
-    return Instant.parse(createdAt).toDateTime().millis >=
-            Instant.parse(anotherReleaseInfo.createdAt).toDateTime().millis
+    return this.name.getVersionByName() <= BuildConfig.VERSION_NAME.getVersionByName()
+}
+
+private fun String.getVersionByName(): Long {
+    return this.replace(".", "").toLongOrNull() ?: -1
 }
 
 data class Asset(
