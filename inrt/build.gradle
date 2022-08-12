@@ -15,7 +15,7 @@ android {
     buildToolsVersion versions.buildTool
 
     defaultConfig {
-        applicationId "com.stardust.auojs.inrt"
+        applicationId "org.autojs.autoxjs.inrt"
         minSdkVersion versions.mini
         targetSdkVersion versions.target
         versionCode versions.appVersionCode
@@ -31,9 +31,6 @@ android {
                         "androidManifestFile": "$projectDir/src/main/AndroidManifest.xml".toString()
                 ]
             }
-        }
-        ndk {
-            abiFilters "arm64-v8a", "armeabi-v7a"
         }
     }
     lintOptions {
@@ -103,6 +100,23 @@ android {
             buildConfigField "boolean", "isMarket", "true"
             manifestPlaceholders = [appName: "AIX云控"]
         }
+        template {
+            manifestPlaceholders = [appName: "template"]
+            aaptOptions {
+                //忽略ocr模型
+                ignoreAssetsPattern "models"
+            }
+            packagingOptions {
+                jniLibs {
+                    useLegacyPackaging true
+                }
+                exclude '*'
+            }
+            ndk {
+                //不打包so库
+                abiFilters = [""]
+            }
+        }
     }
     sourceSets {
         main {
@@ -153,12 +167,9 @@ task publishMarket(group: 'build') {
 def buildApkPluginForAbi(File pluginProjectDir, String abi) {
 
     copy {
-//        from file('build/intermediates/apk/common/debug/')
-//        into new File(pluginProjectDir, 'src\\main\\assets')
-//        def fileName = "inrt-common-" + abi + "-debug.apk"
-        from file('build\\outputs\\apk\\common\\release\\')
+        from file('build\\outputs\\apk\\template\\release\\')
         into new File(pluginProjectDir, 'src\\main\\assets')
-        def fileName = "inrt-common-" + abi + "-release.apk"
+        def fileName = "inrt-template-release-unsigned.apk"//"inrt-template-" + abi + "-release.apk"
 
         include fileName
         rename fileName, 'template.apk'

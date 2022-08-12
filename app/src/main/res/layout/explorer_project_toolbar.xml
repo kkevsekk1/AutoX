@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="48dp"
-              android:gravity="center_vertical"
-              android:orientation="horizontal"
-              android:paddingBottom="3dp"
-              android:paddingLeft="12dp"
-              android:paddingTop="3dp">
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="3dp"
+    android:paddingLeft="12dp"
+    android:paddingTop="3dp">
 
     <ImageView
         android:layout_width="30dp"
@@ -28,13 +29,13 @@
 
     <ImageView
         android:id="@+id/run"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_marginRight="2dp"
         android:background="?selectableItemBackgroundBorderless"
         android:padding="6dp"
         android:src="@drawable/ic_play_fill"
-        android:tint="#606366"/>
+        app:tint="#606366"/>
 
     <ImageView
         android:id="@+id/build"
@@ -43,17 +44,17 @@
         android:layout_marginRight="2dp"
         android:background="?selectableItemBackgroundBorderless"
         android:padding="6dp"
-        android:src="@drawable/ic_build_apk"
-        android:tint="#606366"/>
+        android:src="@drawable/ic_android_fill"
+        app:tint="#606366"/>
 
     <ImageView
         android:id="@+id/sync"
-        android:layout_width="38dp"
-        android:layout_height="38dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_marginRight="2dp"
         android:background="?selectableItemBackgroundBorderless"
         android:padding="6dp"
         android:src="@drawable/ic_sync"
-        android:tint="#606366"/>
+        app:tint="#606366"/>
 
 </LinearLayout>

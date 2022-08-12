@@ -51,29 +51,29 @@ object GlobalAppContext {
     @JvmStatic
     fun toast(message: String?) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            Toast.makeText(get(), message, Toast.LENGTH_SHORT).show()
+            com.stardust.toast(get(), message)
             return
         }
-        sHandler!!.post { Toast.makeText(get(), message, Toast.LENGTH_SHORT).show() }
+        sHandler!!.post { com.stardust.toast(get(), message) }
     }
 
     @JvmStatic
     fun toast(resId: Int) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            Toast.makeText(get(), resId, Toast.LENGTH_SHORT).show()
+            com.stardust.toast(get(), resId)
             return
         }
-        sHandler!!.post { Toast.makeText(get(), resId, Toast.LENGTH_SHORT).show() }
+        sHandler!!.post { com.stardust.toast(get(), resId) }
     }
 
     @JvmStatic
     fun toast(resId: Int, vararg args: Any?) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            Toast.makeText(get(), getString(resId, *args), Toast.LENGTH_SHORT).show()
+            com.stardust.toast(get(), getString(resId, *args))
             return
         }
         sHandler!!.post {
-            Toast.makeText(get(), getString(resId, *args), Toast.LENGTH_SHORT).show()
+            com.stardust.toast(get(), getString(resId, *args))
         }
     }
 

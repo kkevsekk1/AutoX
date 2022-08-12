@@ -26,7 +26,7 @@ android {
     compileSdkVersion versions.compile
     buildToolsVersion versions.buildTool
     defaultConfig {
-        applicationId "org.autojs.autojs"
+        applicationId "org.autojs.autoxjs"
         minSdkVersion versions.mini
         targetSdkVersion versions.target
         versionCode versions.appVersionCode
@@ -122,12 +122,12 @@ android {
             manifestPlaceholders = [appName: "@string/app_name"]
         }
         v6 {
-            applicationIdSuffix ".dev"
+            applicationIdSuffix ".v6"
             versionCode versions.devVersionCode
             versionName versions.devVersionName
             buildConfigField "String", "CHANNEL", '"v6"'
             buildConfigField "String", "APPID", '"?id=23"'
-            manifestPlaceholders = [appName: "Autox6.js"]
+            manifestPlaceholders = [appName: "Autox.js v6"]
         }
 
     }

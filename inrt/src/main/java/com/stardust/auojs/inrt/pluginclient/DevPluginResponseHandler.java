@@ -1,25 +1,18 @@
 package com.stardust.auojs.inrt.pluginclient;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
 import android.util.Log;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
-import com.stardust.app.GlobalAppContext;
+import com.stardust.auojs.inrt.Pref;
 import com.stardust.auojs.inrt.autojs.AutoJs;
 import com.stardust.autojs.execution.ExecutionConfig;
 import com.stardust.autojs.execution.ScriptExecution;
-import com.stardust.autojs.project.ProjectLauncher;
-import com.stardust.autojs.script.ScriptSource;
 import com.stardust.autojs.script.StringScriptSource;
 import com.stardust.io.Zip;
 import com.stardust.pio.PFiles;
 import com.stardust.util.MD5;
-
-import com.stardust.auojs.inrt.Pref;
-import com.stardust.auojs.inrt.R;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -29,7 +22,6 @@ import java.io.FileOutputStream;
 import java.util.HashMap;
 
 import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 /**

@@ -17,8 +17,8 @@ import android.widget.DatePicker;
 import android.widget.ProgressBar;
 
 import com.linsh.utilseverywhere.ContextUtils;
-import com.stardust.auojs.inrt.BuildConfig;
-import com.stardust.auojs.inrt.R;
+import org.autojs.autoxjs.inrt.BuildConfig;
+import org.autojs.autoxjs.inrt.R;
 import com.stardust.util.IntentUtil;
 
 import org.json.JSONObject;

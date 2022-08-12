@@ -3,7 +3,7 @@
     <string name="text_broadcast_action_prefix" translatable="false">android.intent.action.</string>
     <string name="text_en_import" translatable="false">import</string>
     <string name="dex_crcs" translatable="false">2184044085\n3566596539\npJTCkHuhypD9i3UBQ55XQw==RtXsgCTVFA7VYhLeF1TSkg==</string>
-    <string name="format_default_package_name" formatted="true" translatable="false">com.example.script%d</string>
+    <string name="format_default_package_name" formatted="true" translatable="false">com.script.%s</string>
     <string name="powered_by_autojs" translatable="false">Powered by Autoxjs.com</string>
     <string name="my_github" translatable="false">https://github.com/kkevsekk1/autox</string>
     <string name="copyright" translatable="false">Copyright©2020-2022 All right reserves.</string>
@@ -11,6 +11,7 @@
     <string name="qq" translatable="false">895775483</string>
     <string name="text_qq" translatable="false">QQ群：895775483</string>
     <string name="email" translatable="false">chengshulun@live.com</string>
+    <string name="default_main_file_name" translatable="false">main.js</string>
 
     <string name="key_auto_backup" translatable="false">key_auto_back</string>
     <string name="key_night_mode" translatable="false">key_night_mode</string>
@@ -28,7 +29,7 @@
     <string name="key_use_volume_control_record" translatable="false">key_use_volume_control_record</string>
     <string name="key_guard_mode" translatable="false">key_guard_mode</string>
 
-    <string name="text_accessibility_service_description">当脚本需要自动化操作时候需要无障碍服务,比如 (click, long press, slide, etc.).</string>
+    <string name="text_accessibility_service_description">使脚本自动操作(点击、长按、滑动等)所需，若关闭则只能执行不涉及自动操作的脚本。</string>
     <string name="text_new_file">新建文件</string>
     <string name="text_create_fail">创建失败</string>
     <string name="text_please_input_name">请输入名称</string>
@@ -46,10 +47,13 @@
     <string name="text_undo">撤销</string>
     <string name="text_redo">重做</string>
     <string name="text_save">保存</string>
+    <string name="text_save_as_project">保存为项目</string>
     <string name="text_run">运行</string>
     <string name="text_alert">提示</string>
     <string name="edit_exit_without_save_warn">内容尚未保存，您确定要退出吗？</string>
+    <string name="text_select_save_mode">请选择保存方式</string>
     <string name="text_save_and_exit">保存并退出</string>
+    <string name="text_save_as_project_and_exit">保存为项目并退出</string>
     <string name="text_exit_directly">直接退出</string>
     <string name="text_setting">设置</string>
     <string name="text_exit">退出</string>
@@ -124,7 +128,7 @@
     <string name="text_import_fail">导入失败</string>
     <string name="text_no_brower">没有浏览器耶o(╯□╰)o快去安装一个吧</string>
     <string name="text_refresh">刷新</string>
-    <string name="notice_no_running_script"><![CDATA[没有正在运行的脚本 φ(>ω<*)]]></string>
+    <string name="notice_no_running_script">没有正在运行的脚本 φ(>ω&lt;*)</string>
     <string name="text_please_choose_a_script">请选择脚本</string>
     <string name="text_edit_prepare_script">编辑预执行脚本</string>
     <string name="text_pre_execute_script">预执行脚本</string>
@@ -285,9 +289,10 @@
     <string name="text_install">安装</string>
     <string name="text_build_failed">打包失败，错误信息：</string>
     <string name="format_build_successfully" formatted="true">apk文件已保存到 %s</string>
-    <string name="apk_builder_prepare">准备文件</string>
-    <string name="apk_builder_build">构建中</string>
+    <string name="apk_builder_prepare">正在准备文件</string>
+    <string name="apk_builder_build">正在构建</string>
     <string name="apk_builder_package">打包中</string>
+    <string name="apk_builder_sign">正在签名</string>
     <string name="apk_builder_clean">清理临时文件</string>
     <string name="text_source_file_path">脚本文件(夹)路径</string>
     <string name="text_search">搜索</string>
@@ -383,7 +388,7 @@
     <string name="text_inspect_layout">布局分析</string>
     <string name="text_pointer_location">指针位置[Root]</string>
     <string name="text_change_script_dir">更改脚本文件夹路径</string>
-    <string name="default_value_script_dir_path">/脚本/</string>
+    <string name="default_value_script_dir_path" translatable="false">/脚本/</string>
     <string name="text_error_copy_file" formatted="true">发生错误: %s</string>
     <string name="text_debug">调试</string>
     <string name="text_set_breakpoint">断点</string>
@@ -413,7 +418,6 @@
     <string name="text_market">市场</string>
     <string name="text_launch_config">运行配置</string>
     <string name="text_main_file_name">主脚本名称</string>
-    <string name="default_main_file_name">main.js</string>
     <string name="text_project">项目</string>
     <string name="text_project_location">项目位置</string>
     <string name="text_new_project">新建项目</string>
@@ -513,7 +517,7 @@
     <string name="text_document">文档</string>
     <string name="text_open_usb_debug">打开USB调试</string>
     <string name="text_scan_qr">扫码</string>
-    <string name="text_connect_failed">连接失败：%s</string>
+    <string name="text_connect_failed">连接失败：%s, 请检查电脑防火墙是否放行9317端口，是否在同一局域网中，VS CODE插件是否已开启服务…</string>
     <string name="text_start_service_failed">服务启动失败：%s</string>
     <string name="text_unsupported_qr_code">不支持此格式的二维码</string>
     <string name="text_connected_to_computer">已连接电脑</string>
@@ -529,4 +533,8 @@
     <string name="text_menu">菜单</string>
     <string name="text_exit_search">退出搜索</string>
     <string name="text_licenses_other">非开源许可</string>
+    <string name="text_save_successfully">保存成功</string>
+    <string name="text_invalid_config">无效的配置</string>
+    <string name="text_abi">支持的ABI(使用逗号分隔)</string>
+    <string name="text_save_project_to">项目保存至：%s</string>
 </resources>

@@ -24,6 +24,8 @@ import androidx.annotation.RequiresApi;
 
 import com.stardust.auojs.inrt.util.MarketJavascriptInterface;
 
+import org.autojs.autoxjs.inrt.R;
+
 import java.util.List;
 
 public class FeatureActivity extends Activity {

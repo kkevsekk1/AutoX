@@ -5,10 +5,9 @@ import com.google.gson.annotations.SerializedName
 /**
  * Modified by wilinz on 2022/5/23
  */
-class SigningConfig {
+data class SigningConfig (
     @SerializedName("alias")
-    var alias: String = ""
-
+    var alias: String? = null,
     @SerializedName("keystore")
-    var keyStore: String = ""
-}
+    var keyStore: String? = null
+)

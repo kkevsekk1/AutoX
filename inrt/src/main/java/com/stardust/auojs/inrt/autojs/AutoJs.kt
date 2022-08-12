@@ -6,7 +6,6 @@ import android.content.Context
 import com.stardust.app.GlobalAppContext
 import com.stardust.auojs.inrt.LogActivity
 import com.stardust.auojs.inrt.Pref
-import com.stardust.auojs.inrt.R
 import com.stardust.auojs.inrt.SettingsActivity
 import com.stardust.auojs.inrt.pluginclient.DevPluginService
 import com.stardust.autojs.core.console.GlobalConsole
@@ -17,6 +16,7 @@ import com.stardust.autojs.runtime.exception.ScriptInterruptedException
 import com.stardust.autojs.script.JavaScriptSource
 import com.stardust.view.accessibility.AccessibilityService
 import com.stardust.view.accessibility.AccessibilityServiceUtils
+import org.autojs.autoxjs.inrt.R
 
 
 /**

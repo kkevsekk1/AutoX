@@ -27,6 +27,8 @@ import com.stardust.auojs.inrt.launch.GlobalProjectLauncher;
 import com.stardust.auojs.inrt.pluginclient.DevPluginService;
 import com.stardust.auojs.inrt.util.UpdateUtil;
 
+import org.autojs.autoxjs.inrt.R;
+
 import java.security.SecureRandom;
 import java.util.Random;
 

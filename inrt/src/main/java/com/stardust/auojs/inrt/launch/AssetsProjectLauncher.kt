@@ -7,7 +7,6 @@ import android.os.Handler
 import android.os.Looper
 import android.text.TextUtils
 import android.util.Log
-import com.stardust.auojs.inrt.BuildConfig
 import com.stardust.auojs.inrt.LogActivity
 import com.stardust.auojs.inrt.Pref
 import com.stardust.auojs.inrt.autojs.AutoJs
@@ -20,6 +19,7 @@ import com.stardust.autojs.script.JavaScriptSource
 import com.stardust.pio.PFiles
 import com.stardust.pio.UncheckedIOException
 import com.stardust.util.MD5
+import org.autojs.autoxjs.inrt.BuildConfig
 import java.io.File
 import java.io.IOException
 

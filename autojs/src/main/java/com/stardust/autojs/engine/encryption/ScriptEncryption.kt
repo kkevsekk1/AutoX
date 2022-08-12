@@ -1,14 +1,21 @@
 package com.stardust.autojs.engine.encryption
 
+import android.util.Log
 import com.stardust.util.AdvancedEncryptionStandard
 
-object ScriptEncryption {
-
-    private var mKey = ""
-    private var mInitVector = ""
+object ScriptEncryption{
+    var mKey: String = ""
+    var mInitVector: String = ""
 
     fun decrypt(bytes: ByteArray, start: Int = 0, end: Int = bytes.size): ByteArray {
-        return AdvancedEncryptionStandard(mKey.toByteArray(), mInitVector).decrypt(bytes, start, end)
+        Log.d(TAG, "key: $mKey")
+        Log.d(TAG, "value: $mInitVector")
+        return AdvancedEncryptionStandard(mKey.toByteArray(), mInitVector).decrypt(
+            bytes,
+            start,
+            end
+        )
     }
 
+    val TAG=ScriptEncryption::class.java.simpleName
 }
