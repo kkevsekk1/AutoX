@@ -3,12 +3,12 @@ on:
   workflow_dispatch:
   push:
     paths-ignore:
-      - "README_zh_CN.md"
       - "README.md"
+      - "README_en.md"
   pull_request:
     paths-ignore:
-      - "README_zh_CN.md"
       - "README.md"
+      - "README_en.md"
 
 jobs:
   test:
