@@ -84,9 +84,9 @@ public abstract class Task {
         @Override
         public void cancel() {
             if (mTimedTask != null) {
-                TimedTaskManager.getInstance().removeTask(mTimedTask);
+                TimedTaskManager.INSTANCE.removeTask(mTimedTask);
             } else {
-                TimedTaskManager.getInstance().removeTask(mIntentTask);
+                TimedTaskManager.INSTANCE.removeTask(mIntentTask);
             }
         }
 

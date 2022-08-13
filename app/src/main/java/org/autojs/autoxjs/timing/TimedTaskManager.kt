@@ -1,177 +1,142 @@
-package org.autojs.autoxjs.timing;
+package org.autojs.autoxjs.timing
 
-
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.text.TextUtils;
-
-import com.stardust.app.GlobalAppContext;
-
-import org.autojs.autoxjs.App;
-import org.autojs.autoxjs.storage.database.IntentTaskDatabase;
-import org.autojs.autoxjs.storage.database.ModelChange;
-import org.autojs.autoxjs.storage.database.TimedTaskDatabase;
-import org.autojs.autoxjs.tool.Observers;
-
-import java.util.List;
-
-import io.reactivex.Flowable;
-import io.reactivex.Observable;
+import android.annotation.SuppressLint
+import android.app.Application
+import android.text.TextUtils
+import io.reactivex.Flowable
+import io.reactivex.Observable
+import org.autojs.autoxjs.App
+import org.autojs.autoxjs.App.Companion.app
+import org.autojs.autoxjs.storage.database.IntentTaskDatabase
+import org.autojs.autoxjs.storage.database.ModelChange
+import org.autojs.autoxjs.storage.database.TimedTaskDatabase
+import org.autojs.autoxjs.timing.TimedTaskScheduler.Companion.getWorkProvider
+import org.autojs.autoxjs.tool.Observers
 
 /**
  * Created by Stardust on 2017/11/27.
  */
-//TODO rx
-public class TimedTaskManager {
+object TimedTaskManager {
 
-    private static volatile TimedTaskManager sInstance;
-    private Context mContext;
-    private TimedTaskDatabase mTimedTaskDatabase;
-    private IntentTaskDatabase mIntentTaskDatabase;
-
-    public static TimedTaskManager getInstance() {
-        if (sInstance == null) {
-            synchronized (TimedTaskManager.class) {
-                if (sInstance == null) {
-                    sInstance = new TimedTaskManager(GlobalAppContext.get());
-                }
-            }
-        }
-        return sInstance;
-    }
+    private var context: Application = App.app
+    private val timedTaskDatabase: TimedTaskDatabase = TimedTaskDatabase(context)
+    private val intentTaskDatabase: IntentTaskDatabase = IntentTaskDatabase(context)
 
     @SuppressLint("CheckResult")
-    private TimedTaskManager(Context context) {
-        mContext = context;
-        mTimedTaskDatabase = new TimedTaskDatabase(context);
-        mIntentTaskDatabase = new IntentTaskDatabase(context);
-    }
-
-    @SuppressLint("CheckResult")
-    public void notifyTaskFinished(long id) {
-        TimedTask task = getTimedTask(id);
-        if (task == null)
-            return;
-        if (task.isDisposable()) {
-            mTimedTaskDatabase.delete(task)
-                    .subscribe(Observers.emptyConsumer(), Throwable::printStackTrace);
+    fun notifyTaskFinished(id: Long) {
+        val task = getTimedTask(id)
+        if (task.isDisposable) {
+            timedTaskDatabase.delete(task)
+                .subscribe(Observers.emptyConsumer()) { obj: Throwable -> obj.printStackTrace() }
         } else {
-            task.setScheduled(false);
-            task.setExecuted(true);
-            mTimedTaskDatabase.update(task)
-                    .subscribe(Observers.emptyConsumer(), Throwable::printStackTrace);
+            task.isScheduled = false
+            task.executed = true
+            timedTaskDatabase.update(task)
+                .subscribe(Observers.emptyConsumer()) { obj: Throwable -> obj.printStackTrace() }
         }
     }
 
     @SuppressLint("CheckResult")
-    public void removeTask(TimedTask timedTask) {
-        TimedTaskScheduler.cancel(timedTask, mContext);
-        mTimedTaskDatabase.delete(timedTask)
-                .subscribe(Observers.emptyConsumer(), Throwable::printStackTrace);
+    fun removeTask(timedTask: TimedTask) {
+        TimedTaskScheduler.getWorkProvider(context).cancel(context, timedTask)
+        timedTaskDatabase.delete(timedTask)
+            .subscribe(Observers.emptyConsumer()) { obj: Throwable -> obj.printStackTrace() }
     }
 
     @SuppressLint("CheckResult")
-    public void addTask(TimedTask timedTask) {
-        mTimedTaskDatabase.insert(timedTask)
-                .subscribe(id -> {
-                    timedTask.setId(id);
-                    TimedTaskScheduler.getWorkProvider(mContext).scheduleTaskIfNeeded(mContext, timedTask, false);
-                }, Throwable::printStackTrace);
+    fun addTask(timedTask: TimedTask) {
+        timedTaskDatabase.insert(timedTask)
+            .subscribe({ id: Long? ->
+                timedTask.id = id!!
+                getWorkProvider(context).scheduleTaskIfNeeded(context, timedTask, false)
+            }) { obj: Throwable -> obj.printStackTrace() }
     }
 
     @SuppressLint("CheckResult")
-    public void addTask(IntentTask intentTask) {
-        mIntentTaskDatabase.insert(intentTask)
-                .subscribe(i -> {
-                    if (!TextUtils.isEmpty(intentTask.getAction())) {
-                        App.Companion.getApp().getDynamicBroadcastReceivers()
-                                .register(intentTask);
-                    }
-                }, Throwable::printStackTrace);
+    fun addTask(intentTask: IntentTask) {
+        intentTaskDatabase.insert(intentTask)
+            .subscribe({ i: Long? ->
+                if (!TextUtils.isEmpty(intentTask.action)) {
+                    app.dynamicBroadcastReceivers
+                        .register(intentTask)
+                }
+            }) { obj: Throwable -> obj.printStackTrace() }
     }
 
     @SuppressLint("CheckResult")
-    public void removeTask(IntentTask intentTask) {
-        mIntentTaskDatabase.delete(intentTask)
-                .subscribe(i -> {
-                    if (!TextUtils.isEmpty(intentTask.getAction())) {
-                        App.Companion.getApp().getDynamicBroadcastReceivers()
-                                .unregister(intentTask.getAction());
-                    }
-                }, Throwable::printStackTrace);
+    fun removeTask(intentTask: IntentTask) {
+        intentTaskDatabase.delete(intentTask)
+            .subscribe({ i: Int? ->
+                if (!TextUtils.isEmpty(intentTask.action)) {
+                    app.dynamicBroadcastReceivers
+                        .unregister(intentTask.action)
+                }
+            }) { obj: Throwable -> obj.printStackTrace() }
     }
 
-    public Flowable<TimedTask> getAllTasks() {
-        return mTimedTaskDatabase.queryAllAsFlowable();
+    val allTasks: Flowable<TimedTask>
+        get() = timedTaskDatabase.queryAllAsFlowable()
+
+    fun getIntentTaskOfAction(action: String?): Flowable<IntentTask> {
+        return intentTaskDatabase.query("action = ?", action)
     }
 
-    public Flowable<IntentTask> getIntentTaskOfAction(String action) {
-        return mIntentTaskDatabase.query("action = ?", action);
+    val timeTaskChanges: Observable<ModelChange<TimedTask>>
+        get() = timedTaskDatabase.modelChange
+
+    @SuppressLint("CheckResult")
+    fun notifyTaskScheduled(timedTask: TimedTask) {
+        timedTask.isScheduled = true
+        timedTaskDatabase.update(timedTask)
+            .subscribe(Observers.emptyConsumer()) { obj: Throwable -> obj.printStackTrace() }
     }
 
+    val allTasksAsList: List<TimedTask>
+        get() = timedTaskDatabase.queryAll()
 
-    public Observable<ModelChange<TimedTask>> getTimeTaskChanges() {
-        return mTimedTaskDatabase.getModelChange();
+    fun getTimedTask(taskId: Long): TimedTask {
+        return timedTaskDatabase.queryById(taskId)
     }
 
     @SuppressLint("CheckResult")
-    public void notifyTaskScheduled(TimedTask timedTask) {
-        timedTask.setScheduled(true);
-        mTimedTaskDatabase.update(timedTask)
-                .subscribe(Observers.emptyConsumer(), Throwable::printStackTrace);
-
-    }
-
-    public List<TimedTask> getAllTasksAsList() {
-        return mTimedTaskDatabase.queryAll();
-    }
-
-    public TimedTask getTimedTask(long taskId) {
-        return mTimedTaskDatabase.queryById(taskId);
+    fun updateTask(task: TimedTask) {
+        timedTaskDatabase.update(task)
+            .subscribe(Observers.emptyConsumer()) { obj: Throwable -> obj.printStackTrace() }
+        TimedTaskScheduler.getWorkProvider(context).cancel(context, task)
+        getWorkProvider(context).scheduleTaskIfNeeded(context, task, false)
     }
 
     @SuppressLint("CheckResult")
-    public void updateTask(TimedTask task) {
-        mTimedTaskDatabase.update(task)
-                .subscribe(Observers.emptyConsumer(), Throwable::printStackTrace);
-        TimedTaskScheduler.cancel(task, mContext);
-        TimedTaskScheduler.getWorkProvider(mContext).scheduleTaskIfNeeded(mContext, task, false);
+    fun updateTaskWithoutReScheduling(task: TimedTask) {
+        timedTaskDatabase.update(task)
+            .subscribe(Observers.emptyConsumer()) { obj: Throwable -> obj.printStackTrace() }
     }
 
     @SuppressLint("CheckResult")
-    public void updateTaskWithoutReScheduling(TimedTask task) {
-        mTimedTaskDatabase.update(task)
-                .subscribe(Observers.emptyConsumer(), Throwable::printStackTrace);
+    fun updateTask(task: IntentTask) {
+        intentTaskDatabase.update(task)
+            .subscribe({ i: Int ->
+                if (i > 0 && !TextUtils.isEmpty(task.action)) {
+                    app.dynamicBroadcastReceivers
+                        .register(task)
+                }
+            }) { obj: Throwable -> obj.printStackTrace() }
     }
 
-    @SuppressLint("CheckResult")
-    public void updateTask(IntentTask task) {
-        mIntentTaskDatabase.update(task)
-                .subscribe(i -> {
-                    if (i > 0 && !TextUtils.isEmpty(task.getAction())) {
-                        App.Companion.getApp().getDynamicBroadcastReceivers()
-                                .register(task);
-                    }
-                }, Throwable::printStackTrace);
+    fun countTasks(): Long {
+        return timedTaskDatabase.count()
     }
 
-    public long countTasks() {
-        return mTimedTaskDatabase.count();
+    val allIntentTasksAsList: List<IntentTask>
+        get() = intentTaskDatabase.queryAll()
+    val intentTaskChanges: Observable<ModelChange<IntentTask>>
+        get() = intentTaskDatabase.modelChange
+
+    fun getIntentTask(intentTaskId: Long): IntentTask {
+        return intentTaskDatabase.queryById(intentTaskId)
     }
 
-    public List<IntentTask> getAllIntentTasksAsList() {
-        return mIntentTaskDatabase.queryAll();
-    }
+    val allIntentTasks: Flowable<IntentTask>
+        get() = intentTaskDatabase.queryAllAsFlowable()
 
-    public Observable<ModelChange<IntentTask>> getIntentTaskChanges() {
-        return mIntentTaskDatabase.getModelChange();
-    }
-
-    public IntentTask getIntentTask(long intentTaskId) {
-        return mIntentTaskDatabase.queryById(intentTaskId);
-    }
-
-    public Flowable<IntentTask> getAllIntentTasks() {
-        return mIntentTaskDatabase.queryAllAsFlowable();
-    }
 }

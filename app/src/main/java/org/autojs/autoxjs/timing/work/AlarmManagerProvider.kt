@@ -1,230 +1,165 @@
-package org.autojs.autoxjs.timing.work;
+package org.autojs.autoxjs.timing.work
 
-import android.annotation.SuppressLint;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
-import android.os.SystemClock;
-import android.util.Log;
-
-import com.stardust.app.GlobalAppContext;
-
-import org.autojs.autoxjs.BuildConfig;
-import org.autojs.autoxjs.autojs.AutoJs;
-import org.autojs.autoxjs.external.ScriptIntents;
-import org.autojs.autoxjs.timing.TimedTask;
-import org.autojs.autoxjs.timing.TimedTaskManager;
-
-import java.util.concurrent.TimeUnit;
-
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+import android.annotation.SuppressLint
+import android.app.AlarmManager
+import android.app.AlarmManager.AlarmClockInfo
+import android.app.Application
+import android.app.PendingIntent
+import android.content.BroadcastReceiver
+import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
+import android.os.Build
+import android.os.SystemClock
+import android.util.Log
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+import org.autojs.autoxjs.App
+import org.autojs.autoxjs.BuildConfig
+import org.autojs.autoxjs.external.ScriptIntents
+import org.autojs.autoxjs.timing.TimedTask
+import org.autojs.autoxjs.timing.TimedTaskManager
+import org.autojs.autoxjs.timing.TimedTaskScheduler
+import java.util.concurrent.TimeUnit
 
 /**
  * Created by TonyJiangWJ(https://github.com/TonyJiangWJ).
  * From [TonyJiangWJ/Auto.js](https://github.com/TonyJiangWJ/Auto.js)
  */
+object AlarmManagerProvider : TimedTaskScheduler() {
 
-public class AlarmManagerProvider extends BroadcastReceiver implements WorkProvider {
+    private const val ACTION_CHECK_TASK = "org.autojs.autojs.action.check_task"
+    private const val LOG_TAG = "AlarmManagerProvider"
+    private const val REQUEST_CODE_CHECK_TASK_REPEATEDLY = 4000
+    private val INTERVAL = TimeUnit.MINUTES.toMillis(15)
+    private val MIN_INTERVAL_GAP = TimeUnit.MINUTES.toMillis(5)
+    private val SCHEDULE_TASK_MIN_TIME = TimeUnit.DAYS.toMillis(2)
 
-    private Context context;
+    private var sCheckTasksPendingIntent: PendingIntent? = null
 
-    private static final String ACTION_CHECK_TASK = "org.autojs.autojs.action.check_task";
-
-    private static final String LOG_TAG = "AlarmManagerProvider";
-    private static final int REQUEST_CODE_CHECK_TASK_REPEATEDLY = 4000;
-    private static final long INTERVAL = TimeUnit.MINUTES.toMillis(15);
-    private static final long MIN_INTERVAL_GAP = TimeUnit.MINUTES.toMillis(5);
-
-    private static final long SCHEDULE_TASK_MIN_TIME = TimeUnit.DAYS.toMillis(2);
-
-    private volatile static AlarmManagerProvider instance = null;
-
-    private static PendingIntent sCheckTasksPendingIntent;
-
-    public AlarmManagerProvider() {
-        this.context = GlobalAppContext.get();
+    internal class AlarmManagerBroadcastReceiver : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            autoJsLog("onReceiveRtcWakeUp")
+            checkTasks(AlarmManagerProvider.context, false)
+            setupNextRtcWakeup(context, System.currentTimeMillis() + INTERVAL)
+        }
     }
 
-    public AlarmManagerProvider(Context context) {
-        this.context = context;
+    private var context: Application = App.app
+
+    override fun enqueueWork(timedTask: TimedTask, timeWindow: Long) {
+        autoJsLog("enqueue task:$timedTask")
+        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val op = timedTask.createPendingIntent(context)
+        setExactCompat(alarmManager, op, System.currentTimeMillis() + timeWindow)
     }
 
-    public static WorkProvider getInstance(Context context) {
-        if (instance == null) {
-            synchronized (AndroidJobProvider.class) {
-                if (instance == null) {
-                    instance = new AlarmManagerProvider(context);
-                }
+    override fun enqueuePeriodicWork(delay: Int) {
+        autoJsLog("checkTasksRepeatedlyIfNeeded")
+        checkTasksRepeatedlyIfNeeded(context)
+    }
+
+    override fun cancel(context: Application, timedTask: TimedTask) {
+        autoJsLog("cancel task:$timedTask")
+        val alarmManager = getAlarmManager(context)
+        alarmManager.cancel(timedTask.createPendingIntent(context))
+    }
+
+    @SuppressLint("CheckResult")
+    override fun cancelAllWorks() {
+        autoJsLog("cancel all tasks")
+        stopRtcRepeating(context)
+        TimedTaskManager
+            .allTasks
+            .filter(TimedTask::isScheduled)
+            .forEach { timedTask: TimedTask ->
+                cancel(context, timedTask)
+                timedTask.isScheduled = false
+                timedTask.executed = false
+                TimedTaskManager.updateTaskWithoutReScheduling(timedTask)
             }
-        }
-        return instance;
     }
 
+    override val isCheckWorkFine: Boolean
+        get() = true
 
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        autoJsLog( "onReceiveRtcWakeUp");
-        checkTasks(context, false);
-        setupNextRtcWakeup(context, System.currentTimeMillis() + INTERVAL);
-    }
-
-
-    @Override
-    public void enqueueWork(TimedTask timedTask, long timeWindow) {
-        autoJsLog( "enqueue task:" + timedTask.toString());
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        PendingIntent op = timedTask.createPendingIntent(context);
-        setExactCompat(alarmManager, op, System.currentTimeMillis() + timeWindow);
-    }
-
-    @Override
-    public void enqueuePeriodicWork(int delay) {
-        autoJsLog( "checkTasksRepeatedlyIfNeeded");
-        checkTasksRepeatedlyIfNeeded(context);
-    }
-
-    @Override
-    public void cancel(TimedTask timedTask) {
-        autoJsLog( "cancel task:" + timedTask);
-        AlarmManager alarmManager = getAlarmManager(context);
-        alarmManager.cancel(timedTask.createPendingIntent(context));
-    }
-
-    @Override
-    @SuppressLint("CheckResult")
-    public void cancelAllWorks() {
-        autoJsLog( "cancel all tasks");
-        stopRtcRepeating(context);
-        TimedTaskManager.getInstance()
-                .getAllTasks()
-                .filter(TimedTask::isScheduled)
-                .forEach(timedTask -> {
-                    cancel(timedTask);
-                    timedTask.setScheduled(false);
-                    timedTask.setExecuted(false);
-                    TimedTaskManager.getInstance().updateTaskWithoutReScheduling(timedTask);
-                });
-    }
-
-    @Override
-    public boolean isCheckWorkFine() {
-        return true;
-    }
-
-    @SuppressLint("CheckResult")
-    public void checkTasks(Context context, boolean force) {
-        autoJsLog( "check tasks: force = " + force);
-        TimedTaskManager.getInstance().getAllTasks()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(timedTask -> scheduleTaskIfNeeded(context, timedTask, force));
-    }
-
-    public void scheduleTaskIfNeeded(Context context, TimedTask timedTask, boolean force) {
-        long millis = timedTask.getNextTime();
-        if (millis <= System.currentTimeMillis()) {
-            autoJsLog( "task out date run:" + timedTask);
-            runTask(context, timedTask);
-            return;
-        }
-        if (!force && timedTask.isScheduled() || millis - System.currentTimeMillis() > SCHEDULE_TASK_MIN_TIME) {
-            return;
-        }
-        scheduleTask(context, timedTask, millis, force);
-        TimedTaskManager.getInstance().notifyTaskScheduled(timedTask);
-    }
-
-    public void scheduleTask(Context context, TimedTask timedTask, long millis, boolean force) {
-        if (!force && timedTask.isScheduled()) {
-            return;
-        }
-        autoJsLog( "schedule task:" + timedTask);
-        if (force) {
-            cancel(timedTask);
-        }
-        enqueueWork(timedTask, millis - System.currentTimeMillis());
-    }
-
-
-    public void runTask(Context context, TimedTask task) {
-        Log.d(LOG_TAG, "run task: task = " + task);
-        Intent intent = task.createIntent();
-        ScriptIntents.handleIntent(context, intent);
-        TimedTaskManager.getInstance().notifyTaskFinished(task.getId());
+    fun runTask(context: Application, task: TimedTask) {
+        Log.d(LOG_TAG, "run task: task = $task")
+        val intent = task.createIntent()
+        ScriptIntents.handleIntent(context, intent)
+        TimedTaskManager.notifyTaskFinished(task.id)
         // 如果队列中有任务正在等待，直接取消
-        cancel(task);
+        cancel(context, task)
     }
 
-    private void setExactCompat(AlarmManager alarmManager, PendingIntent op, long millis) {
-        int type = AlarmManager.RTC_WAKEUP;
-        long gapMillis = millis - System.currentTimeMillis();
+    private fun setExactCompat(alarmManager: AlarmManager, op: PendingIntent, millis: Long) {
+        var millis = millis
+        var type = AlarmManager.RTC_WAKEUP
+        val gapMillis = millis - System.currentTimeMillis()
         if (gapMillis <= MIN_INTERVAL_GAP) {
-            long oldMillis = millis;
+            val oldMillis = millis
             // 目标时间修改为真实时间
-            millis = SystemClock.elapsedRealtime() + gapMillis;
-            type = AlarmManager.ELAPSED_REALTIME_WAKEUP;
-            autoJsLog( "less then 5 minutes, millis changed from " + oldMillis + " to " + millis);
+            // elapsedRealtime() and elapsedRealtimeNanos() 返回系统启动到现在的时间，
+            // 包含设备深度休眠的时间。该时钟被保证是单调的，即使CPU在省电模式下，该时间也会继续计时。
+            // 该时钟可以被使用在当测量时间间隔可能跨越系统睡眠的时间段。
+            millis = SystemClock.elapsedRealtime() + gapMillis
+            type = AlarmManager.ELAPSED_REALTIME_WAKEUP
+            autoJsLog("less then 5 minutes, millis changed from $oldMillis to $millis")
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            alarmManager.setExactAndAllowWhileIdle(type, millis, op);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            alarmManager.setAlarmClock(new AlarmManager.AlarmClockInfo(millis, null), op);
+            alarmManager.setExactAndAllowWhileIdle(type, millis, op)
         } else {
-            alarmManager.setExact(type, millis, op);
+            alarmManager.setAlarmClock(AlarmClockInfo(millis, null), op)
         }
     }
 
-
-    public void checkTasksRepeatedlyIfNeeded(Context context) {
-        autoJsLog( "checkTasksRepeatedlyIfNeeded count:" + TimedTaskManager.getInstance().countTasks());
-        if (TimedTaskManager.getInstance().countTasks() > 0) {
+    private fun checkTasksRepeatedlyIfNeeded(context: Context) {
+        autoJsLog("checkTasksRepeatedlyIfNeeded count:" + TimedTaskManager.countTasks())
+        if (TimedTaskManager.countTasks() > 0) {
             // 设置周期性时间6分钟
-            setupNextRtcWakeup(context, System.currentTimeMillis() +  INTERVAL);
+            setupNextRtcWakeup(context, System.currentTimeMillis() + INTERVAL)
         }
     }
 
-    private void setupNextRtcWakeup(Context context, long millis) {
-        autoJsLog("setupNextRtcWakeup: at " + millis);
-        if (millis <= 0) {
-            throw new IllegalArgumentException("millis <= 0: " + millis);
-        }
-        AlarmManager alarmManager = getAlarmManager(context);
-        setExactCompat(alarmManager, createTaskCheckPendingIntent(context), millis);
+    private fun setupNextRtcWakeup(context: Context, millis: Long) {
+        autoJsLog("setupNextRtcWakeup: at $millis")
+        require(millis > 0) { "millis <= 0: $millis" }
+        val alarmManager = getAlarmManager(context)
+        setExactCompat(alarmManager, createTaskCheckPendingIntent(context), millis)
     }
 
-
-    public void stopRtcRepeating(Context context) {
-        autoJsLog("stopRtcRepeating");
-        AlarmManager alarmManager = getAlarmManager(context);
-        alarmManager.cancel(createTaskCheckPendingIntent(context));
+    private fun stopRtcRepeating(context: Context) {
+        autoJsLog("stopRtcRepeating")
+        val alarmManager = getAlarmManager(context)
+        alarmManager.cancel(createTaskCheckPendingIntent(context))
     }
 
-    private AlarmManager getAlarmManager(Context context) {
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        assert alarmManager != null;
-        return alarmManager;
+    private fun getAlarmManager(context: Context): AlarmManager {
+        return (context.getSystemService(Context.ALARM_SERVICE) as AlarmManager)
     }
 
-    private PendingIntent createTaskCheckPendingIntent(Context context) {
+    private fun createTaskCheckPendingIntent(context: Context): PendingIntent {
         if (sCheckTasksPendingIntent == null) {
-            int flags = PendingIntent.FLAG_UPDATE_CURRENT |
-                    (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? PendingIntent.FLAG_IMMUTABLE : 0);
-            sCheckTasksPendingIntent = PendingIntent.getBroadcast(context, REQUEST_CODE_CHECK_TASK_REPEATEDLY,
-                    new Intent(ACTION_CHECK_TASK)
-                            .setComponent(new ComponentName(BuildConfig.APPLICATION_ID,
-                                    "org.autojs.autojs.timing.work.AlarmManagerProvider")),
-                    flags);
+            val flags = PendingIntent.FLAG_UPDATE_CURRENT or
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) PendingIntent.FLAG_IMMUTABLE else 0
+            sCheckTasksPendingIntent = PendingIntent.getBroadcast(
+                context, REQUEST_CODE_CHECK_TASK_REPEATEDLY,
+                Intent(ACTION_CHECK_TASK)
+                    .setComponent(
+                        ComponentName(
+                            BuildConfig.APPLICATION_ID,
+                            "org.autojs.autojs.timing.work.AlarmManagerProvider"
+                        )
+                    ),
+                flags
+            )
         }
-        return sCheckTasksPendingIntent;
+        return sCheckTasksPendingIntent!!
     }
 
-    private void autoJsLog(String content) {
-        Log.d(LOG_TAG, content);
-        AutoJs.getInstance().debugInfo(content);
+    override fun autoJsLog(content: String) {
+        Log.d(LOG_TAG, content)
+        super.autoJsLog(content)
     }
+
 }

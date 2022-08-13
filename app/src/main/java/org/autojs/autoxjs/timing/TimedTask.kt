@@ -1,263 +1,201 @@
-package org.autojs.autoxjs.timing;
+package org.autojs.autoxjs.timing
 
-import android.app.PendingIntent;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
+import android.app.PendingIntent
+import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
+import android.os.Build
+import com.stardust.autojs.execution.ExecutionConfig
+import org.autojs.autoxjs.BuildConfig
+import org.autojs.autoxjs.external.ScriptIntents
+import org.autojs.autoxjs.storage.database.BaseModel
+import org.joda.time.DateTime
+import org.joda.time.DateTimeConstants
+import org.joda.time.LocalDateTime
+import org.joda.time.LocalTime
+import java.util.concurrent.TimeUnit
 
-import com.stardust.autojs.execution.ExecutionConfig;
-
-import org.autojs.autoxjs.BuildConfig;
-import org.autojs.autoxjs.external.ScriptIntents;
-import org.autojs.autoxjs.storage.database.BaseModel;
-import org.joda.time.DateTime;
-import org.joda.time.DateTimeConstants;
-import org.joda.time.LocalDateTime;
-import org.joda.time.LocalTime;
-
-import java.util.concurrent.TimeUnit;
-
-
-public class TimedTask extends BaseModel {
-
-    public static final String TABLE = "TimedTask";
-
-    private static final int FLAG_DISPOSABLE = 0;
-    public final static int FLAG_SUNDAY = 0x1;
-    public final static int FLAG_MONDAY = 0x2;
-    public final static int FLAG_TUESDAY = 0x4;
-    public final static int FLAG_WEDNESDAY = 0x8;
-    public final static int FLAG_THURSDAY = 0x10;
-    public final static int FLAG_FRIDAY = 0x20;
-    public final static int FLAG_SATURDAY = 0x40;
-    private static final int FLAG_EVERYDAY = 0x7F;
-    private static final int REQUEST_CODE = 2000;
-
-    long mTimeFlag;
-
-    boolean mScheduled;
-
-    long mDelay = 0;
-
-    long mInterval = 0;
-
-    int mLoopTimes = 1;
-
-    long mMillis;
+class TimedTask : BaseModel {
+    var timeFlag: Long = 0
+    var isScheduled = false
+    var delay: Long = 0
+    var interval: Long = 0
+    var loopTimes = 1
+    var millis: Long = 0
 
     /**
      * 目标执行时间
      */
-    long targetExecuteMillis;
+    var targetExecuteMillis: Long = 0
+
     /**
      * 已执行过
      */
-    boolean executed;
+    var executed = false
+    var scriptPath: String? = null
 
-    String mScriptPath;
-
-    public TimedTask() {
-
-    }
-
-    public TimedTask(long millis, long timeFlag, String scriptPath, ExecutionConfig config) {
-        mMillis = millis;
-        mTimeFlag = timeFlag;
-        mScriptPath = scriptPath;
-        mDelay = config.getDelay();
-        mLoopTimes = config.getLoopTimes();
-        mInterval = config.getInterval();
-        executed = false;
-        targetExecuteMillis = 0;
+    constructor() {}
+    constructor(millis: Long, timeFlag: Long, scriptPath: String?, config: ExecutionConfig) {
+        this.millis = millis
+        this.timeFlag = timeFlag
+        this.scriptPath = scriptPath
+        delay = config.delay
+        loopTimes = config.loopTimes
+        interval = config.interval
+        executed = false
+        targetExecuteMillis = 0
         // 重新计算目标执行时间点
-        getNextTime();
+        nextTime
     }
 
-    public boolean isDisposable() {
-        return mTimeFlag == FLAG_DISPOSABLE;
-    }
+    val isDisposable: Boolean
+        get() = timeFlag == FLAG_DISPOSABLE.toLong()
 
-    public boolean isScheduled() {
-        return mScheduled;
-    }
-
-    public void setScheduled(boolean scheduled) {
-        mScheduled = scheduled;
-    }
-
-    public void setExecuted(boolean executed) {
-        this.executed = executed;
-    }
-
-    public long getNextTime() {
-        if (isDisposable()) {
-            targetExecuteMillis = mMillis;
-            return mMillis;
-        }
-        if (targetExecuteMillis < 10 || targetExecuteMillis < System.currentTimeMillis() && executed) {
-            // 更新目标执行时间，并标记为未执行
-            executed = false;
-            targetExecuteMillis = isDaily() ? getNextTimeOfDailyTask() : getNextTimeOfWeeklyTask();
-        }
-        return targetExecuteMillis;
-    }
-
-    private long getNextTimeOfDailyTask() {
-        LocalTime time = LocalTime.fromMillisOfDay(mMillis);
-        long nextTimeMillis = time.toDateTimeToday().getMillis();
-        if (System.currentTimeMillis() > nextTimeMillis) {
-            return nextTimeMillis + TimeUnit.DAYS.toMillis(1);
-        } else {
-            return nextTimeMillis;
-        }
-    }
-
-    private long getNextTimeOfWeeklyTask() {
-        int dayOfWeek = DateTime.now().getDayOfWeek();
-        long nextTimeMillis = LocalTime.fromMillisOfDay(mMillis).toDateTimeToday().getMillis();
-        for (int i = 0; i < 8; i++) {
-            if ((getDayOfWeekTimeFlag(dayOfWeek) & mTimeFlag) != 0) {
-                if (System.currentTimeMillis() <= nextTimeMillis) {
-                    return nextTimeMillis;
-                }
+    // 更新目标执行时间，并标记为未执行
+    val nextTime: Long
+        get() {
+            if (isDisposable) {
+                targetExecuteMillis = millis
+                return millis
             }
-            dayOfWeek++;
-            nextTimeMillis += TimeUnit.DAYS.toMillis(1);
+            if (targetExecuteMillis < 10 || targetExecuteMillis < System.currentTimeMillis() && executed) {
+                // 更新目标执行时间，并标记为未执行
+                executed = false
+                targetExecuteMillis = if (isDaily) nextTimeOfDailyTask else nextTimeOfWeeklyTask
+            }
+            return targetExecuteMillis
         }
-        throw new IllegalStateException("Should not happen! timeFlag = " + mTimeFlag + ", dayOfWeek = " + DateTime.now().getDayOfWeek());
-    }
-
-    public static long getDayOfWeekTimeFlag(int dayOfWeek) {
-        dayOfWeek = (dayOfWeek - 1) % 7 + 1;
-        switch (dayOfWeek) {
-            case DateTimeConstants.SUNDAY:
-                return FLAG_SUNDAY;
-
-            case DateTimeConstants.MONDAY:
-                return FLAG_MONDAY;
-
-            case DateTimeConstants.SATURDAY:
-                return FLAG_SATURDAY;
-
-            case DateTimeConstants.WEDNESDAY:
-                return FLAG_WEDNESDAY;
-
-            case DateTimeConstants.TUESDAY:
-                return FLAG_TUESDAY;
-
-            case DateTimeConstants.THURSDAY:
-                return FLAG_THURSDAY;
-            case DateTimeConstants.FRIDAY:
-                return FLAG_FRIDAY;
-
+    private val nextTimeOfDailyTask: Long
+        get() {
+            val time = LocalTime.fromMillisOfDay(millis)
+            val nextTimeMillis = time.toDateTimeToday().millis
+            return if (System.currentTimeMillis() > nextTimeMillis) {
+                nextTimeMillis + TimeUnit.DAYS.toMillis(1)
+            } else {
+                nextTimeMillis
+            }
         }
-        throw new IllegalArgumentException("dayOfWeek = " + dayOfWeek);
+    private val nextTimeOfWeeklyTask: Long
+        get() {
+            var dayOfWeek = DateTime.now().dayOfWeek
+            var nextTimeMillis = LocalTime.fromMillisOfDay(millis).toDateTimeToday().millis
+            for (i in 0..7) {
+                if (getDayOfWeekTimeFlag(dayOfWeek) and timeFlag != 0L) {
+                    if (System.currentTimeMillis() <= nextTimeMillis) {
+                        return nextTimeMillis
+                    }
+                }
+                dayOfWeek++
+                nextTimeMillis += TimeUnit.DAYS.toMillis(1)
+            }
+            throw IllegalStateException("Should not happen! timeFlag = " + timeFlag + ", dayOfWeek = " + DateTime.now().dayOfWeek)
+        }
+    val isDaily: Boolean
+        get() = timeFlag == FLAG_EVERYDAY.toLong()
+
+    fun createIntent(): Intent {
+        return Intent(TaskReceiver.ACTION_TASK)
+            .setComponent(
+                ComponentName(
+                    BuildConfig.APPLICATION_ID,
+                    TaskReceiver::class.java.name
+                )
+            )
+            .putExtra(TaskReceiver.EXTRA_TASK_ID, id)
+            .putExtra(ScriptIntents.EXTRA_KEY_PATH, scriptPath)
+            .putExtra(ScriptIntents.EXTRA_KEY_DELAY, delay)
+            .putExtra(ScriptIntents.EXTRA_KEY_LOOP_TIMES, loopTimes)
+            .putExtra(ScriptIntents.EXTRA_KEY_LOOP_INTERVAL, interval)
+            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
     }
 
-    public long getMillis() {
-        return mMillis;
-    }
-
-    public String getScriptPath() {
-        return mScriptPath;
-    }
-
-    public long getTimeFlag() {
-        return mTimeFlag;
-    }
-
-    public void setTimeFlag(long time) {
-        mTimeFlag = time;
-    }
-
-    public long getDelay() {
-        return mDelay;
-    }
-
-    public void setDelay(long delay) {
-        mDelay = delay;
-    }
-
-    public long getInterval() {
-        return mInterval;
-    }
-
-    public void setInterval(long interval) {
-        mInterval = interval;
-    }
-
-    public int getLoopTimes() {
-        return mLoopTimes;
-    }
-
-    public void setLoopTimes(int loopTimes) {
-        mLoopTimes = loopTimes;
-    }
-
-    public void setMillis(long millis) {
-        mMillis = millis;
-    }
-
-    public void setScriptPath(String scriptPath) {
-        mScriptPath = scriptPath;
-    }
-
-    public boolean isDaily() {
-        return mTimeFlag == FLAG_EVERYDAY;
-    }
-
-    public Intent createIntent() {
-        return new Intent(TaskReceiver.ACTION_TASK)
-                .setComponent(new ComponentName(BuildConfig.APPLICATION_ID, "org.autojs.autojs.timing.TaskReceiver"))
-                .putExtra(TaskReceiver.EXTRA_TASK_ID, getId())
-                .putExtra(ScriptIntents.EXTRA_KEY_PATH, mScriptPath)
-                .putExtra(ScriptIntents.EXTRA_KEY_DELAY, mDelay)
-                .putExtra(ScriptIntents.EXTRA_KEY_LOOP_TIMES, mLoopTimes)
-                .putExtra(ScriptIntents.EXTRA_KEY_LOOP_INTERVAL, mInterval)
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-    }
-
-
-    public PendingIntent createPendingIntent(Context context) {
-        int flags = PendingIntent.FLAG_UPDATE_CURRENT;
+    fun createPendingIntent(context: Context): PendingIntent {
+        var flags = PendingIntent.FLAG_UPDATE_CURRENT
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            flags |= PendingIntent.FLAG_IMMUTABLE;
+            flags = flags or PendingIntent.FLAG_IMMUTABLE
         }
-        return PendingIntent.getBroadcast(context, (int) ((REQUEST_CODE + 1 + getId()) % 65535),
-                createIntent(), flags);
+        return PendingIntent.getBroadcast(
+            context, ((REQUEST_CODE + 1 + id) % 65535).toInt(),
+            createIntent(), flags
+        )
     }
 
-    @Override
-    public String toString() {
+    override fun toString(): String {
         return "TimedTask{" +
-                "mId=" + getId() +
-                ", mTimeFlag=" + mTimeFlag +
-                ", mScheduled=" + mScheduled +
-                ", mDelay=" + mDelay +
-                ", mInterval=" + mInterval +
-                ", mLoopTimes=" + mLoopTimes +
-                ", mMillis=" + mMillis +
+                "mId=" + id +
+                ", mTimeFlag=" + timeFlag +
+                ", mScheduled=" + isScheduled +
+                ", mDelay=" + delay +
+                ", mInterval=" + interval +
+                ", mLoopTimes=" + loopTimes +
+                ", mMillis=" + millis +
                 ", targetExecuteMillis=" + targetExecuteMillis +
                 ", executed=" + executed +
-                ", mScriptPath='" + mScriptPath + '\'' +
-                '}';
+                ", mScriptPath='" + scriptPath + '\'' +
+                '}'
     }
 
-
-    public static TimedTask dailyTask(LocalTime time, String scriptPath, ExecutionConfig config) {
-        return new TimedTask(time.getMillisOfDay(), FLAG_EVERYDAY, scriptPath, config);
+    fun hasDayOfWeek(dayOfWeek: Int): Boolean {
+        return timeFlag and getDayOfWeekTimeFlag(dayOfWeek) != 0L
     }
 
-    public static TimedTask disposableTask(LocalDateTime dateTime, String scriptPath, ExecutionConfig config) {
-        return new TimedTask(dateTime.toDateTime().getMillis(), FLAG_DISPOSABLE, scriptPath, config);
-    }
+    companion object {
+        const val TABLE = "TimedTask"
+        private const val FLAG_DISPOSABLE = 0
+        const val FLAG_SUNDAY = 0x1
+        const val FLAG_MONDAY = 0x2
+        const val FLAG_TUESDAY = 0x4
+        const val FLAG_WEDNESDAY = 0x8
+        const val FLAG_THURSDAY = 0x10
+        const val FLAG_FRIDAY = 0x20
+        const val FLAG_SATURDAY = 0x40
+        private const val FLAG_EVERYDAY = 0x7F
+        private const val REQUEST_CODE = 2000
+        @JvmStatic
+        fun getDayOfWeekTimeFlag(dayOfWeek: Int): Long {
+            var dayOfWeek = dayOfWeek
+            dayOfWeek = (dayOfWeek - 1) % 7 + 1
+            when (dayOfWeek) {
+                DateTimeConstants.SUNDAY -> return FLAG_SUNDAY.toLong()
+                DateTimeConstants.MONDAY -> return FLAG_MONDAY.toLong()
+                DateTimeConstants.SATURDAY -> return FLAG_SATURDAY.toLong()
+                DateTimeConstants.WEDNESDAY -> return FLAG_WEDNESDAY.toLong()
+                DateTimeConstants.TUESDAY -> return FLAG_TUESDAY.toLong()
+                DateTimeConstants.THURSDAY -> return FLAG_THURSDAY.toLong()
+                DateTimeConstants.FRIDAY -> return FLAG_FRIDAY.toLong()
+            }
+            throw IllegalArgumentException("dayOfWeek = $dayOfWeek")
+        }
 
-    public static TimedTask weeklyTask(LocalTime time, long timeFlag, String scriptPath, ExecutionConfig config) {
-        return new TimedTask(time.getMillisOfDay(), timeFlag, scriptPath, config);
-    }
+        @JvmStatic
+        fun dailyTask(time: LocalTime, scriptPath: String, config: ExecutionConfig): TimedTask {
+            return TimedTask(
+                time.millisOfDay.toLong(), FLAG_EVERYDAY.toLong(), scriptPath, config
+            )
+        }
 
-    public boolean hasDayOfWeek(int dayOfWeek) {
-        return (mTimeFlag & getDayOfWeekTimeFlag(dayOfWeek)) != 0;
+        @JvmStatic
+        fun disposableTask(
+            dateTime: LocalDateTime,
+            scriptPath: String,
+            config: ExecutionConfig
+        ): TimedTask {
+            return TimedTask(
+                dateTime.toDateTime().millis,
+                FLAG_DISPOSABLE.toLong(),
+                scriptPath,
+                config
+            )
+        }
+
+        @JvmStatic
+        fun weeklyTask(
+            time: LocalTime,
+            timeFlag: Long,
+            scriptPath: String,
+            config: ExecutionConfig
+        ): TimedTask {
+            return TimedTask(time.millisOfDay.toLong(), timeFlag, scriptPath, config)
+        }
     }
 }

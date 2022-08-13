@@ -1,141 +1,99 @@
-package org.autojs.autoxjs.timing.work;
+package org.autojs.autoxjs.timing.work
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.util.Log;
-
-import com.evernote.android.job.Job;
-import com.evernote.android.job.JobManager;
-import com.evernote.android.job.JobRequest;
-import com.stardust.app.GlobalAppContext;
-
-import org.autojs.autoxjs.timing.TimedTask;
-import org.autojs.autoxjs.timing.TimedTaskManager;
-import org.autojs.autoxjs.timing.TimedTaskScheduler;
-
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint
+import android.app.Application
+import android.util.Log
+import com.evernote.android.job.Job
+import com.evernote.android.job.JobManager
+import com.evernote.android.job.JobRequest
+import org.autojs.autoxjs.App
+import org.autojs.autoxjs.timing.TimedTask
+import org.autojs.autoxjs.timing.TimedTaskManager
+import org.autojs.autoxjs.timing.TimedTaskScheduler
+import java.util.concurrent.TimeUnit
 
 /**
  * Created by TonyJiangWJ(https://github.com/TonyJiangWJ).
  * From [TonyJiangWJ/Auto.js](https://github.com/TonyJiangWJ/Auto.js)
  */
+object AndroidJobProvider : TimedTaskScheduler() {
 
-public class AndroidJobProvider extends TimedTaskScheduler implements WorkProvider {
+    private const val LOG_TAG = "AndroidJobProvider"
+    private var context: Application = App.app
 
-    private static final String LOG_TAG = "AndroidJobProvider";
+    init {
+        JobManager.create(context).addJobCreator { tag: String ->
+            if (tag == JOB_TAG_CHECK_TASKS) {
+                return@addJobCreator CheckTasksJob(context)
+            } else {
+                return@addJobCreator TimedTaskJob(context)
+            }
+        }
+    }
 
-    private volatile static AndroidJobProvider instance = null;
+    override fun enqueueWork(timedTask: TimedTask, timeWindow: Long) {
+        JobRequest.Builder(timedTask.id.toString())
+            .setExact(timeWindow)
+            .build()
+            .schedule()
+    }
 
-    public static WorkProvider getInstance(Context context) {
-        if (instance == null) {
-            synchronized (AndroidJobProvider.class) {
-                if (instance == null) {
-                    instance = new AndroidJobProvider(context);
+    override fun enqueuePeriodicWork(delay: Int) {
+        JobRequest.Builder(JOB_TAG_CHECK_TASKS)
+            .setPeriodic(TimeUnit.MINUTES.toMillis(20))
+            .build()
+            .scheduleAsync()
+    }
+
+    override fun cancel(context: Application, timedTask: TimedTask) {
+        val cancelCount = JobManager.instance().cancelAllForTag(timedTask.id.toString())
+        Log.d(LOG_TAG, "cancel task: task = $timedTask, cancel = $cancelCount")
+    }
+
+    @SuppressLint("CheckResult")
+    override fun cancelAllWorks() {
+        JobManager.instance().cancelAll()
+        TimedTaskManager
+            .allTasks
+            .filter(TimedTask::isScheduled)
+            .forEach { timedTask: TimedTask ->
+                timedTask.isScheduled = false
+                timedTask.executed = false
+                TimedTaskManager.updateTaskWithoutReScheduling(timedTask)
+            }
+    }
+
+    override val isCheckWorkFine: Boolean
+        get() {
+            val jobSet = JobManager.instance().getAllJobsForTag(JOB_TAG_CHECK_TASKS)
+            if (jobSet.isEmpty()) {
+                return false
+            }
+            var workFine = false
+            for (job in jobSet) {
+                if (!job.isFinished) {
+                    workFine = true
+                    break
                 }
             }
-        }
-        return instance;
-    }
-
-    private AndroidJobProvider(Context context) {
-        JobManager.create(context).addJobCreator(tag -> {
-            if (tag.equals(JOB_TAG_CHECK_TASKS)) {
-                return new CheckTasksJob(context);
-            } else {
-                return new TimedTaskJob(context);
-            }
-        });
-    }
-
-    @Override
-    public void enqueueWork(TimedTask timedTask, long timeWindow) {
-        new JobRequest.Builder(String.valueOf(timedTask.getId()))
-                .setExact(timeWindow)
-                .build()
-                .schedule();
-    }
-
-    @Override
-    public void enqueuePeriodicWork(int delay) {
-        new JobRequest.Builder(JOB_TAG_CHECK_TASKS)
-                .setPeriodic(TimeUnit.MINUTES.toMillis(20))
-                .build()
-                .scheduleAsync();
-    }
-
-    @Override
-    public void cancel(TimedTask timedTask) {
-        int cancelCount = JobManager.instance().cancelAllForTag(String.valueOf(timedTask.getId()));
-        Log.d(LOG_TAG, "cancel task: task = " + timedTask + ", cancel = " + cancelCount);
-    }
-
-    @Override
-    @SuppressLint("CheckResult")
-    public void cancelAllWorks() {
-        JobManager.instance().cancelAll();
-        TimedTaskManager.getInstance()
-                .getAllTasks()
-                .filter(TimedTask::isScheduled)
-                .forEach(timedTask -> {
-                    timedTask.setScheduled(false);
-                    timedTask.setExecuted(false);
-                    TimedTaskManager.getInstance().updateTaskWithoutReScheduling(timedTask);
-                });
-    }
-
-    @Override
-    public boolean isCheckWorkFine() {
-        Set<Job> jobSet = JobManager.instance().getAllJobsForTag(JOB_TAG_CHECK_TASKS);
-        if (jobSet.isEmpty()) {
-            return false;
-        }
-        boolean workFine = false;
-        for (Job job : jobSet) {
-            if (!job.isFinished()) {
-                workFine = true;
-                break;
-            }
-        }
-        return workFine;
-    }
-
-    private static class TimedTaskJob extends Job {
-
-        private final Context mContext;
-
-        TimedTaskJob(Context context) {
-            mContext = context;
+            return workFine
         }
 
-        @NonNull
-        @Override
-        protected Result onRunJob(@NonNull Params params) {
-            long id = Long.parseLong(params.getTag());
-            TimedTask task = TimedTaskManager.getInstance().getTimedTask(id);
-            Log.d(LOG_TAG, "onRunJob: id = " + id + ", task = " + task);
-            if (task == null) {
-                return Result.FAILURE;
-            }
-            runTask(mContext, task);
-            return Result.SUCCESS;
+    private class TimedTaskJob(private val context: Application) : Job() {
+        override fun onRunJob(params: Params): Result {
+            val id = params.tag.toLong()
+            val task = TimedTaskManager.getTimedTask(id)
+            Log.d(LOG_TAG, "onRunJob: id = $id, task = $task")
+            runTask(context, task)
+            return Result.SUCCESS
         }
     }
 
-    private static class CheckTasksJob extends Job {
-        private final Context mContext;
-
-        CheckTasksJob(Context context) {
-            mContext = context;
-        }
-
-        @NonNull
-        @Override
-        protected Result onRunJob(@NonNull Params params) {
-            TimedTaskScheduler.getWorkProvider(GlobalAppContext.get()).checkTasks(mContext, false);
-            return Result.SUCCESS;
+    private class CheckTasksJob(private val context: Application) : Job() {
+        override fun onRunJob(params: Params): Result {
+            getWorkProvider(context).checkTasks(context, false)
+            return Result.SUCCESS
         }
     }
+
 }

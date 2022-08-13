@@ -259,7 +259,7 @@ open class MainActivity : BaseActivity(), DelegateHost, HostActivity,
                             dialog.dismiss()
                         }
                         .show()
-                    TimedTaskScheduler.ensureCheckTaskWorks(this)
+                    TimedTaskScheduler.ensureCheckTaskWorks(application)
                 }
                 R.id.web_bookmarks -> Builder(this)
                     .title("请选择书签：")
@@ -455,7 +455,7 @@ open class MainActivity : BaseActivity(), DelegateHost, HostActivity,
     @SuppressLint("CheckResult")
     override fun onResume() {
         super.onResume()
-        TimedTaskScheduler.ensureCheckTaskWorks(applicationContext)
+        TimedTaskScheduler.ensureCheckTaskWorks(application)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

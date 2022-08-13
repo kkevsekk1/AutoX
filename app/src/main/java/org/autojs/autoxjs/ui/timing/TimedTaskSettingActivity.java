@@ -64,6 +64,7 @@ import java.util.Map;
 /**
  * Created by Stardust on 2017/11/28.
  */
+@SuppressLint("NonConstantResourceId")
 @EActivity(R.layout.activity_timed_task_setting)
 public class TimedTaskSettingActivity extends BaseActivity {
 
@@ -166,17 +167,13 @@ public class TimedTaskSettingActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         long taskId = getIntent().getLongExtra(EXTRA_TASK_ID, -1);
         if (taskId != -1) {
-            mTimedTask = TimedTaskManager.getInstance().getTimedTask(taskId);
-            if (mTimedTask != null) {
-                mScriptFile = new ScriptFile(mTimedTask.getScriptPath());
-            }
+            mTimedTask = TimedTaskManager.INSTANCE.getTimedTask(taskId);
+            mScriptFile = new ScriptFile(mTimedTask.getScriptPath());
         } else {
             long intentTaskId = getIntent().getLongExtra(EXTRA_INTENT_TASK_ID, -1);
             if (intentTaskId != -1) {
-                mIntentTask = TimedTaskManager.getInstance().getIntentTask(intentTaskId);
-                if (mIntentTask != null) {
-                    mScriptFile = new ScriptFile(mIntentTask.getScriptPath());
-                }
+                mIntentTask = TimedTaskManager.INSTANCE.getIntentTask(intentTaskId);
+                mScriptFile = new ScriptFile(mIntentTask.getScriptPath());
             } else {
                 String path = getIntent().getStringExtra(ScriptIntents.EXTRA_KEY_PATH);
                 if (TextUtils.isEmpty(path)) {
@@ -191,9 +188,7 @@ public class TimedTaskSettingActivity extends BaseActivity {
     @AfterViews
     void setupViews() {
         setToolbarAsBack(getString(R.string.text_timed_task));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            mToolbar.setSubtitle(mScriptFile.getName());
-        }
+        mToolbar.setSubtitle(mScriptFile.getName());
         mDailyTaskTimePicker.setIs24HourView(true);
         mWeeklyTaskTimePicker.setIs24HourView(true);
         findDayOfWeekCheckBoxes(mWeeklyTaskContainer);
@@ -295,10 +290,10 @@ public class TimedTaskSettingActivity extends BaseActivity {
     @Click(R.id.disposable_task_date_container)
     void showDisposableTaskDatePicker() {
         LocalDate date = DATE_FORMATTER.parseLocalDate(mDisposableTaskDate.getText().toString());
-        new DatePickerDialog(this, (view, year, month, dayOfMonth) ->{
-            mDisposableTaskDate.setText(DATE_FORMATTER.print(new LocalDate(year, month+1, dayOfMonth)));
+        new DatePickerDialog(this, (view, year, month, dayOfMonth) -> {
+            mDisposableTaskDate.setText(DATE_FORMATTER.print(new LocalDate(year, month + 1, dayOfMonth)));
         }
-        , date.getYear(), date.getMonthOfYear()-1 , date.getDayOfMonth()).show();
+                , date.getYear(), date.getMonthOfYear() - 1, date.getDayOfMonth()).show();
     }
 
     TimedTask createTimedTask() {
@@ -387,14 +382,14 @@ public class TimedTaskSettingActivity extends BaseActivity {
         if (task == null)
             return;
         if (mTimedTask == null) {
-            TimedTaskManager.getInstance().addTask(task);
+            TimedTaskManager.INSTANCE.addTask(task);
             if (mIntentTask != null) {
-                TimedTaskManager.getInstance().removeTask(mIntentTask);
+                TimedTaskManager.INSTANCE.removeTask(mIntentTask);
             }
             Toast.makeText(this, R.string.text_already_create, Toast.LENGTH_SHORT).show();
         } else {
             task.setId(mTimedTask.getId());
-            TimedTaskManager.getInstance().updateTask(task);
+            TimedTaskManager.INSTANCE.updateTask(task);
         }
         finish();
     }
@@ -422,12 +417,12 @@ public class TimedTaskSettingActivity extends BaseActivity {
         task.setLocal(action.equals(DynamicBroadcastReceivers.ACTION_STARTUP));
         if (mIntentTask != null) {
             task.setId(mIntentTask.getId());
-            TimedTaskManager.getInstance().updateTask(task);
+            TimedTaskManager.INSTANCE.updateTask(task);
             Toast.makeText(this, R.string.text_already_create, Toast.LENGTH_SHORT).show();
         } else {
-            TimedTaskManager.getInstance().addTask(task);
+            TimedTaskManager.INSTANCE.addTask(task);
             if (mTimedTask != null) {
-                TimedTaskManager.getInstance().removeTask(mTimedTask);
+                TimedTaskManager.INSTANCE.removeTask(mTimedTask);
             }
         }
 

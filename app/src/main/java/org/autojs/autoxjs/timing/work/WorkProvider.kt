@@ -1,46 +1,37 @@
-package org.autojs.autoxjs.timing.work;
+package org.autojs.autoxjs.timing.work
 
-import android.content.Context;
-
-import org.autojs.autoxjs.timing.TimedTask;
+import android.app.Application
+import org.autojs.autoxjs.timing.TimedTask
 
 /**
  * Created by TonyJiangWJ(https://github.com/TonyJiangWJ).
  * From [TonyJiangWJ/Auto.js](https://github.com/TonyJiangWJ/Auto.js)
  */
-
-public interface WorkProvider {
-
+interface WorkProvider {
     /**
      * 创建定时执行的任务
      *
      * @param timedTask 任务信息
      * @param timeWindow 延迟时间
      */
-    void enqueueWork(TimedTask timedTask, long timeWindow);
-
+    fun enqueueWork(timedTask: TimedTask, timeWindow: Long)
 
     /**
      * 创建定期执行的任务
      *
      * @param delay 延迟启动时间
      */
-    void enqueuePeriodicWork(int delay);
+    fun enqueuePeriodicWork(delay: Int)
 
     /**
      * 取消定时任务
      *
      * @param timedTask
      */
-    void cancel(TimedTask timedTask);
-
-    void cancelAllWorks();
-
-    boolean isCheckWorkFine();
-
-    void checkTasks(Context context, boolean force);
-
-    void scheduleTaskIfNeeded(Context context, TimedTask timedTask, boolean force);
-
-    void scheduleTask(Context context, TimedTask timedTask, long millis, boolean force);
+    fun cancel(context: Application, timedTask: TimedTask)
+    fun cancelAllWorks()
+    val isCheckWorkFine: Boolean
+    fun checkTasks(context: Application, force: Boolean)
+    fun scheduleTaskIfNeeded(context: Application, timedTask: TimedTask, force: Boolean)
+    fun scheduleTask(context: Application, timedTask: TimedTask, millis: Long, force: Boolean)
 }

@@ -680,7 +680,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".timing.work.AlarmManagerProvider"
+            android:name=".timing.work.AlarmManagerProvider$AlarmManagerBroadcastReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.stardust.autojs.action.check_task" />

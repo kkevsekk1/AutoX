@@ -1,78 +1,29 @@
-package org.autojs.autoxjs.timing;
+package org.autojs.autoxjs.timing
 
-import android.content.IntentFilter;
+import org.autojs.autoxjs.storage.database.BaseModel
+import android.content.IntentFilter
+import android.content.IntentFilter.MalformedMimeTypeException
 
-import org.autojs.autoxjs.storage.database.BaseModel;
-
-public class IntentTask extends BaseModel {
-
-    public static final String TABLE = "IntentTask";
-
-    private String mScriptPath;
-
-    private String mAction;
-
-    private String mCategory;
-
-    private String mDataType;
-
-    private boolean mLocal;
-
-    public IntentFilter getIntentFilter() {
-        IntentFilter filter = new IntentFilter();
-        if (mAction != null) {
-            filter.addAction(mAction);
-        }
-        if (mCategory != null) {
-            filter.addCategory(mCategory);
-        }
-        if (mDataType != null) {
+class IntentTask : BaseModel() {
+    var scriptPath: String? = null
+    var action: String? = null
+    var category: String? = null
+    var dataType: String? = null
+    var isLocal = false
+    val intentFilter: IntentFilter
+        get() {
+            val filter = IntentFilter()
+            action?.let { filter.addAction(it) }
+            category?.let { filter.addCategory(it) }
             try {
-                filter.addDataType(mDataType);
-            } catch (IntentFilter.MalformedMimeTypeException e) {
-                e.printStackTrace();
+                dataType?.let { filter.addDataType(it) }
+            } catch (e: MalformedMimeTypeException) {
+                e.printStackTrace()
             }
+            return filter
         }
-        return filter;
-    }
 
-    public String getScriptPath() {
-        return mScriptPath;
-    }
-
-    public void setScriptPath(String scriptPath) {
-        mScriptPath = scriptPath;
-    }
-
-    public String getAction() {
-        return mAction;
-    }
-
-    public void setAction(String action) {
-        mAction = action;
-    }
-
-    public String getCategory() {
-        return mCategory;
-    }
-
-    public void setCategory(String category) {
-        mCategory = category;
-    }
-
-    public String getDataType() {
-        return mDataType;
-    }
-
-    public void setDataType(String dataType) {
-        mDataType = dataType;
-    }
-
-    public boolean isLocal() {
-        return mLocal;
-    }
-
-    public void setLocal(boolean local) {
-        mLocal = local;
+    companion object {
+        const val TABLE = "IntentTask"
     }
 }
