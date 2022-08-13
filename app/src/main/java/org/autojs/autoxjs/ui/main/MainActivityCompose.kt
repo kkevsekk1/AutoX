@@ -378,7 +378,7 @@ private fun TopBar(
                     }
                 }
                 1 -> {
-                    IconButton(onClick = { AutoJs.getInstance().scriptEngineService.stopAll()}) {
+                    IconButton(onClick = { AutoJs.getInstance().scriptEngineService.stopAll() }) {
                         Icon(
                             imageVector = Icons.Default.Clear,
                             contentDescription = stringResource(id = R.string.desc_more)
@@ -400,10 +400,10 @@ fun TopAppBarMenu(
 ) {
     DropdownMenu(expanded = expanded, onDismissRequest = onDismissRequest, offset = offset) {
         val context = LocalContext.current
-        newDirectory(context, scriptListFragment)
-        NewFile(context, scriptListFragment)
-        ImportFile(context, scriptListFragment)
-        NewProject(context, scriptListFragment)
+        NewDirectory(context, scriptListFragment, onDismissRequest)
+        NewFile(context, scriptListFragment, onDismissRequest)
+        ImportFile(context, scriptListFragment, onDismissRequest)
+        NewProject(context, scriptListFragment, onDismissRequest)
 //        DropdownMenuItem(onClick = { /*TODO*/ }) {
 //            MyIcon(
 //                painter = painterResource(id = R.drawable.ic_timed_task),
@@ -417,9 +417,10 @@ fun TopAppBarMenu(
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
-private fun newDirectory(
+private fun NewDirectory(
     context: Context,
-    scriptListFragment: ScriptListFragment
+    scriptListFragment: ScriptListFragment,
+    onDismissRequest: () -> Unit
 ) {
     val permission = rememberExternalStoragePermissionsState {
         if (it) getScriptOperations(
@@ -428,7 +429,10 @@ private fun newDirectory(
         ).newDirectory()
         else showExternalStoragePermissionToast(context)
     }
-    DropdownMenuItem(onClick = { permission.launchMultiplePermissionRequest() }) {
+    DropdownMenuItem(onClick = {
+        onDismissRequest()
+        permission.launchMultiplePermissionRequest()
+    }) {
         MyIcon(
             painter = painterResource(id = R.drawable.ic_floating_action_menu_dir),
             contentDescription = null
@@ -442,7 +446,8 @@ private fun newDirectory(
 @Composable
 private fun NewFile(
     context: Context,
-    scriptListFragment: ScriptListFragment
+    scriptListFragment: ScriptListFragment,
+    onDismissRequest: () -> Unit
 ) {
     val permission = rememberExternalStoragePermissionsState {
         if (it) getScriptOperations(
@@ -451,7 +456,10 @@ private fun NewFile(
         ).newFile()
         else showExternalStoragePermissionToast(context)
     }
-    DropdownMenuItem(onClick = { permission.launchMultiplePermissionRequest() }) {
+    DropdownMenuItem(onClick = {
+        onDismissRequest()
+        permission.launchMultiplePermissionRequest()
+    }) {
         MyIcon(
             painter = painterResource(id = R.drawable.ic_floating_action_menu_file),
             contentDescription = null
@@ -465,7 +473,8 @@ private fun NewFile(
 @Composable
 private fun ImportFile(
     context: Context,
-    scriptListFragment: ScriptListFragment
+    scriptListFragment: ScriptListFragment,
+    onDismissRequest: () -> Unit
 ) {
     val permission = rememberExternalStoragePermissionsState {
         if (it) getScriptOperations(
@@ -474,7 +483,10 @@ private fun ImportFile(
         ).importFile()
         else showExternalStoragePermissionToast(context)
     }
-    DropdownMenuItem(onClick = { permission.launchMultiplePermissionRequest() }) {
+    DropdownMenuItem(onClick = {
+        onDismissRequest()
+        permission.launchMultiplePermissionRequest()
+    }) {
         MyIcon(
             painter = painterResource(id = R.drawable.ic_floating_action_menu_open),
             contentDescription = null
@@ -487,9 +499,11 @@ private fun ImportFile(
 @Composable
 private fun NewProject(
     context: Context,
-    scriptListFragment: ScriptListFragment
+    scriptListFragment: ScriptListFragment,
+    onDismissRequest: () -> Unit
 ) {
     DropdownMenuItem(onClick = {
+        onDismissRequest()
         ProjectConfigActivity_.intent(context)
             .extra(
                 ProjectConfigActivity.EXTRA_PARENT_DIRECTORY,
