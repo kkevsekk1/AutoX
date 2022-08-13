@@ -46,11 +46,8 @@ import com.stardust.view.accessibility.AccessibilityService
 import io.github.g00fy2.quickie.QRResult
 import io.github.g00fy2.quickie.ScanQRCode
 import io.noties.markwon.Markwon
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import org.autojs.autojs.Pref
-import org.autojs.autoxjs.R
 import org.autojs.autojs.autojs.AutoJs
 import org.autojs.autojs.devplugin.DevPlugin
 import org.autojs.autojs.external.foreground.ForegroundService
@@ -63,6 +60,7 @@ import org.autojs.autojs.ui.compose.widget.MyIcon
 import org.autojs.autojs.ui.compose.widget.MySwitch
 import org.autojs.autojs.ui.floating.FloatyWindowManger
 import org.autojs.autojs.ui.settings.SettingsActivity_
+import org.autojs.autoxjs.R
 import org.joda.time.DateTimeZone
 import org.joda.time.Instant
 
@@ -116,7 +114,7 @@ fun DrawerPage() {
             SwitchTimedTaskScheduler()
             ProjectAddress(context)
             DownloadLink(context)
-            FEEDBACK(context)
+            Feedback(context)
             CheckForUpdate()
             AppDetailsSettings(context)
         }
@@ -144,7 +142,7 @@ private fun AppDetailsSettings(context: Context) {
 }
 
 @Composable
-private fun FEEDBACK(context: Context) {
+private fun Feedback(context: Context) {
     TextButton(onClick = {
         IntentUtil.browse(
             context,
@@ -788,6 +786,7 @@ private fun StableModeSwitch() {
 @Composable
 private fun AccessibilityServiceSwitch() {
     val context = LocalContext.current
+    val scope = rememberCoroutineScope()
     var showDialog by remember {
         mutableStateOf(false)
     }
@@ -819,7 +818,15 @@ private fun AccessibilityServiceSwitch() {
         checked = isAccessibilityServiceEnabled,
         onCheckedChange = {
             if (!isAccessibilityServiceEnabled) {
-                showDialog = true
+                if (Pref.shouldEnableAccessibilityServiceByRoot()) {
+                    scope.launch {
+                        val enabled = withContext(Dispatchers.IO) {
+                            AccessibilityServiceTool.enableAccessibilityServiceByRootAndWaitFor(2000)
+                        }
+                        if (enabled) isAccessibilityServiceEnabled = true
+                        else showDialog = true
+                    }
+                } else showDialog = true
             } else {
                 isAccessibilityServiceEnabled = !AccessibilityService.disable()
             }
