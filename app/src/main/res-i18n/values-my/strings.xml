@@ -2,7 +2,7 @@
 
 <!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
 <resources> 
-  <string name="text_accessibility_service_description">Script လုပ်ဆောင်ချက်များကို အလိုအလျောက်လုပ်ဆောင်ရန် လိုအပ်သည် (ကလစ်နှိပ်ခြင်း၊ အကြာကြီးနှိပ်ခြင်း၊ ပွတ်ဆွဲခြင်း၊ စသည်ဖြင့်) ကိုပိတ်ထားပါက၊ အလိုအလျောက်လုပ်ဆောင်မှုများမပါဝင်သည့် script များကိုသာ လုပ်ဆောင်နိုင်သည်။</string>  
+  <string name="text_accessibility_service_description">Script လုပ်ဆောင်ချက်များကို အလိုအလျောက်လုပ်ဆောင်ရန် လိုအပ်သည် (ကလစ်၊ အကြာကြီးနှိပ်ခြင်း၊ ပွတ်ဆွဲခြင်း၊ စသည်ဖြင့်) ကိုပိတ်ထားပါက၊ အလိုအလျောက်လုပ်ဆောင်မှုများမပါဝင်သည့် script များကိုသာ လုပ်ဆောင်နိုင်သည်။</string>  
   <string name="text_new_file">ဖိုင်အသစ်တစ်ခုဖန်တီးပါ။</string>  
   <string name="text_create_fail">ဖန်တီး၍မရပါ။</string>  
   <string name="text_please_input_name">နာမည်တစ်ခုထည့်ပါ။</string>  
@@ -67,7 +67,7 @@
   <string name="text_use_volume_control_record">ထိန်းချုပ်ရန် အသံအတိုးအကျယ်ခလုတ်ကို အသုံးပြုပါ။</string>  
   <string name="summary_use_volume_control_record">ရေပေါ်ဝင်းဒိုးကိုဖွင့်ပြီးနောက်၊ အသံအတိုးအကျယ်ချသည့်ခလုတ်သည် ဇာတ်ညွှန်းရိုက်ကူးမှုကို စတင်ခြင်း သို့မဟုတ် ရပ်သွားသည့်အခါတိုင်း</string>  
   <string name="text_qq_group">၎င်းသည် QQ အုပ်စုနံပါတ်ဖြစ်သည်၊ ၎င်းကိုဖွင့်၍မရပါက၊ ကျေးဇူးပြု၍ ကိုယ်တိုင်ရှာဖွေပါ။</string>  
-  <string name="text_mobile_qq_not_installed">မိုဘိုင်း QQ ကို ထည့်သွင်းမထားပါ။</string>  
+  <string name="text_mobile_qq_not_installed">Mobile QQ ကို ထည့်သွင်းမထားပါ။</string>  
   <string name="text_edit">တည်းဖြတ်ပါ။</string>  
   <string name="text_max_length_for_code_completion">ကုဒ်ဖြည့်စွက်မှု အများဆုံးဖိုင်အရှည်</string>  
   <string name="text_file_exists">ဖိုင်ရှိပြီးသားပါ။</string>  
@@ -145,7 +145,7 @@
   <string name="text_script_save_successfully">အောင်မြင်စွာ သိမ်းဆည်းပြီး၊ ကျေးဇူးပြု၍ လမ်းညွှန်ကို ပြန်လည်စတင်ပါ။</string>  
   <string name="text_run_repeatedly">သံသရာပြေး</string>  
   <string name="text_loop_interval">သံသရာကြားကာလ (စက္ကန့်)</string>  
-  <string name="text_loop_delay">လုပ်ဆောင်မှု နှောင့်နှေးခြင်း (စက္ကန့်)</string>  
+  <string name="text_loop_delay">လုပ်ဆောင်မှုနှောင့်နှေးခြင်း (စက္ကန့်)</string>  
   <string name="text_loop_times">ဟုတ်ရဲ့လား။</string>  
   <string name="hint_loop_times">0 သည် အဆုံးမဲ့ loop ဖြစ်သည်။</string>  
   <string name="hint_loop_delay">Looping စတင်ရန် စက္ကန့်မည်မျှနှောင့်နှေးမည်နည်း။</string>  
@@ -164,7 +164,7 @@
   <string name="text_stable_mode">တည်ငြိမ်သောမုဒ်</string>  
   <string name="text_single_build_clean_mode">တစ်ခုတည်းသော ဖိုင်ထုပ်ပိုးခြင်းကို ပြန်လည်စတင်ခြင်းမုဒ်</string>  
   <string name="summary_single_build_clean_mode">ဖွင့်ပြီးနောက်၊ ဖိုင်တစ်ခုတည်းကို ထုပ်ပိုးလိုက်သောအခါတွင် ထုပ်ပိုးမှုပုံစံဖိုင်ကို သိမ်းဆည်းမည်မဟုတ်ကြောင်းနှင့် စတင်သည့်ပုံနှင့် အပလီကေးရှင်းအိုင်ကွန်ကဲ့သို့သော ဖွဲ့စည်းမှုအချက်အလက်အားလုံးကို သိမ်းဆည်းမည်မဟုတ်ပါ။</string>  
-  <string name="text_directory">ဖိုလ်ဒါ</string>  
+  <string name="text_directory">ဖိုင်တွဲ</string>  
   <string name="text_file">စာရွက်စာတမ်း</string>  
   <string name="text_tutorial">ကျူတိုရီရယ်</string>  
   <string name="text_community">ရပ်ရွာ</string>  
@@ -172,7 +172,7 @@
   <string name="not_login">ပုံမှန်လုပ်ဆောင်ချက်များအတွက် login မလိုအပ်ပါ။</string>  
   <string name="text_volume_down_control">ခလုတ်ထိန်းချုပ်မှု အသံကိုလျှော့ပါ။</string>  
   <string name="text_auto_backup">အလိုအလျောက် အရန်ကူးခြင်း script</string>  
-  <string name="text_others">အခြား</string>  
+  <string name="text_others">တခြား</string>  
   <string name="text_import">တင်သွင်းခြင်း။</string>  
   <string name="text_click_too_frequently">မင်းရဲ့လုပ်ဆောင်ချက်က အရမ်းမြန်လွန်းတယ်ヽ(#`Д´)ﾉ</string>  
   <string name="text_username">အသုံးပြုသူအမည်</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">ရွေးချယ်စရာများ</string>  
   <string name="text_using_id_selector">ID ကိုအသုံးပြု၍ ရွေးချယ်ပါ။</string>  
   <string name="text_using_text_selector">စာသားရွေးချယ်မှု (စာသား) ကိုသုံးပါ</string>  
-  <string name="text_using_desc_selector">ဖော်ပြချက် (desc) ကို အသုံးပြု၍ ရွေးချယ်ပါ</string>  
+  <string name="text_using_desc_selector">ဖော်ပြချက်ကို အသုံးပြုပါ ရွေးချယ်ပါ (desc)</string>  
   <string name="text_generate">Generate</string>  
   <string name="text_generate_fail">တည်ဆောက်မှု မအောင်မြင် o(╥﹏╥)o</string>  
   <string name="text_documentation_source">စာရွက်စာတမ်းအရင်းအမြစ်</string>  
@@ -336,7 +336,7 @@
   <string name="text_community_unread">မဖတ်ရသေး</string>  
   <string name="text_community_recent">နောက်ဆုံးပေါ်</string>  
   <string name="text_community_popular">နာမည်ကြီး</string>  
-  <string name="text_community_tags">အကြောင်းအရာ</string>  
+  <string name="text_community_tags">ခေါင်းစဉ်</string>  
   <string name="nodebb_error_invalid_login_credentials">အကောင့်ဝင်ခြင်းအထောက်အထားများ မမှန်ကန်ပါ။</string>  
   <string name="nodebb_error_change_password_error_length">စကားဝှက်သည် တိုလွန်းသည်။</string>  
   <string name="nodebb_error_email_taken">စာတိုက်ပုံးကို သိမ်းပိုက်ထားသည်။</string>  
@@ -387,7 +387,7 @@
   <string name="text_market">စျေးကွက်</string>  
   <string name="text_launch_config">Configuration ကို run</string>  
   <string name="text_main_file_name">ပင်မဇာတ်ညွှန်းအမည်</string>  
-  <string name="text_project">စီမံကိန်း</string>  
+  <string name="text_project">ပရောဂျက်</string>  
   <string name="text_project_location">ပရောဂျက်တည်နေရာ</string>  
   <string name="text_new_project">ပရောဂျက်အသစ်</string>  
   <string name="text_js_file">Js ဖိုင်</string>  
@@ -397,9 +397,9 @@
   <string name="foreground_notification_channel_name">အိမ်ရှေ့ကောင်တာ ဝန်ဆောင်မှု အကြောင်းကြားစာ</string>  
   <string name="foreground_notification_title">Autox.js သည် ဆက်လက်လည်ပတ်နေပါသည်။</string>  
   <string name="foreground_notification_text">ပင်မအင်တာဖေ့စ်ကို ဝင်ရောက်ရန် နှိပ်ပါ။</string>  
-  <string name="text_run_on_other_broadcast">အခြားပွဲများ (ထုတ်လွှင့်ခြင်း)</string>  
+  <string name="text_run_on_other_broadcast">အခြားပွဲများ (ထုတ်လွှင့်မှု)</string>  
   <string name="text_broadcast_action">အသံလွှင့် အက်ရှင်</string>  
-  <string name="text_run_on_boot">Booting လုပ်တဲ့အခါ</string>  
+  <string name="text_run_on_boot">Boot time မှာ</string>  
   <string name="text_run_on_screen_on">စခရင်ကိုဖွင့်သောအခါ</string>  
   <string name="text_run_on_screen_off">မျက်နှာပြင်ကို ပိတ်ထားသည့်အခါ</string>  
   <string name="error_empty_selection">ကျေးဇူးပြု၍ ထုတ်လွှင့်သည့် အစီအစဉ်ရွေးချယ်မှုကို ရွေးချယ်ပါ။</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">ညမုဒ်</string>  
   <string name="text_run_on_startup">Autox.js စတင်သောအခါ</string>  
   <string name="text_usage_stats_permission">အသုံးပြုခွင့်</string>  
-  <string name="description_usage_stats_permission">\"အသုံးပြုမှုစာရင်းဇယားများကိုကြည့်ရှုရန်\" ခွင့်ပြုချက်ဖြင့်၊ သင်သည် လက်ရှိအပလီကေးရှင်း (currentPackage) ကိုရယူရန် ပိုမိုတိကျစေရန် ဤစက်ပစ္စည်း၏ယခင်အပလီကေးရှင်းအသုံးပြုမှုကို သင်ရယူနိုင်ပါသည်။</string>  
+  <string name="description_usage_stats_permission">\"အသုံးပြုမှုစာရင်းအင်းများကိုကြည့်ရှုခြင်း\" ခွင့်ပြုချက်ဖြင့်၊ သင်သည် လက်ရှိအပလီကေးရှင်း (currentPackage) ကိုရယူရန် ပိုမိုတိကျစေရန်အတွက် ဤစက်ပစ္စည်း၏ယခင်အပလီကေးရှင်းအသုံးပြုမှုကို သင်ရရှိနိုင်ပါသည်။</string>  
   <string name="text_open_with">လမ်းဖွင့်</string>  
   <string name="text_root">အမြစ်</string>  
   <string name="text_no_root">Root အခမဲ့</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">ရှာဖွေမှုမှထွက်ပါ။</string>  
   <string name="text_licenses_other">ပွင့်လင်းရင်းမြစ်မဟုတ်သောလိုင်စင်</string>  
   <string name="text_save_successfully">အောင်မြင်စွာ သိမ်းဆည်းခဲ့သည်။</string>  
-  <string name="text_save_as_project">ပရောဂျက်အဖြစ်သိမ်းဆည်းပါ။</string>
-  <string name="text_select_save_mode">သိမ်းဆည်းနည်းကို ရွေးပါ။</string>
-  <string name="text_save_as_project_and_exit">ပရောဂျက်အဖြစ်သိမ်းဆည်းပြီး ထွက်လိုက်ပါ။</string>
-  <string name="apk_builder_sign">လက်မှတ်ထိုး</string>
-  <string name="text_invalid_config">မမှန်ကန်သော ဖွဲ့စည်းမှု</string>
-  <string name="text_abi">ပံ့ပိုးထားသော ABI များ (ကော်မာများဖြင့် ပိုင်းခြားထားသည်)</string>
-  <string name="text_save_project_to">ပရောဂျက်ကို- %s သို့ သိမ်းဆည်းထားသည်။</string>
+  <string name="text_save_as_project">ပရောဂျက်အဖြစ်သိမ်းဆည်းပါ။</string>  
+  <string name="text_select_save_mode">သိမ်းဆည်းနည်းကို ရွေးပါ။</string>  
+  <string name="text_save_as_project_and_exit">ပရောဂျက်အဖြစ်သိမ်းဆည်းပြီး ထွက်လိုက်ပါ။</string>  
+  <string name="apk_builder_sign">လက်မှတ်ထိုး</string>  
+  <string name="text_invalid_config">မမှန်ကန်သော ဖွဲ့စည်းမှု</string>  
+  <string name="text_abi">ပံ့ပိုးထားသော ABI များ (ကော်မာများဖြင့် ပိုင်းခြားထားသည်)</string>  
+  <string name="text_save_project_to">ပရောဂျက်ကို- %s သို့ သိမ်းဆည်းထားသည်။</string>  
+  <string name="text_hide_and_show">ဖျောက်/ပြပါ။</string>
+  <string name="text_browser_open">Browser ကိုဖွင့်ပါ။</string>
+  <string name="text_do_nothing">ဘာမှမလုပ်ဘူး။</string>
+  <string name="text_copy_to_new_folder">မူရင်းဖိုင်တွဲ၏ အကြောင်းအရာများကို ဖိုဒါအသစ်သို့ ကူးယူပါ။</string>
+  <string name="text_move_new_folder">မူရင်းဖိုင်တွဲ၏ အကြောင်းအရာများကို ဖိုဒါအသစ်သို့ ရွှေ့ပါ။</string>
+  <string name="text_accessibility_service_is_not_enable">အများသုံးစွဲနိုင်မှုဝန်ဆောင်မှုကို ဖွင့်မထားပါ။</string>
+  <string name="text_set_successfully">အောင်မြင်စွာသတ်မှတ်ပါ။</string>
 </resources>

@@ -8,7 +8,7 @@
   <string name="text_please_input_name">Атын енгізіңіз</string>  
   <string name="text_name">Аты</string>  
   <string name="text_go_to_setting">Параметрлерге өтіңіз</string>  
-  <string name="explain_accessibility_permission">Бағдарламаны іске қосу үшін «Арнайы мүмкіндіктер қызметтерін» ашу қажет, «Параметрлер->Арнайы мүмкіндіктер қызметтері» немесе «Параметрлер->Арнайы мүмкіндіктер қызметтері->Қосымша жүктеп алынған қызметтер» ашыңыз, осы қолданбаны тауып, Арнайы мүмкіндіктер қызметтерін қосыңыз \n да орнатуға болады. кейін ашылмалы мәзірде.</string>  
+  <string name="explain_accessibility_permission">Бағдарламаны іске қосу үшін «Арнайы мүмкіндіктер қызметтерін» ашу керек, «Параметрлер->Арнайы мүмкіндіктер қызметтері» немесе «Параметрлер->Арнайы мүмкіндіктер қызметтері->Қосымша жүктеп алынған қызметтер» ашыңыз, осы қолданбаны тауып, Арнайы мүмкіндіктер қызметтерін қосыңыз \n да орнатуға болады. кейін ашылмалы мәзірде.</string>  
   <string name="explain_accessibility_permission2">Бағдарламаны іске қосу үшін «Арнайы мүмкіндіктер қызметтерін» ашу керек, «Параметрлер->Арнайы мүмкіндіктер қызметтері» немесе «Параметрлер->Арнайы мүмкіндіктер қызметтері->Қосымша жүктеп алынған қызметтер» ашыңыз, осы қолданбаны табыңыз және Арнайы мүмкіндіктер қызметтерін қосыңыз.</string>  
   <string name="text_cancel">Болдырмау</string>  
   <string name="text_path_is_empty">Жол бос</string>  
@@ -24,7 +24,7 @@
   <string name="text_alert">Кеңес</string>  
   <string name="edit_exit_without_save_warn">Мазмұн сақталмады, шынымен шыққыңыз келе ме?</string>  
   <string name="text_save_and_exit">Сақтаңыз және шығыңыз</string>  
-  <string name="text_exit_directly">Тікелей шығыңыз</string>  
+  <string name="text_exit_directly">Тікелей шығу</string>  
   <string name="text_setting">Орнату</string>  
   <string name="text_exit">Шығу</string>  
   <string name="text_auto_operate_service">Арнайы мүмкіндіктер қызметтері</string>  
@@ -279,7 +279,7 @@
   <string name="text_register_fail">Тіркеу сәтсіз аяқталды</string>  
   <string name="text_register_succeed">Тіркеу сәтті</string>  
   <string name="text_sample">Үлгі коды</string>  
-  <string name="text_reset_to_initial_content">Бастапқы мазмұнға қалпына келтіру</string>  
+  <string name="text_reset_to_initial_content">Бастапқы мазмұнға қалпына келтіріңіз</string>  
   <string name="text_reset_succeed">Сәтті қалпына келтіріңіз</string>  
   <string name="text_cannot_read_file">Файлды оқу мүмкін емес</string>  
   <string name="text_service">Қызмет көрсетіңіз</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Опциялар</string>  
   <string name="text_using_id_selector">Id арқылы таңдаңыз</string>  
   <string name="text_using_text_selector">Мәтін таңдауын пайдалану (мәтін)</string>  
-  <string name="text_using_desc_selector">Сипаттаманы пайдаланып таңдаңыз (төмендету)</string>  
+  <string name="text_using_desc_selector">Пайдалану Сипаттама Таңдау (төмендету)</string>  
   <string name="text_generate">Жасау</string>  
   <string name="text_generate_fail">Құрастыру сәтсіз аяқталды o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Құжаттама көзі</string>  
@@ -413,7 +413,7 @@
   <string name="text_run_on_package_update">Жаңартуды қолдану кезінде</string>  
   <string name="text_run_on_headset_plug">Құлаққапты розеткаға қосқанда және ажыратқанда</string>  
   <string name="text_run_on_time_tick">Минут сайын</string>  
-  <string name="text_run_on_config_change">Белгілі бір параметрлер (экран бағыты, аймақ, т.б.) өзгертілгенде</string>  
+  <string name="text_run_on_config_change">Белгілі бір параметрлер (экран бағыты, аймақ және т.б.) өзгертілгенде</string>  
   <string name="error_pattern_syntax">Тұрақты өрнек қатесі</string>  
   <string name="text_invalid_package_name">Заңсыз пакет атауы</string>  
   <string name="error_cannot_rename">Атын өзгерту орындалмады</string>  
@@ -450,7 +450,7 @@
   <string name="air_error_no_password">Дұрыс құпия сөзді енгізіңіз</string>  
   <string name="air_error_no_email">Электрондық поштаңызды енгізіңіз</string>  
   <string name="air_dialog_title_loading">GitHub-қа жүктеп салуда…</string>  
-  <string name="air_dialog_title_failed">Қате туралы есеп жіберу мүмкін болмады</string>  
+  <string name="air_dialog_title_failed">Қате туралы есепті жіберу мүмкін болмады</string>  
   <string name="air_dialog_description_failed_wrong_credentials">Қате пайдаланушы аты немесе құпия сөз</string>  
   <string name="air_dialog_description_failed_invalid_token">Қол жеткізу таңбалауышы жарамсыз. Бағдарламалық жасақтаманы әзірлеушіге хабарласыңыз.</string>  
   <string name="air_dialog_description_failed_issues_not_available">Мәселелер жоқ, бағдарламалық құралды әзірлеушіге хабарласыңыз.</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Іздеуден шығу</string>  
   <string name="text_licenses_other">Ашық бастапқы емес лицензия</string>  
   <string name="text_save_successfully">Сәтті сақталды</string>  
-  <string name="text_save_as_project">Жоба ретінде сақтаңыз</string>
-  <string name="text_select_save_mode">Сақтау әдісін таңдаңыз</string>
-  <string name="text_save_as_project_and_exit">Жоба ретінде сақтаңыз және шығыңыз</string>
-  <string name="apk_builder_sign">Қол қою</string>
-  <string name="text_invalid_config">Жарамсыз конфигурация</string>
-  <string name="text_abi">Қолдау көрсетілетін ABI (үтірмен бөлінген)</string>
-  <string name="text_save_project_to">Жоба сақталды: %s</string>
+  <string name="text_save_as_project">Жоба ретінде сақтаңыз</string>  
+  <string name="text_select_save_mode">Сақтау әдісін таңдаңыз</string>  
+  <string name="text_save_as_project_and_exit">Жоба ретінде сақтаңыз және шығыңыз</string>  
+  <string name="apk_builder_sign">Қол қою</string>  
+  <string name="text_invalid_config">Жарамсыз конфигурация</string>  
+  <string name="text_abi">Қолдау көрсетілетін ABI (үтірмен бөлінген)</string>  
+  <string name="text_save_project_to">Жоба сақталды: %s</string>  
+  <string name="text_hide_and_show">Жасыру/көрсету</string>
+  <string name="text_browser_open">Браузер ашық</string>
+  <string name="text_do_nothing">Ештеңе істеме</string>
+  <string name="text_copy_to_new_folder">Бастапқы қалтаның мазмұнын жаңа қалтаға көшіріңіз</string>
+  <string name="text_move_new_folder">Бастапқы қалтаның мазмұнын жаңа қалтаға жылжытыңыз</string>
+  <string name="text_accessibility_service_is_not_enable">Арнайы мүмкіндіктер қызметі қосылмаған</string>
+  <string name="text_set_successfully">Сәтті орнатылды</string>
 </resources>

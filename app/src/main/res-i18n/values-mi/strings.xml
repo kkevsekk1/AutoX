@@ -2,13 +2,13 @@
 
 <!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
 <resources> 
-  <string name="text_accessibility_service_description">E hiahiatia ana ki te whakaaunoa i nga mahi tuhi (paa, pehi roa, swipe, me etahi atu), mena ka monokia, ka taea anake te whakahaere i nga tuhinga kaore he mahi aunoa.</string>  
+  <string name="text_accessibility_service_description">E hiahiatia ana ki te whakaaunoa i nga mahi tuhi (paa, pehi roa, swipe, aha atu.), mena ka monokia, ka taea anake te whakahaere i nga tuhinga kaore he mahi aunoa.</string>  
   <string name="text_new_file">Hanga he kōnae hou</string>  
   <string name="text_create_fail">I rahua te waihanga</string>  
   <string name="text_please_input_name">Whakaurua koa he ingoa</string>  
   <string name="text_name">Ingoa</string>  
   <string name="text_go_to_setting">Haere ki nga tautuhinga</string>  
-  <string name="explain_accessibility_permission">Me whakatuwhera e te rorohiko \"Ratonga Whakaaetanga\" ki te whakahaere, whakatuwheratia \"Tautuhinga->Ratonga Whakaaetanga\" ranei \"Tautuhinga->Ratonga Whakaaetanga->Ratonga Whakaaetanga Ake\", kimihia tenei tono, ka whakahohea nga Ratonga Urunga \n taea hoki te whakarite i muri mai i te tahua taka-iho.</string>  
+  <string name="explain_accessibility_permission">Me whakatuwherahia e te rorohiko \"Ratonga Whakaaetanga\" kia rere, whakatuwheratia \"Tautuhinga->Ratonga Whakaaetanga\" ranei \"Tautuhinga->Ratonga Whakaaetanga->Ratonga Whakaaetanga Ake\", kimihia tenei tono, ka whakahohea nga Ratonga Urunga \n taea hoki te whakarite. i muri mai i te tahua taka-iho.</string>  
   <string name="explain_accessibility_permission2">Me whakatuwhera te rorohiko i te \"Ratonga Whakaaetanga\" kia rere, whakatuwheratia \"Tautuhinga->Ratonga Whakaaetanga\" ranei \"Tautuhinga->Ratonga Whakaaetanga->Ratonga Whakaaetanga Ake\", kimihia tenei tono, ka whakahohea nga Ratonga Uru</string>  
   <string name="text_cancel">Whakakore</string>  
   <string name="text_path_is_empty">Kua kau te ara</string>  
@@ -51,7 +51,7 @@
   <string name="text_it_is_the_developer_of_app">Koinei tetahi o nga kaihanga rorohiko(.・・)ノ</string>  
   <string name="text_please_choose">Whiriwhiria koa</string>  
   <string name="text_crash">Kua tiango o(≧口≦)o</string>  
-  <string name="crash_feedback">Ka tukuna aunoa nga karere hapa. Ka taea hoki e koe te kape a-ringa i nga korero patuiro ka tuku atu ki te kaiwhakawhanake (*^▽^*) ka paato ranei \"Putaatu\" ki te puta atu i te papatono(╥﹏╥)o</string>  
+  <string name="crash_feedback">Ka tukuna aunoa nga karere hapa. Ka taea hoki e koe te kape a-ringa i nga korero patuiro ka tuku atu ki te kaiwhakawhanake (*^▽^*) ka paato ranei \"Puatu\" ki te puta atu i te papatono(╥﹏╥)o</string>  
   <string name="text_clear">Takoto kau</string>  
   <string name="text_console">Papatohu</string>  
   <string name="text_log">Rangitaki</string>  
@@ -65,15 +65,15 @@
   <string name="text_copy_to_clip">Kape ki te papatopenga</string>  
   <string name="text_file_write_fail">I rahua te tuhi kōnae</string>  
   <string name="text_use_volume_control_record">Whakamahia te taviri whakararo hei whakahaere</string>  
-  <string name="summary_use_volume_control_record">I muri i te whakatuwheratanga o te matapihi maanu, ia wa ka timata te taviri ki raro, ka mutu ranei te tuhi tuhi</string>  
+  <string name="summary_use_volume_control_record">Whai muri i te whakatuwheratanga o te matapihi maanu, ia wa ka timata te taviri ki raro, ka mutu ranei te tuhi tuhi</string>  
   <string name="text_qq_group">Koinei te nama roopu QQ, ki te kore e taea e koe te whakatuwhera, rapua ma te ringa</string>  
   <string name="text_mobile_qq_not_installed">Kaore i te whakauruhia te QQ pūkoro</string>  
   <string name="text_edit">Whakatika</string>  
   <string name="text_max_length_for_code_completion">Te Whakaoti Waehere Morahi Te Roa Kōnae</string>  
   <string name="text_file_exists">Kei te tīariari kē te kōnae</string>  
-  <string name="text_accessibility_service">Ratonga Whakauru</string>  
+  <string name="text_accessibility_service">Ratonga Urunga</string>  
   <string name="text_enable_accessibility_service_by_root">Whakahohe aunoa i nga ratonga whai mana pakiaka</string>  
-  <string name="text_auto_operate_service_enabled_but_not_running">Kua whakahohea te ratonga urunga engari karekau i te whakahaere, he bug Android pea tenei, ka hiahia koe ki te whakaara ano i te waea, ki te whakaara ano ranei i te ratonga urunga.</string>  
+  <string name="text_auto_operate_service_enabled_but_not_running">Kua whakahohea te ratonga urunga engari karekau e rere, he bug Android pea tenei, ka hiahia koe ki te whakaara ano i te waea, ki te whakaara ano ranei i te ratonga urunga.</string>  
   <string name="text_enable_accessibility_service_by_root_timeout">He waahi mo te tiimata i te ratonga uru me nga mana pakiaka</string>  
   <string name="summary_enable_accessibility_service_by_root">I muri i te whakatuwheratanga, ko te whakahaere i te tuhinga ka whakatuwhera aunoa i te ratonga uru me nga mana Root</string>  
   <string name="text_appearance">Waho</string>  
@@ -122,7 +122,7 @@
   <string name="text_code_beautify">Waehere whakatakotoranga</string>  
   <string name="text_processing">Tukatuka</string>  
   <string name="text_guard_mode">Aratau tiaki</string>  
-  <string name="summary_guard_mode">Kaore e taea te whakahaere i te whakahau mahi aunoa i tenei atanga rorohiko hei karo i te pa ohorere</string>  
+  <string name="summary_guard_mode">Kaore e taea te whakahaere i te whakahau mahi aunoa i roto i tenei atanga rorohiko hei karo i te pa ohorere</string>  
   <string name="text_layout_inspector_is_dumping">Kei te haere tonu te tātari tahora</string>  
   <string name="text_force_stop">Whakamutua kaha</string>  
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Kua mutu te whakahaere i roto i te %f hēkona</string>  
@@ -139,12 +139,12 @@
   <string name="text_attribute">Huanga</string>  
   <string name="text_value">Uara</string>  
   <string name="text_show_widget_infomation">Tirohia nga korero whakahaere</string>  
-  <string name="text_show_layout_hierarchy">Tirohia i roto i te raupapa tahora</string>  
+  <string name="text_show_layout_hierarchy">Tirohia i roto i te nahanaha tahora</string>  
   <string name="text_show_layout_bounds">Tiro ki te Tahora Hokonga</string>  
   <string name="text_more">Ētahi atu</string>  
   <string name="text_script_save_successfully">I momoho te tiaki, me tāmata koa te whaiaronga</string>  
   <string name="text_run_repeatedly">Te oma pahikara</string>  
-  <string name="text_loop_interval">Wā huringa (hekona)</string>  
+  <string name="text_loop_interval">Wā hurihanga (hekona)</string>  
   <string name="text_loop_delay">Whakaroa te mahi (hekona)</string>  
   <string name="text_loop_times">Nga huringa</string>  
   <string name="hint_loop_times">Ko te 0 he koropiko mutunga kore</string>  
@@ -210,7 +210,7 @@
   <string name="text_download">Tango</string>  
   <string name="format_file_downloaded" formatted="true">I tiakina te kōnae ki %s</string>  
   <string name="confirm_overwrite_file">Kei te tīariari kē te kōnae, me tuhirua?</string>  
-  <string name="text_select_file_to_upload">Tīpakohia te kōnae hei tukuake</string>  
+  <string name="text_select_file_to_upload">Tīpakohia te kōnae hei tuku ake</string>  
   <string name="text_select_file_to_import">Tīpakohia te kōnae hei kawemai</string>  
   <string name="text_build_apk">Taupānga Whakakīa</string>  
   <string name="text_select">Whiriwhiri</string>  
@@ -232,7 +232,7 @@
   <string name="text_volumeUpcontrol">Kī rōrahi ake hei whakamutu i te mahi</string>  
   <string name="text_splash_text">Kuputuhi atanga whakaoho</string>  
   <string name="text_splash_icon">Whakarewa atanga icon</string>  
-  <string name="text_service_desc_text">Whakaahuatanga o nga Ratonga Whakauru</string>  
+  <string name="text_service_desc_text">Whakaahuatanga o nga Ratonga Uru</string>  
   <string name="text_sign">Tohu</string>  
   <string name="text_sign_choose">Tohua te waitohu</string>  
   <string name="text_sign_password">Kupuhipa tiwhikete waitohu</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Kōwhiringa</string>  
   <string name="text_using_id_selector">Tīpako mā te whakamahi id</string>  
   <string name="text_using_text_selector">Whakamahia te kowhiringa kupu (kuputuhi)</string>  
-  <string name="text_using_desc_selector">Tīpakohia mā te whakaahuatanga (desc)</string>  
+  <string name="text_using_desc_selector">Whakamahia te Tohu Whakaahua (whakaahua)</string>  
   <string name="text_generate">Whakaputa</string>  
   <string name="text_generate_fail">I rahua te hanga o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Puna tuhinga</string>  
@@ -343,7 +343,7 @@
   <string name="nodebb_error_change_password_error_match">Ko nga kupuhipa e rua i whakauruhia kaore i te rite</string>  
   <string name="text_logout">Haina ki waho</string>  
   <string name="nodebb_error_forbidden">I rahua te mahi, ngana ano i muri mai</string>  
-  <string name="description_stable_mode">Ma te aratau pumau ka noho pumau te tuhinga ina kapohia te tahora ma te whakakore i nga taipitopito tahora, engari i te wa ano he iti ake nga mana o runga mata. \n \n ano te ratonga urunga kia whai mana.</string>  
+  <string name="description_stable_mode">Ko te aratau pumau ka noho pumau te tuhinga ina kapohia te tahora ma te whakakore i nga taipitopito tahora, engari i te wa ano he iti ake nga mana o runga-mata. \n \n ano te ratonga urunga kia whai mana.</string>  
   <string name="text_size_min_value">2</string>  
   <string name="text_size_max_value">60</string>  
   <string name="text_text_size">Rahi momotuhi</string>  
@@ -351,7 +351,7 @@
   <string name="text_size_current_value" formatted="true">Rahi momotuhi: %d</string>  
   <string name="error_regex_find_prev">E kore e taea te titiro whakamua i nga wa katoa</string>  
   <string name="text_notification">Panui</string>  
-  <string name="apk_builder_plugin_version_too_low">He iti rawa te putanga mono-mai kua taia, a ka kore pea e pai te whakahaere o te tono kua taia. Kei te pirangi koe ki te tango i te putanga e pa ana ki te whakauru whakauru inaianei?</string>  
+  <string name="apk_builder_plugin_version_too_low">He iti rawa te putanga mono-mai kua oti te taake, a ka kore pea e pai te whakahaere o te tono kua taia. Kei te pirangi koe ki te tango i te putanga e pa ana ki te whakauru whakauru inaianei?</string>  
   <string name="text_inspect_layout_bounds">Te tātari awhe tahora</string>  
   <string name="text_inspect_layout_hierarchy">Arataki Tahora</string>  
   <string name="text_inspect_layout">Tātari whakatakotoranga</string>  
@@ -368,7 +368,7 @@
   <string name="text_debug_resume_script">Haere tonu</string>  
   <string name="text_stop">Mutu</string>  
   <string name="text_new_watching_variable">Tāpirihia he taurangi, kīanga rānei hei mātaki</string>  
-  <string name="text_variable_or_expr">Taurangi, korero ranei</string>  
+  <string name="text_variable_or_expr">Taurangi, whakapuakitanga ranei</string>  
   <string name="text_remove_all_breakpoints">Tangohia nga waahi pakaru katoa</string>  
   <string name="hint_long_click_run_to_debug">Ka taea hoki te timata te patuiro ma te pehi roa i te ata \"Run\".</string>  
   <string name="format_debug_bar_title">Patuiro [ %s ]</string>  
@@ -395,11 +395,11 @@
   <string name="text_invalid_project_config">Kahore he kōnae whirihoranga</string>  
   <string name="text_foreground_service">Te manaakitanga</string>  
   <string name="foreground_notification_channel_name">Whakamōhiotanga ratonga tēpu o mua</string>  
-  <string name="foreground_notification_title">Kei te haere tonu a Autox.js</string>  
+  <string name="foreground_notification_title">Kei te rere tonu a Autox.js</string>  
   <string name="foreground_notification_text">Pāwhiri ki te tomo i te atanga matua</string>  
   <string name="text_run_on_other_broadcast">Ētahi atu kaupapa (pāhotanga)</string>  
   <string name="text_broadcast_action">Mahi Paoho</string>  
-  <string name="text_run_on_boot">I te wa e pupuhi ana</string>  
+  <string name="text_run_on_boot">I te wa whakaoho</string>  
   <string name="text_run_on_screen_on">Ina ka ana te mata</string>  
   <string name="text_run_on_screen_off">Ka weto te mata</string>  
   <string name="error_empty_selection">Tīpakohia koa tētahi kōwhiringa takahanga pāho</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Aratau po</string>  
   <string name="text_run_on_startup">Ina timata a Autox.js</string>  
   <string name="text_usage_stats_permission">Urunga whakamahi</string>  
-  <string name="description_usage_stats_permission">Na roto i te whakaaetanga \"tirohia nga tatauranga whakamahinga\", ka taea e koe te tiki i nga whakamahinga o mua o tenei taputapu, kia tika ake ai te tiki i te tono o naianei (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Na roto i te whakaaetanga \"Tirohanga Tatauranga Whakamahinga\", ka taea e koe te tiki i te whakamahinga o mua o tenei taputapu, kia tika ake ai te tiki i te tono o naianei (currentPackage).</string>  
   <string name="text_open_with">Ara tuwhera</string>  
   <string name="text_root">Putake</string>  
   <string name="text_no_root">Root free</string>  
@@ -444,7 +444,7 @@
   <string name="air_label_use_guest">Tuku ingoamuna</string>  
   <string name="air_label_email">Mail</string>  
   <string name="air_label_email_optional">Whakapā īmēra (kōwhiringa)</string>  
-  <string name="air_error_no_title">Whakauruhia he patai</string>  
+  <string name="air_error_no_title">Whakaurua koa he patai</string>  
   <string name="air_error_no_description">Tena koa whakauruhia he whakamaarama taipitopito</string>  
   <string name="air_error_no_username">Whakaurua koa he ingoa kaiwhakamahi Github whaimana</string>  
   <string name="air_error_no_password">Whakaurua koa te kupuhipa tika</string>  
@@ -468,7 +468,7 @@
   <string name="text_file_manager_permission">Te urunga kōnae katoa</string>  
   <string name="text_fullscreen">Takahurihia te aratau mata katoa 1</string>  
   <string name="text_drawer_right">Whakatuwheratia te tahua matau</string>  
-  <string name="text_required_default_ocr_model">Whakakīa te tauira whakangungu OCR taunoa</string>  
+  <string name="text_required_default_ocr_model">Whakapaihia te tauira whakangungu OCR taunoa</string>  
   <string name="switch_fullscreen">Takahurihia te aratau mata katoa</string>  
   <string name="text_custom_ocr_model_path">Whakapaihia te whaiaronga tauira OCR ritenga</string>  
   <string name="desc_more">Ētahi atu</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Puta atu ki te rapu</string>  
   <string name="text_licenses_other">Raihana Puna Kore-Tuwhera</string>  
   <string name="text_save_successfully">I momoho te tiaki</string>  
-  <string name="text_save_as_project">Tiakina hei kaupapa</string>
-  <string name="text_select_save_mode">Tīpakohia koa he tikanga tiaki</string>
-  <string name="text_save_as_project_and_exit">Tiakina hei kaupapa ka puta</string>
-  <string name="apk_builder_sign">Hainatanga</string>
-  <string name="text_invalid_config">Whirihoranga muhu</string>
-  <string name="text_abi">Nga ABI e tautokohia ana (kua wehea me nga piko)</string>
-  <string name="text_save_project_to">Kua tiakina te kaupapa ki: %s</string>
+  <string name="text_save_as_project">Tiakina hei kaupapa</string>  
+  <string name="text_select_save_mode">Tīpakohia koa he tikanga tiaki</string>  
+  <string name="text_save_as_project_and_exit">Tiakina hei kaupapa ka puta</string>  
+  <string name="apk_builder_sign">Hainatanga</string>  
+  <string name="text_invalid_config">Whirihoranga muhu</string>  
+  <string name="text_abi">Nga ABI e tautokohia ana (kua wehea me nga piko)</string>  
+  <string name="text_save_project_to">Kua tiakina te kaupapa ki: %s</string>  
+  <string name="text_hide_and_show">Huna/whakaatu</string>
+  <string name="text_browser_open">Tuwhera te pūtirotiro</string>
+  <string name="text_do_nothing">Kaua e mahia</string>
+  <string name="text_copy_to_new_folder">Tāruatia ngā ihirangi o te kōpaki taketake ki te kōpaki hōu</string>
+  <string name="text_move_new_folder">Nukuhia nga ihirangi o te kōpaki taketake ki te kōpaki hōu</string>
+  <string name="text_accessibility_service_is_not_enable">Ko te ratonga urunga kaore i te whakaka</string>
+  <string name="text_set_successfully">Whakatakoto pai</string>
 </resources>

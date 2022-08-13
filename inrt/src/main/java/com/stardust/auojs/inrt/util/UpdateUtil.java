@@ -13,11 +13,10 @@ import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.DatePicker;
 import android.widget.ProgressBar;
 
 import com.linsh.utilseverywhere.ContextUtils;
-import org.autojs.autoxjs.inrt.BuildConfig;
+
 import org.autojs.autoxjs.inrt.R;
 import com.stardust.util.IntentUtil;
 

@@ -3,12 +3,12 @@
 <!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
 <resources> 
   <string name="text_accessibility_service_description">Yuav tsum tau automate tsab ntawv ua haujlwm (nias, nias ntev, los so, thiab lwm yam), yog tias tsis siv, tsuas yog cov ntawv sau uas tsis koom nrog kev ua haujlwm tsis siv neeg tuaj yeem ua tiav.</string>  
-  <string name="text_new_file">Tsim ib cov ntaub ntawv tshiab</string>  
+  <string name="text_new_file">Tsim cov ntaub ntawv tshiab</string>  
   <string name="text_create_fail">Ua tsis tiav</string>  
   <string name="text_please_input_name">Thov sau npe</string>  
   <string name="text_name">Npe</string>  
   <string name="text_go_to_setting">Mus rau qhov chaw</string>  
-  <string name="explain_accessibility_permission">Lub software yuav tsum qhib \"Accessibility Services\" kom khiav, thov qhib \"Settings->Accessibility Services\" los yog \"Settings->Accessibility Services->More Downloaded Services\", nrhiav daim ntawv thov no, thiab qhib Accessibility Services \n kuj tuaj yeem teeb tsa tom qab ntawd hauv cov ntawv qhia zaub mov.</string>  
+  <string name="explain_accessibility_permission">Lub software yuav tsum qhib \"Accessibility Services\" kom khiav, thov qhib \"Settings->Accessibility Services\" los yog \"Settings->Accessibility Services->More Downloaded Services\", nrhiav daim ntawv thov no, thiab qhib Accessibility Services \n kuj tuaj yeem teeb tsa. tom qab ntawd hauv cov ntawv qhia zaub mov.</string>  
   <string name="explain_accessibility_permission2">Lub software yuav tsum qhib \"Accessibility Services\" kom khiav, thov qhib \"Settings->Accessibility Services\" los yog \"Settings->Accessibility Services->Ntau Downloaded Services\", nrhiav daim ntawv thov no, thiab qhib Accessibility Services</string>  
   <string name="text_cancel">Tso tseg</string>  
   <string name="text_path_is_empty">Txoj kev yog khoob</string>  
@@ -60,14 +60,14 @@
   <string name="edit_and_run_handle_intent_error">Ua tsis tau cov ntaub ntawv</string>  
   <string name="text_issue_report">Tawm tswv yim</string>  
   <string name="text_script_record">Sau ntawv</string>  
-  <string name="text_start_record">Pib kaw</string>  
+  <string name="text_start_record">Pib sau</string>  
   <string name="text_recorded">Kawg ntawm kev kaw tseg</string>  
   <string name="text_copy_to_clip">Luam rau daim ntawv teev cia</string>  
-  <string name="text_file_write_fail">Cov ntaub ntawv sau ua tsis tiav</string>  
+  <string name="text_file_write_fail">Sau ntawv ua tsis tiav</string>  
   <string name="text_use_volume_control_record">Siv tus yuam sij ntim qis los tswj</string>  
   <string name="summary_use_volume_control_record">Tom qab qhib lub qhov rais ntab, txhua zaus lub ntim qis yuav pib lossis tso tseg cov ntawv sau tseg</string>  
   <string name="text_qq_group">Qhov no yog QQ pab pawg tus lej, yog tias koj qhib tsis tau, thov tshawb nrhiav manually</string>  
-  <string name="text_mobile_qq_not_installed">Mobile QQ tsis tau teeb tsa</string>  
+  <string name="text_mobile_qq_not_installed">Mobile QQ tsis ntsia</string>  
   <string name="text_edit">Kho</string>  
   <string name="text_max_length_for_code_completion">Code Ua tiav Cov ntaub ntawv ntev tshaj plaws</string>  
   <string name="text_file_exists">Cov ntaub ntawv twb muaj lawm</string>  
@@ -179,7 +179,7 @@
   <string name="text_password">Tus password</string>  
   <string name="text_login">Nkag mus</string>  
   <string name="text_forgot_password">Tsis nco qab lo lus zais?</string>  
-  <string name="text_username_cannot_be_empty">Tus neeg siv lub npe tsis tuaj yeem khoob</string>  
+  <string name="text_username_cannot_be_empty">Tus neeg siv lub npe tsis tuaj yeem npliag</string>  
   <string name="text_password_cannot_be_empty">Tus password tsis tuaj yeem ua tsis tau</string>  
   <string name="text_time">Sij hawm</string>  
   <string name="text_size">Qhov loj</string>  
@@ -232,7 +232,7 @@
   <string name="text_volumeUpcontrol">Volume up key mus xaus txoj hauj lwm</string>  
   <string name="text_splash_text">Startup interface ntawv nyeem</string>  
   <string name="text_splash_icon">Tua tawm interface icon</string>  
-  <string name="text_service_desc_text">Kev piav qhia ntawm Kev Pabcuam Kev Siv Tau</string>  
+  <string name="text_service_desc_text">Kev piav qhia ntawm Accessibility Services</string>  
   <string name="text_sign">Kos npe</string>  
   <string name="text_sign_choose">Xaiv kos npe</string>  
   <string name="text_sign_password">Kos npe daim ntawv pov thawj password</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Kev xaiv</string>  
   <string name="text_using_id_selector">Xaiv siv id</string>  
   <string name="text_using_text_selector">Siv cov ntawv xaiv (text)</string>  
-  <string name="text_using_desc_selector">Xaiv siv cov lus piav qhia (desc)</string>  
+  <string name="text_using_desc_selector">Siv Description Xaiv (desc)</string>  
   <string name="text_generate">Tsim</string>  
   <string name="text_generate_fail">Tsim ua tsis tiav o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Cov ntaub ntawv qhov chaw</string>  
@@ -338,7 +338,7 @@
   <string name="text_community_popular">Nrov</string>  
   <string name="text_community_tags">Lub ntsiab lus</string>  
   <string name="nodebb_error_invalid_login_credentials">Invalid ID nkag mus credentials</string>  
-  <string name="nodebb_error_change_password_error_length">Lo lus zais luv dhau</string>  
+  <string name="nodebb_error_change_password_error_length">Password luv dhau lawm</string>  
   <string name="nodebb_error_email_taken">Mailbox yog nyob</string>  
   <string name="nodebb_error_change_password_error_match">Ob tus password nkag tsis sib xws</string>  
   <string name="text_logout">Kos npe tawm</string>  
@@ -367,7 +367,7 @@
   <string name="text_debug_step_over">Ib kauj ruam</string>  
   <string name="text_debug_resume_script">Txuas ntxiv</string>  
   <string name="text_stop">Nres</string>  
-  <string name="text_new_watching_variable">Ntxiv ib qho kev sib txawv los yog kev qhia los saib</string>  
+  <string name="text_new_watching_variable">Ntxiv qhov sib txawv los yog kev qhia kom saib</string>  
   <string name="text_variable_or_expr">Sib txawv los yog qhia</string>  
   <string name="text_remove_all_breakpoints">Tshem tag nrho cov breakpoints</string>  
   <string name="hint_long_click_run_to_debug">Kev debugging kuj tseem tuaj yeem pib los ntawm nias lub \"Khiav\" icon ntev</string>  
@@ -388,7 +388,7 @@
   <string name="text_launch_config">Khiav configuration</string>  
   <string name="text_main_file_name">Lub npe ntawv tseem ceeb</string>  
   <string name="text_project">Qhov project</string>  
-  <string name="text_project_location">Qhov chaw qhov project</string>  
+  <string name="text_project_location">Qhov project qhov chaw</string>  
   <string name="text_new_project">Txoj Haujlwm Tshiab</string>  
   <string name="text_js_file">Js file</string>  
   <string name="text_invalid_project">Yam khoom tsis raug</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Nyem rau nkag mus rau lub ntsiab interface</string>  
   <string name="text_run_on_other_broadcast">Lwm yam xwm txheej (tshaj tawm)</string>  
   <string name="text_broadcast_action">Tshaj tawm Action</string>  
-  <string name="text_run_on_boot">Thaum booting</string>  
+  <string name="text_run_on_boot">Ntawm lub sijhawm khau raj</string>  
   <string name="text_run_on_screen_on">Thaum lub vijtsam qhib</string>  
   <string name="text_run_on_screen_off">Thaum lub vijtsam tawm</string>  
   <string name="error_empty_selection">Thov xaiv qhov kev xaiv tshaj tawm xov xwm</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Hmo ntuj hom</string>  
   <string name="text_run_on_startup">Thaum Autox.js pib</string>  
   <string name="text_usage_stats_permission">Kev siv nkag</string>  
-  <string name="description_usage_stats_permission">Los ntawm \"saib kev siv txheeb cais\" tso cai, koj tuaj yeem tau txais daim ntawv thov kev siv yav dhau los ntawm cov cuab yeej no, kom nws muaj tseeb dua kom tau txais daim ntawv thov tam sim no (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Los ntawm kev tso cai \"Saib Kev Siv Txheeb Xyuas\", koj tuaj yeem tau txais daim ntawv thov kev siv yav dhau los ntawm cov cuab yeej no, kom nws muaj tseeb dua kom tau txais daim ntawv thov tam sim no (tam sim noPackage).</string>  
   <string name="text_open_with">Qhib txoj kev</string>  
   <string name="text_root">Hauv paus</string>  
   <string name="text_no_root">Root dawb</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Tawm mus nrhiav</string>  
   <string name="text_licenses_other">Daim ntawv tso cai tsis qhib qhov chaw</string>  
   <string name="text_save_successfully">Txuag tau tiav lawm</string>  
-  <string name="text_save_as_project">Txuag raws li qhov project</string>
-  <string name="text_select_save_mode">Thov xaiv txoj kev txuag</string>
-  <string name="text_save_as_project_and_exit">Txuag raws li qhov project thiab tawm</string>
-  <string name="apk_builder_sign">Kos npe</string>
-  <string name="text_invalid_config">Invalid configuration</string>
-  <string name="text_abi">Txhawb ABIs (sib cais nrog commas)</string>
-  <string name="text_save_project_to">Project saved rau: %s</string>
+  <string name="text_save_as_project">Txuag raws li qhov project</string>  
+  <string name="text_select_save_mode">Thov xaiv txoj kev txuag</string>  
+  <string name="text_save_as_project_and_exit">Txuag raws li qhov project thiab tawm</string>  
+  <string name="apk_builder_sign">Kos npe</string>  
+  <string name="text_invalid_config">Invalid configuration</string>  
+  <string name="text_abi">Txhawb ABIs (sib cais nrog commas)</string>  
+  <string name="text_save_project_to">Project saved rau: %s</string>  
+  <string name="text_hide_and_show">Zais/show</string>
+  <string name="text_browser_open">Browser qhib</string>
+  <string name="text_do_nothing">Ua dab tsi</string>
+  <string name="text_copy_to_new_folder">Luam cov ntsiab lus ntawm tus thawj nplaub tshev mus rau lub nplaub tshev tshiab</string>
+  <string name="text_move_new_folder">Txav cov ntsiab lus ntawm thawj daim nplaub tshev mus rau lub nplaub tshev tshiab</string>
+  <string name="text_accessibility_service_is_not_enable">Kev pabcuam kev nkag mus tsis tau qhib</string>
+  <string name="text_set_successfully">Teem tiav</string>
 </resources>

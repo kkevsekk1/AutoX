@@ -24,12 +24,12 @@
   <string name="text_alert">Ишора</string>  
   <string name="edit_exit_without_save_warn">Мундариҷа захира нашудааст, шумо мутмаин ҳастед, ки баромадан мехоҳед?</string>  
   <string name="text_save_and_exit">Захира ва баромадан</string>  
-  <string name="text_exit_directly">Баромадан бевосита</string>  
+  <string name="text_exit_directly">Бевосита баромадан</string>  
   <string name="text_setting">Ташкил кардан</string>  
   <string name="text_exit">Тарк кардан</string>  
   <string name="text_auto_operate_service">Хидматҳои дастрасӣ</string>  
   <string name="text_about">Дар бораи</string>  
-  <string name="text_licenses">Иҷозатномаи кушодаасос</string>  
+  <string name="text_licenses">Литсензияи кушодаасос</string>  
   <string name="text_do_not_remind_again">Боз хотиррасон накунед</string>  
   <string name="github">Рамзи сарчашмаи нармафзор</string>  
   <string name="text_already_copy_to_clip">Ба буфер нусхабардорӣ карда шуд</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Имконот</string>  
   <string name="text_using_id_selector">Бо истифода аз ID интихоб кунед</string>  
   <string name="text_using_text_selector">Интихоби матнро истифода баред (матн)</string>  
-  <string name="text_using_desc_selector">Бо истифода аз тавсиф интихоб кунед (таҳн)</string>  
+  <string name="text_using_desc_selector">Истифодаи Тавсиф Интихоб кунед (паст)</string>  
   <string name="text_generate">Тавлид</string>  
   <string name="text_generate_fail">Сохта натавонист o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Манбаи ҳуҷҷатгузорӣ</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Барои ворид шудан ба интерфейси асосӣ клик кунед</string>  
   <string name="text_run_on_other_broadcast">Дигар чорабиниҳо (паҳн)</string>  
   <string name="text_broadcast_action">Амали пахш</string>  
-  <string name="text_run_on_boot">Ҳангоми боркунӣ</string>  
+  <string name="text_run_on_boot">Дар вақти боркунӣ</string>  
   <string name="text_run_on_screen_on">Вақте ки экран фаъол аст</string>  
   <string name="text_run_on_screen_off">Вақте ки экран хомӯш аст</string>  
   <string name="error_empty_selection">Лутфан як варианти пахши ҳодисаро интихоб кунед</string>  
@@ -408,7 +408,7 @@
   <string name="text_run_on_power_connect">Вақте ки қувваи барқ ​​​​пайваст мешавад</string>  
   <string name="text_run_on_power_disconnect">Вақте ки қувваи барқ ​​​​канда мешавад</string>  
   <string name="text_run_on_conn_change">Вақте ки пайвасти шабака тағир меёбад</string>  
-  <string name="text_run_on_package_install">Вақте ки барномаи нав насб карда мешавад</string>  
+  <string name="text_run_on_package_install">Вақте ки як барномаи нав насб карда мешавад</string>  
   <string name="text_run_on_package_uninstall">Вақте ки барнома насб карда мешавад</string>  
   <string name="text_run_on_package_update">Ҳангоми татбиқи навсозӣ</string>  
   <string name="text_run_on_headset_plug">Ҳангоми васл кардан ва ҷудо кардани гӯшмонак</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Режими шабона</string>  
   <string name="text_run_on_startup">Вақте ки Autox.js оғоз мешавад</string>  
   <string name="text_usage_stats_permission">Дастрасӣ ба истифода</string>  
-  <string name="description_usage_stats_permission">Тавассути иҷозати \"намоиши омори истифода\", шумо метавонед истифодаи қаблии замимаи ин дастгоҳро ба даст оред, то дастрас кардани замимаи ҷорӣ (currentPackage) дақиқтар бошад.</string>  
+  <string name="description_usage_stats_permission">Тавассути иҷозати \"Намоиши омори истифода\", шумо метавонед истифодаи қаблии замимаи ин дастгоҳро ба даст оред, то ба даст овардани замимаи ҷорӣ (currentPackage) дақиқтар бошад.</string>  
   <string name="text_open_with">Роҳи кушод</string>  
   <string name="text_root">Реша</string>  
   <string name="text_no_root">Реша озод</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Аз ҷустуҷӯ баромадан</string>  
   <string name="text_licenses_other">Иҷозатномаи ғайриманбаи кушода</string>  
   <string name="text_save_successfully">Бомуваффақият захира карда шуд</string>  
-  <string name="text_save_as_project">Ҳамчун лоиҳа захира кунед</string>
-  <string name="text_select_save_mode">Лутфан усули захираро интихоб кунед</string>
-  <string name="text_save_as_project_and_exit">Ҳамчун лоиҳа захира кунед ва бароед</string>
-  <string name="apk_builder_sign">Имзо кардан</string>
-  <string name="text_invalid_config">Конфигуратсияи нодуруст</string>
-  <string name="text_abi">ABI-ҳои дастгирӣшаванда (бо вергул ҷудо карда шудаанд)</string>
-  <string name="text_save_project_to">Лоиҳа ба: %s захира карда шуд</string>
+  <string name="text_save_as_project">Ҳамчун лоиҳа захира кунед</string>  
+  <string name="text_select_save_mode">Лутфан усули захираро интихоб кунед</string>  
+  <string name="text_save_as_project_and_exit">Ҳамчун лоиҳа захира кунед ва бароед</string>  
+  <string name="apk_builder_sign">Имзо кардан</string>  
+  <string name="text_invalid_config">Конфигуратсияи нодуруст</string>  
+  <string name="text_abi">ABI-ҳои дастгирӣшаванда (бо вергул ҷудо карда шудаанд)</string>  
+  <string name="text_save_project_to">Лоиҳа ба: %s захира карда шуд</string>  
+  <string name="text_hide_and_show">Пинҳон кардан/нишон додан</string>
+  <string name="text_browser_open">Браузер кушода</string>
+  <string name="text_do_nothing">Коре накунед</string>
+  <string name="text_copy_to_new_folder">Мундариҷаи ҷузвдони аслиро ба ҷузвдони нав нусхабардорӣ кунед</string>
+  <string name="text_move_new_folder">Мундариҷаи ҷузвдони аслиро ба ҷузвдони нав интиқол диҳед</string>
+  <string name="text_accessibility_service_is_not_enable">Хидмати дастрасӣ фаъол нест</string>
+  <string name="text_set_successfully">Бомуваффакият гузоштанд</string>
 </resources>

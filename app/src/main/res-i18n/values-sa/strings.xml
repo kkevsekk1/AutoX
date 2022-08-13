@@ -24,7 +24,7 @@
   <string name="text_alert">संकेत</string>  
   <string name="edit_exit_without_save_warn">सामग्री न रक्षिता, भवान् निश्चितरूपेण निर्गन्तुं इच्छति वा?</string>  
   <string name="text_save_and_exit">रक्षित्वा निर्गच्छतु</string>  
-  <string name="text_exit_directly">प्रत्यक्षतः निर्गच्छन्तु</string>  
+  <string name="text_exit_directly">प्रत्यक्षतः निर्गच्छतु</string>  
   <string name="text_setting">स्थापयति</string>  
   <string name="text_exit">परिजहातु</string>  
   <string name="text_auto_operate_service">सुलभता सेवाएँ</string>  
@@ -99,7 +99,7 @@
   <string name="text_no_brower">न ब्राउज़र, आम् o(╯□╰)o गत्वा एकं संस्थापयन्तु</string>  
   <string name="text_refresh">ताजगी</string>  
   <string name="notice_no_running_script">न चलती लिपि φ(>ω&lt;*)</string>  
-  <string name="text_please_choose_a_script">कृपया एकां स्क्रिप्ट् चिनुत</string>  
+  <string name="text_please_choose_a_script">कृपया एकां स्क्रिप्ट् चिनोतु</string>  
   <string name="text_edit_prepare_script">पूर्व-निष्पादित लिपियों का सम्पादन</string>  
   <string name="text_pre_execute_script">पूर्व-निष्पादन स्क्रिप्ट</string>  
   <string name="text_clear_pre_execute_script">पूर्व-निष्पादित-लिपियों को साफ करें</string>  
@@ -115,7 +115,7 @@
   <string name="warning_version_too_old">वर्तमान संस्करणं सार्वजनिकं बीटा संस्करणम् अस्ति, यत्र बहवः स्पष्टाः सम्भाव्याः च समस्याः सन्ति, तथा च इदं निरन्तरं उपयोगाय उपयुक्तं नास्ति ।</string>  
   <string name="text_update">नवीनीकरणम्</string>  
   <string name="text_release_notes">परिवर्तनवृत्तम्</string>  
-  <string name="text_download_url">Download लिंक</string>  
+  <string name="text_download_url">डाउनलोड लिंक</string>  
   <string name="text_directly_download">अवाहरन</string>  
   <string name="text_download_failed">डाउनलोड विफल</string>  
   <string name="text_do_not_ask_again_for_this_version">एतत् संस्करणं पुनः प्रॉम्प्ट् न करोति</string>  
@@ -145,7 +145,7 @@
   <string name="text_script_save_successfully">सफलतया रक्षितम्, कृपया निर्देशिकां ताजगीं कुर्वन्तु</string>  
   <string name="text_run_repeatedly">चक्र धावनम्</string>  
   <string name="text_loop_interval">चक्रान्तरम् (सेकेण्ड्) ६.</string>  
-  <string name="text_loop_delay">विलम्ब निष्पादनम् (सेकेण्ड्) ९.</string>  
+  <string name="text_loop_delay">विलम्ब निष्पादनम् (सेकेण्ड्) २.</string>  
   <string name="text_loop_times">चक्राणि</string>  
   <string name="hint_loop_times">० अनन्तपाश है</string>  
   <string name="hint_loop_delay">लूप् आरभ्यतुं कियत् सेकण्ड् विलम्बं कर्तव्यम्</string>  
@@ -298,8 +298,8 @@
   <string name="text_selector_exists">नियन्त्रणस्य अस्तित्वं न्याययन् (अस्ति) २.</string>  
   <string name="text_options">विकल्पाः</string>  
   <string name="text_using_id_selector">Id का प्रयोग करके चयन करें</string>  
-  <string name="text_using_text_selector">पाठचयनस्य (पाठस्य) उपयोगं कुर्वन्तु ।</string>  
-  <string name="text_using_desc_selector">विवरण (desc) का उपयोग करके चयन करें।</string>  
+  <string name="text_using_text_selector">पाठचयनस्य (पाठः) उपयोगं कुर्वन्तु ।</string>  
+  <string name="text_using_desc_selector">उपयोग विवरण चयन (desc) .</string>  
   <string name="text_generate">उद्- पद्</string>  
   <string name="text_generate_fail">निर्माण विफल o(╥╥)o</string>  
   <string name="text_documentation_source">दस्तावेजीकरण स्रोत</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">मुख्य-अन्तरफलकं प्रविष्टुं क्लिक् कुर्वन्तु</string>  
   <string name="text_run_on_other_broadcast">अन्ये आयोजनानि (प्रसारणम्) २.</string>  
   <string name="text_broadcast_action">प्रसारण क्रिया</string>  
-  <string name="text_run_on_boot">बूटिंग करते समय</string>  
+  <string name="text_run_on_boot">बूट समये</string>  
   <string name="text_run_on_screen_on">यदा स्क्रीन चालू भवति</string>  
   <string name="text_run_on_screen_off">यदा पटलः निष्क्रियः भवति</string>  
   <string name="error_empty_selection">कृपया प्रसारणकार्यक्रमविकल्पं चिनोतु</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">रात्रि मोड</string>  
   <string name="text_run_on_startup">यदा Autox.js आरभ्यते</string>  
   <string name="text_usage_stats_permission">उपयोगप्रवेशः</string>  
-  <string name="description_usage_stats_permission">\"view usage statistics\" अनुमतियाः माध्यमेन, भवान् अस्य यन्त्रस्य पूर्वानुप्रयोगस्य उपयोगं प्राप्तुं शक्नोति, येन वर्तमानस्य अनुप्रयोगस्य (currentPackage) प्राप्तुं अधिकं सटीकं भवति</string>  
+  <string name="description_usage_stats_permission">\"View Usage Statistics\" अनुमतियाः माध्यमेन, भवान् अस्य यन्त्रस्य पूर्वानुप्रयोगस्य उपयोगं प्राप्तुं शक्नोति, येन वर्तमानस्य अनुप्रयोगस्य (currentPackage) प्राप्तुं अधिकं सटीकं भवति</string>  
   <string name="text_open_with">खुला मार्ग</string>  
   <string name="text_root">मूलं</string>  
   <string name="text_no_root">मूल मुक्त</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">अन्वेषणात् निर्गच्छतु</string>  
   <string name="text_licenses_other">गैर-मुक्त स्रोत अनुज्ञापत्र</string>  
   <string name="text_save_successfully">सफलतया उद्धारितम्</string>  
-  <string name="text_save_as_project">परियोजनारूपेण रक्षतु</string>
-  <string name="text_select_save_mode">कृपया एकं रक्षणविधिं चिनोतु</string>
-  <string name="text_save_as_project_and_exit">परियोजनारूपेण रक्षित्वा निर्गच्छन्तु</string>
-  <string name="apk_builder_sign">हस्ताक्षर करते हुए</string>
-  <string name="text_invalid_config">अमान्य विन्यास</string>
-  <string name="text_abi">समर्थित ABIs (अल्पविरामेन पृथक्)</string>
-  <string name="text_save_project_to">परियोजना रक्षिता: %s</string>
+  <string name="text_save_as_project">परियोजनारूपेण रक्षतु</string>  
+  <string name="text_select_save_mode">कृपया एकं रक्षणविधिं चिनोतु</string>  
+  <string name="text_save_as_project_and_exit">परियोजनारूपेण रक्षित्वा निर्गच्छन्तु</string>  
+  <string name="apk_builder_sign">हस्ताक्षर करते हुए</string>  
+  <string name="text_invalid_config">अमान्य विन्यास</string>  
+  <string name="text_abi">समर्थित ABIs (अल्पविरामेन पृथक्)</string>  
+  <string name="text_save_project_to">परियोजना रक्षिता: %s</string>  
+  <string name="text_hide_and_show">गोपनीयम्/दर्शयतु</string>
+  <string name="text_browser_open">ब्राउज़र खुला</string>
+  <string name="text_do_nothing">किमपि न कुरुत</string>
+  <string name="text_copy_to_new_folder">मूलपुटस्य सामग्रीं नूतनपुटे प्रतिलिख्यताम्</string>
+  <string name="text_move_new_folder">मूलपुटस्य सामग्रीं नूतनपुटे स्थानान्तरयन्तु</string>
+  <string name="text_accessibility_service_is_not_enable">सुलभता सेवा चालू न भवति</string>
+  <string name="text_set_successfully">सफलतया सेट् कुर्वन्तु</string>
 </resources>

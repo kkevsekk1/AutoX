@@ -155,9 +155,16 @@ module.exports = function (runtime, global) {
     app.versionCode = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
     app.versionName = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
 
+    var buildConfig
+    if (context.getPackageName().startsWith("org.autojs.autoxjs")){
+        buildConfig = org.autojs.autoxjs.BuildConfig
+    }else{
+        buildConfig = org.autojs.autoxjs.inrt.BuildConfig
+    }
+    
     app.autojs = {
-        versionCode: org.autojs.autojs.BuildConfig.VERSION_CODE,
-        versionName: org.autojs.autojs.BuildConfig.VERSION_NAME
+        versionCode: buildConfig.VERSION_CODE,
+        versionName: buildConfig.VERSION_NAME
     };
 
     app.intentToShell = function(i) {

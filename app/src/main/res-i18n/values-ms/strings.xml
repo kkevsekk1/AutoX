@@ -2,7 +2,7 @@
 
 <!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
 <resources> 
-  <string name="text_accessibility_service_description">Diperlukan untuk mengautomasikan operasi skrip (klik, tekan lama, leret, dsb.), jika dilumpuhkan, hanya skrip yang tidak melibatkan operasi automatik boleh dilaksanakan.</string>  
+  <string name="text_accessibility_service_description">Diperlukan untuk mengautomasikan operasi skrip (klik, tekan lama, leret, dll.), jika dilumpuhkan, hanya skrip yang tidak melibatkan operasi automatik boleh dilaksanakan.</string>  
   <string name="text_new_file">Buat fail baharu</string>  
   <string name="text_create_fail">Gagal mencipta</string>  
   <string name="text_please_input_name">Sila masukkan nama</string>  
@@ -56,7 +56,7 @@
   <string name="text_console">Konsol</string>  
   <string name="text_log">Log</string>  
   <string name="text_report_fail">Penyerahan Gagal</string>  
-  <string name="text_report_succeed">Dihantar dengan jayanya</string>  
+  <string name="text_report_succeed">Berjaya diserahkan</string>  
   <string name="edit_and_run_handle_intent_error">Tidak dapat memproses fail</string>  
   <string name="text_issue_report">Maklum balas</string>  
   <string name="text_script_record">Skrip rekod</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Pilihan</string>  
   <string name="text_using_id_selector">Pilih menggunakan id</string>  
   <string name="text_using_text_selector">Gunakan pemilihan teks (teks)</string>  
-  <string name="text_using_desc_selector">Pilih menggunakan penerangan (desc)</string>  
+  <string name="text_using_desc_selector">Gunakan Penerangan Pilih (desc)</string>  
   <string name="text_generate">Menjana</string>  
   <string name="text_generate_fail">Pembinaan gagal o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Sumber dokumentasi</string>  
@@ -343,7 +343,7 @@
   <string name="nodebb_error_change_password_error_match">Kedua-dua kata laluan yang dimasukkan tidak sepadan</string>  
   <string name="text_logout">Log keluar</string>  
   <string name="nodebb_error_forbidden">Operasi gagal, sila cuba lagi kemudian</string>  
-  <string name="description_stable_mode">Mod stabil menjadikan skrip lebih stabil apabila merebut reka letak dengan meninggalkan butiran reka letak, tetapi pada masa yang sama mengambil kawalan pada skrin yang lebih sedikit. \n \n semula perkhidmatan kebolehaksesan untuk berkuat kuasa.</string>  
+  <string name="description_stable_mode">Mod stabil menjadikan skrip lebih stabil apabila mengambil reka letak dengan meninggalkan butiran reka letak, tetapi pada masa yang sama mengambil lebih sedikit kawalan pada skrin. \n \n semula perkhidmatan kebolehaksesan untuk berkuat kuasa.</string>  
   <string name="text_size_min_value">2</string>  
   <string name="text_size_max_value">60</string>  
   <string name="text_text_size">Saiz huruf</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Klik untuk memasuki antara muka utama</string>  
   <string name="text_run_on_other_broadcast">Acara lain (siaran)</string>  
   <string name="text_broadcast_action">Aksi Penyiaran</string>  
-  <string name="text_run_on_boot">Semasa boot</string>  
+  <string name="text_run_on_boot">Pada masa but</string>  
   <string name="text_run_on_screen_on">Apabila skrin dihidupkan</string>  
   <string name="text_run_on_screen_off">Apabila skrin dimatikan</string>  
   <string name="error_empty_selection">Sila pilih pilihan acara siaran</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Mod malam</string>  
   <string name="text_run_on_startup">Apabila Autox.js bermula</string>  
   <string name="text_usage_stats_permission">Akses penggunaan</string>  
-  <string name="description_usage_stats_permission">Melalui kebenaran \"lihat statistik penggunaan\", anda boleh mendapatkan penggunaan aplikasi yang lalu bagi peranti ini, supaya lebih tepat untuk mendapatkan aplikasi semasa (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Melalui kebenaran \"Lihat Statistik Penggunaan\", anda boleh mendapatkan penggunaan aplikasi yang lalu bagi peranti ini, supaya lebih tepat untuk mendapatkan aplikasi semasa (currentPackage).</string>  
   <string name="text_open_with">Jalan terbuka</string>  
   <string name="text_root">Akar</string>  
   <string name="text_no_root">Bebas akar</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Keluar dari carian</string>  
   <string name="text_licenses_other">Lesen Bukan Sumber Terbuka</string>  
   <string name="text_save_successfully">Berjaya disimpan</string>  
-  <string name="text_save_as_project">Simpan sebagai projek</string>
-  <string name="text_select_save_mode">Sila pilih kaedah simpan</string>
-  <string name="text_save_as_project_and_exit">Simpan sebagai projek dan keluar</string>
-  <string name="apk_builder_sign">Menandatangani</string>
-  <string name="text_invalid_config">Konfigurasi tidak sah</string>
-  <string name="text_abi">ABI yang disokong (dipisahkan dengan koma)</string>
-  <string name="text_save_project_to">Projek disimpan ke: %s</string>
+  <string name="text_save_as_project">Simpan sebagai projek</string>  
+  <string name="text_select_save_mode">Sila pilih kaedah simpan</string>  
+  <string name="text_save_as_project_and_exit">Simpan sebagai projek dan keluar</string>  
+  <string name="apk_builder_sign">Menandatangani</string>  
+  <string name="text_invalid_config">Konfigurasi tidak sah</string>  
+  <string name="text_abi">ABI yang disokong (dipisahkan dengan koma)</string>  
+  <string name="text_save_project_to">Projek disimpan ke: %s</string>  
+  <string name="text_hide_and_show">Sembunyi / tunjukkan</string>
+  <string name="text_browser_open">Pelayar dibuka</string>
+  <string name="text_do_nothing">Tidak buat apa-apa</string>
+  <string name="text_copy_to_new_folder">Salin kandungan folder asal ke folder baharu</string>
+  <string name="text_move_new_folder">Pindahkan kandungan folder asal ke folder baharu</string>
+  <string name="text_accessibility_service_is_not_enable">Perkhidmatan kebolehaksesan tidak dihidupkan</string>
+  <string name="text_set_successfully">Ditetapkan dengan jayanya</string>
 </resources>

@@ -24,7 +24,7 @@
   <string name="text_alert">ସୂଚନା</string>  
   <string name="edit_exit_without_save_warn">ବିଷୟବସ୍ତୁ ସଞ୍ଚୟ ହୋଇନାହିଁ, ଆପଣ ନିଶ୍ଚିତ କି ଆପଣ ବାହାରକୁ ଯିବାକୁ ଚାହୁଁଛନ୍ତି?</string>  
   <string name="text_save_and_exit">ସଞ୍ଚୟ ଏବଂ ପ୍ରସ୍ଥାନ</string>  
-  <string name="text_exit_directly">ସିଧାସଳଖ ବାହାରକୁ ଯାଆନ୍ତୁ |</string>  
+  <string name="text_exit_directly">ସିଧାସଳଖ ପ୍ରସ୍ଥାନ କରନ୍ତୁ |</string>  
   <string name="text_setting">ସେଟ୍ ଅପ୍ କରନ୍ତୁ |</string>  
   <string name="text_exit">ଛାଡ</string>  
   <string name="text_auto_operate_service">ଅଭିଗମ୍ୟତା ସେବା</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">ବିକଳ୍ପଗୁଡ଼ିକ</string>  
   <string name="text_using_id_selector">Id ବ୍ୟବହାର କରି ଚୟନ କରନ୍ତୁ |</string>  
   <string name="text_using_text_selector">ପାଠ୍ୟ ଚୟନ (ପାଠ୍ୟ) ବ୍ୟବହାର କରନ୍ତୁ |</string>  
-  <string name="text_using_desc_selector">ବର୍ଣ୍ଣନା (desc) ବ୍ୟବହାର କରି ଚୟନ କରନ୍ତୁ |</string>  
+  <string name="text_using_desc_selector">ବର୍ଣ୍ଣନା ବ୍ୟବହାର କରନ୍ତୁ (ତଳକୁ)</string>  
   <string name="text_generate">ସୃଷ୍ଟି କରନ୍ତୁ |</string>  
   <string name="text_generate_fail">ନିର୍ମାଣ ବିଫଳ o (╥﹏╥) o |</string>  
   <string name="text_documentation_source">ଡକ୍ୟୁମେଣ୍ଟେସନ୍ ଉତ୍ସ |</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">ମୁଖ୍ୟ ଇଣ୍ଟରଫେସ୍ ପ୍ରବେଶ କରିବାକୁ କ୍ଲିକ୍ କରନ୍ତୁ |</string>  
   <string name="text_run_on_other_broadcast">ଅନ୍ୟାନ୍ୟ ଘଟଣା (ପ୍ରସାରଣ)</string>  
   <string name="text_broadcast_action">ପ୍ରସାରଣ କାର୍ଯ୍ୟ</string>  
-  <string name="text_run_on_boot">ବୁଟ କରିବା ସମୟରେ</string>  
+  <string name="text_run_on_boot">ବୁଟ ସମୟରେ</string>  
   <string name="text_run_on_screen_on">ଯେତେବେଳେ ସ୍କ୍ରିନ୍ ଅନ୍ ଅଛି |</string>  
   <string name="text_run_on_screen_off">ଯେତେବେଳେ ସ୍କ୍ରିନ୍ ବନ୍ଦ ଅଛି |</string>  
   <string name="error_empty_selection">ଦୟାକରି ଏକ ପ୍ରସାରଣ ଇଭେଣ୍ଟ ବିକଳ୍ପ ଚୟନ କରନ୍ତୁ |</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">ନାଇଟ୍ ମୋଡ୍ |</string>  
   <string name="text_run_on_startup">ଯେତେବେଳେ Autox.js ଆରମ୍ଭ ହୁଏ |</string>  
   <string name="text_usage_stats_permission">ବ୍ୟବହାର ପ୍ରବେଶ</string>  
-  <string name="description_usage_stats_permission">\"ବ୍ୟବହାର ପରିସଂଖ୍ୟାନକୁ ଦର୍ଶନ\" ଅନୁମତି ମାଧ୍ୟମରେ, ଆପଣ ଏହି ଉପକରଣର ଅତୀତର ପ୍ରୟୋଗ ବ୍ୟବହାର ପାଇପାରିବେ, ଯାହା ଦ୍ the ାରା ସାମ୍ପ୍ରତିକ ପ୍ରୟୋଗ (କରେଣ୍ଟ୍ ପ୍ୟାକେଜ୍) ପାଇବା ଅଧିକ ସଠିକ୍ ଅଟେ |</string>  
+  <string name="description_usage_stats_permission">\"ବ୍ୟବହାର ପରିସଂଖ୍ୟାନ ଦର୍ଶନ\" ଅନୁମତି ମାଧ୍ୟମରେ, ଆପଣ ଏହି ଉପକରଣର ଅତୀତର ପ୍ରୟୋଗ ବ୍ୟବହାର ପାଇପାରିବେ, ଯାହା ଦ୍ the ାରା ସାମ୍ପ୍ରତିକ ପ୍ରୟୋଗ (କରେଣ୍ଟ୍ ପ୍ୟାକେଜ୍) ପାଇବା ଅଧିକ ସଠିକ୍ ଅଟେ |</string>  
   <string name="text_open_with">ଖୋଲା ରାସ୍ତା</string>  
   <string name="text_root">ମୂଳ</string>  
   <string name="text_no_root">ମୂଳ ମୁକ୍ତ |</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">ସନ୍ଧାନରୁ ପ୍ରସ୍ଥାନ କରନ୍ତୁ |</string>  
   <string name="text_licenses_other">ଅଣ-ମୁକ୍ତ ଉତ୍ସ ଲାଇସେନ୍ସ |</string>  
   <string name="text_save_successfully">ସଫଳତାର ସହିତ ସଞ୍ଚୟ ହୋଇଛି |</string>  
-  <string name="text_save_as_project">ପ୍ରୋଜେକ୍ଟ ଭାବରେ ସେଭ୍ କରନ୍ତୁ |</string>
-  <string name="text_select_save_mode">ଦୟାକରି ଏକ ସଂରକ୍ଷଣ ପଦ୍ଧତି ବାଛନ୍ତୁ |</string>
-  <string name="text_save_as_project_and_exit">ପ୍ରୋଜେକ୍ଟ ଭାବରେ ସେଭ୍ କରନ୍ତୁ ଏବଂ ପ୍ରସ୍ଥାନ କରନ୍ତୁ |</string>
-  <string name="apk_builder_sign">ଦସ୍ତଖତ</string>
-  <string name="text_invalid_config">ଅବ inv ଧ ବିନ୍ୟାସ</string>
-  <string name="text_abi">ସମର୍ଥିତ ABI ଗୁଡିକ (କମା ସହିତ ପୃଥକ)</string>
-  <string name="text_save_project_to">ପ୍ରୋଜେକ୍ଟ ସେଭ୍ ହୋଇଛି: %s</string>
+  <string name="text_save_as_project">ପ୍ରୋଜେକ୍ଟ ଭାବରେ ସେଭ୍ କରନ୍ତୁ |</string>  
+  <string name="text_select_save_mode">ଦୟାକରି ଏକ ସଂରକ୍ଷଣ ପଦ୍ଧତି ବାଛନ୍ତୁ |</string>  
+  <string name="text_save_as_project_and_exit">ପ୍ରୋଜେକ୍ଟ ଭାବରେ ସେଭ୍ କରନ୍ତୁ ଏବଂ ପ୍ରସ୍ଥାନ କରନ୍ତୁ |</string>  
+  <string name="apk_builder_sign">ଦସ୍ତଖତ</string>  
+  <string name="text_invalid_config">ଅବ inv ଧ ବିନ୍ୟାସ</string>  
+  <string name="text_abi">ସମର୍ଥିତ ABI ଗୁଡିକ (କମା ସହିତ ପୃଥକ)</string>  
+  <string name="text_save_project_to">ପ୍ରୋଜେକ୍ଟ ସେଭ୍ ହୋଇଛି: %s</string>  
+  <string name="text_hide_and_show">ଲୁଚାନ୍ତୁ / ଦେଖାନ୍ତୁ |</string>
+  <string name="text_browser_open">ବ୍ରାଉଜର୍ ଖୋଲା |</string>
+  <string name="text_do_nothing">କିଛି କର ନାହିଁ</string>
+  <string name="text_copy_to_new_folder">ମୂଳ ଫୋଲ୍ଡରର ବିଷୟବସ୍ତୁକୁ ନୂଆ ଫୋଲ୍ଡରରେ କପି କରନ୍ତୁ |</string>
+  <string name="text_move_new_folder">ମୂଳ ଫୋଲ୍ଡରର ବିଷୟବସ୍ତୁକୁ ନୂଆ ଫୋଲ୍ଡରକୁ ଘୁଞ୍ଚାନ୍ତୁ |</string>
+  <string name="text_accessibility_service_is_not_enable">ଅଭିଗମ୍ୟତା ସେବା ଟର୍ନ୍ ଅନ୍ ନୁହେଁ |</string>
+  <string name="text_set_successfully">ସଫଳତାର ସହିତ ସେଟ୍ କରନ୍ତୁ |</string>
 </resources>

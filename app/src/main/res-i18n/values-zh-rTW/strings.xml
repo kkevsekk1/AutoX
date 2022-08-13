@@ -498,11 +498,18 @@
   <string name="text_exit_search">退出搜索</string>  
   <string name="text_licenses_other">非開源許可</string>  
   <string name="text_save_successfully">保存成功</string>  
-  <string name="text_save_as_project">保存為項目</string>
-  <string name="text_select_save_mode">請選擇保存方式</string>
-  <string name="text_save_as_project_and_exit">保存為項目並退出</string>
-  <string name="apk_builder_sign">正在簽名</string>
-  <string name="text_invalid_config">無效的配置</string>
-  <string name="text_abi">支持的ABI(使用逗號分隔)</string>
-  <string name="text_save_project_to">項目保存至： %s</string>
+  <string name="text_save_as_project">保存為項目</string>  
+  <string name="text_select_save_mode">請選擇保存方式</string>  
+  <string name="text_save_as_project_and_exit">保存為項目並退出</string>  
+  <string name="apk_builder_sign">正在簽名</string>  
+  <string name="text_invalid_config">無效的配置</string>  
+  <string name="text_abi">支持的ABI(使用逗號分隔)</string>  
+  <string name="text_save_project_to">項目保存至： %s</string>  
+  <string name="text_hide_and_show">隱藏/顯示</string>
+  <string name="text_browser_open">瀏覽器打開</string>
+  <string name="text_do_nothing">不執行任何操作</string>
+  <string name="text_copy_to_new_folder">複製原文件夾內容到新文件夾</string>
+  <string name="text_move_new_folder">移動原文件夾內容到新文件夾</string>
+  <string name="text_accessibility_service_is_not_enable">無障礙服務未開啟</string>
+  <string name="text_set_successfully">設置成功</string>
 </resources>

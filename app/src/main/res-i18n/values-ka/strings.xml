@@ -8,7 +8,7 @@
   <string name="text_please_input_name">გთხოვთ შეიყვანოთ სახელი</string>  
   <string name="text_name">სახელი</string>  
   <string name="text_go_to_setting">გადადით პარამეტრებზე</string>  
-  <string name="explain_accessibility_permission">პროგრამამ უნდა გახსნას „წვდომის სერვისები“ გასაშვებად, გთხოვთ, გახსენით „პარამეტრები->ხელმისაწვდომობის სერვისები“ ან „პარამეტრები->ხელმისაწვდომობის სერვისები->მეტი ჩამოტვირთული სერვისები“, იპოვეთ ეს აპლიკაცია და ჩართოთ ხელმისაწვდომობის სერვისები \n ასევე შეგიძლიათ დააყენოთ მოგვიანებით ჩამოსაშლელ მენიუში.</string>  
+  <string name="explain_accessibility_permission">პროგრამამ უნდა გახსნას \"წვდომის სერვისები\" გასაშვებად, გთხოვთ, გახსენით \"პარამეტრები->წვდომის სერვისები\" ან \"პარამეტრები->წვდომის სერვისები->მეტი ჩამოტვირთული სერვისები\", იპოვეთ ეს აპლიკაცია და ჩართოთ ხელმისაწვდომობის სერვისები \n ასევე შეგიძლიათ დააყენოთ მოგვიანებით ჩამოსაშლელ მენიუში.</string>  
   <string name="explain_accessibility_permission2">პროგრამულ უზრუნველყოფას უნდა გახსნას „წვდომის სერვისები“ გასაშვებად, გთხოვთ, გახსენით „პარამეტრები->წვდომის სერვისები“ ან „პარამეტრები->წვდომის სერვისები->მეტი ჩამოტვირთული სერვისები“, იპოვეთ ეს აპლიკაცია და ჩართოთ ხელმისაწვდომობის სერვისები</string>  
   <string name="text_cancel">გაუქმება</string>  
   <string name="text_path_is_empty">ბილიკი ცარიელია</string>  
@@ -24,7 +24,7 @@
   <string name="text_alert">მინიშნება</string>  
   <string name="edit_exit_without_save_warn">კონტენტი არ არის შენახული, დარწმუნებული ხართ, რომ გსურთ გასვლა?</string>  
   <string name="text_save_and_exit">შენახვა და გამოსვლა</string>  
-  <string name="text_exit_directly">პირდაპირ გადით</string>  
+  <string name="text_exit_directly">პირდაპირ გასვლა</string>  
   <string name="text_setting">აწყობა</string>  
   <string name="text_exit">დატოვა</string>  
   <string name="text_auto_operate_service">ხელმისაწვდომობის სერვისები</string>  
@@ -169,7 +169,7 @@
   <string name="text_tutorial">სახელმძღვანელო</string>  
   <string name="text_community">საზოგადოება</string>  
   <string name="text_manage">მართვა</string>  
-  <string name="not_login">ნორმალური ფუნქციონირებისთვის შესვლა საჭირო არ არის</string>  
+  <string name="not_login">ნორმალური ფუნქციებისთვის შესვლა საჭირო არ არის</string>  
   <string name="text_volume_down_control">ხმის შემცირების ღილაკის კონტროლი</string>  
   <string name="text_auto_backup">ავტომატური სარეზერვო სკრიპტი</string>  
   <string name="text_others">სხვა</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Პარამეტრები</string>  
   <string name="text_using_id_selector">აირჩიეთ ID-ის გამოყენებით</string>  
   <string name="text_using_text_selector">გამოიყენეთ ტექსტის შერჩევა (ტექსტი)</string>  
-  <string name="text_using_desc_selector">აირჩიეთ აღწერის გამოყენებით (აღმოწერა)</string>  
+  <string name="text_using_desc_selector">გამოიყენეთ აღწერილობის არჩევა (აღმომ.)</string>  
   <string name="text_generate">გენერირება</string>  
   <string name="text_generate_fail">აშენება ვერ მოხერხდა o(╥﹏╥)o</string>  
   <string name="text_documentation_source">დოკუმენტაციის წყარო</string>  
@@ -309,7 +309,7 @@
   <string name="text_done">დასრულება</string>  
   <string name="text_disposable_task">გაუშვით მხოლოდ ერთხელ</string>  
   <string name="text_daily_task">ყოველდღიურად სირბილი</string>  
-  <string name="text_weekly_task">გაშვებული კვირის განმავლობაში</string>  
+  <string name="text_weekly_task">კვირაში გაშვება</string>  
   <string name="text_timing">დროის განაწილება</string>  
   <string name="text_disposable_task_time_before_now">დავალების დრო ნაკლებია, ვიდრე მიმდინარე დრო</string>  
   <string name="text_next_run_time">შემდეგი გაშვება</string>  
@@ -349,8 +349,8 @@
   <string name="text_text_size">შრიფტის ზომა</string>  
   <string name="text_preview">გადახედვა</string>  
   <string name="text_size_current_value" formatted="true">შრიფტის ზომა: %d</string>  
-  <string name="error_regex_find_prev">რეგულარულ გამოხატულებას არ შეუძლია მოუსმინოს</string>  
-  <string name="text_notification">გაფრთხილება</string>  
+  <string name="error_regex_find_prev">რეგულარულ გამოხატულებას არ შეუძლია მოლოდინი</string>  
+  <string name="text_notification">შენიშვნა</string>  
   <string name="apk_builder_plugin_version_too_low">შეფუთული დანამატის ვერსია ძალიან დაბალია და შეფუთული აპლიკაცია შეიძლება არ იმუშაოს სწორად. გსურთ ახლავე ჩამოტვირთოთ შეფუთული დანამატის შესაბამისი ვერსია?</string>  
   <string name="text_inspect_layout_bounds">განლაგების დიაპაზონის ანალიზი</string>  
   <string name="text_inspect_layout_hierarchy">განლაგების იერარქია</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">დააწკაპუნეთ მთავარ ინტერფეისში შესასვლელად</string>  
   <string name="text_run_on_other_broadcast">სხვა ღონისძიებები (მაუწყებლობა)</string>  
   <string name="text_broadcast_action">სამაუწყებლო მოქმედება</string>  
-  <string name="text_run_on_boot">ჩატვირთვისას</string>  
+  <string name="text_run_on_boot">ჩატვირთვის დროს</string>  
   <string name="text_run_on_screen_on">როდესაც ეკრანი ჩართულია</string>  
   <string name="text_run_on_screen_off">როდესაც ეკრანი გამორთულია</string>  
   <string name="error_empty_selection">გთხოვთ, აირჩიოთ სამაუწყებლო ღონისძიების ვარიანტი</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">ღამის რეჟიმი</string>  
   <string name="text_run_on_startup">როდესაც Autox.js იწყება</string>  
   <string name="text_usage_stats_permission">გამოყენების წვდომა</string>  
-  <string name="description_usage_stats_permission">„გამოყენების სტატისტიკის ნახვა“ ნებართვით, შეგიძლიათ მიიღოთ ამ მოწყობილობის აპლიკაციის წარსული გამოყენება, რათა უფრო ზუსტი იყოს მიმდინარე აპლიკაციის (currentPackage) მიღება.</string>  
+  <string name="description_usage_stats_permission">„გამოყენების სტატისტიკის ნახვა“ ნებართვის მეშვეობით შეგიძლიათ მიიღოთ ამ მოწყობილობის აპლიკაციის წარსული გამოყენება, რათა უფრო ზუსტი იყოს მიმდინარე აპლიკაციის (currentPackage) მიღება.</string>  
   <string name="text_open_with">ღია გზა</string>  
   <string name="text_root">ფესვი</string>  
   <string name="text_no_root">Root უფასო</string>  
@@ -449,7 +449,7 @@
   <string name="air_error_no_username">გთხოვთ, შეიყვანოთ სწორი Github მომხმარებლის სახელი</string>  
   <string name="air_error_no_password">გთხოვთ შეიყვანოთ სწორი პაროლი</string>  
   <string name="air_error_no_email">გთხოვთ შეიყვანოთ თქვენი ელ.წერილი</string>  
-  <string name="air_dialog_title_loading">მიმდინარეობს ატვირთვა GitHub-ში…</string>  
+  <string name="air_dialog_title_loading">იტვირთება GitHub-ში…</string>  
   <string name="air_dialog_title_failed">ხარვეზის ანგარიშის გაგზავნა ვერ მოხერხდა</string>  
   <string name="air_dialog_description_failed_wrong_credentials">არასწორი მომხმარებელი ან პაროლი</string>  
   <string name="air_dialog_description_failed_invalid_token">წვდომის ჟეტონი არასწორია. გთხოვთ, დაუკავშირდეთ პროგრამის შემქმნელს.</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">ძიებიდან გასვლა</string>  
   <string name="text_licenses_other">არაღია კოდის ლიცენზია</string>  
   <string name="text_save_successfully">წარმატებით შენახულია</string>  
-  <string name="text_save_as_project">პროექტად შენახვა</string>
-  <string name="text_select_save_mode">გთხოვთ, აირჩიოთ შენახვის მეთოდი</string>
-  <string name="text_save_as_project_and_exit">შეინახეთ როგორც პროექტი და გადით</string>
-  <string name="apk_builder_sign">ხელმოწერა</string>
-  <string name="text_invalid_config">არასწორი კონფიგურაცია</string>
-  <string name="text_abi">მხარდაჭერილი ABI (გამოყოფილი მძიმეებით)</string>
-  <string name="text_save_project_to">პროექტი შენახულია: %s</string>
+  <string name="text_save_as_project">პროექტად შენახვა</string>  
+  <string name="text_select_save_mode">გთხოვთ, აირჩიოთ შენახვის მეთოდი</string>  
+  <string name="text_save_as_project_and_exit">შეინახეთ როგორც პროექტი და გადით</string>  
+  <string name="apk_builder_sign">ხელმოწერა</string>  
+  <string name="text_invalid_config">არასწორი კონფიგურაცია</string>  
+  <string name="text_abi">მხარდაჭერილი ABI (გამოყოფილი მძიმეებით)</string>  
+  <string name="text_save_project_to">პროექტი შენახულია: %s</string>  
+  <string name="text_hide_and_show">დამალვა/ჩვენება</string>
+  <string name="text_browser_open">ბრაუზერი გახსნილია</string>
+  <string name="text_do_nothing">არაფრის კეთება</string>
+  <string name="text_copy_to_new_folder">დააკოპირეთ ორიგინალური საქაღალდის შიგთავსი ახალ საქაღალდეში</string>
+  <string name="text_move_new_folder">გადაიტანეთ ორიგინალური საქაღალდის შიგთავსი ახალ საქაღალდეში</string>
+  <string name="text_accessibility_service_is_not_enable">წვდომის სერვისი არ არის ჩართული</string>
+  <string name="text_set_successfully">წარმატებით დააყენეთ</string>
 </resources>

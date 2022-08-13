@@ -40,7 +40,7 @@
   <string name="text_press_again_to_exit">Gazi edzi ake be nàdo le ɖoɖowɔɖia me</string>  
   <string name="text_already_stop_n_scripts">%d ƒe ŋɔŋlɔdzesiwo ƒe dɔwɔwɔ tɔ</string>  
   <string name="text_start_running">Dze dɔwɔwɔ gɔme</string>  
-  <string name="text_open_by_other_apps">Ʋue kple dɔwɔnu bubu</string>  
+  <string name="text_open_by_other_apps">Ʋu kple dɔwɔnu bubu</string>  
   <string name="text_rename">Trɔ ŋkɔ nɛ</string>  
   <string name="text_send_shortcut">Wɔ Mɔ Kpuie</string>  
   <string name="text_already_create">Wowɔe</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Tiatiawɔblɔɖewo</string>  
   <string name="text_using_id_selector">Tia to id zazã me</string>  
   <string name="text_using_text_selector">Zã nuŋɔŋlɔ tiatia (nuŋɔŋlɔ) .</string>  
-  <string name="text_using_desc_selector">Tia to numeɖeɖe (desc) zazã me .</string>  
+  <string name="text_using_desc_selector">Zã Numeɖeɖe Tia (desc) .</string>  
   <string name="text_generate">Wɔ</string>  
   <string name="text_generate_fail">Tu do kpo nu o(╥╥)o</string>  
   <string name="text_documentation_source">Nuŋlɔɖiwo ƒe dzɔtsoƒe</string>  
@@ -360,7 +360,7 @@
   <string name="default_value_script_dir_path">/nuŋlɔɖi/</string>  
   <string name="text_error_copy_file" formatted="true">Vodada aɖe dzɔ: %s</string>  
   <string name="text_debug">Vodadawo ɖeɖeɖa</string>  
-  <string name="text_set_breakpoint">Breakpoint</string>  
+  <string name="text_set_breakpoint">Gbagbãƒe</string>  
   <string name="text_launch_debugger">Dze vodadawo ɖeɖeɖa gɔme</string>  
   <string name="text_debug_step_out">Ti kpo do goe</string>  
   <string name="text_debug_step_into">Geɖe eme</string>  
@@ -394,12 +394,12 @@
   <string name="text_invalid_project">Nusi mesɔ o</string>  
   <string name="text_invalid_project_config">Ɖoɖowɔɖi ƒe faɛl aɖeke meli o</string>  
   <string name="text_foreground_service">Amexɔƒe</string>  
-  <string name="foreground_notification_channel_name">Xɔxlɔ̃ ƒe subɔsubɔdɔ ŋuti nyatakaka</string>  
+  <string name="foreground_notification_channel_name">Xɔdɔmewo ƒe subɔsubɔdɔ ŋuti nyatakaka</string>  
   <string name="foreground_notification_title">Autox.js yia edzi le dɔ wɔm</string>  
   <string name="foreground_notification_text">Zi edzi be nàge ɖe ŋgɔdonya vevitɔa me</string>  
   <string name="text_run_on_other_broadcast">Nudzɔdzɔ bubuwo (woɖea gbeƒãe) .</string>  
   <string name="text_broadcast_action">Nyadzɔdzɔgblɔmɔnuwo ƒe Afɔɖeɖe</string>  
-  <string name="text_run_on_boot">Ne wole afɔkpa wɔm</string>  
+  <string name="text_run_on_boot">Le afɔkpa ƒe ɣeyiɣi me</string>  
   <string name="text_run_on_screen_on">Ne screen la le dɔ wɔm</string>  
   <string name="text_run_on_screen_off">Ne screen la tsi</string>  
   <string name="error_empty_selection">Taflatse tia nyadzɔdzɔgblɔmɔ̃ ƒe wɔna ƒe tiatia aɖe</string>  
@@ -418,11 +418,11 @@
   <string name="text_invalid_package_name">Agbalẽvi ƒe ŋkɔ si mele se nu o</string>  
   <string name="error_cannot_rename">Ŋkɔ ɖɔliɖɔli do kpo nu</string>  
   <string name="text_project_save_success">Wodzra dɔa ɖo ɖe %s</string>  
-  <string name="text_project_save_error">Dɔwɔwɔ ƒe dzadzraɖo do kpo %s</string>  
+  <string name="text_project_save_error">Dɔwɔwɔ ƒe dzraɖoƒe do kpo %s</string>  
   <string name="text_night_mode">Zã ƒe nɔnɔme</string>  
   <string name="text_run_on_startup">Ne Autox.js dze egɔme</string>  
   <string name="text_usage_stats_permission">Zazã ƒe mɔnukpɔkpɔ</string>  
-  <string name="description_usage_stats_permission">To \"kpɔ zazã ƒe akɔntabubuwo\" ƒe mɔɖeɖe me la, àteŋu axɔ mɔ̃ sia ƒe dɔwɔnu zazã va yi, ale be wòade pɛpɛpɛ wu be nàxɔ dɔwɔnu si li fifia (currentPackage).</string>  
+  <string name="description_usage_stats_permission">To \"Kpɔ Zãzã ƒe Akɔntabubuwo\" ƒe mɔɖeɖe dzi la, àteŋu axɔ dɔwɔnu si wozã va yi le mɔ̃ sia ŋu, ale be wòade pɛpɛpɛ wu be nàxɔ dɔwɔnu si li fifia (currentPackage).</string>  
   <string name="text_open_with">Mɔ si ʋu ɖi</string>  
   <string name="text_root">Ke</string>  
   <string name="text_no_root">Ke si me woɖea mɔ ɖe nu ŋu le</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Do go le didi me</string>  
   <string name="text_licenses_other">Mɔɖegbalẽ si Me Womeʋu Dzɔtsoƒe O</string>  
   <string name="text_save_successfully">Wokpɔ ɖeɖe dzidzedzetɔe</string>  
-  <string name="text_save_as_project">Dzra ɖo abe dɔ ene</string>
-  <string name="text_select_save_mode">Taflatse tia mɔnu si dzi nàto adzrae ɖo</string>
-  <string name="text_save_as_project_and_exit">Dzra ɖo abe dɔ ene eye nàdo le eme</string>
-  <string name="apk_builder_sign">Asidede agbalẽ te</string>
-  <string name="text_invalid_config">Ɖoɖowɔɖi si mesɔ o</string>
-  <string name="text_abi">ABI siwo wodo alɔe (wotsɔ dometsotsowo ma wo dome) .</string>
-  <string name="text_save_project_to">Dɔwɔwɔ si wodzra ɖo ɖe: %s</string>
+  <string name="text_save_as_project">Dzra ɖo abe dɔ ene</string>  
+  <string name="text_select_save_mode">Taflatse tia mɔnu si dzi nàto adzrae ɖo</string>  
+  <string name="text_save_as_project_and_exit">Dzra ɖo abe dɔ ene eye nàdo le eme</string>  
+  <string name="apk_builder_sign">Asidede agbalẽ te</string>  
+  <string name="text_invalid_config">Ɖoɖowɔɖi si mesɔ o</string>  
+  <string name="text_abi">ABI siwo wodo alɔe (wotsɔ dometsotsowo ma wo dome) .</string>  
+  <string name="text_save_project_to">Dɔwɔwɔ si wodzra ɖo ɖe: %s</string>  
+  <string name="text_hide_and_show">Ɣla/ɖee fia</string>
+  <string name="text_browser_open">Browser la ʋu</string>
+  <string name="text_do_nothing">Mègawɔ naneke o</string>
+  <string name="text_copy_to_new_folder">Kpɔ agbalẽdzraɖoƒe gbãtɔa me nyawo ƒe kɔpi ɖe agbalẽdzraɖoƒe yeyea me</string>
+  <string name="text_move_new_folder">Tsɔ agbalẽdzraɖoƒe gbãtɔa me nyawo yi agbalẽdzraɖoƒe yeyea me</string>
+  <string name="text_accessibility_service_is_not_enable">Womeʋua mɔɖeɖe ɖe nu ŋu ƒe dɔwɔƒea o</string>
+  <string name="text_set_successfully">Ɖoe dzidzedzetɔe</string>
 </resources>

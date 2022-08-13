@@ -8,7 +8,7 @@
   <string name="text_please_input_name">ނަމެއް ޖައްސަވާށެވެ</string>  
   <string name="text_name">ނަން</string>  
   <string name="text_go_to_setting">ސެޓިންގސް އަށް ދާށެވެ</string>  
-  <string name="explain_accessibility_permission">ސޮފްޓްވެއަރ ހިންގުމަށްޓަކައި \"އެކްސެސިބިލިޓީ ސާވިސަސް\" ހުޅުވަން ޖެހޭނެ، \"ސެޓިންގސް->އެކްސެސިބިލިޓީ ސާވިސަސް\" ނުވަތަ \"ސެޓިންގސް->އެކްސެސިބިލިޓީ ސާވިސަސް->އިތުރަށް ޑައުންލޯޑް ކުރެވިފައިވާ ޚިދުމަތްތައް\" ހުޅުވާލުމަށްފަހު، މި އެޕްލިކޭޝަން ހޯދައި، އެކްސެސިބިލިޓީ ސާވިސަސް \n ތިބާ އެނެބަލް ކުރަންވާނެއެވެ ފަހުން ޑްރޮޕް ޑައުން މެނޫއިން ފެންނާނެއެވެ.</string>  
+  <string name="explain_accessibility_permission">ސޮފްޓްވެއާ ހިންގުމަށްޓަކައި \"އެކްސެސިބިލިޓީ ސާވިސަސް\" ހުޅުވަން ޖެހޭ، \"ސެޓިންގސް->އެކްސެސިބިލިޓީ ސާވިސަސް\" ނުވަތަ \"ސެޓިންގސް->އެކްސެސިބިލިޓީ ސާވިސަސް->އިތުރަށް ޑައުންލޯޑް ކުރެވިފައިވާ ސާވިސަސް\" ހުޅުވައި، މި އެޕްލިކޭޝަން ހޯދައި، އެކްސެސިބިލިޓީ ސާވިސަސް \n ތިބާ އެނެބަލް ކުރަން ޖެހޭނެއެވެ ފަހުން ޑްރޮޕް ޑައުން މެނޫއިން ފެންނާނެއެވެ.</string>  
   <string name="explain_accessibility_permission2">ސޮފްޓްވެއާ ހިންގުމަށްޓަކައި \"އެކްސެސިބިލިޓީ ސާވިސަސް\" ހުޅުވަން ޖެހޭއިރު، \"ސެޓިންގސް->އެކްސެސިބިލިޓީ ސާވިސަސް\" ނުވަތަ \"ސެޓިންގސް->އެކްސެސިބިލިޓީ ސާވިސަސް->މޯރ ޑައުންލޯޑްޑް ސާވިސަސް\" ހުޅުވައި، މި އެޕްލިކޭޝަން ހޯދައި، އެކްސެސިބިލިޓީ ސާވިސަސް އެނެބަލް ކުރައްވާށެވެ</string>  
   <string name="text_cancel">ކެންސަލް</string>  
   <string name="text_path_is_empty">މަގު ހުސްވެއްޖެއެވެ</string>  
@@ -24,7 +24,7 @@
   <string name="text_alert">އިޝާރާތެއް</string>  
   <string name="edit_exit_without_save_warn">ކޮންޓެންޓް ސޭވްކޮށްފައި ނުވާތީ، އެގްޒިޓް ކުރަން ބޭނުންވާކަން ޔަގީން ހެއްޔެވެ؟</string>  
   <string name="text_save_and_exit">ސޭވްކޮށް އެގްޒިޓް ކުރާށެވެ</string>  
-  <string name="text_exit_directly">ސީދާ ނުކުމެލާށެވެ</string>  
+  <string name="text_exit_directly">ސީދާ ނުކުމެވޭނެއެވެ</string>  
   <string name="text_setting">ސެޓް އަޕް</string>  
   <string name="text_exit">ދޫކޮށްލުން</string>  
   <string name="text_auto_operate_service">އެކްސެސިބިލިޓީ ސާވިސަސް</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">އިޚްތިޔާރުތައް</string>  
   <string name="text_using_id_selector">އައިޑީ ބޭނުންކޮށްގެން ހޮވާށެވެ</string>  
   <string name="text_using_text_selector">ލިޔުން ހޮވުން (ޓެކްސްޓް) ބޭނުންކުރުން .</string>  
-  <string name="text_using_desc_selector">ޑިސްކްރިޕްޝަން (ޑެސްކް) ބޭނުންކޮށްގެން ހޮވާށެވެ.</string>  
+  <string name="text_using_desc_selector">ބޭނުންކުރުން ޑިސްކްރިޕްޝަން ހޮވުން (desc)</string>  
   <string name="text_generate">ޖެނެރޭޓް</string>  
   <string name="text_generate_fail">ބިލްޑް ފެއިލް ވެއްޖެ o(╥*╥)o</string>  
   <string name="text_documentation_source">ޑޮކިއުމަންޓޭޝަން ސޯސް</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">މައި އިންޓަރފޭސްއަށް ވަނުމަށް ކްލިކް ކުރާށެވެ</string>  
   <string name="text_run_on_other_broadcast">އެހެން އިވެންޓްތައް (ބްރޯޑްކާސްޓް)</string>  
   <string name="text_broadcast_action">ބްރޯޑްކާސްޓް އެކްޝަން</string>  
-  <string name="text_run_on_boot">ބޫޓް ކުރާއިރު</string>  
+  <string name="text_run_on_boot">ބޫޓް ކުރާ ވަގުތުގައެވެ</string>  
   <string name="text_run_on_screen_on">ސްކްރީން އޮން ކޮށްފައި ހުންނައިރު</string>  
   <string name="text_run_on_screen_off">ސްކްރީން ނިއްވާފައި ހުންނަ ވަގުތުގައެވެ</string>  
   <string name="error_empty_selection">ބްރޯޑްކާސްޓް އިވެންޓް އޮޕްޝަނެއް ހޮއްވަވާށެވެ</string>  
@@ -478,7 +478,7 @@
   <string name="text_go_to_open">ހުޅުވުމަށްޓަކައެވެ</string>  
   <string name="text_home">ގެ</string>  
   <string name="text_management">ބެލެހެއްޓުން</string>  
-  <string name="text_document">ލިޔެކިޔުންތައް</string>  
+  <string name="text_document">ލިޔެކިޔުންތައް ހެދުން</string>  
   <string name="text_open_usb_debug">ޔޫއެސްބީ ޑީބަގިންގ އޮން ކޮށްލާށެވެ</string>  
   <string name="text_scan_qr">ސްކޭން ކޯޑް</string>  
   <string name="text_connect_failed">ގުޅުން ނާކާމިޔާބުވެއްޖެ: %s , ކޮމްޕިއުޓަރ ފަޔަރވޯލް އިން ޕޯޓް 9317 ހުއްދަކުރާތޯއާއި، އެއީ ހަމަ ލޯކަލް އޭރިއާ ނެޓްވޯކެއްގައި ހުރިތޯއާއި، ވީއެސް ކޯޑް ޕްލަގް-އިން އިން ޚިދުމަތް ހުޅުވާފައިވާތޯ ބަލާށެވެ...</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">ސަރޗް އިން ނުކުތުން</string>  
   <string name="text_licenses_other">ނޮން އޯޕަން ސޯސް ލައިސަންސް</string>  
   <string name="text_save_successfully">ކާމިޔާބުކަމާއެކު ސަލާމަތް ކުރެވިއްޖެއެވެ</string>  
-  <string name="text_save_as_project">ޕްރޮޖެކްޓެއްގެ ގޮތުގައި ސޭވް ކުރާށެވެ</string>
-  <string name="text_select_save_mode">ސޭވް މެތޯޑެއް ހޮވާށެވެ</string>
-  <string name="text_save_as_project_and_exit">ޕްރޮޖެކްޓްގެ ގޮތުގައި ސޭވްކޮށް އެގްޒިޓް ކުރާށެވެ</string>
-  <string name="apk_builder_sign">ސޮއިކުރުން</string>
-  <string name="text_invalid_config">ސައްހަ ނޫން ކޮންފިގްރޭޝަން</string>
-  <string name="text_abi">ސަޕޯޓްކުރާ އޭބީއައިތައް (ކޮމާތަކުން ވަކިކޮށްފައި)</string>
-  <string name="text_save_project_to">ޕްރޮޖެކްޓް ސޭވްކޮށްފައިވަނީ: %s</string>
+  <string name="text_save_as_project">ޕްރޮޖެކްޓެއްގެ ގޮތުގައި ސޭވް ކުރާށެވެ</string>  
+  <string name="text_select_save_mode">ސޭވް މެތޯޑެއް ހޮވާށެވެ</string>  
+  <string name="text_save_as_project_and_exit">ޕްރޮޖެކްޓްގެ ގޮތުގައި ސޭވްކޮށް އެގްޒިޓް ކުރާށެވެ</string>  
+  <string name="apk_builder_sign">ސޮއިކުރުން</string>  
+  <string name="text_invalid_config">ސައްހަ ނޫން ކޮންފިގްރޭޝަން</string>  
+  <string name="text_abi">ސަޕޯޓްކުރާ އޭބީއައިތައް (ކޮމާތަކުން ވަކިކޮށްފައި)</string>  
+  <string name="text_save_project_to">ޕްރޮޖެކްޓް ސޭވްކޮށްފައިވަނީ: %s</string>  
+  <string name="text_hide_and_show">ފޮރުވުން/ދައްކާށެވެ</string>
+  <string name="text_browser_open">ބްރައުޒާ ހުޅުވާލާށެވެ</string>
+  <string name="text_do_nothing">އެއްވެސް ކަމެއް ނުކުރާށެވެ</string>
+  <string name="text_copy_to_new_folder">އަސްލު ފޯލްޑަރުގައި ހުރި ތަކެތި އާ ފޯލްޑަރަށް ކޮޕީ ކުރާށެވެ</string>
+  <string name="text_move_new_folder">އަސްލު ފޯލްޑަރުގައި ހުރި ތަކެތި އާ ފޯލްޑަރަށް ބަދަލުކޮށްލާށެވެ</string>
+  <string name="text_accessibility_service_is_not_enable">އެކްސެސިބިލިޓީގެ ހިދުމަތް ދިއްލާފައެއް ނުވެއެވެ</string>
+  <string name="text_set_successfully">ކާމިޔާބުކަމާއެކު ސެޓް ކޮށްފި އެވެ</string>
 </resources>

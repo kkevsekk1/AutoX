@@ -24,7 +24,7 @@
   <string name="text_alert">ヒント</string>  
   <string name="edit_exit_without_save_warn">コンテンツは保存されていません。終了してもよろしいですか?</string>  
   <string name="text_save_and_exit">保存して終了</string>  
-  <string name="text_exit_directly">直接終了</string>  
+  <string name="text_exit_directly">直接出る</string>  
   <string name="text_setting">設定</string>  
   <string name="text_exit">終了する</string>  
   <string name="text_auto_operate_service">アクセシビリティ サービス</string>  
@@ -133,7 +133,7 @@
   <string name="text_connect_computer">コンピュータを接続する</string>  
   <string name="regist">アプリストアに接続する</string>  
   <string name="text_server_address">サーバーアドレス</string>  
-  <string name="text_server_address_error">リンクアドレスが間違っている</string>  
+  <string name="text_server_address_error">リンク先の間違い</string>  
   <string name="text_annunciation">声明</string>  
   <string name="text_about_me_and_repo">プロジェクトと開発者について</string>  
   <string name="text_attribute">属性</string>  
@@ -156,7 +156,7 @@
   <string name="text_delete_failed">削除できませんでした</string>  
   <string name="text_edit_script">スクリプトを編集</string>  
   <string name="text_run_script">スクリプトを実行</string>  
-  <string name="text_import_script">スクリプト ファイルのインポート</string>  
+  <string name="text_import_script">スクリプトファイルのインポート</string>  
   <string name="text_root_record_out_file_type">ルート記録生成ファイル タイプ</string>  
   <string name="text_binary">バイナリ</string>  
   <string name="summary_stable_mode">レイアウト分析は、有効にするとより安定しますが、少数のスクリプトが正しく機能しない場合があります。 ユーザー補助サービスを再起動して有効にします</string>  
@@ -299,10 +299,10 @@
   <string name="text_options">オプション</string>  
   <string name="text_using_id_selector">IDを使用して選択</string>  
   <string name="text_using_text_selector">テキスト選択を使用 (テキスト)</string>  
-  <string name="text_using_desc_selector">説明を使用して選択 (des)</string>  
+  <string name="text_using_desc_selector">使用説明選択 (des)</string>  
   <string name="text_generate">生成</string>  
   <string name="text_generate_fail">ビルド失敗o(╥﹏╥)o</string>  
-  <string name="text_documentation_source">ドキュメントのソース</string>  
+  <string name="text_documentation_source">ドキュメントソース</string>  
   <string name="text_send">送信</string>  
   <string name="text_timed_task">時限タスク</string>  
   <string name="text_running_task">実行中のスクリプト</string>  
@@ -420,7 +420,7 @@
   <string name="text_project_save_success">プロジェクトは%sに保存されました</string>  
   <string name="text_project_save_error">プロジェクトの保存に失敗しました%s</string>  
   <string name="text_night_mode">ナイトモード</string>  
-  <string name="text_run_on_startup">Autox.js 起動時</string>  
+  <string name="text_run_on_startup">Autox.js の起動時</string>  
   <string name="text_usage_stats_permission">使用アクセス</string>  
   <string name="description_usage_stats_permission">「使用統計の表示」権限により、このデバイスの過去のアプリケーション使用状況を取得できるため、現在のアプリケーション (currentPackage) をより正確に取得できます。</string>  
   <string name="text_open_with">道を開く</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">検索を終了</string>  
   <string name="text_licenses_other">非オープン ソース ライセンス</string>  
   <string name="text_save_successfully">正常に保存されました</string>  
-  <string name="text_save_as_project">プロジェクトとして保存</string>
-  <string name="text_select_save_mode">保存方法を選択してください</string>
-  <string name="text_save_as_project_and_exit">プロジェクトとして保存して終了</string>
-  <string name="apk_builder_sign">署名</string>
-  <string name="text_invalid_config">無効な構成</string>
-  <string name="text_abi">サポートされている ABI (カンマ区切り)</string>
-  <string name="text_save_project_to">プロジェクトの保存先: %s</string>
+  <string name="text_save_as_project">プロジェクトとして保存</string>  
+  <string name="text_select_save_mode">保存方法を選択してください</string>  
+  <string name="text_save_as_project_and_exit">プロジェクトとして保存して終了</string>  
+  <string name="apk_builder_sign">署名</string>  
+  <string name="text_invalid_config">無効な構成</string>  
+  <string name="text_abi">サポートされている ABI (カンマ区切り)</string>  
+  <string name="text_save_project_to">プロジェクトの保存先: %s</string>  
+  <string name="text_hide_and_show">非表示/表示</string>
+  <string name="text_browser_open">ブラウザを開く</string>
+  <string name="text_do_nothing">何もしない</string>
+  <string name="text_copy_to_new_folder">元のフォルダの内容を新しいフォルダにコピーします</string>
+  <string name="text_move_new_folder">元のフォルダの内容を新しいフォルダに移動します</string>
+  <string name="text_accessibility_service_is_not_enable">ユーザー補助サービスがオンになっていません</string>
+  <string name="text_set_successfully">正常に設定されました</string>
 </resources>

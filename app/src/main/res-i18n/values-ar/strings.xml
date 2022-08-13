@@ -24,7 +24,7 @@
   <string name="text_alert">ملحوظة</string>  
   <string name="edit_exit_without_save_warn">لم يتم حفظ المحتوى ، هل أنت متأكد أنك تريد الخروج؟</string>  
   <string name="text_save_and_exit">حفظ وخروج</string>  
-  <string name="text_exit_directly">اخرج مباشرة</string>  
+  <string name="text_exit_directly">الخروج مباشرة</string>  
   <string name="text_setting">اقامة</string>  
   <string name="text_exit">استقال</string>  
   <string name="text_auto_operate_service">خدمات الوصول</string>  
@@ -199,7 +199,7 @@
   <string name="text_find_next">أسفل</string>  
   <string name="text_find_prev">فوق</string>  
   <string name="hint_regex">الصيغة العادية هي نفسها في JavaScript ، يمكنك استخدام $ 1 ~ 9 بدلاً من المطابقات الملتقطة</string>  
-  <string name="text_jump">القفز</string>  
+  <string name="text_jump">قفزة</string>  
   <string name="text_jump_to_end">انتقل إلى نهاية الملف</string>  
   <string name="text_jump_to_start">انتقل إلى ملف البدء</string>  
   <string name="text_jump_to_line_start">انتقل إلى بداية السطر</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">خيارات</string>  
   <string name="text_using_id_selector">حدد باستخدام معرف</string>  
   <string name="text_using_text_selector">استخدام تحديد النص (نص)</string>  
-  <string name="text_using_desc_selector">حدد باستخدام الوصف (وصف)</string>  
+  <string name="text_using_desc_selector">استخدام الوصف تحديد (وصف)</string>  
   <string name="text_generate">انشاء</string>  
   <string name="text_generate_fail">فشل البناء o (╥﹏╥) o</string>  
   <string name="text_documentation_source">مصدر التوثيق</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">انقر للدخول إلى الواجهة الرئيسية</string>  
   <string name="text_run_on_other_broadcast">أحداث أخرى (البث)</string>  
   <string name="text_broadcast_action">بث العمل</string>  
-  <string name="text_run_on_boot">عند التشغيل</string>  
+  <string name="text_run_on_boot">في وقت التمهيد</string>  
   <string name="text_run_on_screen_on">عندما تكون الشاشة قيد التشغيل</string>  
   <string name="text_run_on_screen_off">عندما تكون الشاشة مغلقة</string>  
   <string name="error_empty_selection">يرجى تحديد خيار بث الحدث</string>  
@@ -433,7 +433,7 @@
   <string name="textSizeMinus">-</string>  
   <plurals name="air_error_short_description" key="air_error_short_description"> 
     <item quantity="one">يجب أن يكون الوصف %d حرفًا على الأقل.</item>  
-    <item quantity="other">يجب أن يكون الوصف مكونًا من %d حرفًا على الأقل.</item> 
+    <item quantity="other">يجب أن يكون الوصف %d حرفًا على الأقل.</item> 
   </plurals>  
   <string name="air_title_report_issue">تقرير الخطأ</string>  
   <string name="air_title_issue">سؤال</string>  
@@ -452,7 +452,7 @@
   <string name="air_dialog_title_loading">جارٍ التحميل إلى GitHub ...</string>  
   <string name="air_dialog_title_failed">فشل في إرسال تقرير الخطأ</string>  
   <string name="air_dialog_description_failed_wrong_credentials">اسم المستخدم أو كلمة المرور خاطئة</string>  
-  <string name="air_dialog_description_failed_invalid_token">رمز الدخول غير صالح. يرجى الاتصال بمطور البرامج.</string>  
+  <string name="air_dialog_description_failed_invalid_token">رمز وصول غير صالح. يرجى الاتصال بمطور البرامج.</string>  
   <string name="air_dialog_description_failed_issues_not_available">المشكلات غير متوفرة ، يرجى الاتصال بمطور البرنامج.</string>  
   <string name="air_dialog_description_failed_unknown">خطأ غير معروف</string>  
   <string name="air_dialog_action_failed">نعم</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">الخروج من البحث</string>  
   <string name="text_licenses_other">ترخيص غير مفتوح المصدر</string>  
   <string name="text_save_successfully">تم الحفظ بنجاح</string>  
-  <string name="text_save_as_project">حفظ كمشروع</string>
-  <string name="text_select_save_mode">الرجاء تحديد طريقة الحفظ</string>
-  <string name="text_save_as_project_and_exit">حفظ كمشروع والخروج</string>
-  <string name="apk_builder_sign">التوقيع</string>
-  <string name="text_invalid_config">تكوين غير صالح</string>
-  <string name="text_abi">حروف ABI المتوافقة (مفصولة بفواصل)</string>
-  <string name="text_save_project_to">تم حفظ المشروع في: %s</string>
+  <string name="text_save_as_project">حفظ كمشروع</string>  
+  <string name="text_select_save_mode">الرجاء تحديد طريقة الحفظ</string>  
+  <string name="text_save_as_project_and_exit">حفظ كمشروع والخروج</string>  
+  <string name="apk_builder_sign">التوقيع</string>  
+  <string name="text_invalid_config">تكوين غير صالح</string>  
+  <string name="text_abi">حروف ABI المتوافقة (مفصولة بفواصل)</string>  
+  <string name="text_save_project_to">تم حفظ المشروع في: %s</string>  
+  <string name="text_hide_and_show">إخفاء / إظهار</string>
+  <string name="text_browser_open">المتصفح مفتوح</string>
+  <string name="text_do_nothing">لا تفعل شيئا</string>
+  <string name="text_copy_to_new_folder">انسخ محتويات المجلد الأصلي إلى المجلد الجديد</string>
+  <string name="text_move_new_folder">انقل محتويات المجلد الأصلي إلى المجلد الجديد</string>
+  <string name="text_accessibility_service_is_not_enable">خدمة الوصول ليست قيد التشغيل</string>
+  <string name="text_set_successfully">مجموعة بنجاح</string>
 </resources>

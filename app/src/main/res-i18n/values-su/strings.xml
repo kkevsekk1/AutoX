@@ -8,7 +8,7 @@
   <string name="text_please_input_name">Mangga lebetkeun ngaran</string>  
   <string name="text_name">Ngaran</string>  
   <string name="text_go_to_setting">Buka setélan</string>  
-  <string name="explain_accessibility_permission">Parangkat lunak kedah muka \"Layanan Aksésibilitas\" pikeun ngajalankeun, mangga buka \"Setélan->Layanan Aksésibilitas\" atanapi \"Setélan->Layanan Aksésibilitas->Layanan Langkung Diunduh\", panggihan aplikasi ieu, sareng aktipkeun Layanan Aksesibilitas \n ogé tiasa nyetél engké dina menu turun-handap.</string>  
+  <string name="explain_accessibility_permission">Parangkat lunak kedah muka \"Layanan Aksésibilitas\" pikeun ngajalankeun, mangga buka \"Setélan-> Layanan Aksésibilitas\" atanapi \"Setélan-> Layanan Aksésibilitas-> Ladenan Langkung Diunduh\", panggihan aplikasi ieu, sareng aktipkeun Layanan Aksesibilitas \n ogé tiasa nyetél engké dina menu turun-handap.</string>  
   <string name="explain_accessibility_permission2">Parangkat lunak kedah muka \"Layanan Aksésibilitas\" pikeun ngajalankeun, mangga buka \"Setélan-> Layanan Aksésibilitas\" atanapi \"Setélan-> Layanan Aksésibilitas-> Ladenan Langkung Diunduh\", panggihan aplikasi ieu, sareng aktipkeun Layanan Aksesibilitas.</string>  
   <string name="text_cancel">Ngabolaykeun</string>  
   <string name="text_path_is_empty">Jalanna kosong</string>  
@@ -24,7 +24,7 @@
   <string name="text_alert">Pitunjuk</string>  
   <string name="edit_exit_without_save_warn">Eusi teu disimpen, naha anjeun yakin rék kaluar?</string>  
   <string name="text_save_and_exit">Nyimpen jeung kaluar</string>  
-  <string name="text_exit_directly">Langsung kaluar</string>  
+  <string name="text_exit_directly">Kaluar langsung</string>  
   <string name="text_setting">Disetél</string>  
   <string name="text_exit">Kaluar</string>  
   <string name="text_auto_operate_service">Layanan Aksesibilitas</string>  
@@ -69,7 +69,7 @@
   <string name="text_qq_group">Ieu mangrupikeun nomer grup QQ, upami anjeun henteu tiasa muka, mangga milarian sacara manual</string>  
   <string name="text_mobile_qq_not_installed">Mobile QQ teu dipasang</string>  
   <string name="text_edit">Édit</string>  
-  <string name="text_max_length_for_code_completion">Panjangna File Maksimal Ngarengsekeun Kode</string>  
+  <string name="text_max_length_for_code_completion">Kodeu Ngarengsekeun Panjang File Maksimal</string>  
   <string name="text_file_exists">Berkas geus aya</string>  
   <string name="text_accessibility_service">Layanan Aksesibilitas</string>  
   <string name="text_enable_accessibility_service_by_root">Aktipkeun otomatis jasa kalayan hak husus root</string>  
@@ -111,7 +111,7 @@
   <string name="text_check_update_error">Pariksa apdet gagal: %s</string>  
   <string name="text_check_for_updates">Mariksa apdet</string>  
   <string name="text_is_latest_version">Geus versi panganyarna</string>  
-  <string name="text_version_too_old">Vérsi na teuing low</string>  
+  <string name="text_version_too_old">Vérsi nu teuing low</string>  
   <string name="warning_version_too_old">Versi ayeuna mangrupikeun versi béta umum, kalayan seueur masalah anu jelas sareng poténsial, sareng éta henteu cocog deui pikeun dianggo terus.</string>  
   <string name="text_update">Renew</string>  
   <string name="text_release_notes">Changelog</string>  
@@ -223,7 +223,7 @@
   <string name="text_run_config">Ngajalankeun konfigurasi</string>  
   <string name="text_hideLogs">Sumputkeun log</string>  
   <string name="text_required_accessibility_service">Jasa Aksesibilitas Diperlukeun</string>  
-  <string name="text_required_opencv">OpenCv ngolah gambar</string>  
+  <string name="text_required_opencv">Ngolah gambar OpenCv</string>  
   <string name="text_required_ocr">Pangenal téks OCR</string>  
   <string name="text_required_7zip">Perpustakaan komprési 7zip</string>  
   <string name="text_required_terminal_emulator">Émulator terminal</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Pilihan</string>  
   <string name="text_using_id_selector">Pilih nganggo id</string>  
   <string name="text_using_text_selector">Paké pilihan téks (téks)</string>  
-  <string name="text_using_desc_selector">Pilih nganggo katerangan (desc)</string>  
+  <string name="text_using_desc_selector">Use Description Select (desc)</string>  
   <string name="text_generate">Ngabangkitkeun</string>  
   <string name="text_generate_fail">Ngawangun gagal o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Sumber dokuméntasi</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Klik pikeun ngasupkeun panganteur utama</string>  
   <string name="text_run_on_other_broadcast">Acara séjén (siaran)</string>  
   <string name="text_broadcast_action">Aksi siaran</string>  
-  <string name="text_run_on_boot">Nalika booting</string>  
+  <string name="text_run_on_boot">Dina waktos boot</string>  
   <string name="text_run_on_screen_on">Nalika layar hurung</string>  
   <string name="text_run_on_screen_off">Lamun layar pareum</string>  
   <string name="error_empty_selection">Mangga pilih hiji pilihan acara siaran</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Modeu peuting</string>  
   <string name="text_run_on_startup">Nalika Autox.js dimimitian</string>  
   <string name="text_usage_stats_permission">Aksés pamakéan</string>  
-  <string name="description_usage_stats_permission">Ngaliwatan idin \"view pamakean statistik\", Anjeun bisa ménta pamakéan aplikasi kaliwat tina alat ieu, ku kituna leuwih akurat pikeun ménta aplikasi ayeuna (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Ngaliwatan idin \"Témbongkeun Statistik Usage\", Anjeun bisa ménta pamakéan aplikasi kaliwat tina alat ieu, ku kituna leuwih akurat pikeun ménta aplikasi ayeuna (currentPackage).</string>  
   <string name="text_open_with">Jalan kabuka</string>  
   <string name="text_root">Akar</string>  
   <string name="text_no_root">Akar bébas</string>  
@@ -491,18 +491,25 @@
   <string name="text_release_date">Diterbitkeun: %s</string>  
   <string name="text_checking_for_updates">Mariksa apdet</string>  
   <string name="text_update_information_not_found">Euweuh informasi update kapanggih</string>  
-  <string name="text_please_enable_external_storage">Mangga aktipkeun heula idin panyimpen éksternal</string>  
+  <string name="text_please_enable_external_storage">Mangga aktipkeun heula idin neundeun éksternal</string>  
   <string name="text_app_detail_settings">Setélan Rincian App</string>  
   <string name="text_logcat">Log</string>  
   <string name="text_menu">Ménu</string>  
   <string name="text_exit_search">Kaluar pilarian</string>  
   <string name="text_licenses_other">Lisensi Non-Open Source</string>  
   <string name="text_save_successfully">Berhasil disimpen</string>  
-  <string name="text_save_as_project">Simpen salaku proyék</string>
-  <string name="text_select_save_mode">Mangga pilih metodeu simpen</string>
-  <string name="text_save_as_project_and_exit">Simpen salaku proyék sareng kaluar</string>
-  <string name="apk_builder_sign">Nandatanganan</string>
-  <string name="text_invalid_config">Konfigurasi teu valid</string>
-  <string name="text_abi">ABI anu dirojong (dipisahkeun ku koma)</string>
-  <string name="text_save_project_to">Proyék disimpen ka: %s</string>
+  <string name="text_save_as_project">Simpen salaku proyék</string>  
+  <string name="text_select_save_mode">Mangga pilih metodeu simpen</string>  
+  <string name="text_save_as_project_and_exit">Simpen salaku proyék sareng kaluar</string>  
+  <string name="apk_builder_sign">Nandatanganan</string>  
+  <string name="text_invalid_config">Konfigurasi teu valid</string>  
+  <string name="text_abi">ABI anu dirojong (dipisahkeun ku koma)</string>  
+  <string name="text_save_project_to">Proyék disimpen ka: %s</string>  
+  <string name="text_hide_and_show">Nyumput / nembongkeun</string>
+  <string name="text_browser_open">Browser dibuka</string>
+  <string name="text_do_nothing">Teu ngalakukeun nanaon</string>
+  <string name="text_copy_to_new_folder">Salin eusi polder aslina ka polder anyar</string>
+  <string name="text_move_new_folder">Pindahkeun eusi polder aslina ka polder anyar</string>
+  <string name="text_accessibility_service_is_not_enable">Ladenan aksesibilitas teu diaktipkeun</string>
+  <string name="text_set_successfully">Set suksés</string>
 </resources>

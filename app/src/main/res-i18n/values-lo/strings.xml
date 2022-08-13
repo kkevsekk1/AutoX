@@ -24,7 +24,7 @@
   <string name="text_alert">ຄຳໃບ້</string>  
   <string name="edit_exit_without_save_warn">ເນື້ອຫາບໍ່ໄດ້ຖືກບັນທຶກໄວ້, ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການອອກ?</string>  
   <string name="text_save_and_exit">ຊ່ວຍ​ປະ​ຢັດ​ແລະ​ອອກ​</string>  
-  <string name="text_exit_directly">ອອກຈາກໂດຍກົງ</string>  
+  <string name="text_exit_directly">ອອກ​ໂດຍ​ກົງ​</string>  
   <string name="text_setting">ຕັ້ງ​ຄ່າ</string>  
   <string name="text_exit">ເຊົາ</string>  
   <string name="text_auto_operate_service">ບໍລິການຊ່ວຍເຂົ້າເຖິງ</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">ທາງເລືອກ</string>  
   <string name="text_using_id_selector">ເລືອກໃຊ້ id</string>  
   <string name="text_using_text_selector">ໃຊ້ການເລືອກຂໍ້ຄວາມ (ຂໍ້ຄວາມ)</string>  
-  <string name="text_using_desc_selector">ເລືອກ​ການ​ນໍາ​ໃຊ້​ຄໍາ​ອະ​ທິ​ບາຍ (desc​)</string>  
+  <string name="text_using_desc_selector">ໃຊ້ຄໍາອະທິບາຍເລືອກ (desc)</string>  
   <string name="text_generate">ສ້າງ</string>  
   <string name="text_generate_fail">ການກໍ່ສ້າງລົ້ມເຫລວ o(╥﹏╥)o</string>  
   <string name="text_documentation_source">ແຫຼ່ງເອກະສານ</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">ຄລິກເພື່ອເຂົ້າສູ່ການໂຕ້ຕອບຫຼັກ</string>  
   <string name="text_run_on_other_broadcast">ເຫດການອື່ນໆ (ອອກອາກາດ)</string>  
   <string name="text_broadcast_action">ການປະຕິບັດການອອກອາກາດ</string>  
-  <string name="text_run_on_boot">ເມື່ອ booting</string>  
+  <string name="text_run_on_boot">ໃນເວລາ boot</string>  
   <string name="text_run_on_screen_on">ເມື່ອໜ້າຈໍເປີດຢູ່</string>  
   <string name="text_run_on_screen_off">ເມື່ອໜ້າຈໍປິດ</string>  
   <string name="error_empty_selection">ກະລຸນາເລືອກຕົວເລືອກເຫດການອອກອາກາດ</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">ໂໝດກາງຄືນ</string>  
   <string name="text_run_on_startup">ເມື່ອ Autox.js ເລີ່ມຕົ້ນ</string>  
   <string name="text_usage_stats_permission">ການ​ເຂົ້າ​ເຖິງ​ການ​ນໍາ​ໃຊ້​</string>  
-  <string name="description_usage_stats_permission">ໂດຍຜ່ານການອະນຸຍາດ \"ເບິ່ງສະຖິຕິການນໍາໃຊ້\", ທ່ານສາມາດໄດ້ຮັບຄໍາຮ້ອງສະຫມັກທີ່ຜ່ານມາຂອງອຸປະກອນການນີ້, ເພື່ອໃຫ້ມີຄວາມຖືກຕ້ອງຫຼາຍທີ່ຈະໄດ້ຮັບຄໍາຮ້ອງສະຫມັກໃນປະຈຸບັນ (ປະຈຸບັນຊຸດ).</string>  
+  <string name="description_usage_stats_permission">ຜ່ານການອະນຸຍາດ \"ເບິ່ງສະຖິຕິການນໍາໃຊ້\", ທ່ານສາມາດໄດ້ຮັບການນໍາໃຊ້ຄໍາຮ້ອງສະຫມັກທີ່ຜ່ານມາຂອງອຸປະກອນດັ່ງກ່າວນີ້, ເພື່ອໃຫ້ມີຄວາມຖືກຕ້ອງຫຼາຍທີ່ຈະໄດ້ຮັບຄໍາຮ້ອງສະຫມັກໃນປະຈຸບັນ (ປະຈຸບັນຊຸດ).</string>  
   <string name="text_open_with">ເປີດທາງ</string>  
   <string name="text_root">ຮາກ</string>  
   <string name="text_no_root">ປົ່ງຮາກອອກຕາມຟຣີ</string>  
@@ -445,7 +445,7 @@
   <string name="air_label_email">ຈົດໝາຍ</string>  
   <string name="air_label_email_optional">ອີເມວຕິດຕໍ່ (ທາງເລືອກ)</string>  
   <string name="air_error_no_title">ກະລຸນາໃສ່ຄໍາຖາມ</string>  
-  <string name="air_error_no_description">ກະລຸນາໃສ່ລາຍລະອຽດ</string>  
+  <string name="air_error_no_description">ກະລຸນາໃສ່ຄຳອະທິບາຍລະອຽດ</string>  
   <string name="air_error_no_username">ກະລຸນາໃສ່ຊື່ຜູ້ໃຊ້ Github ທີ່ຖືກຕ້ອງ</string>  
   <string name="air_error_no_password">ກະລຸນາໃສ່ລະຫັດຜ່ານທີ່ຖືກຕ້ອງ</string>  
   <string name="air_error_no_email">ກະລຸນາໃສ່ອີເມວຂອງທ່ານ</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">ອອກຈາກການຄົ້ນຫາ</string>  
   <string name="text_licenses_other">ໃບອະນຸຍາດທີ່ບໍ່ແມ່ນແຫຼ່ງເປີດ</string>  
   <string name="text_save_successfully">ບັນທຶກສຳເລັດແລ້ວ</string>  
-  <string name="text_save_as_project">ບັນທຶກເປັນໂຄງການ</string>
-  <string name="text_select_save_mode">ກະລຸນາເລືອກວິທີການບັນທຶກ</string>
-  <string name="text_save_as_project_and_exit">ບັນທຶກເປັນໂຄງການແລະອອກ</string>
-  <string name="apk_builder_sign">ເຊັນຊື່</string>
-  <string name="text_invalid_config">ການຕັ້ງຄ່າບໍ່ຖືກຕ້ອງ</string>
-  <string name="text_abi">ABI ທີ່ຮອງຮັບ (ແຍກດ້ວຍເຄື່ອງໝາຍຈຸດ)</string>
-  <string name="text_save_project_to">ບັນທຶກໂຄງການໄວ້ໃນ: %s</string>
+  <string name="text_save_as_project">ບັນທຶກເປັນໂຄງການ</string>  
+  <string name="text_select_save_mode">ກະລຸນາເລືອກວິທີການບັນທຶກ</string>  
+  <string name="text_save_as_project_and_exit">ບັນທຶກເປັນໂຄງການແລະອອກ</string>  
+  <string name="apk_builder_sign">ເຊັນຊື່</string>  
+  <string name="text_invalid_config">ການຕັ້ງຄ່າບໍ່ຖືກຕ້ອງ</string>  
+  <string name="text_abi">ABI ທີ່ຮອງຮັບ (ແຍກດ້ວຍເຄື່ອງໝາຍຈຸດ)</string>  
+  <string name="text_save_project_to">ບັນທຶກໂຄງການໄວ້ໃນ: %s</string>  
+  <string name="text_hide_and_show">ເຊື່ອງ/ສະແດງ</string>
+  <string name="text_browser_open">ເປີດ browser</string>
+  <string name="text_do_nothing">ບໍ່​ໄດ້​ເຮັດ​ຫຍັງ</string>
+  <string name="text_copy_to_new_folder">ຄັດລອກເນື້ອຫາຂອງໂຟເດີຕົ້ນສະບັບໄປໃສ່ໂຟນເດີໃຫມ່</string>
+  <string name="text_move_new_folder">ຍ້າຍເນື້ອຫາຂອງໂຟເດີຕົ້ນສະບັບໄປໃສ່ໂຟນເດີໃໝ່</string>
+  <string name="text_accessibility_service_is_not_enable">ບໍລິການຊ່ວຍເຂົ້າເຖິງບໍ່ໄດ້ເປີດ</string>
+  <string name="text_set_successfully">ຕັ້ງ​ສໍາ​ເລັດ​ຜົນ​</string>
 </resources>

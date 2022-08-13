@@ -8,13 +8,13 @@
   <string name="text_please_input_name">Please enter nomen</string>  
   <string name="text_name">Nomen</string>  
   <string name="text_go_to_setting">Ad occasus</string>  
-  <string name="explain_accessibility_permission">Progressio ad aperiendum \"Accessibility Services\" debet currere, quaeso aperire \"Settings-> Accessibility Services\" vel \"Settings-> Accessibility Services->Magis Officia Downloaded\", hanc applicationem reperies, ac accessibilitas Services \n potest postea in gutta-down menu.</string>  
+  <string name="explain_accessibility_permission">Software opus est aperire \"Accessibility Services\" currere, quaeso aperire \"Settings-> Accessibility Services\" vel \"Settings-> Accessibility Services->Magis Services Downloaded\", hanc applicationem invenire et Accessibility Services \n Potest etiam apponi postea in gutta-down menu.</string>  
   <string name="explain_accessibility_permission2">Software opus est aperire \"Accessibility Services\" currere, quaeso aperire \"Settings-> Accessibility Services\" vel \"Settings-> Accessibility Services->Magis Officia Downloaded\", hanc applicationem invenies, ac Accessibility Services da</string>  
   <string name="text_cancel">Cancel</string>  
   <string name="text_path_is_empty">Semita vacua</string>  
   <string name="text_file_not_exists">File non est</string>  
   <string name="text_no_file_rw_permission">Nulla file legere et scribere permissiones</string>  
-  <string name="text_no_accessibility_permission">Accessibility ministerium non incepit</string>  
+  <string name="text_no_accessibility_permission">Accessibility officium non incepit</string>  
   <string name="text_drawer_close">Claudere gutta descendit menu</string>  
   <string name="text_drawer_open">Aperi gutta descendit menu</string>  
   <string name="text_undo">Revocet</string>  
@@ -24,7 +24,7 @@
   <string name="text_alert">Admonitus</string>  
   <string name="edit_exit_without_save_warn">Contentum non servatum esne vis exire?</string>  
   <string name="text_save_and_exit">Nisi et exitus</string>  
-  <string name="text_exit_directly">Exit directe</string>  
+  <string name="text_exit_directly">Exire directe</string>  
   <string name="text_setting">Extruxerat</string>  
   <string name="text_exit">Quit</string>  
   <string name="text_auto_operate_service">Accessibility Services</string>  
@@ -66,7 +66,7 @@
   <string name="text_file_write_fail">File scribentes injustitiam defecit</string>  
   <string name="text_use_volume_control_record">Utere volumine descendit clavis ad imperium</string>  
   <string name="summary_use_volume_control_record">Post fenestram fluitans aperiens, singulis voluminis temporibus clavis descensum incipiet vel scriptionem scriptionem retardans</string>  
-  <string name="text_qq_group">Hic numerus coetus QQ est, si aperire non potes, manually quaere</string>  
+  <string name="text_qq_group">Hic numerus est coetus QQ, si aperire non potes, quaere manually</string>  
   <string name="text_mobile_qq_not_installed">Mobile libro octoginta trium quaest non installed</string>  
   <string name="text_edit">Edit</string>  
   <string name="text_max_length_for_code_completion">Code Perfectio Maximum File Longitudo</string>  
@@ -228,7 +228,7 @@
   <string name="text_required_7zip">7zip pressio bibliotheca</string>  
   <string name="text_required_terminal_emulator">Terminus aemulator</string>  
   <string name="text_required_background_start">Requirit background populus interface permission</string>  
-  <string name="text_required_draw_overlay">Curabitur fenestra permission requiratur</string>  
+  <string name="text_required_draw_overlay">Fluitans fenestra permission requiritur</string>  
   <string name="text_volumeUpcontrol">Volumen clavis est ad finem negotium</string>  
   <string name="text_splash_text">Startup interface text</string>  
   <string name="text_splash_icon">Lorem interface icon</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Optiones</string>  
   <string name="text_using_id_selector">Eligere uti id</string>  
   <string name="text_using_text_selector">Utere textu lectionis (text)</string>  
-  <string name="text_using_desc_selector">Lego per descriptionem (desc)</string>  
+  <string name="text_using_desc_selector">Usus Descriptio Selecta (desc)</string>  
   <string name="text_generate">Generare</string>  
   <string name="text_generate_fail">O aedificate defecit (╥﹏╥) o *</string>  
   <string name="text_documentation_source">Documentation fons</string>  
@@ -343,7 +343,7 @@
   <string name="nodebb_error_change_password_error_match">Duo ingressi passwords non aequare</string>  
   <string name="text_logout">Exscribe</string>  
   <string name="nodebb_error_forbidden">Operatio defecit, Aliquam postea</string>  
-  <string name="description_stable_mode">Modus stabilis scripturam stabiliorem reddit, cum in layout delineandi velandi velandi singula, sed simul pauciora in screen controllata adhibet. \n \n accessibility officium ut effectum sortiatur.</string>  
+  <string name="description_stable_mode">Modus stabilis scripturam stabiliorem reddit, cum in layout deprehensio omissis singula omissis, simul pauciora in screen controllata adhibet. \n \n accessibility officium ut effectum sortiatur.</string>  
   <string name="text_size_min_value">2</string>  
   <string name="text_size_max_value">60</string>  
   <string name="text_text_size">Font size</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Click ad principale interface</string>  
   <string name="text_run_on_other_broadcast">Alias certe (iaci)</string>  
   <string name="text_broadcast_action">Iaci Actio</string>  
-  <string name="text_run_on_boot">Cum patuissent</string>  
+  <string name="text_run_on_boot">Ad tabernus tempus</string>  
   <string name="text_run_on_screen_on">Cum in screen est</string>  
   <string name="text_run_on_screen_off">Quando screen non vigilat</string>  
   <string name="error_empty_selection">Placere eligere passim optio res</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Nox modus</string>  
   <string name="text_run_on_startup">Cum Autox.js incipit</string>  
   <string name="text_usage_stats_permission">Usus accessum</string>  
-  <string name="description_usage_stats_permission">Per \"visum usum mutant\" permissionem, potes praeteritum applicationis usum huius artificii obtinere, ut accuratius ad hodiernam applicationem (currentPackage) obtineatur.</string>  
+  <string name="description_usage_stats_permission">Per \"visum Ratus Statistics\" permissio, praeteritam applicationis usum huius artificii obtinere potes, ut accuratius ad hodiernam applicationem (currentPackage) obtineatur.</string>  
   <string name="text_open_with">Aperta via</string>  
   <string name="text_root">Radix</string>  
   <string name="text_no_root">Radix libera</string>  
@@ -432,7 +432,7 @@
   <string name="textSizePlus">+</string>  
   <string name="textSizeMinus">-</string>  
   <plurals name="air_error_short_description" key="air_error_short_description"> 
-    <item quantity="one">Descriptio characteres longi saltem %d esse debet.</item>  
+    <item quantity="one">Descriptio characteres longus saltem %d esse debet.</item>  
     <item quantity="other">Descriptio characteres longi saltem %d esse debet.</item> 
   </plurals>  
   <string name="air_title_report_issue">Error fama</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Exitus quaerere</string>  
   <string name="text_licenses_other">Non-Open Source License</string>  
   <string name="text_save_successfully">Feliciter salvus erit</string>  
-  <string name="text_save_as_project">Nisi quod consilium</string>
-  <string name="text_select_save_mode">Placere eligere nisi modum</string>
-  <string name="text_save_as_project_and_exit">Servo in project et exitus</string>
-  <string name="apk_builder_sign">Subscribens</string>
-  <string name="text_invalid_config">Invalidum configuratione</string>
-  <string name="text_abi">ABIs suffultus (commata separata)</string>
-  <string name="text_save_project_to">Project servata est: %s</string>
+  <string name="text_save_as_project">Nisi quod consilium</string>  
+  <string name="text_select_save_mode">Placere eligere nisi modum</string>  
+  <string name="text_save_as_project_and_exit">Servo in project et exitus</string>  
+  <string name="apk_builder_sign">Subscribens</string>  
+  <string name="text_invalid_config">Invalidum configuratione</string>  
+  <string name="text_abi">ABIs suffultus (commata separata)</string>  
+  <string name="text_save_project_to">Project servata est: %s</string>  
+  <string name="text_hide_and_show">Abscondere / ostende</string>
+  <string name="text_browser_open">Pasco aperta</string>
+  <string name="text_do_nothing">Nihil facere</string>
+  <string name="text_copy_to_new_folder">Effingo contenta originali folder ad novum folder</string>
+  <string name="text_move_new_folder">Movere contenta originali folder ad novum folder</string>
+  <string name="text_accessibility_service_is_not_enable">Accessibility officium non est conversus in</string>
+  <string name="text_set_successfully">Set feliciter</string>
 </resources>

@@ -24,7 +24,7 @@
   <string name="text_alert">Vihje</string>  
   <string name="edit_exit_without_save_warn">Sisu pole salvestatud. Kas olete kindel, et soovite väljuda?</string>  
   <string name="text_save_and_exit">Salvesta ja välju</string>  
-  <string name="text_exit_directly">Väljuge otse</string>  
+  <string name="text_exit_directly">Otse väljuda</string>  
   <string name="text_setting">Üles seada</string>  
   <string name="text_exit">Lõpeta</string>  
   <string name="text_auto_operate_service">Juurdepääsetavusteenused</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Valikud</string>  
   <string name="text_using_id_selector">Valige ID abil</string>  
   <string name="text_using_text_selector">Kasuta tekstivalikut (tekst)</string>  
-  <string name="text_using_desc_selector">Valige kirjelduse abil (kirjeldus)</string>  
+  <string name="text_using_desc_selector">Kasuta Kirjeldus Vali (kirjeldus)</string>  
   <string name="text_generate">Genereerida</string>  
   <string name="text_generate_fail">Ehitamine ebaõnnestus o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Dokumentatsiooni allikas</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Klõpsake põhiliidese sisenemiseks</string>  
   <string name="text_run_on_other_broadcast">Muud sündmused (saade)</string>  
   <string name="text_broadcast_action">Saatetegevus</string>  
-  <string name="text_run_on_boot">Käivitamisel</string>  
+  <string name="text_run_on_boot">Alglaadimise ajal</string>  
   <string name="text_run_on_screen_on">Kui ekraan on sisse lülitatud</string>  
   <string name="text_run_on_screen_off">Kui ekraan on välja lülitatud</string>  
   <string name="error_empty_selection">Valige edastussündmuse valik</string>  
@@ -449,7 +449,7 @@
   <string name="air_error_no_username">Sisestage kehtiv Githubi kasutajanimi</string>  
   <string name="air_error_no_password">Palun sisesta õige parool</string>  
   <string name="air_error_no_email">Palun sisesta oma email</string>  
-  <string name="air_dialog_title_loading">GitHubi üleslaadimine…</string>  
+  <string name="air_dialog_title_loading">GitHubisse üleslaadimine…</string>  
   <string name="air_dialog_title_failed">Veaaruande saatmine ebaõnnestus</string>  
   <string name="air_dialog_description_failed_wrong_credentials">Vale kasutajanimi või parool</string>  
   <string name="air_dialog_description_failed_invalid_token">Kehtetu juurdepääsuluba. Võtke ühendust tarkvaraarendajaga.</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Välju otsingust</string>  
   <string name="text_licenses_other">Mitteavatud lähtekoodiga litsents</string>  
   <string name="text_save_successfully">Salvestamine õnnestus</string>  
-  <string name="text_save_as_project">Salvesta projektina</string>
-  <string name="text_select_save_mode">Valige salvestamisviis</string>
-  <string name="text_save_as_project_and_exit">Salvestage projektina ja väljuge</string>
-  <string name="apk_builder_sign">Allkirjastamine</string>
-  <string name="text_invalid_config">Kehtetu konfiguratsioon</string>
-  <string name="text_abi">Toetatud ABI-d (eraldatud komadega)</string>
-  <string name="text_save_project_to">Projekt salvestati: %s</string>
+  <string name="text_save_as_project">Salvesta projektina</string>  
+  <string name="text_select_save_mode">Valige salvestamisviis</string>  
+  <string name="text_save_as_project_and_exit">Salvestage projektina ja väljuge</string>  
+  <string name="apk_builder_sign">Allkirjastamine</string>  
+  <string name="text_invalid_config">Kehtetu konfiguratsioon</string>  
+  <string name="text_abi">Toetatud ABI-d (eraldatud komadega)</string>  
+  <string name="text_save_project_to">Projekt salvestati: %s</string>  
+  <string name="text_hide_and_show">Peida/näita</string>
+  <string name="text_browser_open">Brauser avatud</string>
+  <string name="text_do_nothing">Ära tee midagi</string>
+  <string name="text_copy_to_new_folder">Kopeerige algse kausta sisu uude kausta</string>
+  <string name="text_move_new_folder">Teisaldage algse kausta sisu uude kausta</string>
+  <string name="text_accessibility_service_is_not_enable">Juurdepääsetavusteenus pole sisse lülitatud</string>
+  <string name="text_set_successfully">Edukalt seadistatud</string>
 </resources>

@@ -64,7 +64,7 @@
   <string name="text_recorded">رڪارڊنگ جي پڄاڻي</string>  
   <string name="text_copy_to_clip">ڪاپي ڪلپ بورڊ ڏانهن</string>  
   <string name="text_file_write_fail">فائل لکڻ ناڪام</string>  
-  <string name="text_use_volume_control_record">ڪنٽرول ڪرڻ لاء حجم هيٺيون چيڪ استعمال ڪريو</string>  
+  <string name="text_use_volume_control_record">ڪنٽرول ڪرڻ لاءِ حجم ھيٺ دٻي کي استعمال ڪريو</string>  
   <string name="summary_use_volume_control_record">سچل ونڊو کولڻ کان پوءِ، هر دفعي حجم هيٺان ڪيئي اسڪرپٽ رڪارڊنگ شروع يا بند ڪري ڇڏيندي</string>  
   <string name="text_qq_group">ھي آھي QQ گروپ نمبر، جيڪڏھن توھان ان کي نه ٿا کولي سگھو، مھرباني ڪري دستي طور ڳوليو</string>  
   <string name="text_mobile_qq_not_installed">موبائل QQ انسٽال ٿيل ناهي</string>  
@@ -123,7 +123,7 @@
   <string name="text_processing">پروسيسنگ</string>  
   <string name="text_guard_mode">محفوظ موڊ</string>  
   <string name="summary_guard_mode">حادثاتي رابطي کان بچڻ لاءِ هن سافٽ ويئر انٽرفيس ۾ خودڪار آپريشن ڪمانڊ هلائي نه ٿو سگهجي</string>  
-  <string name="text_layout_inspector_is_dumping">ترتيب جو تجزيو جاري آهي</string>  
+  <string name="text_layout_inspector_is_dumping">لي آئوٽ تجزيو جاري آهي</string>  
   <string name="text_force_stop">زبردستي روڪڻ</string>  
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] %f سيڪنڊن ۾ مڪمل</string>  
   <string name="text_again">ٻيهر</string>  
@@ -222,7 +222,7 @@
   <string name="text_version_code">نسخو نمبر</string>  
   <string name="text_run_config">هلائڻ جي تشڪيل</string>  
   <string name="text_hideLogs">لاگ لڪايو</string>  
-  <string name="text_required_accessibility_service">گهربل خدمتون</string>  
+  <string name="text_required_accessibility_service">رسائي گهربل خدمتون</string>  
   <string name="text_required_opencv">OpenCv تصويري پروسيسنگ</string>  
   <string name="text_required_ocr">OCR متن جي سڃاڻپ</string>  
   <string name="text_required_7zip">7zip ڪمپريشن لائبريري</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">اختيارن</string>  
   <string name="text_using_id_selector">Id استعمال ڪندي چونڊيو</string>  
   <string name="text_using_text_selector">متن جي چونڊ استعمال ڪريو (ٽيڪسٽ)</string>  
-  <string name="text_using_desc_selector">وضاحت استعمال ڪندي چونڊيو (ڊيسڪ)</string>  
+  <string name="text_using_desc_selector">استعمال ڪريو وضاحت چونڊيو (ڊيسڪ)</string>  
   <string name="text_generate">پيدا ڪرڻ</string>  
   <string name="text_generate_fail">ٺاھڻ ۾ ناڪام ٿيو o(╥﹏╥)o</string>  
   <string name="text_documentation_source">دستاويز جو ذريعو</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">مکيه انٽرفيس داخل ڪرڻ لاء ڪلڪ ڪريو</string>  
   <string name="text_run_on_other_broadcast">ٻيا واقعا (نشر)</string>  
   <string name="text_broadcast_action">براڊڪاسٽ ايڪشن</string>  
-  <string name="text_run_on_boot">جڏهن بوٽنگ</string>  
+  <string name="text_run_on_boot">بوٽ وقت تي</string>  
   <string name="text_run_on_screen_on">جڏهن اسڪرين تي آهي</string>  
   <string name="text_run_on_screen_off">جڏهن اسڪرين بند آهي</string>  
   <string name="error_empty_selection">مھرباني ڪري ھڪڙو براڊڪاسٽ واقعي اختيار چونڊيو</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">ڳولا مان نڪرڻ</string>  
   <string name="text_licenses_other">غير اوپن سورس لائسنس</string>  
   <string name="text_save_successfully">ڪاميابيءَ سان محفوظ ٿي ويو</string>  
-  <string name="text_save_as_project">پروجيڪٽ طور محفوظ ڪريو</string>
-  <string name="text_select_save_mode">مھرباني ڪري محفوظ ڪرڻ جو طريقو چونڊيو</string>
-  <string name="text_save_as_project_and_exit">پروجيڪٽ طور محفوظ ڪريو ۽ نڪرڻ</string>
-  <string name="apk_builder_sign">دستخط ڪرڻ</string>
-  <string name="text_invalid_config">غلط تشڪيل</string>
-  <string name="text_abi">سپورٽ ٿيل ABIs (ڪاما سان الڳ ٿيل)</string>
-  <string name="text_save_project_to">پروجيڪٽ کي محفوظ ڪيو ويو: %s</string>
+  <string name="text_save_as_project">پروجيڪٽ طور محفوظ ڪريو</string>  
+  <string name="text_select_save_mode">مھرباني ڪري محفوظ ڪرڻ جو طريقو چونڊيو</string>  
+  <string name="text_save_as_project_and_exit">پروجيڪٽ طور محفوظ ڪريو ۽ نڪرڻ</string>  
+  <string name="apk_builder_sign">دستخط ڪرڻ</string>  
+  <string name="text_invalid_config">غلط تشڪيل</string>  
+  <string name="text_abi">سپورٽ ٿيل ABIs (ڪاما سان الڳ ٿيل)</string>  
+  <string name="text_save_project_to">پروجيڪٽ کي محفوظ ڪيو ويو: %s</string>  
+  <string name="text_hide_and_show">لڪائڻ/ ڏيکارڻ</string>
+  <string name="text_browser_open">برائوزر کوليو</string>
+  <string name="text_do_nothing">ڪجھ نه ڪر</string>
+  <string name="text_copy_to_new_folder">اصل فولڊر جي مواد کي نئين فولڊر ۾ نقل ڪريو</string>
+  <string name="text_move_new_folder">اصل فولڊر جي مواد کي نئين فولڊر ڏانھن منتقل ڪريو</string>
+  <string name="text_accessibility_service_is_not_enable">رسائي جي خدمت چالو نه آهي</string>
+  <string name="text_set_successfully">ڪاميابي سان مقرر ڪيو</string>
 </resources>

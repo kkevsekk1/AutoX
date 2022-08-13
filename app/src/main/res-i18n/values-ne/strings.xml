@@ -8,7 +8,7 @@
   <string name="text_please_input_name">कृपया एउटा नाम प्रविष्ट गर्नुहोस्</string>  
   <string name="text_name">नाम</string>  
   <string name="text_go_to_setting">सेटिङहरूमा जानुहोस्</string>  
-  <string name="explain_accessibility_permission">सफ्टवेयरलाई चलाउनको लागि \"पहुँच सेवाहरू\" खोल्न आवश्यक छ, कृपया \"सेटिङ्->पहुँच सेवाहरू\" वा \"सेटिङ्->पहुँच सेवाहरू->थप डाउनलोड गरिएका सेवाहरू\" खोल्नुहोस्, यो एप फेला पार्नुहोस्, र पहुँच सेवाहरू सक्षम गर्नुहोस् \n तपाईं यसलाई सेट गर्न सक्नुहुन्छ। पछि ड्रप-डाउन मेनुमा।</string>  
+  <string name="explain_accessibility_permission">सफ्टवेयर चलाउनको लागि \"पहुँच सेवाहरू\" खोल्न आवश्यक छ, कृपया \"सेटिङ्->पहुँच सेवाहरू\" वा \"सेटिङ्हरू->पहुँच सेवाहरू->थप डाउनलोड गरिएका सेवाहरू\" खोल्नुहोस्, यो एप फेला पार्नुहोस्, र पहुँच सेवाहरू सक्षम गर्नुहोस् \n तपाईं यसलाई सेट गर्न सक्नुहुन्छ। पछि ड्रप-डाउन मेनुमा।</string>  
   <string name="explain_accessibility_permission2">सफ्टवेयर चलाउन \"पहुँच सेवाहरू\" खोल्न आवश्यक छ, कृपया \"सेटिङ्->पहुँच सेवाहरू\" वा \"सेटिङ्->पहुँच सेवाहरू->थप डाउनलोड गरिएका सेवाहरू\" खोल्नुहोस्, यो अनुप्रयोग फेला पार्नुहोस्, र पहुँच सेवाहरू सक्षम गर्नुहोस्।</string>  
   <string name="text_cancel">रद्द गर्नुहोस्</string>  
   <string name="text_path_is_empty">बाटो खाली छ</string>  
@@ -69,7 +69,7 @@
   <string name="text_qq_group">यो QQ समूह नम्बर हो, यदि तपाइँ यसलाई खोल्न सक्नुहुन्न भने, कृपया म्यानुअल रूपमा खोज्नुहोस्</string>  
   <string name="text_mobile_qq_not_installed">मोबाइल QQ स्थापना गरिएको छैन</string>  
   <string name="text_edit">सम्पादन गर्नुहोस्</string>  
-  <string name="text_max_length_for_code_completion">कोड पूरा अधिकतम फाइल लम्बाइ</string>  
+  <string name="text_max_length_for_code_completion">कोड पूर्णता अधिकतम फाइल लम्बाइ</string>  
   <string name="text_file_exists">फाइल पहिले नै अवस्थित छ</string>  
   <string name="text_accessibility_service">पहुँच सेवाहरू</string>  
   <string name="text_enable_accessibility_service_by_root">रूट विशेषाधिकारहरूसँग सेवाहरू स्वचालित रूपमा सक्षम गर्नुहोस्</string>  
@@ -108,7 +108,7 @@
   <string name="text_checking_update">अपडेटहरूको लागि जाँच गर्दै</string>  
   <string name="text_new_version">नयाँ संस्करण</string>  
   <string name="text_new_version2">नयाँ संस्करण: %s</string>  
-  <string name="text_check_update_error">अपडेटहरू असफल भएन भनेर जाँच गर्नुहोस्: %s</string>  
+  <string name="text_check_update_error">अद्यावधिकहरू असफल भएको जाँच गर्नुहोस्: %s</string>  
   <string name="text_check_for_updates">अपडेटहरूको लागि जाँच गर्नुहोस्</string>  
   <string name="text_is_latest_version">पहिले नै नवीनतम संस्करण</string>  
   <string name="text_version_too_old">संस्करण धेरै कम छ</string>  
@@ -198,7 +198,7 @@
   <string name="text_replace_all">सबै बदल्नुहोस्</string>  
   <string name="text_find_next">तल</string>  
   <string name="text_find_prev">माथि</string>  
-  <string name="hint_regex">नियमित वाक्यविन्यास JavaScript मा जस्तै हो, तपाईंले क्याप्चर गरिएका मिलानहरूको सट्टा $1 ~ 9 प्रयोग गर्न सक्नुहुन्छ।</string>  
+  <string name="hint_regex">नियमित सिन्ट्याक्स JavaScript मा जस्तै हो, तपाईंले क्याप्चर गरिएका मिलानहरूको सट्टा $1 ~ 9 प्रयोग गर्न सक्नुहुन्छ।</string>  
   <string name="text_jump">जम्प</string>  
   <string name="text_jump_to_end">फाइलको अन्त्यमा जानुहोस्</string>  
   <string name="text_jump_to_start">फाइल सुरु गर्न जानुहोस्</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">विकल्पहरू</string>  
   <string name="text_using_id_selector">आईडी प्रयोग गरेर चयन गर्नुहोस्</string>  
   <string name="text_using_text_selector">पाठ चयन प्रयोग गर्नुहोस् (पाठ)</string>  
-  <string name="text_using_desc_selector">विवरण (डेस्क) प्रयोग गरेर चयन गर्नुहोस्</string>  
+  <string name="text_using_desc_selector">वर्णन चयन (डेस्क) प्रयोग गर्नुहोस्</string>  
   <string name="text_generate">उत्पन्न गर्नुहोस्</string>  
   <string name="text_generate_fail">निर्माण असफल o(╥﹏╥)o</string>  
   <string name="text_documentation_source">कागजात स्रोत</string>  
@@ -399,8 +399,8 @@
   <string name="foreground_notification_text">मुख्य इन्टरफेस प्रविष्ट गर्न क्लिक गर्नुहोस्</string>  
   <string name="text_run_on_other_broadcast">अन्य घटनाहरू (प्रसारण)</string>  
   <string name="text_broadcast_action">प्रसारण कार्य</string>  
-  <string name="text_run_on_boot">बुट गर्दा</string>  
-  <string name="text_run_on_screen_on">जब स्क्रिन अन हुन्छ</string>  
+  <string name="text_run_on_boot">बुट समयमा</string>  
+  <string name="text_run_on_screen_on">स्क्रिन अन हुँदा</string>  
   <string name="text_run_on_screen_off">जब स्क्रिन बन्द छ</string>  
   <string name="error_empty_selection">कृपया प्रसारण घटना विकल्प चयन गर्नुहोस्</string>  
   <string name="text_run_on_battery_change">जब शक्ति परिवर्तन हुन्छ</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">खोजबाट निस्कनुहोस्</string>  
   <string name="text_licenses_other">गैर-खुला स्रोत लाइसेन्स</string>  
   <string name="text_save_successfully">सफलतापूर्वक सुरक्षित गरियो</string>  
-  <string name="text_save_as_project">परियोजनाको रूपमा बचत गर्नुहोस्</string>
-  <string name="text_select_save_mode">कृपया बचत विधि चयन गर्नुहोस्</string>
-  <string name="text_save_as_project_and_exit">परियोजनाको रूपमा बचत गर्नुहोस् र बाहिर निस्कनुहोस्</string>
-  <string name="apk_builder_sign">हस्ताक्षर</string>
-  <string name="text_invalid_config">अवैध कन्फिगरेसन</string>
-  <string name="text_abi">समर्थित ABIs (अल्पविरामले अलग गरिएको)</string>
-  <string name="text_save_project_to">परियोजना सुरक्षित गरियो: %s</string>
+  <string name="text_save_as_project">परियोजनाको रूपमा बचत गर्नुहोस्</string>  
+  <string name="text_select_save_mode">कृपया बचत विधि चयन गर्नुहोस्</string>  
+  <string name="text_save_as_project_and_exit">परियोजनाको रूपमा बचत गर्नुहोस् र बाहिर निस्कनुहोस्</string>  
+  <string name="apk_builder_sign">हस्ताक्षर</string>  
+  <string name="text_invalid_config">अवैध कन्फिगरेसन</string>  
+  <string name="text_abi">समर्थित ABIs (अल्पविरामले अलग गरिएको)</string>  
+  <string name="text_save_project_to">परियोजना सुरक्षित गरियो: %s</string>  
+  <string name="text_hide_and_show">लुकाउनुहोस्/देखाउनुहोस्</string>
+  <string name="text_browser_open">ब्राउजर खोल्नुहोस्</string>
+  <string name="text_do_nothing">केहि नगर</string>
+  <string name="text_copy_to_new_folder">नयाँ फोल्डरमा मूल फोल्डरको सामग्री प्रतिलिपि गर्नुहोस्</string>
+  <string name="text_move_new_folder">मूल फोल्डरका सामग्रीहरूलाई नयाँ फोल्डरमा सार्नुहोस्</string>
+  <string name="text_accessibility_service_is_not_enable">पहुँच सेवा सक्रिय छैन</string>
+  <string name="text_set_successfully">सफलतापूर्वक सेट</string>
 </resources>

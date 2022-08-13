@@ -24,7 +24,7 @@
   <string name="text_alert">Dokezo</string>  
   <string name="edit_exit_without_save_warn">Maudhui hayajahifadhiwa, una uhakika unataka kuondoka?</string>  
   <string name="text_save_and_exit">Kuokoa na kutoka</string>  
-  <string name="text_exit_directly">Ondoka moja kwa moja</string>  
+  <string name="text_exit_directly">Toka moja kwa moja</string>  
   <string name="text_setting">Weka</string>  
   <string name="text_exit">Acha</string>  
   <string name="text_auto_operate_service">Huduma za Ufikiaji</string>  
@@ -299,11 +299,11 @@
   <string name="text_options">Chaguo</string>  
   <string name="text_using_id_selector">Chagua kutumia kitambulisho</string>  
   <string name="text_using_text_selector">Tumia uteuzi wa maandishi (maandishi)</string>  
-  <string name="text_using_desc_selector">Chagua kwa kutumia maelezo (deski)</string>  
+  <string name="text_using_desc_selector">Tumia Ufafanuzi Chagua (desc)</string>  
   <string name="text_generate">Kuzalisha</string>  
   <string name="text_generate_fail">Imeshindwa kujenga o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Chanzo cha hati</string>  
-  <string name="text_send">Kutuma</string>  
+  <string name="text_send">Tuma</string>  
   <string name="text_timed_task">Kazi iliyopangwa kwa wakati</string>  
   <string name="text_running_task">Hati inayoendesha</string>  
   <string name="text_done">Maliza</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Bofya ili kuingia kiolesura kuu</string>  
   <string name="text_run_on_other_broadcast">Matukio mengine (matangazo)</string>  
   <string name="text_broadcast_action">Kitendo cha Kutangaza</string>  
-  <string name="text_run_on_boot">Wakati wa kuanzisha</string>  
+  <string name="text_run_on_boot">Wakati wa boot</string>  
   <string name="text_run_on_screen_on">Wakati skrini imewashwa</string>  
   <string name="text_run_on_screen_off">Wakati skrini imezimwa</string>  
   <string name="error_empty_selection">Tafadhali chagua chaguo la tukio la utangazaji</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Hali ya usiku</string>  
   <string name="text_run_on_startup">Wakati Autox.js inapoanza</string>  
   <string name="text_usage_stats_permission">Ufikiaji wa matumizi</string>  
-  <string name="description_usage_stats_permission">Kupitia ruhusa ya \"tazama takwimu za matumizi\", unaweza kupata matumizi ya awali ya programu ya kifaa hiki, ili iwe sahihi zaidi kupata programu ya sasa (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Kupitia ruhusa ya \"Angalia Takwimu za Matumizi\", unaweza kupata matumizi ya awali ya programu ya kifaa hiki, ili iwe sahihi zaidi kupata programu ya sasa (currentPackage).</string>  
   <string name="text_open_with">Njia wazi</string>  
   <string name="text_root">Mzizi</string>  
   <string name="text_no_root">Bure mizizi</string>  
@@ -481,7 +481,7 @@
   <string name="text_document">Nyaraka</string>  
   <string name="text_open_usb_debug">Washa utatuzi wa USB</string>  
   <string name="text_scan_qr">Changanua msimbo</string>  
-  <string name="text_connect_failed">Muunganisho haukufaulu: %s , tafadhali angalia kama ngome ya kompyuta inaruhusu mlango 9317, ikiwa iko katika mtandao wa eneo sawa, na ikiwa programu-jalizi ya VS CODE imefungua huduma...</string>  
+  <string name="text_connect_failed">Muunganisho haukufaulu: %s , tafadhali angalia kama ngome ya kompyuta inaruhusu mlango 9317, ikiwa iko katika mtandao wa eneo moja la karibu, na ikiwa programu-jalizi ya VS CODE imefungua huduma...</string>  
   <string name="text_start_service_failed">Huduma imeshindwa kuanza: %s</string>  
   <string name="text_unsupported_qr_code">Misimbo ya QR katika umbizo hili haitumiki</string>  
   <string name="text_connected_to_computer">Kushikamana na kompyuta</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Ondoka kwenye utafutaji</string>  
   <string name="text_licenses_other">Leseni Isiyo ya Chanzo Huria</string>  
   <string name="text_save_successfully">Imehifadhiwa</string>  
-  <string name="text_save_as_project">Kuokoa kama mradi</string>
-  <string name="text_select_save_mode">Tafadhali chagua mbinu ya kuhifadhi</string>
-  <string name="text_save_as_project_and_exit">Hifadhi kama mradi na uondoke</string>
-  <string name="apk_builder_sign">Kutia saini</string>
-  <string name="text_invalid_config">Usanidi usio sahihi</string>
-  <string name="text_abi">ABI zinazotumika (zinazotenganishwa na koma)</string>
-  <string name="text_save_project_to">Mradi umehifadhiwa kwa: %s</string>
+  <string name="text_save_as_project">Kuokoa kama mradi</string>  
+  <string name="text_select_save_mode">Tafadhali chagua mbinu ya kuhifadhi</string>  
+  <string name="text_save_as_project_and_exit">Hifadhi kama mradi na uondoke</string>  
+  <string name="apk_builder_sign">Kutia saini</string>  
+  <string name="text_invalid_config">Usanidi usio sahihi</string>  
+  <string name="text_abi">ABI zinazotumika (zinazotenganishwa na koma)</string>  
+  <string name="text_save_project_to">Mradi umehifadhiwa kwa: %s</string>  
+  <string name="text_hide_and_show">Ficha/onyesha</string>
+  <string name="text_browser_open">Kivinjari wazi</string>
+  <string name="text_do_nothing">Usifanye chochote</string>
+  <string name="text_copy_to_new_folder">Nakili yaliyomo kwenye folda asili kwenye folda mpya</string>
+  <string name="text_move_new_folder">Hamisha yaliyomo kwenye folda asili hadi kwenye folda mpya</string>
+  <string name="text_accessibility_service_is_not_enable">Huduma ya ufikivu haijawashwa</string>
+  <string name="text_set_successfully">Kuweka kwa mafanikio</string>
 </resources>

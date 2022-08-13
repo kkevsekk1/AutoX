@@ -24,7 +24,7 @@
   <string name="text_alert">Ишарә</string>  
   <string name="edit_exit_without_save_warn">Эчтәлек сакланмаган, сез чыгарга телисезме?</string>  
   <string name="text_save_and_exit">Саклау һәм чыгу</string>  
-  <string name="text_exit_directly">Турыдан чыгу</string>  
+  <string name="text_exit_directly">Турыдан-туры чыгу</string>  
   <string name="text_setting">Кору</string>  
   <string name="text_exit">Ташла</string>  
   <string name="text_auto_operate_service">Мөмкинлек хезмәтләре</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Вариантлар</string>  
   <string name="text_using_id_selector">Id кулланып сайлагыз</string>  
   <string name="text_using_text_selector">Текст сайлау (текст) кулланыгыз</string>  
-  <string name="text_using_desc_selector">Тасвирламаны кулланып сайлагыз (төшү)</string>  
+  <string name="text_using_desc_selector">Тасвирлау кулланыгыз Сайлагыз (аска)</string>  
   <string name="text_generate">Тудыру</string>  
   <string name="text_generate_fail">Уңышсыз төзү o (╥﹏╥) o</string>  
   <string name="text_documentation_source">Документация чыганагы</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Төп интерфейсны кертү өчен басыгыз</string>  
   <string name="text_run_on_other_broadcast">Бүтән вакыйгалар (тапшыру)</string>  
   <string name="text_broadcast_action">Трансляция</string>  
-  <string name="text_run_on_boot">Ботинка вакытында</string>  
+  <string name="text_run_on_boot">Йөкләү вакытында</string>  
   <string name="text_run_on_screen_on">Экран кабызылганда</string>  
   <string name="text_run_on_screen_off">Экран сүнгәндә</string>  
   <string name="error_empty_selection">Зинһар, тапшыру вакыйгасын сайлагыз</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Эзләүдән чык</string>  
   <string name="text_licenses_other">Ачык булмаган чыганак лицензиясе</string>  
   <string name="text_save_successfully">Уңышлы сакланган</string>  
-  <string name="text_save_as_project">Проект итеп саклагыз</string>
-  <string name="text_select_save_mode">Зинһар, саклау ысулын сайлагыз</string>
-  <string name="text_save_as_project_and_exit">Проект итеп саклагыз</string>
-  <string name="apk_builder_sign">Кул кую</string>
-  <string name="text_invalid_config">Яраксыз конфигурация</string>
-  <string name="text_abi">Ярдәмче ABIлар (үтем белән аерылган)</string>
-  <string name="text_save_project_to">Проект сакланган: %s</string>
+  <string name="text_save_as_project">Проект итеп саклагыз</string>  
+  <string name="text_select_save_mode">Зинһар, саклау ысулын сайлагыз</string>  
+  <string name="text_save_as_project_and_exit">Проект итеп саклагыз</string>  
+  <string name="apk_builder_sign">Кул кую</string>  
+  <string name="text_invalid_config">Яраксыз конфигурация</string>  
+  <string name="text_abi">Ярдәмче ABIлар (үтем белән аерылган)</string>  
+  <string name="text_save_project_to">Проект сакланган: %s</string>  
+  <string name="text_hide_and_show">Яшерү / күрсәтү</string>
+  <string name="text_browser_open">Браузер ачык</string>
+  <string name="text_do_nothing">Бернәрсә дә эшләмә</string>
+  <string name="text_copy_to_new_folder">Оригиналь папка эчтәлеген яңа папкага күчерегез</string>
+  <string name="text_move_new_folder">Оригиналь папка эчтәлеген яңа папкага күчерегез</string>
+  <string name="text_accessibility_service_is_not_enable">Уңайлык хезмәте кабызылмаган</string>
+  <string name="text_set_successfully">Уңышлы урнаштырыгыз</string>
 </resources>

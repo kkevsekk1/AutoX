@@ -8,9 +8,9 @@
   <string name="text_please_input_name">ದಯವಿಟ್ಟು ಹೆಸರನ್ನು ನಮೂದಿಸಿ</string>  
   <string name="text_name">ಹೆಸರು</string>  
   <string name="text_go_to_setting">ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಗೆ ಹೋಗಿ</string>  
-  <string name="explain_accessibility_permission">ಸಾಫ್ಟ್‌ವೇರ್ ರನ್ ಮಾಡಲು \"ಪ್ರವೇಶಶೀಲತೆ ಸೇವೆಗಳು\" ತೆರೆಯುವ ಅಗತ್ಯವಿದೆ, ದಯವಿಟ್ಟು \"ಸೆಟ್ಟಿಂಗ್‌ಗಳು-> ಪ್ರವೇಶಿಸುವಿಕೆ ಸೇವೆಗಳು\" ಅಥವಾ \"ಸೆಟ್ಟಿಂಗ್‌ಗಳು-> ಪ್ರವೇಶಿಸುವಿಕೆ ಸೇವೆಗಳು->ಹೆಚ್ಚು ಡೌನ್‌ಲೋಡ್ ಮಾಡಲಾದ ಸೇವೆಗಳು\" ತೆರೆಯಿರಿ, ಈ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ಹುಡುಕಿ ಮತ್ತು ಪ್ರವೇಶಿಸುವಿಕೆ ಸೇವೆಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ \n ನೀವು ಇದನ್ನು ಸಹ ಹೊಂದಿಸಬಹುದು ನಂತರ ಡ್ರಾಪ್-ಡೌನ್ ಮೆನುವಿನಲ್ಲಿ.</string>  
+  <string name="explain_accessibility_permission">ಸಾಫ್ಟ್‌ವೇರ್ ಚಲಾಯಿಸಲು \"ಪ್ರವೇಶಶೀಲತೆ ಸೇವೆಗಳು\" ತೆರೆಯುವ ಅಗತ್ಯವಿದೆ, ದಯವಿಟ್ಟು \"ಸೆಟ್ಟಿಂಗ್‌ಗಳು-> ಪ್ರವೇಶಿಸುವಿಕೆ ಸೇವೆಗಳು\" ಅಥವಾ \"ಸೆಟ್ಟಿಂಗ್‌ಗಳು-> ಪ್ರವೇಶಿಸುವಿಕೆ ಸೇವೆಗಳು->ಹೆಚ್ಚು ಡೌನ್‌ಲೋಡ್ ಮಾಡಲಾದ ಸೇವೆಗಳು\" ತೆರೆಯಿರಿ, ಈ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ಹುಡುಕಿ ಮತ್ತು ಪ್ರವೇಶಿಸುವಿಕೆ ಸೇವೆಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ \n ನೀವು ಇದನ್ನು ಸಹ ಹೊಂದಿಸಬಹುದು ನಂತರ ಡ್ರಾಪ್-ಡೌನ್ ಮೆನುವಿನಲ್ಲಿ.</string>  
   <string name="explain_accessibility_permission2">ರನ್ ಮಾಡಲು ಸಾಫ್ಟ್‌ವೇರ್ \"ಪ್ರವೇಶಶೀಲತೆ ಸೇವೆಗಳು\" ತೆರೆಯುವ ಅಗತ್ಯವಿದೆ, ದಯವಿಟ್ಟು \"ಸೆಟ್ಟಿಂಗ್‌ಗಳು-> ಪ್ರವೇಶಿಸುವಿಕೆ ಸೇವೆಗಳು\" ಅಥವಾ \"ಸೆಟ್ಟಿಂಗ್‌ಗಳು-> ಪ್ರವೇಶಿಸುವಿಕೆ ಸೇವೆಗಳು->ಹೆಚ್ಚು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿದ ಸೇವೆಗಳು\" ತೆರೆಯಿರಿ, ಈ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ಹುಡುಕಿ ಮತ್ತು ಪ್ರವೇಶಿಸುವಿಕೆ ಸೇವೆಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ</string>  
-  <string name="text_cancel">ರದ್ದುಮಾಡಿ</string>  
+  <string name="text_cancel">ರದ್ದುಮಾಡು</string>  
   <string name="text_path_is_empty">ಮಾರ್ಗ ಖಾಲಿಯಾಗಿದೆ</string>  
   <string name="text_file_not_exists">ಕಡತ ಅಸ್ತಿತ್ವದಲ್ಲಿಲ್ಲ</string>  
   <string name="text_no_file_rw_permission">ಯಾವುದೇ ಫೈಲ್ ಓದಲು ಮತ್ತು ಬರೆಯಲು ಅನುಮತಿಗಳಿಲ್ಲ</string>  
@@ -101,7 +101,7 @@
   <string name="notice_no_running_script">ಚಾಲನೆಯಲ್ಲಿರುವ ಸ್ಕ್ರಿಪ್ಟ್ ಇಲ್ಲ φ(>ω&lt;*)</string>  
   <string name="text_please_choose_a_script">ದಯವಿಟ್ಟು ಸ್ಕ್ರಿಪ್ಟ್ ಆಯ್ಕೆಮಾಡಿ</string>  
   <string name="text_edit_prepare_script">ಮೊದಲೇ ಕಾರ್ಯಗತಗೊಳಿಸಿದ ಸ್ಕ್ರಿಪ್ಟ್‌ಗಳನ್ನು ಸಂಪಾದಿಸಲಾಗುತ್ತಿದೆ</string>  
-  <string name="text_pre_execute_script">ಪೂರ್ವ-ಕಾರ್ಯಗತ ಸ್ಕ್ರಿಪ್ಟ್</string>  
+  <string name="text_pre_execute_script">ಪೂರ್ವ ಕಾರ್ಯಗತಗೊಳಿಸಿದ ಸ್ಕ್ರಿಪ್ಟ್</string>  
   <string name="text_clear_pre_execute_script">ಮೊದಲೇ ಕಾರ್ಯಗತಗೊಳಿಸಿದ ಸ್ಕ್ರಿಪ್ಟ್‌ಗಳನ್ನು ತೆರವುಗೊಳಿಸಿ</string>  
   <string name="text_clear_file_selection">ಸ್ಕ್ರಿಪ್ಟ್ ಫೈಲ್ ಆಯ್ಕೆಯನ್ನು ಮರುಹೊಂದಿಸಿ</string>  
   <string name="summary_pre_execute_script">ಸ್ಕ್ರಿಪ್ಟ್ ಫೈಲ್ ಅನ್ನು ಕಾರ್ಯಗತಗೊಳಿಸುವ ಮೊದಲು ಕಾರ್ಯಗತಗೊಳಿಸಲಾಗುತ್ತದೆ</string>  
@@ -157,7 +157,7 @@
   <string name="text_edit_script">ಸ್ಕ್ರಿಪ್ಟ್ ಸಂಪಾದಿಸಿ</string>  
   <string name="text_run_script">ಸ್ಕ್ರಿಪ್ಟ್ ರನ್ ಮಾಡಿ</string>  
   <string name="text_import_script">ಸ್ಕ್ರಿಪ್ಟ್ ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>  
-  <string name="text_root_record_out_file_type">ರೂಟ್ ರೆಕಾರ್ಡಿಂಗ್ ರಚಿಸಿದ ಫೈಲ್ ಪ್ರಕಾರ</string>  
+  <string name="text_root_record_out_file_type">ರೂಟ್ ರೆಕಾರ್ಡಿಂಗ್ ರಚಿಸಲಾದ ಫೈಲ್ ಪ್ರಕಾರ</string>  
   <string name="text_binary">ಅವಳಿ</string>  
   <string name="summary_stable_mode">ಲೇಔಟ್ ವಿಶ್ಲೇಷಣೆಯನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿದಾಗ ಹೆಚ್ಚು ಸ್ಥಿರವಾಗಿರುತ್ತದೆ, ಆದರೆ ಕಡಿಮೆ ಸಂಖ್ಯೆಯ ಸ್ಕ್ರಿಪ್ಟ್‌ಗಳು ಸರಿಯಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸದೇ ಇರಬಹುದು. ಕಾರ್ಯರೂಪಕ್ಕೆ ಬರಲು ಪ್ರವೇಶ ಸೇವೆಯನ್ನು ಮರುಪ್ರಾರಂಭಿಸಿ</string>  
   <string name="text_hideLaucher">ಡೆಸ್ಕ್‌ಟಾಪ್ ಐಕಾನ್‌ಗಳನ್ನು ಮರೆಮಾಡಿ (ADB ಅಥವಾ ಇತರ ವಿಧಾನಗಳ ಮೂಲಕ ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಪ್ರಾರಂಭಿಸಿ)</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">ಆಯ್ಕೆಗಳು</string>  
   <string name="text_using_id_selector">ಐಡಿ ಬಳಸಿ ಆಯ್ಕೆಮಾಡಿ</string>  
   <string name="text_using_text_selector">ಪಠ್ಯ ಆಯ್ಕೆಯನ್ನು ಬಳಸಿ (ಪಠ್ಯ)</string>  
-  <string name="text_using_desc_selector">ವಿವರಣೆಯನ್ನು ಬಳಸಿಕೊಂಡು ಆಯ್ಕೆಮಾಡಿ (ಡೆಸ್ಕ್)</string>  
+  <string name="text_using_desc_selector">ವಿವರಣೆ ಆಯ್ಕೆಮಾಡಿ (ಡೆಸ್ಕ್) ಬಳಸಿ</string>  
   <string name="text_generate">ಉತ್ಪಾದಿಸುತ್ತವೆ</string>  
   <string name="text_generate_fail">ಬಿಲ್ಡ್ ವಿಫಲವಾಗಿದೆ o(╥﹏╥)o</string>  
   <string name="text_documentation_source">ದಾಖಲೆ ಮೂಲ</string>  
@@ -320,7 +320,7 @@
   <string name="text_day5">ಶುಕ್ರವಾರ</string>  
   <string name="text_day6">ಶನಿವಾರ</string>  
   <string name="text_day7">ಭಾನುವಾರ</string>  
-  <string name="text_weekly_task_should_check_day_of_week">ವಾರದ ಕನಿಷ್ಠ ಒಂದು ದಿನವನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>  
+  <string name="text_weekly_task_should_check_day_of_week">ವಾರದಲ್ಲಿ ಕನಿಷ್ಠ ಒಂದು ದಿನವನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>  
   <string name="no_apk_builder_plugin">ಪ್ಯಾಕೇಜ್ ಮಾಡಲಾದ ಪ್ಲಗಿನ್ ಅನ್ನು ಸ್ಥಾಪಿಸಲಾಗಿಲ್ಲ, ನೀವು ಇದೀಗ ಅದನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ಬಯಸುವಿರಾ?</string>  
   <string name="text_apk_builder_plugin_unavailable">ಪ್ಯಾಕೇಜ್ ಪ್ಲಗಿನ್ ಲಭ್ಯವಿಲ್ಲ</string>  
   <string name="text_detail">ವಿವರಗಳು</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">ಮುಖ್ಯ ಇಂಟರ್ಫೇಸ್ ಅನ್ನು ನಮೂದಿಸಲು ಕ್ಲಿಕ್ ಮಾಡಿ</string>  
   <string name="text_run_on_other_broadcast">ಇತರ ಘಟನೆಗಳು (ಪ್ರಸಾರ)</string>  
   <string name="text_broadcast_action">ಪ್ರಸಾರ ಕ್ರಿಯೆ</string>  
-  <string name="text_run_on_boot">ಬೂಟ್ ಮಾಡುವಾಗ</string>  
+  <string name="text_run_on_boot">ಬೂಟ್ ಸಮಯದಲ್ಲಿ</string>  
   <string name="text_run_on_screen_on">ಪರದೆಯು ಆನ್ ಆಗಿರುವಾಗ</string>  
   <string name="text_run_on_screen_off">ಪರದೆಯು ಆಫ್ ಆಗಿರುವಾಗ</string>  
   <string name="error_empty_selection">ದಯವಿಟ್ಟು ಪ್ರಸಾರ ಈವೆಂಟ್ ಆಯ್ಕೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">ರಾತ್ರಿ ಮೋಡ್</string>  
   <string name="text_run_on_startup">Autox.js ಪ್ರಾರಂಭವಾದಾಗ</string>  
   <string name="text_usage_stats_permission">ಬಳಕೆಯ ಪ್ರವೇಶ</string>  
-  <string name="description_usage_stats_permission">\"ಬಳಕೆಯ ಅಂಕಿಅಂಶಗಳನ್ನು ವೀಕ್ಷಿಸಿ\" ಅನುಮತಿಯ ಮೂಲಕ, ನೀವು ಈ ಸಾಧನದ ಹಿಂದಿನ ಅಪ್ಲಿಕೇಶನ್ ಬಳಕೆಯನ್ನು ಪಡೆಯಬಹುದು, ಇದರಿಂದಾಗಿ ಪ್ರಸ್ತುತ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು (currentPackage) ಪಡೆಯಲು ಹೆಚ್ಚು ನಿಖರವಾಗಿರುತ್ತದೆ.</string>  
+  <string name="description_usage_stats_permission">\"ಬಳಕೆಯ ಅಂಕಿಅಂಶಗಳನ್ನು ವೀಕ್ಷಿಸಿ\" ಅನುಮತಿಯ ಮೂಲಕ, ನೀವು ಈ ಸಾಧನದ ಹಿಂದಿನ ಅಪ್ಲಿಕೇಶನ್ ಬಳಕೆಯನ್ನು ಪಡೆಯಬಹುದು, ಇದರಿಂದಾಗಿ ಪ್ರಸ್ತುತ ಅಪ್ಲಿಕೇಶನ್ (ಪ್ರಸ್ತುತ ಪ್ಯಾಕೇಜ್) ಪಡೆಯಲು ಹೆಚ್ಚು ನಿಖರವಾಗಿರುತ್ತದೆ.</string>  
   <string name="text_open_with">ತೆರೆದ ದಾರಿ</string>  
   <string name="text_root">ಬೇರು</string>  
   <string name="text_no_root">ರೂಟ್ ಉಚಿತ</string>  
@@ -432,8 +432,8 @@
   <string name="textSizePlus">+</string>  
   <string name="textSizeMinus">-</string>  
   <plurals name="air_error_short_description" key="air_error_short_description"> 
-    <item quantity="one">ವಿವರಣೆಯು ಕನಿಷ್ಟ %d ಅಕ್ಷರಗಳ ಉದ್ದವಿರಬೇಕು.</item>  
-    <item quantity="other">ವಿವರಣೆಯು ಕನಿಷ್ಟ %d ಅಕ್ಷರಗಳ ಉದ್ದವಿರಬೇಕು.</item> 
+    <item quantity="one">ವಿವರಣೆಯು ಕನಿಷ್ಠ %d ಅಕ್ಷರಗಳ ಉದ್ದವಿರಬೇಕು.</item>  
+    <item quantity="other">ವಿವರಣೆಯು ಕನಿಷ್ಠ %d ಅಕ್ಷರಗಳ ಉದ್ದವಿರಬೇಕು.</item> 
   </plurals>  
   <string name="air_title_report_issue">ದೋಷ ವರದಿ</string>  
   <string name="air_title_issue">ಪ್ರಶ್ನೆ</string>  
@@ -478,7 +478,7 @@
   <string name="text_go_to_open">ತೆಗೆಯುವುದು</string>  
   <string name="text_home">ಮುಖಪುಟ</string>  
   <string name="text_management">ನಿರ್ವಹಿಸು</string>  
-  <string name="text_document">ದಾಖಲೀಕರಣ</string>  
+  <string name="text_document">ದಾಖಲೆ</string>  
   <string name="text_open_usb_debug">USB ಡೀಬಗ್ ಮಾಡುವಿಕೆಯನ್ನು ಆನ್ ಮಾಡಿ</string>  
   <string name="text_scan_qr">ಸ್ಕ್ಯಾನ್ ಕೋಡ್</string>  
   <string name="text_connect_failed">ಸಂಪರ್ಕ ವಿಫಲವಾಗಿದೆ: %s , ದಯವಿಟ್ಟು ಕಂಪ್ಯೂಟರ್ ಫೈರ್‌ವಾಲ್ ಪೋರ್ಟ್ 9317 ಅನ್ನು ಅನುಮತಿಸುತ್ತದೆಯೇ, ಅದು ಅದೇ ಸ್ಥಳೀಯ ಪ್ರದೇಶ ನೆಟ್‌ವರ್ಕ್‌ನಲ್ಲಿದೆಯೇ ಮತ್ತು VS CODE ಪ್ಲಗ್-ಇನ್ ಸೇವೆಯನ್ನು ತೆರೆದಿದೆಯೇ ಎಂಬುದನ್ನು ಪರಿಶೀಲಿಸಿ...</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">ಹುಡುಕಾಟದಿಂದ ನಿರ್ಗಮಿಸಿ</string>  
   <string name="text_licenses_other">ನಾನ್-ಓಪನ್ ಸೋರ್ಸ್ ಪರವಾನಗಿ</string>  
   <string name="text_save_successfully">ಯಶಸ್ವಿಯಾಗಿ ಉಳಿಸಲಾಗಿದೆ</string>  
-  <string name="text_save_as_project">ಯೋಜನೆಯಂತೆ ಉಳಿಸಿ</string>
-  <string name="text_select_save_mode">ದಯವಿಟ್ಟು ಉಳಿಸುವ ವಿಧಾನವನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
-  <string name="text_save_as_project_and_exit">ಯೋಜನೆಯಂತೆ ಉಳಿಸಿ ಮತ್ತು ನಿರ್ಗಮಿಸಿ</string>
-  <string name="apk_builder_sign">ಸಹಿ ಮಾಡುವುದು</string>
-  <string name="text_invalid_config">ಅಮಾನ್ಯ ಸಂರಚನೆ</string>
-  <string name="text_abi">ಬೆಂಬಲಿತ ABI ಗಳು (ಅಲ್ಪವಿರಾಮಗಳಿಂದ ಬೇರ್ಪಡಿಸಲಾಗಿದೆ)</string>
-  <string name="text_save_project_to">ಯೋಜನೆಗೆ ಉಳಿಸಲಾಗಿದೆ: %s</string>
+  <string name="text_save_as_project">ಯೋಜನೆಯಂತೆ ಉಳಿಸಿ</string>  
+  <string name="text_select_save_mode">ದಯವಿಟ್ಟು ಉಳಿಸುವ ವಿಧಾನವನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>  
+  <string name="text_save_as_project_and_exit">ಯೋಜನೆಯಂತೆ ಉಳಿಸಿ ಮತ್ತು ನಿರ್ಗಮಿಸಿ</string>  
+  <string name="apk_builder_sign">ಸಹಿ ಮಾಡುವುದು</string>  
+  <string name="text_invalid_config">ಅಮಾನ್ಯ ಸಂರಚನೆ</string>  
+  <string name="text_abi">ಬೆಂಬಲಿತ ABI ಗಳು (ಅಲ್ಪವಿರಾಮಗಳಿಂದ ಬೇರ್ಪಡಿಸಲಾಗಿದೆ)</string>  
+  <string name="text_save_project_to">ಯೋಜನೆಗೆ ಉಳಿಸಲಾಗಿದೆ: %s</string>  
+  <string name="text_hide_and_show">ಮರೆಮಾಡಿ / ತೋರಿಸು</string>
+  <string name="text_browser_open">ಬ್ರೌಸರ್ ತೆರೆದಿದೆ</string>
+  <string name="text_do_nothing">ಏನನ್ನೂ ಮಾಡಬೇಡ</string>
+  <string name="text_copy_to_new_folder">ಮೂಲ ಫೋಲ್ಡರ್‌ನ ವಿಷಯಗಳನ್ನು ಹೊಸ ಫೋಲ್ಡರ್‌ಗೆ ನಕಲಿಸಿ</string>
+  <string name="text_move_new_folder">ಮೂಲ ಫೋಲ್ಡರ್‌ನ ವಿಷಯಗಳನ್ನು ಹೊಸ ಫೋಲ್ಡರ್‌ಗೆ ಸರಿಸಿ</string>
+  <string name="text_accessibility_service_is_not_enable">ಪ್ರವೇಶಿಸುವಿಕೆ ಸೇವೆಯನ್ನು ಆನ್ ಮಾಡಲಾಗಿಲ್ಲ</string>
+  <string name="text_set_successfully">ಯಶಸ್ವಿಯಾಗಿ ಹೊಂದಿಸಲಾಗಿದೆ</string>
 </resources>

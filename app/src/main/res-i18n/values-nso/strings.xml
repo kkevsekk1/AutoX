@@ -59,7 +59,7 @@
   <string name="text_report_succeed">E rometšwe ka katlego</string>  
   <string name="edit_and_run_handle_intent_error">Ga se ya kgona go šoma faele</string>  
   <string name="text_issue_report">Dipoelo</string>  
-  <string name="text_script_record">Rekoto ya sengwalwa</string>  
+  <string name="text_script_record">Sengwalwa sa rekoto</string>  
   <string name="text_start_record">Thoma go rekota</string>  
   <string name="text_recorded">Mafelelo a go rekota</string>  
   <string name="text_copy_to_clip">Kopiša go clipboard</string>  
@@ -231,7 +231,7 @@
   <string name="text_required_draw_overlay">Go nyakega tumelelo ya lefasetere leo le phaphametšego</string>  
   <string name="text_volumeUpcontrol">Volume up key go fediša mošomo</string>  
   <string name="text_splash_text">Sengwalwa sa segokanyimmediamentsi sa sebolokigolo sa go thoma</string>  
-  <string name="text_splash_icon">Thoma segokanyimmediamentsi sa sebolokigolo letšoao</string>  
+  <string name="text_splash_icon">Thakgola segokanyimmediamentsi sa sebolokigolo letšoao</string>  
   <string name="text_service_desc_text">Tlhaloso ya Ditirelo tša Phihlelelo</string>  
   <string name="text_sign">Leswao</string>  
   <string name="text_sign_choose">Kgetha mosaeno</string>  
@@ -266,7 +266,7 @@
   <string name="text_source_file_path">Script faele (foldara) tsela</string>  
   <string name="text_search">Nyaka</string>  
   <string name="text_select_icon">Kgetha letšoao</string>  
-  <string name="text_use_android_n_shortcut">E okeditšwe go Android 7.0 Kgaoletšo</string>  
+  <string name="text_use_android_n_shortcut">E okeditšwe go Kgaoletšo ya Android 7.0</string>  
   <string name="text_login_succeed">Go tsena go atlegile</string>  
   <string name="text_login_fail">Go tsena go paletšwe</string>  
   <string name="text_reset_password">Seta Phasewete gape</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Dikgetho</string>  
   <string name="text_using_id_selector">Kgetha sebelisa id</string>  
   <string name="text_using_text_selector">Šomiša kgetho ya sengwalwa (sengwalwa) .</string>  
-  <string name="text_using_desc_selector">Kgetha o diriša tlhaloso (desc) .</string>  
+  <string name="text_using_desc_selector">Šomiša Tlhaloso Kgetha (desc) .</string>  
   <string name="text_generate">Tšweletša</string>  
   <string name="text_generate_fail">Go aga go paletšwe o(╥╥)o</string>  
   <string name="text_documentation_source">Mothopo wa ditokomane</string>  
@@ -358,7 +358,7 @@
   <string name="text_pointer_location">Boemo bja tšhupetšo [Modu].</string>  
   <string name="text_change_script_dir">Fetola tsela ya foltara ya sengwalwa</string>  
   <string name="default_value_script_dir_path">/sengwalwa/</string>  
-  <string name="text_error_copy_file" formatted="true">Go diregile phošo: %s</string>  
+  <string name="text_error_copy_file" formatted="true">Phošo e diregile: %s</string>  
   <string name="text_debug">Go lokiša diphošo</string>  
   <string name="text_set_breakpoint">Ntlha ya go kgaotša</string>  
   <string name="text_launch_debugger">Thoma go lokiša diphošo</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Tobetsa ho kena segokanyimmediamentsi sa sebolokigolo se seholo</string>  
   <string name="text_run_on_other_broadcast">Ditiragalo tše dingwe (kgašo) .</string>  
   <string name="text_broadcast_action">Kgašo ya Kgašo</string>  
-  <string name="text_run_on_boot">Ge o thoma</string>  
+  <string name="text_run_on_boot">Ka nako ya boot</string>  
   <string name="text_run_on_screen_on">Ge skrine se bulegile</string>  
   <string name="text_run_on_screen_off">Ge skrine se timilwe</string>  
   <string name="error_empty_selection">Hle kgetha kgetho ya tiragalo ya kgašo</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Mokgwa wa bosiu</string>  
   <string name="text_run_on_startup">Ge Autox.js e thoma</string>  
   <string name="text_usage_stats_permission">Phihlelelo ya tšhomišo</string>  
-  <string name="description_usage_stats_permission">Ka tumelelo ya \"dipalopalo tša tšhomišo ya go lebelela\", o ka hwetša tšhomišo ya tirišo ya nakong ye e fetilego ya sedirišwa se, gore e be ye e nepagetšego kudu go hwetša tirišo ya bjale (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Ka tumelelo ya \"Bona Dipalopalo tša Tšhomišo\", o ka hwetša tšhomišo ya tirišo ya nakong ye e fetilego ya sedirišwa se, gore e be ye e nepagetšego kudu go hwetša tirišo ya bjale (currentPackage).</string>  
   <string name="text_open_with">Tsela e bulehileng</string>  
   <string name="text_root">Modu</string>  
   <string name="text_no_root">Modu o lokologile</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Tšwa go nyakišišo</string>  
   <string name="text_licenses_other">Laesense ya Mothopo wo o sa Bulegago</string>  
   <string name="text_save_successfully">E phološitšwe ka katlego</string>  
-  <string name="text_save_as_project">Boloka e le porojeke e ne</string>
-  <string name="text_select_save_mode">Hle kgetha mokgwa wa go boloka</string>
-  <string name="text_save_as_project_and_exit">Boloka e le porojeke e ne le tsoa</string>
-  <string name="apk_builder_sign">Go saena</string>
-  <string name="text_invalid_config">Peakanyo ye e sa šomego</string>
-  <string name="text_abi">Di-ABI tše di thekgwago (tšeo di arotšwego ka dikhukhu) .</string>
-  <string name="text_save_project_to">Protšeke e bolokilwe go: %s</string>
+  <string name="text_save_as_project">Boloka e le porojeke e ne</string>  
+  <string name="text_select_save_mode">Hle kgetha mokgwa wa go boloka</string>  
+  <string name="text_save_as_project_and_exit">Boloka e le porojeke e ne le tsoa</string>  
+  <string name="apk_builder_sign">Go saena</string>  
+  <string name="text_invalid_config">Peakanyo ye e sa šomego</string>  
+  <string name="text_abi">Di-ABI tše di thekgwago (tšeo di arotšwego ka dikhukhu) .</string>  
+  <string name="text_save_project_to">Protšeke e bolokilwe go: %s</string>  
+  <string name="text_hide_and_show">Pata/bontšha</string>
+  <string name="text_browser_open">Sephephediši bula</string>
+  <string name="text_do_nothing">O se ke wa dira selo</string>
+  <string name="text_copy_to_new_folder">Khopiša dikagare tša foltara ya mathomo go foltara ye mpsha</string>
+  <string name="text_move_new_folder">Suthiša diteng tša foltara ya mathomo go foltara ye mpsha</string>
+  <string name="text_accessibility_service_is_not_enable">Tirelo ya phihlelelo ga e butšwe</string>
+  <string name="text_set_successfully">Beha ka katleho</string>
 </resources>

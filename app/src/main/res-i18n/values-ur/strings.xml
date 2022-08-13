@@ -24,7 +24,7 @@
   <string name="text_alert">اشارہ</string>  
   <string name="edit_exit_without_save_warn">مواد محفوظ نہیں کیا گیا ہے، کیا آپ واقعی باہر نکلنا چاہتے ہیں؟</string>  
   <string name="text_save_and_exit">محفوظ کریں اور باہر نکلیں</string>  
-  <string name="text_exit_directly">براہ راست باہر نکلیں۔</string>  
+  <string name="text_exit_directly">براہ راست باہر نکلیں</string>  
   <string name="text_setting">قائم کریں</string>  
   <string name="text_exit">چھوڑو</string>  
   <string name="text_auto_operate_service">قابل رسائی خدمات</string>  
@@ -64,7 +64,7 @@
   <string name="text_recorded">ریکارڈنگ کا اختتام</string>  
   <string name="text_copy_to_clip">کلپ بورڈ پر کاپی کریں۔</string>  
   <string name="text_file_write_fail">فائل لکھنے میں ناکام</string>  
-  <string name="text_use_volume_control_record">کنٹرول کرنے کے لیے والیوم ڈاؤن کلید استعمال کریں۔</string>  
+  <string name="text_use_volume_control_record">کنٹرول کرنے کے لیے والیوم ڈاؤن کلید کا استعمال کریں۔</string>  
   <string name="summary_use_volume_control_record">فلوٹنگ ونڈو کھولنے کے بعد، ہر بار والیوم ڈاؤن کلید اسکرپٹ ریکارڈنگ کو شروع یا روک دے گی۔</string>  
   <string name="text_qq_group">یہ QQ گروپ نمبر ہے، اگر آپ اسے نہیں کھول سکتے تو براہ کرم دستی طور پر تلاش کریں۔</string>  
   <string name="text_mobile_qq_not_installed">موبائل QQ انسٹال نہیں ہے۔</string>  
@@ -108,7 +108,7 @@
   <string name="text_checking_update">اپ ڈیٹس کی جانچ ہو رہی ہے۔</string>  
   <string name="text_new_version">نیا ورژن</string>  
   <string name="text_new_version2">نیا ورژن: %s</string>  
-  <string name="text_check_update_error">اپ ڈیٹس کے لیے چیک کریں ناکام: %s</string>  
+  <string name="text_check_update_error">اپ ڈیٹس کی جانچ ناکام ہوگئی: %s</string>  
   <string name="text_check_for_updates">اپ ڈیٹ کے لیے چیک کریں</string>  
   <string name="text_is_latest_version">پہلے سے ہی تازہ ترین ورژن</string>  
   <string name="text_version_too_old">ورژن بہت کم ہے۔</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">اختیارات</string>  
   <string name="text_using_id_selector">آئی ڈی کا استعمال کرتے ہوئے منتخب کریں۔</string>  
   <string name="text_using_text_selector">متن کا انتخاب استعمال کریں (متن)</string>  
-  <string name="text_using_desc_selector">تفصیل کا استعمال کرتے ہوئے منتخب کریں (ڈیسک)</string>  
+  <string name="text_using_desc_selector">تفصیل کا انتخاب استعمال کریں (ڈیسک)</string>  
   <string name="text_generate">پیدا کرنا</string>  
   <string name="text_generate_fail">تعمیر ناکام ہو گیا o(╥﹏╥)o</string>  
   <string name="text_documentation_source">دستاویزی ماخذ</string>  
@@ -343,7 +343,7 @@
   <string name="nodebb_error_change_password_error_match">داخل کردہ دو پاس ورڈز مماثل نہیں ہیں۔</string>  
   <string name="text_logout">باہر جائیں</string>  
   <string name="nodebb_error_forbidden">آپریشن ناکام ہوگیا، براہ کرم بعد میں دوبارہ کوشش کریں۔</string>  
-  <string name="description_stable_mode">اسٹیبل موڈ اسکرپٹ کو مزید مستحکم بناتا ہے جب لے آؤٹ کی تفصیلات کو چھوڑ کر لے آؤٹ کو گرفت میں لیا جاتا ہے، لیکن اس کے ساتھ ساتھ کم آن اسکرین کنٹرولز حاصل کیے جاتے ہیں۔ \n \n nقابل رسائی سروس کو دوبارہ شروع کریں۔</string>  
+  <string name="description_stable_mode">اسٹیبل موڈ اسکرپٹ کو مزید مستحکم بناتا ہے جب لے آؤٹ کی تفصیلات کو چھوڑ کر لے آؤٹ پر قبضہ کیا جاتا ہے، لیکن ساتھ ہی ساتھ کم آن اسکرین کنٹرولز بھی حاصل کیے جاتے ہیں۔ \n \n nقابل رسائی سروس کو دوبارہ شروع کریں۔</string>  
   <string name="text_size_min_value">2</string>  
   <string name="text_size_max_value">60</string>  
   <string name="text_text_size">حرف کا سائز</string>  
@@ -351,7 +351,7 @@
   <string name="text_size_current_value" formatted="true">فونٹ کا سائز: %d</string>  
   <string name="error_regex_find_prev">باقاعدہ اظہار آگے نہیں دیکھ سکتا</string>  
   <string name="text_notification">نوٹس</string>  
-  <string name="apk_builder_plugin_version_too_low">پیک شدہ پلگ ان ورژن بہت کم ہے، اور ہو سکتا ہے پیک کردہ ایپلیکیشن ٹھیک سے نہ چل سکے۔ کیا آپ ابھی پیک شدہ پلگ ان کا متعلقہ ورژن ڈاؤن لوڈ کرنا چاہتے ہیں؟</string>  
+  <string name="apk_builder_plugin_version_too_low">پیک شدہ پلگ ان ورژن بہت کم ہے، اور ہو سکتا ہے پیک شدہ ایپلیکیشن ٹھیک سے نہ چل سکے۔ کیا آپ ابھی پیک شدہ پلگ ان کا متعلقہ ورژن ڈاؤن لوڈ کرنا چاہتے ہیں؟</string>  
   <string name="text_inspect_layout_bounds">لے آؤٹ رینج کا تجزیہ</string>  
   <string name="text_inspect_layout_hierarchy">لے آؤٹ درجہ بندی</string>  
   <string name="text_inspect_layout">لے آؤٹ تجزیہ</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">مرکزی انٹرفیس میں داخل ہونے کے لیے کلک کریں۔</string>  
   <string name="text_run_on_other_broadcast">دیگر واقعات (نشر)</string>  
   <string name="text_broadcast_action">براڈکاسٹ ایکشن</string>  
-  <string name="text_run_on_boot">جب بوٹ</string>  
+  <string name="text_run_on_boot">بوٹ کے وقت</string>  
   <string name="text_run_on_screen_on">اسکرین آن ہونے پر</string>  
   <string name="text_run_on_screen_off">جب سکرین بند ہو</string>  
   <string name="error_empty_selection">براہ کرم براڈکاسٹ ایونٹ کا اختیار منتخب کریں۔</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">تلاش سے باہر نکلیں۔</string>  
   <string name="text_licenses_other">غیر اوپن سورس لائسنس</string>  
   <string name="text_save_successfully">کامیابی کے ساتھ محفوظ ہو گیا۔</string>  
-  <string name="text_save_as_project">پروجیکٹ کے طور پر محفوظ کریں۔</string>
-  <string name="text_select_save_mode">براہ کرم محفوظ کرنے کا طریقہ منتخب کریں۔</string>
-  <string name="text_save_as_project_and_exit">پروجیکٹ کے طور پر محفوظ کریں اور باہر نکلیں۔</string>
-  <string name="apk_builder_sign">دستخط</string>
-  <string name="text_invalid_config">غلط ترتیب</string>
-  <string name="text_abi">تعاون یافتہ ABIs (کوما سے الگ)</string>
-  <string name="text_save_project_to">پروجیکٹ کو محفوظ کیا گیا: %s</string>
+  <string name="text_save_as_project">پروجیکٹ کے طور پر محفوظ کریں۔</string>  
+  <string name="text_select_save_mode">براہ کرم محفوظ کرنے کا طریقہ منتخب کریں۔</string>  
+  <string name="text_save_as_project_and_exit">پروجیکٹ کے طور پر محفوظ کریں اور باہر نکلیں۔</string>  
+  <string name="apk_builder_sign">دستخط</string>  
+  <string name="text_invalid_config">غلط ترتیب</string>  
+  <string name="text_abi">تعاون یافتہ ABIs (کوما سے الگ)</string>  
+  <string name="text_save_project_to">پروجیکٹ کو محفوظ کیا گیا: %s</string>  
+  <string name="text_hide_and_show">چھپائیں/دکھائیں</string>
+  <string name="text_browser_open">براؤزر کھلا</string>
+  <string name="text_do_nothing">کچھ نہ کرو</string>
+  <string name="text_copy_to_new_folder">اصل فولڈر کے مواد کو نئے فولڈر میں کاپی کریں۔</string>
+  <string name="text_move_new_folder">اصل فولڈر کے مواد کو نئے فولڈر میں منتقل کریں۔</string>
+  <string name="text_accessibility_service_is_not_enable">قابل رسائی سروس آن نہیں ہے۔</string>
+  <string name="text_set_successfully">کامیابی سے سیٹ</string>
 </resources>

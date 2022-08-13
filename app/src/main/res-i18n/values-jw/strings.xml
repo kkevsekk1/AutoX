@@ -8,7 +8,7 @@
   <string name="text_please_input_name">Mangga ketik jeneng</string>  
   <string name="text_name">Jeneng</string>  
   <string name="text_go_to_setting">Pindhah menyang setelan</string>  
-  <string name="explain_accessibility_permission">Piranti lunak kudu mbukak \"Layanan Aksesibilitas\" kanggo mbukak, bukak \"Setelan-> Layanan Aksesibilitas\" utawa \"Setelan-> Layanan Aksesibilitas-> Layanan sing Diundhuh Liyane\", goleki aplikasi iki, lan aktifake Layanan Aksesibilitas \n Sampeyan uga bisa disetel mengko ing menu gulung mudhun.</string>  
+  <string name="explain_accessibility_permission">Piranti lunak kudu mbukak \"Layanan Aksesibilitas\" kanggo mbukak, bukak \"Setelan->Layanan Aksesibilitas\" utawa \"Setelan->Layanan Aksesibilitas->Layanan sing Diundhuh Liyane\", goleki aplikasi iki, lan aktifake Layanan Aksesibilitas \n uga bisa disetel mengko ing menu gulung mudhun.</string>  
   <string name="explain_accessibility_permission2">Piranti lunak kudu mbukak \"Layanan Aksesibilitas\" kanggo mbukak, bukak \"Setelan-> Layanan Aksesibilitas\" utawa \"Setelan-> Layanan Aksesibilitas-> Layanan sing Diundhuh Liyane\", temokake aplikasi iki, lan aktifake Layanan Aksesibilitas</string>  
   <string name="text_cancel">Batal</string>  
   <string name="text_path_is_empty">Dalane kosong</string>  
@@ -24,7 +24,7 @@
   <string name="text_alert">Pitunjuk</string>  
   <string name="edit_exit_without_save_warn">Isine durung disimpen, sampeyan yakin arep metu?</string>  
   <string name="text_save_and_exit">Nyimpen lan metu</string>  
-  <string name="text_exit_directly">Langsung metu</string>  
+  <string name="text_exit_directly">Metu langsung</string>  
   <string name="text_setting">Nyetel</string>  
   <string name="text_exit">Mandhek</string>  
   <string name="text_auto_operate_service">Layanan Aksesibilitas</string>  
@@ -65,7 +65,7 @@
   <string name="text_copy_to_clip">Nyalin menyang clipboard</string>  
   <string name="text_file_write_fail">File nulis gagal</string>  
   <string name="text_use_volume_control_record">Gunakake tombol volume mudhun kanggo ngontrol</string>  
-  <string name="summary_use_volume_control_record">Sawise mbukak jendhela ngambang, saben wektu tombol volume mudhun bakal miwiti utawa mungkasi rekaman script</string>  
+  <string name="summary_use_volume_control_record">Sawise mbukak jendhela ngambang, saben tombol volume mudhun bakal miwiti utawa mungkasi rekaman script</string>  
   <string name="text_qq_group">Iki nomer grup QQ, yen sampeyan ora bisa mbukak, goleki kanthi manual</string>  
   <string name="text_mobile_qq_not_installed">Mobile QQ ora diinstal</string>  
   <string name="text_edit">Nyunting</string>  
@@ -214,7 +214,7 @@
   <string name="text_select_file_to_import">Pilih file sing arep diimpor</string>  
   <string name="text_build_apk">Aplikasi Paket</string>  
   <string name="text_select">Milih</string>  
-  <string name="text_output_apk_path">Lokasi nyimpen app rangkep</string>  
+  <string name="text_output_apk_path">App rangkep nyimpen lokasi</string>  
   <string name="text_config">Ngatur</string>  
   <string name="text_app_name">Jeneng Aplikasi</string>  
   <string name="text_package_name">Jeneng paket</string>  
@@ -290,7 +290,7 @@
   <string name="text_click">Klik</string>  
   <string name="text_long_click">Tekan lama (longKlik)</string>  
   <string name="text_set_text">Atur teks (setText)</string>  
-  <string name="text_scroll_forward">Gesek maju/nengen/mudhun (gulung maju)</string>  
+  <string name="text_scroll_forward">Gesek maju/nengen/mudhun (gulung Maju)</string>  
   <string name="text_scroll_backward">Gulung Mundur/Ndhuwur/Kiwa (gulung Mundur)</string>  
   <string name="text_find_one">Nganti ketemu siji (findOne)</string>  
   <string name="text_until_find">Nganti ketemu kabeh (nganti Golek)</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Pilihan</string>  
   <string name="text_using_id_selector">Pilih using id</string>  
   <string name="text_using_text_selector">Gunakake pilihan teks (teks)</string>  
-  <string name="text_using_desc_selector">Pilih using description (desc)</string>  
+  <string name="text_using_desc_selector">Gunakake Deskripsi Pilih (desc)</string>  
   <string name="text_generate">Ngasilaken</string>  
   <string name="text_generate_fail">Gagal mbangun o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Sumber dokumentasi</string>  
@@ -330,7 +330,7 @@
   <string name="text_should_not_be_empty">Ora bisa kosong</string>  
   <string name="text_icon">Lambang</string>  
   <string name="text_device_not_rooted">Piranti ora bosok</string>  
-  <string name="prompt_device_not_rooted">Dideteksi manawa piranti sampeyan ora bosok, skrip rekaman mbutuhake hak istimewa root, apa sampeyan pengin nerusake?</string>  
+  <string name="prompt_device_not_rooted">Dideteksi manawa piranti sampeyan ora bosok, skrip rekaman mbutuhake hak istimewa root, apa sampeyan pengin terus?</string>  
   <string name="text_device_rooted">Isih kanggo ngrekam</string>  
   <string name="text_community_category">Bagean</string>  
   <string name="text_community_unread">Durung diwaca</string>  
@@ -351,7 +351,7 @@
   <string name="text_size_current_value" formatted="true">Ukuran huruf: %d</string>  
   <string name="error_regex_find_prev">Ekspresi reguler ora bisa ngarep-arep</string>  
   <string name="text_notification">Kabar</string>  
-  <string name="apk_builder_plugin_version_too_low">Versi plug-in sing dikemas kurang banget, lan aplikasi sing dikemas bisa uga ora bisa mlaku kanthi bener. Apa sampeyan pengin ndownload versi plug-in sing cocog saiki?</string>  
+  <string name="apk_builder_plugin_version_too_low">Versi plug-in sing dibungkus sithik banget, lan aplikasi sing dikemas bisa uga ora bisa mlaku kanthi bener. Apa sampeyan pengin ndownload versi plug-in sing cocog saiki?</string>  
   <string name="text_inspect_layout_bounds">Analisis sawetara tata letak</string>  
   <string name="text_inspect_layout_hierarchy">Hierarki Tata Letak</string>  
   <string name="text_inspect_layout">Analisis tata letak</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Klik kanggo ngetik antarmuka utama</string>  
   <string name="text_run_on_other_broadcast">Acara liyane (siaran)</string>  
   <string name="text_broadcast_action">Siaran Tindakan</string>  
-  <string name="text_run_on_boot">Nalika booting</string>  
+  <string name="text_run_on_boot">Ing wektu boot</string>  
   <string name="text_run_on_screen_on">Nalika layar urip</string>  
   <string name="text_run_on_screen_off">Nalika layar mati</string>  
   <string name="error_empty_selection">Mangga pilih opsi acara siaran</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Mode wengi</string>  
   <string name="text_run_on_startup">Nalika Autox.js diwiwiti</string>  
   <string name="text_usage_stats_permission">Akses panggunaan</string>  
-  <string name="description_usage_stats_permission">Liwat ijin \"deleng statistik panggunaan\", sampeyan bisa entuk panggunaan aplikasi sing kepungkur saka piranti iki, supaya luwih akurat entuk aplikasi saiki (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Liwat ijin \"Deleng Statistik Panggunaan\", sampeyan bisa entuk panggunaan aplikasi sing kepungkur saka piranti iki, supaya luwih akurat entuk aplikasi saiki (currentPackage).</string>  
   <string name="text_open_with">Mbukak dalan</string>  
   <string name="text_root">Oyod</string>  
   <string name="text_no_root">Root gratis</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Metu saka panelusuran</string>  
   <string name="text_licenses_other">Lisensi Non-Open Source</string>  
   <string name="text_save_successfully">Kasil disimpen</string>  
-  <string name="text_save_as_project">Simpen minangka proyek</string>
-  <string name="text_select_save_mode">Mangga pilih cara nyimpen</string>
-  <string name="text_save_as_project_and_exit">Simpen minangka proyek lan metu</string>
-  <string name="apk_builder_sign">Mlebu</string>
-  <string name="text_invalid_config">Konfigurasi ora bener</string>
-  <string name="text_abi">ABI sing didhukung (dipisahake karo koma)</string>
-  <string name="text_save_project_to">Proyek disimpen menyang: %s</string>
+  <string name="text_save_as_project">Simpen minangka proyek</string>  
+  <string name="text_select_save_mode">Mangga pilih cara nyimpen</string>  
+  <string name="text_save_as_project_and_exit">Simpen minangka proyek lan metu</string>  
+  <string name="apk_builder_sign">Mlebu</string>  
+  <string name="text_invalid_config">Konfigurasi ora bener</string>  
+  <string name="text_abi">ABI sing didhukung (dipisahake karo koma)</string>  
+  <string name="text_save_project_to">Proyek disimpen menyang: %s</string>  
+  <string name="text_hide_and_show">Ndhelikake / nuduhake</string>
+  <string name="text_browser_open">Browser mbukak</string>
+  <string name="text_do_nothing">Ora nindakake apa-apa</string>
+  <string name="text_copy_to_new_folder">Nyalin isi folder asli menyang folder anyar</string>
+  <string name="text_move_new_folder">Pindhah isi folder asli menyang folder anyar</string>
+  <string name="text_accessibility_service_is_not_enable">Layanan aksesibilitas ora diaktifake</string>
+  <string name="text_set_successfully">Nyetel kasil</string>
 </resources>

@@ -24,7 +24,7 @@
   <string name="text_alert">اشاره</string>  
   <string name="edit_exit_without_save_warn">مینځپانګه نه ده خوندي شوې، ایا تاسو ډاډه یاست چې تاسو غواړئ بهر شئ؟</string>  
   <string name="text_save_and_exit">خوندي کول او وتل</string>  
-  <string name="text_exit_directly">په مستقیم ډول وځئ</string>  
+  <string name="text_exit_directly">مستقیم وتل</string>  
   <string name="text_setting">چمتو کول</string>  
   <string name="text_exit">پریږده</string>  
   <string name="text_auto_operate_service">د لاسرسي خدمتونه</string>  
@@ -67,13 +67,13 @@
   <string name="text_use_volume_control_record">د کنټرول لپاره د حجم ښکته کیلي وکاروئ</string>  
   <string name="summary_use_volume_control_record">د فلوټینګ کړکۍ پرانستلو وروسته، هر ځل د حجم ښکته کیلي به د سکریپټ ریکارډ پیل یا ودروي</string>  
   <string name="text_qq_group">دا د QQ ګروپ شمیره ده، که تاسو یې نشي خلاصولی، مهرباني وکړئ په لاسي ډول وپلټئ</string>  
-  <string name="text_mobile_qq_not_installed">د موبایل QQ نه دی نصب شوی</string>  
+  <string name="text_mobile_qq_not_installed">ګرځنده QQ نه دی نصب شوی</string>  
   <string name="text_edit">سمون</string>  
   <string name="text_max_length_for_code_completion">د کوډ بشپړول د فایل اعظمي اوږدوالی</string>  
   <string name="text_file_exists">دوتنه لا دمخه شتون لري</string>  
   <string name="text_accessibility_service">د لاسرسي خدمتونه</string>  
   <string name="text_enable_accessibility_service_by_root">په اتوماتيک ډول د روټ امتیازاتو سره خدمتونه فعال کړئ</string>  
-  <string name="text_auto_operate_service_enabled_but_not_running">د لاسرسي خدمت فعال شوی مګر نه چلیږي ، دا ممکن د Android بګ وي ، تاسو ممکن د تلیفون بیا پیل کولو یا د لاسرسي خدمت بیا پیل کولو ته اړتیا ولرئ</string>  
+  <string name="text_auto_operate_service_enabled_but_not_running">د لاسرسي خدمت فعال دی مګر نه چلیږي ، دا ممکن د Android بګ وي ، تاسو ممکن د تلیفون بیا پیل کولو یا د لاسرسي خدمت بیا پیل کولو ته اړتیا ولرئ</string>  
   <string name="text_enable_accessibility_service_by_root_timeout">د روټ امتیازاتو سره د لاسرسي خدمت پیل کولو وخت پای</string>  
   <string name="summary_enable_accessibility_service_by_root">د پرانیستلو وروسته، د سکریپټ چلول به په اتوماتيک ډول د روټ امتیازاتو سره د لاسرسي خدمت خلاص کړي</string>  
   <string name="text_appearance">خارجي</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">اختیارونه</string>  
   <string name="text_using_id_selector">د ID په کارولو سره غوره کړئ</string>  
   <string name="text_using_text_selector">د متن انتخاب وکاروئ (متن)</string>  
-  <string name="text_using_desc_selector">د توضیحاتو په کارولو سره غوره کړئ (desc)</string>  
+  <string name="text_using_desc_selector">د توضیحاتو انتخاب وکاروئ (ډیسک)</string>  
   <string name="text_generate">پیدا کول</string>  
   <string name="text_generate_fail">جوړول ناکام شول o(╥﹏╥)o</string>  
   <string name="text_documentation_source">د اسنادو سرچینه</string>  
@@ -320,7 +320,7 @@
   <string name="text_day5">جمعه</string>  
   <string name="text_day6">شنبه</string>  
   <string name="text_day7">یک شنبه</string>  
-  <string name="text_weekly_task_should_check_day_of_week">لږترلږه د اونۍ یوه ورځ وټاکئ</string>  
+  <string name="text_weekly_task_should_check_day_of_week">د اونۍ لږترلږه یوه ورځ وټاکئ</string>  
   <string name="no_apk_builder_plugin">بسته شوی پلگ ان نه دی نصب شوی، ایا تاسو غواړئ دا اوس ډاونلوډ کړئ؟</string>  
   <string name="text_apk_builder_plugin_unavailable">د کڅوړې پلگ ان شتون نلري</string>  
   <string name="text_detail">جزیات</string>  
@@ -343,7 +343,7 @@
   <string name="nodebb_error_change_password_error_match">دوه داخل شوي پاسورډونه سره سمون نه خوري</string>  
   <string name="text_logout">وتون</string>  
   <string name="nodebb_error_forbidden">عملیات ناکام شول، مهرباني وکړئ وروسته بیا هڅه وکړئ</string>  
-  <string name="description_stable_mode">مستحکم حالت سکریپټ ډیر باثباته کوي کله چې د ترتیب توضیحاتو له مینځه وړلو سره ترتیب ترلاسه کوي ، مګر په ورته وخت کې د سکرین لږ کنټرولونه راوړي. \n \n nد اغیزمن کیدو لپاره د لاسرسي خدمت بیا پیل کړئ.</string>  
+  <string name="description_stable_mode">مستحکم حالت سکریپټ ډیر باثباته کوي کله چې د ترتیب توضیحاتو له مینځه وړلو سره ترتیب نیول ، مګر په ورته وخت کې د سکرین لږ کنټرولونه راوړل. \n \n nد اغیزمن کیدو لپاره د لاسرسي خدمت بیا پیل کړئ.</string>  
   <string name="text_size_min_value">2</string>  
   <string name="text_size_max_value">60</string>  
   <string name="text_text_size">د فونټ اندازه</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">اصلي انٹرفیس ته د ننوتلو لپاره کلیک وکړئ</string>  
   <string name="text_run_on_other_broadcast">نورې پیښې (خپرونه)</string>  
   <string name="text_broadcast_action">د نشراتو عمل</string>  
-  <string name="text_run_on_boot">کله چې بوټ کول</string>  
+  <string name="text_run_on_boot">د بوټ په وخت کې</string>  
   <string name="text_run_on_screen_on">کله چې پرده روانه وي</string>  
   <string name="text_run_on_screen_off">کله چې سکرین بند وي</string>  
   <string name="error_empty_selection">مهرباني وکړئ د خپرونې پیښې اختیار غوره کړئ</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">د شپې حالت</string>  
   <string name="text_run_on_startup">کله چې Autox.js پیل شي</string>  
   <string name="text_usage_stats_permission">د کارولو لاسرسی</string>  
-  <string name="description_usage_stats_permission">د \"استعمال احصایې لید\" اجازې له لارې ، تاسو کولی شئ د دې وسیلې تیر غوښتنلیک کارول ترلاسه کړئ ، نو دا د اوسني غوښتنلیک (اوسني پیکج) ترلاسه کولو لپاره خورا دقیق دی.</string>  
+  <string name="description_usage_stats_permission">د \"د کارونې احصایې وګورئ\" اجازې له لارې، تاسو کولی شئ د دې وسیلې د تیر غوښتنلیک کارول ترلاسه کړئ، نو دا د اوسني غوښتنلیک (اوسنی پیکج) ترلاسه کولو لپاره خورا دقیق دی.</string>  
   <string name="text_open_with">خلاص لاره</string>  
   <string name="text_root">ريښه</string>  
   <string name="text_no_root">ریښه وړیا</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">د لټون څخه وتل</string>  
   <string name="text_licenses_other">د غیر خلاصې سرچینې جواز</string>  
   <string name="text_save_successfully">په بریالیتوب سره خوندي شو</string>  
-  <string name="text_save_as_project">د پروژې په توګه خوندي کړئ</string>
-  <string name="text_select_save_mode">مهرباني وکړئ د خوندي کولو طریقه غوره کړئ</string>
-  <string name="text_save_as_project_and_exit">د پروژې په توګه خوندي کړئ او وتل</string>
-  <string name="apk_builder_sign">لاسلیک کول</string>
-  <string name="text_invalid_config">ناسم ترتیب</string>
-  <string name="text_abi">ملاتړ شوي ABIs (د کوما سره جلا شوي)</string>
-  <string name="text_save_project_to">پروژه دې ته خوندي شوه: %s</string>
+  <string name="text_save_as_project">د پروژې په توګه خوندي کړئ</string>  
+  <string name="text_select_save_mode">مهرباني وکړئ د خوندي کولو طریقه غوره کړئ</string>  
+  <string name="text_save_as_project_and_exit">د پروژې په توګه خوندي کړئ او وتل</string>  
+  <string name="apk_builder_sign">لاسلیک کول</string>  
+  <string name="text_invalid_config">ناسم ترتیب</string>  
+  <string name="text_abi">ملاتړ شوي ABIs (د کوما سره جلا شوي)</string>  
+  <string name="text_save_project_to">پروژه دې ته خوندي شوه: %s</string>  
+  <string name="text_hide_and_show">پټول / ښکاره کول</string>
+  <string name="text_browser_open">براوزر خلاص</string>
+  <string name="text_do_nothing">هیڅ مه کوه</string>
+  <string name="text_copy_to_new_folder">د اصلي فولډر مینځپانګې نوي فولډر ته کاپي کړئ</string>
+  <string name="text_move_new_folder">د اصلي فولډر مینځپانګې نوي فولډر ته واستوئ</string>
+  <string name="text_accessibility_service_is_not_enable">د لاسرسي خدمت نه دی فعال شوی</string>
+  <string name="text_set_successfully">په بریالیتوب سره تنظیم کړئ</string>
 </resources>

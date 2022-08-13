@@ -24,7 +24,7 @@
   <string name="text_alert">Taamasiyɛn</string>  
   <string name="edit_exit_without_save_warn">Kɔnɔkow ma mara, yala i dalen b’a la ko i b’a fɛ ka bɔ wa?</string>  
   <string name="text_save_and_exit">Save ani ka bɔ</string>  
-  <string name="text_exit_directly">Aw bɛ bɔ ka ɲɛ</string>  
+  <string name="text_exit_directly">Bɔ kɛnɛ kan k’a ɲɛsin a ma</string>  
   <string name="text_setting">Ka bila sen kan</string>  
   <string name="text_exit">Ka bɔ</string>  
   <string name="text_auto_operate_service">Baarakɛlaw minnu bɛ se ka sɔrɔ</string>  
@@ -59,7 +59,7 @@
   <string name="text_report_succeed">A dira ka ɲɛ</string>  
   <string name="edit_and_run_handle_intent_error">A ma se ka filen baara</string>  
   <string name="text_issue_report">Kibaru kɔsegi</string>  
-  <string name="text_script_record">Sɛbɛnni sɛbɛn</string>  
+  <string name="text_script_record">Sɛbɛnnikɛcogo sɛbɛn</string>  
   <string name="text_start_record">Daminɛ ka fɔli kɛ</string>  
   <string name="text_recorded">Fɔlisen laban</string>  
   <string name="text_copy_to_clip">Kopi kɛ ka taa clipboard kɔnɔ</string>  
@@ -150,7 +150,7 @@
   <string name="hint_loop_times">0 ye loop danntan ye</string>  
   <string name="hint_loop_delay">Seginnkanni joli ka kan ka delay ka daminɛ ka looping daminɛ</string>  
   <string name="text_number_format_error">Cogoya jugu</string>  
-  <string name="text_accessibility_settings">Da yelennenw ka baarakɛyɔrɔw la minnu bɛ se ka sɔrɔ</string>  
+  <string name="text_accessibility_settings">Da yelennenw ka baarakɛminɛnw</string>  
   <string name="text_enable_accessibitliy_service_by_root_failed">A ma se ka da wuli ni root privileges ye</string>  
   <string name="text_on_progress">Baarakɛcogo</string>  
   <string name="text_delete_failed">A ma se ka bɔ yen</string>  
@@ -169,7 +169,7 @@
   <string name="text_tutorial">Kalansen min bɛ kɛ</string>  
   <string name="text_community">Sigida</string>  
   <string name="text_manage">Mara</string>  
-  <string name="not_login">Donni si man kan ka kɛ baarakɛcogo nɔgɔmanw na</string>  
+  <string name="not_login">Donni si man kan ka kɛ baarakɛcogo nɔgɔmanw kama</string>  
   <string name="text_volume_down_control">Volume down key control (fɔlikan hakɛ dɔgɔyali).</string>  
   <string name="text_auto_backup">Otomatiki sɛbɛnnikɛlan</string>  
   <string name="text_others">Dɔ wɛrɛ</string>  
@@ -232,7 +232,7 @@
   <string name="text_volumeUpcontrol">Volume up key ka baara ban</string>  
   <string name="text_splash_text">Daminɛcogo ɲɛfɔli sɛbɛn</string>  
   <string name="text_splash_icon">Interface taamasiyɛn daminɛ</string>  
-  <string name="text_service_desc_text">Ɲɛfɔli min bɛ kɛ baarakɛminɛnw kan minnu bɛ se ka sɔrɔ</string>  
+  <string name="text_service_desc_text">Ɲɛfɔli min bɛ kɛ ni baarakɛminɛnw ye minnu bɛ se ka sɔrɔ</string>  
   <string name="text_sign">Taamasiyɛn</string>  
   <string name="text_sign_choose">Bolonɔbila sugandi</string>  
   <string name="text_sign_password">Siginidenw ka seereyaw tɔgɔlasɛbɛn</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Sugandili minnu bɛ kɛ</string>  
   <string name="text_using_id_selector">Sugandi ka baara kɛ ni id ye</string>  
   <string name="text_using_text_selector">Baara kɛ ni sɛbɛnni sugandili ye (sɛbɛnni) .</string>  
-  <string name="text_using_desc_selector">Sugandili kɛ ni ɲɛfɔli ye (desc) .</string>  
+  <string name="text_using_desc_selector">Baara kɛ ni Ɲɛfɔli ye Sugandili (desc) .</string>  
   <string name="text_generate">Ka dilan</string>  
   <string name="text_generate_fail">So jɔli dɛsɛra o(╥╥)o</string>  
   <string name="text_documentation_source">Sɛbɛnw sɔrɔyɔrɔ</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">A digi walasa ka don interface principal kɔnɔ</string>  
   <string name="text_run_on_other_broadcast">Ko wɛrɛw (fɔlikan) .</string>  
   <string name="text_broadcast_action">Broadcast Action (Baarakɛcogo).</string>  
-  <string name="text_run_on_boot">Ni a bɛ boot</string>  
+  <string name="text_run_on_boot">Ka boot waati la</string>  
   <string name="text_run_on_screen_on">Ni ekran bɛ kɛnɛ kan</string>  
   <string name="text_run_on_screen_off">Ni ekran bɛ faga</string>  
   <string name="error_empty_selection">Aw ye kunnafoni dicogo sugandilen dɔ sugandi</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Sufɛ cogoya</string>  
   <string name="text_run_on_startup">Ni Autox.js daminɛna</string>  
   <string name="text_usage_stats_permission">Baarakɛcogo sɔrɔli</string>  
-  <string name="description_usage_stats_permission">\"view usage statistics\" yamaruya sababu fɛ, i bɛ se ka nin minɛn in baarakɛcogo tɛmɛnenw sɔrɔ, walasa a ka kɛ tiɲɛ ye ka sisan baarakɛminɛn sɔrɔ (currentPackage).</string>  
+  <string name="description_usage_stats_permission">\"View Usage Statistics\" yamaruya sababu fɛ, i bɛ se ka nin minɛn in baarakɛcogo tɛmɛnenw sɔrɔ, walasa a ka kɛ tiɲɛ ye ka baarakɛminɛn sɔrɔ min bɛ sen na sisan (currentPackage).</string>  
   <string name="text_open_with">Sira dabɔlen</string>  
   <string name="text_root">Dili</string>  
   <string name="text_no_root">Root hɔrɔnyalen</string>  
@@ -466,7 +466,7 @@
   <string name="text_verification_failed">Sɛgɛsɛgɛli ma ɲɛ</string>  
   <string name="text_WebX">WebX ye</string>  
   <string name="text_file_manager_permission">Filenw bɛɛ sɔrɔli</string>  
-  <string name="text_fullscreen">Toggle ka ekran dafalen cogoya 1</string>  
+  <string name="text_fullscreen">Toggle ekran dafalen cogoya 1</string>  
   <string name="text_drawer_right">Meniw min bɛ kinin fɛ, o da wuli</string>  
   <string name="text_required_default_ocr_model">OCR ka kalan kɛcogo misali fɔlɔw pake</string>  
   <string name="switch_fullscreen">Toggle cogo la min bɛ ekran dafalen na</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Ka bɔ ɲinini na</string>  
   <string name="text_licenses_other">Lase min tɛ da wulilen ye</string>  
   <string name="text_save_successfully">Kisili kɛra ka ɲɛ</string>  
-  <string name="text_save_as_project">Ka mara kɛ i n’a fɔ poroze</string>
-  <string name="text_select_save_mode">Aw ye a maracogo dɔ sugandi</string>
-  <string name="text_save_as_project_and_exit">A mara i n’a fɔ poroze ani ka bɔ</string>
-  <string name="apk_builder_sign">Bolonɔ bilali</string>
-  <string name="text_invalid_config">Labɛncogo min tɛ tiɲɛ ye</string>
-  <string name="text_abi">ABI minnu bɛ dɛmɛ sɔrɔ (u bɛ fara ɲɔgɔn kan ni komaw ye) .</string>
-  <string name="text_save_project_to">Porozɛ min maralen bɛ: %s</string>
+  <string name="text_save_as_project">Ka mara kɛ i n’a fɔ poroze</string>  
+  <string name="text_select_save_mode">Aw ye a maracogo dɔ sugandi</string>  
+  <string name="text_save_as_project_and_exit">A mara i n’a fɔ poroze ani ka bɔ</string>  
+  <string name="apk_builder_sign">Bolonɔ bilali</string>  
+  <string name="text_invalid_config">Labɛncogo min tɛ tiɲɛ ye</string>  
+  <string name="text_abi">ABI minnu bɛ dɛmɛ (u bɛ fara ɲɔgɔn kan ni komaw ye) .</string>  
+  <string name="text_save_project_to">Porozɛ min maralen bɛ: %s</string>  
+  <string name="text_hide_and_show">Dogo/jira</string>
+  <string name="text_browser_open">Navigatɔrɔ da wuli</string>
+  <string name="text_do_nothing">Aw kana foyi kɛ</string>
+  <string name="text_copy_to_new_folder">Foli fɔlɔ kɔnɔkow kopi kɛ foli kura kɔnɔ</string>
+  <string name="text_move_new_folder">Foli fɔlɔ kɔnɔkow lase foli kura kɔnɔ</string>
+  <string name="text_accessibility_service_is_not_enable">Accessibilité service tɛ daminɛ</string>
+  <string name="text_set_successfully">Set ka ɲɛ</string>
 </resources>

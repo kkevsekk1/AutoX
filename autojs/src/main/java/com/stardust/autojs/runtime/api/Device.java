@@ -330,6 +330,7 @@ public class Device {
             return getMacByFile();
         }
 
+        @SuppressLint("MissingPermission")
         String mac = wifiInf.getMacAddress();
         if (FAKE_MAC_ADDRESS.equals(mac)) {
             mac = null;

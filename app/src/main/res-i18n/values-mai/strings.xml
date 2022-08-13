@@ -24,7 +24,7 @@
   <string name="text_alert">संकेत</string>  
   <string name="edit_exit_without_save_warn">सामग्री सहेजल नहि गेल अछि, की अहाँ निश्चित रूप सँ बाहर निकलय चाहैत छी?</string>  
   <string name="text_save_and_exit">बचाउ आ बाहर निकलू</string>  
-  <string name="text_exit_directly">सीधे बाहर निकलू</string>  
+  <string name="text_exit_directly">सीधे बाहर निकलें</string>  
   <string name="text_setting">तैयार केनाइ</string>  
   <string name="text_exit">छोड़ि दिय</string>  
   <string name="text_auto_operate_service">सुलभता सेवाएँ</string>  
@@ -198,7 +198,7 @@
   <string name="text_replace_all">सब बदलि लिअ</string>  
   <string name="text_find_next">नीचा</string>  
   <string name="text_find_prev">ऊपर</string>  
-  <string name="hint_regex">नियमित सिंटैक्स जावास्क्रिप्ट के समान अछि, अहाँ कैप्चर कएल गेल मिलान के बजाय $1~9 के प्रयोग क सकैत छी</string>  
+  <string name="hint_regex">नियमित सिंटैक्स जावास्क्रिप्ट के समान अछि, अहाँ कैप्चर कएल गेल मिलान के बजाय $1~9 के प्रयोग क सकैत छी |</string>  
   <string name="text_jump">कूदनाइ</string>  
   <string name="text_jump_to_end">फाइल के अंत पर जाउ</string>  
   <string name="text_jump_to_start">फाइल स्टार्ट पर जाउ</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">विकल्प</string>  
   <string name="text_using_id_selector">आईडी का उपयोग कर चयन करें</string>  
   <string name="text_using_text_selector">पाठ चयन (पाठ) के प्रयोग करू</string>  
-  <string name="text_using_desc_selector">विवरण (desc) का प्रयोग करके चुनें |</string>  
+  <string name="text_using_desc_selector">उपयोग विवरण चयन (desc) 1.1.</string>  
   <string name="text_generate">उत्पन्न</string>  
   <string name="text_generate_fail">निर्माण असफल ओ(╥╥)o</string>  
   <string name="text_documentation_source">दस्तावेजीकरण स्रोत</string>  
@@ -399,8 +399,8 @@
   <string name="foreground_notification_text">मुख्य इंटरफेस मे प्रवेश करबाक लेल क्लिक करू</string>  
   <string name="text_run_on_other_broadcast">अन्य आयोजन (प्रसारण) २.</string>  
   <string name="text_broadcast_action">प्रसारण क्रिया</string>  
-  <string name="text_run_on_boot">बूट करबा काल</string>  
-  <string name="text_run_on_screen_on">जखन स्क्रीन चालू रहत</string>  
+  <string name="text_run_on_boot">बूट समय पर</string>  
+  <string name="text_run_on_screen_on">जखन स्क्रीन चालू अछि</string>  
   <string name="text_run_on_screen_off">जखन स्क्रीन बंद अछि</string>  
   <string name="error_empty_selection">कृपया कोनो प्रसारण आयोजन विकल्प चुनू</string>  
   <string name="text_run_on_battery_change">जखन शक्ति बदलि जाइत अछि</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">खोजसँ बाहर निकलू</string>  
   <string name="text_licenses_other">गैर-खुला स्रोत लाइसेंस</string>  
   <string name="text_save_successfully">सफलतापूर्वक बचाओल गेल</string>  
-  <string name="text_save_as_project">प्रोजेक्ट के रूप में सेव करे</string>
-  <string name="text_select_save_mode">कृपया एकटा सहेजब विधि चुनू</string>
-  <string name="text_save_as_project_and_exit">प्रोजेक्ट के रूप मे सेव करू आ बाहर निकलू</string>
-  <string name="apk_builder_sign">हस्ताक्षर करब</string>
-  <string name="text_invalid_config">अमान्य विन्यास</string>
-  <string name="text_abi">समर्थित एबीआई (अल्पविराम स अलग)</string>
-  <string name="text_save_project_to">परियोजना एहि मे सहेजल गेल: %s</string>
+  <string name="text_save_as_project">प्रोजेक्ट के रूप में सेव करे</string>  
+  <string name="text_select_save_mode">कृपया एकटा सहेजब विधि चुनू</string>  
+  <string name="text_save_as_project_and_exit">प्रोजेक्ट के रूप मे सेव करू आ बाहर निकलू</string>  
+  <string name="apk_builder_sign">हस्ताक्षर करब</string>  
+  <string name="text_invalid_config">अमान्य विन्यास</string>  
+  <string name="text_abi">समर्थित एबीआई (अल्पविराम स अलग)</string>  
+  <string name="text_save_project_to">परियोजना एहि मे सहेजल गेल: %s</string>  
+  <string name="text_hide_and_show">नुकाएब/देखाउ</string>
+  <string name="text_browser_open">ब्राउज़र खुलल</string>
+  <string name="text_do_nothing">किछु नहि करू</string>
+  <string name="text_copy_to_new_folder">मूल फोल्डरक सामग्रीकेँ नव फोल्डरमे कॉपी करू</string>
+  <string name="text_move_new_folder">मूल फोल्डर क सामग्री कए नव फोल्डर मे ल जाउ</string>
+  <string name="text_accessibility_service_is_not_enable">सुलभता सेवा चालू नहि अछि</string>
+  <string name="text_set_successfully">सफलतापूर्वक सेट</string>
 </resources>

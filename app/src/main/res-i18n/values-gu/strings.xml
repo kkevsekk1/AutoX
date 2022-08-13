@@ -8,7 +8,7 @@
   <string name="text_please_input_name">કૃપા કરીને નામ દાખલ કરો</string>  
   <string name="text_name">નામ</string>  
   <string name="text_go_to_setting">સેટિંગ્સ પર જાઓ</string>  
-  <string name="explain_accessibility_permission">સૉફ્ટવેરને ચલાવવા માટે \"ઍક્સેસિબિલિટી સેવાઓ\" ખોલવાની જરૂર છે, કૃપા કરીને \"સેટિંગ્સ->ઍક્સેસિબિલિટી સેવાઓ\" અથવા \"સેટિંગ્સ->ઍક્સેસિબિલિટી સેવાઓ->વધુ ડાઉનલોડ કરેલી સેવાઓ\" ખોલો, આ એપ્લિકેશન શોધો અને ઍક્સેસિબિલિટી સેવાઓને સક્ષમ કરો \n તેને સેટ પણ કરી શકો છો. પાછળથી ડ્રોપ-ડાઉન મેનૂમાં.</string>  
+  <string name="explain_accessibility_permission">સૉફ્ટવેરને ચલાવવા માટે \"ઍક્સેસિબિલિટી સેવાઓ\" ખોલવાની જરૂર છે, કૃપા કરીને \"સેટિંગ્સ->ઍક્સેસિબિલિટી સેવાઓ\" અથવા \"સેટિંગ્સ->ઍક્સેસિબિલિટી સેવાઓ->વધુ ડાઉનલોડ કરેલી સેવાઓ\" ખોલો, આ એપ્લિકેશન શોધો, અને ઍક્સેસિબિલિટી સેવાઓને સક્ષમ કરો \n તેને સેટ પણ કરી શકો છો. પાછળથી ડ્રોપ-ડાઉન મેનૂમાં.</string>  
   <string name="explain_accessibility_permission2">સૉફ્ટવેરને ચલાવવા માટે \"ઍક્સેસિબિલિટી સેવાઓ\" ખોલવાની જરૂર છે, કૃપા કરીને \"સેટિંગ્સ->ઍક્સેસિબિલિટી સેવાઓ\" અથવા \"સેટિંગ્સ->ઍક્સેસિબિલિટી સેવાઓ->વધુ ડાઉનલોડ કરેલી સેવાઓ\" ખોલો, આ એપ્લિકેશન શોધો અને ઍક્સેસિબિલિટી સેવાઓને સક્ષમ કરો.</string>  
   <string name="text_cancel">રદ કરો</string>  
   <string name="text_path_is_empty">રસ્તો ખાલી છે</string>  
@@ -100,7 +100,7 @@
   <string name="text_refresh">તાજું કરો</string>  
   <string name="notice_no_running_script">ચાલતી સ્ક્રિપ્ટ નથી φ(>ω&lt;*)</string>  
   <string name="text_please_choose_a_script">કૃપા કરીને સ્ક્રિપ્ટ પસંદ કરો</string>  
-  <string name="text_edit_prepare_script">પ્રી-એક્ઝીક્યુટેડ સ્ક્રિપ્ટ્સનું સંપાદન</string>  
+  <string name="text_edit_prepare_script">પ્રી-એક્ઝીક્યુટેડ સ્ક્રિપ્ટોનું સંપાદન</string>  
   <string name="text_pre_execute_script">પ્રી-એક્ઝીક્યુટ સ્ક્રિપ્ટ</string>  
   <string name="text_clear_pre_execute_script">પ્રી-એક્ઝીક્યુટેડ સ્ક્રિપ્ટો સાફ કરો</string>  
   <string name="text_clear_file_selection">સ્ક્રિપ્ટ ફાઇલ પસંદગી રીસેટ કરો</string>  
@@ -122,7 +122,7 @@
   <string name="text_code_beautify">ફોર્મેટ કોડ</string>  
   <string name="text_processing">પ્રક્રિયા</string>  
   <string name="text_guard_mode">સુરક્ષિત મોડ</string>  
-  <string name="summary_guard_mode">આકસ્મિક સ્પર્શ ટાળવા માટે આ સોફ્ટવેર ઈન્ટરફેસમાં ઓટોમેટિક ઓપરેશન કમાન્ડ ચલાવી શકાતું નથી</string>  
+  <string name="summary_guard_mode">આકસ્મિક સ્પર્શ ટાળવા માટે આ સોફ્ટવેર ઈન્ટરફેસમાં ઓટોમેટિક ઓપરેશન કમાન્ડ ચલાવી શકાતો નથી</string>  
   <string name="text_layout_inspector_is_dumping">લેઆઉટ વિશ્લેષણ ચાલુ છે</string>  
   <string name="text_force_stop">ફરજિયાત સ્ટોપ</string>  
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] %f સેકન્ડમાં ચાલવાનું સમાપ્ત</string>  
@@ -144,7 +144,7 @@
   <string name="text_more">વધુ</string>  
   <string name="text_script_save_successfully">સફળતાપૂર્વક સાચવેલ, કૃપા કરીને નિર્દેશિકા તાજી કરો</string>  
   <string name="text_run_repeatedly">સાયકલ ચલાવો</string>  
-  <string name="text_loop_interval">ચક્ર અંતરાલ (સેકન્ડ)</string>  
+  <string name="text_loop_interval">સાયકલ અંતરાલ (સેકન્ડ)</string>  
   <string name="text_loop_delay">અમલમાં વિલંબ (સેકન્ડ)</string>  
   <string name="text_loop_times">સાયકલ</string>  
   <string name="hint_loop_times">0 એ અનંત લૂપ છે</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">વિકલ્પો</string>  
   <string name="text_using_id_selector">ID નો ઉપયોગ કરીને પસંદ કરો</string>  
   <string name="text_using_text_selector">ટેક્સ્ટ પસંદગીનો ઉપયોગ કરો (ટેક્સ્ટ)</string>  
-  <string name="text_using_desc_selector">વર્ણન (વર્ણન) નો ઉપયોગ કરીને પસંદ કરો</string>  
+  <string name="text_using_desc_selector">વર્ણન પસંદ કરો (ડિસ્ક) નો ઉપયોગ કરો</string>  
   <string name="text_generate">પેદા</string>  
   <string name="text_generate_fail">બિલ્ડ નિષ્ફળ o(╥﹏╥)o</string>  
   <string name="text_documentation_source">દસ્તાવેજીકરણ સ્ત્રોત</string>  
@@ -343,7 +343,7 @@
   <string name="nodebb_error_change_password_error_match">દાખલ કરેલ બે પાસવર્ડ મેળ ખાતા નથી</string>  
   <string name="text_logout">સાઇન આઉટ કરો</string>  
   <string name="nodebb_error_forbidden">ઓપરેશન નિષ્ફળ થયું, કૃપા કરીને પછીથી ફરી પ્રયાસ કરો</string>  
-  <string name="description_stable_mode">લેઆઉટ વિગતોને બાદ કરીને લેઆઉટને પકડતી વખતે સ્થિર મોડ સ્ક્રિપ્ટને વધુ સ્થિર બનાવે છે, પરંતુ તે જ સમયે ઓછા ઓન-સ્ક્રીન નિયંત્રણો આનયન કરે છે. \n અસર કરવા માટે ઍક્સેસિબિલિટી સેવા \n કરો.</string>  
+  <string name="description_stable_mode">લેઆઉટ વિગતોને બાદ કરીને લેઆઉટને પકડતી વખતે સ્થિર મોડ સ્ક્રિપ્ટને વધુ સ્થિર બનાવે છે, પરંતુ તે જ સમયે ઓછા ઓન-સ્ક્રીન નિયંત્રણો મેળવે છે. \n અસર કરવા માટે ઍક્સેસિબિલિટી સેવા \n કરો.</string>  
   <string name="text_size_min_value">2</string>  
   <string name="text_size_max_value">60</string>  
   <string name="text_text_size">અક્ષર ની જાડાઈ</string>  
@@ -381,7 +381,7 @@
   <string name="error_connect_to_remote">કનેક્શન નિષ્ફળ થયું: %s</string>  
   <string name="text_are_you_sure_to_delete">શું તમે ખરેખર %s ને કાઢી નાખવા માંગો છો</string>  
   <string name="text_run_on_broadcast">ચોક્કસ ઘટના (પ્રસારણ) ઓપરેશનને ટ્રિગર કરે છે</string>  
-  <string name="text_search_java_class">Java પેકેજો/વર્ગો માટે શોધો</string>  
+  <string name="text_search_java_class">જાવા પેકેજો/વર્ગો માટે શોધો</string>  
   <string name="text_class_or_package_name">વર્ગ/પેકેજનું નામ</string>  
   <string name="text_view_docs">દસ્તાવેજીકરણ જુઓ</string>  
   <string name="text_market">બજાર</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">મુખ્ય ઈન્ટરફેસ દાખલ કરવા માટે ક્લિક કરો</string>  
   <string name="text_run_on_other_broadcast">અન્ય ઇવેન્ટ્સ (પ્રસારણ)</string>  
   <string name="text_broadcast_action">બ્રોડકાસ્ટ ક્રિયા</string>  
-  <string name="text_run_on_boot">બુટ કરતી વખતે</string>  
+  <string name="text_run_on_boot">બુટ સમયે</string>  
   <string name="text_run_on_screen_on">જ્યારે સ્ક્રીન ચાલુ હોય</string>  
   <string name="text_run_on_screen_off">જ્યારે સ્ક્રીન બંધ હોય</string>  
   <string name="error_empty_selection">કૃપા કરીને બ્રોડકાસ્ટ ઇવેન્ટ વિકલ્પ પસંદ કરો</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">નાઇટ મોડ</string>  
   <string name="text_run_on_startup">જ્યારે Autox.js શરૂ થાય છે</string>  
   <string name="text_usage_stats_permission">વપરાશ ઍક્સેસ</string>  
-  <string name="description_usage_stats_permission">\"વપરાશના આંકડા જુઓ\" પરવાનગી દ્વારા, તમે આ ઉપકરણનો ભૂતકાળનો ઉપયોગ મેળવી શકો છો, જેથી વર્તમાન એપ્લિકેશન (વર્તમાન પેકેજ) મેળવવા માટે તે વધુ સચોટ હોય.</string>  
+  <string name="description_usage_stats_permission">\"ઉપયોગના આંકડા જુઓ\" પરવાનગી દ્વારા, તમે આ ઉપકરણનો ભૂતકાળનો ઉપયોગ મેળવી શકો છો, જેથી વર્તમાન એપ્લિકેશન (વર્તમાન પેકેજ) મેળવવા માટે તે વધુ સચોટ હોય.</string>  
   <string name="text_open_with">ખુલ્લો રસ્તો</string>  
   <string name="text_root">મૂળ</string>  
   <string name="text_no_root">રુટ ફ્રી</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">શોધમાંથી બહાર નીકળો</string>  
   <string name="text_licenses_other">નોન-ઓપન સોર્સ લાઇસન્સ</string>  
   <string name="text_save_successfully">સફળતાપૂર્વક સાચવવામાં આવ્યું</string>  
-  <string name="text_save_as_project">પ્રોજેક્ટ તરીકે સાચવો</string>
-  <string name="text_select_save_mode">કૃપા કરીને સાચવવાની પદ્ધતિ પસંદ કરો</string>
-  <string name="text_save_as_project_and_exit">પ્રોજેક્ટ તરીકે સાચવો અને બહાર નીકળો</string>
-  <string name="apk_builder_sign">હસ્તાક્ષર</string>
-  <string name="text_invalid_config">અમાન્ય રૂપરેખાંકન</string>
-  <string name="text_abi">સપોર્ટેડ ABIs (અલ્પવિરામથી અલગ)</string>
-  <string name="text_save_project_to">પ્રોજેક્ટ આના પર સાચવ્યો: %s</string>
+  <string name="text_save_as_project">પ્રોજેક્ટ તરીકે સાચવો</string>  
+  <string name="text_select_save_mode">કૃપા કરીને સાચવવાની પદ્ધતિ પસંદ કરો</string>  
+  <string name="text_save_as_project_and_exit">પ્રોજેક્ટ તરીકે સાચવો અને બહાર નીકળો</string>  
+  <string name="apk_builder_sign">હસ્તાક્ષર</string>  
+  <string name="text_invalid_config">અમાન્ય રૂપરેખાંકન</string>  
+  <string name="text_abi">સપોર્ટેડ ABIs (અલ્પવિરામથી અલગ)</string>  
+  <string name="text_save_project_to">પ્રોજેક્ટ આના પર સાચવ્યો: %s</string>  
+  <string name="text_hide_and_show">છુપાવો/બતાવો</string>
+  <string name="text_browser_open">બ્રાઉઝર ખોલો</string>
+  <string name="text_do_nothing">કઈ જ નહી</string>
+  <string name="text_copy_to_new_folder">નવા ફોલ્ડરમાં મૂળ ફોલ્ડરની સામગ્રીની નકલ કરો</string>
+  <string name="text_move_new_folder">મૂળ ફોલ્ડરની સામગ્રીને નવા ફોલ્ડરમાં ખસેડો</string>
+  <string name="text_accessibility_service_is_not_enable">ઍક્સેસિબિલિટી સેવા ચાલુ નથી</string>
+  <string name="text_set_successfully">સફળતાપૂર્વક સેટ કરો</string>
 </resources>

@@ -112,7 +112,7 @@
   <string name="text_check_for_updates">Check for updates</string>  
   <string name="text_is_latest_version">Already the latest version</string>  
   <string name="text_version_too_old">The version is too low</string>  
-  <string name="warning_version_too_old">The current version is a public beta version, there are many apparent and potential problems, and it is no longer suitable for continued use.</string>  
+  <string name="warning_version_too_old">The current version is a public beta version, with many apparent and potential problems, and it is no longer suitable for continued use.</string>  
   <string name="text_update">Renew</string>  
   <string name="text_release_notes">Changelog</string>  
   <string name="text_download_url">Download link</string>  
@@ -159,7 +159,7 @@
   <string name="text_import_script">Import script file</string>  
   <string name="text_root_record_out_file_type">Root Recording Generated File Type</string>  
   <string name="text_binary">Binary</string>  
-  <string name="summary_stable_mode">Layout analysis is more stable when enabled, but some scripts may not work properly. Restart accessibility service to take effect</string>  
+  <string name="summary_stable_mode">Layout analysis is more stable when enabled, but a small number of scripts may not work properly. Restart accessibility service to take effect</string>  
   <string name="text_hideLaucher">Hide desktop icons (launch apps via adb or other methods)</string>  
   <string name="text_stable_mode">Stable mode</string>  
   <string name="text_single_build_clean_mode">Single file packaging refreshing mode</string>  
@@ -325,7 +325,7 @@
   <string name="text_apk_builder_plugin_unavailable">Package plugin not available</string>  
   <string name="text_detail">Details</string>  
   <string name="text_open">Open</string>  
-  <string name="text_generated_code">Generate result</string>  
+  <string name="text_generated_code">Generate results</string>  
   <string name="text_copy">Copy</string>  
   <string name="text_should_not_be_empty">Can not be empty</string>  
   <string name="text_icon">Icon</string>  
@@ -343,7 +343,7 @@
   <string name="nodebb_error_change_password_error_match">The two entered passwords do not match</string>  
   <string name="text_logout">Sign out</string>  
   <string name="nodebb_error_forbidden">Operation failed, please try again later</string>  
-  <string name="description_stable_mode">Stable mode makes the script more stable when grabbing the layout by omitting layout details, but at the same time fetching fewer on-screen controls. \n \n the accessibility service to take effect.</string>  
+  <string name="description_stable_mode">Stable mode makes the script more stable when grabbing the layout by omitting layout details, but at the same time getting fewer on-screen controls. \n \n the accessibility service to take effect.</string>  
   <string name="text_size_min_value">2</string>  
   <string name="text_size_max_value">60</string>  
   <string name="text_text_size">Font size</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Click to enter the main interface</string>  
   <string name="text_run_on_other_broadcast">Other events (broadcast)</string>  
   <string name="text_broadcast_action">Broadcast Action</string>  
-  <string name="text_run_on_boot">At boot time</string>  
+  <string name="text_run_on_boot">When booting</string>  
   <string name="text_run_on_screen_on">When the screen is on</string>  
   <string name="text_run_on_screen_off">When the screen is off</string>  
   <string name="error_empty_selection">Please select a broadcast event option</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Night mode</string>  
   <string name="text_run_on_startup">When Autox.js starts</string>  
   <string name="text_usage_stats_permission">Usage access</string>  
-  <string name="description_usage_stats_permission">Through the \"view usage statistics\" permission, you can obtain the past application usage of this device, so that it is more accurate to obtain the current application (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Through the \"View Usage Statistics\" permission, you can obtain the past application usage of this device, so that it is more accurate to obtain the current application (currentPackage).</string>  
   <string name="text_open_with">Open way</string>  
   <string name="text_root">Root</string>  
   <string name="text_no_root">Root free</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Exit search</string>  
   <string name="text_licenses_other">Non-Open Source License</string>  
   <string name="text_save_successfully">Successfully saved</string>  
-  <string name="text_save_as_project">Save as project</string>
-  <string name="text_select_save_mode">Please select a save method</string>
-  <string name="text_save_as_project_and_exit">Save as project and exit</string>
-  <string name="apk_builder_sign">Signing</string>
-  <string name="text_invalid_config">Invalid configuration</string>
-  <string name="text_abi">Supported ABIs (separated with commas)</string>
-  <string name="text_save_project_to">Project saved to: %s</string>
+  <string name="text_save_as_project">Save as project</string>  
+  <string name="text_select_save_mode">Please select a save method</string>  
+  <string name="text_save_as_project_and_exit">Save as project and exit</string>  
+  <string name="apk_builder_sign">Signing</string>  
+  <string name="text_invalid_config">Invalid configuration</string>  
+  <string name="text_abi">Supported ABIs (separated by commas)</string>  
+  <string name="text_save_project_to">Project saved to: %s</string>  
+  <string name="text_hide_and_show">Hide/show</string>
+  <string name="text_browser_open">Browser open</string>
+  <string name="text_do_nothing">Do nothing</string>
+  <string name="text_copy_to_new_folder">Copy the contents of the original folder to the new folder</string>
+  <string name="text_move_new_folder">Move the contents of the original folder to the new folder</string>
+  <string name="text_accessibility_service_is_not_enable">Accessibility service is not turned on</string>
+  <string name="text_set_successfully">Set successfully</string>
 </resources>

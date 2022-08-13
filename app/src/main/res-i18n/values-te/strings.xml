@@ -130,7 +130,7 @@
   <string name="text_again_and_again">రెట్టింపు</string>  
   <string name="text_again_and_again_again">మళ్ళీ రెట్టింపు</string>  
   <string name="text_again_and_again_again_again">మళ్ళీ రెట్టింపు</string>  
-  <string name="text_connect_computer">కంప్యూటర్ కనెక్ట్</string>  
+  <string name="text_connect_computer">కంప్యూటర్‌ను కనెక్ట్ చేయండి</string>  
   <string name="regist">యాప్ స్టోర్‌కి కనెక్ట్ చేయండి</string>  
   <string name="text_server_address">సర్వర్ చిరునామా</string>  
   <string name="text_server_address_error">తప్పు లింక్ చిరునామా</string>  
@@ -211,7 +211,7 @@
   <string name="format_file_downloaded" formatted="true">ఫైల్ %s కి సేవ్ చేయబడింది</string>  
   <string name="confirm_overwrite_file">ఫైల్ ఇప్పటికే ఉంది, మీరు దానిని ఓవర్‌రైట్ చేయాలనుకుంటున్నారా?</string>  
   <string name="text_select_file_to_upload">అప్‌లోడ్ చేయడానికి ఫైల్‌ని ఎంచుకోండి</string>  
-  <string name="text_select_file_to_import">దిగుమతి చేయడానికి ఫైల్‌ని ఎంచుకోండి</string>  
+  <string name="text_select_file_to_import">దిగుమతి చేయడానికి ఫైల్‌ను ఎంచుకోండి</string>  
   <string name="text_build_apk">ప్యాక్ చేసిన యాప్‌లు</string>  
   <string name="text_select">ఎంచుకోండి</string>  
   <string name="text_output_apk_path">ప్యాక్ చేయబడిన యాప్ సేవ్ లొకేషన్</string>  
@@ -240,7 +240,7 @@
   <string name="text_sign_manage">సంతకం నిర్వహణ</string>  
   <string name="text_sign_key_add">సంతకాన్ని సృష్టించండి</string>  
   <string name="text_sign_key_import">సంతకాన్ని దిగుమతి చేయండి</string>  
-  <string name="text_sign_hint_key_path">*ఫైల్ సేవ్ పాత్</string>  
+  <string name="text_sign_hint_key_path">* ఫైల్ సేవ్ పాత్</string>  
   <string name="text_sign_hint_key_alias">* మారుపేరు</string>  
   <string name="text_sign_hint_key_password">* పాస్వర్డ్</string>  
   <string name="text_sign_hint_key_year">* చెల్లుబాటు వ్యవధి (సంవత్సరాలు)</string>  
@@ -292,14 +292,14 @@
   <string name="text_set_text">వచనాన్ని సెట్ చేయండి (సెట్‌టెక్స్ట్)</string>  
   <string name="text_scroll_forward">ముందుకు/కుడి/క్రిందికి స్వైప్ చేయండి (స్క్రోల్ ఫార్వర్డ్)</string>  
   <string name="text_scroll_backward">వెనుకకు/పైకి/ఎడమవైపు స్క్రోల్ చేయండి (వెనుకకు స్క్రోల్ చేయండి)</string>  
-  <string name="text_find_one">ఒకటి దొరికే వరకు (findOne)</string>  
+  <string name="text_find_one">ఒకటి కనుగొనబడే వరకు (కనుగొను)</string>  
   <string name="text_until_find">అన్నీ కనుగొనబడే వరకు (కనుగొనే వరకు)</string>  
   <string name="text_wait_for">నియంత్రణ కనిపించే వరకు వేచి ఉండండి (వెయిట్‌ఫర్)</string>  
   <string name="text_selector_exists">నియంత్రణ ఉనికిని నిర్ధారించడం (ఉన్నది)</string>  
   <string name="text_options">ఎంపికలు</string>  
   <string name="text_using_id_selector">ఐడిని ఉపయోగించి ఎంచుకోండి</string>  
   <string name="text_using_text_selector">వచన ఎంపిక (టెక్స్ట్) ఉపయోగించండి</string>  
-  <string name="text_using_desc_selector">వివరణ (డెస్క్) ఉపయోగించి ఎంచుకోండి</string>  
+  <string name="text_using_desc_selector">వివరణను ఉపయోగించండి ఎంచుకోండి (డెస్క్)</string>  
   <string name="text_generate">ఉత్పత్తి</string>  
   <string name="text_generate_fail">బిల్డ్ విఫలమైంది o(╥﹏╥)o</string>  
   <string name="text_documentation_source">డాక్యుమెంటేషన్ మూలం</string>  
@@ -321,7 +321,7 @@
   <string name="text_day6">శనివారం</string>  
   <string name="text_day7">ఆదివారం</string>  
   <string name="text_weekly_task_should_check_day_of_week">వారంలో కనీసం ఒక రోజు ఎంచుకోండి</string>  
-  <string name="no_apk_builder_plugin">ప్యాక్ చేసిన ప్లగ్ఇన్ ఇన్‌స్టాల్ చేయబడలేదు, మీరు దీన్ని ఇప్పుడే డౌన్‌లోడ్ చేయాలనుకుంటున్నారా?</string>  
+  <string name="no_apk_builder_plugin">ప్యాక్ చేసిన ప్లగిన్ ఇన్‌స్టాల్ చేయబడలేదు, మీరు దీన్ని ఇప్పుడే డౌన్‌లోడ్ చేయాలనుకుంటున్నారా?</string>  
   <string name="text_apk_builder_plugin_unavailable">ప్యాకేజీ ప్లగ్ఇన్ అందుబాటులో లేదు</string>  
   <string name="text_detail">వివరాలు</string>  
   <string name="text_open">తెరవండి</string>  
@@ -351,7 +351,7 @@
   <string name="text_size_current_value" formatted="true">ఫాంట్ పరిమాణం: %d</string>  
   <string name="error_regex_find_prev">రెగ్యులర్ వ్యక్తీకరణ ఎదురుచూడదు</string>  
   <string name="text_notification">గమనించండి</string>  
-  <string name="apk_builder_plugin_version_too_low">ప్యాక్ చేసిన ప్లగ్-ఇన్ వెర్షన్ చాలా తక్కువగా ఉంది మరియు ప్యాక్ చేసిన అప్లికేషన్ సరిగ్గా పని చేయకపోవచ్చు. మీరు ప్యాక్ చేసిన ప్లగ్-ఇన్ యొక్క సంబంధిత వెర్షన్‌ని ఇప్పుడు డౌన్‌లోడ్ చేయాలనుకుంటున్నారా?</string>  
+  <string name="apk_builder_plugin_version_too_low">ప్యాక్ చేసిన ప్లగ్-ఇన్ వెర్షన్ చాలా తక్కువగా ఉంది మరియు ప్యాక్ చేసిన అప్లికేషన్ సరిగ్గా పని చేయకపోవచ్చు. మీరు ప్యాకేజీ చేసిన ప్లగ్-ఇన్ యొక్క సంబంధిత సంస్కరణను ఇప్పుడు డౌన్‌లోడ్ చేయాలనుకుంటున్నారా?</string>  
   <string name="text_inspect_layout_bounds">లేఅవుట్ పరిధి విశ్లేషణ</string>  
   <string name="text_inspect_layout_hierarchy">లేఅవుట్ సోపానక్రమం</string>  
   <string name="text_inspect_layout">లేఅవుట్ విశ్లేషణ</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">ప్రధాన ఇంటర్‌ఫేస్‌ను నమోదు చేయడానికి క్లిక్ చేయండి</string>  
   <string name="text_run_on_other_broadcast">ఇతర ఈవెంట్‌లు (ప్రసారం)</string>  
   <string name="text_broadcast_action">ప్రసార చర్య</string>  
-  <string name="text_run_on_boot">బూట్ చేసినప్పుడు</string>  
+  <string name="text_run_on_boot">బూట్ సమయంలో</string>  
   <string name="text_run_on_screen_on">స్క్రీన్ ఆన్‌లో ఉన్నప్పుడు</string>  
   <string name="text_run_on_screen_off">స్క్రీన్ ఆఫ్‌లో ఉన్నప్పుడు</string>  
   <string name="error_empty_selection">దయచేసి ప్రసార ఈవెంట్ ఎంపికను ఎంచుకోండి</string>  
@@ -410,7 +410,7 @@
   <string name="text_run_on_conn_change">నెట్‌వర్క్ కనెక్షన్ మారినప్పుడు</string>  
   <string name="text_run_on_package_install">కొత్త యాప్ ఇన్‌స్టాల్ చేసినప్పుడు</string>  
   <string name="text_run_on_package_uninstall">యాప్ అన్‌ఇన్‌స్టాల్ చేసినప్పుడు</string>  
-  <string name="text_run_on_package_update">నవీకరణను వర్తింపజేసేటప్పుడు</string>  
+  <string name="text_run_on_package_update">నవీకరణను వర్తింపజేస్తున్నప్పుడు</string>  
   <string name="text_run_on_headset_plug">హెడ్‌సెట్‌ను ప్లగ్ మరియు అన్‌ప్లగ్ చేసినప్పుడు</string>  
   <string name="text_run_on_time_tick">ప్రతి నిమిషం</string>  
   <string name="text_run_on_config_change">నిర్దిష్ట సెట్టింగ్‌లు (స్క్రీన్ ఓరియంటేషన్, ప్రాంతం మొదలైనవి) మార్చబడినప్పుడు</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">రాత్రి మోడ్</string>  
   <string name="text_run_on_startup">Autox.js ప్రారంభమైనప్పుడు</string>  
   <string name="text_usage_stats_permission">వాడుక యాక్సెస్</string>  
-  <string name="description_usage_stats_permission">\"వినియోగ గణాంకాలను వీక్షించండి\" అనుమతి ద్వారా, మీరు ఈ పరికరం యొక్క గత అనువర్తన వినియోగాన్ని పొందవచ్చు, తద్వారా ప్రస్తుత అప్లికేషన్‌ను (currentPackage) పొందడం మరింత ఖచ్చితమైనది.</string>  
+  <string name="description_usage_stats_permission">\"వినియోగ గణాంకాలను వీక్షించండి\" అనుమతి ద్వారా, మీరు ఈ పరికరం యొక్క గత అప్లికేషన్ వినియోగాన్ని పొందవచ్చు, తద్వారా ప్రస్తుత అప్లికేషన్ (కరెంట్‌ప్యాకేజ్) పొందడం మరింత ఖచ్చితమైనది.</string>  
   <string name="text_open_with">ఓపెన్ మార్గం</string>  
   <string name="text_root">రూట్</string>  
   <string name="text_no_root">రూట్ ఉచితం</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">శోధన నుండి నిష్క్రమించండి</string>  
   <string name="text_licenses_other">నాన్-ఓపెన్ సోర్స్ లైసెన్స్</string>  
   <string name="text_save_successfully">విజయవంతంగా సేవ్ చేయబడింది</string>  
-  <string name="text_save_as_project">ప్రాజెక్ట్‌గా సేవ్ చేయండి</string>
-  <string name="text_select_save_mode">దయచేసి సేవ్ చేసే పద్ధతిని ఎంచుకోండి</string>
-  <string name="text_save_as_project_and_exit">ప్రాజెక్ట్‌గా సేవ్ చేసి నిష్క్రమించండి</string>
-  <string name="apk_builder_sign">సంతకం చేయడం</string>
-  <string name="text_invalid_config">చెల్లని కాన్ఫిగరేషన్</string>
-  <string name="text_abi">మద్దతు ఉన్న ABIలు (కామాలతో వేరు చేయబడ్డాయి)</string>
-  <string name="text_save_project_to">ప్రాజెక్ట్ దీనికి సేవ్ చేయబడింది: %s</string>
+  <string name="text_save_as_project">ప్రాజెక్ట్‌గా సేవ్ చేయండి</string>  
+  <string name="text_select_save_mode">దయచేసి సేవ్ చేసే పద్ధతిని ఎంచుకోండి</string>  
+  <string name="text_save_as_project_and_exit">ప్రాజెక్ట్‌గా సేవ్ చేసి నిష్క్రమించండి</string>  
+  <string name="apk_builder_sign">సంతకం చేయడం</string>  
+  <string name="text_invalid_config">చెల్లని కాన్ఫిగరేషన్</string>  
+  <string name="text_abi">మద్దతు ఉన్న ABIలు (కామాలతో వేరు చేయబడ్డాయి)</string>  
+  <string name="text_save_project_to">ప్రాజెక్ట్ దీనికి సేవ్ చేయబడింది: %s</string>  
+  <string name="text_hide_and_show">దాచు / చూపించు</string>
+  <string name="text_browser_open">బ్రౌజర్ ఓపెన్</string>
+  <string name="text_do_nothing">ఏమీ చేయను</string>
+  <string name="text_copy_to_new_folder">అసలు ఫోల్డర్‌లోని కంటెంట్‌లను కొత్త ఫోల్డర్‌కు కాపీ చేయండి</string>
+  <string name="text_move_new_folder">అసలు ఫోల్డర్‌లోని కంటెంట్‌లను కొత్త ఫోల్డర్‌కి తరలించండి</string>
+  <string name="text_accessibility_service_is_not_enable">యాక్సెసిబిలిటీ సర్వీస్ ఆన్ చేయబడలేదు</string>
+  <string name="text_set_successfully">విజయవంతంగా సెట్ చేయబడింది</string>
 </resources>

@@ -2,13 +2,13 @@
 
 <!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
 <resources> 
-  <string name="text_accessibility_service_description">Diperlukan untuk mengotomatisasi operasi skrip (klik, tekan lama, geser, dll.), jika dinonaktifkan, hanya skrip yang tidak melibatkan operasi otomatis yang dapat dijalankan.</string>  
+  <string name="text_accessibility_service_description">Diperlukan untuk mengotomatiskan operasi skrip (klik, tekan lama, geser, dll.), jika dinonaktifkan, hanya skrip yang tidak melibatkan operasi otomatis yang dapat dijalankan.</string>  
   <string name="text_new_file">Buat file baru</string>  
   <string name="text_create_fail">Gagal membuat</string>  
   <string name="text_please_input_name">Silakan masukkan nama</string>  
   <string name="text_name">Nama</string>  
   <string name="text_go_to_setting">Pergi ke pengaturan</string>  
-  <string name="explain_accessibility_permission">Perangkat lunak perlu membuka \"Layanan Aksesibilitas\" untuk menjalankan, silakan buka \"Pengaturan->Layanan Aksesibilitas\" atau \"Pengaturan->Layanan Aksesibilitas->Layanan yang Diunduh Lainnya\", temukan aplikasi ini, dan aktifkan Layanan Aksesibilitas \n Juga dapat disetel nanti di menu tarik-turun.</string>  
+  <string name="explain_accessibility_permission">Perangkat lunak perlu membuka \"Layanan Aksesibilitas\" untuk menjalankan, silakan buka \"Pengaturan->Layanan Aksesibilitas\" atau \"Pengaturan->Layanan Aksesibilitas->Layanan yang Lebih Banyak Diunduh\", temukan aplikasi ini, dan aktifkan Layanan Aksesibilitas \n Juga dapat diatur nanti di menu tarik-turun.</string>  
   <string name="explain_accessibility_permission2">Perangkat lunak perlu membuka \"Layanan Aksesibilitas\" untuk menjalankan, silakan buka \"Pengaturan->Layanan Aksesibilitas\" atau \"Pengaturan->Layanan Aksesibilitas->Layanan yang Diunduh Lainnya\", temukan aplikasi ini, dan aktifkan Layanan Aksesibilitas</string>  
   <string name="text_cancel">Membatalkan</string>  
   <string name="text_path_is_empty">Jalan kosong</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Pilihan</string>  
   <string name="text_using_id_selector">Pilih menggunakan id</string>  
   <string name="text_using_text_selector">Gunakan pemilihan teks (teks)</string>  
-  <string name="text_using_desc_selector">Pilih menggunakan deskripsi (desc)</string>  
+  <string name="text_using_desc_selector">Gunakan Deskripsi Pilih (desc)</string>  
   <string name="text_generate">Menghasilkan</string>  
   <string name="text_generate_fail">Build gagal o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Sumber dokumentasi</string>  
@@ -342,7 +342,7 @@
   <string name="nodebb_error_email_taken">Kotak surat ditempati</string>  
   <string name="nodebb_error_change_password_error_match">Kedua kata sandi yang dimasukkan tidak cocok</string>  
   <string name="text_logout">Keluar</string>  
-  <string name="nodebb_error_forbidden">Operasi gagal, coba lagi nanti</string>  
+  <string name="nodebb_error_forbidden">Operasi gagal, silakan coba lagi nanti</string>  
   <string name="description_stable_mode">Mode stabil membuat skrip lebih stabil saat mengambil tata letak dengan menghilangkan detail tata letak, tetapi pada saat yang sama mengambil lebih sedikit kontrol di layar. \n \n ulang layanan aksesibilitas agar diterapkan.</string>  
   <string name="text_size_min_value">2</string>  
   <string name="text_size_max_value">60</string>  
@@ -351,7 +351,7 @@
   <string name="text_size_current_value" formatted="true">Ukuran huruf: %d</string>  
   <string name="error_regex_find_prev">Ekspresi reguler tidak bisa melihat ke depan</string>  
   <string name="text_notification">Melihat</string>  
-  <string name="apk_builder_plugin_version_too_low">Versi plug-in terpaket terlalu rendah, dan aplikasi terpaket mungkin tidak berjalan dengan benar. Apakah Anda ingin mengunduh versi yang sesuai dari plug-in terpaket sekarang?</string>  
+  <string name="apk_builder_plugin_version_too_low">Versi plug-in terpaket terlalu rendah, dan aplikasi terpaket mungkin tidak berjalan dengan benar. Apakah Anda ingin mengunduh versi plug-in paket yang sesuai sekarang?</string>  
   <string name="text_inspect_layout_bounds">Analisis rentang tata letak</string>  
   <string name="text_inspect_layout_hierarchy">Hirarki Tata Letak</string>  
   <string name="text_inspect_layout">Analisis tata letak</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Mode malam</string>  
   <string name="text_run_on_startup">Saat Autox.js dimulai</string>  
   <string name="text_usage_stats_permission">Akses penggunaan</string>  
-  <string name="description_usage_stats_permission">Melalui izin \"lihat statistik penggunaan\", Anda dapat memperoleh penggunaan aplikasi sebelumnya dari perangkat ini, sehingga lebih akurat untuk mendapatkan aplikasi saat ini (Paket saat ini).</string>  
+  <string name="description_usage_stats_permission">Melalui izin \"Lihat Statistik Penggunaan\", Anda dapat memperoleh penggunaan aplikasi sebelumnya dari perangkat ini, sehingga lebih akurat untuk mendapatkan aplikasi saat ini (Paket saat ini).</string>  
   <string name="text_open_with">Jalan terbuka</string>  
   <string name="text_root">Akar</string>  
   <string name="text_no_root">Bebas root</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Keluar dari pencarian</string>  
   <string name="text_licenses_other">Lisensi Non-Sumber Terbuka</string>  
   <string name="text_save_successfully">Berhasil disimpan</string>  
-  <string name="text_save_as_project">Simpan sebagai proyek</string>
-  <string name="text_select_save_mode">Silakan pilih metode penyimpanan</string>
-  <string name="text_save_as_project_and_exit">Simpan sebagai proyek dan keluar</string>
-  <string name="apk_builder_sign">Penandatanganan</string>
-  <string name="text_invalid_config">Konfigurasi tidak valid</string>
-  <string name="text_abi">ABI yang didukung (dipisahkan dengan koma)</string>
-  <string name="text_save_project_to">Proyek disimpan ke: %s</string>
+  <string name="text_save_as_project">Simpan sebagai proyek</string>  
+  <string name="text_select_save_mode">Silakan pilih metode penyimpanan</string>  
+  <string name="text_save_as_project_and_exit">Simpan sebagai proyek dan keluar</string>  
+  <string name="apk_builder_sign">Penandatanganan</string>  
+  <string name="text_invalid_config">Konfigurasi tidak valid</string>  
+  <string name="text_abi">ABI yang didukung (dipisahkan dengan koma)</string>  
+  <string name="text_save_project_to">Proyek disimpan ke: %s</string>  
+  <string name="text_hide_and_show">Sembunyikan tampilan</string>
+  <string name="text_browser_open">Browser terbuka</string>
+  <string name="text_do_nothing">Tidak melakukan apapun</string>
+  <string name="text_copy_to_new_folder">Salin isi folder asli ke folder baru</string>
+  <string name="text_move_new_folder">Pindahkan isi folder asli ke folder baru</string>
+  <string name="text_accessibility_service_is_not_enable">Layanan aksesibilitas tidak diaktifkan</string>
+  <string name="text_set_successfully">Atur berhasil</string>
 </resources>

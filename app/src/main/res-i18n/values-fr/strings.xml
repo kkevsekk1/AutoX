@@ -63,7 +63,7 @@
   <string name="text_start_record">Commencer l\'enregistrement</string>  
   <string name="text_recorded">Fin d\'enregistrement</string>  
   <string name="text_copy_to_clip">Copier dans le presse-papier</string>  
-  <string name="text_file_write_fail">L\'écriture du fichier a échoué</string>  
+  <string name="text_file_write_fail">Échec de l\'écriture du fichier</string>  
   <string name="text_use_volume_control_record">Utilisez la touche de diminution du volume pour contrôler</string>  
   <string name="summary_use_volume_control_record">Après avoir ouvert la fenêtre flottante, chaque fois que la touche de diminution du volume démarre ou arrête l\'enregistrement du script</string>  
   <string name="text_qq_group">Ceci est le numéro de groupe QQ, si vous ne pouvez pas l\'ouvrir, veuillez rechercher manuellement</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Choix</string>  
   <string name="text_using_id_selector">Sélectionner à l\'aide de l\'identifiant</string>  
   <string name="text_using_text_selector">Utiliser la sélection de texte (texte)</string>  
-  <string name="text_using_desc_selector">Sélectionner en utilisant la description (desc)</string>  
+  <string name="text_using_desc_selector">Utiliser Description Sélectionner (desc)</string>  
   <string name="text_generate">Produire</string>  
   <string name="text_generate_fail">La construction a échoué o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Origine de la documentation</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Cliquez pour entrer dans l\'interface principale</string>  
   <string name="text_run_on_other_broadcast">Autres événements (diffusion)</string>  
   <string name="text_broadcast_action">Action de diffusion</string>  
-  <string name="text_run_on_boot">Lors du démarrage</string>  
+  <string name="text_run_on_boot">Au démarrage</string>  
   <string name="text_run_on_screen_on">Lorsque l\'écran est allumé</string>  
   <string name="text_run_on_screen_off">Quand l\'écran est éteint</string>  
   <string name="error_empty_selection">Veuillez sélectionner une option d\'événement de diffusion</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Quitter la recherche</string>  
   <string name="text_licenses_other">Licence non open source</string>  
   <string name="text_save_successfully">Enregistré avec succès</string>  
-  <string name="text_save_as_project">Enregistrer en tant que projet</string>
-  <string name="text_select_save_mode">Veuillez sélectionner une méthode de sauvegarde</string>
-  <string name="text_save_as_project_and_exit">Enregistrer en tant que projet et quitter</string>
-  <string name="apk_builder_sign">Signature</string>
-  <string name="text_invalid_config">Configuration invalide</string>
-  <string name="text_abi">ABI pris en charge (séparés par des virgules)</string>
-  <string name="text_save_project_to">Projet enregistré dans : %s</string>
+  <string name="text_save_as_project">Enregistrer en tant que projet</string>  
+  <string name="text_select_save_mode">Veuillez sélectionner une méthode de sauvegarde</string>  
+  <string name="text_save_as_project_and_exit">Enregistrer en tant que projet et quitter</string>  
+  <string name="apk_builder_sign">Signature</string>  
+  <string name="text_invalid_config">Configuration invalide</string>  
+  <string name="text_abi">ABI pris en charge (séparés par des virgules)</string>  
+  <string name="text_save_project_to">Projet enregistré dans : %s</string>  
+  <string name="text_hide_and_show">Cacher/montrer</string>
+  <string name="text_browser_open">Navigateur ouvert</string>
+  <string name="text_do_nothing">Ne fais rien</string>
+  <string name="text_copy_to_new_folder">Copiez le contenu du dossier d\'origine dans le nouveau dossier</string>
+  <string name="text_move_new_folder">Déplacer le contenu du dossier d\'origine vers le nouveau dossier</string>
+  <string name="text_accessibility_service_is_not_enable">Le service d\'accessibilité n\'est pas activé</string>
+  <string name="text_set_successfully">Réglé avec succès</string>
 </resources>

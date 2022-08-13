@@ -293,13 +293,13 @@
   <string name="text_scroll_forward">تند کشیدن به جلو/راست/پایین (پیمایش به جلو)</string>  
   <string name="text_scroll_backward">اسکرول به عقب/بالا/چپ (پیمایش به عقب)</string>  
   <string name="text_find_one">تا زمانی که یکی پیدا شود (findOne)</string>  
-  <string name="text_until_find">تا زمانی که همه چیز پیدا شود (تا یافتن)</string>  
+  <string name="text_until_find">تا زمانی که همه چیز پیدا شد (تا یافتن)</string>  
   <string name="text_wait_for">صبر کنید تا کنترل ظاهر شود (waitFor)</string>  
   <string name="text_selector_exists">قضاوت در مورد وجود کنترل (وجود دارد)</string>  
   <string name="text_options">گزینه ها</string>  
   <string name="text_using_id_selector">با استفاده از id انتخاب کنید</string>  
   <string name="text_using_text_selector">استفاده از انتخاب متن (متن)</string>  
-  <string name="text_using_desc_selector">انتخاب با استفاده از توضیحات (نزول)</string>  
+  <string name="text_using_desc_selector">استفاده از Description Select (نزول)</string>  
   <string name="text_generate">تولید می کنند</string>  
   <string name="text_generate_fail">ساخت ناموفق o(╥﹏╥)o</string>  
   <string name="text_documentation_source">منبع اسناد</string>  
@@ -361,7 +361,7 @@
   <string name="text_error_copy_file" formatted="true">خطایی روی داد: %s</string>  
   <string name="text_debug">اشکال زدایی</string>  
   <string name="text_set_breakpoint">نقطه شکست</string>  
-  <string name="text_launch_debugger">اشکال زدایی را شروع کنید</string>  
+  <string name="text_launch_debugger">شروع به رفع اشکال کنید</string>  
   <string name="text_debug_step_out">بپر بیرون</string>  
   <string name="text_debug_step_into">وارد</string>  
   <string name="text_debug_step_over">یک قدم</string>  
@@ -369,7 +369,7 @@
   <string name="text_stop">متوقف کردن</string>  
   <string name="text_new_watching_variable">یک متغیر یا عبارت برای تماشا اضافه کنید</string>  
   <string name="text_variable_or_expr">متغیر یا عبارت</string>  
-  <string name="text_remove_all_breakpoints">حذف تمام نقاط شکست</string>  
+  <string name="text_remove_all_breakpoints">تمام نقاط شکست را حذف کنید</string>  
   <string name="hint_long_click_run_to_debug">اشکال زدایی را نیز می توان با فشار طولانی آیکون \"Run\" آغاز کرد</string>  
   <string name="format_debug_bar_title">اشکال زدایی [ %s ]</string>  
   <string name="text_copy_value">ارزش کپی</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">برای ورود به رابط اصلی کلیک کنید</string>  
   <string name="text_run_on_other_broadcast">سایر رویدادها (پخش)</string>  
   <string name="text_broadcast_action">اقدام پخش</string>  
-  <string name="text_run_on_boot">هنگام بوت شدن</string>  
+  <string name="text_run_on_boot">در زمان راه اندازی</string>  
   <string name="text_run_on_screen_on">وقتی صفحه نمایش روشن است</string>  
   <string name="text_run_on_screen_off">وقتی صفحه نمایش خاموش است</string>  
   <string name="error_empty_selection">لطفاً یک گزینه رویداد پخش را انتخاب کنید</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">حالت شب</string>  
   <string name="text_run_on_startup">هنگامی که Autox.js شروع می شود</string>  
   <string name="text_usage_stats_permission">دسترسی استفاده</string>  
-  <string name="description_usage_stats_permission">از طریق مجوز «مشاهده آمار استفاده» می‌توانید استفاده‌های قبلی اپلیکیشن این دستگاه را به دست آورید تا به‌طور دقیق‌تر به اپلیکیشن فعلی (currentPackage) دست پیدا کنید.</string>  
+  <string name="description_usage_stats_permission">از طریق مجوز «مشاهده آمار استفاده»، می‌توانید استفاده‌های قبلی برنامه این دستگاه را به‌دست آورید تا با دقت بیشتری برنامه فعلی (currentPackage) را دریافت کنید.</string>  
   <string name="text_open_with">راه باز</string>  
   <string name="text_root">ریشه</string>  
   <string name="text_no_root">بدون ریشه</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">خروج از جستجو</string>  
   <string name="text_licenses_other">مجوز غیر متن باز</string>  
   <string name="text_save_successfully">با موفقیت ذخیره شد</string>  
-  <string name="text_save_as_project">ذخیره به عنوان پروژه</string>
-  <string name="text_select_save_mode">لطفاً یک روش ذخیره را انتخاب کنید</string>
-  <string name="text_save_as_project_and_exit">ذخیره به عنوان پروژه و خروج</string>
-  <string name="apk_builder_sign">امضا کردن</string>
-  <string name="text_invalid_config">پیکربندی نامعتبر</string>
-  <string name="text_abi">ABI های پشتیبانی شده (با کاما از هم جدا شده اند)</string>
-  <string name="text_save_project_to">پروژه در: %s ذخیره شد</string>
+  <string name="text_save_as_project">ذخیره به عنوان پروژه</string>  
+  <string name="text_select_save_mode">لطفاً یک روش ذخیره را انتخاب کنید</string>  
+  <string name="text_save_as_project_and_exit">ذخیره به عنوان پروژه و خروج</string>  
+  <string name="apk_builder_sign">امضا کردن</string>  
+  <string name="text_invalid_config">پیکربندی نامعتبر</string>  
+  <string name="text_abi">ABI های پشتیبانی شده (با کاما از هم جدا شده اند)</string>  
+  <string name="text_save_project_to">پروژه در: %s ذخیره شد</string>  
+  <string name="text_hide_and_show">پنهان کردن/نشان دادن</string>
+  <string name="text_browser_open">مرورگر باز شود</string>
+  <string name="text_do_nothing">هیچ کاری نکن</string>
+  <string name="text_copy_to_new_folder">محتویات پوشه اصلی را در پوشه جدید کپی کنید</string>
+  <string name="text_move_new_folder">محتویات پوشه اصلی را به پوشه جدید منتقل کنید</string>
+  <string name="text_accessibility_service_is_not_enable">سرویس دسترس‌پذیری روشن نیست</string>
+  <string name="text_set_successfully">با موفقیت تنظیم کرد</string>
 </resources>

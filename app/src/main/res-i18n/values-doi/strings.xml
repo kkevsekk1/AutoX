@@ -24,7 +24,7 @@
   <string name="text_alert">शारा</string>  
   <string name="edit_exit_without_save_warn">सामग्री गी बचाइयै रक्खेआ नेईं गेआ ऐ, केह् तुसें गी पक्का पता ऐ जे तुस बाहर निकलना चांह् दे ओ?</string>  
   <string name="text_save_and_exit">बचाओ ते बाहर निकलो</string>  
-  <string name="text_exit_directly">सीधे बाहर निकलो</string>  
+  <string name="text_exit_directly">सीधे बाहर निकलना</string>  
   <string name="text_setting">सेट अप</string>  
   <string name="text_exit">छोड़ना</string>  
   <string name="text_auto_operate_service">सुलभता सेवाएं दा</string>  
@@ -119,7 +119,7 @@
   <string name="text_directly_download">डाउनलोड</string>  
   <string name="text_download_failed">डाउनलोड फेल हो गया</string>  
   <string name="text_do_not_ask_again_for_this_version">एह् संस्करण हून संकेत नेईं करदा ऐ</string>  
-  <string name="text_code_beautify">प्रारूप कोड ऐ</string>  
+  <string name="text_code_beautify">फार्मेट कोड ऐ</string>  
   <string name="text_processing">प्रसंस्करण करना</string>  
   <string name="text_guard_mode">संरक्षित मोड</string>  
   <string name="summary_guard_mode">आकस्मिक स्पर्श थमां बचने आस्तै इस सॉफ्टवेयर इंटरफेस च स्वचालित संचालन कमांड नेईं चलाया जाई सकदा ऐ</string>  
@@ -257,7 +257,7 @@
   <string name="text_sign_create_fail">बनाने च असफल रेहा</string>  
   <string name="text_build_successfully">सफलतापूर्वक पैक कीता गेआ</string>  
   <string name="text_install">इंस्टाल</string>  
-  <string name="text_build_failed">पैकेजिंग असफल होई गेई, त्रुटि संदेश:</string>  
+  <string name="text_build_failed">पैकेजिंग विफल होई, त्रुटि संदेश:</string>  
   <string name="format_build_successfully" formatted="true">Apk फ़ाइल गी %s पर सेव कीता गेदा ऐ</string>  
   <string name="apk_builder_prepare">दस्तावेज तैयार कीता जा करदा ऐ</string>  
   <string name="apk_builder_build">बिल्डिंग</string>  
@@ -283,7 +283,7 @@
   <string name="text_reset_succeed">सफलतापूर्वक रीसेट करो</string>  
   <string name="text_cannot_read_file">फाइल पढ़ने च असमर्थ</string>  
   <string name="text_service">सेवा करना</string>  
-  <string name="text_notification_permission">पढ़ने की अनुमति दे</string>  
+  <string name="text_notification_permission">पढ़ने दी अनुमति देओ</string>  
   <string name="text_open_main_activity">मुख्य इंटरफेस खोलो</string>  
   <string name="text_generate_code">कोड पैदा करना</string>  
   <string name="text_action">हरकत</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">विकल्प ऐ</string>  
   <string name="text_using_id_selector">आईडी दा इस्तेमाल करदे होई चयन करो</string>  
   <string name="text_using_text_selector">पाठ चयन (पाठ) दा उपयोग करो</string>  
-  <string name="text_using_desc_selector">विवरण (desc) दा उपयोग करदे होई चुनो</string>  
+  <string name="text_using_desc_selector">विवरण दा उपयोग करो चुनो (desc)</string>  
   <string name="text_generate">पैदा करना</string>  
   <string name="text_generate_fail">निर्माण असफल ओ(╥╥)ओ</string>  
   <string name="text_documentation_source">दस्तावेजीकरण दा स्रोत</string>  
@@ -340,7 +340,7 @@
   <string name="nodebb_error_invalid_login_credentials">अमान्य लॉगिन क्रेडेंशियल्स</string>  
   <string name="nodebb_error_change_password_error_length">पासवर्ड बड़ा घट्ट ऐ</string>  
   <string name="nodebb_error_email_taken">मेलबॉक्स पर कब्जा हो गया है</string>  
-  <string name="nodebb_error_change_password_error_match">दर्ज कीते गेदे दौं पासवर्ड मेल नेईं खंदे न</string>  
+  <string name="nodebb_error_change_password_error_match">दर्ज कीते गेदे दो पासवर्ड मेल नेईं खंदे न</string>  
   <string name="text_logout">साइन आउट करो</string>  
   <string name="nodebb_error_forbidden">ऑपरेशन असफल होई गेआ, कृपा करियै बाद च दुबारा कोशश करो</string>  
   <string name="description_stable_mode">स्थिर मोड लेआउट विवरण गी छोड़ियै लेआउट गी हड़पने पर स्क्रिप्ट गी होर स्थिर बनांदा ऐ , पर इसदे कन्नै गै स्क्रीन पर कम नियंत्रण बी लांदा ऐ । \n प्रभावी होने आस्तै एक्सेसबिलिटी सेवा गी \n करो.</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">मुख्य इंटरफेस च दाखल होने लेई क्लिक करो</string>  
   <string name="text_run_on_other_broadcast">होर घटनाएं (प्रसारण)</string>  
   <string name="text_broadcast_action">प्रसारण एक्शन</string>  
-  <string name="text_run_on_boot">बूट करदे वक्त</string>  
+  <string name="text_run_on_boot">बूट टाइम पर</string>  
   <string name="text_run_on_screen_on">जदूं स्क्रीन चालू होंदी ऐ</string>  
   <string name="text_run_on_screen_off">जदूं स्क्रीन बंद होंदी ऐ</string>  
   <string name="error_empty_selection">कृपा करियै इक प्रसारण घटना विकल्प चुनो</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">खोज से बाहर निकलो</string>  
   <string name="text_licenses_other">गैर-खुले स्रोत लाइसेंस</string>  
   <string name="text_save_successfully">सफलतापूर्वक बचाया</string>  
-  <string name="text_save_as_project">प्रोजेक्ट दे रूप च बचाओ</string>
-  <string name="text_select_save_mode">कृपा करियै इक सेव विधि चुनो</string>
-  <string name="text_save_as_project_and_exit">प्रोजेक्ट दे रूप च सेव करो ते बाहर निकलो</string>
-  <string name="apk_builder_sign">हस्ताक्षर करदे होई</string>
-  <string name="text_invalid_config">अमान्य विन्यास ऐ</string>
-  <string name="text_abi">समर्थत एबीआई (अल्पविराम कन्नै बक्ख कीते गेदे)</string>
-  <string name="text_save_project_to">प्रोजेक्ट गी बचाइयै रक्खेआ गेआ ऐ: %s</string>
+  <string name="text_save_as_project">प्रोजेक्ट दे रूप च बचाओ</string>  
+  <string name="text_select_save_mode">कृपा करियै इक सेव विधि चुनो</string>  
+  <string name="text_save_as_project_and_exit">प्रोजेक्ट दे रूप च सेव करो ते बाहर निकलो</string>  
+  <string name="apk_builder_sign">हस्ताक्षर करदे होई</string>  
+  <string name="text_invalid_config">अमान्य विन्यास ऐ</string>  
+  <string name="text_abi">समर्थत एबीआई (अल्पविराम कन्नै बक्ख कीती गेदी)</string>  
+  <string name="text_save_project_to">प्रोजेक्ट गी बचाइयै रक्खेआ गेआ ऐ: %s</string>  
+  <string name="text_hide_and_show">छिपाना/दिखाना</string>
+  <string name="text_browser_open">ब्राउज़र खुला</string>
+  <string name="text_do_nothing">कुछ ना करो</string>
+  <string name="text_copy_to_new_folder">मूल फोल्डर दी सामग्री गी नमें फोल्डर च कापी करो</string>
+  <string name="text_move_new_folder">मूल फोल्डर दी सामग्री गी नमें फोल्डर च लेई जाओ</string>
+  <string name="text_accessibility_service_is_not_enable">सुलभता सेवा चालू नेईं ऐ</string>
+  <string name="text_set_successfully">सफलतापूर्वक सेट करो</string>
 </resources>

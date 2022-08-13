@@ -24,7 +24,7 @@
   <string name="text_alert">ኣንፈት</string>  
   <string name="edit_exit_without_save_warn">እቲ ትሕዝቶ ኣይተቐመጠን፡ ርግጸኛ ዲኻ ክትወጽእ ከም እትደሊ?</string>  
   <string name="text_save_and_exit">ምዕቃብን ምውጻእን።</string>  
-  <string name="text_exit_directly">ብቐጥታ ውጻእ</string>  
+  <string name="text_exit_directly">ብቐጥታ ምውጻእ እዩ።</string>  
   <string name="text_setting">ምድላው</string>  
   <string name="text_exit">ግደፍ</string>  
   <string name="text_auto_operate_service">ኣገልግሎት ተበጻሕነት</string>  
@@ -243,7 +243,7 @@
   <string name="text_sign_hint_key_path">*ናይ ፋይል ምዕቃብ መንገዲ</string>  
   <string name="text_sign_hint_key_alias">*ቅጽል ስም</string>  
   <string name="text_sign_hint_key_password">*መሕለፊ ቓል</string>  
-  <string name="text_sign_hint_key_year">*ግዜ ትኽክለኛነት (ዓመታት)</string>  
+  <string name="text_sign_hint_key_year">*ናይ ትኽክለኛነት ግዜ (ዓመታት)</string>  
   <string name="text_sign_key_year_def">25</string>  
   <string name="text_sign_hint_key_country">*ኮድ ሃገር (XX)</string>  
   <string name="text_sign_key_country_def">EN</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">ኣማራጺታት</string>  
   <string name="text_using_id_selector">Id ብምጥቃም ምረጽ</string>  
   <string name="text_using_text_selector">ምምራጽ ጽሑፍ (ጽሑፍ) ተጠቐም .</string>  
-  <string name="text_using_desc_selector">መግለጺ ብምጥቃም ምረጽ (desc)</string>  
+  <string name="text_using_desc_selector">መግለጺ ምጥቃም ምረጽ (desc)</string>  
   <string name="text_generate">ምምንጫው</string>  
   <string name="text_generate_fail">ምህናጽ ፈሺሉ o(╥╥)o</string>  
   <string name="text_documentation_source">ምንጪ ሰነድ</string>  
@@ -399,8 +399,8 @@
   <string name="foreground_notification_text">ናብቲ ቀንዲ መተሓላለፊ ንምእታው ጠውቕ</string>  
   <string name="text_run_on_other_broadcast">ካልኦት ፍጻሜታት (ፈነወ)</string>  
   <string name="text_broadcast_action">ፈነወ ተግባር</string>  
-  <string name="text_run_on_boot">ቦት ክትገብር ከለኻ</string>  
-  <string name="text_run_on_screen_on">ስክሪን ምስ ወለዐ</string>  
+  <string name="text_run_on_boot">ኣብ ግዜ ቦት ምግባር</string>  
+  <string name="text_run_on_screen_on">ስክሪን ምስ ዝውላዕ</string>  
   <string name="text_run_on_screen_off">ስክሪን ምስ ጠፍአ</string>  
   <string name="error_empty_selection">በጃኹም ናይ ፈነወ ፍጻመ ኣማራጺ ምረጹ</string>  
   <string name="text_run_on_battery_change">እቲ ሓይሊ ምስ ዝቕየር</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">ናይ ለይቲ ሞድ</string>  
   <string name="text_run_on_startup">Autox.js ምስ ተጀመረ</string>  
   <string name="text_usage_stats_permission">ናይ ኣጠቓቕማ ምብጻሕ</string>  
-  <string name="description_usage_stats_permission">ብመንገዲ \"ስታቲስቲክስ ኣጠቓቕማ ምርኣይ\" ፍቓድ፡ ዝሓለፈ መተግበሪ ኣጠቓቕማ ናይዚ መሳርሒ ክትረክብ ትኽእል ኢኻ፡ ምእንቲ ዝያዳ ልክዕ ክኸውን ነቲ ናይ ሕጂ መተግበሪ (currentPackage) ምርካብ።</string>  
+  <string name="description_usage_stats_permission">ብመንገዲ \"ስታቲስቲክስ ኣጠቓቕማ ርአ\" ፍቓድ፡ ሕሉፍ ኣጠቓቕማ መተግበሪ ናይዚ መሳርሒ ክትረክብ ትኽእል ኢኻ፡ ምእንቲ እቲ ናይ ሕጂ መተግበሪ (currentPackage) ንምርካብ ዝያዳ ልክዕ ይኸውን።</string>  
   <string name="text_open_with">ክፉት መንገዲ</string>  
   <string name="text_root">ሱር</string>  
   <string name="text_no_root">ሱር ነጻ</string>  
@@ -480,7 +480,7 @@
   <string name="text_management">ኣተሓሕዛ</string>  
   <string name="text_document">ሰነዳት ምግባር</string>  
   <string name="text_open_usb_debug">ናይ USB ምእራም ምውላዕ</string>  
-  <string name="text_scan_qr">ኮድ ስካን ምግባር</string>  
+  <string name="text_scan_qr">ኮድ ስካን ግበር</string>  
   <string name="text_connect_failed">ምትእስሳር ኣይተዓወተን: %s ፣ በጃኻ እቲ ናይ ኮምፒተር ፋየርዎል ንፖርት 9317 ይፈቅድ ድዩ ኣይፈቅድን፣ ኣብ ሓደ ዓይነት ሎካል ኤርያ ኔትወርክ እንተሃልዩ፣ ከምኡውን እቲ VS CODE ፕላግ-ኢን ነቲ ኣገልግሎት ከፊትዎ ድዩ ኣይፈቅድን መርምሩ...</string>  
   <string name="text_start_service_failed">ኣገልግሎት ክጅምር ኣይከኣለን %s</string>  
   <string name="text_unsupported_qr_code">ኣብዚ ቅርጺ ዘለዉ QR ኮዳት ኣይድገፉን እዮም።</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">ካብ ምድላይ ውጻእ</string>  
   <string name="text_licenses_other">ዘይክፉት ምንጪ ፍቓድ</string>  
   <string name="text_save_successfully">ብዓወት ድሒኑ</string>  
-  <string name="text_save_as_project">ከም ፕሮጀክት ዕቅብ</string>
-  <string name="text_select_save_mode">በጃኹም ናይ ምዕቃብ ሜላ ምረጽ</string>
-  <string name="text_save_as_project_and_exit">ከም ፕሮጀክት ኣቐምጥ እሞ ውጻእ</string>
-  <string name="apk_builder_sign">ምፍራም እዩ።</string>
-  <string name="text_invalid_config">ዘይሕጋዊ ውቅር</string>
-  <string name="text_abi">ዝድገፉ ABIs (ብኮማታት ዝተፈለዩ)</string>
-  <string name="text_save_project_to">ፕሮጀክት ናብ: %s</string>
+  <string name="text_save_as_project">ከም ፕሮጀክት ዕቅብ</string>  
+  <string name="text_select_save_mode">በጃኹም ናይ ምዕቃብ ሜላ ምረጽ</string>  
+  <string name="text_save_as_project_and_exit">ከም ፕሮጀክት ኣቐምጥ እሞ ውጻእ</string>  
+  <string name="apk_builder_sign">ምፍራም እዩ።</string>  
+  <string name="text_invalid_config">ዘይሕጋዊ ውቅር</string>  
+  <string name="text_abi">ዝድገፉ ABIs (ብኮማታት ዝተፈለዩ)</string>  
+  <string name="text_save_project_to">ፕሮጀክት ናብ: %s</string>  
+  <string name="text_hide_and_show">ምሕባእ/ምርኣይ</string>
+  <string name="text_browser_open">መርበብ ሓበሬታ ክፉት እዩ።</string>
+  <string name="text_do_nothing">ዋላ ሓንቲ ኣይትግበር</string>
+  <string name="text_copy_to_new_folder">ትሕዝቶ ናይቲ መበቆላዊ ማህደር ናብቲ ሓድሽ ማህደር ቅዳሕ</string>
+  <string name="text_move_new_folder">ትሕዝቶ ናይቲ መበቆላዊ ማህደር ናብቲ ሓድሽ ማህደር ኣግዕዞ</string>
+  <string name="text_accessibility_service_is_not_enable">ኣገልግሎት ተበጻሕነት ኣይውላዕን እዩ።</string>
+  <string name="text_set_successfully">ብዓወት ተቐሚጡ</string>
 </resources>

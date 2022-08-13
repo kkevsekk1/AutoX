@@ -24,7 +24,7 @@
   <string name="text_alert">Lingaliro</string>  
   <string name="edit_exit_without_save_warn">Zomwe sizinasungidwe, kodi mukutsimikiza kuti mukufuna kutuluka?</string>  
   <string name="text_save_and_exit">Sunga ndi kutuluka</string>  
-  <string name="text_exit_directly">Tulukani mwachindunji</string>  
+  <string name="text_exit_directly">Kutuluka mwachindunji</string>  
   <string name="text_setting">Khazikitsa</string>  
   <string name="text_exit">Kusiya</string>  
   <string name="text_auto_operate_service">Ntchito Zopezeka</string>  
@@ -229,7 +229,7 @@
   <string name="text_required_terminal_emulator">Terminal emulator</string>  
   <string name="text_required_background_start">Pamafunika chilolezo chowonekera chakumbuyo</string>  
   <string name="text_required_draw_overlay">Chilolezo cha zenera loyandama ndichofunika</string>  
-  <string name="text_volumeUpcontrol">Voliyumu yokweza kuti ntchito yomaliza</string>  
+  <string name="text_volumeUpcontrol">Volume up kiyi kuti ntchito yomaliza</string>  
   <string name="text_splash_text">Zolemba zoyambira</string>  
   <string name="text_splash_icon">Launch mawonekedwe chizindikiro</string>  
   <string name="text_service_desc_text">Kufotokozera kwa Ntchito Zofikira</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Zosankha</string>  
   <string name="text_using_id_selector">Sankhani kugwiritsa ntchito id</string>  
   <string name="text_using_text_selector">Gwiritsani ntchito kusankha mawu (mawu)</string>  
-  <string name="text_using_desc_selector">Sankhani pogwiritsa ntchito kufotokozera (desc)</string>  
+  <string name="text_using_desc_selector">Gwiritsani Ntchito Kufotokozera Sankhani (desc)</string>  
   <string name="text_generate">Kupanga</string>  
   <string name="text_generate_fail">Kupanga kulephera o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Gwero la zolemba</string>  
@@ -340,7 +340,7 @@
   <string name="nodebb_error_invalid_login_credentials">Mbiri yolowera yosavomerezeka</string>  
   <string name="nodebb_error_change_password_error_length">Mawu achinsinsi ndiafupi kwambiri</string>  
   <string name="nodebb_error_email_taken">Mailbox ndi yotanganidwa</string>  
-  <string name="nodebb_error_change_password_error_match">Mawu achinsinsi awiriwa sakugwirizana</string>  
+  <string name="nodebb_error_change_password_error_match">Awiriwa analowa achinsinsi sizikufanana</string>  
   <string name="text_logout">Tulukani</string>  
   <string name="nodebb_error_forbidden">Ntchito yalephera, chonde yesaninso nthawi ina</string>  
   <string name="description_stable_mode">Kukhazikika kokhazikika kumapangitsa kuti script ikhale yokhazikika pogwira masanjidwewo posiya tsatanetsatane wa masanjidwe, koma nthawi yomweyo kutengera zowongolera zochepera pa skrini. \n \n ntchito yofikira kuti igwire ntchito.</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Dinani kulowa waukulu mawonekedwe</string>  
   <string name="text_run_on_other_broadcast">Zochitika zina (kuwulutsa)</string>  
   <string name="text_broadcast_action">Broadcast Action</string>  
-  <string name="text_run_on_boot">Pamene booting</string>  
+  <string name="text_run_on_boot">Pa nthawi ya boot</string>  
   <string name="text_run_on_screen_on">Pamene chophimba chiyatsidwa</string>  
   <string name="text_run_on_screen_off">Pomwe chophimba chazimitsidwa</string>  
   <string name="error_empty_selection">Chonde sankhani chochitika chowulutsa</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Usiku mode</string>  
   <string name="text_run_on_startup">Pamene Autox.js iyamba</string>  
   <string name="text_usage_stats_permission">Kugwiritsa ntchito</string>  
-  <string name="description_usage_stats_permission">Kupyolera mu chilolezo cha \"mawonedwe a kagwiritsidwe ntchito\", mutha kupeza momwe mungagwiritsire ntchito chipangizochi m\'mbuyomu, kuti chikhale cholondola kwambiri kupeza pulogalamu yamakono (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Kupyolera mu chilolezo cha \"Onani Zowerengera Zamagwiritsidwe\", mutha kupeza momwe mungagwiritsire ntchito chipangizochi m\'mbuyomu, kuti chikhale cholondola kwambiri kuti mupeze pulogalamu yamakono (currentPackage).</string>  
   <string name="text_open_with">Njira yotseguka</string>  
   <string name="text_root">Mizu</string>  
   <string name="text_no_root">Zopanda mizu</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Chokani pakufufuza</string>  
   <string name="text_licenses_other">License Yosakhala Yotsegula</string>  
   <string name="text_save_successfully">Zasungidwa bwino</string>  
-  <string name="text_save_as_project">Sungani ngati polojekiti</string>
-  <string name="text_select_save_mode">Chonde sankhani njira yosungira</string>
-  <string name="text_save_as_project_and_exit">Sungani ngati polojekiti ndikutuluka</string>
-  <string name="apk_builder_sign">Kusaina</string>
-  <string name="text_invalid_config">Kasinthidwe kosavomerezeka</string>
-  <string name="text_abi">Ma ABI Othandizira (osiyanitsidwa ndi koma)</string>
-  <string name="text_save_project_to">Pulojekiti yasungidwa ku: %s</string>
+  <string name="text_save_as_project">Sungani ngati polojekiti</string>  
+  <string name="text_select_save_mode">Chonde sankhani njira yosungira</string>  
+  <string name="text_save_as_project_and_exit">Sungani ngati polojekiti ndikutuluka</string>  
+  <string name="apk_builder_sign">Kusaina</string>  
+  <string name="text_invalid_config">Kasinthidwe kosavomerezeka</string>  
+  <string name="text_abi">Ma ABI Othandizira (osiyanitsidwa ndi koma)</string>  
+  <string name="text_save_project_to">Pulojekiti yasungidwa ku: %s</string>  
+  <string name="text_hide_and_show">Kubisa/kuwonetsa</string>
+  <string name="text_browser_open">Msakatuli wotseguka</string>
+  <string name="text_do_nothing">Osachita kanthu</string>
+  <string name="text_copy_to_new_folder">Koperani zomwe zili mufoda yoyamba kufoda yatsopano</string>
+  <string name="text_move_new_folder">Sunthani zomwe zili mufoda yoyambirira kupita kufoda yatsopano</string>
+  <string name="text_accessibility_service_is_not_enable">Ntchito yofikirika sinayatsidwa</string>
+  <string name="text_set_successfully">Khazikitsani bwino</string>
 </resources>

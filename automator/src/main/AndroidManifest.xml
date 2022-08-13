@@ -1,11 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 
-          package="com.stardust.automator"
-    >
+    package="com.stardust.automator">
 
-    <application
-        android:supportsRtl="true"
-        >
+    <application android:supportsRtl="true">
 
     </application>
 

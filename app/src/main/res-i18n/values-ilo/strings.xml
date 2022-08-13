@@ -40,7 +40,7 @@
   <string name="text_press_again_to_exit">Pinduten manen tapno rummuar iti programa</string>  
   <string name="text_already_stop_n_scripts">%d ti panagtaray dagiti iskrip ket nagsardeng</string>  
   <string name="text_start_running">Rugian ti operasion</string>  
-  <string name="text_open_by_other_apps">Luktan babaen ti sabali nga app</string>  
+  <string name="text_open_by_other_apps">Lumakad babaen ti sabali nga app</string>  
   <string name="text_rename">Baliwan ti nagan</string>  
   <string name="text_send_shortcut">Mangaramid iti Shortcut</string>  
   <string name="text_already_create">Naparsua</string>  
@@ -162,7 +162,7 @@
   <string name="summary_stable_mode">Ti panaganalisar ti layout ket ad-adda a natalged no mapalubosan, ngem ti bassit a bilang dagiti iskrip ket mabalin a saan nga agtrabaho a nasayaat. Irugi manen ti serbisio ti accessibility tapno epektibo</string>  
   <string name="text_hideLaucher">Ilemmeng dagiti desktop icon (irugi dagiti app babaen ti adb wenno dadduma pay a pamay-an)</string>  
   <string name="text_stable_mode">Natalged nga mode</string>  
-  <string name="text_single_build_clean_mode">Agmaymaysa a file a panagempake ti panagpabaro a wagas</string>  
+  <string name="text_single_build_clean_mode">Single file packaging ti panagpabaro a wagas</string>  
   <string name="summary_single_build_clean_mode">Kalpasan ti panaglukat, ti papeles ti panagisaad ti panagempake ket saan a maidulin no ti maymaysa a papeles ket naipakete, ken amin nga impormasion ti panagisaad a kas ti ladawan ti panangrugi ken ti ikono ti aplikasion ket saan a maidulin.</string>  
   <string name="text_directory">Folder nga</string>  
   <string name="text_file">Dokumento</string>  
@@ -255,7 +255,7 @@
   <string name="text_sign_hint_key_city">Siudad</string>  
   <string name="text_sign_create_success">Naballigi a naparsua</string>  
   <string name="text_sign_create_fail">Napaay a mangparnuay</string>  
-  <string name="text_build_successfully">Naballigi a naempake</string>  
+  <string name="text_build_successfully">Naballigi a naipakete</string>  
   <string name="text_install">Ikabil</string>  
   <string name="text_build_failed">Napaay ti panagempake, mensahe ti biddut:</string>  
   <string name="format_build_successfully" formatted="true">Apk file naidulin iti %s</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Dagiti Pagpilian</string>  
   <string name="text_using_id_selector">Pilien babaen ti id</string>  
   <string name="text_using_text_selector">Usaren ti panagpili ti teksto (teksto) .</string>  
-  <string name="text_using_desc_selector">Pilien babaen ti panangusar iti deskripsion (desc) .</string>  
+  <string name="text_using_desc_selector">Usaren ti Deskripsion Pilien (desc) .</string>  
   <string name="text_generate">Makaaramid</string>  
   <string name="text_generate_fail">Napaay ti panagbangon o(╥╥)o</string>  
   <string name="text_documentation_source">Gubuayan ti dokumentasion</string>  
@@ -349,7 +349,7 @@
   <string name="text_text_size">Kadakkel ti letra</string>  
   <string name="text_preview">Preview nga umuna</string>  
   <string name="text_size_current_value" formatted="true">Dakkel ti letra: %d</string>  
-  <string name="error_regex_find_prev">Saan a mabalin a kitaen ti regular nga ebkas</string>  
+  <string name="error_regex_find_prev">Saan a mabalin a kumita ti regular a panangyebkas</string>  
   <string name="text_notification">Pakaammo</string>  
   <string name="apk_builder_plugin_version_too_low">Ti naipakete a bersion ti plug-in ket nababa unay, ken ti naipakete nga aplikasion ket mabalin a saan a nasayaat ti panagtarayna. Kayatmo kadi nga i-download ti maitutop a bersion ti naipakete a plug-in ita?</string>  
   <string name="text_inspect_layout_bounds">Panag-analisar ti sakop ti layout</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">I-click tapno makastrek iti kangrunaan nga interface</string>  
   <string name="text_run_on_other_broadcast">Dadduma pay a pasamak (brodkast) .</string>  
   <string name="text_broadcast_action">Aksyon ti Panagbrodkas</string>  
-  <string name="text_run_on_boot">No ag-boot</string>  
+  <string name="text_run_on_boot">Iti oras ti boot</string>  
   <string name="text_run_on_screen_on">No nakalukat ti iskrin</string>  
   <string name="text_run_on_screen_off">No naiddep ti iskrin</string>  
   <string name="error_empty_selection">Pangngaasiyo ta agpilikayo iti pagpilian iti pasamak ti brodkast</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Mode ti rabii</string>  
   <string name="text_run_on_startup">No mangrugi ti Autox.js</string>  
   <string name="text_usage_stats_permission">Panagusar ti akses</string>  
-  <string name="description_usage_stats_permission">Babaen ti pammalubos ti \"kitaen dagiti estadistika ti panagusar\", mabalinmo a makagun-od ti napalabas a panagusar ti aplikasion daytoy nga alikamen, tapno ad-adda nga umiso a makagun-od ti agdama nga aplikasion (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Babaen ti pammalubos ti \"Kitaen ti Estadistika ti Panagusar\", mabalinmo a makagun-od ti napalabas a panagusar ti aplikasion iti daytoy nga alikamen, tapno ad-adda nga umiso a makagun-od ti agdama nga aplikasion (currentPackage).</string>  
   <string name="text_open_with">Silulukat a dalan</string>  
   <string name="text_root">Ramot</string>  
   <string name="text_no_root">Ramut nga libre</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Rummuar iti panagbirok</string>  
   <string name="text_licenses_other">Lisensia ti Di Naluktan a Gubuayan</string>  
   <string name="text_save_successfully">Naballigi a naisalakan</string>  
-  <string name="text_save_as_project">I-save kas proyekto</string>
-  <string name="text_select_save_mode">Pangngaasiyo ta agpilikayo iti pamay-an ti panagidulin</string>
-  <string name="text_save_as_project_and_exit">Idulin kas proyekto ken rummuar</string>
-  <string name="apk_builder_sign">Panagpirma</string>
-  <string name="text_invalid_config">Saan nga umiso a konfigurasion</string>
-  <string name="text_abi">Dagiti nasuportaran nga ABI (naisina babaen dagiti koma) .</string>
-  <string name="text_save_project_to">Proyekto a naidulin iti: %s</string>
+  <string name="text_save_as_project">I-save kas proyekto</string>  
+  <string name="text_select_save_mode">Pangngaasiyo ta agpilikayo iti pamay-an ti panagidulin</string>  
+  <string name="text_save_as_project_and_exit">Idulin kas proyekto ken rummuar</string>  
+  <string name="apk_builder_sign">Panagpirma</string>  
+  <string name="text_invalid_config">Saan nga umiso a konfigurasion</string>  
+  <string name="text_abi">Dagiti nasuportaran nga ABI (naisina babaen dagiti koma) .</string>  
+  <string name="text_save_project_to">Proyekto a naidulin iti: %s</string>  
+  <string name="text_hide_and_show">Ilemmeng/ipakita</string>
+  <string name="text_browser_open">Browser ti panaglukat</string>
+  <string name="text_do_nothing">Awan ti aramiden</string>
+  <string name="text_copy_to_new_folder">Kopiaen ti linaon ti orihinal a folder iti baro a folder</string>
+  <string name="text_move_new_folder">Iyakar ti linaon ti orihinal a folder iti baro a folder</string>
+  <string name="text_accessibility_service_is_not_enable">Saan a nakalukat ti serbisio ti accessibility</string>
+  <string name="text_set_successfully">Naballigi nga i-set</string>
 </resources>

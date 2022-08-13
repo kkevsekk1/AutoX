@@ -13,7 +13,7 @@
   <string name="text_cancel">Otkazati</string>  
   <string name="text_path_is_empty">Put je prazan</string>  
   <string name="text_file_not_exists">Mapa ne postoji</string>  
-  <string name="text_no_file_rw_permission">Nema dopuštenja za čitanje i pisanje datoteka</string>  
+  <string name="text_no_file_rw_permission">Nema dopuštenja za čitanje i pisanje datoteke</string>  
   <string name="text_no_accessibility_permission">Usluga pristupačnosti nije pokrenuta</string>  
   <string name="text_drawer_close">Zatvorite padajući izbornik</string>  
   <string name="text_drawer_open">Otvorite padajući izbornik</string>  
@@ -24,7 +24,7 @@
   <string name="text_alert">Savjet</string>  
   <string name="edit_exit_without_save_warn">Sadržaj nije spremljen, jeste li sigurni da želite izaći?</string>  
   <string name="text_save_and_exit">Spremi i izađi</string>  
-  <string name="text_exit_directly">Izađite izravno</string>  
+  <string name="text_exit_directly">Izaći izravno</string>  
   <string name="text_setting">Postaviti</string>  
   <string name="text_exit">Prestati</string>  
   <string name="text_auto_operate_service">Usluge pristupačnosti</string>  
@@ -56,10 +56,10 @@
   <string name="text_console">Konzola</string>  
   <string name="text_log">Log</string>  
   <string name="text_report_fail">Podnošenje nije uspjelo</string>  
-  <string name="text_report_succeed">Uspješno poslano</string>  
+  <string name="text_report_succeed">Predano uspješno</string>  
   <string name="edit_and_run_handle_intent_error">Nije moguće obraditi datoteku</string>  
   <string name="text_issue_report">Povratne informacije</string>  
-  <string name="text_script_record">Zapis skripte</string>  
+  <string name="text_script_record">Skripta za snimanje</string>  
   <string name="text_start_record">Započeti snimanje</string>  
   <string name="text_recorded">Kraj snimanja</string>  
   <string name="text_copy_to_clip">Kopirati u međuspremnik</string>  
@@ -69,7 +69,7 @@
   <string name="text_qq_group">Ovo je broj QQ grupe, ako ga ne možete otvoriti, pretražite ručno</string>  
   <string name="text_mobile_qq_not_installed">Mobile QQ nije instaliran</string>  
   <string name="text_edit">Uredi</string>  
-  <string name="text_max_length_for_code_completion">Dovršavanje koda Maksimalna duljina datoteke</string>  
+  <string name="text_max_length_for_code_completion">Maksimalna duljina datoteke dovršetka koda</string>  
   <string name="text_file_exists">Datoteka već postoji</string>  
   <string name="text_accessibility_service">Usluge pristupačnosti</string>  
   <string name="text_enable_accessibility_service_by_root">Automatski omogući usluge s root privilegijama</string>  
@@ -185,7 +185,7 @@
   <string name="text_size">Veličina</string>  
   <string name="text_type">Tip</string>  
   <string name="text_editor_theme">Uređivač tema</string>  
-  <string name="text_jump_to_line">Skok na liniju</string>  
+  <string name="text_jump_to_line">Skočiti na red</string>  
   <string name="text_info">Informacija</string>  
   <string name="text_find_or_replace">Pronaći/zamijeniti</string>  
   <string name="text_copy_all">Kopiraj sve</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Mogućnosti</string>  
   <string name="text_using_id_selector">Odaberite koristeći id</string>  
   <string name="text_using_text_selector">Koristi odabir teksta (tekst)</string>  
-  <string name="text_using_desc_selector">Odaberite pomoću opisa (desc)</string>  
+  <string name="text_using_desc_selector">Koristi Opis Odaberite (desc)</string>  
   <string name="text_generate">Generirati</string>  
   <string name="text_generate_fail">Izrada nije uspjela o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Izvor dokumentacije</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Pritisnite za ulazak u glavno sučelje</string>  
   <string name="text_run_on_other_broadcast">Ostali događaji (emitiranje)</string>  
   <string name="text_broadcast_action">Akcija emitiranja</string>  
-  <string name="text_run_on_boot">Prilikom dizanja</string>  
+  <string name="text_run_on_boot">U vrijeme dizanja</string>  
   <string name="text_run_on_screen_on">Kada je ekran uključen</string>  
   <string name="text_run_on_screen_off">Kada je ekran isključen</string>  
   <string name="error_empty_selection">Odaberite opciju emitiranja događaja</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Noćni način</string>  
   <string name="text_run_on_startup">Kada se pokrene Autox.js</string>  
   <string name="text_usage_stats_permission">Pristup korištenju</string>  
-  <string name="description_usage_stats_permission">Putem dopuštenja \"pregled statistike korištenja\", možete dobiti prošlu upotrebu aplikacije ovog uređaja, tako da je točnije dobiti trenutnu aplikaciju (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Preko dopuštenja \"Prikaz statistike korištenja\" možete dobiti prošlu upotrebu aplikacije ovog uređaja, tako da je točnije dobiti trenutnu aplikaciju (currentPackage).</string>  
   <string name="text_open_with">Otvoreni put</string>  
   <string name="text_root">Korijen</string>  
   <string name="text_no_root">Bez korijena</string>  
@@ -452,7 +452,7 @@
   <string name="air_dialog_title_loading">Prijenos na GitHub…</string>  
   <string name="air_dialog_title_failed">Slanje izvješća o pogrešci nije uspjelo</string>  
   <string name="air_dialog_description_failed_wrong_credentials">Pogrešno korisničko ime ili lozinka</string>  
-  <string name="air_dialog_description_failed_invalid_token">Nevažeći pristupni token. Kontaktirajte razvojnog programera softvera.</string>  
+  <string name="air_dialog_description_failed_invalid_token">Nevažeći pristupni token. Obratite se razvojnom programeru softvera.</string>  
   <string name="air_dialog_description_failed_issues_not_available">Problemi nisu dostupni, obratite se razvojnom programeru softvera.</string>  
   <string name="air_dialog_description_failed_unknown">Nepoznata greška</string>  
   <string name="air_dialog_action_failed">U redu</string>  
@@ -466,7 +466,7 @@
   <string name="text_verification_failed">Provjera nije uspjela</string>  
   <string name="text_WebX">WebX</string>  
   <string name="text_file_manager_permission">Pristup svim datotekama</string>  
-  <string name="text_fullscreen">Uključi/isključi način rada preko cijelog zaslona 1</string>  
+  <string name="text_fullscreen">Uključi/isključi prikaz preko cijelog zaslona 1</string>  
   <string name="text_drawer_right">Otvorite desni izbornik</string>  
   <string name="text_required_default_ocr_model">Spakirajte zadani model obuke za OCR</string>  
   <string name="switch_fullscreen">Uključi/isključi način rada preko cijelog zaslona</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Izlaz iz pretraživanja</string>  
   <string name="text_licenses_other">Licenca koja nije otvorenog koda</string>  
   <string name="text_save_successfully">Uspješno spremljeno</string>  
-  <string name="text_save_as_project">Spremiti kao projekt</string>
-  <string name="text_select_save_mode">Odaberite način spremanja</string>
-  <string name="text_save_as_project_and_exit">Spremi kao projekt i izađi</string>
-  <string name="apk_builder_sign">Potpisivanje</string>
-  <string name="text_invalid_config">Nevažeća konfiguracija</string>
-  <string name="text_abi">Podržani ABI-ji (odvojeni zarezima)</string>
-  <string name="text_save_project_to">Projekt je spremljen u: %s</string>
+  <string name="text_save_as_project">Spremiti kao projekt</string>  
+  <string name="text_select_save_mode">Odaberite način spremanja</string>  
+  <string name="text_save_as_project_and_exit">Spremi kao projekt i izađi</string>  
+  <string name="apk_builder_sign">Potpisivanje</string>  
+  <string name="text_invalid_config">Nevažeća konfiguracija</string>  
+  <string name="text_abi">Podržani ABI-ji (odvojeni zarezima)</string>  
+  <string name="text_save_project_to">Projekt je spremljen u: %s</string>  
+  <string name="text_hide_and_show">Sakriti/prikazati</string>
+  <string name="text_browser_open">Otvoren preglednik</string>
+  <string name="text_do_nothing">Učiniti ništa</string>
+  <string name="text_copy_to_new_folder">Kopirajte sadržaj izvorne mape u novu mapu</string>
+  <string name="text_move_new_folder">Premjestite sadržaj izvorne mape u novu mapu</string>
+  <string name="text_accessibility_service_is_not_enable">Usluga pristupačnosti nije uključena</string>
+  <string name="text_set_successfully">Uspješno postavljeno</string>
 </resources>
