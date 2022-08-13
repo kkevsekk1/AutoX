@@ -10,7 +10,8 @@ import org.autojs.autoxjs.ui.main.web.WebViewFragment
 class ViewPager2Adapter(
     fragmentActivity: FragmentActivity,
     private val scriptListFragment: ScriptListFragment,
-    private val taskManagerFragment: TaskManagerFragmentKt
+    private val taskManagerFragment: TaskManagerFragmentKt,
+    private val webViewFragment: WebViewFragment
 ) : FragmentStateAdapter(fragmentActivity) {
 
     override fun createFragment(position: Int): Fragment {
@@ -22,7 +23,7 @@ class ViewPager2Adapter(
                 taskManagerFragment
             }
             else -> {
-                WebViewFragment()
+                webViewFragment
             }
         }
         return fragment

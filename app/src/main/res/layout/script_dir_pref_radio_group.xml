@@ -6,7 +6,10 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id ="@android:id/edit"></EditText>
+        android:textColorHint="@color/on_surface"
+        android:textColor="@color/on_surface"
+        android:id ="@android:id/edit">
+    </EditText>
 <RadioGroup
     android:id="@+id/script_operate"
     android:layout_width="match_parent"
@@ -17,19 +20,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:checked="true"
-        android:text="不执行任何操作"/>
+        android:text="@string/text_do_nothing"/>
 
     <RadioButton
         android:id="@+id/copy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="复制原文件夹内容到新文件夹"/>
+        android:text="@string/text_copy_to_new_folder"/>
 
     <RadioButton
         android:id="@+id/move"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="移动原文件夹内容到新文件夹"/>
+        android:text="@string/text_move_new_folder"/>
 
 </RadioGroup>
 </LinearLayout>

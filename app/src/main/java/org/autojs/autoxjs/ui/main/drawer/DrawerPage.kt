@@ -12,12 +12,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExitToApp
@@ -43,6 +40,7 @@ import com.stardust.app.permission.DrawOverlaysPermission.launchCanDrawOverlaysS
 import com.stardust.app.permission.PermissionsSettingsUtil
 import com.stardust.enhancedfloaty.FloatyService
 import com.stardust.notification.NotificationListenerService
+import com.stardust.toast
 import com.stardust.util.IntentUtil
 import com.stardust.view.accessibility.AccessibilityService
 import io.github.g00fy2.quickie.QRResult
@@ -58,17 +56,21 @@ import org.autojs.autoxjs.devplugin.DevPlugin
 import org.autojs.autoxjs.external.foreground.ForegroundService
 import org.autojs.autoxjs.tool.AccessibilityServiceTool
 import org.autojs.autoxjs.tool.WifiTool
+import org.autojs.autoxjs.ui.build.MyTextField
+import org.autojs.autoxjs.ui.compose.theme.AutoXJsTheme
+import org.autojs.autoxjs.ui.compose.widget.MyAlertDialog1
 import org.autojs.autoxjs.ui.compose.widget.MyIcon
 import org.autojs.autoxjs.ui.compose.widget.MySwitch
 import org.autojs.autoxjs.ui.floating.FloatyWindowManger
-import org.autojs.autoxjs.ui.build.MyTextField
-import org.autojs.autoxjs.ui.compose.theme.AutoXJsTheme
 import org.autojs.autoxjs.ui.settings.SettingsActivity_
 import org.joda.time.DateTimeZone
 import org.joda.time.Instant
 
 private const val TAG = "DrawerPage"
 private const val URL_DEV_PLUGIN = "https://github.com/kkevsekk1/Auto.js-VSCode-Extension"
+private const val PROJECT_ADDRESS = "https://github.com/kkevsekk1/AutoX"
+private const val DOWNLOAD_ADDRESS = "https://github.com/kkevsekk1/AutoX/releases"
+private const val FEEDBACK_ADDRESS = "https://github.com/kkevsekk1/AutoX/issues"
 
 @Composable
 fun DrawerPage() {
@@ -111,36 +113,12 @@ fun DrawerPage() {
             ConnectComputerSwitch()
             USBDebugSwitch()
 
-            TextButton(onClick = {
-                IntentUtil.browse(
-                    context,
-                    "https://github.com/kkevsekk1/AutoX"
-                )
-            }) {
-                Text(text = stringResource(R.string.text_project_link))
-            }
-            TextButton(onClick = {
-                IntentUtil.browse(
-                    context,
-                    "https://github.com/kkevsekk1/AutoX/releases"
-                )
-            }) {
-                Text(text = stringResource(R.string.text_app_download_link))
-            }
-            TextButton(onClick = {
-                IntentUtil.browse(
-                    context,
-                    "https://github.com/kkevsekk1/AutoX/issues"
-                )
-            }) {
-                Text(text = stringResource(R.string.text_issue_report))
-            }
+            SwitchTimedTaskScheduler()
+            ProjectAddress(context)
+            DownloadLink(context)
+            FEEDBACK(context)
             CheckForUpdate()
-            TextButton(onClick = {
-                context.startActivity(PermissionsSettingsUtil.getAppDetailSettingIntent(context.packageName))
-            }) {
-                Text(text = stringResource(R.string.text_app_detail_settings))
-            }
+            AppDetailsSettings(context)
         }
         Spacer(
             modifier = Modifier
@@ -153,6 +131,51 @@ fun DrawerPage() {
             modifier = Modifier
                 .windowInsetsBottomHeight(WindowInsets.navigationBars)
         )
+    }
+}
+
+@Composable
+private fun AppDetailsSettings(context: Context) {
+    TextButton(onClick = {
+        context.startActivity(PermissionsSettingsUtil.getAppDetailSettingIntent(context.packageName))
+    }) {
+        Text(text = stringResource(R.string.text_app_detail_settings))
+    }
+}
+
+@Composable
+private fun FEEDBACK(context: Context) {
+    TextButton(onClick = {
+        IntentUtil.browse(
+            context,
+            FEEDBACK_ADDRESS
+        )
+    }) {
+        Text(text = stringResource(R.string.text_issue_report))
+    }
+}
+
+@Composable
+private fun DownloadLink(context: Context) {
+    TextButton(onClick = {
+        IntentUtil.browse(
+            context,
+            DOWNLOAD_ADDRESS
+        )
+    }) {
+        Text(text = stringResource(R.string.text_app_download_link))
+    }
+}
+
+@Composable
+private fun ProjectAddress(context: Context) {
+    TextButton(onClick = {
+        IntentUtil.browse(
+            context,
+            PROJECT_ADDRESS
+        )
+    }) {
+        Text(text = stringResource(R.string.text_project_link))
     }
 }
 
@@ -195,7 +218,8 @@ private fun CheckForUpdate(model: DrawerViewModel = viewModel()) {
             },
             text = {
                 val date = rememberSaveable {
-                    Instant.parse(model.githubReleaseInfo!!.createdAt).toDateTime(DateTimeZone.getDefault())
+                    Instant.parse(model.githubReleaseInfo!!.createdAt)
+                        .toDateTime(DateTimeZone.getDefault())
                         .toString("yyyy-MM-dd HH:mm:ss")
                 }
                 Column(
@@ -207,7 +231,9 @@ private fun CheckForUpdate(model: DrawerViewModel = viewModel()) {
                     AndroidView(
                         factory = { context ->
                             TextView(context).apply {
-                                val content = model.githubReleaseInfo!!.body.trim().replace("\r\n","\n").replace("\n","  \n")
+                                val content =
+                                    model.githubReleaseInfo!!.body.trim().replace("\r\n", "\n")
+                                        .replace("\n", "  \n")
                                 val markdwon = Markwon.builder(context).build()
                                 markdwon.setMarkdown(this, content)
                             }
@@ -226,9 +252,7 @@ private fun CheckForUpdate(model: DrawerViewModel = viewModel()) {
                 }
             },
             confirmButton = {
-                val url =
-                    model.githubReleaseInfo!!.assets.firstOrNull { it.name.matches(Regex("^.+.apk$")) }?.browserDownloadUrl
-                        ?: "https://github.com/kkevsekk1/AutoX/releases"
+                val url = DOWNLOAD_ADDRESS
                 TextButton(onClick = {
                     showDialog = false
                     IntentUtil.browse(context, url)
@@ -352,6 +376,7 @@ private fun ConnectComputerSwitch() {
                 is QRResult.QRSuccess -> {
                     val url = result.content.rawValue
                     if (url.matches(Regex("^(ws://|wss://).+$"))) {
+                        Pref.saveServerAddress(url)
                         connectServer(url)
                     } else {
                         Toast.makeText(
@@ -773,10 +798,13 @@ private fun AccessibilityServiceSwitch() {
         rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (AccessibilityServiceTool.isAccessibilityServiceEnabled(context)) {
                 isAccessibilityServiceEnabled = true
-                Toast.makeText(context, "无障碍服务已开启", Toast.LENGTH_SHORT).show()
             } else {
                 isAccessibilityServiceEnabled = false
-                Toast.makeText(context, "无障碍服务未开启", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    context,
+                    R.string.text_accessibility_service_is_not_enable,
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
@@ -846,4 +874,61 @@ fun SwitchItem(
         }
         MySwitch(checked = checked, onCheckedChange = onCheckedChange)
     }
+}
+
+@Composable
+fun SwitchTimedTaskScheduler() {
+    var isShowDialog by rememberSaveable {
+        mutableStateOf(false)
+    }
+    TextButton(onClick = { isShowDialog = true }) {
+        Text(text = stringResource(id = R.string.text_switch_timed_task_scheduler))
+    }
+    if (isShowDialog) {
+        TimedTaskSchedulerDialog(onDismissRequest = { isShowDialog = false })
+    }
+}
+
+@Composable
+fun TimedTaskSchedulerDialog(
+    onDismissRequest: () -> Unit
+) {
+    val context = LocalContext.current
+    var selected by rememberSaveable {
+        mutableStateOf(Pref.getTaskManager())
+    }
+    MyAlertDialog1(
+        onDismissRequest = onDismissRequest,
+        onConfirmClick = {
+            onDismissRequest()
+            Pref.setTaskManager(selected)
+            toast(context, R.string.text_set_successfully)
+        },
+        title = { Text(text = stringResource(id = R.string.text_switch_timed_task_scheduler)) },
+        text = {
+            Column {
+                Spacer(modifier = Modifier.size(16.dp))
+                Column() {
+                    for (i in 0 until 3) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable { selected = i }) {
+                            RadioButton(selected = selected == i, onClick = { selected = i })
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = when (i) {
+                                    0 -> stringResource(id = R.string.text_work_manager)
+                                    1 -> stringResource(id = R.string.text_android_job)
+                                    else -> stringResource(id = R.string.text_alarm_manager)
+                                }
+                            )
+                        }
+                    }
+                }
+            }
+
+        }
+    )
 }

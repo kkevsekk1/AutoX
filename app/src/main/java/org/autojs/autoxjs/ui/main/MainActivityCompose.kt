@@ -28,12 +28,14 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.stardust.app.permission.DrawOverlaysPermission
+import com.stardust.util.IntentUtil
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.autojs.autoxjs.Pref
 import org.autojs.autoxjs.R
 import org.autojs.autoxjs.autojs.AutoJs
 import org.autojs.autoxjs.external.foreground.ForegroundService
+import org.autojs.autoxjs.timing.TimedTaskScheduler
 import org.autojs.autoxjs.ui.build.ProjectConfigActivity
 import org.autojs.autoxjs.ui.build.ProjectConfigActivity_
 import org.autojs.autoxjs.ui.common.ScriptOperations
@@ -46,6 +48,7 @@ import org.autojs.autoxjs.ui.log.LogActivityKt
 import org.autojs.autoxjs.ui.main.drawer.DrawerPage
 import org.autojs.autoxjs.ui.main.scripts.ScriptListFragment
 import org.autojs.autoxjs.ui.main.task.TaskManagerFragmentKt
+import org.autojs.autoxjs.ui.main.web.WebViewFragment
 import org.autojs.autoxjs.ui.widget.fillMaxSize
 
 data class BottomNavigationItem(val icon: Int, val label: String)
@@ -59,6 +62,7 @@ class MainActivityCompose : FragmentActivity() {
 
     private val scriptListFragment by lazy { ScriptListFragment() }
     private val taskManagerFragment by lazy { TaskManagerFragmentKt() }
+    private val webViewFragment by lazy { WebViewFragment() }
     private var lastBackPressedTime = 0L
     private var drawerState: DrawerState? = null
     private val viewPager: ViewPager2 by lazy { ViewPager2(this) }
@@ -92,6 +96,7 @@ class MainActivityCompose : FragmentActivity() {
                         activity = this,
                         scriptListFragment = scriptListFragment,
                         taskManagerFragment = taskManagerFragment,
+                        webViewFragment = webViewFragment,
                         onDrawerState = {
                             this.drawerState = it
                         },
@@ -100,6 +105,11 @@ class MainActivityCompose : FragmentActivity() {
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        TimedTaskScheduler.ensureCheckTaskWorks(application)
     }
 
     override fun onBackPressed() {
@@ -132,6 +142,7 @@ fun MainPage(
     activity: FragmentActivity,
     scriptListFragment: ScriptListFragment,
     taskManagerFragment: TaskManagerFragmentKt,
+    webViewFragment: WebViewFragment,
     onDrawerState: (DrawerState) -> Unit,
     viewPager: ViewPager2
 ) {
@@ -170,6 +181,7 @@ fun MainPage(
                             scriptListFragment.explorerView.setFilter { it.name.contains(keyword) }
                         },
                         scriptListFragment = scriptListFragment,
+                        webViewFragment = webViewFragment
                     )
                 }
             }
@@ -195,7 +207,12 @@ fun MainPage(
             factory = {
                 viewPager.apply {
                     fillMaxSize()
-                    adapter = ViewPager2Adapter(activity, scriptListFragment, taskManagerFragment)
+                    adapter = ViewPager2Adapter(
+                        activity,
+                        scriptListFragment,
+                        taskManagerFragment,
+                        webViewFragment
+                    )
                     isUserInputEnabled = false
                     ViewCompat.setNestedScrollingEnabled(this, true)
                 }
@@ -301,6 +318,7 @@ private fun TopBar(
     requestOpenDrawer: () -> Unit,
     onSearch: (String) -> Unit,
     scriptListFragment: ScriptListFragment,
+    webViewFragment: WebViewFragment,
 ) {
     var isSearch by remember {
         mutableStateOf(false)
@@ -382,6 +400,18 @@ private fun TopBar(
                         Icon(
                             imageVector = Icons.Default.Clear,
                             contentDescription = stringResource(id = R.string.desc_more)
+                        )
+                    }
+                }
+                2 -> {
+                    IconButton(onClick = {
+                        webViewFragment.swipeRefreshWebView.webView.url?.let {
+                            IntentUtil.browse(context, it)
+                        }
+                    }) {
+                        Icon(
+                            painterResource(id = R.drawable.ic_external_link),
+                            contentDescription = stringResource(id = R.string.text_browser_open)
                         )
                     }
                 }
