@@ -516,7 +516,7 @@ private fun connectServer(
 
 private fun getUrl(host: String): String {
     var url1 = host
-    if (!url1.startsWith("ws://") || !url1.startsWith("wss://")) {
+    if (!url1.matches(Regex("^(ws|wss)://.*"))) {
         url1 = "ws://${url1}"
     }
     if (!url1.matches(Regex("^.+://.+?:.+$"))) {
