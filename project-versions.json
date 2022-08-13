@@ -1,8 +1,8 @@
 {
-  "appVersionCode": 625,
-  "appVersionName": "6.2.5",
-  "devVersionCode": 625,
-  "devVersionName": "6.2.5",
+  "appVersionCode": 626,
+  "appVersionName": "6.2.6",
+  "devVersionCode": 626,
+  "devVersionName": "6.2.6",
   "target": 26,
   "mini": 21,
   "compile": 32,
