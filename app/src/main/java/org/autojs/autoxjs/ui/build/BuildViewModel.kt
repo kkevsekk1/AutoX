@@ -25,7 +25,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.autojs.autoxjs.Pref
 import org.autojs.autoxjs.R
-import org.autojs.autoxjs.autojs.build.ApkBuilder
+import org.autojs.autoxjs.build.ApkBuilder
 import org.autojs.autoxjs.build.ApkBuilderPluginHelper
 import org.autojs.autoxjs.build.ApkKeyStore
 import org.autojs.autoxjs.build.ApkSigner
@@ -109,7 +109,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
     var isHideLauncher by mutableStateOf(false)
     var isStableMode by mutableStateOf(false)
     var isHideLogs by mutableStateOf(false)
-    var isVolumeUpControl by mutableStateOf(true)
+    var isVolumeUpControl by mutableStateOf(false)
     var displaySplash by mutableStateOf(true)//todo
 
     //--特殊权限
@@ -289,7 +289,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
             assetsList.add(
                 Asset(
                     form = Constant.Protocol.ASSETS + "/" + Constant.Assets.OCR_MODELS,
-                    to = "/"
+                    to = "/${Constant.Assets.OCR_MODELS}"
                 )
             )
         }

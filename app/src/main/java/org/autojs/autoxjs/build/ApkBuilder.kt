@@ -1,4 +1,4 @@
-package org.autojs.autoxjs.autojs.build
+package org.autojs.autoxjs.build
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -19,8 +19,6 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import org.apache.commons.io.FileUtils
 import org.apache.commons.io.IOUtils
-import org.autojs.autoxjs.build.ApkSigner
-import org.autojs.autoxjs.build.DefaultSign
 import org.autojs.autoxjs.tool.copyTo
 import org.autojs.autoxjs.tool.parseUriOrNull
 import org.autojs.autoxjs.tool.unzip
@@ -193,7 +191,7 @@ class ApkBuilder(
             if (form.startsWith(Constant.Protocol.ASSETS)) {
                 val path = form.replace(Constant.Protocol.ASSETS + "/", "")
                 PFiles.copyAssetDir(GlobalAppContext.get().assets, path, to.path, null)
-                return
+                return@forEach
             }
 
             val file = File(form)
