@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.Lifecycle
@@ -129,22 +130,19 @@ open class LayoutHierarchyFloatyWindow(private val mRootNode: NodeInfo) : FullSc
                         it.alpha = if (isShowLayoutHierarchyView) 1f else 0f
                     }
                 )
-                Box(modifier = Modifier.fillMaxWidth()) {
+                Row(modifier = Modifier.fillMaxWidth()) {
+                    Spacer(modifier = Modifier.weight(1f))
+                    Button(
+                        onClick = { close() },
+                    ) {
+                        Text(text = stringResource(R.string.text_exit_floating_window))
+                    }
                     Button(
                         onClick = { isShowLayoutHierarchyView = !isShowLayoutHierarchyView },
                         modifier = Modifier
-                            .align(Alignment.CenterEnd)
                             .padding(horizontal = 16.dp)
                     ) {
-                        Text(text = "隐藏/显示")
-//                        if (isShowLayoutHierarchyView) {
-//                            Log.d(TAG, "隐藏")
-//                            Text(text = "隐藏")
-//                        } else {
-//                            Log.d(TAG, "显示")
-//                            Text(text = "显示")
-//                        }
-//                        Text(text = if (isShowLayoutHierarchyView) "隐藏" else "显示")
+                        Text(text = stringResource(R.string.text_hide_and_show))
                     }
                 }
             }
