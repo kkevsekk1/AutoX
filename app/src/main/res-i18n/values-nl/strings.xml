@@ -185,7 +185,7 @@
   <string name="text_size">Maat</string>  
   <string name="text_type">Type</string>  
   <string name="text_editor_theme">Thema\'s bewerken</string>  
-  <string name="text_jump_to_line">Naar lijn springen</string>  
+  <string name="text_jump_to_line">Spring naar lijn</string>  
   <string name="text_info">Informatie</string>  
   <string name="text_find_or_replace">Vinden/vervangen</string>  
   <string name="text_copy_all">Kopieer alles</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Opties</string>  
   <string name="text_using_id_selector">Selecteer met id</string>  
   <string name="text_using_text_selector">Tekstselectie gebruiken (tekst)</string>  
-  <string name="text_using_desc_selector">Selecteer met beschrijving (besch.)</string>  
+  <string name="text_using_desc_selector">Gebruik Beschrijving Selecteer (desc)</string>  
   <string name="text_generate">Genereren</string>  
   <string name="text_generate_fail">Build mislukt o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Documentatiebron</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Klik om de hoofdinterface te openen</string>  
   <string name="text_run_on_other_broadcast">Andere evenementen (uitzending)</string>  
   <string name="text_broadcast_action">Uitzendactie</string>  
-  <string name="text_run_on_boot">Bij het opstarten</string>  
+  <string name="text_run_on_boot">Tijdens het opstarten</string>  
   <string name="text_run_on_screen_on">Wanneer het scherm is ingeschakeld</string>  
   <string name="text_run_on_screen_off">Wanneer het scherm uit is</string>  
   <string name="error_empty_selection">Selecteer een optie voor een uitzendingsgebeurtenis</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Nachtstand</string>  
   <string name="text_run_on_startup">Wanneer Autox.js start</string>  
   <string name="text_usage_stats_permission">Gebruikstoegang</string>  
-  <string name="description_usage_stats_permission">Via de machtiging \"gebruiksstatistieken bekijken\" kunt u het eerdere applicatiegebruik van dit apparaat verkrijgen, zodat het nauwkeuriger is om de huidige applicatie (currentPackage) te verkrijgen.</string>  
+  <string name="description_usage_stats_permission">Via de machtiging \"Gebruiksstatistieken bekijken\" kunt u het eerdere applicatiegebruik van dit apparaat verkrijgen, zodat het nauwkeuriger is om de huidige applicatie (currentPackage) te verkrijgen.</string>  
   <string name="text_open_with">Open weg</string>  
   <string name="text_root">Wortel</string>  
   <string name="text_no_root">Wortelvrij</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Zoekopdracht afsluiten</string>  
   <string name="text_licenses_other">Niet-open source-licentie</string>  
   <string name="text_save_successfully">Succesvol opgeslagen</string>  
-  <string name="text_save_as_project">Opslaan als project</string>
-  <string name="text_select_save_mode">Selecteer een opslagmethode</string>
-  <string name="text_save_as_project_and_exit">Opslaan als project en afsluiten</string>
-  <string name="apk_builder_sign">Signeren</string>
-  <string name="text_invalid_config">Ongeldige configuratie</string>
-  <string name="text_abi">Ondersteunde ABI\'s (gescheiden door komma\'s)</string>
-  <string name="text_save_project_to">Project opgeslagen in: %s</string>
+  <string name="text_save_as_project">Opslaan als project</string>  
+  <string name="text_select_save_mode">Selecteer een opslagmethode</string>  
+  <string name="text_save_as_project_and_exit">Opslaan als project en afsluiten</string>  
+  <string name="apk_builder_sign">Signeren</string>  
+  <string name="text_invalid_config">Ongeldige configuratie</string>  
+  <string name="text_abi">Ondersteunde ABI\'s (gescheiden door komma\'s)</string>  
+  <string name="text_save_project_to">Project opgeslagen in: %s</string>  
+  <string name="text_hide_and_show">Verberg show</string>
+  <string name="text_browser_open">Browser open</string>
+  <string name="text_do_nothing">Niets doen</string>
+  <string name="text_copy_to_new_folder">Kopieer de inhoud van de originele map naar de nieuwe map</string>
+  <string name="text_move_new_folder">Verplaats de inhoud van de originele map naar de nieuwe map</string>
+  <string name="text_accessibility_service_is_not_enable">Toegankelijkheidsservice is niet ingeschakeld</string>
+  <string name="text_set_successfully">Succesvol ingesteld</string>
 </resources>

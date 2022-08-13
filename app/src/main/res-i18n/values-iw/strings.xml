@@ -24,7 +24,7 @@
   <string name="text_alert">רֶמֶז</string>  
   <string name="edit_exit_without_save_warn">התוכן לא נשמר, האם אתה בטוח שברצונך לצאת?</string>  
   <string name="text_save_and_exit">שמור וצא</string>  
-  <string name="text_exit_directly">צא ישירות</string>  
+  <string name="text_exit_directly">לצאת ישירות</string>  
   <string name="text_setting">להכין</string>  
   <string name="text_exit">לְהַפְסִיק</string>  
   <string name="text_auto_operate_service">שירותי נגישות</string>  
@@ -38,7 +38,7 @@
   <string name="text_floating_window">חלון צף</string>  
   <string name="text_error_report">דו\"ח שגיאה</string>  
   <string name="text_press_again_to_exit">לחץ שוב כדי לצאת מהתוכנית</string>  
-  <string name="text_already_stop_n_scripts">%d סקריפטים הפועלים הופסקו</string>  
+  <string name="text_already_stop_n_scripts">%d הפעלת סקריפטים הופסקה</string>  
   <string name="text_start_running">להתחיל פעולה</string>  
   <string name="text_open_by_other_apps">פתח עם אפליקציה אחרת</string>  
   <string name="text_rename">שנה שם</string>  
@@ -230,7 +230,7 @@
   <string name="text_required_background_start">דורש הרשאת ממשק קופץ ברקע</string>  
   <string name="text_required_draw_overlay">נדרשת הרשאת חלון צף</string>  
   <string name="text_volumeUpcontrol">מקש הגברת עוצמת הקול לסיום המשימה</string>  
-  <string name="text_splash_text">טקסט ממשק האתחול</string>  
+  <string name="text_splash_text">טקסט ממשק הפעלה</string>  
   <string name="text_splash_icon">סמל ממשק הפעלה</string>  
   <string name="text_service_desc_text">תיאור שירותי נגישות</string>  
   <string name="text_sign">סִימָן</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">אפשרויות</string>  
   <string name="text_using_id_selector">בחר באמצעות id</string>  
   <string name="text_using_text_selector">השתמש בבחירת טקסט (טקסט)</string>  
-  <string name="text_using_desc_selector">בחר באמצעות תיאור (תיאור)</string>  
+  <string name="text_using_desc_selector">השתמש בתיאור בחר (תיאור)</string>  
   <string name="text_generate">לִיצוֹר</string>  
   <string name="text_generate_fail">הבנייה נכשלה o(╥﹏╥)o</string>  
   <string name="text_documentation_source">מקור תיעוד</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">לחץ כדי להיכנס לממשק הראשי</string>  
   <string name="text_run_on_other_broadcast">אירועים אחרים (שידור)</string>  
   <string name="text_broadcast_action">שידור פעולה</string>  
-  <string name="text_run_on_boot">בעת האתחול</string>  
+  <string name="text_run_on_boot">בזמן האתחול</string>  
   <string name="text_run_on_screen_on">כשהמסך דולק</string>  
   <string name="text_run_on_screen_off">כאשר המסך כבוי</string>  
   <string name="error_empty_selection">אנא בחר אפשרות אירוע שידור</string>  
@@ -479,7 +479,7 @@
   <string name="text_home">בית</string>  
   <string name="text_management">לנהל</string>  
   <string name="text_document">תיעוד</string>  
-  <string name="text_open_usb_debug">הפעל איתור באגים ב-USB</string>  
+  <string name="text_open_usb_debug">הפעל ניפוי USB</string>  
   <string name="text_scan_qr">סרוק קוד</string>  
   <string name="text_connect_failed">החיבור נכשל: %s , אנא בדוק אם חומת האש של המחשב מאפשרת יציאה 9317, האם היא נמצאת באותה רשת מקומית, והאם הפלאגין VS CODE פתח את השירות...</string>  
   <string name="text_start_service_failed">השירות נכשל בהפעלת: %s</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">צא מהחיפוש</string>  
   <string name="text_licenses_other">רישיון לא קוד פתוח</string>  
   <string name="text_save_successfully">נשמר בהצלחה</string>  
-  <string name="text_save_as_project">לשמור כפרויקט</string>
-  <string name="text_select_save_mode">אנא בחר שיטת שמירה</string>
-  <string name="text_save_as_project_and_exit">שמור כפרויקט וצא</string>
-  <string name="apk_builder_sign">הַחתָמָה</string>
-  <string name="text_invalid_config">תצורה לא חוקית</string>
-  <string name="text_abi">ABIs נתמכים (מופרדים בפסיקים)</string>
-  <string name="text_save_project_to">הפרויקט נשמר ב: %s</string>
+  <string name="text_save_as_project">לשמור כפרויקט</string>  
+  <string name="text_select_save_mode">אנא בחר שיטת שמירה</string>  
+  <string name="text_save_as_project_and_exit">שמור כפרויקט וצא</string>  
+  <string name="apk_builder_sign">הַחתָמָה</string>  
+  <string name="text_invalid_config">תצורה לא חוקית</string>  
+  <string name="text_abi">ABI נתמכים (מופרדים בפסיקים)</string>  
+  <string name="text_save_project_to">הפרויקט נשמר ב: %s</string>  
+  <string name="text_hide_and_show">להסתיר להראות</string>
+  <string name="text_browser_open">דפדפן פתוח</string>
+  <string name="text_do_nothing">לעשות כלום</string>
+  <string name="text_copy_to_new_folder">העתק את תוכן התיקיה המקורית לתיקיה החדשה</string>
+  <string name="text_move_new_folder">העבר את תוכן התיקיה המקורית לתיקיה החדשה</string>
+  <string name="text_accessibility_service_is_not_enable">שירות הנגישות אינו מופעל</string>
+  <string name="text_set_successfully">מוגדר בהצלחה</string>
 </resources>

@@ -16,7 +16,7 @@
   <string name="text_no_file_rw_permission">Leai se faila faitau ma tusitusi faatagaga</string>  
   <string name="text_no_accessibility_permission">E le\'i amataina le auaunaga avanoa</string>  
   <string name="text_drawer_close">Tapuni le lisi o le matāua</string>  
-  <string name="text_drawer_open">Tatala le lisi matāua</string>  
+  <string name="text_drawer_open">Tatala le lisi o le matāua</string>  
   <string name="text_undo">Soloia</string>  
   <string name="text_redo">Toe fai</string>  
   <string name="text_save">Faaola</string>  
@@ -90,7 +90,7 @@
   <string name="text_copy_to_my_scripts">Faaulufale mai i la\'u tusitusiga</string>  
   <string name="text_import_succeed">Manuia le faaulufale mai</string>  
   <string name="text_current_activity">Gaoioiga o iai nei:</string>  
-  <string name="text_current_package">Igoa o paketi talosaga o iai nei:</string>  
+  <string name="text_current_package">Igoa o le paketi talosaga o iai nei:</string>  
   <string name="go_to_accessibility_settings">Fa\'amolemole tatala Fa\'atonu-> Auaunaga Avanoa-> Autox.js ma mafai ai</string>  
   <string name="text_script_running">Fa\'asologa o tusitusiga</string>  
   <string name="text_use_volume_to_stop_running">Ole ki luga ole leo e taofi uma tusitusiga</string>  
@@ -102,7 +102,7 @@
   <string name="text_please_choose_a_script">Fa\'amolemole filifili se tusitusiga</string>  
   <string name="text_edit_prepare_script">Fa\'asa\'oina o tusitusiga na mua\'i fa\'atinoina</string>  
   <string name="text_pre_execute_script">Mua\'i fa\'atino tusitusiga</string>  
-  <string name="text_clear_pre_execute_script">Fa\'amama fa\'amaumauga na mua\'i fa\'atinoina</string>  
+  <string name="text_clear_pre_execute_script">Fa\'amama fa\'amatalaga na mua\'i fa\'atinoina</string>  
   <string name="text_clear_file_selection">Toe seti le filifiliga faila faila</string>  
   <string name="summary_pre_execute_script">O le a faʻataunuʻuina aʻo leʻi faia le faila faila</string>  
   <string name="text_checking_update">Siaki mo fa\'afouga</string>  
@@ -110,7 +110,7 @@
   <string name="text_new_version2">Fa\'amatalaga fou: %s</string>  
   <string name="text_check_update_error">Siaki mo fa\'afouga ua le manuia: %s</string>  
   <string name="text_check_for_updates">Siaki mo fa\'afouga</string>  
-  <string name="text_is_latest_version">Ua uma ona maua le lomiga fou</string>  
+  <string name="text_is_latest_version">Ua uma ona maua le lomiga aupito lata mai</string>  
   <string name="text_version_too_old">E maualalo tele le lomiga</string>  
   <string name="warning_version_too_old">O le lomiga o lo\'o i ai nei o se fa\'aaliga beta lautele, fa\'atasi ai ma le tele o fa\'afitauli fa\'aalia ma fa\'afitauli, ma ua le toe talafeagai mo le fa\'aauau pea ona fa\'aoga.</string>  
   <string name="text_update">Faafou</string>  
@@ -298,8 +298,8 @@
   <string name="text_selector_exists">Fa\'amasinoina le iai o le pule (o lo\'o iai)</string>  
   <string name="text_options">Filifiliga</string>  
   <string name="text_using_id_selector">Filifili fa\'aaoga id</string>  
-  <string name="text_using_text_selector">Fa\'aaogā le filifiliga o tusitusiga (tusitusiga)</string>  
-  <string name="text_using_desc_selector">Filifili fa\'aaoga fa\'amatalaga (desc)</string>  
+  <string name="text_using_text_selector">Fa\'aaogā le filifiliga o tusitusiga (tusitusi)</string>  
+  <string name="text_using_desc_selector">Fa\'aaoga le Fa\'amatalaga Filifilia (desc)</string>  
   <string name="text_generate">Fa\'atupu</string>  
   <string name="text_generate_fail">Ua le manuia le faufale o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Punavai fa\'amaumauga</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Kiliki e ulufale i le fa\'aoga autu</string>  
   <string name="text_run_on_other_broadcast">Isi mea tutupu (faasalalauga)</string>  
   <string name="text_broadcast_action">Fa\'asalalauga Gaioiga</string>  
-  <string name="text_run_on_boot">Pe a fa\'apipi\'i</string>  
+  <string name="text_run_on_boot">I le taimi o le taʻavale</string>  
   <string name="text_run_on_screen_on">A ola le lau</string>  
   <string name="text_run_on_screen_off">Pe a pe le lau</string>  
   <string name="error_empty_selection">Fa\'amolemole filifili se filifiliga fa\'asalalauga</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Faiga po</string>  
   <string name="text_run_on_startup">A amata le Autox.js</string>  
   <string name="text_usage_stats_permission">Avanoa fa\'aoga</string>  
-  <string name="description_usage_stats_permission">E ala i le faʻatagaga \"vaʻai faʻamaumauga faʻaoga\", e mafai ona e mauaina le faʻaaogaina o le faʻaaogaina o lenei masini, ina ia sili atu ona saʻo le mauaina o le talosaga o loʻo iai nei (currentPackage).</string>  
+  <string name="description_usage_stats_permission">E ala i le \"View Usage Statistics\" faʻatagaga, e mafai ona e mauaina le faʻaogaina muamua o le faʻaaogaina o lenei masini, ina ia sili atu ona saʻo le mauaina o le talosaga o loʻo iai nei (currentPackage).</string>  
   <string name="text_open_with">Ala tatala</string>  
   <string name="text_root">A\'a</string>  
   <string name="text_no_root">E leai se a\'a</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Alu i le sailiga</string>  
   <string name="text_licenses_other">Laisene e le\'o tatala</string>  
   <string name="text_save_successfully">Fa\'aola manuia</string>  
-  <string name="text_save_as_project">Fa\'apolopolo e fai ma poloketi</string>
-  <string name="text_select_save_mode">Fa\'amolemole filifili se auala e teu ai</string>
-  <string name="text_save_as_project_and_exit">Fa\'asao e pei o le poloketi ma alu ese</string>
-  <string name="apk_builder_sign">Sainia</string>
-  <string name="text_invalid_config">Fa\'aletonu le fa\'atulagaina</string>
-  <string name="text_abi">ABI lagolago (tuuese ma koma)</string>
-  <string name="text_save_project_to">Poloketi sefe i: %s</string>
+  <string name="text_save_as_project">Fa\'apolopolo e fai ma poloketi</string>  
+  <string name="text_select_save_mode">Fa\'amolemole filifili se auala e teu ai</string>  
+  <string name="text_save_as_project_and_exit">Fa\'asao e pei o le poloketi ma alu ese</string>  
+  <string name="apk_builder_sign">Sainia</string>  
+  <string name="text_invalid_config">Fa\'aletonu le fa\'atulagaina</string>  
+  <string name="text_abi">ABI lagolago (tuuese ma koma)</string>  
+  <string name="text_save_project_to">Poloketi sefe i: %s</string>  
+  <string name="text_hide_and_show">Natia/fa\'aali</string>
+  <string name="text_browser_open">Tatala le browser</string>
+  <string name="text_do_nothing">Leai se mea e fai</string>
+  <string name="text_copy_to_new_folder">Kopi mea o lo\'o i totonu o le faila muamua i le faila fou</string>
+  <string name="text_move_new_folder">Fa\'asolo mea o lo\'o i totonu o le faila muamua i le faila fou</string>
+  <string name="text_accessibility_service_is_not_enable">E le o kiina le auaunaga avanoa</string>
+  <string name="text_set_successfully">Seti manuia</string>
 </resources>

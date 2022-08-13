@@ -24,7 +24,7 @@
   <string name="text_alert">Hint</string>  
   <string name="edit_exit_without_save_warn">De ynhâld is net bewarre, binne jo wis dat jo ôfslute wolle?</string>  
   <string name="text_save_and_exit">Bewarje en ôfslute</string>  
-  <string name="text_exit_directly">Gean direkt út</string>  
+  <string name="text_exit_directly">Direkt útgean</string>  
   <string name="text_setting">Opsette</string>  
   <string name="text_exit">Oerjaan</string>  
   <string name="text_auto_operate_service">Tagonklikheid Tsjinsten</string>  
@@ -98,9 +98,9 @@
   <string name="text_import_fail">Ymport mislearre</string>  
   <string name="text_no_brower">Gjin browser, ja o(╯□╰)o gean en ynstallearje ien</string>  
   <string name="text_refresh">Opfrisse</string>  
-  <string name="notice_no_running_script">Gjin rinnend skript φ(>ω&lt;*)</string>  
+  <string name="notice_no_running_script">Gjin rinnende skript φ(>ω&lt;*)</string>  
   <string name="text_please_choose_a_script">Selektearje asjebleaft in skript</string>  
-  <string name="text_edit_prepare_script">Bewurkje foarôf útfierde skripts</string>  
+  <string name="text_edit_prepare_script">Pre-útfierde skripts bewurkje</string>  
   <string name="text_pre_execute_script">Pre-útfiere skript</string>  
   <string name="text_clear_pre_execute_script">Dúdlik foarôf útfierde skripts</string>  
   <string name="text_clear_file_selection">Reset skript triem seleksje</string>  
@@ -138,7 +138,7 @@
   <string name="text_about_me_and_repo">Oer projekten en ûntwikkelders</string>  
   <string name="text_attribute">Attributen</string>  
   <string name="text_value">Wearde</string>  
-  <string name="text_show_widget_infomation">Besjoch kontrôleynformaasje</string>  
+  <string name="text_show_widget_infomation">Besjoch kontrôle ynformaasje</string>  
   <string name="text_show_layout_hierarchy">Besjoch yn opmaakhierarchy</string>  
   <string name="text_show_layout_bounds">Besjoch yn Layout Scope</string>  
   <string name="text_more">Mear</string>  
@@ -211,7 +211,7 @@
   <string name="format_file_downloaded" formatted="true">Triem bewarre yn %s</string>  
   <string name="confirm_overwrite_file">De triem bestiet al, wolle jo it oerskriuwe?</string>  
   <string name="text_select_file_to_upload">Selektearje it bestân om te uploaden</string>  
-  <string name="text_select_file_to_import">Selektearje de triem om te ymportearjen</string>  
+  <string name="text_select_file_to_import">Selektearje it bestân om te ymportearjen</string>  
   <string name="text_build_apk">Ferpakte apps</string>  
   <string name="text_select">Kieze</string>  
   <string name="text_output_apk_path">Ferpakte app bewarje lokaasje</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Opsjes</string>  
   <string name="text_using_id_selector">Selektearje mei help fan id</string>  
   <string name="text_using_text_selector">Brûk tekstseleksje (tekst)</string>  
-  <string name="text_using_desc_selector">Selektearje mei beskriuwing (beskriuwing)</string>  
+  <string name="text_using_desc_selector">Brûk Beskriuwing Selektearje (beskriuwing)</string>  
   <string name="text_generate">Generearje</string>  
   <string name="text_generate_fail">Bou mislearre o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Dokumintaasje boarne</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Klikje om de haadynterface yn te gean</string>  
   <string name="text_run_on_other_broadcast">Oare eveneminten (útstjoering)</string>  
   <string name="text_broadcast_action">Broadcast Aksje</string>  
-  <string name="text_run_on_boot">By it opstarten</string>  
+  <string name="text_run_on_boot">Op boot tiid</string>  
   <string name="text_run_on_screen_on">As it skerm oan is</string>  
   <string name="text_run_on_screen_off">As it skerm út is</string>  
   <string name="error_empty_selection">Selektearje asjebleaft in opsje foar útstjoerevenemint</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Nachtmodus</string>  
   <string name="text_run_on_startup">Wannear\'t Autox.js begjint</string>  
   <string name="text_usage_stats_permission">Gebrûk tagong</string>  
-  <string name="description_usage_stats_permission">Troch de tastimming \"besjoch gebrûksstatistiken\" kinne jo it eardere applikaasjegebrûk fan dit apparaat krije, sadat it krekter is om de hjoeddeistige applikaasje (currentPackage) te krijen.</string>  
+  <string name="description_usage_stats_permission">Troch de tastimming \"View Usage Statistics\" kinne jo it eardere applikaasjegebrûk fan dit apparaat krije, sadat it krekter is om de hjoeddeistige applikaasje (currentPackage) te krijen.</string>  
   <string name="text_open_with">Iepen wei</string>  
   <string name="text_root">Woartel</string>  
   <string name="text_no_root">Root fergees</string>  
@@ -446,7 +446,7 @@
   <string name="air_label_email_optional">Kontakt e-post (opsjoneel)</string>  
   <string name="air_error_no_title">Fier in fraach yn</string>  
   <string name="air_error_no_description">Fier asjebleaft in detaillearre beskriuwing yn</string>  
-  <string name="air_error_no_username">Fier asjebleaft in jildige Github brûkersnamme yn</string>  
+  <string name="air_error_no_username">Fier in jildige Github brûkersnamme yn</string>  
   <string name="air_error_no_password">Fier it juste wachtwurd yn</string>  
   <string name="air_error_no_email">Asjebleaft ynfiere jo e-mail</string>  
   <string name="air_dialog_title_loading">Uploaden nei GitHub...</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Sykje út</string>  
   <string name="text_licenses_other">Net-iepen boarne lisinsje</string>  
   <string name="text_save_successfully">Mei sukses bewarre</string>  
-  <string name="text_save_as_project">Bewarje as projekt</string>
-  <string name="text_select_save_mode">Selektearje asjebleaft in opslachmetoade</string>
-  <string name="text_save_as_project_and_exit">Bewarje as projekt en gean út</string>
-  <string name="apk_builder_sign">Ûndertekening</string>
-  <string name="text_invalid_config">Ûnjildige konfiguraasje</string>
-  <string name="text_abi">Stipe ABI\'s (skieden mei komma\'s)</string>
-  <string name="text_save_project_to">Projekt bewarre yn: %s</string>
+  <string name="text_save_as_project">Bewarje as projekt</string>  
+  <string name="text_select_save_mode">Selektearje asjebleaft in opslachmetoade</string>  
+  <string name="text_save_as_project_and_exit">Bewarje as projekt en gean út</string>  
+  <string name="apk_builder_sign">Ûndertekening</string>  
+  <string name="text_invalid_config">Ûnjildige konfiguraasje</string>  
+  <string name="text_abi">Stipe ABI\'s (skieden mei komma\'s)</string>  
+  <string name="text_save_project_to">Projekt bewarre yn: %s</string>  
+  <string name="text_hide_and_show">Ferbergje / sjen litte</string>
+  <string name="text_browser_open">Browser iepen</string>
+  <string name="text_do_nothing">Neat dwaan</string>
+  <string name="text_copy_to_new_folder">Kopiearje de ynhâld fan \'e orizjinele map nei de nije map</string>
+  <string name="text_move_new_folder">Ferpleats de ynhâld fan \'e orizjinele map nei de nije map</string>
+  <string name="text_accessibility_service_is_not_enable">Tagonklikheid tsjinst is net ynskeakele</string>
+  <string name="text_set_successfully">Ynsteld mei súkses</string>
 </resources>

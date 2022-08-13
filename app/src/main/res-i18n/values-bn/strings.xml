@@ -8,7 +8,7 @@
   <string name="text_please_input_name">একটি নাম লিখুন</string>  
   <string name="text_name">নাম</string>  
   <string name="text_go_to_setting">সেটিংস এ যান</string>  
-  <string name="explain_accessibility_permission">সফ্টওয়্যারটি চালানোর জন্য \"অ্যাক্সেসিবিলিটি সার্ভিসেস\" খুলতে হবে, অনুগ্রহ করে \"সেটিংস->অ্যাক্সেসিবিলিটি সার্ভিসেস\" বা \"সেটিংস->অ্যাক্সেসিবিলিটি সার্ভিসেস->আরো ডাউনলোড করা সার্ভিস\" খুলুন, এই অ্যাপ্লিকেশনটি খুঁজুন এবং অ্যাক্সেসিবিলিটি সার্ভিস চালু \n এটি সেটও করতে পারেন। পরে ড্রপ-ডাউন মেনুতে।</string>  
+  <string name="explain_accessibility_permission">সফ্টওয়্যারটি চালানোর জন্য \"অ্যাক্সেসিবিলিটি সার্ভিসেস\" খুলতে হবে, অনুগ্রহ করে \"সেটিংস->অ্যাক্সেসিবিলিটি সার্ভিসেস\" বা \"সেটিংস->অ্যাক্সেসিবিলিটি সার্ভিসেস->আরো ডাউনলোড করা সার্ভিস\" খুলুন, এই অ্যাপ্লিকেশনটি খুঁজুন এবং অ্যাক্সেসিবিলিটি সার্ভিস চালু \n এটি সেটও করতে পারেন পরে ড্রপ-ডাউন মেনুতে।</string>  
   <string name="explain_accessibility_permission2">সফ্টওয়্যারটিকে চালানোর জন্য \"অ্যাক্সেসিবিলিটি সার্ভিসেস\" খুলতে হবে, অনুগ্রহ করে \"সেটিংস->অ্যাক্সেসিবিলিটি সার্ভিসেস\" বা \"সেটিংস->অ্যাক্সেসিবিলিটি সার্ভিসেস->আরো ডাউনলোড করা সার্ভিস\" খুলুন, এই অ্যাপ্লিকেশনটি খুঁজুন এবং অ্যাক্সেসিবিলিটি সার্ভিস চালু করুন।</string>  
   <string name="text_cancel">বাতিল করুন</string>  
   <string name="text_path_is_empty">পথ ফাঁকা</string>  
@@ -75,7 +75,7 @@
   <string name="text_enable_accessibility_service_by_root">রুট সুবিধা সহ স্বয়ংক্রিয়ভাবে পরিষেবাগুলি সক্ষম করুন৷</string>  
   <string name="text_auto_operate_service_enabled_but_not_running">অ্যাক্সেসিবিলিটি পরিষেবা চালু আছে কিন্তু চলছে না, এটি একটি অ্যান্ড্রয়েড বাগ হতে পারে, আপনাকে ফোন রিস্টার্ট করতে বা অ্যাক্সেসিবিলিটি সার্ভিস রিস্টার্ট করতে হতে পারে</string>  
   <string name="text_enable_accessibility_service_by_root_timeout">রুট সুবিধা সহ অ্যাক্সেসিবিলিটি পরিষেবা শুরু করার সময়সীমা</string>  
-  <string name="summary_enable_accessibility_service_by_root">খোলার পরে, স্ক্রিপ্টটি চালানোর ফলে স্বয়ংক্রিয়ভাবে রুট সুবিধা সহ অ্যাক্সেসিবিলিটি পরিষেবা খুলবে৷</string>  
+  <string name="summary_enable_accessibility_service_by_root">খোলার পরে, স্ক্রিপ্টটি চালানো স্বয়ংক্রিয়ভাবে রুট সুবিধা সহ অ্যাক্সেসিবিলিটি পরিষেবাটি খুলবে</string>  
   <string name="text_appearance">বাহ্যিক</string>  
   <string name="text_theme_color">থিম রঙ</string>  
   <string name="text_select_image">ছবি নির্বাচন করুন</string>  
@@ -100,7 +100,7 @@
   <string name="text_refresh">রিফ্রেশ</string>  
   <string name="notice_no_running_script">কোন চলমান স্ক্রিপ্ট নেই φ(>ω&lt;*)</string>  
   <string name="text_please_choose_a_script">একটি স্ক্রিপ্ট নির্বাচন করুন</string>  
-  <string name="text_edit_prepare_script">পূর্ব-নির্বাহিত স্ক্রিপ্টগুলি সম্পাদনা করা হচ্ছে</string>  
+  <string name="text_edit_prepare_script">পূর্ব-নির্বাহিত স্ক্রিপ্ট সম্পাদনা করা হচ্ছে</string>  
   <string name="text_pre_execute_script">প্রি-এক্সিকিউট স্ক্রিপ্ট</string>  
   <string name="text_clear_pre_execute_script">প্রাক-নির্বাহিত স্ক্রিপ্টগুলি সাফ করুন</string>  
   <string name="text_clear_file_selection">স্ক্রিপ্ট ফাইল নির্বাচন রিসেট করুন</string>  
@@ -159,7 +159,7 @@
   <string name="text_import_script">স্ক্রিপ্ট ফাইল আমদানি করুন</string>  
   <string name="text_root_record_out_file_type">রুট রেকর্ডিং জেনারেটেড ফাইল টাইপ</string>  
   <string name="text_binary">বাইনারি</string>  
-  <string name="summary_stable_mode">সক্রিয় করা হলে বিন্যাস বিশ্লেষণ আরও স্থিতিশীল, কিন্তু অল্প সংখ্যক স্ক্রিপ্ট সঠিকভাবে কাজ নাও করতে পারে। কার্যকর করার জন্য অ্যাক্সেসিবিলিটি পরিষেবা পুনরায় চালু করুন</string>  
+  <string name="summary_stable_mode">বিন্যাস বিশ্লেষণ সক্রিয় করা হলে আরও স্থিতিশীল, কিন্তু অল্প সংখ্যক স্ক্রিপ্ট সঠিকভাবে কাজ নাও করতে পারে। কার্যকর করার জন্য অ্যাক্সেসিবিলিটি পরিষেবা পুনরায় চালু করুন</string>  
   <string name="text_hideLaucher">ডেস্কটপ আইকন লুকান (adb বা অন্যান্য পদ্ধতির মাধ্যমে অ্যাপ চালু করুন)</string>  
   <string name="text_stable_mode">স্থিতিশীল মোড</string>  
   <string name="text_single_build_clean_mode">একক ফাইল প্যাকেজিং রিফ্রেশিং মোড</string>  
@@ -292,14 +292,14 @@
   <string name="text_set_text">সেট টেক্সট (সেট টেক্সট)</string>  
   <string name="text_scroll_forward">সামনে/ডান/নিচে সোয়াইপ করুন (স্ক্রোল ফরোয়ার্ড)</string>  
   <string name="text_scroll_backward">পিছনে/উপরে/বাম দিকে স্ক্রোল করুন (ব্যাকওয়ার্ড)</string>  
-  <string name="text_find_one">যতক্ষণ না একটি পাওয়া যায় (একটি খুঁজুন)</string>  
+  <string name="text_find_one">যতক্ষণ না একজন পাওয়া যায় (একটি খুঁজুন)</string>  
   <string name="text_until_find">যতক্ষণ না সব পাওয়া যায় (ফাইন্ড না হওয়া পর্যন্ত)</string>  
   <string name="text_wait_for">নিয়ন্ত্রণ প্রদর্শিত হওয়ার জন্য অপেক্ষা করুন (ওয়েটফর)</string>  
   <string name="text_selector_exists">নিয়ন্ত্রণের অস্তিত্ব বিচার করা (বিদ্যমান)</string>  
   <string name="text_options">অপশন</string>  
   <string name="text_using_id_selector">আইডি ব্যবহার করে নির্বাচন করুন</string>  
   <string name="text_using_text_selector">পাঠ্য নির্বাচন ব্যবহার করুন (পাঠ্য)</string>  
-  <string name="text_using_desc_selector">বর্ণনা ব্যবহার করে নির্বাচন করুন (ডেস্ক)</string>  
+  <string name="text_using_desc_selector">বর্ণনা নির্বাচন (ডেস্ক) ব্যবহার করুন</string>  
   <string name="text_generate">উৎপন্ন</string>  
   <string name="text_generate_fail">বিল্ড ব্যর্থ হয়েছে o(╥﹏╥)o</string>  
   <string name="text_documentation_source">ডকুমেন্টেশন উৎস</string>  
@@ -351,7 +351,7 @@
   <string name="text_size_current_value" formatted="true">হরফের আকার: %d</string>  
   <string name="error_regex_find_prev">নিয়মিত অভিব্যক্তি সামনে তাকাতে পারে না</string>  
   <string name="text_notification">লক্ষ্য করুন</string>  
-  <string name="apk_builder_plugin_version_too_low">প্যাকেজ করা প্লাগ-ইন সংস্করণটি খুবই কম, এবং প্যাকেজ করা অ্যাপ্লিকেশনটি সঠিকভাবে নাও চলতে পারে। আপনি কি এখন প্যাকেজ করা প্লাগ-ইনটির সংশ্লিষ্ট সংস্করণটি ডাউনলোড করতে চান?</string>  
+  <string name="apk_builder_plugin_version_too_low">প্যাকেজ করা প্লাগ-ইন সংস্করণটি খুবই কম, এবং প্যাকেজ করা অ্যাপ্লিকেশনটি সঠিকভাবে নাও চলতে পারে। আপনি কি এখন প্যাকেজ করা প্লাগ-ইনের সংশ্লিষ্ট সংস্করণটি ডাউনলোড করতে চান?</string>  
   <string name="text_inspect_layout_bounds">লেআউট পরিসীমা বিশ্লেষণ</string>  
   <string name="text_inspect_layout_hierarchy">বিন্যাস অনুক্রম</string>  
   <string name="text_inspect_layout">বিন্যাস বিশ্লেষণ</string>  
@@ -407,7 +407,7 @@
   <string name="text_run_on_screen_unlock">স্ক্রিন আনলক হলে</string>  
   <string name="text_run_on_power_connect">যখন বিদ্যুৎ সংযোগ করা হয়</string>  
   <string name="text_run_on_power_disconnect">বিদ্যুৎ সংযোগ বিচ্ছিন্ন হলে</string>  
-  <string name="text_run_on_conn_change">নেটওয়ার্ক সংযোগ পরিবর্তন হলে</string>  
+  <string name="text_run_on_conn_change">যখন নেটওয়ার্ক সংযোগ পরিবর্তন হয়</string>  
   <string name="text_run_on_package_install">যখন একটি নতুন অ্যাপ ইনস্টল করা হয়</string>  
   <string name="text_run_on_package_uninstall">অ্যাপটি আনইন্সটল হয়ে গেলে</string>  
   <string name="text_run_on_package_update">একটি আপডেট আবেদন করার সময়</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">রাত মোড</string>  
   <string name="text_run_on_startup">যখন Autox.js শুরু হয়</string>  
   <string name="text_usage_stats_permission">ব্যবহার অ্যাক্সেস</string>  
-  <string name="description_usage_stats_permission">\"ব্যবহারের পরিসংখ্যান দেখুন\" অনুমতির মাধ্যমে, আপনি এই ডিভাইসের অতীত অ্যাপ্লিকেশন ব্যবহার পেতে পারেন, যাতে বর্তমান অ্যাপ্লিকেশন (বর্তমান প্যাকেজ) প্রাপ্ত করা আরও সঠিক হয়৷</string>  
+  <string name="description_usage_stats_permission">\"ব্যবহার পরিসংখ্যান দেখুন\" অনুমতির মাধ্যমে, আপনি এই ডিভাইসের অতীত অ্যাপ্লিকেশন ব্যবহার পেতে পারেন, যাতে এটি বর্তমান অ্যাপ্লিকেশন (বর্তমান প্যাকেজ) পেতে আরও সঠিক হয়।</string>  
   <string name="text_open_with">খোলা পথ</string>  
   <string name="text_root">মূল</string>  
   <string name="text_no_root">রুট মুক্ত</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">অনুসন্ধান থেকে প্রস্থান করুন</string>  
   <string name="text_licenses_other">অ-ওপেন সোর্স লাইসেন্স</string>  
   <string name="text_save_successfully">সফলভাবে সংরক্ষিত</string>  
-  <string name="text_save_as_project">প্রকল্প হিসাবে সংরক্ষণ করুন</string>
-  <string name="text_select_save_mode">একটি সংরক্ষণ পদ্ধতি নির্বাচন করুন</string>
-  <string name="text_save_as_project_and_exit">প্রকল্প হিসাবে সংরক্ষণ করুন এবং প্রস্থান করুন</string>
-  <string name="apk_builder_sign">স্বাক্ষর</string>
-  <string name="text_invalid_config">অবৈধ কনফিগারেশন</string>
-  <string name="text_abi">সমর্থিত ABIs (কমা দিয়ে আলাদা করা)</string>
-  <string name="text_save_project_to">প্রকল্প সংরক্ষণ করা হয়েছে: %s</string>
+  <string name="text_save_as_project">প্রকল্প হিসাবে সংরক্ষণ করুন</string>  
+  <string name="text_select_save_mode">একটি সংরক্ষণ পদ্ধতি নির্বাচন করুন</string>  
+  <string name="text_save_as_project_and_exit">প্রকল্প হিসাবে সংরক্ষণ করুন এবং প্রস্থান করুন</string>  
+  <string name="apk_builder_sign">স্বাক্ষর</string>  
+  <string name="text_invalid_config">অবৈধ কনফিগারেশন</string>  
+  <string name="text_abi">সমর্থিত ABIs (কমা দিয়ে আলাদা করা)</string>  
+  <string name="text_save_project_to">প্রকল্প সংরক্ষণ করা হয়েছে: %s</string>  
+  <string name="text_hide_and_show">আড়াল শো</string>
+  <string name="text_browser_open">ব্রাউজার খোলা</string>
+  <string name="text_do_nothing">কিছু করনা</string>
+  <string name="text_copy_to_new_folder">আসল ফোল্ডারের বিষয়বস্তু নতুন ফোল্ডারে কপি করুন</string>
+  <string name="text_move_new_folder">মূল ফোল্ডারের বিষয়বস্তু নতুন ফোল্ডারে সরান</string>
+  <string name="text_accessibility_service_is_not_enable">অ্যাক্সেসিবিলিটি পরিষেবা চালু নেই</string>
+  <string name="text_set_successfully">সফলভাবে সেট</string>
 </resources>

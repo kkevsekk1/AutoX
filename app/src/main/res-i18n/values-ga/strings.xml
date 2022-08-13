@@ -40,7 +40,7 @@
   <string name="text_press_again_to_exit">Brúigh arís chun an clár a fhágáil</string>  
   <string name="text_already_stop_n_scripts">Stopadh %d script a rith</string>  
   <string name="text_start_running">Oibríocht a thosú</string>  
-  <string name="text_open_by_other_apps">Oscail le feidhmchlár eile</string>  
+  <string name="text_open_by_other_apps">Oscail le app eile</string>  
   <string name="text_rename">Athainmnigh</string>  
   <string name="text_send_shortcut">Aicearra a chruthú</string>  
   <string name="text_already_create">Cruthaithe</string>  
@@ -225,7 +225,7 @@
   <string name="text_required_accessibility_service">Seirbhísí Inrochtaineachta de dhíth</string>  
   <string name="text_required_opencv">Próiseáil íomhánna OpenCv</string>  
   <string name="text_required_ocr">Aitheantas téacs OCR saor in aisce,</string>  
-  <string name="text_required_7zip">Leabharlann 7 zip saor in aisce,</string>  
+  <string name="text_required_7zip">7zip leabharlann comhbhrúite</string>  
   <string name="text_required_terminal_emulator">Aithriseoir teirminéil</string>  
   <string name="text_required_background_start">Teastaíonn cead cúlra aníos aníos</string>  
   <string name="text_required_draw_overlay">Teastaíonn cead fuinneog ar snámh</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Roghanna</string>  
   <string name="text_using_id_selector">Roghnaigh ag baint úsáide as id</string>  
   <string name="text_using_text_selector">Úsáid roghnú téacs (téacs)</string>  
-  <string name="text_using_desc_selector">Roghnaigh ag baint úsáide as cur síos (desc)</string>  
+  <string name="text_using_desc_selector">Úsáid Description Select (desc)</string>  
   <string name="text_generate">Giniúint</string>  
   <string name="text_generate_fail">Theip ar thógáil o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Foinse doiciméad</string>  
@@ -343,7 +343,7 @@
   <string name="nodebb_error_change_password_error_match">Ní hionann an dá phasfhocal a cuireadh isteach</string>  
   <string name="text_logout">Logáil Amach</string>  
   <string name="nodebb_error_forbidden">Theip ar an oibríocht, bain triail eile as ar ball</string>  
-  <string name="description_stable_mode">Déanann mód cobhsaí an script níos cobhsaí agus an leagan amach á ghabháil trí shonraí an leagain amach a fhágáil ar lár, ach ag an am céanna níos lú rialuithe ar an scáileán a fháil. \n \n an tseirbhís inrochtaineachta le cur i bhfeidhm.</string>  
+  <string name="description_stable_mode">Déanann mód cobhsaí an script níos cobhsaí agus an leagan amach á ghabháil trí shonraí an leagan amach a fhágáil ar lár, ach ag an am céanna níos lú rialuithe ar an scáileán a fháil. \n \n an tseirbhís inrochtaineachta le cur i bhfeidhm.</string>  
   <string name="text_size_min_value">2</string>  
   <string name="text_size_max_value">60</string>  
   <string name="text_text_size">Méid cló</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Cliceáil chun an príomh-chomhéadan a chur isteach</string>  
   <string name="text_run_on_other_broadcast">Imeachtaí eile (craoladh)</string>  
   <string name="text_broadcast_action">Gníomh Craolacháin</string>  
-  <string name="text_run_on_boot">Agus tú ag booting</string>  
+  <string name="text_run_on_boot">Ag am tosaithe</string>  
   <string name="text_run_on_screen_on">Nuair a bhíonn an scáileán ar siúl</string>  
   <string name="text_run_on_screen_off">Nuair a bhíonn an scáileán múchta</string>  
   <string name="error_empty_selection">Roghnaigh rogha imeacht craolta</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Modh oíche</string>  
   <string name="text_run_on_startup">Nuair a thosaíonn Autox.js</string>  
   <string name="text_usage_stats_permission">Rochtain úsáide</string>  
-  <string name="description_usage_stats_permission">Tríd an gcead \"féach ar staitisticí úsáide\", is féidir leat úsáid feidhmchláir san am atá thart a fháil ar an ngléas seo, ionas go mbeidh sé níos cruinne an feidhmchlár reatha (currentPackage) a fháil.</string>  
+  <string name="description_usage_stats_permission">Tríd an gcead \"Féach ar Staidreamh Úsáide\", is féidir leat úsáid an fheidhmchláir san am atá thart a fháil ar an ngléas seo, ionas go mbeidh sé níos cruinne an feidhmchlár reatha (currentPackage) a fháil.</string>  
   <string name="text_open_with">Bealach oscailte</string>  
   <string name="text_root">Fréamh</string>  
   <string name="text_no_root">Root saor in aisce</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Scoir an cuardach</string>  
   <string name="text_licenses_other">Neamhcheadúnas Foinse Oscailte</string>  
   <string name="text_save_successfully">Sábháladh go rathúil</string>  
-  <string name="text_save_as_project">Shábháil mar thionscadal</string>
-  <string name="text_select_save_mode">Roghnaigh modh sábhála</string>
-  <string name="text_save_as_project_and_exit">Sábháil mar thionscadal agus scoir</string>
-  <string name="apk_builder_sign">Ag síniú</string>
-  <string name="text_invalid_config">Cumraíocht neamhbhailí</string>
-  <string name="text_abi">ABIs tacaithe (scartha le camóga)</string>
-  <string name="text_save_project_to">Tionscadal sábháilte go: %s</string>
+  <string name="text_save_as_project">Shábháil mar thionscadal</string>  
+  <string name="text_select_save_mode">Roghnaigh modh sábhála</string>  
+  <string name="text_save_as_project_and_exit">Sábháil mar thionscadal agus scoir</string>  
+  <string name="apk_builder_sign">Ag síniú</string>  
+  <string name="text_invalid_config">Cumraíocht neamhbhailí</string>  
+  <string name="text_abi">ABIs tacaithe (scartha le camóga)</string>  
+  <string name="text_save_project_to">Tionscadal sábháilte go: %s</string>  
+  <string name="text_hide_and_show">Ceilt/taispeáin</string>
+  <string name="text_browser_open">Brabhsálaí oscailte</string>
+  <string name="text_do_nothing">Ná déan Faic</string>
+  <string name="text_copy_to_new_folder">Cóipeáil ábhar an fhillteáin bhunaidh chuig an bhfillteán nua</string>
+  <string name="text_move_new_folder">Bog ábhar an bhunfhillteáin go dtí an fillteán nua</string>
+  <string name="text_accessibility_service_is_not_enable">Níl an tseirbhís inrochtaineachta curtha ar siúl</string>
+  <string name="text_set_successfully">A shocrú go rathúil</string>
 </resources>

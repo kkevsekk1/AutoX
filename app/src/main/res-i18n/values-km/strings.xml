@@ -8,7 +8,7 @@
   <string name="text_please_input_name">សូមបញ្ចូលឈ្មោះ</string>  
   <string name="text_name">ឈ្មោះ</string>  
   <string name="text_go_to_setting">ចូលទៅកាន់ការកំណត់</string>  
-  <string name="explain_accessibility_permission">កម្មវិធីត្រូវការបើក \"សេវាកម្មលទ្ធភាពប្រើប្រាស់\" ដើម្បីដំណើរការ សូមបើក \"ការកំណត់->សេវាកម្មលទ្ធភាពប្រើប្រាស់\" ឬ \"ការកំណត់->សេវាភាពងាយស្រួល->សេវាកម្មដែលបានទាញយកបន្ថែម\" ស្វែងរកកម្មវិធីនេះ ហើយបើកសេវាភាពងាយស្រួល \n ក៏អាចកំណត់បានផងដែរ។ នៅពេលក្រោយនៅក្នុងម៉ឺនុយទម្លាក់ចុះ។</string>  
+  <string name="explain_accessibility_permission">កម្មវិធីត្រូវបើក ​​\"សេវាកម្មលទ្ធភាពប្រើប្រាស់\" ដើម្បីដំណើរការ សូមបើក \"ការកំណត់->សេវាលទ្ធភាពប្រើប្រាស់\" ឬ \"ការកំណត់->សេវាកម្មមធ្យោបាយងាយស្រួល->សេវាទាញយកបន្ថែម\" ស្វែងរកកម្មវិធីនេះ ហើយបើកសេវាកម្មភាពងាយស្រួល \n ក៏អាចកំណត់បានផងដែរ។ នៅពេលក្រោយនៅក្នុងម៉ឺនុយទម្លាក់ចុះ។</string>  
   <string name="explain_accessibility_permission2">កម្មវិធីត្រូវបើក ​​\"សេវាកម្មលទ្ធភាពប្រើប្រាស់\" ដើម្បីដំណើរការ សូមបើក \"ការកំណត់-> សេវាលទ្ធភាពប្រើប្រាស់\" ឬ \"ការកំណត់-> សេវាភាពងាយស្រួល-> សេវាកម្មដែលបានទាញយកបន្ថែម\" ស្វែងរកកម្មវិធីនេះ ហើយបើកសេវាកម្មភាពងាយស្រួល</string>  
   <string name="text_cancel">បោះបង់</string>  
   <string name="text_path_is_empty">ផ្លូវគឺទទេ</string>  
@@ -127,7 +127,7 @@
   <string name="text_force_stop">បង្ខំឱ្យឈប់</string>  
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] បានបញ្ចប់ការដំណើរការក្នុងរយៈពេល %f វិនាទី</string>  
   <string name="text_again">ម្តងទៀត</string>  
-  <string name="text_again_and_again">ទ្វេដង</string>  
+  <string name="text_again_and_again">ទ្វេ</string>  
   <string name="text_again_and_again_again">ទ្វេដងម្តងទៀត</string>  
   <string name="text_again_and_again_again_again">ទ្វេដងម្តងទៀត</string>  
   <string name="text_connect_computer">ភ្ជាប់កុំព្យូទ័រ</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">ជម្រើស</string>  
   <string name="text_using_id_selector">ជ្រើសរើសដោយប្រើលេខសម្គាល់</string>  
   <string name="text_using_text_selector">ប្រើការជ្រើសរើសអត្ថបទ (អត្ថបទ)</string>  
-  <string name="text_using_desc_selector">ជ្រើសរើសដោយប្រើការពិពណ៌នា (desc)</string>  
+  <string name="text_using_desc_selector">ប្រើការពិពណ៌នាជ្រើសរើស (desc)</string>  
   <string name="text_generate">បង្កើត</string>  
   <string name="text_generate_fail">ការស្ថាបនាបានបរាជ័យ o(╥﹏╥)o</string>  
   <string name="text_documentation_source">ប្រភពឯកសារ</string>  
@@ -308,7 +308,7 @@
   <string name="text_running_task">កំពុងដំណើរការស្គ្រីប</string>  
   <string name="text_done">បញ្ចប់</string>  
   <string name="text_disposable_task">រត់តែម្តងប៉ុណ្ណោះ។</string>  
-  <string name="text_daily_task">ដំណើរការប្រចាំថ្ងៃ</string>  
+  <string name="text_daily_task">រត់ប្រចាំថ្ងៃ</string>  
   <string name="text_weekly_task">ដំណើរការដោយសប្តាហ៍</string>  
   <string name="text_timing">ពេលវេលា</string>  
   <string name="text_disposable_task_time_before_now">ពេលវេលាកិច្ចការគឺតិចជាងពេលបច្ចុប្បន្ន</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">ចាកចេញពីការស្វែងរក</string>  
   <string name="text_licenses_other">អាជ្ញាប័ណ្ណមិនមែនប្រភពបើកចំហ</string>  
   <string name="text_save_successfully">បានរក្សាទុកដោយជោគជ័យ</string>  
-  <string name="text_save_as_project">រក្សាទុកជាគម្រោង</string>
-  <string name="text_select_save_mode">សូមជ្រើសរើសវិធីសាស្ត្ររក្សាទុក</string>
-  <string name="text_save_as_project_and_exit">រក្សាទុកជាគម្រោងហើយចេញ</string>
-  <string name="apk_builder_sign">ការចុះហត្ថលេខា</string>
-  <string name="text_invalid_config">ការកំណត់មិនត្រឹមត្រូវ</string>
-  <string name="text_abi">ABIs ដែលគាំទ្រ (បំបែកដោយសញ្ញាក្បៀស)</string>
-  <string name="text_save_project_to">បានរក្សាទុកគម្រោងទៅ៖ %s</string>
+  <string name="text_save_as_project">រក្សាទុកជាគម្រោង</string>  
+  <string name="text_select_save_mode">សូមជ្រើសរើសវិធីសាស្ត្ររក្សាទុក</string>  
+  <string name="text_save_as_project_and_exit">រក្សាទុកជាគម្រោងហើយចេញ</string>  
+  <string name="apk_builder_sign">ការចុះហត្ថលេខា</string>  
+  <string name="text_invalid_config">ការកំណត់រចនាសម្ព័ន្ធមិនត្រឹមត្រូវ</string>  
+  <string name="text_abi">ABIs ដែលគាំទ្រ (បំបែកដោយសញ្ញាក្បៀស)</string>  
+  <string name="text_save_project_to">បានរក្សាទុកគម្រោងទៅ៖ %s</string>  
+  <string name="text_hide_and_show">លាក់ / បង្ហាញ</string>
+  <string name="text_browser_open">កម្មវិធីរុករកបើក</string>
+  <string name="text_do_nothing">មិនធ្វើអ្វីសោះ</string>
+  <string name="text_copy_to_new_folder">ចម្លងមាតិកានៃថតដើមទៅថតថ្មី។</string>
+  <string name="text_move_new_folder">ផ្លាស់ទីមាតិកានៃថតដើមទៅថតថ្មី។</string>
+  <string name="text_accessibility_service_is_not_enable">សេវាកម្មភាពងាយស្រួលមិនត្រូវបានបើកទេ។</string>
+  <string name="text_set_successfully">កំណត់ដោយជោគជ័យ</string>
 </resources>

@@ -299,7 +299,7 @@
   <string name="text_options">Dikgetho</string>  
   <string name="text_using_id_selector">Khetha sebelisa id</string>  
   <string name="text_using_text_selector">Sebelisa khetho ea mongolo (mongolo)</string>  
-  <string name="text_using_desc_selector">Khetha o sebelisa tlhaloso (desc)</string>  
+  <string name="text_using_desc_selector">Sebelisa Tlhaloso Khetha (desc)</string>  
   <string name="text_generate">Hlahisa</string>  
   <string name="text_generate_fail">Build failed o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Mohloli oa litokomane</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Tobetsa ho kenya segokanyimmediamentsi sa sebolokigolo</string>  
   <string name="text_run_on_other_broadcast">Liketsahalo tse ling (phatlalatso)</string>  
   <string name="text_broadcast_action">Ketso ea Phatlalatso</string>  
-  <string name="text_run_on_boot">Ha o qala</string>  
+  <string name="text_run_on_boot">Ka nako ea boot</string>  
   <string name="text_run_on_screen_on">Ha skrine e buletsoe</string>  
   <string name="text_run_on_screen_off">Ha skrini se koetsoe</string>  
   <string name="error_empty_selection">Ka kopo, khetha ketsahalo ea khaso</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Mokhoa oa bosiu</string>  
   <string name="text_run_on_startup">Ha Autox.js e qala</string>  
   <string name="text_usage_stats_permission">Phihlello ya tshebediso</string>  
-  <string name="description_usage_stats_permission">Ka tumello ea \"sheba lipalo-palo\", u ka fumana ts\'ebeliso ea nako e fetileng ea sesebelisoa sena, e le hore se nepahale haholoanyane ho fumana sesebelisoa sa hajoale (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Ka tumello ea \"Sheba Lipalopalo tsa Ts\'ebeliso\", u ka fumana ts\'ebeliso ea nako e fetileng ea sesebelisoa sena, e le hore se nepahale haholoanyane ho fumana sesebelisoa sa hajoale (currentPackage).</string>  
   <string name="text_open_with">Tsela e bulehileng</string>  
   <string name="text_root">Motso</string>  
   <string name="text_no_root">Motso mahala</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Tsoa ho batla</string>  
   <string name="text_licenses_other">Laesense e sa Bulehang</string>  
   <string name="text_save_successfully">E bolokiloe ka katleho</string>  
-  <string name="text_save_as_project">Boloka joalo ka morero</string>
-  <string name="text_select_save_mode">Ka kopo, khetha mokhoa oa ho boloka</string>
-  <string name="text_save_as_project_and_exit">Boloka joalo ka morero \'me u tsoe</string>
-  <string name="apk_builder_sign">Ho saena</string>
-  <string name="text_invalid_config">Tlhophiso e fosahetseng</string>
-  <string name="text_abi">Li-ABI tse tšehelitsoeng (tse arotsoeng ka lifeheloa)</string>
-  <string name="text_save_project_to">Morero o bolokiloe ho: %s</string>
+  <string name="text_save_as_project">Boloka joalo ka morero</string>  
+  <string name="text_select_save_mode">Ka kopo, khetha mokhoa oa ho boloka</string>  
+  <string name="text_save_as_project_and_exit">Boloka joalo ka morero \'me u tsoe</string>  
+  <string name="apk_builder_sign">Ho saena</string>  
+  <string name="text_invalid_config">Tlhophiso e fosahetseng</string>  
+  <string name="text_abi">Li-ABI tse tšehelitsoeng (tse arohaneng le lifeheloa)</string>  
+  <string name="text_save_project_to">Morero o bolokiloe ho: %s</string>  
+  <string name="text_hide_and_show">Pata/bontsha</string>
+  <string name="text_browser_open">Sebatli se butsoe</string>
+  <string name="text_do_nothing">Etsa letho</string>
+  <string name="text_copy_to_new_folder">Kopitsa litaba tsa foldara ea mantlha ho sephutheli se secha</string>
+  <string name="text_move_new_folder">Tsamaisa litaba tsa foldara ea mantlha ho sephutheli se secha</string>
+  <string name="text_accessibility_service_is_not_enable">Tshebeletso ya phihlello ha e a bulelwa</string>
+  <string name="text_set_successfully">Beha ka katleho</string>
 </resources>

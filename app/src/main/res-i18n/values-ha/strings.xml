@@ -170,7 +170,7 @@
   <string name="text_community">Al\'umma</string>  
   <string name="text_manage">Sarrafa</string>  
   <string name="not_login">Babu shiga da ake buƙata don ayyuka na yau da kullun</string>  
-  <string name="text_volume_down_control">Ikon maɓallin ƙara ƙasa</string>  
+  <string name="text_volume_down_control">Ikon ƙarar maɓalli</string>  
   <string name="text_auto_backup">Atomatik madadin rubutun</string>  
   <string name="text_others">Sauran</string>  
   <string name="text_import">Shigo da</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Zabuka</string>  
   <string name="text_using_id_selector">Zaɓi ta amfani da id</string>  
   <string name="text_using_text_selector">Yi amfani da zaɓin rubutu (rubutu)</string>  
-  <string name="text_using_desc_selector">Zaɓi ta amfani da bayanin (desc)</string>  
+  <string name="text_using_desc_selector">Yi amfani da Zaɓin Bayani (desc)</string>  
   <string name="text_generate">Haifar</string>  
   <string name="text_generate_fail">Gina kasa o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Tushen takaddun bayanai</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Danna don shigar da babban dubawa</string>  
   <string name="text_run_on_other_broadcast">Sauran abubuwan da suka faru (watsawa)</string>  
   <string name="text_broadcast_action">Ayyukan Watsa shirye-shirye</string>  
-  <string name="text_run_on_boot">Lokacin booting</string>  
+  <string name="text_run_on_boot">A lokacin boot</string>  
   <string name="text_run_on_screen_on">Lokacin da allon yana kunne</string>  
   <string name="text_run_on_screen_off">Lokacin da allon ya kashe</string>  
   <string name="error_empty_selection">Da fatan za a zaɓi zaɓin taron watsa shirye-shirye</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Yanayin dare</string>  
   <string name="text_run_on_startup">Lokacin da Autox.js ya fara</string>  
   <string name="text_usage_stats_permission">Damar amfani</string>  
-  <string name="description_usage_stats_permission">Ta hanyar izinin \"ƙididdigar amfani da duba\", za ku iya samun amfani da aikace-aikacen da aka yi amfani da su a baya na wannan na\'urar, ta yadda zai fi dacewa don samun aikace-aikacen yanzu (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Ta hanyar izinin \"Duba Ƙididdiga Masu Amfani\", za ku iya samun amfani da aikace-aikacen da aka yi amfani da su a baya na wannan na\'urar, ta yadda zai fi dacewa don samun aikace-aikacen yanzu (Package).</string>  
   <string name="text_open_with">Bude hanya</string>  
   <string name="text_root">Tushen</string>  
   <string name="text_no_root">Tushen free</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Fita bincike</string>  
   <string name="text_licenses_other">Lasisin Ba Buɗewa</string>  
   <string name="text_save_successfully">Anyi nasarar ceto</string>  
-  <string name="text_save_as_project">Ajiye azaman aikin</string>
-  <string name="text_select_save_mode">Da fatan za a zaɓi hanyar adanawa</string>
-  <string name="text_save_as_project_and_exit">Ajiye azaman aikin kuma fita</string>
-  <string name="apk_builder_sign">Sanya hannu</string>
-  <string name="text_invalid_config">Tsari mara inganci</string>
-  <string name="text_abi">ABI masu goyan bayan (wanda aka raba tare da waƙafi)</string>
-  <string name="text_save_project_to">An ajiye aikin zuwa: %s</string>
+  <string name="text_save_as_project">Ajiye azaman aikin</string>  
+  <string name="text_select_save_mode">Da fatan za a zaɓi hanyar adanawa</string>  
+  <string name="text_save_as_project_and_exit">Ajiye azaman aikin kuma fita</string>  
+  <string name="apk_builder_sign">Sanya hannu</string>  
+  <string name="text_invalid_config">Tsari mara inganci</string>  
+  <string name="text_abi">ABI masu goyan bayan (wanda aka raba tare da waƙafi)</string>  
+  <string name="text_save_project_to">An ajiye aikin zuwa: %s</string>  
+  <string name="text_hide_and_show">Boye/nunawa</string>
+  <string name="text_browser_open">Browser bude</string>
+  <string name="text_do_nothing">Yi komai ba</string>
+  <string name="text_copy_to_new_folder">Kwafi abinda ke ciki na ainihin babban fayil ɗin zuwa sabon babban fayil ɗin</string>
+  <string name="text_move_new_folder">Matsar da abinda ke cikin ainihin babban fayil ɗin zuwa sabon babban fayil</string>
+  <string name="text_accessibility_service_is_not_enable">Ba a kunna sabis na samun dama ba</string>
+  <string name="text_set_successfully">Saita nasara</string>
 </resources>

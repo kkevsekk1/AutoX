@@ -299,7 +299,7 @@
   <string name="text_options">Swihlawulekisi</string>  
   <string name="text_using_id_selector">Hlawula hi ku tirhisa id</string>  
   <string name="text_using_text_selector">Tirhisa ku hlawula tsalwa (tsalwa) .</string>  
-  <string name="text_using_desc_selector">Hlawula hi ku tirhisa nhlamuselo (desc) .</string>  
+  <string name="text_using_desc_selector">Tirhisa Nhlamuselo Hlawula (desc) .</string>  
   <string name="text_generate">Ku vumba</string>  
   <string name="text_generate_fail">Ku aka swi tsandzekile o(╥╥)o</string>  
   <string name="text_documentation_source">Xihlovo xa matsalwa</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Click ku nghena eka interface leyikulu</string>  
   <string name="text_run_on_other_broadcast">Swiendlakalo swin’wana (ku haxiwa) .</string>  
   <string name="text_broadcast_action">Xiendlo xa Vuhaxi</string>  
-  <string name="text_run_on_boot">Loko u ri karhi u pfula</string>  
+  <string name="text_run_on_boot">Hi nkarhi wa ku boot</string>  
   <string name="text_run_on_screen_on">Loko xikirini xi ri karhi xi pfurha</string>  
   <string name="text_run_on_screen_off">Loko xikirini xi timiwile</string>  
   <string name="error_empty_selection">Hi kombela u hlawula ndlela ya xiendlakalo xa vuhaxi</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Movha wa vusiku</string>  
   <string name="text_run_on_startup">Loko Autox.js yi sungula</string>  
   <string name="text_usage_stats_permission">Mfikelelo wa matirhiselo</string>  
-  <string name="description_usage_stats_permission">Hi ku tirhisa mpfumelelo wa \"view usage statistics\", u nga kuma matirhiselo ya nkarhi lowu hundzeke ya xitirhisiwa xa xitirhisiwa lexi, leswaku swi va leswi kongomeke swinene ku kuma xitirhisiwa xa sweswi (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Hi ku tirhisa mpfumelelo wa \"Vona Tinhlayo ta Matirhiselo\", u nga kuma matirhiselo ya nkarhi lowu hundzeke ya xitirhisiwa xa xitirhisiwa lexi, leswaku swi va leswi kongomeke swinene ku kuma xitirhisiwa xa sweswi (currentPackage).</string>  
   <string name="text_open_with">Ndlela leyi pfulekeke</string>  
   <string name="text_root">Rimitsu</string>  
   <string name="text_no_root">Root free</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Huma hi ku lavisisa</string>  
   <string name="text_licenses_other">Layisense ya Xihlovo lexi nga Pfulekangiki</string>  
   <string name="text_save_successfully">Ku ponisiwile hi ndlela leyi humelelaka</string>  
-  <string name="text_save_as_project">Hlayisa tanihi phurojeke</string>
-  <string name="text_select_save_mode">Hi kombela u hlawula ndlela yo hlayisa</string>
-  <string name="text_save_as_project_and_exit">Hlayisa tanihi phurojeke ivi u huma</string>
-  <string name="apk_builder_sign">Ku sayina</string>
-  <string name="text_invalid_config">Xivumbeko lexi nga tirhiki</string>
-  <string name="text_abi">Ti-ABI leti seketeriwaka (ti hambanisiwile hi tikhoma) .</string>
-  <string name="text_save_project_to">Phurojeke yi hlayisiwile eka: %s</string>
+  <string name="text_save_as_project">Hlayisa tanihi phurojeke</string>  
+  <string name="text_select_save_mode">Hi kombela u hlawula ndlela yo hlayisa</string>  
+  <string name="text_save_as_project_and_exit">Hlayisa tanihi phurojeke ivi u huma</string>  
+  <string name="apk_builder_sign">Ku sayina</string>  
+  <string name="text_invalid_config">Xivumbeko lexi nga tirhiki</string>  
+  <string name="text_abi">Ti-ABI leti seketeriwaka (ti hambanisiwile hi tikhoma) .</string>  
+  <string name="text_save_project_to">Phurojeke yi hlayisiwile eka: %s</string>  
+  <string name="text_hide_and_show">Fihla/kombisa</string>
+  <string name="text_browser_open">Browser yi pfulekile</string>
+  <string name="text_do_nothing">U nga endli nchumu</string>
+  <string name="text_copy_to_new_folder">Kopa leswi nga endzeni ka folda yo sungula eka folda leyintshwa</string>
+  <string name="text_move_new_folder">Susa leswi nga endzeni ka folda yo sungula eka folda leyintshwa</string>
+  <string name="text_accessibility_service_is_not_enable">Vukorhokeri bya ku fikelela a byi pfuriwanga</string>
+  <string name="text_set_successfully">Set hi ndlela leyi humelelaka</string>
 </resources>

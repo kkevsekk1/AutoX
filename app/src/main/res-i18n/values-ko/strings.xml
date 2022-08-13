@@ -24,7 +24,7 @@
   <string name="text_alert">힌트</string>  
   <string name="edit_exit_without_save_warn">콘텐츠가 저장되지 않았습니다. 종료하시겠습니까?</string>  
   <string name="text_save_and_exit">저장하고 종료</string>  
-  <string name="text_exit_directly">바로 나가기</string>  
+  <string name="text_exit_directly">바로 나가다</string>  
   <string name="text_setting">설정</string>  
   <string name="text_exit">그만두다</string>  
   <string name="text_auto_operate_service">접근성 서비스</string>  
@@ -228,7 +228,7 @@
   <string name="text_required_7zip">7zip 압축 라이브러리</string>  
   <string name="text_required_terminal_emulator">터미널 에뮬레이터</string>  
   <string name="text_required_background_start">배경 팝업 인터페이스 권한이 필요합니다</string>  
-  <string name="text_required_draw_overlay">부동 창 권한이 필요합니다.</string>  
+  <string name="text_required_draw_overlay">부동 창 권한이 필요합니다</string>  
   <string name="text_volumeUpcontrol">작업을 끝내기 위한 볼륨 높이기 키</string>  
   <string name="text_splash_text">시작 인터페이스 텍스트</string>  
   <string name="text_splash_icon">인터페이스 아이콘 시작</string>  
@@ -284,7 +284,7 @@
   <string name="text_cannot_read_file">파일을 읽을 수 없습니다</string>  
   <string name="text_service">제공하다</string>  
   <string name="text_notification_permission">읽기 권한 알림</string>  
-  <string name="text_open_main_activity">기본 인터페이스 열기</string>  
+  <string name="text_open_main_activity">메인 인터페이스 열기</string>  
   <string name="text_generate_code">코드 생성</string>  
   <string name="text_action">동작</string>  
   <string name="text_click">딸깍 하는 소리</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">옵션</string>  
   <string name="text_using_id_selector">아이디를 사용하여 선택</string>  
   <string name="text_using_text_selector">텍스트 선택 사용(텍스트)</string>  
-  <string name="text_using_desc_selector">설명을 사용하여 선택(desc)</string>  
+  <string name="text_using_desc_selector">사용 설명 선택(내림차순)</string>  
   <string name="text_generate">생성하다</string>  
   <string name="text_generate_fail">빌드 실패 o(╥﹏╥)o</string>  
   <string name="text_documentation_source">문서 소스</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">기본 인터페이스를 입력하려면 클릭하십시오.</string>  
   <string name="text_run_on_other_broadcast">기타 이벤트(방송)</string>  
   <string name="text_broadcast_action">브로드캐스트 작업</string>  
-  <string name="text_run_on_boot">부팅할 때</string>  
+  <string name="text_run_on_boot">부팅시</string>  
   <string name="text_run_on_screen_on">화면이 켜져 있을 때</string>  
   <string name="text_run_on_screen_off">화면이 꺼져있을 때</string>  
   <string name="error_empty_selection">방송 이벤트 옵션을 선택해 주세요</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">야간 모드</string>  
   <string name="text_run_on_startup">Autox.js가 시작될 때</string>  
   <string name="text_usage_stats_permission">사용 액세스</string>  
-  <string name="description_usage_stats_permission">\"사용 통계 보기\" 권한을 통해 이 기기의 과거 응용 프로그램 사용을 얻을 수 있으므로 현재 응용 프로그램(currentPackage)을 얻는 것이 더 정확합니다.</string>  
+  <string name="description_usage_stats_permission">\"사용 통계 보기\" 권한을 통해 이 장치의 과거 응용 프로그램 사용을 얻을 수 있으므로 현재 응용 프로그램(currentPackage)을 얻는 것이 더 정확합니다.</string>  
   <string name="text_open_with">열린 길</string>  
   <string name="text_root">뿌리</string>  
   <string name="text_no_root">루트 무료</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">검색 종료</string>  
   <string name="text_licenses_other">비오픈 소스 라이선스</string>  
   <string name="text_save_successfully">성공적으로 저장됨</string>  
-  <string name="text_save_as_project">프로젝트로 저장</string>
-  <string name="text_select_save_mode">저장 방법을 선택해 주세요</string>
-  <string name="text_save_as_project_and_exit">프로젝트로 저장하고 종료</string>
-  <string name="apk_builder_sign">서명</string>
-  <string name="text_invalid_config">잘못된 구성</string>
-  <string name="text_abi">지원되는 ABI(쉼표로 구분)</string>
-  <string name="text_save_project_to">프로젝트 저장 위치: %s</string>
+  <string name="text_save_as_project">프로젝트로 저장</string>  
+  <string name="text_select_save_mode">저장 방법을 선택하세요</string>  
+  <string name="text_save_as_project_and_exit">프로젝트로 저장하고 종료</string>  
+  <string name="apk_builder_sign">서명</string>  
+  <string name="text_invalid_config">잘못된 구성</string>  
+  <string name="text_abi">지원되는 ABI(쉼표로 구분)</string>  
+  <string name="text_save_project_to">프로젝트 저장 위치: %s</string>  
+  <string name="text_hide_and_show">숨기기/보이기</string>
+  <string name="text_browser_open">브라우저 열기</string>
+  <string name="text_do_nothing">아무것도하지 마세요</string>
+  <string name="text_copy_to_new_folder">원본 폴더의 내용을 새 폴더로 복사</string>
+  <string name="text_move_new_folder">원본 폴더의 내용을 새 폴더로 이동</string>
+  <string name="text_accessibility_service_is_not_enable">접근성 서비스가 켜져 있지 않습니다</string>
+  <string name="text_set_successfully">성공적으로 설정</string>
 </resources>

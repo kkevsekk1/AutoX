@@ -299,7 +299,7 @@
   <string name="text_options">विकल्प</string>  
   <string name="text_using_id_selector">आईडी का उपयोग करके चुनें</string>  
   <string name="text_using_text_selector">पाठ चयन (पाठ) का प्रयोग करें</string>  
-  <string name="text_using_desc_selector">विवरण का उपयोग करके चयन करें (desc)</string>  
+  <string name="text_using_desc_selector">विवरण का उपयोग करें चयन करें (desc)</string>  
   <string name="text_generate">बनाना</string>  
   <string name="text_generate_fail">निर्माण विफल o(╥﹏╥)o</string>  
   <string name="text_documentation_source">दस्तावेज़ीकरण स्रोत</string>  
@@ -343,7 +343,7 @@
   <string name="nodebb_error_change_password_error_match">दर्ज किए गए दो पासवर्ड मेल नहीं खाते</string>  
   <string name="text_logout">साइन आउट</string>  
   <string name="nodebb_error_forbidden">ऑपरेशन विफल, कृपया बाद में पुन: प्रयास करें</string>  
-  <string name="description_stable_mode">स्थिर मोड लेआउट विवरण को छोड़ कर लेआउट को पकड़ते समय स्क्रिप्ट को अधिक स्थिर बनाता है, लेकिन साथ ही कम ऑन-स्क्रीन नियंत्रण प्राप्त करता है। \n \n के लिए एक्सेसिबिलिटी सेवा को फिर से शुरू करें।</string>  
+  <string name="description_stable_mode">स्थिर मोड लेआउट विवरण को छोड़ कर लेआउट को पकड़ते समय स्क्रिप्ट को और अधिक स्थिर बनाता है, लेकिन साथ ही कम ऑन-स्क्रीन नियंत्रण प्राप्त करता है। \n \n के लिए एक्सेसिबिलिटी सेवा को फिर से शुरू करें।</string>  
   <string name="text_size_min_value">2</string>  
   <string name="text_size_max_value">60</string>  
   <string name="text_text_size">फ़ॉन्ट आकार</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">मुख्य इंटरफ़ेस में प्रवेश करने के लिए क्लिक करें</string>  
   <string name="text_run_on_other_broadcast">अन्य कार्यक्रम (प्रसारण)</string>  
   <string name="text_broadcast_action">प्रसारण कार्रवाई</string>  
-  <string name="text_run_on_boot">बूट करते समय</string>  
+  <string name="text_run_on_boot">बूट समय पर</string>  
   <string name="text_run_on_screen_on">जब स्क्रीन चालू हो</string>  
   <string name="text_run_on_screen_off">जब स्क्रीन बंद हो</string>  
   <string name="error_empty_selection">कृपया एक प्रसारण ईवेंट विकल्प चुनें</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">खोज से बाहर निकलें</string>  
   <string name="text_licenses_other">गैर-ओपन सोर्स लाइसेंस</string>  
   <string name="text_save_successfully">सफलतापूर्वक संचित कर लिया गया है</string>  
-  <string name="text_save_as_project">परियोजना के रूप में सहेजें</string>
-  <string name="text_select_save_mode">कृपया एक सेव विधि चुनें</string>
-  <string name="text_save_as_project_and_exit">प्रोजेक्ट के रूप में सहेजें और बाहर निकलें</string>
-  <string name="apk_builder_sign">हस्ताक्षर करने के</string>
-  <string name="text_invalid_config">अमान्य विन्यास</string>
-  <string name="text_abi">समर्थित ABI (अल्पविराम से अलग)</string>
-  <string name="text_save_project_to">प्रोजेक्ट इसमें सहेजा गया: %s</string>
+  <string name="text_save_as_project">परियोजना के रूप में सहेजें</string>  
+  <string name="text_select_save_mode">कृपया एक सेव विधि चुनें</string>  
+  <string name="text_save_as_project_and_exit">प्रोजेक्ट के रूप में सहेजें और बाहर निकलें</string>  
+  <string name="apk_builder_sign">हस्ताक्षर करने के</string>  
+  <string name="text_invalid_config">अमान्य विन्यास</string>  
+  <string name="text_abi">समर्थित ABI (अल्पविराम से अलग)</string>  
+  <string name="text_save_project_to">प्रोजेक्ट इसमें सहेजा गया: %s</string>  
+  <string name="text_hide_and_show">छिपाएं दिखाएं</string>
+  <string name="text_browser_open">ब्राउज़र खुला</string>
+  <string name="text_do_nothing">कुछ मत करो</string>
+  <string name="text_copy_to_new_folder">मूल फ़ोल्डर की सामग्री को नए फ़ोल्डर में कॉपी करें</string>
+  <string name="text_move_new_folder">मूल फ़ोल्डर की सामग्री को नए फ़ोल्डर में ले जाएँ</string>
+  <string name="text_accessibility_service_is_not_enable">सुलभता सेवा चालू नहीं है</string>
+  <string name="text_set_successfully">सफलतापूर्वक सेट करें</string>
 </resources>

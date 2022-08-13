@@ -299,7 +299,7 @@
   <string name="text_options">Optionen</string>  
   <string name="text_using_id_selector">Wählen Sie anhand der ID aus</string>  
   <string name="text_using_text_selector">Textauswahl verwenden (Text)</string>  
-  <string name="text_using_desc_selector">Mit Beschreibung auswählen (desc)</string>  
+  <string name="text_using_desc_selector">Verwendung Beschreibung Auswählen (absteigend)</string>  
   <string name="text_generate">Generieren</string>  
   <string name="text_generate_fail">Erstellung fehlgeschlagen o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Dokumentationsquelle</string>  
@@ -489,7 +489,7 @@
   <string name="text_app_download_link">Download-Link</string>  
   <string name="text_project_link">Projektadresse</string>  
   <string name="text_release_date">Veröffentlicht: %s</string>  
-  <string name="text_checking_for_updates">Suche nach Aktualisierungen</string>  
+  <string name="text_checking_for_updates">Suche nach Updates</string>  
   <string name="text_update_information_not_found">Keine Aktualisierungsinformationen gefunden</string>  
   <string name="text_please_enable_external_storage">Bitte aktivieren Sie zuerst die externe Speicherberechtigung</string>  
   <string name="text_app_detail_settings">App-Details-Einstellungen</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Suche beenden</string>  
   <string name="text_licenses_other">Nicht-Open-Source-Lizenz</string>  
   <string name="text_save_successfully">Erfolgreich gespeichert</string>  
-  <string name="text_save_as_project">Als Projekt speichern</string>
-  <string name="text_select_save_mode">Bitte wählen Sie eine Speichermethode aus</string>
-  <string name="text_save_as_project_and_exit">Als Projekt speichern und beenden</string>
-  <string name="apk_builder_sign">Unterzeichnung</string>
-  <string name="text_invalid_config">Ungültige Konfiguration</string>
-  <string name="text_abi">Unterstützte ABIs (durch Kommas getrennt)</string>
-  <string name="text_save_project_to">Projekt gespeichert unter: %s</string>
+  <string name="text_save_as_project">Als Projekt speichern</string>  
+  <string name="text_select_save_mode">Bitte wählen Sie eine Speichermethode aus</string>  
+  <string name="text_save_as_project_and_exit">Als Projekt speichern und beenden</string>  
+  <string name="apk_builder_sign">Unterzeichnung</string>  
+  <string name="text_invalid_config">Ungültige Konfiguration</string>  
+  <string name="text_abi">Unterstützte ABIs (mit Kommas getrennt)</string>  
+  <string name="text_save_project_to">Projekt gespeichert unter: %s</string>  
+  <string name="text_hide_and_show">Verstecken anzeigen</string>
+  <string name="text_browser_open">Browser geöffnet</string>
+  <string name="text_do_nothing">Nichts tun</string>
+  <string name="text_copy_to_new_folder">Kopieren Sie den Inhalt des ursprünglichen Ordners in den neuen Ordner</string>
+  <string name="text_move_new_folder">Verschieben Sie den Inhalt des ursprünglichen Ordners in den neuen Ordner</string>
+  <string name="text_accessibility_service_is_not_enable">Der Barrierefreiheitsdienst ist nicht aktiviert</string>
+  <string name="text_set_successfully">Erfolgreich eingestellt</string>
 </resources>

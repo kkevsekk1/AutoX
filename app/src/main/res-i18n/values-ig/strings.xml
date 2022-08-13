@@ -8,7 +8,7 @@
   <string name="text_please_input_name">Biko tinye aha</string>  
   <string name="text_name">Aha</string>  
   <string name="text_go_to_setting">Gaa na ntọala</string>  
-  <string name="explain_accessibility_permission">Akụrụngwa kwesịrị imepe \"Accessibility Services\" ka ọ na-agba ọsọ, biko mepee \"Settings->Accessibility Services\" ma ọ bụ \"Settings->Accessibility Services->Ọrụ ọrụ ebudatara\", chọta ngwa a, wee mee ka ọrụ \n nwekwara ike ịtọ ya. emesia na menu ndọpụta.</string>  
+  <string name="explain_accessibility_permission">Akụrụngwa kwesịrị imepe \"Accessibility Services\" ka ọ rụọ ọrụ, biko mepee \"Settings->Accessibility Services\" ma ọ bụ \"Ntọala->ọrụ nnweta->ọrụ ndị ọzọ ebudatara\", chọta ngwa a, wee mee ka ọrụ \n nwekwara ike ịtọ ya. emesia na menu ndọpụta.</string>  
   <string name="explain_accessibility_permission2">Akụrụngwa kwesịrị imepe \"ọrụ nnweta\" ka ọ rụọ ọrụ, biko mepee \"Ntọala->ọrụ nnweta\" ma ọ bụ \"Ntọala->ọrụ nnweta->ọrụ ndị ebudatara\", chọta ngwa a, wee mee ka ọrụ nnweta.</string>  
   <string name="text_cancel">Kagbuo</string>  
   <string name="text_path_is_empty">Ụzọ tọgbọ chakoo</string>  
@@ -24,7 +24,7 @@
   <string name="text_alert">Ndumodu</string>  
   <string name="edit_exit_without_save_warn">Edobeghi ọdịnaya a, ị ji n\'aka na ị chọrọ ịpụ?</string>  
   <string name="text_save_and_exit">Chekwaa wee pụọ</string>  
-  <string name="text_exit_directly">Wepụ ozugbo</string>  
+  <string name="text_exit_directly">Pụọ ozugbo</string>  
   <string name="text_setting">Melite</string>  
   <string name="text_exit">Kwụsị</string>  
   <string name="text_auto_operate_service">Ọrụ nnweta</string>  
@@ -40,7 +40,7 @@
   <string name="text_press_again_to_exit">Pịa ọzọ ka ịpụ na mmemme</string>  
   <string name="text_already_stop_n_scripts">%d na-agba ọsọ scripts kwụsịrị</string>  
   <string name="text_start_running">Malite ọrụ</string>  
-  <string name="text_open_by_other_apps">Jiri ngwa ọzọ mepee</string>  
+  <string name="text_open_by_other_apps">Mepee ngwa ọzọ</string>  
   <string name="text_rename">Nyegharịa aha</string>  
   <string name="text_send_shortcut">Mepụta Ụzọ mkpirisi</string>  
   <string name="text_already_create">Kere</string>  
@@ -102,7 +102,7 @@
   <string name="text_please_choose_a_script">Biko họrọ edemede</string>  
   <string name="text_edit_prepare_script">Na-edezi script emechara nke ọma</string>  
   <string name="text_pre_execute_script">Tupu egbuo script</string>  
-  <string name="text_clear_pre_execute_script">Kpochapụ edemede emechagoro</string>  
+  <string name="text_clear_pre_execute_script">Kpochapụ edemede emegoro tupu emechaa</string>  
   <string name="text_clear_file_selection">Tọgharia nhọrọ faịlụ edemede</string>  
   <string name="summary_pre_execute_script">A ga-egbu tupu emee faịlụ edemede ahụ</string>  
   <string name="text_checking_update">Na-enyocha maka mmelite</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Nhọrọ</string>  
   <string name="text_using_id_selector">Họrọ iji id</string>  
   <string name="text_using_text_selector">Jiri nhọrọ ederede (ederede)</string>  
-  <string name="text_using_desc_selector">Họrọ iji nkọwa (desc)</string>  
+  <string name="text_using_desc_selector">Jiri Họrọ nkọwa (desk)</string>  
   <string name="text_generate">N\'ịwa</string>  
   <string name="text_generate_fail">Mee dara o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Isi mmalite akwụkwọ</string>  
@@ -338,7 +338,7 @@
   <string name="text_community_popular">Ewu ewu</string>  
   <string name="text_community_tags">Isiokwu</string>  
   <string name="nodebb_error_invalid_login_credentials">Nzere nbanye na ezighi ezi</string>  
-  <string name="nodebb_error_change_password_error_length">Paswọọdụ dị mkpụmkpụ</string>  
+  <string name="nodebb_error_change_password_error_length">Okwuntughe dị oke mkpụmkpụ</string>  
   <string name="nodebb_error_email_taken">Jikwa igbe ozi</string>  
   <string name="nodebb_error_change_password_error_match">Okwuntughe abụọ etinyere adabaghị</string>  
   <string name="text_logout">Pụọ</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Pịa ka ịbanye isi interface</string>  
   <string name="text_run_on_other_broadcast">Mmemme ndị ọzọ (mgbasa ozi)</string>  
   <string name="text_broadcast_action">Omume Mgbasa Ozi</string>  
-  <string name="text_run_on_boot">Mgbe booting</string>  
+  <string name="text_run_on_boot">N\'oge buut</string>  
   <string name="text_run_on_screen_on">Mgbe ihuenyo dị</string>  
   <string name="text_run_on_screen_off">Mgbe ihuenyo gbanyụrụ</string>  
   <string name="error_empty_selection">Biko họrọ nhọrọ mmemme mgbasa ozi</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Abalị mode</string>  
   <string name="text_run_on_startup">Mgbe Autox.js malitere</string>  
   <string name="text_usage_stats_permission">Ohere ojiji</string>  
-  <string name="description_usage_stats_permission">Site na ikike \"nlele ọnụ ọgụgụ ojiji\", ị nwere ike nweta ojiji ngwa ngwa gara aga nke ngwaọrụ a, ka ọ bụrụ ihe ziri ezi ịnweta ngwa ugbu a (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Site na ikike \"Lee Usage Statistics\", ị nwere ike nweta ojiji ngwa ngwa gara aga nke ngwaọrụ a, ka ọ bụrụ ihe ziri ezi ịnweta ngwa ugbu a (currentPackage).</string>  
   <string name="text_open_with">Ụzọ oghe</string>  
   <string name="text_root">Mgbọrọgwụ</string>  
   <string name="text_no_root">Mgbọrọgwụ free</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Wepụ ọchụchọ</string>  
   <string name="text_licenses_other">Ikikere Isi mmalite anaghị emepe emepe</string>  
   <string name="text_save_successfully">Echekwara nke ọma</string>  
-  <string name="text_save_as_project">Chekwaa ka oru ngo</string>
-  <string name="text_select_save_mode">Biko họrọ usoro nchekwa</string>
-  <string name="text_save_as_project_and_exit">Chekwa dị ka oru ngo wee pụọ</string>
-  <string name="apk_builder_sign">Mbinye aka</string>
-  <string name="text_invalid_config">Nhazi ezighi ezi</string>
-  <string name="text_abi">ABI akwadoro (nke nwere akara rịkọm)</string>
-  <string name="text_save_project_to">A na-echekwa oru ngo na: %s</string>
+  <string name="text_save_as_project">Chekwaa ka oru ngo</string>  
+  <string name="text_select_save_mode">Biko họrọ usoro nchekwa</string>  
+  <string name="text_save_as_project_and_exit">Chekwa dị ka oru ngo wee pụọ</string>  
+  <string name="apk_builder_sign">Mbinye aka</string>  
+  <string name="text_invalid_config">Nhazi ezighi ezi</string>  
+  <string name="text_abi">ABI akwadoro (nke nwere akara rịkọm)</string>  
+  <string name="text_save_project_to">A na-echekwa oru ngo na: %s</string>  
+  <string name="text_hide_and_show">Zoo/egosi</string>
+  <string name="text_browser_open">Ihe nchọgharị mepere emepe</string>
+  <string name="text_do_nothing">Emela ihe ọ bụla</string>
+  <string name="text_copy_to_new_folder">Detuo ọdịnaya nke folda izizi na folda ọhụrụ</string>
+  <string name="text_move_new_folder">Bugharịa ọdịnaya nke folda izizi gaa na folda ọhụrụ</string>
+  <string name="text_accessibility_service_is_not_enable">Agbanyeghi ọrụ nnweta</string>
+  <string name="text_set_successfully">Tọọ nke ọma</string>
 </resources>

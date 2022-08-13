@@ -2,7 +2,7 @@
 
 <!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
 <resources> 
-  <string name="text_accessibility_service_description">ਸਕ੍ਰਿਪਟ ਓਪਰੇਸ਼ਨਾਂ (ਕਲਿੱਕ, ਲੰਮਾ ਦਬਾਓ, ਸਵਾਈਪ, ਆਦਿ) ਨੂੰ ਸਵੈਚਲਿਤ ਕਰਨ ਲਈ ਲੋੜੀਂਦਾ ਹੈ, ਜੇਕਰ ਅਯੋਗ ਹੈ, ਤਾਂ ਸਿਰਫ਼ ਉਹਨਾਂ ਸਕ੍ਰਿਪਟਾਂ ਨੂੰ ਚਲਾਇਆ ਜਾ ਸਕਦਾ ਹੈ ਜਿਨ੍ਹਾਂ ਵਿੱਚ ਆਟੋਮੈਟਿਕ ਓਪਰੇਸ਼ਨ ਸ਼ਾਮਲ ਨਹੀਂ ਹੁੰਦੇ ਹਨ।</string>  
+  <string name="text_accessibility_service_description">ਸਕ੍ਰਿਪਟ ਓਪਰੇਸ਼ਨਾਂ (ਕਲਿੱਕ, ਲੰਮਾ ਦਬਾਓ, ਸਵਾਈਪ, ਆਦਿ) ਨੂੰ ਸਵੈਚਲਿਤ ਕਰਨ ਲਈ ਲੋੜੀਂਦਾ ਹੈ, ਜੇਕਰ ਅਯੋਗ ਹੈ, ਤਾਂ ਸਿਰਫ਼ ਉਹਨਾਂ ਸਕ੍ਰਿਪਟਾਂ ਨੂੰ ਚਲਾਇਆ ਜਾ ਸਕਦਾ ਹੈ ਜਿਨ੍ਹਾਂ ਵਿੱਚ ਆਟੋਮੈਟਿਕ ਕਾਰਵਾਈਆਂ ਸ਼ਾਮਲ ਨਹੀਂ ਹੁੰਦੀਆਂ ਹਨ।</string>  
   <string name="text_new_file">ਇੱਕ ਨਵੀਂ ਫਾਈਲ ਬਣਾਓ</string>  
   <string name="text_create_fail">ਬਣਾਉਣਾ ਅਸਫਲ ਰਿਹਾ</string>  
   <string name="text_please_input_name">ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਨਾਮ ਦਰਜ ਕਰੋ</string>  
@@ -57,7 +57,7 @@
   <string name="text_log">ਲੌਗ</string>  
   <string name="text_report_fail">ਸਪੁਰਦਗੀ ਅਸਫਲ ਰਹੀ</string>  
   <string name="text_report_succeed">ਸਫਲਤਾਪੂਰਵਕ ਸਪੁਰਦ ਕੀਤਾ ਗਿਆ</string>  
-  <string name="edit_and_run_handle_intent_error">ਫ਼ਾਈਲ \'ਤੇ ਪ੍ਰਕਿਰਿਆ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ</string>  
+  <string name="edit_and_run_handle_intent_error">ਫ਼ਾਈਲ ਦੀ ਪ੍ਰਕਿਰਿਆ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ</string>  
   <string name="text_issue_report">ਸੁਝਾਅ</string>  
   <string name="text_script_record">ਰਿਕਾਰਡ ਸਕ੍ਰਿਪਟ</string>  
   <string name="text_start_record">ਰਿਕਾਰਡਿੰਗ ਸ਼ੁਰੂ ਕਰੋ</string>  
@@ -75,7 +75,7 @@
   <string name="text_enable_accessibility_service_by_root">ਰੂਟ ਅਧਿਕਾਰਾਂ ਨਾਲ ਸਵੈਚਲਿਤ ਤੌਰ \'ਤੇ ਸੇਵਾਵਾਂ ਨੂੰ ਸਮਰੱਥ ਬਣਾਓ</string>  
   <string name="text_auto_operate_service_enabled_but_not_running">ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਸਮਰਥਿਤ ਹੈ ਪਰ ਚੱਲ ਨਹੀਂ ਰਹੀ, ਇਹ ਇੱਕ Android ਬੱਗ ਹੋ ਸਕਦਾ ਹੈ, ਤੁਹਾਨੂੰ ਫ਼ੋਨ ਰੀਸਟਾਰਟ ਕਰਨ ਜਾਂ ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਨੂੰ ਮੁੜ ਚਾਲੂ ਕਰਨ ਦੀ ਲੋੜ ਹੋ ਸਕਦੀ ਹੈ</string>  
   <string name="text_enable_accessibility_service_by_root_timeout">ਰੂਟ ਅਧਿਕਾਰਾਂ ਨਾਲ ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਸ਼ੁਰੂ ਕਰਨ ਦਾ ਸਮਾਂ ਸਮਾਪਤ</string>  
-  <string name="summary_enable_accessibility_service_by_root">ਖੋਲ੍ਹਣ ਤੋਂ ਬਾਅਦ, ਸਕ੍ਰਿਪਟ ਨੂੰ ਚਲਾਉਣ ਨਾਲ ਰੂਟ ਅਧਿਕਾਰਾਂ ਨਾਲ ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਆਪਣੇ ਆਪ ਖੁੱਲ੍ਹ ਜਾਵੇਗੀ</string>  
+  <string name="summary_enable_accessibility_service_by_root">ਖੋਲ੍ਹਣ ਤੋਂ ਬਾਅਦ, ਸਕ੍ਰਿਪਟ ਨੂੰ ਚਲਾਉਣ ਨਾਲ ਰੂਟ ਵਿਸ਼ੇਸ਼ ਅਧਿਕਾਰਾਂ ਨਾਲ ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਆਪਣੇ ਆਪ ਖੁੱਲ੍ਹ ਜਾਵੇਗੀ</string>  
   <string name="text_appearance">ਬਾਹਰੀ</string>  
   <string name="text_theme_color">ਥੀਮ ਰੰਗ</string>  
   <string name="text_select_image">ਚਿੱਤਰ ਚੁਣੋ</string>  
@@ -112,7 +112,7 @@
   <string name="text_check_for_updates">ਅੱਪਡੇਟ ਲਈ ਚੈੱਕ ਕਰੋ</string>  
   <string name="text_is_latest_version">ਪਹਿਲਾਂ ਹੀ ਨਵੀਨਤਮ ਸੰਸਕਰਣ</string>  
   <string name="text_version_too_old">ਸੰਸਕਰਣ ਬਹੁਤ ਘੱਟ ਹੈ</string>  
-  <string name="warning_version_too_old">ਮੌਜੂਦਾ ਸੰਸਕਰਣ ਇੱਕ ਜਨਤਕ ਬੀਟਾ ਸੰਸਕਰਣ ਹੈ, ਜਿਸ ਵਿੱਚ ਬਹੁਤ ਸਾਰੀਆਂ ਸਪੱਸ਼ਟ ਅਤੇ ਸੰਭਾਵੀ ਸਮੱਸਿਆਵਾਂ ਹਨ, ਅਤੇ ਇਹ ਹੁਣ ਲਗਾਤਾਰ ਵਰਤੋਂ ਲਈ ਢੁਕਵਾਂ ਨਹੀਂ ਹੈ।</string>  
+  <string name="warning_version_too_old">ਮੌਜੂਦਾ ਸੰਸਕਰਣ ਇੱਕ ਜਨਤਕ ਬੀਟਾ ਸੰਸਕਰਣ ਹੈ, ਜਿਸ ਵਿੱਚ ਬਹੁਤ ਸਾਰੀਆਂ ਸਪੱਸ਼ਟ ਅਤੇ ਸੰਭਾਵਿਤ ਸਮੱਸਿਆਵਾਂ ਹਨ, ਅਤੇ ਇਹ ਹੁਣ ਲਗਾਤਾਰ ਵਰਤੋਂ ਲਈ ਢੁਕਵਾਂ ਨਹੀਂ ਹੈ।</string>  
   <string name="text_update">ਨਵਿਆਉਣ</string>  
   <string name="text_release_notes">ਚੇਂਜਲਾਗ</string>  
   <string name="text_download_url">ਡਾਊਨਲੋਡ ਲਿੰਕ</string>  
@@ -122,7 +122,7 @@
   <string name="text_code_beautify">ਫਾਰਮੈਟ ਕੋਡ</string>  
   <string name="text_processing">ਕਾਰਵਾਈ</string>  
   <string name="text_guard_mode">ਸੁਰੱਖਿਅਤ ਮੋਡ</string>  
-  <string name="summary_guard_mode">ਆਟੋਮੈਟਿਕ ਓਪਰੇਸ਼ਨ ਕਮਾਂਡ ਨੂੰ ਇਸ ਸੌਫਟਵੇਅਰ ਇੰਟਰਫੇਸ ਵਿੱਚ ਦੁਰਘਟਨਾ ਨਾਲ ਛੂਹਣ ਤੋਂ ਬਚਣ ਲਈ ਨਹੀਂ ਚਲਾਇਆ ਜਾ ਸਕਦਾ ਹੈ</string>  
+  <string name="summary_guard_mode">ਦੁਰਘਟਨਾ ਨਾਲ ਛੂਹਣ ਤੋਂ ਬਚਣ ਲਈ ਇਸ ਸੌਫਟਵੇਅਰ ਇੰਟਰਫੇਸ ਵਿੱਚ ਆਟੋਮੈਟਿਕ ਓਪਰੇਸ਼ਨ ਕਮਾਂਡ ਨਹੀਂ ਚਲਾਈ ਜਾ ਸਕਦੀ ਹੈ</string>  
   <string name="text_layout_inspector_is_dumping">ਖਾਕਾ ਵਿਸ਼ਲੇਸ਼ਣ ਜਾਰੀ ਹੈ</string>  
   <string name="text_force_stop">ਜ਼ਬਰਦਸਤੀ ਰੋਕ</string>  
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] %f ਸਕਿੰਟਾਂ ਵਿੱਚ ਚੱਲਣਾ ਸਮਾਪਤ ਹੋਇਆ</string>  
@@ -159,7 +159,7 @@
   <string name="text_import_script">ਸਕ੍ਰਿਪਟ ਫਾਈਲ ਆਯਾਤ ਕਰੋ</string>  
   <string name="text_root_record_out_file_type">ਰੂਟ ਰਿਕਾਰਡਿੰਗ ਦੁਆਰਾ ਤਿਆਰ ਕੀਤੀ ਫਾਈਲ ਕਿਸਮ</string>  
   <string name="text_binary">ਬਾਈਨਰੀ</string>  
-  <string name="summary_stable_mode">ਲੇਆਉਟ ਵਿਸ਼ਲੇਸ਼ਣ ਸਮਰੱਥ ਹੋਣ \'ਤੇ ਵਧੇਰੇ ਸਥਿਰ ਹੁੰਦਾ ਹੈ, ਪਰ ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਬਹੁਤ ਘੱਟ ਸਕ੍ਰਿਪਟਾਂ ਸਹੀ ਢੰਗ ਨਾਲ ਕੰਮ ਨਾ ਕਰਨ। ਪ੍ਰਭਾਵੀ ਹੋਣ ਲਈ ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਨੂੰ ਮੁੜ-ਚਾਲੂ ਕਰੋ</string>  
+  <string name="summary_stable_mode">ਲੇਆਉਟ ਵਿਸ਼ਲੇਸ਼ਣ ਸਮਰੱਥ ਹੋਣ \'ਤੇ ਵਧੇਰੇ ਸਥਿਰ ਹੁੰਦਾ ਹੈ, ਪਰ ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਥੋੜ੍ਹੀਆਂ ਜਿਹੀਆਂ ਸਕ੍ਰਿਪਟਾਂ ਸਹੀ ਢੰਗ ਨਾਲ ਕੰਮ ਨਾ ਕਰਨ। ਪ੍ਰਭਾਵੀ ਹੋਣ ਲਈ ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਨੂੰ ਮੁੜ-ਚਾਲੂ ਕਰੋ</string>  
   <string name="text_hideLaucher">ਡੈਸਕਟੌਪ ਆਈਕਨਾਂ ਨੂੰ ਲੁਕਾਓ (ਐਡੀਬੀ ਜਾਂ ਹੋਰ ਤਰੀਕਿਆਂ ਰਾਹੀਂ ਐਪਸ ਲਾਂਚ ਕਰੋ)</string>  
   <string name="text_stable_mode">ਸਥਿਰ ਮੋਡ</string>  
   <string name="text_single_build_clean_mode">ਸਿੰਗਲ ਫਾਈਲ ਪੈਕੇਜਿੰਗ ਰਿਫਰੈਸ਼ਿੰਗ ਮੋਡ</string>  
@@ -180,7 +180,7 @@
   <string name="text_login">ਲਾਗਿਨ</string>  
   <string name="text_forgot_password">ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ?</string>  
   <string name="text_username_cannot_be_empty">ਉਪਭੋਗਤਾ ਨਾਮ ਖਾਲੀ ਨਹੀਂ ਹੋ ਸਕਦਾ ਹੈ</string>  
-  <string name="text_password_cannot_be_empty">ਪਾਸਵਰਡ ਖਾਲੀ ਨਹੀਂ ਹੋ ਸਕਦਾ ਹੈ</string>  
+  <string name="text_password_cannot_be_empty">ਪਾਸਵਰਡ ਖਾਲੀ ਨਹੀਂ ਹੋ ਸਕਦਾ</string>  
   <string name="text_time">ਸਮਾਂ</string>  
   <string name="text_size">ਆਕਾਰ</string>  
   <string name="text_type">ਕਿਸਮ</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">ਵਿਕਲਪ</string>  
   <string name="text_using_id_selector">ਆਈਡੀ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਚੁਣੋ</string>  
   <string name="text_using_text_selector">ਟੈਕਸਟ ਚੋਣ (ਟੈਕਸਟ) ਦੀ ਵਰਤੋਂ ਕਰੋ</string>  
-  <string name="text_using_desc_selector">ਵਰਣਨ (ਡੈਸਕ) ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਚੁਣੋ</string>  
+  <string name="text_using_desc_selector">ਵਰਣਨ ਚੁਣੋ (ਡੈਸਕ) ਦੀ ਵਰਤੋਂ ਕਰੋ</string>  
   <string name="text_generate">ਪੈਦਾ ਕਰੋ</string>  
   <string name="text_generate_fail">ਬਿਲਡ ਅਸਫਲ o(╥﹏╥)o</string>  
   <string name="text_documentation_source">ਦਸਤਾਵੇਜ਼ ਸਰੋਤ</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">ਮੁੱਖ ਇੰਟਰਫੇਸ ਵਿੱਚ ਦਾਖਲ ਹੋਣ ਲਈ ਕਲਿੱਕ ਕਰੋ</string>  
   <string name="text_run_on_other_broadcast">ਹੋਰ ਸਮਾਗਮ (ਪ੍ਰਸਾਰਣ)</string>  
   <string name="text_broadcast_action">ਪ੍ਰਸਾਰਣ ਕਾਰਵਾਈ</string>  
-  <string name="text_run_on_boot">ਬੂਟ ਕਰਨ ਵੇਲੇ</string>  
+  <string name="text_run_on_boot">ਬੂਟ ਸਮੇਂ</string>  
   <string name="text_run_on_screen_on">ਜਦੋਂ ਸਕ੍ਰੀਨ ਚਾਲੂ ਹੁੰਦੀ ਹੈ</string>  
   <string name="text_run_on_screen_off">ਜਦੋਂ ਸਕ੍ਰੀਨ ਬੰਦ ਹੁੰਦੀ ਹੈ</string>  
   <string name="error_empty_selection">ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਪ੍ਰਸਾਰਣ ਇਵੈਂਟ ਵਿਕਲਪ ਚੁਣੋ</string>  
@@ -444,7 +444,7 @@
   <string name="air_label_use_guest">ਅਗਿਆਤ ਰੂਪ ਵਿੱਚ ਭੇਜੋ</string>  
   <string name="air_label_email">ਮੇਲ</string>  
   <string name="air_label_email_optional">ਸੰਪਰਕ ਈਮੇਲ (ਵਿਕਲਪਿਕ)</string>  
-  <string name="air_error_no_title">ਕਿਰਪਾ ਕਰਕੇ ਕੋਈ ਸਵਾਲ ਦਾਖਲ ਕਰੋ</string>  
+  <string name="air_error_no_title">ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਸਵਾਲ ਦਾਖਲ ਕਰੋ</string>  
   <string name="air_error_no_description">ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਵਿਸਤ੍ਰਿਤ ਵੇਰਵਾ ਦਰਜ ਕਰੋ</string>  
   <string name="air_error_no_username">ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਵੈਧ Github ਉਪਭੋਗਤਾ ਨਾਮ ਦਾਖਲ ਕਰੋ</string>  
   <string name="air_error_no_password">ਕਿਰਪਾ ਕਰਕੇ ਸਹੀ ਪਾਸਵਰਡ ਦਾਖਲ ਕਰੋ</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">ਖੋਜ ਤੋਂ ਬਾਹਰ ਜਾਓ</string>  
   <string name="text_licenses_other">ਗੈਰ-ਓਪਨ ਸੋਰਸ ਲਾਇਸੰਸ</string>  
   <string name="text_save_successfully">ਸਫਲਤਾਪੂਰਵਕ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ</string>  
-  <string name="text_save_as_project">ਪ੍ਰੋਜੈਕਟ ਦੇ ਤੌਰ ਤੇ ਸੁਰੱਖਿਅਤ ਕਰੋ</string>
-  <string name="text_select_save_mode">ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਸੇਵ ਵਿਧੀ ਚੁਣੋ</string>
-  <string name="text_save_as_project_and_exit">ਪ੍ਰੋਜੈਕਟ ਦੇ ਰੂਪ ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਕਰੋ ਅਤੇ ਬਾਹਰ ਨਿਕਲੋ</string>
-  <string name="apk_builder_sign">ਦਸਤਖਤ</string>
-  <string name="text_invalid_config">ਅਵੈਧ ਸੰਰਚਨਾ</string>
-  <string name="text_abi">ਸਮਰਥਿਤ ABIs (ਕਾਮਿਆਂ ਨਾਲ ਵੱਖ ਕੀਤੇ)</string>
-  <string name="text_save_project_to">ਪ੍ਰੋਜੈਕਟ ਇਸ ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ: %s</string>
+  <string name="text_save_as_project">ਪ੍ਰੋਜੈਕਟ ਦੇ ਤੌਰ ਤੇ ਸੁਰੱਖਿਅਤ ਕਰੋ</string>  
+  <string name="text_select_save_mode">ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਸੇਵ ਵਿਧੀ ਚੁਣੋ</string>  
+  <string name="text_save_as_project_and_exit">ਪ੍ਰੋਜੈਕਟ ਦੇ ਤੌਰ ਤੇ ਸੁਰੱਖਿਅਤ ਕਰੋ ਅਤੇ ਬਾਹਰ ਜਾਓ</string>  
+  <string name="apk_builder_sign">ਦਸਤਖਤ</string>  
+  <string name="text_invalid_config">ਅਵੈਧ ਸੰਰਚਨਾ</string>  
+  <string name="text_abi">ਸਮਰਥਿਤ ABIs (ਕਾਮਿਆਂ ਨਾਲ ਵੱਖ ਕੀਤੇ)</string>  
+  <string name="text_save_project_to">ਪ੍ਰੋਜੈਕਟ ਇਸ ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ: %s</string>  
+  <string name="text_hide_and_show">ਓਹਲੇ / ਦਿਖਾਓ</string>
+  <string name="text_browser_open">ਬਰਾਊਜ਼ਰ ਖੁੱਲ੍ਹਾ</string>
+  <string name="text_do_nothing">ਕੁਝ ਨਾ ਕਰੋ</string>
+  <string name="text_copy_to_new_folder">ਅਸਲੀ ਫੋਲਡਰ ਦੀ ਸਮੱਗਰੀ ਨੂੰ ਨਵੇਂ ਫੋਲਡਰ ਵਿੱਚ ਕਾਪੀ ਕਰੋ</string>
+  <string name="text_move_new_folder">ਮੂਲ ਫੋਲਡਰ ਦੀਆਂ ਸਮੱਗਰੀਆਂ ਨੂੰ ਨਵੇਂ ਫੋਲਡਰ ਵਿੱਚ ਭੇਜੋ</string>
+  <string name="text_accessibility_service_is_not_enable">ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਚਾਲੂ ਨਹੀਂ ਹੈ</string>
+  <string name="text_set_successfully">ਸਫਲਤਾਪੂਰਵਕ ਸੈੱਟ ਕੀਤਾ</string>
 </resources>

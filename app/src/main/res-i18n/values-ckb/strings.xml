@@ -11,7 +11,7 @@
   <string name="explain_accessibility_permission">نەرمەکاڵاکە پێویستی بە کردنەوەی \"خزمەتگوزارییەکانی دەستڕاگەیشتن\" هەیە بۆ ئەوەی کار بکات، تکایە \"ڕێکخستنەکان->خزمەتگوزارییەکانی دەستڕاگەیشتن\" یان \"ڕێکخستنەکان->خزمەتگوزارییەکانی دەستڕاگەیشتن->خزمەتگوزارییە دابەزێنراوەکانی زیاتر\" بکەرەوە، ئەم بەرنامەیە بدۆزەرەوە، و خزمەتگوزارییەکانی دەستڕاگەیشتن چالاک بکە \n هەروەها دەتوانرێت ڕێکبخرێت دواتر لە مینیوی دابەزینەکەدا.</string>  
   <string name="explain_accessibility_permission2">نەرمەکاڵاکە پێویستی بە کردنەوەی \"خزمەتگوزارییەکانی دەستڕاگەیشتن\" هەیە بۆ ئەوەی کار بکات، تکایە \"ڕێکخستنەکان->خزمەتگوزارییەکانی دەستڕاگەیشتن\" یان \"ڕێکخستنەکان->خزمەتگوزارییەکانی دەستڕاگەیشتن->خزمەتگوزارییە دابەزێنراوەکانی زیاتر\" بکەرەوە، ئەم بەرنامەیە بدۆزەرەوە، و خزمەتگوزارییەکانی دەستڕاگەیشتن چالاک بکە</string>  
   <string name="text_cancel">ڕەتکردنەوە</string>  
-  <string name="text_path_is_empty">ڕێگاکە بەتاڵە</string>  
+  <string name="text_path_is_empty">ڕێگا بەتاڵە</string>  
   <string name="text_file_not_exists">فایله‌که‌ بوونی نییه‌</string>  
   <string name="text_no_file_rw_permission">هیچ مۆڵەتێکی خوێندنەوە و نووسینی فایل نییە</string>  
   <string name="text_no_accessibility_permission">خزمەتگوزاری دەستڕاگەیشتن دەستی پێ نەکردووە</string>  
@@ -24,7 +24,7 @@
   <string name="text_alert">ئاماژە</string>  
   <string name="edit_exit_without_save_warn">ناوەڕۆکەکە پاشەکەوت نەکراوە، ئایا دڵنیای کە دەتەوێت دەربچیت؟</string>  
   <string name="text_save_and_exit">پاشەکەوت بکە و دەربکە</string>  
-  <string name="text_exit_directly">ڕاستەوخۆ دەربکە</string>  
+  <string name="text_exit_directly">ڕاستەوخۆ دەربکەون</string>  
   <string name="text_setting">دا مه رزاندن</string>  
   <string name="text_exit">وازهێنان</string>  
   <string name="text_auto_operate_service">خزمەتگوزاری دەستڕاگەیشتن</string>  
@@ -131,7 +131,7 @@
   <string name="text_again_and_again_again">دووبارە دوو هێندە</string>  
   <string name="text_again_and_again_again_again">دووبارە دوو هێندە</string>  
   <string name="text_connect_computer">کۆمپیوتەر بەیەکەوە ببەستە</string>  
-  <string name="regist">پەیوەندی بە فرۆشگای ئەپەکانەوە بکە</string>  
+  <string name="regist">پەیوەندی بە ئەپ ستۆرەوە بکە</string>  
   <string name="text_server_address">ئادرەسی سێرڤێر</string>  
   <string name="text_server_address_error">ناونیشانی لینکی هەڵە</string>  
   <string name="text_annunciation">ووتە</string>  
@@ -201,7 +201,7 @@
   <string name="hint_regex">ڕستەسازی ئاسایی هەمان شتە کە لە جاڤاسکڕێپتدا هەیە، دەتوانیت لەبری یەکسانییە گیراوەکان $1~9 بەکاربهێنیت</string>  
   <string name="text_jump">بازدان</string>  
   <string name="text_jump_to_end">بڕۆ بۆ کۆتایی فایلەکە</string>  
-  <string name="text_jump_to_start">بڕۆ بۆ دەستپێکردنی فایل</string>  
+  <string name="text_jump_to_start">بڕۆ بۆ دەستپێکردنی فایلەکان</string>  
   <string name="text_jump_to_line_start">بڕۆ بۆ سەرەتای دێڕ</string>  
   <string name="text_jump_to_line_end">بڕۆ بۆ کۆتایی دێڕ</string>  
   <string name="text_exit_floating_window">لە پەنجەرەی هەڵدەفڕێت دەربکەون</string>  
@@ -243,7 +243,7 @@
   <string name="text_sign_hint_key_path">*ڕێڕەوی پاشەکەوتکردنی فایل</string>  
   <string name="text_sign_hint_key_alias">*ناونیشان</string>  
   <string name="text_sign_hint_key_password">*نهێنوشە</string>  
-  <string name="text_sign_hint_key_year">*ماوەی کارایی (ساڵ)</string>  
+  <string name="text_sign_hint_key_year">*ماوەی کارابوون (ساڵ)</string>  
   <string name="text_sign_key_year_def">25. 25</string>  
   <string name="text_sign_hint_key_country">*کۆدی وڵات (XX)</string>  
   <string name="text_sign_key_country_def">EN</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">بژاردەکان</string>  
   <string name="text_using_id_selector">بە بەکارهێنانی id هەڵبژێرە</string>  
   <string name="text_using_text_selector">هەڵبژاردنی دەق بەکاربهێنە (دەق)</string>  
-  <string name="text_using_desc_selector">بە بەکارهێنانی وەسف هەڵبژێرە (desc)</string>  
+  <string name="text_using_desc_selector">بەکارهێنان پێناسە هەڵبژێرە (desc)</string>  
   <string name="text_generate">بەرهەم هێنان</string>  
   <string name="text_generate_fail">دروستکردن شکستی هێنا o(╥*╥)o</string>  
   <string name="text_documentation_source">سەرچاوەی بەڵگەنامەسازی</string>  
@@ -443,7 +443,7 @@
   <string name="air_label_use_email">لە ڕێگەی ئیمەیڵەوە بنێرە</string>  
   <string name="air_label_use_guest">بە بێ ناو بنێرە</string>  
   <string name="air_label_email">پۆست</string>  
-  <string name="air_label_email_optional">ئیمەیڵی پەیوەندیکردن (هەڵبژاردە)</string>  
+  <string name="air_label_email_optional">ئیمەیڵی پەیوەندیکردن (ئیختیاری)</string>  
   <string name="air_error_no_title">تکایە پرسیارێک بنووسە</string>  
   <string name="air_error_no_description">تکایە وەسفێکی ورد بنووسە</string>  
   <string name="air_error_no_username">تکایە ناوی بەکارهێنەرێکی دروستی Github دابنێ</string>  
@@ -494,15 +494,22 @@
   <string name="text_please_enable_external_storage">تکایە سەرەتا مۆڵەتی هەڵگرتنی دەرەکی چالاک بکە</string>  
   <string name="text_app_detail_settings">ڕێکخستنەکانی وردەکاری ئەپەکە</string>  
   <string name="text_logcat">یاداشت</string>  
-  <string name="text_menu">مێنۆ</string>  
+  <string name="text_menu">مینیو</string>  
   <string name="text_exit_search">لە گەڕان دەربکەون</string>  
   <string name="text_licenses_other">مۆڵەتی سەرچاوەی ناکراوە</string>  
   <string name="text_save_successfully">بە سەرکەوتوویی ڕزگار کرا</string>  
-  <string name="text_save_as_project">وەک پرۆژە پاشەکەوت بکە</string>
-  <string name="text_select_save_mode">تکایە شێوازێکی پاشەکەوتکردن هەڵبژێرە</string>
-  <string name="text_save_as_project_and_exit">وەک پرۆژە پاشەکەوت بکە و دەربکە</string>
-  <string name="apk_builder_sign">واژۆکردن</string>
-  <string name="text_invalid_config">ڕێکخستنێکی نادروستە</string>
-  <string name="text_abi">ABI پشتگیریکراوەکان (بە کۆما جیا دەکرێنەوە)</string>
-  <string name="text_save_project_to">پڕۆژەکە پاشەکەوت کراوە بۆ: %s</string>
+  <string name="text_save_as_project">وەک پرۆژە پاشەکەوت بکە</string>  
+  <string name="text_select_save_mode">تکایە شێوازێکی پاشەکەوتکردن هەڵبژێرە</string>  
+  <string name="text_save_as_project_and_exit">وەک پرۆژە پاشەکەوت بکە و دەربکە</string>  
+  <string name="apk_builder_sign">واژۆکردن</string>  
+  <string name="text_invalid_config">ڕێکخستنێکی نادروستە</string>  
+  <string name="text_abi">ABI پشتگیریکراوەکان (بە کۆما جیا دەکرێنەوە)</string>  
+  <string name="text_save_project_to">پڕۆژەکە پاشەکەوت کراوە بۆ: %s</string>  
+  <string name="text_hide_and_show">شاردنەوە/نیشاندان</string>
+  <string name="text_browser_open">وێبگەڕەکە بکرێتەوە</string>
+  <string name="text_do_nothing">هیچ مەکە</string>
+  <string name="text_copy_to_new_folder">ناوەڕۆکی فۆڵدەری ئەسڵی کۆپی بکە بۆ فۆڵدەری نوێ</string>
+  <string name="text_move_new_folder">ناوەڕۆکی فۆڵدەری ئەسڵی بگوازەرەوە بۆ فۆڵدەری نوێ</string>
+  <string name="text_accessibility_service_is_not_enable">خزمەتگوزاری دەستڕاگەیشتن چالاک نەکراوە</string>
+  <string name="text_set_successfully">بە سەرکەوتوویی دانراوە</string>
 </resources>

@@ -13,7 +13,7 @@
   <string name="text_cancel">റദ്ദാക്കുക</string>  
   <string name="text_path_is_empty">പാത ശൂന്യമാണ്</string>  
   <string name="text_file_not_exists">ഫയൽ നിലവിലില്ല</string>  
-  <string name="text_no_file_rw_permission">ഫയൽ വായിക്കാനും എഴുതാനും അനുമതിയില്ല</string>  
+  <string name="text_no_file_rw_permission">ഫയലുകൾ വായിക്കാനും എഴുതാനും അനുമതിയില്ല</string>  
   <string name="text_no_accessibility_permission">പ്രവേശനക്ഷമത സേവനം ആരംഭിച്ചിട്ടില്ല</string>  
   <string name="text_drawer_close">ഡ്രോപ്പ് ഡൗൺ മെനു അടയ്ക്കുക</string>  
   <string name="text_drawer_open">ഡ്രോപ്പ് ഡൗൺ മെനു തുറക്കുക</string>  
@@ -105,7 +105,7 @@
   <string name="text_clear_pre_execute_script">മുൻകൂട്ടി നിർവ്വഹിച്ച സ്ക്രിപ്റ്റുകൾ മായ്ക്കുക</string>  
   <string name="text_clear_file_selection">സ്ക്രിപ്റ്റ് ഫയൽ തിരഞ്ഞെടുക്കൽ പുനഃസജ്ജമാക്കുക</string>  
   <string name="summary_pre_execute_script">സ്ക്രിപ്റ്റ് ഫയൽ എക്സിക്യൂട്ട് ചെയ്യുന്നതിനുമുമ്പ് എക്സിക്യൂട്ട് ചെയ്യും</string>  
-  <string name="text_checking_update">അപ്‌ഡേറ്റുകൾക്കായി പരിശോധിക്കുന്നു</string>  
+  <string name="text_checking_update">അപ്ഡേറ്റുകൾക്കായി പരിശോധിക്കുന്നു</string>  
   <string name="text_new_version">പുതിയ പതിപ്പ്</string>  
   <string name="text_new_version2">പുതിയ പതിപ്പ്: %s</string>  
   <string name="text_check_update_error">അപ്‌ഡേറ്റുകൾ പരിശോധിക്കുക പരാജയപ്പെട്ടു: %s</string>  
@@ -145,7 +145,7 @@
   <string name="text_script_save_successfully">വിജയകരമായി സംരക്ഷിച്ചു, ഡയറക്‌ടറി പുതുക്കുക</string>  
   <string name="text_run_repeatedly">സൈക്കിൾ ഓട്ടം</string>  
   <string name="text_loop_interval">സൈക്കിൾ ഇടവേള (സെക്കൻഡ്)</string>  
-  <string name="text_loop_delay">നടപ്പിലാക്കൽ കാലതാമസം (സെക്കൻഡ്)</string>  
+  <string name="text_loop_delay">കാലതാമസം നടപ്പിലാക്കൽ (സെക്കൻഡ്)</string>  
   <string name="text_loop_times">സൈക്കിളുകൾ</string>  
   <string name="hint_loop_times">0 അനന്തമായ ലൂപ്പാണ്</string>  
   <string name="hint_loop_delay">ലൂപ്പിംഗ് ആരംഭിക്കാൻ എത്ര സെക്കൻഡ് വൈകണം</string>  
@@ -235,7 +235,7 @@
   <string name="text_service_desc_text">പ്രവേശനക്ഷമത സേവനങ്ങളുടെ വിവരണം</string>  
   <string name="text_sign">അടയാളം</string>  
   <string name="text_sign_choose">ഒപ്പ് തിരഞ്ഞെടുക്കുക</string>  
-  <string name="text_sign_password">ഒപ്പ് സർട്ടിഫിക്കറ്റ് പാസ്‌വേഡ്</string>  
+  <string name="text_sign_password">ഒപ്പ് സർട്ടിഫിക്കറ്റ് പാസ്വേഡ്</string>  
   <string name="text_sign_password_input">പാസ്‌വേഡ് സ്ഥിരീകരിക്കുക</string>  
   <string name="text_sign_manage">സിഗ്നേച്ചർ മാനേജ്മെന്റ്</string>  
   <string name="text_sign_key_add">ഒപ്പ് സൃഷ്ടിക്കുക</string>  
@@ -278,10 +278,10 @@
   <string name="text_registering">രജിസ്റ്റർ ചെയ്യുന്നു</string>  
   <string name="text_register_fail">രജിസ്ട്രേഷൻ പരാജയപ്പെട്ടു</string>  
   <string name="text_register_succeed">രജിസ്ട്രേഷൻ വിജയം</string>  
-  <string name="text_sample">സാമ്പിൾ കോഡ്</string>  
+  <string name="text_sample">മാതൃകാ കോഡ്</string>  
   <string name="text_reset_to_initial_content">യഥാർത്ഥ ഉള്ളടക്കത്തിലേക്ക് പുനഃസജ്ജമാക്കുക</string>  
   <string name="text_reset_succeed">വിജയകരമായി പുനഃസജ്ജമാക്കുക</string>  
-  <string name="text_cannot_read_file">ഫയൽ വായിക്കാനായില്ല</string>  
+  <string name="text_cannot_read_file">ഫയൽ വായിക്കാൻ കഴിയുന്നില്ല</string>  
   <string name="text_service">സേവിക്കുക</string>  
   <string name="text_notification_permission">വായിക്കാനുള്ള അനുമതി അറിയിക്കുക</string>  
   <string name="text_open_main_activity">പ്രധാന ഇന്റർഫേസ് തുറക്കുക</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">ഓപ്ഷനുകൾ</string>  
   <string name="text_using_id_selector">ഐഡി ഉപയോഗിച്ച് തിരഞ്ഞെടുക്കുക</string>  
   <string name="text_using_text_selector">ടെക്സ്റ്റ് തിരഞ്ഞെടുക്കൽ ഉപയോഗിക്കുക (ടെക്സ്റ്റ്)</string>  
-  <string name="text_using_desc_selector">വിവരണം (ഡെസ്ക്) ഉപയോഗിച്ച് തിരഞ്ഞെടുക്കുക</string>  
+  <string name="text_using_desc_selector">വിവരണം ഉപയോഗിക്കുക തിരഞ്ഞെടുക്കുക (ഡെസ്ക്)</string>  
   <string name="text_generate">സൃഷ്ടിക്കുക</string>  
   <string name="text_generate_fail">ബിൽഡ് പരാജയപ്പെട്ടു o(╥﹏╥)o</string>  
   <string name="text_documentation_source">ഡോക്യുമെന്റേഷൻ ഉറവിടം</string>  
@@ -373,7 +373,7 @@
   <string name="hint_long_click_run_to_debug">\"റൺ\" ഐക്കൺ ദീർഘനേരം അമർത്തിയാൽ ഡീബഗ്ഗിംഗ് ആരംഭിക്കാവുന്നതാണ്</string>  
   <string name="format_debug_bar_title">ഡീബഗ് [ %s ]</string>  
   <string name="text_copy_value">മൂല്യം പകർത്തുക</string>  
-  <string name="text_execute_code">കോഡ് നടപ്പിലാക്കുക</string>  
+  <string name="text_execute_code">കോഡ് എക്സിക്യൂട്ട് ചെയ്യുക</string>  
   <string name="text_code">കോഡ്</string>  
   <string name="text_result">ഫലമായി</string>  
   <string name="text_close">അടച്ചുപൂട്ടൽ</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">പ്രധാന ഇന്റർഫേസ് നൽകുന്നതിന് ക്ലിക്കുചെയ്യുക</string>  
   <string name="text_run_on_other_broadcast">മറ്റ് ഇവന്റുകൾ (പ്രക്ഷേപണം)</string>  
   <string name="text_broadcast_action">പ്രക്ഷേപണ പ്രവർത്തനം</string>  
-  <string name="text_run_on_boot">ബൂട്ട് ചെയ്യുമ്പോൾ</string>  
+  <string name="text_run_on_boot">ബൂട്ട് സമയത്ത്</string>  
   <string name="text_run_on_screen_on">സ്ക്രീൻ ഓണായിരിക്കുമ്പോൾ</string>  
   <string name="text_run_on_screen_off">സ്ക്രീൻ ഓഫായിരിക്കുമ്പോൾ</string>  
   <string name="error_empty_selection">ദയവായി ഒരു പ്രക്ഷേപണ ഇവന്റ് ഓപ്ഷൻ തിരഞ്ഞെടുക്കുക</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">രാത്രി മോഡ്</string>  
   <string name="text_run_on_startup">Autox.js ആരംഭിക്കുമ്പോൾ</string>  
   <string name="text_usage_stats_permission">ഉപയോഗ പ്രവേശനം</string>  
-  <string name="description_usage_stats_permission">\"ഉപയോഗ സ്ഥിതിവിവരക്കണക്കുകൾ കാണുക\" അനുമതിയിലൂടെ, നിങ്ങൾക്ക് ഈ ഉപകരണത്തിന്റെ മുൻകാല ആപ്ലിക്കേഷൻ ഉപയോഗം നേടാനാകും, അതുവഴി നിലവിലെ ആപ്ലിക്കേഷൻ (currentPackage) നേടുന്നത് കൂടുതൽ കൃത്യമാണ്.</string>  
+  <string name="description_usage_stats_permission">\"ഉപയോഗ സ്ഥിതിവിവരക്കണക്കുകൾ കാണുക\" അനുമതിയിലൂടെ, ഈ ഉപകരണത്തിന്റെ മുൻകാല ആപ്ലിക്കേഷൻ ഉപയോഗം നിങ്ങൾക്ക് നേടാനാകും, അതുവഴി നിലവിലെ ആപ്ലിക്കേഷൻ (കറന്റ്പാക്കേജ്) ലഭിക്കുന്നത് കൂടുതൽ കൃത്യമാണ്.</string>  
   <string name="text_open_with">തുറന്ന വഴി</string>  
   <string name="text_root">റൂട്ട്</string>  
   <string name="text_no_root">റൂട്ട് ഫ്രീ</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">തിരയലിൽ നിന്ന് പുറത്തുകടക്കുക</string>  
   <string name="text_licenses_other">നോൺ-ഓപ്പൺ സോഴ്സ് ലൈസൻസ്</string>  
   <string name="text_save_successfully">സംരക്ഷിച്ചു</string>  
-  <string name="text_save_as_project">പ്രോജക്റ്റായി സംരക്ഷിക്കുക</string>
-  <string name="text_select_save_mode">ദയവായി ഒരു സേവ് രീതി തിരഞ്ഞെടുക്കുക</string>
-  <string name="text_save_as_project_and_exit">പ്രോജക്റ്റായി സംരക്ഷിച്ച് പുറത്തുകടക്കുക</string>
-  <string name="apk_builder_sign">ഒപ്പിടുന്നു</string>
-  <string name="text_invalid_config">അസാധുവായ കോൺഫിഗറേഷൻ</string>
-  <string name="text_abi">പിന്തുണയ്‌ക്കുന്ന എബിഐകൾ (കോമകളാൽ വേർതിരിച്ചിരിക്കുന്നു)</string>
-  <string name="text_save_project_to">പ്രോജക്റ്റ് ഇതിലേക്ക് സംരക്ഷിച്ചു: %s</string>
+  <string name="text_save_as_project">പ്രോജക്റ്റായി സംരക്ഷിക്കുക</string>  
+  <string name="text_select_save_mode">ദയവായി ഒരു സേവ് രീതി തിരഞ്ഞെടുക്കുക</string>  
+  <string name="text_save_as_project_and_exit">പ്രോജക്റ്റായി സംരക്ഷിച്ച് പുറത്തുകടക്കുക</string>  
+  <string name="apk_builder_sign">ഒപ്പിടുന്നു</string>  
+  <string name="text_invalid_config">അസാധുവായ കോൺഫിഗറേഷൻ</string>  
+  <string name="text_abi">പിന്തുണയ്‌ക്കുന്ന എബിഐകൾ (കോമകളാൽ വേർതിരിച്ചിരിക്കുന്നു)</string>  
+  <string name="text_save_project_to">പ്രോജക്റ്റ് ഇതിലേക്ക് സംരക്ഷിച്ചു: %s</string>  
+  <string name="text_hide_and_show">മറയ്ക്കുക / കാണിക്കുക</string>
+  <string name="text_browser_open">ബ്രൗസർ തുറന്നു</string>
+  <string name="text_do_nothing">ഒന്നും ചെയ്യരുത്</string>
+  <string name="text_copy_to_new_folder">യഥാർത്ഥ ഫോൾഡറിലെ ഉള്ളടക്കങ്ങൾ പുതിയ ഫോൾഡറിലേക്ക് പകർത്തുക</string>
+  <string name="text_move_new_folder">യഥാർത്ഥ ഫോൾഡറിലെ ഉള്ളടക്കങ്ങൾ പുതിയ ഫോൾഡറിലേക്ക് നീക്കുക</string>
+  <string name="text_accessibility_service_is_not_enable">പ്രവേശനക്ഷമത സേവനം ഓണാക്കിയിട്ടില്ല</string>
+  <string name="text_set_successfully">വിജയകരമായി സജ്ജമാക്കി</string>
 </resources>

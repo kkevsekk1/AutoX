@@ -24,7 +24,7 @@
   <string name="text_alert">Tilmaamid</string>  
   <string name="edit_exit_without_save_warn">Waxa ku jira lama kaydin, ma hubtaa inaad doonayso inaad baxdo?</string>  
   <string name="text_save_and_exit">Badbaadi oo ka bax</string>  
-  <string name="text_exit_directly">Si toos ah uga bax</string>  
+  <string name="text_exit_directly">Toos uga bax</string>  
   <string name="text_setting">Dhigay</string>  
   <string name="text_exit">Joojin</string>  
   <string name="text_auto_operate_service">Adeegyada Helitaanka</string>  
@@ -273,7 +273,7 @@
   <string name="text_logining">Galitaanka</string>  
   <string name="text_register">Diiwaan geli</string>  
   <string name="text_email">Boostada</string>  
-  <string name="text_email_cannot_be_empty">E-mailku madhnaan karo</string>  
+  <string name="text_email_cannot_be_empty">Iimaylku ma madhan karo</string>  
   <string name="text_email_format_error">Khaladka qaabka iimaylka</string>  
   <string name="text_registering">Diiwaangelinta</string>  
   <string name="text_register_fail">Diiwaangelintu way fashilantay</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Ikhtiyaarada</string>  
   <string name="text_using_id_selector">Dooro adigoo isticmaalaya id</string>  
   <string name="text_using_text_selector">Adeegso xulashada qoraalka (qoraalka)</string>  
-  <string name="text_using_desc_selector">Dooro adiga oo isticmaalaya sharaxaad (desk)</string>  
+  <string name="text_using_desc_selector">Adeegso Sharaxaada Xulashada</string>  
   <string name="text_generate">Dhalin</string>  
   <string name="text_generate_fail">Dhis fashilantay o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Isha waraaqaha</string>  
@@ -349,14 +349,14 @@
   <string name="text_text_size">Cabbirka farta</string>  
   <string name="text_preview">Horudhac</string>  
   <string name="text_size_current_value" formatted="true">Cabbirka farta: %d</string>  
-  <string name="error_regex_find_prev">Odhaahda joogtada ahi ma sugi karto</string>  
+  <string name="error_regex_find_prev">Hadalka joogtada ahi ma sugi karo</string>  
   <string name="text_notification">Ogaysiis</string>  
   <string name="apk_builder_plugin_version_too_low">Nooca baakadku aad buu u hooseeyaa, arjiga baakadaysanna waxa laga yaabaa inaanu si sax ah u shaqayn. Ma rabtaa inaad soo dejiso nooca u dhigma ee plug-ka baakadaysan hadda?</string>  
   <string name="text_inspect_layout_bounds">Falanqaynta baaxadda qaab-dhismeedka</string>  
   <string name="text_inspect_layout_hierarchy">Heerarka qaabaynta</string>  
   <string name="text_inspect_layout">Falanqaynta qaabaynta</string>  
   <string name="text_pointer_location">Booska tilmaame [Root]</string>  
-  <string name="text_change_script_dir">Beddel jidka gal script</string>  
+  <string name="text_change_script_dir">Beddel jidka gal qoraalka</string>  
   <string name="default_value_script_dir_path">/script/</string>  
   <string name="text_error_copy_file" formatted="true">Khalad ayaa dhacay: %s</string>  
   <string name="text_debug">Qaladka</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Guji si aad u gasho interface-ka ugu weyn</string>  
   <string name="text_run_on_other_broadcast">Dhacdooyinka kale (baahinta)</string>  
   <string name="text_broadcast_action">Ficilka Baahinta</string>  
-  <string name="text_run_on_boot">Marka bootinta</string>  
+  <string name="text_run_on_boot">Waqtiga bootinta</string>  
   <string name="text_run_on_screen_on">Marka shaashadu shido</string>  
   <string name="text_run_on_screen_off">Marka shaashadu dansan tahay</string>  
   <string name="error_empty_selection">Fadlan dooro dhacdo baahinta</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Hab habeen</string>  
   <string name="text_run_on_startup">Marka Autox.js bilaabo</string>  
   <string name="text_usage_stats_permission">Isticmaalka isticmaalka</string>  
-  <string name="description_usage_stats_permission">Oggolaanshaha \"aragtida isticmaalka statistics\", waxaad ku heli kartaa isticmaalkii hore ee arjigii hore ee qalabkan, si ay u noqoto mid sax ah si aad u hesho codsiga hadda (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Ogolaanshiyaha \"Arag Isticmaalka Tirakoobka\", waxaad ku heli kartaa isticmaalkii hore ee arjigii hore ee qalabkan, si ay u noqoto mid sax ah si aad u hesho codsiga hadda (currentPackage).</string>  
   <string name="text_open_with">Jid furan</string>  
   <string name="text_root">Xidid</string>  
   <string name="text_no_root">Xidid la\'aan</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Ka bax raadinta</string>  
   <string name="text_licenses_other">Shatiga Isha Aan Furan</string>  
   <string name="text_save_successfully">Si guul leh loo badbaadiyay</string>  
-  <string name="text_save_as_project">U kaydso mashruuc ahaan</string>
-  <string name="text_select_save_mode">Fadlan door habka kaydinta</string>
-  <string name="text_save_as_project_and_exit">U keydi sidii mashruuc oo bixi</string>
-  <string name="apk_builder_sign">Saxiixid</string>
-  <string name="text_invalid_config">Qaabeynta aan ansax ahayn</string>
-  <string name="text_abi">ABI-yada la taageeray (lagu kala saaray hakadyo)</string>
-  <string name="text_save_project_to">Mashruuca waxa lagu kaydiyay: %s</string>
+  <string name="text_save_as_project">U kaydso mashruuc ahaan</string>  
+  <string name="text_select_save_mode">Fadlan door habka kaydinta</string>  
+  <string name="text_save_as_project_and_exit">U keydi sidii mashruuc oo bixi</string>  
+  <string name="apk_builder_sign">Saxiixid</string>  
+  <string name="text_invalid_config">Qaabeynta aan ansax ahayn</string>  
+  <string name="text_abi">ABI-yada la taageeray (lagu kala saaray hakadyo)</string>  
+  <string name="text_save_project_to">Mashruuca waxa lagu kaydiyay: %s</string>  
+  <string name="text_hide_and_show">Qarin/muujin</string>
+  <string name="text_browser_open">Browser furan</string>
+  <string name="text_do_nothing">Waxba ha samayn</string>
+  <string name="text_copy_to_new_folder">Ku koobbi waxa ku jira galka asalka ah galka cusub</string>
+  <string name="text_move_new_folder">U guuri waxa ku jira galka asalka ah galka cusub</string>
+  <string name="text_accessibility_service_is_not_enable">Adeegga gelitaanku ma daar</string>
+  <string name="text_set_successfully">Si guul leh loo dejiyay</string>
 </resources>

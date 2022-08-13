@@ -8,7 +8,7 @@
   <string name="text_please_input_name">Introduïu un nom</string>  
   <string name="text_name">Nom</string>  
   <string name="text_go_to_setting">Anar a la configuració</string>  
-  <string name="explain_accessibility_permission">El programari ha d\'obrir \"Serveis d\'accessibilitat\" per executar-se, obriu \"Configuració->Serveis d\'accessibilitat\" o \"Configuració->Serveis d\'accessibilitat->Més serveis descarregats\", cerqueu aquesta aplicació i habiliteu els serveis d\'accessibilitat \n es pot configurar més endavant al menú desplegable.</string>  
+  <string name="explain_accessibility_permission">El programari ha d\'obrir \"Serveis d\'accessibilitat\" per executar-se, obriu \"Configuració->Serveis d\'accessibilitat\" o \"Configuració->Serveis d\'accessibilitat->Més serveis descarregats\", cerqueu aquesta aplicació i activeu els serveis d\'accessibilitat \n es pot configurar més endavant al menú desplegable.</string>  
   <string name="explain_accessibility_permission2">El programari ha d\'obrir \"Serveis d\'accessibilitat\" per executar-se, obriu \"Configuració->Serveis d\'accessibilitat\" o \"Configuració->Serveis d\'accessibilitat->Més serveis descarregats\", cerqueu aquesta aplicació i activeu els serveis d\'accessibilitat.</string>  
   <string name="text_cancel">Cancel · lar</string>  
   <string name="text_path_is_empty">El camí està buit</string>  
@@ -105,7 +105,7 @@
   <string name="text_clear_pre_execute_script">Esborra els scripts preexecutats</string>  
   <string name="text_clear_file_selection">Restableix la selecció de fitxers d\'script</string>  
   <string name="summary_pre_execute_script">S\'executarà abans que s\'executi el fitxer d\'script</string>  
-  <string name="text_checking_update">S\'estan buscant actualitzacions</string>  
+  <string name="text_checking_update">Comprovant actualitzacions</string>  
   <string name="text_new_version">Nova versió</string>  
   <string name="text_new_version2">Nova versió: %s</string>  
   <string name="text_check_update_error">No s\'ha pogut comprovar si hi ha actualitzacions: %s</string>  
@@ -128,8 +128,8 @@
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] S\'ha acabat d\'executar en %f segons</string>  
   <string name="text_again">De nou</string>  
   <string name="text_again_and_again">Doble</string>  
-  <string name="text_again_and_again_again">Doble de nou</string>  
-  <string name="text_again_and_again_again_again">Doble de nou</string>  
+  <string name="text_again_and_again_again">Doblegar de nou</string>  
+  <string name="text_again_and_again_again_again">Doblegar de nou</string>  
   <string name="text_connect_computer">Connectar l\'ordinador</string>  
   <string name="regist">Connecteu-vos a la botiga d\'aplicacions</string>  
   <string name="text_server_address">Adreça del servidor</string>  
@@ -231,7 +231,7 @@
   <string name="text_required_draw_overlay">Cal permís de finestra flotant</string>  
   <string name="text_volumeUpcontrol">Tecla per pujar el volum per finalitzar la tasca</string>  
   <string name="text_splash_text">Text de la interfície d\'inici</string>  
-  <string name="text_splash_icon">Icona de la interfície d\'inici</string>  
+  <string name="text_splash_icon">Icona d\'inici de la interfície</string>  
   <string name="text_service_desc_text">Descripció dels serveis d\'accessibilitat</string>  
   <string name="text_sign">Signe</string>  
   <string name="text_sign_choose">Seleccionar la signatura</string>  
@@ -293,13 +293,13 @@
   <string name="text_scroll_forward">Feu lliscar cap endavant/dreta/avall (desplaçament cap endavant)</string>  
   <string name="text_scroll_backward">Desplaçar-se cap enrere/amunt/esquerra (desplaçar-se enrere)</string>  
   <string name="text_find_one">Fins que se\'n trobi un (findOne)</string>  
-  <string name="text_until_find">Fins que es trobin tots (fins a trobar)</string>  
+  <string name="text_until_find">Fins que tot es trobi (fins a trobar)</string>  
   <string name="text_wait_for">Espereu que aparegui el control (waitFor)</string>  
   <string name="text_selector_exists">Jutjar l\'existència del control (existeix)</string>  
   <string name="text_options">Opcions</string>  
   <string name="text_using_id_selector">Seleccioneu amb id</string>  
   <string name="text_using_text_selector">Utilitza la selecció de text (text)</string>  
-  <string name="text_using_desc_selector">Seleccioneu mitjançant la descripció (desc)</string>  
+  <string name="text_using_desc_selector">Utilitza Descripció Selecció (desc)</string>  
   <string name="text_generate">Generar</string>  
   <string name="text_generate_fail">La compilació ha fallat o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Font de documentació</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Feu clic per entrar a la interfície principal</string>  
   <string name="text_run_on_other_broadcast">Altres esdeveniments (emissió)</string>  
   <string name="text_broadcast_action">Acció de difusió</string>  
-  <string name="text_run_on_boot">En arrencar</string>  
+  <string name="text_run_on_boot">En el moment de l\'arrencada</string>  
   <string name="text_run_on_screen_on">Quan la pantalla està encesa</string>  
   <string name="text_run_on_screen_off">Quan la pantalla està apagada</string>  
   <string name="error_empty_selection">Seleccioneu una opció d\'esdeveniment d\'emissió</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Mode nocturn</string>  
   <string name="text_run_on_startup">Quan s\'inicia Autox.js</string>  
   <string name="text_usage_stats_permission">Accés d\'ús</string>  
-  <string name="description_usage_stats_permission">Mitjançant el permís \"visualitza les estadístiques d\'ús\", podeu obtenir l\'ús anterior de l\'aplicació d\'aquest dispositiu, de manera que sigui més precís obtenir l\'aplicació actual (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Mitjançant el permís \"Mostra les estadístiques d\'ús\", podeu obtenir l\'ús anterior de l\'aplicació d\'aquest dispositiu, de manera que sigui més precís obtenir l\'aplicació actual (Paquet actual).</string>  
   <string name="text_open_with">Camí obert</string>  
   <string name="text_root">Arrel</string>  
   <string name="text_no_root">Lliure d\'arrel</string>  
@@ -476,7 +476,7 @@
   <string name="text_favorites_management">Gestió de la col·lecció</string>  
   <string name="text_switch_timed_task_scheduler">Canvia el programador de tasques cronometrades</string>  
   <string name="text_go_to_open">Obrir</string>  
-  <string name="text_home">A casa</string>  
+  <string name="text_home">Casa</string>  
   <string name="text_management">Gestionar</string>  
   <string name="text_document">Documentació</string>  
   <string name="text_open_usb_debug">Activa la depuració USB</string>  
@@ -489,7 +489,7 @@
   <string name="text_app_download_link">Enllaç de descàrrega</string>  
   <string name="text_project_link">Adreça del projecte</string>  
   <string name="text_release_date">Publicat: %s</string>  
-  <string name="text_checking_for_updates">S\'estan buscant actualitzacions</string>  
+  <string name="text_checking_for_updates">Comprovant actualitzacions</string>  
   <string name="text_update_information_not_found">No s\'ha trobat cap informació d\'actualització</string>  
   <string name="text_please_enable_external_storage">Activeu primer el permís d\'emmagatzematge extern</string>  
   <string name="text_app_detail_settings">Configuració de detalls de l\'aplicació</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Sortir de la cerca</string>  
   <string name="text_licenses_other">Llicència no de codi obert</string>  
   <string name="text_save_successfully">S\'ha desat correctament</string>  
-  <string name="text_save_as_project">Guardar com a projecte</string>
-  <string name="text_select_save_mode">Seleccioneu un mètode de desar</string>
-  <string name="text_save_as_project_and_exit">Desa com a projecte i surt</string>
-  <string name="apk_builder_sign">Signant</string>
-  <string name="text_invalid_config">Configuració no vàlida</string>
-  <string name="text_abi">ABI admesos (separats per comes)</string>
-  <string name="text_save_project_to">Projecte desat a: %s</string>
+  <string name="text_save_as_project">Guardar com a projecte</string>  
+  <string name="text_select_save_mode">Seleccioneu un mètode de desar</string>  
+  <string name="text_save_as_project_and_exit">Desa com a projecte i surt</string>  
+  <string name="apk_builder_sign">Signant</string>  
+  <string name="text_invalid_config">Configuració no vàlida</string>  
+  <string name="text_abi">ABI admesos (separats per comes)</string>  
+  <string name="text_save_project_to">Projecte desat a: %s</string>  
+  <string name="text_hide_and_show">Ocultar/mostrar</string>
+  <string name="text_browser_open">Navegador obert</string>
+  <string name="text_do_nothing">No fer res</string>
+  <string name="text_copy_to_new_folder">Copieu el contingut de la carpeta original a la carpeta nova</string>
+  <string name="text_move_new_folder">Mou el contingut de la carpeta original a la carpeta nova</string>
+  <string name="text_accessibility_service_is_not_enable">El servei d\'accessibilitat no està activat</string>
+  <string name="text_set_successfully">Configurat correctament</string>
 </resources>

@@ -8,7 +8,7 @@
   <string name="text_please_input_name">Jọwọ tẹ orukọ kan sii</string>  
   <string name="text_name">Oruko</string>  
   <string name="text_go_to_setting">Lọ si awọn eto</string>  
-  <string name="explain_accessibility_permission">Sọfitiwia naa nilo lati ṣii “Awọn Iṣẹ Wiwọle” lati ṣiṣẹ, jọwọ ṣii “Settings->Awọn Iṣẹ Wiwọle” tabi “Settings->Awọn Iṣẹ Wiwọle->Awọn Iṣẹ Igbasilẹ Diẹ sii”, wa ohun elo yii, ki o mu Awọn iṣẹ Wiwọle \n tun le ṣeto nigbamii ni awọn jabọ-silẹ akojọ.</string>  
+  <string name="explain_accessibility_permission">Sọfitiwia naa nilo lati ṣii “Awọn iṣẹ Wiwọle” lati ṣiṣẹ, jọwọ ṣii “Settings->Awọn Iṣẹ Wiwọle” tabi “Settings->Awọn Iṣẹ Wiwọle->Awọn iṣẹ Igbasilẹ Diẹ sii”, wa ohun elo yii, ki o si mu Awọn iṣẹ Wiwọle \n tun le ṣeto nigbamii ni awọn jabọ-silẹ akojọ.</string>  
   <string name="explain_accessibility_permission2">Sọfitiwia naa nilo lati ṣii “Awọn iṣẹ Wiwọle” lati ṣiṣẹ, jọwọ ṣii “Eto->Awọn iṣẹ Wiwọle” tabi “Eto->Awọn iṣẹ Wiwọle->Awọn iṣẹ Igbasilẹ Diẹ sii”, wa ohun elo yii, ki o mu Awọn iṣẹ Wiwọle ṣiṣẹ</string>  
   <string name="text_cancel">Fagilee</string>  
   <string name="text_path_is_empty">Ona ti ṣofo</string>  
@@ -38,7 +38,7 @@
   <string name="text_floating_window">Ferese lilefoofo</string>  
   <string name="text_error_report">Iroyin aṣiṣe</string>  
   <string name="text_press_again_to_exit">Tẹ lẹẹkansi lati jade kuro ni eto naa</string>  
-  <string name="text_already_stop_n_scripts">%d nṣiṣẹ awọn iwe afọwọkọ duro</string>  
+  <string name="text_already_stop_n_scripts">%d ṣiṣe awọn iwe afọwọkọ duro</string>  
   <string name="text_start_running">Bẹrẹ isẹ</string>  
   <string name="text_open_by_other_apps">Ṣii pẹlu ohun elo miiran</string>  
   <string name="text_rename">Fun lorukọ mii</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Awọn aṣayan</string>  
   <string name="text_using_id_selector">Yan nipa lilo id</string>  
   <string name="text_using_text_selector">Lo yiyan ọrọ (ọrọ)</string>  
-  <string name="text_using_desc_selector">Yan nipa lilo apejuwe (desc)</string>  
+  <string name="text_using_desc_selector">Lo Apejuwe Yan (desc)</string>  
   <string name="text_generate">Ina</string>  
   <string name="text_generate_fail">Kọ kuna o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Orisun iwe</string>  
@@ -351,7 +351,7 @@
   <string name="text_size_current_value" formatted="true">Ìwọ̀n ọ̀rọ̀: %d</string>  
   <string name="error_regex_find_prev">Ikosile deede ko le wo siwaju</string>  
   <string name="text_notification">Akiyesi</string>  
-  <string name="apk_builder_plugin_version_too_low">Ẹya plug-in ti a kojọpọ ti lọ silẹ ju, ati pe ohun elo ti a ṣajọ le ma ṣiṣẹ daradara. Ṣe o fẹ ṣe igbasilẹ ẹya ti o baamu ti plug-in ti a ṣajọpọ ni bayi?</string>  
+  <string name="apk_builder_plugin_version_too_low">Ẹya plug-in ti a kojọpọ ti lọ silẹ ju, ati pe ohun elo ti a ṣajọ le ma ṣiṣẹ daradara. Ṣe o fẹ ṣe igbasilẹ ẹya ti o baamu ti plug-in ti o ṣajọpọ ni bayi?</string>  
   <string name="text_inspect_layout_bounds">Itupalẹ ibiti o ti lelẹ</string>  
   <string name="text_inspect_layout_hierarchy">Ilana Ilana</string>  
   <string name="text_inspect_layout">Onínọmbà akọkọ</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Tẹ lati tẹ akọkọ ni wiwo</string>  
   <string name="text_run_on_other_broadcast">Awọn iṣẹlẹ miiran (igbohunsafẹfẹ)</string>  
   <string name="text_broadcast_action">Broadcast Action</string>  
-  <string name="text_run_on_boot">Nigbati booting</string>  
+  <string name="text_run_on_boot">Ni akoko bata</string>  
   <string name="text_run_on_screen_on">Nigbati iboju ba wa ni titan</string>  
   <string name="text_run_on_screen_off">Nigbati iboju ba wa ni pipa</string>  
   <string name="error_empty_selection">Jọwọ yan aṣayan iṣẹlẹ igbohunsafefe kan</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Night mode</string>  
   <string name="text_run_on_startup">Nigbati Autox.js bẹrẹ</string>  
   <string name="text_usage_stats_permission">Wiwọle lilo</string>  
-  <string name="description_usage_stats_permission">Nipasẹ igbanilaaye “awọn iṣiro lilo wiwo”, o le gba lilo ohun elo ti o kọja ti ẹrọ yii, ki o jẹ deede diẹ sii lati gba ohun elo lọwọlọwọ (Package lọwọlọwọ).</string>  
+  <string name="description_usage_stats_permission">Nipasẹ igbanilaaye “Wo Awọn iṣiro Lilo”, o le gba ohun elo ohun elo ti o kọja ti ẹrọ yii, ki o jẹ deede diẹ sii lati gba ohun elo lọwọlọwọ (Package lọwọlọwọ).</string>  
   <string name="text_open_with">Ọna ìmọ</string>  
   <string name="text_root">Gbongbo</string>  
   <string name="text_no_root">Gbongbo free</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Jade wiwa</string>  
   <string name="text_licenses_other">Iwe-aṣẹ Orisun ti kii ṣii</string>  
   <string name="text_save_successfully">Ti fipamọ ni aṣeyọri</string>  
-  <string name="text_save_as_project">Fipamọ bi ise agbese</string>
-  <string name="text_select_save_mode">Jọwọ yan ọna fifipamọ</string>
-  <string name="text_save_as_project_and_exit">Fipamọ bi iṣẹ akanṣe ati jade</string>
-  <string name="apk_builder_sign">Wíwọlé</string>
-  <string name="text_invalid_config">Invalid iṣeto ni</string>
-  <string name="text_abi">Awọn ABI ti o ni atilẹyin (yatọ pẹlu aami idẹsẹ)</string>
-  <string name="text_save_project_to">Ise agbese ti a fipamọ si: %s</string>
+  <string name="text_save_as_project">Fipamọ bi ise agbese</string>  
+  <string name="text_select_save_mode">Jọwọ yan ọna fifipamọ</string>  
+  <string name="text_save_as_project_and_exit">Fipamọ bi iṣẹ akanṣe ati jade</string>  
+  <string name="apk_builder_sign">Wíwọlé</string>  
+  <string name="text_invalid_config">Invalid iṣeto ni</string>  
+  <string name="text_abi">Awọn ABI ti o ni atilẹyin (ya sọtọ pẹlu aami idẹsẹ)</string>  
+  <string name="text_save_project_to">Ise agbese ti a fipamọ si: %s</string>  
+  <string name="text_hide_and_show">Tọju / fihan</string>
+  <string name="text_browser_open">Browser ìmọ</string>
+  <string name="text_do_nothing">Ma se nkankan</string>
+  <string name="text_copy_to_new_folder">Da awọn akoonu ti awọn atilẹba folda si titun folda</string>
+  <string name="text_move_new_folder">Gbe awọn akoonu inu folda atilẹba lọ si folda tuntun</string>
+  <string name="text_accessibility_service_is_not_enable">Iṣẹ iraye si ko tan</string>
+  <string name="text_set_successfully">Ṣeto ni ifijišẹ</string>
 </resources>

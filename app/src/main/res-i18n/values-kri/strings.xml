@@ -24,7 +24,7 @@
   <string name="text_alert">Ɛp</string>  
   <string name="edit_exit_without_save_warn">Di tin dɛn we de insay nɔ dɔn sev, yu shɔ se yu want fɔ kɔmɔt?</string>  
   <string name="text_save_and_exit">Sev ɛn kɔmɔt de</string>  
-  <string name="text_exit_directly">Kɔmɔt na do dairekt wan</string>  
+  <string name="text_exit_directly">Kɔmɔt dairekt wan</string>  
   <string name="text_setting">Put</string>  
   <string name="text_exit">Lɛf</string>  
   <string name="text_auto_operate_service">Aksesibiliti Savis dɛn</string>  
@@ -51,7 +51,7 @@
   <string name="text_it_is_the_developer_of_app">Dis na wan pan di softwea divɛlɔpa dɛn(.・・)ノ</string>  
   <string name="text_please_choose">Duya una pik</string>  
   <string name="text_crash">Kollaps o(≧口≦)o</string>  
-  <string name="crash_feedback">Erɔr mɛsej dɛn go sɛn ɔtomɛtik wan. Yu kin kɔpi bak wit yu an fɔ di dibɔg infɔmeshɔn ɛn sɛn am to di divɛlɔpa (*^▽^*) ɔ klik \"Exit\" fɔ kɔmɔt na di programo(╥*╥)o</string>  
+  <string name="crash_feedback">Erɔr mɛsej dɛn go sɛn ɔtomɛtik wan. Yu kin kɔpi di dibɔg infɔmeshɔn bak wit yu an ɛn sɛn am to di divɛlɔpa (*^▽^*) ɔ klik \"Exit\" fɔ kɔmɔt na di programo(╥╥)o</string>  
   <string name="text_clear">Ɛmti</string>  
   <string name="text_console">Kɔnsol fɔ yuz</string>  
   <string name="text_log">Bod</string>  
@@ -65,7 +65,7 @@
   <string name="text_copy_to_clip">Kɔpi to klipbɔd</string>  
   <string name="text_file_write_fail">Fayl rayt nɔ wok</string>  
   <string name="text_use_volume_control_record">Yuz di volyum dɔŋ ki fɔ kɔntrol</string>  
-  <string name="summary_use_volume_control_record">Afta yu opin di winda we de flɔt, ɛni tɛm we di volyum dɔŋ ki go stat ɔ stɔp fɔ rikodin di skript</string>  
+  <string name="summary_use_volume_control_record">Afta yu opin di winda we de flɔt, ɛni tɛm we di volyum dɔŋ ki go bigin ɔ stɔp fɔ rikodin di skript</string>  
   <string name="text_qq_group">Dis na di QQ grup nɔmba, if yu nɔ ebul fɔ opin am, duya sɔch wit yu an</string>  
   <string name="text_mobile_qq_not_installed">Mobayl QQ nɔ instɔl</string>  
   <string name="text_edit">Kɔrɛkt</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Di tin dɛn we yu kin pik fɔ du</string>  
   <string name="text_using_id_selector">Pik yuz id</string>  
   <string name="text_using_text_selector">Yuz di tɛks we yu dɔn pik (tɛks) .</string>  
-  <string name="text_using_desc_selector">Selekt yuz diskripshɔn (desc) .</string>  
+  <string name="text_using_desc_selector">Yuz Diskripshɔn Pik (desc) .</string>  
   <string name="text_generate">Mek</string>  
   <string name="text_generate_fail">Bil failed o(╥╥)o</string>  
   <string name="text_documentation_source">Dokumɛnt sɔs</string>  
@@ -343,7 +343,7 @@
   <string name="nodebb_error_change_password_error_match">Di tu paswɔd dɛn we yu dɔn put nɔ de mach</string>  
   <string name="text_logout">Sayn fɔ kɔmɔt</string>  
   <string name="nodebb_error_forbidden">Opareshɔn nɔ wok, duya tray bak leta</string>  
-  <string name="description_stable_mode">Stebul mod de mek di skript stebul mɔ we yu de grap di layout bay we yu nɔ de pe di layout ditil dɛn, bɔt di sem tɛm de tek smɔl kɔntrol dɛn we de na di skrin. \n \n di aksesibiliti savis fɔ tek ɛfɛkt.</string>  
+  <string name="description_stable_mode">Stebul mɔd de mek di skript stebul mɔ we yu de grap di layout bay we yu nɔ de pe di layout ditil dɛn, bɔt di sem tɛm de tek smɔl kɔntrol dɛn we de na di skrin. \n \n di aksesibiliti savis fɔ tek ɛfɛkt.</string>  
   <string name="text_size_min_value">2. Di wan dɛn we de</string>  
   <string name="text_size_max_value">60 we de sho aw fɔ du</string>  
   <string name="text_text_size">Di sayz fɔ di font</string>  
@@ -395,11 +395,11 @@
   <string name="text_invalid_project_config">Nɔ kɔnfigyushɔn fayl</string>  
   <string name="text_foreground_service">Risɛpshɔn</string>  
   <string name="foreground_notification_channel_name">Frɔnt dɛsk savis notis</string>  
-  <string name="foreground_notification_title">Autox.js de kip de rɔn</string>  
+  <string name="foreground_notification_title">Autox.js de kɔntinyu fɔ rɔn</string>  
   <string name="foreground_notification_text">Klik fɔ go insay di men intafays</string>  
   <string name="text_run_on_other_broadcast">Ɔda tin dɛn we kin apin (brodkas) .</string>  
   <string name="text_broadcast_action">Brodkas Akshɔn</string>  
-  <string name="text_run_on_boot">We yu de but</string>  
+  <string name="text_run_on_boot">Na di tɛm we dɛn de but</string>  
   <string name="text_run_on_screen_on">We di skrin de ɔp</string>  
   <string name="text_run_on_screen_off">We di skrin dɔn ɔf</string>  
   <string name="error_empty_selection">Duya pik wan opshɔn fɔ brodkas ivent</string>  
@@ -419,10 +419,10 @@
   <string name="error_cannot_rename">Rinem nɔ bin wok</string>  
   <string name="text_project_save_success">Projekt dɔn sev to %s</string>  
   <string name="text_project_save_error">Projekt sev nɔ wok %s</string>  
-  <string name="text_night_mode">Nait mod</string>  
+  <string name="text_night_mode">Nɛt mɔd</string>  
   <string name="text_run_on_startup">We Autox.js bigin</string>  
   <string name="text_usage_stats_permission">Yuz akses</string>  
-  <string name="description_usage_stats_permission">Tru di \"view usage statistics\" permishɔn, yu kin gɛt di past aplikeshɔn yuz fɔ dis divays, so dat i go kɔrɛkt fɔ gɛt di aplikeshɔn we de naw (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Tru di \"View Usage Statistics\" permishɔn, yu kin gɛt di past aplikeshɔn yuz fɔ dis divays, so dat i go kɔrɛkt fɔ gɛt di aplikeshɔn we de naw (currentPackage).</string>  
   <string name="text_open_with">Opin we</string>  
   <string name="text_root">Rut</string>  
   <string name="text_no_root">Rut fri</string>  
@@ -443,7 +443,7 @@
   <string name="air_label_use_email">Sɛnd am bay Imel</string>  
   <string name="air_label_use_guest">Send am we yu nɔ no in nem</string>  
   <string name="air_label_email">Mail we dɛn kin sɛn</string>  
-  <string name="air_label_email_optional">Kɔntakt imel (yu kin pik) .</string>  
+  <string name="air_label_email_optional">Kɔntakt imel (we yu want fɔ du)</string>  
   <string name="air_error_no_title">Duya, rayt wan kwɛstyɔn</string>  
   <string name="air_error_no_description">Duya, rayt wan ditayli diskripshɔn</string>  
   <string name="air_error_no_username">Duya ɛnta wan valid Github yuzɛn nem</string>  
@@ -451,7 +451,7 @@
   <string name="air_error_no_email">Duya put yu imel</string>  
   <string name="air_dialog_title_loading">We yu de ɔplod to GitHub...</string>  
   <string name="air_dialog_title_failed">Failed fɔ sɛn bɔg ripɔt</string>  
-  <string name="air_dialog_description_failed_wrong_credentials">Rɔng yuzɛn nem ɔ paswɔd</string>  
+  <string name="air_dialog_description_failed_wrong_credentials">Yuz nem ɔ paswɔd nɔ rayt</string>  
   <string name="air_dialog_description_failed_invalid_token">Invalid akses token.Duya kɔntak di wan we mek di softwe.</string>  
   <string name="air_dialog_description_failed_issues_not_available">Isyu dɛn nɔ de, duya kɔntak di pɔsin we mek di softwe.</string>  
   <string name="air_dialog_description_failed_unknown">Mistek we dɛn nɔ no</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Kɔmɔt na di fɛns</string>  
   <string name="text_licenses_other">Laysens we Nɔ De Ɔpin Sɔs</string>  
   <string name="text_save_successfully">Dɛn dɔn sev am fayn fayn wan</string>  
-  <string name="text_save_as_project">Sev as projɛkt</string>
-  <string name="text_select_save_mode">Duya pik wan we fɔ sev</string>
-  <string name="text_save_as_project_and_exit">Sev as projɛkt ɛn kɔmɔt</string>
-  <string name="apk_builder_sign">We dɛn de sayn</string>
-  <string name="text_invalid_config">Kɔnfigyushɔn we nɔ rayt</string>
-  <string name="text_abi">ABI dɛn we dɛn sɔpɔt (we dɛn separet wit kɔma dɛn) .</string>
-  <string name="text_save_project_to">Projekt we dɛn dɔn sev to: %s</string>
+  <string name="text_save_as_project">Sev as projɛkt</string>  
+  <string name="text_select_save_mode">Duya pik wan we fɔ sev</string>  
+  <string name="text_save_as_project_and_exit">Sev as projɛkt ɛn kɔmɔt</string>  
+  <string name="apk_builder_sign">We dɛn de sayn</string>  
+  <string name="text_invalid_config">Kɔnfigyushɔn we nɔ rayt</string>  
+  <string name="text_abi">ABI dɛn we dɛn sɔpɔt (we dɛn separet wit kɔma dɛn) .</string>  
+  <string name="text_save_project_to">Projekt we dɛn dɔn sev to: %s</string>  
+  <string name="text_hide_and_show">Ayd/sho</string>
+  <string name="text_browser_open">Brawza opin</string>
+  <string name="text_do_nothing">Nɔ du natin</string>
+  <string name="text_copy_to_new_folder">Kɔpi di tin dɛn we de insay di fɔs fɔlda to di nyu fɔlda</string>
+  <string name="text_move_new_folder">Muv di tin dɛn we de insay di fɔs fɔlda to di nyu fɔlda</string>
+  <string name="text_accessibility_service_is_not_enable">Aksesibiliti savis nɔ de ɔp</string>
+  <string name="text_set_successfully">Sɛt fayn fayn wan</string>
 </resources>

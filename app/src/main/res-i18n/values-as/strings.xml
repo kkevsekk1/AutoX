@@ -24,7 +24,7 @@
   <string name="text_alert">ইংগিত</string>  
   <string name="edit_exit_without_save_warn">বিষয়বস্তু সংৰক্ষণ কৰা হোৱা নাই, আপুনি নিশ্চিত নেকি যে আপুনি প্ৰস্থান কৰিব বিচাৰে?</string>  
   <string name="text_save_and_exit">সংৰক্ষণ কৰক আৰু প্ৰস্থান কৰক</string>  
-  <string name="text_exit_directly">পোনপটীয়াকৈ ওলাই যাওক</string>  
+  <string name="text_exit_directly">পোনপটীয়াকৈ প্ৰস্থান কৰক</string>  
   <string name="text_setting">স্থাপন কৰা</string>  
   <string name="text_exit">এৰি দিয়া</string>  
   <string name="text_auto_operate_service">অভিগম্যতা সেৱাসমূহ</string>  
@@ -59,7 +59,7 @@
   <string name="text_report_succeed">সফলতাৰে জমা দিয়া হৈছে</string>  
   <string name="edit_and_run_handle_intent_error">নথিপত্ৰ প্ৰক্ৰিয়াকৰণ কৰিব পৰা নগ\'ল</string>  
   <string name="text_issue_report">মতামত</string>  
-  <string name="text_script_record">লিপি ৰেকৰ্ড কৰক</string>  
+  <string name="text_script_record">ৰেকৰ্ড লিপি</string>  
   <string name="text_start_record">ৰেকৰ্ডিং আৰম্ভ কৰক</string>  
   <string name="text_recorded">ৰেকৰ্ডিঙৰ শেষ</string>  
   <string name="text_copy_to_clip">ক্লিপবৰ্ডলৈ কপি কৰক</string>  
@@ -145,7 +145,7 @@
   <string name="text_script_save_successfully">সফলভাৱে সংৰক্ষণ কৰা হৈছে, অনুগ্ৰহ কৰি ডাইৰেকটৰিটো সতেজ কৰক</string>  
   <string name="text_run_repeatedly">চাইকেল চলোৱা</string>  
   <string name="text_loop_interval">চক্ৰৰ ব্যৱধান (ছেকেণ্ড)</string>  
-  <string name="text_loop_delay">নিষ্পাদনত বিলম্ব (ছেকেণ্ড)</string>  
+  <string name="text_loop_delay">নিষ্পাদন বিলম্ব (ছেকেণ্ড)</string>  
   <string name="text_loop_times">চক্ৰসমূহ</string>  
   <string name="hint_loop_times">0 হৈছে অসীম লুপ</string>  
   <string name="hint_loop_delay">লুপিং আৰম্ভ কৰিবলৈ কিমান ছেকেণ্ড বিলম্ব কৰিব লাগিব</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">বিকল্পসমূহ</string>  
   <string name="text_using_id_selector">Id ব্যৱহাৰ কৰি নিৰ্ব্বাচন কৰক</string>  
   <string name="text_using_text_selector">লিখনী নিৰ্বাচন (পাঠ) ব্যৱহাৰ কৰক</string>  
-  <string name="text_using_desc_selector">বিৱৰণ ব্যৱহাৰ কৰি নিৰ্ব্বাচন কৰক (desc)</string>  
+  <string name="text_using_desc_selector">বিৱৰণ ব্যৱহাৰ কৰক</string>  
   <string name="text_generate">সৃষ্টি কৰা</string>  
   <string name="text_generate_fail">নিৰ্মাণ ব্যৰ্থ o(╥╥)o</string>  
   <string name="text_documentation_source">নথিপত্ৰৰ উৎস</string>  
@@ -322,7 +322,7 @@
   <string name="text_day7">দেওবাৰ</string>  
   <string name="text_weekly_task_should_check_day_of_week">সপ্তাহৰ অন্ততঃ এটা দিন বাছি লওক</string>  
   <string name="no_apk_builder_plugin">পেকেজ কৰা প্লাগইনটো ইনষ্টল কৰা হোৱা নাই, আপুনি এতিয়াই ইয়াক ডাউনলোড কৰিব বিচাৰিবনে?</string>  
-  <string name="text_apk_builder_plugin_unavailable">পেকেজ প্লাগ-ইন উপলব্ধ নহয়</string>  
+  <string name="text_apk_builder_plugin_unavailable">পেকেজ প্লাগইন উপলব্ধ নহয়</string>  
   <string name="text_detail">সবিশেষ</string>  
   <string name="text_open">খোলা</string>  
   <string name="text_generated_code">ফলাফল সৃষ্টি কৰা</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">মূল আন্তঃপৃষ্ঠত প্ৰৱেশ কৰিবলৈ ক্লিক কৰক</string>  
   <string name="text_run_on_other_broadcast">অন্যান্য অনুষ্ঠান (প্ৰচাৰ)</string>  
   <string name="text_broadcast_action">সম্প্ৰচাৰ একচন</string>  
-  <string name="text_run_on_boot">বুট কৰাৰ সময়ত</string>  
+  <string name="text_run_on_boot">বুটৰ সময়ত</string>  
   <string name="text_run_on_screen_on">যেতিয়া স্ক্ৰীণ অন থাকে</string>  
   <string name="text_run_on_screen_off">যেতিয়া পৰ্দা বন্ধ থাকে</string>  
   <string name="error_empty_selection">অনুগ্ৰহ কৰি এটা সম্প্ৰচাৰ ইভেন্ট বিকল্প নিৰ্বাচন কৰক</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">ৰাতিৰ মোড</string>  
   <string name="text_run_on_startup">যেতিয়া Autox.js আৰম্ভ হয়</string>  
   <string name="text_usage_stats_permission">ব্যৱহাৰৰ প্ৰৱেশ</string>  
-  <string name="description_usage_stats_permission">\"ব্যৱহাৰৰ পৰিসংখ্যা চাওক\" অনুমতিৰ যোগেদি, আপুনি এই ডিভাইচৰ অতীত এপ্লিকেচন ব্যৱহাৰ লাভ কৰিব পাৰিব, যাতে বৰ্তমান এপ্লিকেচন (currentPackage) লাভ কৰাটো অধিক সঠিক হয়।</string>  
+  <string name="description_usage_stats_permission">\"ব্যৱহাৰৰ পৰিসংখ্যা চাওক\" অনুমতিৰ যোগেদি, আপুনি এই ডিভাইচৰ অতীতৰ এপ্লিকেচন ব্যৱহাৰ লাভ কৰিব পাৰে, যাতে বৰ্তমান এপ্লিকেচন (currentPackage) লাভ কৰাটো অধিক সঠিক হয়।</string>  
   <string name="text_open_with">মুকলি পথ</string>  
   <string name="text_root">শিপা</string>  
   <string name="text_no_root">শিপা মুক্ত</string>  
@@ -448,7 +448,7 @@
   <string name="air_error_no_description">অনুগ্ৰহ কৰি এটা বিশদ বিৱৰণ দিয়ক</string>  
   <string name="air_error_no_username">অনুগ্ৰহ কৰি এটা বৈধ Github ব্যৱহাৰকাৰীনাম দিয়ক</string>  
   <string name="air_error_no_password">অনুগ্ৰহ কৰি সঠিক গুপ্তশব্দ দিয়ক</string>  
-  <string name="air_error_no_email">অনুগ্ৰহ কৰি আপোনাৰ ইমেইল দিয়ক</string>  
+  <string name="air_error_no_email">অনুগ্ৰহ কৰি আপোনাৰ ইমেইল ইনপুট কৰক</string>  
   <string name="air_dialog_title_loading">GitHub লৈ আপলোড কৰা হৈছে...</string>  
   <string name="air_dialog_title_failed">বাগ প্ৰতিবেদন প্ৰেৰণ কৰাত ব্যৰ্থ</string>  
   <string name="air_dialog_description_failed_wrong_credentials">ভুল ব্যৱহাৰকাৰীৰ নাম বা পাছৱৰ্ড</string>  
@@ -466,7 +466,7 @@
   <string name="text_verification_failed">সত্যাপন ব্যৰ্থ</string>  
   <string name="text_WebX">WebX</string>  
   <string name="text_file_manager_permission">সকলো নথিপত্ৰ অভিগম</string>  
-  <string name="text_fullscreen">সম্পূৰ্ণ পৰ্দ্দা ধৰণ টগল কৰক 1</string>  
+  <string name="text_fullscreen">সম্পূৰ্ণ পৰ্দা ধৰণ টগল কৰক 1</string>  
   <string name="text_drawer_right">সোঁফালৰ মেনুখন খোলক</string>  
   <string name="text_required_default_ocr_model">অবিকল্পিত OCR প্ৰশিক্ষণ আৰ্হি পেকেজ কৰক</string>  
   <string name="switch_fullscreen">সম্পূৰ্ণ পৰ্দা অৱস্থা টগল কৰক</string>  
@@ -485,7 +485,7 @@
   <string name="text_start_service_failed">সেৱা আৰম্ভ কৰাত ব্যৰ্থ: %s</string>  
   <string name="text_unsupported_qr_code">এই বিন্যাসত QR ক\'ড সমৰ্থিত নহয়</string>  
   <string name="text_connected_to_computer">কম্পিউটাৰৰ সৈতে সংযুক্ত</string>  
-  <string name="text_press_again_to_exit_app">এপটোৰ পৰা ওলাই আহিবলৈ আকৌ টিপক</string>  
+  <string name="text_press_again_to_exit_app">এপটোৰ পৰা ওলাই যাবলৈ আকৌ টিপক</string>  
   <string name="text_app_download_link">ডাউনলোড লিংক</string>  
   <string name="text_project_link">প্ৰকল্পৰ ঠিকনা</string>  
   <string name="text_release_date">প্ৰকাশ কৰা হৈছে: %s</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">সন্ধানৰ পৰা ওলাই যাওক</string>  
   <string name="text_licenses_other">অমুক্ত উৎস অনুজ্ঞাপত্ৰ</string>  
   <string name="text_save_successfully">সফলতাৰে ৰক্ষা কৰা হৈছে</string>  
-  <string name="text_save_as_project">প্ৰকল্প হিচাপে সংৰক্ষণ কৰক</string>
-  <string name="text_select_save_mode">অনুগ্ৰহ কৰি এটা সংৰক্ষণ পদ্ধতি বাছক</string>
-  <string name="text_save_as_project_and_exit">প্ৰকল্প হিচাপে সংৰক্ষণ কৰক আৰু প্ৰস্থান কৰক</string>
-  <string name="apk_builder_sign">স্বাক্ষৰ কৰা</string>
-  <string name="text_invalid_config">অবৈধ বিন্যাস</string>
-  <string name="text_abi">সমৰ্থিত ABI সমূহ (কমাৰে পৃথক কৰা হৈছে)</string>
-  <string name="text_save_project_to">প্ৰকল্প সংৰক্ষণ কৰা হৈছে: %s</string>
+  <string name="text_save_as_project">প্ৰকল্প হিচাপে সংৰক্ষণ কৰক</string>  
+  <string name="text_select_save_mode">অনুগ্ৰহ কৰি এটা সংৰক্ষণ পদ্ধতি বাছক</string>  
+  <string name="text_save_as_project_and_exit">প্ৰকল্প হিচাপে সংৰক্ষণ কৰক আৰু প্ৰস্থান কৰক</string>  
+  <string name="apk_builder_sign">স্বাক্ষৰ কৰা</string>  
+  <string name="text_invalid_config">অবৈধ বিন্যাস</string>  
+  <string name="text_abi">সমৰ্থিত ABI সমূহ (কমাৰে পৃথক কৰা হৈছে)</string>  
+  <string name="text_save_project_to">প্ৰকল্প সংৰক্ষণ কৰা হৈছে: %s</string>  
+  <string name="text_hide_and_show">লুকুৱাওক/দেখাওক</string>
+  <string name="text_browser_open">ব্ৰাউজাৰ খোলা</string>
+  <string name="text_do_nothing">একো নকৰিব</string>
+  <string name="text_copy_to_new_folder">মূল ফোল্ডাৰৰ বিষয়বস্তু নতুন ফোল্ডাৰলৈ কপি কৰক</string>
+  <string name="text_move_new_folder">মূল ফোল্ডাৰৰ বিষয়বস্তু নতুন ফোল্ডাৰলৈ লৈ যাওক</string>
+  <string name="text_accessibility_service_is_not_enable">অভিগম্যতা সেৱা অন কৰা হোৱা নাই</string>
+  <string name="text_set_successfully">সফলভাৱে ছেট কৰক</string>
 </resources>

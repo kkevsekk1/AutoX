@@ -2,13 +2,13 @@
 
 <!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
 <resources> 
-  <string name="text_accessibility_service_description">Kuyafuneka ukwenza imisebenzi yeskripthi ngokuzenzekelayo (cofa, ucinezele ixesha elide, swayipha, njl. njl.), ukuba ivaliwe, kuphela izikripthi ezingabandakanyi imisebenzi ezenzekelayo ezinokuphunyezwa.</string>  
+  <string name="text_accessibility_service_description">Kuyafuneka ukwenza imisebenzi yeskripthi ngokuzenzekelayo (cofa, ucinezele ixesha elide, swayipha, njl.njl.), ukuba ivaliwe, zizibhalo kuphela ezingabandakanyi imisebenzi ezenzekelayo ezinokuphunyezwa.</string>  
   <string name="text_new_file">Yenza ifayile entsha</string>  
   <string name="text_create_fail">Ayiphumelelanga ukuyila</string>  
   <string name="text_please_input_name">Nceda ngenisa igama</string>  
   <string name="text_name">Igama</string>  
   <string name="text_go_to_setting">Yiya kuseto</string>  
-  <string name="explain_accessibility_permission">Isoftware kufuneka ivule \"iiNkonzo zokuFikelela\" ukuze isebenze, nceda uvule \"Useto-> Iinkonzo zokuFikelela\" okanye \"Useto-> Iinkonzo zokuFikelela-> Iinkonzo eziKhutshelweyo ezingakumbi\", fumana esi sicelo, kwaye wenze iiNkonzo \n kwakhona ukusetwa kamva kwimenyu eyehlayo.</string>  
+  <string name="explain_accessibility_permission">Isoftware kufuneka ivule \"iiNkonzo zokuFikelela\" ukuze isebenze, nceda uvule \"Useto-> Iinkonzo zokuFikelela\" okanye \"Useto-> Iinkonzo zokuFikelela-> Iinkonzo eziKhutshelweyo ezingakumbi\", fumana esi sicelo, kwaye wenze iiNkonzo \n kwakhona ukusetwa kamva kwimenyu ethotywayo.</string>  
   <string name="explain_accessibility_permission2">Isoftware kufuneka ivule \"iiNkonzo zokuFikelela\" ukuze isebenze, nceda uvule \"Useto-> Iinkonzo zokuFikelela\" okanye \"Useto-> Iinkonzo zokuFikelela-> Iinkonzo eziKhutshelweyo ezingakumbi\", fumana esi sicelo, kwaye wenze iiNkonzo zokuFikelela</string>  
   <string name="text_cancel">Rhoxisa</string>  
   <string name="text_path_is_empty">Indlela ayinanto</string>  
@@ -24,7 +24,7 @@
   <string name="text_alert">Icebiso</string>  
   <string name="edit_exit_without_save_warn">Umxholo awugcinwanga, uqinisekile ukuba ufuna ukuphuma?</string>  
   <string name="text_save_and_exit">Gcina kwaye uphume</string>  
-  <string name="text_exit_directly">Phuma ngokuthe ngqo</string>  
+  <string name="text_exit_directly">Phuma ngqo</string>  
   <string name="text_setting">Misela</string>  
   <string name="text_exit">Yeka</string>  
   <string name="text_auto_operate_service">Iinkonzo zokuFikelela</string>  
@@ -263,7 +263,7 @@
   <string name="apk_builder_build">Isakhiwo</string>  
   <string name="apk_builder_package">Ukupakisha</string>  
   <string name="apk_builder_clean">Coca iifayile zexeshana</string>  
-  <string name="text_source_file_path">Indlela yefayile yoshicilelo (ifolda).</string>  
+  <string name="text_source_file_path">Indlela yefayile yeskripthi (ifolda).</string>  
   <string name="text_search">Khangela</string>  
   <string name="text_select_icon">Khetha i icon</string>  
   <string name="text_use_android_n_shortcut">Yongezwe kwi-Android 7.0 Indlela emfutshane</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Iinketho</string>  
   <string name="text_using_id_selector">Khetha usebenzisa id</string>  
   <string name="text_using_text_selector">Sebenzisa ukhetho lokubhaliweyo (okubhaliweyo)</string>  
-  <string name="text_using_desc_selector">Khetha usebenzisa inkcazelo (desc)</string>  
+  <string name="text_using_desc_selector">Sebenzisa iNkcazo Khetha (desc)</string>  
   <string name="text_generate">Velisa</string>  
   <string name="text_generate_fail">Ukwakhiwa kohlulekile o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Umthombo wamaxwebhu</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Cofa ukufaka ujongano oluphambili</string>  
   <string name="text_run_on_other_broadcast">Eminye imisitho (usasazo)</string>  
   <string name="text_broadcast_action">Intshukumo yosasazo</string>  
-  <string name="text_run_on_boot">Xa uqalisa</string>  
+  <string name="text_run_on_boot">Ngexesha lokuqalisa</string>  
   <string name="text_run_on_screen_on">Xa isikrini sivuliwe</string>  
   <string name="text_run_on_screen_off">Xa isikrini sicinyiwe</string>  
   <string name="error_empty_selection">Nceda ukhethe isiganeko sosasazo ukhetho</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Imowudi yasebusuku</string>  
   <string name="text_run_on_startup">Xa iAutox.js iqala</string>  
   <string name="text_usage_stats_permission">Ukufikelela kusetyenziso</string>  
-  <string name="description_usage_stats_permission">Ngemvume ye \"jonga izibalo zosetyenziso\", ungafumana usetyenziso oludlulileyo lwesicelo sesi sixhobo, ukuze ichaneke ngakumbi ukufumana usetyenziso lwangoku (iPackage yangoku).</string>  
+  <string name="description_usage_stats_permission">Ngemvume \"Jonga iStatistics yosetyenziso\", ungafumana usetyenziso oludlulileyo lwesicelo sesi sixhobo, ukuze ichaneke ngakumbi ukufumana usetyenziso lwangoku (iPackage yangoku).</string>  
   <string name="text_open_with">Indlela evulekileyo</string>  
   <string name="text_root">Ingcambu</string>  
   <string name="text_no_root">Ingcambu yasimahla</string>  
@@ -495,14 +495,21 @@
   <string name="text_app_detail_settings">Izicwangciso zeeNkcukacha ze-App</string>  
   <string name="text_logcat">Log</string>  
   <string name="text_menu">Imenyu</string>  
-  <string name="text_exit_search">Phuma kuphendlo</string>  
+  <string name="text_exit_search">Phuma kukhangelo</string>  
   <string name="text_licenses_other">Iphepha-mvume loMthombo ongaVulelekanga</string>  
   <string name="text_save_successfully">Igcinwe ngempumelelo</string>  
-  <string name="text_save_as_project">Gcina njengeprojekthi</string>
-  <string name="text_select_save_mode">Nceda ukhethe indlela yokugcina</string>
-  <string name="text_save_as_project_and_exit">Gcina njengeprojekthi kwaye uphume</string>
-  <string name="apk_builder_sign">Ukutyikitya</string>
-  <string name="text_invalid_config">Ubumbeko olungasebenziyo</string>
-  <string name="text_abi">Ii-ABI ezixhaswayo (zahlulwe ngeekoma)</string>
-  <string name="text_save_project_to">Iprojekthi igcinwe kwi-: %s</string>
+  <string name="text_save_as_project">Gcina njengeprojekthi</string>  
+  <string name="text_select_save_mode">Nceda ukhethe indlela yokugcina</string>  
+  <string name="text_save_as_project_and_exit">Gcina njengeprojekthi kwaye uphume</string>  
+  <string name="apk_builder_sign">Ukutyikitya</string>  
+  <string name="text_invalid_config">Ubumbeko olungasebenziyo</string>  
+  <string name="text_abi">Ii-ABI ezixhaswayo (zahlulwe ngeekoma)</string>  
+  <string name="text_save_project_to">Iprojekthi igcinwe kwi-: %s</string>  
+  <string name="text_hide_and_show">Fihla/bonisa</string>
+  <string name="text_browser_open">Isikhangeli sivuliwe</string>
+  <string name="text_do_nothing">Sukwenzanto</string>
+  <string name="text_copy_to_new_folder">Khuphela imixholo yesiqulathi seefayili soqobo kwisiqulathi seefayili esitsha</string>
+  <string name="text_move_new_folder">Hambisa imixholo yesiqulathi seefayili soqobo kwisiqulathi seefayili esitsha</string>
+  <string name="text_accessibility_service_is_not_enable">Inkonzo yokufikeleleka ayivulwanga</string>
+  <string name="text_set_successfully">Cwangcisa ngempumelelo</string>
 </resources>

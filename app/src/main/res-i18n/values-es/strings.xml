@@ -31,7 +31,7 @@
   <string name="text_about">Sobre</string>  
   <string name="text_licenses">Licencia de código abierto</string>  
   <string name="text_do_not_remind_again">No volver a recordar</string>  
-  <string name="github">Código fuente del software</string>  
+  <string name="github">Código fuente del programa</string>  
   <string name="text_already_copy_to_clip">Copiado al portapapeles</string>  
   <string name="text_qq_already_copy_to_clip">El número de grupo QQ se ha copiado en el portapapeles</string>  
   <string name="share_app">[Autox.js] Dirección de descarga: https://github.com/kkevsekk1/AutoX/releases</string>  
@@ -210,7 +210,7 @@
   <string name="text_download">Descargar</string>  
   <string name="format_file_downloaded" formatted="true">Archivo guardado en %s</string>  
   <string name="confirm_overwrite_file">El archivo ya existe, ¿quieres sobrescribirlo?</string>  
-  <string name="text_select_file_to_upload">Selecciona el archivo a subir</string>  
+  <string name="text_select_file_to_upload">Seleccione el archivo para cargar</string>  
   <string name="text_select_file_to_import">Selecciona el archivo a importar</string>  
   <string name="text_build_apk">Aplicaciones empaquetadas</string>  
   <string name="text_select">Elegir</string>  
@@ -259,7 +259,7 @@
   <string name="text_install">Instalar</string>  
   <string name="text_build_failed">Empaquetado fallido, mensaje de error:</string>  
   <string name="format_build_successfully" formatted="true">Archivo apk guardado en %s</string>  
-  <string name="apk_builder_prepare">Se prepara el documento</string>  
+  <string name="apk_builder_prepare">Se esta preparando el documento</string>  
   <string name="apk_builder_build">Edificio</string>  
   <string name="apk_builder_package">Embalaje</string>  
   <string name="apk_builder_clean">Limpiar archivos temporales</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Opciones</string>  
   <string name="text_using_id_selector">Seleccione usando identificación</string>  
   <string name="text_using_text_selector">Usar selección de texto (texto)</string>  
-  <string name="text_using_desc_selector">Seleccionar usando descripción (desc)</string>  
+  <string name="text_using_desc_selector">Usar Descripción Seleccionar (desc)</string>  
   <string name="text_generate">Generar</string>  
   <string name="text_generate_fail">Error de compilación o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Fuente de documentación</string>  
@@ -372,7 +372,7 @@
   <string name="text_remove_all_breakpoints">Eliminar todos los puntos de interrupción</string>  
   <string name="hint_long_click_run_to_debug">La depuración también se puede iniciar presionando prolongadamente el ícono \"Ejecutar\"</string>  
   <string name="format_debug_bar_title">Depurar [ %s ]</string>  
-  <string name="text_copy_value">Copiar valor</string>  
+  <string name="text_copy_value">Valor de copia</string>  
   <string name="text_execute_code">Ejecutar código</string>  
   <string name="text_code">Código</string>  
   <string name="text_result">Resultado</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Haga clic para entrar en la interfaz principal</string>  
   <string name="text_run_on_other_broadcast">Otros eventos (emisión)</string>  
   <string name="text_broadcast_action">Acción de difusión</string>  
-  <string name="text_run_on_boot">Al arrancar</string>  
+  <string name="text_run_on_boot">En el momento del arranque</string>  
   <string name="text_run_on_screen_on">Cuando la pantalla está encendida</string>  
   <string name="text_run_on_screen_off">Cuando la pantalla está apagada</string>  
   <string name="error_empty_selection">Seleccione una opción de evento de transmisión</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Modo nocturno</string>  
   <string name="text_run_on_startup">Cuando se inicia Autox.js</string>  
   <string name="text_usage_stats_permission">Acceso de uso</string>  
-  <string name="description_usage_stats_permission">A través del permiso \"ver estadísticas de uso\", puede obtener el uso anterior de la aplicación de este dispositivo, de modo que sea más preciso obtener la aplicación actual (paquete actual).</string>  
+  <string name="description_usage_stats_permission">A través del permiso \"Ver estadísticas de uso\", puede obtener el uso anterior de la aplicación de este dispositivo, de modo que sea más preciso obtener la aplicación actual (paquete actual).</string>  
   <string name="text_open_with">Camino abierto</string>  
   <string name="text_root">Raíz</string>  
   <string name="text_no_root">Raíz libre</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Salir de la búsqueda</string>  
   <string name="text_licenses_other">Licencia de código no abierto</string>  
   <string name="text_save_successfully">Guardado con éxito</string>  
-  <string name="text_save_as_project">Guardar como proyecto</string>
-  <string name="text_select_save_mode">Seleccione un método de guardado</string>
-  <string name="text_save_as_project_and_exit">Guardar como proyecto y salir</string>
-  <string name="apk_builder_sign">Firma</string>
-  <string name="text_invalid_config">Configuración inválida</string>
-  <string name="text_abi">ABI admitidas (separadas por comas)</string>
-  <string name="text_save_project_to">Proyecto guardado en: %s</string>
+  <string name="text_save_as_project">Guardar como proyecto</string>  
+  <string name="text_select_save_mode">Seleccione un método de guardado</string>  
+  <string name="text_save_as_project_and_exit">Guardar como proyecto y salir</string>  
+  <string name="apk_builder_sign">Firma</string>  
+  <string name="text_invalid_config">Configuración inválida</string>  
+  <string name="text_abi">ABI admitidas (separadas por comas)</string>  
+  <string name="text_save_project_to">Proyecto guardado en: %s</string>  
+  <string name="text_hide_and_show">Ocultar mostrar</string>
+  <string name="text_browser_open">Navegador abierto</string>
+  <string name="text_do_nothing">Hacer nada</string>
+  <string name="text_copy_to_new_folder">Copie el contenido de la carpeta original a la nueva carpeta</string>
+  <string name="text_move_new_folder">Mover el contenido de la carpeta original a la nueva carpeta</string>
+  <string name="text_accessibility_service_is_not_enable">El servicio de accesibilidad no está activado</string>
+  <string name="text_set_successfully">Establecer con éxito</string>
 </resources>

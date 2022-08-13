@@ -24,7 +24,7 @@
   <string name="text_alert">Náznak</string>  
   <string name="edit_exit_without_save_warn">Obsah nebyl uložen, opravdu chcete skončit?</string>  
   <string name="text_save_and_exit">Uložit a odejít</string>  
-  <string name="text_exit_directly">Odejděte přímo</string>  
+  <string name="text_exit_directly">Vystoupit přímo</string>  
   <string name="text_setting">Založit</string>  
   <string name="text_exit">Přestat</string>  
   <string name="text_auto_operate_service">Služby usnadnění</string>  
@@ -145,7 +145,7 @@
   <string name="text_script_save_successfully">Úspěšně uloženo, obnovte prosím adresář</string>  
   <string name="text_run_repeatedly">Cyklistický běh</string>  
   <string name="text_loop_interval">Interval cyklu (sekundy)</string>  
-  <string name="text_loop_delay">Zpoždění provedení (v sekundách)</string>  
+  <string name="text_loop_delay">Zpoždění provedení (sekundy)</string>  
   <string name="text_loop_times">Cykly</string>  
   <string name="hint_loop_times">0 je nekonečná smyčka</string>  
   <string name="hint_loop_delay">O kolik sekund se má zpozdit spuštění smyčky</string>  
@@ -223,7 +223,7 @@
   <string name="text_run_config">Spustit konfiguraci</string>  
   <string name="text_hideLogs">Skrýt protokol</string>  
   <string name="text_required_accessibility_service">Jsou vyžadovány služby usnadnění</string>  
-  <string name="text_required_opencv">OpenCv zpracování obrazu</string>  
+  <string name="text_required_opencv">Zpracování obrázků OpenCv</string>  
   <string name="text_required_ocr">OCR rozpoznávání textu</string>  
   <string name="text_required_7zip">7zip kompresní knihovna</string>  
   <string name="text_required_terminal_emulator">Emulátor terminálu</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Možnosti</string>  
   <string name="text_using_id_selector">Vyberte pomocí id</string>  
   <string name="text_using_text_selector">Použít výběr textu (text)</string>  
-  <string name="text_using_desc_selector">Vyberte pomocí popisu (popis)</string>  
+  <string name="text_using_desc_selector">Použít Popis Vyberte (desc)</string>  
   <string name="text_generate">Generovat</string>  
   <string name="text_generate_fail">Sestavení se nezdařilo o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Zdroj dokumentace</string>  
@@ -369,7 +369,7 @@
   <string name="text_stop">Stop</string>  
   <string name="text_new_watching_variable">Přidejte proměnnou nebo výraz ke sledování</string>  
   <string name="text_variable_or_expr">Proměnná nebo výraz</string>  
-  <string name="text_remove_all_breakpoints">Odstranit všechny body přerušení</string>  
+  <string name="text_remove_all_breakpoints">Odstranit všechny zarážky</string>  
   <string name="hint_long_click_run_to_debug">Ladění lze také spustit dlouhým stisknutím ikony \"Spustit\".</string>  
   <string name="format_debug_bar_title">Ladit [ %s ]</string>  
   <string name="text_copy_value">Kopírovat hodnotu</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Kliknutím vstoupíte do hlavního rozhraní</string>  
   <string name="text_run_on_other_broadcast">Další akce (vysílání)</string>  
   <string name="text_broadcast_action">Akce vysílání</string>  
-  <string name="text_run_on_boot">Při bootování</string>  
+  <string name="text_run_on_boot">V době spuštění</string>  
   <string name="text_run_on_screen_on">Když je obrazovka zapnutá</string>  
   <string name="text_run_on_screen_off">Když je obrazovka vypnutá</string>  
   <string name="error_empty_selection">Vyberte možnost vysílané události</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Noční režim</string>  
   <string name="text_run_on_startup">Když se spustí Autox.js</string>  
   <string name="text_usage_stats_permission">Přístup k používání</string>  
-  <string name="description_usage_stats_permission">Prostřednictvím oprávnění „zobrazit statistiky využití“ můžete získat minulé použití aplikace tohoto zařízení, takže je přesnější získat aktuální aplikaci (aktuální balíček).</string>  
+  <string name="description_usage_stats_permission">Prostřednictvím oprávnění „Zobrazit statistiky používání“ můžete získat minulé použití aplikace tohoto zařízení, takže je přesnější získat aktuální aplikaci (aktuální balíček).</string>  
   <string name="text_open_with">Otevřená cesta</string>  
   <string name="text_root">Vykořenit</string>  
   <string name="text_no_root">Bez kořenů</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Ukončit vyhledávání</string>  
   <string name="text_licenses_other">Non-Open Source License</string>  
   <string name="text_save_successfully">Úspěšně uloženo</string>  
-  <string name="text_save_as_project">Uložit jako projekt</string>
-  <string name="text_select_save_mode">Vyberte prosím způsob uložení</string>
-  <string name="text_save_as_project_and_exit">Uložit jako projekt a ukončit</string>
-  <string name="apk_builder_sign">Podepisování</string>
-  <string name="text_invalid_config">Neplatná konfigurace</string>
-  <string name="text_abi">Podporované ABI (oddělené čárkami)</string>
-  <string name="text_save_project_to">Projekt byl uložen do: %s</string>
+  <string name="text_save_as_project">Uložit jako projekt</string>  
+  <string name="text_select_save_mode">Vyberte prosím způsob uložení</string>  
+  <string name="text_save_as_project_and_exit">Uložit jako projekt a ukončit</string>  
+  <string name="apk_builder_sign">Podepisování</string>  
+  <string name="text_invalid_config">Neplatná konfigurace</string>  
+  <string name="text_abi">Podporované ABI (oddělené čárkami)</string>  
+  <string name="text_save_project_to">Projekt byl uložen do: %s</string>  
+  <string name="text_hide_and_show">Skrýt/ukázat</string>
+  <string name="text_browser_open">Otevřený prohlížeč</string>
+  <string name="text_do_nothing">Nedělat nic</string>
+  <string name="text_copy_to_new_folder">Zkopírujte obsah původní složky do nové složky</string>
+  <string name="text_move_new_folder">Přesuňte obsah původní složky do nové složky</string>
+  <string name="text_accessibility_service_is_not_enable">Služba usnadnění není zapnutá</string>
+  <string name="text_set_successfully">Úspěšně nastavit</string>
 </resources>

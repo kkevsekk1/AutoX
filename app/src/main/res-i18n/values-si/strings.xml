@@ -8,7 +8,7 @@
   <string name="text_please_input_name">කරුණාකර නමක් ඇතුළත් කරන්න</string>  
   <string name="text_name">නාමය</string>  
   <string name="text_go_to_setting">සැකසීම් වෙත යන්න</string>  
-  <string name="explain_accessibility_permission">මෘදුකාංගය ක්‍රියාත්මක වීමට \"ප්‍රවේශ්‍යතා සේවා\" විවෘත කිරීමට අවශ්‍ය වේ, කරුණාකර \"සැකසීම්-> ප්‍රවේශ්‍යතා සේවා\" හෝ \"සැකසීම්-> ප්‍රවේශ්‍යතා සේවා->තවත් බාගත කළ සේවා\" විවෘත කරන්න, මෙම යෙදුම සොයාගෙන, සහ ප්‍රවේශ්‍යතා සේවා සබල කරන්න \n ඔබට එයද සැකසිය හැක පසුව පතන මෙනුවේ.</string>  
+  <string name="explain_accessibility_permission">ධාවනය කිරීමට මෘදුකාංගයට \"ප්‍රවේශ්‍යතා සේවා\" විවෘත කිරීමට අවශ්‍ය වේ, කරුණාකර \"සැකසීම්-> ප්‍රවේශ්‍යතා සේවා\" හෝ \"සැකසීම්-> ප්‍රවේශ්‍යතා සේවා->තවත් බාගත කළ සේවා\" විවෘත කරන්න, මෙම යෙදුම සොයාගෙන, ප්‍රවේශ්‍යතා සේවා සබල කරන්න \n ඔබට එයද සැකසිය හැක. පසුව පතන මෙනුවේ.</string>  
   <string name="explain_accessibility_permission2">ධාවනය කිරීමට මෘදුකාංගයට \"ප්‍රවේශ්‍යතා සේවා\" විවෘත කිරීමට අවශ්‍ය වේ, කරුණාකර \"සැකසීම්-> ප්‍රවේශ්‍යතා සේවා\" හෝ \"සැකසීම්-> ප්‍රවේශ්‍යතා සේවා->තවත් බාගත කළ සේවා\" විවෘත කරන්න, මෙම යෙදුම සොයාගෙන, ප්‍රවේශ්‍යතා සේවා සබල කරන්න</string>  
   <string name="text_cancel">අවලංගු කරන්න</string>  
   <string name="text_path_is_empty">මාර්ගය හිස් ය</string>  
@@ -122,7 +122,7 @@
   <string name="text_code_beautify">ආකෘති කේතය</string>  
   <string name="text_processing">සැකසීම</string>  
   <string name="text_guard_mode">ආරක්ෂිත මාදිලිය</string>  
-  <string name="summary_guard_mode">මෙම මෘදුකාංග අතුරුමුහුණතෙහි අහම්බෙන් ස්පර්ශ වීම වැළැක්වීම සඳහා ස්වයංක්‍රීය මෙහෙයුම් විධානය ක්‍රියාත්මක කළ නොහැක</string>  
+  <string name="summary_guard_mode">මෙම මෘදුකාංග අතුරුමුහුණත තුළ ස්වයංක්‍රීය මෙහෙයුම් විධානය අහම්බෙන් ස්පර්ශ වීම වළක්වා ගැනීමට ක්‍රියාත්මක කළ නොහැක</string>  
   <string name="text_layout_inspector_is_dumping">පිරිසැලසුම් විශ්ලේෂණය සිදු වෙමින් පවතී</string>  
   <string name="text_force_stop">බලහත්කාරයෙන් නතර කිරීම</string>  
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] තත්පර %f කින් ධාවනය අවසන් විය</string>  
@@ -230,9 +230,9 @@
   <string name="text_required_background_start">පසුබිම් උත්පතන අතුරුමුහුණත අවසරය අවශ්‍යයි</string>  
   <string name="text_required_draw_overlay">පාවෙන කවුළු අවසරය අවශ්‍යයි</string>  
   <string name="text_volumeUpcontrol">කාර්යය අවසන් කිරීමට ශබ්දය වැඩි කිරීමේ යතුර</string>  
-  <string name="text_splash_text">ආරම්භක අතුරුමුහුණත පෙළ</string>  
+  <string name="text_splash_text">ආරම්භක අතුරුමුහුණත් පෙළ</string>  
   <string name="text_splash_icon">දියත් අතුරුමුහුණත නිරූපකය</string>  
-  <string name="text_service_desc_text">ප්‍රවේශ්‍යතා සේවා විස්තරය</string>  
+  <string name="text_service_desc_text">ප්‍රවේශ්‍යතා සේවා පිළිබඳ විස්තරය</string>  
   <string name="text_sign">ලකුණ</string>  
   <string name="text_sign_choose">අත්සන තෝරන්න</string>  
   <string name="text_sign_password">අත්සන සහතික මුරපදය</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">විකල්ප</string>  
   <string name="text_using_id_selector">Id භාවිතා කර තෝරන්න</string>  
   <string name="text_using_text_selector">පෙළ තේරීම භාවිතා කරන්න (පෙළ)</string>  
-  <string name="text_using_desc_selector">විස්තරය භාවිතයෙන් තෝරන්න (ඩෙස්ක්)</string>  
+  <string name="text_using_desc_selector">විස්තරය තෝරන්න (ඩෙස්ක්) භාවිතා කරන්න</string>  
   <string name="text_generate">උත්පාදනය කරන්න</string>  
   <string name="text_generate_fail">ගොඩනැගීම අසාර්ථක විය o(╥﹏╥)o</string>  
   <string name="text_documentation_source">ලේඛන මූලාශ්රය</string>  
@@ -325,7 +325,7 @@
   <string name="text_apk_builder_plugin_unavailable">පැකේජ ප්ලගිනය නොමැත</string>  
   <string name="text_detail">විස්තර</string>  
   <string name="text_open">විවෘත</string>  
-  <string name="text_generated_code">ප්රතිඵල ජනනය කරන්න</string>  
+  <string name="text_generated_code">ප්රතිඵලය උත්පාදනය කරන්න</string>  
   <string name="text_copy">පිටපත</string>  
   <string name="text_should_not_be_empty">හිස් විය නොහැක</string>  
   <string name="text_icon">නිරූපකය</string>  
@@ -361,7 +361,7 @@
   <string name="text_error_copy_file" formatted="true">දෝෂයක් සිදු විය: %s</string>  
   <string name="text_debug">නිදොස් කිරීම</string>  
   <string name="text_set_breakpoint">කඩඉම</string>  
-  <string name="text_launch_debugger">නිදොස් කිරීම ආරම්භ කරන්න</string>  
+  <string name="text_launch_debugger">නිදොස්කරණය ආරම්භ කරන්න</string>  
   <string name="text_debug_step_out">එලියට පනින්න</string>  
   <string name="text_debug_step_into">ඇතුල් කරන්න</string>  
   <string name="text_debug_step_over">තනි පියවරක්</string>  
@@ -370,7 +370,7 @@
   <string name="text_new_watching_variable">නැරඹීමට විචල්‍යයක් හෝ ප්‍රකාශනයක් එක් කරන්න</string>  
   <string name="text_variable_or_expr">විචල්ය හෝ ප්රකාශනය</string>  
   <string name="text_remove_all_breakpoints">සියලු කඩඉම් ඉවත් කරන්න</string>  
-  <string name="hint_long_click_run_to_debug">\"ධාවනය\" අයිකනය දිගු එබීමෙන් ද දෝශ නිරාකරණය ආරම්භ කළ හැක</string>  
+  <string name="hint_long_click_run_to_debug">\"ධාවනය\" අයිකනය දිගු එබීමෙන් ද දෝෂහරණය ආරම්භ කළ හැක</string>  
   <string name="format_debug_bar_title">නිදොස්කරණය [ %s ]</string>  
   <string name="text_copy_value">පිටපත් වටිනාකම</string>  
   <string name="text_execute_code">කේතය ක්රියාත්මක කරන්න</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">ප්‍රධාන අතුරු මුහුණත ඇතුළු කිරීමට ක්ලික් කරන්න</string>  
   <string name="text_run_on_other_broadcast">වෙනත් සිදුවීම් (විකාශනය)</string>  
   <string name="text_broadcast_action">විකාශන ක්‍රියාව</string>  
-  <string name="text_run_on_boot">ආරම්භ කරන විට</string>  
+  <string name="text_run_on_boot">ආරම්භක වේලාවේදී</string>  
   <string name="text_run_on_screen_on">තිරය ​​ක්රියාත්මක වන විට</string>  
   <string name="text_run_on_screen_off">තිරය ​​අක්‍රිය වූ විට</string>  
   <string name="error_empty_selection">කරුණාකර විකාශන සිදුවීම් විකල්පයක් තෝරන්න</string>  
@@ -408,7 +408,7 @@
   <string name="text_run_on_power_connect">බලය සම්බන්ධ වූ විට</string>  
   <string name="text_run_on_power_disconnect">විදුලිය විසන්ධි වූ විට</string>  
   <string name="text_run_on_conn_change">ජාල සම්බන්ධතාවය වෙනස් වන විට</string>  
-  <string name="text_run_on_package_install">නව යෙදුමක් ස්ථාපනය කර ඇති විට</string>  
+  <string name="text_run_on_package_install">නව යෙදුමක් ස්ථාපනය කරන විට</string>  
   <string name="text_run_on_package_uninstall">යෙදුම අස්ථාපනය කළ විට</string>  
   <string name="text_run_on_package_update">යාවත්කාලීනයක් යොදන විට</string>  
   <string name="text_run_on_headset_plug">හෙඩ්සෙට් එක ප්ලග් සහ ගලවන විට</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">සෙවුමෙන් පිටවන්න</string>  
   <string name="text_licenses_other">විවෘත මූලාශ්‍ර නොවන බලපත්‍රය</string>  
   <string name="text_save_successfully">සාර්ථකව සුරැකිණි</string>  
-  <string name="text_save_as_project">ව්යාපෘතියක් ලෙස සුරකින්න</string>
-  <string name="text_select_save_mode">කරුණාකර සුරැකීමේ ක්‍රමයක් තෝරන්න</string>
-  <string name="text_save_as_project_and_exit">ව්‍යාපෘතියක් ලෙස සුරකින්න සහ පිටවන්න</string>
-  <string name="apk_builder_sign">අත්සන් කරනවා</string>
-  <string name="text_invalid_config">වලංගු නොවන වින්‍යාසය</string>
-  <string name="text_abi">සහාය දක්වන ABI (කොමා වලින් වෙන් කර ඇත)</string>
-  <string name="text_save_project_to">ව්‍යාපෘතිය සුරකින ලද්දේ: %s</string>
+  <string name="text_save_as_project">ව්යාපෘතියක් ලෙස සුරකින්න</string>  
+  <string name="text_select_save_mode">කරුණාකර සුරැකීමේ ක්‍රමයක් තෝරන්න</string>  
+  <string name="text_save_as_project_and_exit">ව්‍යාපෘතියක් ලෙස සුරකින්න සහ පිටවන්න</string>  
+  <string name="apk_builder_sign">අත්සන් කරනවා</string>  
+  <string name="text_invalid_config">වලංගු නොවන වින්‍යාසය</string>  
+  <string name="text_abi">සහාය දක්වන ABI (කොමා වලින් වෙන් කර ඇත)</string>  
+  <string name="text_save_project_to">ව්‍යාපෘතිය සුරකින ලද්දේ: %s</string>  
+  <string name="text_hide_and_show">සඟවන්න / පෙන්වන්න</string>
+  <string name="text_browser_open">බ්රවුසරය විවෘතයි</string>
+  <string name="text_do_nothing">කිසිවක් නොකරන්න</string>
+  <string name="text_copy_to_new_folder">මුල් ෆෝල්ඩරයේ අන්තර්ගතය නව ෆෝල්ඩරයට පිටපත් කරන්න</string>
+  <string name="text_move_new_folder">මුල් ෆෝල්ඩරයේ අන්තර්ගතය නව ෆෝල්ඩරයට ගෙන යන්න</string>
+  <string name="text_accessibility_service_is_not_enable">ප්‍රවේශ්‍යතා සේවාව ක්‍රියාත්මක කර නැත</string>
+  <string name="text_set_successfully">සාර්ථකව සකසා ඇත</string>
 </resources>

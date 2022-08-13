@@ -24,7 +24,7 @@
   <string name="text_alert">بېشارەت</string>  
   <string name="edit_exit_without_save_warn">مەزمۇن ساقلانمىدى ، چېكىنىشنى خالامسىز؟</string>  
   <string name="text_save_and_exit">ساقلاش ۋە چېكىنىش</string>  
-  <string name="text_exit_directly">بىۋاسىتە چىقىڭ</string>  
+  <string name="text_exit_directly">بىۋاسىتە چېكىنىش</string>  
   <string name="text_setting">تەڭشەش</string>  
   <string name="text_exit">چېكىنىش</string>  
   <string name="text_auto_operate_service">قولايلىق مۇلازىمەتلەر</string>  
@@ -75,7 +75,7 @@
   <string name="text_enable_accessibility_service_by_root">يىلتىز ئىمتىيازى بار مۇلازىمەتلەرنى ئاپتوماتىك قوزغىتىڭ</string>  
   <string name="text_auto_operate_service_enabled_but_not_running">قولايلىق مۇلازىمەت قوزغىتىلغان ، ئەمما ئىجرا قىلىنمايدۇ ، بۇ بەلكىم ئاندىرويىد خاتالىقى بولۇشى مۇمكىن ، تېلېفوننى قايتا قوزغىتىشىڭىز ياكى قولايلىق مۇلازىمەتنى قايتا قوزغىتىشىڭىز مۇمكىن.</string>  
   <string name="text_enable_accessibility_service_by_root_timeout">يىلتىز ئىمتىيازى بىلەن قولايلىق مۇلازىمەتنى باشلاش ۋاقتى</string>  
-  <string name="summary_enable_accessibility_service_by_root">ئېچىلغاندىن كېيىن ، قوليازما ئىجرا بولغاندا Root ئىمتىيازلىرى بىلەن ئاپتوماتىك زىيارەت قىلىش مۇلازىمىتى ئېچىلىدۇ</string>  
+  <string name="summary_enable_accessibility_service_by_root">ئېچىلغاندىن كېيىن ، قوليازمىنى ئىجرا قىلغاندا Root ئىمتىيازلىرى بىلەن ئاپتوماتىك زىيارەت قىلىش مۇلازىمىتى ئېچىلىدۇ</string>  
   <string name="text_appearance">سىرتقى كۆرۈنۈشى</string>  
   <string name="text_theme_color">ئۇسلۇب رەڭگى</string>  
   <string name="text_select_image">رەسىمنى تاللاڭ</string>  
@@ -122,7 +122,7 @@
   <string name="text_code_beautify">فورمات كودى</string>  
   <string name="text_processing">بىر تەرەپ قىلىش</string>  
   <string name="text_guard_mode">قوغدالغان ھالەت</string>  
-  <string name="summary_guard_mode">تاسادىپىي تېگىشتىن ساقلىنىش ئۈچۈن بۇ يۇمشاق دېتال كۆرۈنمە يۈزىدە ئاپتوماتىك مەشغۇلات بۇيرۇقىنى ئىجرا قىلغىلى بولمايدۇ</string>  
+  <string name="summary_guard_mode">تاسادىپىي تېگىشتىن ساقلىنىش ئۈچۈن ئاپتوماتىك مەشغۇلات بۇيرۇقىنى بۇ يۇمشاق دېتال كۆرۈنمە يۈزىدە ئىجرا قىلغىلى بولمايدۇ</string>  
   <string name="text_layout_inspector_is_dumping">ئورۇنلاشتۇرۇش ئانالىزى ئېلىپ بېرىلماقتا</string>  
   <string name="text_force_stop">مەجبۇرىي توختىتىش</string>  
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] %f سېكۇنتتا ئىجرا قىلىشنى تاماملىدى</string>  
@@ -163,7 +163,7 @@
   <string name="text_hideLaucher">ئۈستەل يۈزى سىنبەلگىسىنى يوشۇرۇش (ئېلان ياكى باشقا ئۇسۇللار ئارقىلىق ئەپلەرنى قوزغىتىش)</string>  
   <string name="text_stable_mode">مۇقىم ھالەت</string>  
   <string name="text_single_build_clean_mode">يەككە ھۆججەت ئورالمىسىنى يېڭىلاش ھالىتى</string>  
-  <string name="summary_single_build_clean_mode">ئېچىلغاندىن كېيىن ، بىر ھۆججەت ئورالغاندا ئورالما سەپلىمە ھۆججىتى ساقلانمايدۇ ، باشلاش رەسىمى ۋە قوللىنىشچان سىنبەلگىسى قاتارلىق بارلىق سەپلىمە ئۇچۇرلار ساقلانمايدۇ.</string>  
+  <string name="summary_single_build_clean_mode">ئېچىلغاندىن كېيىن ، بىر ھۆججەت ئورالغاندا ئورالما سەپلىمە ھۆججىتى ساقلانمايدۇ ، باشلاش رەسىمى ۋە پروگرامما سىنبەلگىسى قاتارلىق بارلىق سەپلىمە ئۇچۇرلار ساقلانمايدۇ.</string>  
   <string name="text_directory">ھۆججەت قىسقۇچ</string>  
   <string name="text_file">ھۆججەت</string>  
   <string name="text_tutorial">دەرسلىك</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">تاللانما</string>  
   <string name="text_using_id_selector">Id نى تاللاڭ</string>  
   <string name="text_using_text_selector">تېكىست تاللاش (تېكىست) نى ئىشلىتىڭ</string>  
-  <string name="text_using_desc_selector">چۈشەندۈرۈش (desc) نى ئىشلىتىپ تاللاڭ</string>  
+  <string name="text_using_desc_selector">چۈشەندۈرۈش نى تاللاڭ (تۆۋەن)</string>  
   <string name="text_generate">ھاسىل قىلىش</string>  
   <string name="text_generate_fail">مەغلۇب بولغان o (╥﹏╥) o</string>  
   <string name="text_documentation_source">ھۆججەت مەنبەسى</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">ئاساسىي كۆرۈنمە يۈزىگە كىرىڭ</string>  
   <string name="text_run_on_other_broadcast">باشقا پائالىيەتلەر (تارقىتىش)</string>  
   <string name="text_broadcast_action">Broadcast Action</string>  
-  <string name="text_run_on_boot">قوزغاتقاندا</string>  
+  <string name="text_run_on_boot">قوزغىتىش ۋاقتىدا</string>  
   <string name="text_run_on_screen_on">ئېكران ئېچىلغاندا</string>  
   <string name="text_run_on_screen_off">ئېكران تاقالغاندا</string>  
   <string name="error_empty_selection">ئاڭلىتىش پائالىيىتى تاللانمىسىنى تاللاڭ</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">ئىزدەشتىن چېكىنىش</string>  
   <string name="text_licenses_other">ئوچۇق كود ئىجازەتنامىسى</string>  
   <string name="text_save_successfully">مۇۋەپپەقىيەتلىك ساقلاندى</string>  
-  <string name="text_save_as_project">تۈر سۈپىتىدە ساقلاڭ</string>
-  <string name="text_select_save_mode">ساقلاش ئۇسۇلىنى تاللاڭ</string>
-  <string name="text_save_as_project_and_exit">تۈر سۈپىتىدە تېجەپ چىقىڭ</string>
-  <string name="apk_builder_sign">ئىمزا قويۇش</string>
-  <string name="text_invalid_config">ئىناۋەتسىز</string>
-  <string name="text_abi">قوللايدىغان ABI (پەش بىلەن ئايرىلىدۇ)</string>
-  <string name="text_save_project_to">تۈر ساقلاندى: %s</string>
+  <string name="text_save_as_project">تۈر سۈپىتىدە ساقلاڭ</string>  
+  <string name="text_select_save_mode">ساقلاش ئۇسۇلىنى تاللاڭ</string>  
+  <string name="text_save_as_project_and_exit">تۈر سۈپىتىدە تېجەپ چىقىڭ</string>  
+  <string name="apk_builder_sign">ئىمزا قويۇش</string>  
+  <string name="text_invalid_config">ئىناۋەتسىز</string>  
+  <string name="text_abi">قوللايدىغان ABI (پەش بىلەن ئايرىلىدۇ)</string>  
+  <string name="text_save_project_to">تۈر ساقلاندى: %s</string>  
+  <string name="text_hide_and_show">Hide / show</string>
+  <string name="text_browser_open">توركۆرگۈ ئېچىلدى</string>
+  <string name="text_do_nothing">ھېچ ئىش قىلماڭ</string>
+  <string name="text_copy_to_new_folder">ئەسلى ھۆججەت قىسقۇچنىڭ مەزمۇنىنى يېڭى قىسقۇچقا كۆچۈرۈڭ</string>
+  <string name="text_move_new_folder">ئەسلى ھۆججەت قىسقۇچنىڭ مەزمۇنىنى يېڭى قىسقۇچقا يۆتكەڭ</string>
+  <string name="text_accessibility_service_is_not_enable">قولايلىق مۇلازىمەت ئېچىلمىدى</string>
+  <string name="text_set_successfully">مۇۋەپپەقىيەتلىك تەڭشەلدى</string>
 </resources>

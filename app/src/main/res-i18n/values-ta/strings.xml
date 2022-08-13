@@ -8,7 +8,7 @@
   <string name="text_please_input_name">தயவுசெய்து பெயரை உள்ளிடவும்</string>  
   <string name="text_name">பெயர்</string>  
   <string name="text_go_to_setting">அமைப்புகளுக்குச் செல்லவும்</string>  
-  <string name="explain_accessibility_permission">மென்பொருளை இயக்க, \"அணுகல்தன்மை சேவைகள்\" திறக்க வேண்டும், தயவுசெய்து \"அமைப்புகள்-> அணுகல் சேவைகள்\" அல்லது \"அமைப்புகள்-> அணுகல்தன்மை சேவைகள்->மேலும் பதிவிறக்கம் செய்யப்பட்ட சேவைகள்\" என்பதைத் திறந்து, இந்த பயன்பாட்டைக் கண்டறிந்து, அணுகல் சேவைகளை இயக்கவும் \n இதை அமைக்கலாம் பின்னர் கீழ்தோன்றும் மெனுவில்.</string>  
+  <string name="explain_accessibility_permission">மென்பொருளை இயக்க \"அணுகல் சேவைகள்\" திறக்க வேண்டும், தயவுசெய்து \"அமைப்புகள்-> அணுகல் சேவைகள்\" அல்லது \"அமைப்புகள்-> அணுகல்தன்மை சேவைகள்->மேலும் பதிவிறக்கம் செய்யப்பட்ட சேவைகள்\" என்பதைத் திறந்து, இந்த பயன்பாட்டைக் கண்டறிந்து, அணுகல் சேவைகளை இயக்கவும் \n இதை அமைக்கலாம் பின்னர் கீழ்தோன்றும் மெனுவில்.</string>  
   <string name="explain_accessibility_permission2">மென்பொருளை இயக்க \"அணுகல்தன்மை சேவைகள்\" திறக்க வேண்டும், தயவுசெய்து \"அமைப்புகள்-> அணுகல் சேவைகள்\" அல்லது \"அமைப்புகள்-> அணுகல் சேவைகள்->மேலும் பதிவிறக்கம் செய்யப்பட்ட சேவைகள்\" என்பதைத் திறந்து, இந்த பயன்பாட்டைக் கண்டறிந்து, அணுகல் சேவைகளை இயக்கவும்</string>  
   <string name="text_cancel">ரத்து செய்</string>  
   <string name="text_path_is_empty">பாதை காலியாக உள்ளது</string>  
@@ -24,7 +24,7 @@
   <string name="text_alert">குறிப்பு</string>  
   <string name="edit_exit_without_save_warn">உள்ளடக்கம் சேமிக்கப்படவில்லை, நிச்சயமாக வெளியேற விரும்புகிறீர்களா?</string>  
   <string name="text_save_and_exit">சேமிக்க மற்றும் வெளியேறும்</string>  
-  <string name="text_exit_directly">நேரடியாக வெளியேறவும்</string>  
+  <string name="text_exit_directly">நேரடியாக வெளியேறு</string>  
   <string name="text_setting">அமைக்க</string>  
   <string name="text_exit">விட்டுவிட</string>  
   <string name="text_auto_operate_service">அணுகல் சேவைகள்</string>  
@@ -288,7 +288,7 @@
   <string name="text_generate_code">குறியீடு உருவாக்க</string>  
   <string name="text_action">நடவடிக்கை</string>  
   <string name="text_click">கிளிக் செய்யவும்</string>  
-  <string name="text_long_click">நீண்ட அழுத்தவும் (longClick)</string>  
+  <string name="text_long_click">நீண்ட நேரம் அழுத்தவும் (longClick)</string>  
   <string name="text_set_text">உரையை அமைக்கவும் (setText)</string>  
   <string name="text_scroll_forward">முன்னோக்கி/வலது/கீழே ஸ்வைப் செய்யவும் (முன்னோக்கிச் செல்லவும்)</string>  
   <string name="text_scroll_backward">பின்னோக்கி/மேலே/இடதுபுறமாக உருட்டவும் (பின்னோக்கிச் செல்லவும்)</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">விருப்பங்கள்</string>  
   <string name="text_using_id_selector">ஐடியைப் பயன்படுத்தி தேர்ந்தெடுக்கவும்</string>  
   <string name="text_using_text_selector">உரைத் தேர்வைப் பயன்படுத்தவும் (உரை)</string>  
-  <string name="text_using_desc_selector">விளக்கத்தைப் பயன்படுத்தி தேர்ந்தெடுக்கவும் (டெஸ்க்)</string>  
+  <string name="text_using_desc_selector">விளக்கத்தைத் தேர்ந்தெடு (desc) பயன்படுத்தவும்</string>  
   <string name="text_generate">உருவாக்க</string>  
   <string name="text_generate_fail">உருவாக்கம் தோல்வியடைந்தது o(╥﹏╥)o</string>  
   <string name="text_documentation_source">ஆவண ஆதாரம்</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">முக்கிய இடைமுகத்தை உள்ளிட கிளிக் செய்யவும்</string>  
   <string name="text_run_on_other_broadcast">மற்ற நிகழ்வுகள் (ஒளிபரப்பு)</string>  
   <string name="text_broadcast_action">ஒளிபரப்பு நடவடிக்கை</string>  
-  <string name="text_run_on_boot">துவக்கும் போது</string>  
+  <string name="text_run_on_boot">துவக்க நேரத்தில்</string>  
   <string name="text_run_on_screen_on">திரை இயக்கத்தில் இருக்கும்போது</string>  
   <string name="text_run_on_screen_off">திரை அணைக்கப்படும் போது</string>  
   <string name="error_empty_selection">ஒளிபரப்பு நிகழ்வு விருப்பத்தைத் தேர்ந்தெடுக்கவும்</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">இரவு நிலை</string>  
   <string name="text_run_on_startup">Autox.js தொடங்கும் போது</string>  
   <string name="text_usage_stats_permission">பயன்பாட்டு அணுகல்</string>  
-  <string name="description_usage_stats_permission">\"பயன்பாட்டுப் புள்ளிவிவரங்களைக் காண்க\" அனுமதியின் மூலம், இந்தச் சாதனத்தின் முந்தைய பயன்பாட்டுப் பயன்பாட்டை நீங்கள் பெறலாம், இதனால் தற்போதைய பயன்பாட்டைப் (currentPackage) பெறுவது மிகவும் துல்லியமாக இருக்கும்.</string>  
+  <string name="description_usage_stats_permission">\"பயன்பாட்டு புள்ளிவிவரங்களைக் காண்க\" அனுமதியின் மூலம், இந்தச் சாதனத்தின் முந்தைய பயன்பாட்டுப் பயன்பாட்டை நீங்கள் பெறலாம், இதனால் தற்போதைய பயன்பாட்டைப் பெறுவது மிகவும் துல்லியமாக இருக்கும் (currentPackage).</string>  
   <string name="text_open_with">திறந்த வழி</string>  
   <string name="text_root">வேர்</string>  
   <string name="text_no_root">ரூட் இலவசம்</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">தேடலில் இருந்து வெளியேறு</string>  
   <string name="text_licenses_other">திறந்த மூல உரிமம் அல்ல</string>  
   <string name="text_save_successfully">வெற்றிகரமாக சேமிக்கப்பட்டது</string>  
-  <string name="text_save_as_project">திட்டமாக சேமிக்கவும்</string>
-  <string name="text_select_save_mode">சேமிக்கும் முறையைத் தேர்ந்தெடுக்கவும்</string>
-  <string name="text_save_as_project_and_exit">திட்டமாக சேமித்து வெளியேறவும்</string>
-  <string name="apk_builder_sign">கையொப்பமிடுதல்</string>
-  <string name="text_invalid_config">தவறான கட்டமைப்பு</string>
-  <string name="text_abi">ஆதரிக்கப்படும் ABIகள் (காற்புள்ளிகளால் பிரிக்கப்பட்டவை)</string>
-  <string name="text_save_project_to">திட்டம் இதில் சேமிக்கப்பட்டது: %s</string>
+  <string name="text_save_as_project">திட்டமாக சேமிக்கவும்</string>  
+  <string name="text_select_save_mode">சேமிக்கும் முறையைத் தேர்ந்தெடுக்கவும்</string>  
+  <string name="text_save_as_project_and_exit">திட்டமாக சேமித்து வெளியேறவும்</string>  
+  <string name="apk_builder_sign">கையொப்பமிடுதல்</string>  
+  <string name="text_invalid_config">தவறான கட்டமைப்பு</string>  
+  <string name="text_abi">ஆதரிக்கப்படும் ABIகள் (காற்புள்ளிகளால் பிரிக்கப்பட்டவை)</string>  
+  <string name="text_save_project_to">திட்டம் இதில் சேமிக்கப்பட்டது: %s</string>  
+  <string name="text_hide_and_show">மறை/காட்டு</string>
+  <string name="text_browser_open">உலாவி திறக்கப்பட்டது</string>
+  <string name="text_do_nothing">எதுவும் செய்யாதே</string>
+  <string name="text_copy_to_new_folder">அசல் கோப்புறையின் உள்ளடக்கங்களை புதிய கோப்புறையில் நகலெடுக்கவும்</string>
+  <string name="text_move_new_folder">அசல் கோப்புறையின் உள்ளடக்கங்களை புதிய கோப்புறைக்கு நகர்த்தவும்</string>
+  <string name="text_accessibility_service_is_not_enable">அணுகல் சேவை இயக்கப்படவில்லை</string>
+  <string name="text_set_successfully">வெற்றிகரமாக அமைக்கப்பட்டது</string>
 </resources>

@@ -24,7 +24,7 @@
   <string name="text_alert">Okukoonako</string>  
   <string name="edit_exit_without_save_warn">Ebirimu tebinnaterekebwa, okakasa nti oyagala kufuluma?</string>  
   <string name="text_save_and_exit">Okutereka era ofulume</string>  
-  <string name="text_exit_directly">Fuluma butereevu</string>  
+  <string name="text_exit_directly">Okufuluma butereevu</string>  
   <string name="text_setting">Okutandika</string>  
   <string name="text_exit">Okuwanika</string>  
   <string name="text_auto_operate_service">Empeereza y’okutuuka ku bantu</string>  
@@ -128,8 +128,8 @@
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Emalirizza okudduka mu %f sekondi</string>  
   <string name="text_again">Neera</string>  
   <string name="text_again_and_again">Bbiri</string>  
-  <string name="text_again_and_again_again">Emirundi ebiri nate</string>  
-  <string name="text_again_and_again_again_again">Nate emirundi ebiri</string>  
+  <string name="text_again_and_again_again">Nate emirundi ebiri</string>  
+  <string name="text_again_and_again_again_again">Emirundi ebiri nate</string>  
   <string name="text_connect_computer">Okuyunga kompyuta</string>  
   <string name="regist">Yunga ku app store</string>  
   <string name="text_server_address">Endagiriro ya seva</string>  
@@ -145,7 +145,7 @@
   <string name="text_script_save_successfully">Eterekeddwa bulungi, nsaba ozzeemu okuzza obuggya dayirekita</string>  
   <string name="text_run_repeatedly">Emisinde gya ddigi</string>  
   <string name="text_loop_interval">Enzirukanya y’obudde (sekondi) .</string>  
-  <string name="text_loop_delay">Okulwawo okutuukiriza (sekondi) .</string>  
+  <string name="text_loop_delay">Okulwawo okukola (sekondi) .</string>  
   <string name="text_loop_times">Enzirukanya y’emirimu</string>  
   <string name="hint_loop_times">0 ye loopu etaliiko kkomo</string>  
   <string name="hint_loop_delay">Sekonda mmeka okulwawo okutandika okukola loopu</string>  
@@ -220,7 +220,7 @@
   <string name="text_package_name">Amannya g’ebipapula</string>  
   <string name="text_version_name">Erinnya ly\'enkyusa</string>  
   <string name="text_version_code">Ennamba y’enkyusa</string>  
-  <string name="text_run_config">Okuddukanya ensengeka</string>  
+  <string name="text_run_config">Okuddukanya okusengeka</string>  
   <string name="text_hideLogs">Okukweka ekiwandiiko</string>  
   <string name="text_required_accessibility_service">Empeereza y’okutuuka ku bantu Ekyetaagisa</string>  
   <string name="text_required_opencv">Okukola ku bifaananyi ebya OpenCv</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Eby’okulondako</string>  
   <string name="text_using_id_selector">Londa nga okozesa id</string>  
   <string name="text_using_text_selector">Kozesa okulonda ebiwandiiko (ekiwandiiko) .</string>  
-  <string name="text_using_desc_selector">Londa ng\'okozesa ennyonyola (desc) .</string>  
+  <string name="text_using_desc_selector">Kozesa Ennyonnyola Londa (desc) .</string>  
   <string name="text_generate">Okufulumya</string>  
   <string name="text_generate_fail">Okuzimba kulemereddwa o(╥*╥)o</string>  
   <string name="text_documentation_source">Ensibuko y’ebiwandiiko</string>  
@@ -385,7 +385,7 @@
   <string name="text_class_or_package_name">Erinnya lya kiraasi/ekipapula</string>  
   <string name="text_view_docs">Laba ebiwandiiko</string>  
   <string name="text_market">Akatale</string>  
-  <string name="text_launch_config">Okuddukanya ensengeka</string>  
+  <string name="text_launch_config">Okuddukanya okusengeka</string>  
   <string name="text_main_file_name">Erinnya ly’ekiwandiiko ekikulu</string>  
   <string name="text_project">Pulojekiti</string>  
   <string name="text_project_location">Ekifo kya pulojekiti</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Nyiga okuyingira mu interface enkulu</string>  
   <string name="text_run_on_other_broadcast">Ebirala ebibaawo (okuweereza ku mpewo) .</string>  
   <string name="text_broadcast_action">Okuweereza ku mpewo Ekikolwa</string>  
-  <string name="text_run_on_boot">Nga okola boot</string>  
+  <string name="text_run_on_boot">Mu kiseera kya boot</string>  
   <string name="text_run_on_screen_on">Nga screen eba eyaka</string>  
   <string name="text_run_on_screen_off">Nga screen evuddeko</string>  
   <string name="error_empty_selection">Nsaba olonde eky\'okukola eky\'okuweereza ku mpewo</string>  
@@ -415,14 +415,14 @@
   <string name="text_run_on_time_tick">Buli ddakiika</string>  
   <string name="text_run_on_config_change">Enteekateeka ezimu (okulaga screen, ekitundu, n’ebirala) bwe zikyusibwa</string>  
   <string name="error_pattern_syntax">Ensobi mu kwogera okwa bulijjo</string>  
-  <string name="text_invalid_package_name">Erinnya lya package eritali mu mateeka</string>  
+  <string name="text_invalid_package_name">Erinnya ly’ekipapula ekitali mu mateeka</string>  
   <string name="error_cannot_rename">Okukyusa erinnya kulemereddwa</string>  
   <string name="text_project_save_success">Pulojekiti eterekeddwa ku %s</string>  
   <string name="text_project_save_error">Okutereka pulojekiti kulemereddwa %s</string>  
   <string name="text_night_mode">Mode y’ekiro</string>  
   <string name="text_run_on_startup">Autox.js bw’etandika</string>  
   <string name="text_usage_stats_permission">Okuyingira mu nkozesa</string>  
-  <string name="description_usage_stats_permission">Okuyita mu lukusa lwa \"laba ebibalo by\'enkozesa\", osobola okufuna enkozesa y\'enkola eyayita ey\'ekyuma kino, kibeere ekituufu okufuna enkola eriwo kati (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Okuyita mu lukusa lwa \"Laba Ebibalo by\'Enkozesa\", osobola okufuna enkozesa y\'enkola eyayita ey\'ekyuma kino, kibeere ekituufu okufuna enkola eriwo kati (currentPackage).</string>  
   <string name="text_open_with">Ekkubo eriggule</string>  
   <string name="text_root">Omuzi</string>  
   <string name="text_no_root">Ekikolo kya bwereere</string>  
@@ -490,7 +490,7 @@
   <string name="text_project_link">Endagiriro ya pulojekiti</string>  
   <string name="text_release_date">Ebifulumiziddwa: %s</string>  
   <string name="text_checking_for_updates">Okukebera oba waliwo ebipya</string>  
-  <string name="text_update_information_not_found">Tewali bikwata ku bipya bizuuliddwa</string>  
+  <string name="text_update_information_not_found">Tewali bikwata ku kulongoosa bizuuliddwa</string>  
   <string name="text_please_enable_external_storage">Nsaba osooke okole olukusa lw\'okutereka okw\'ebweru</string>  
   <string name="text_app_detail_settings">Ebikwata ku App Ensengeka</string>  
   <string name="text_logcat">Omuti</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Fuluma mu kunoonya</string>  
   <string name="text_licenses_other">Layisinsi etali ya Nsonda Eggule</string>  
   <string name="text_save_successfully">Obuwanguzi bulokoddwa</string>  
-  <string name="text_save_as_project">Okutereka nga pulojekiti</string>
-  <string name="text_select_save_mode">Nsaba olonde enkola y\'okutereka</string>
-  <string name="text_save_as_project_and_exit">Teeka nga pulojekiti era ofulume</string>
-  <string name="apk_builder_sign">Okussa omukono</string>
-  <string name="text_invalid_config">Ensengeka etali ntuufu</string>
-  <string name="text_abi">ABI eziwagirwa (ezaawuddwamu koma) .</string>
-  <string name="text_save_project_to">Pulojekiti eterekeddwa ku: %s</string>
+  <string name="text_save_as_project">Okutereka nga pulojekiti</string>  
+  <string name="text_select_save_mode">Nsaba olonde enkola y\'okutereka</string>  
+  <string name="text_save_as_project_and_exit">Teeka nga pulojekiti era ofulume</string>  
+  <string name="apk_builder_sign">Okussa omukono</string>  
+  <string name="text_invalid_config">Ensengeka etali ntuufu</string>  
+  <string name="text_abi">ABI eziwagirwa (ezaawuddwamu koma) .</string>  
+  <string name="text_save_project_to">Pulojekiti eterekeddwa ku: %s</string>  
+  <string name="text_hide_and_show">Okukweka/okulaga</string>
+  <string name="text_browser_open">Browser eggulewo</string>
+  <string name="text_do_nothing">Tolina ky’okola</string>
+  <string name="text_copy_to_new_folder">Koppa ebirimu mu folda eyasooka mu folda empya</string>
+  <string name="text_move_new_folder">Tambuza ebirimu mu folda eyasooka mu folda empya</string>
+  <string name="text_accessibility_service_is_not_enable">Empeereza y’okutuuka ku bantu tebaagikola</string>
+  <string name="text_set_successfully">Okuteekawo obulungi</string>
 </resources>

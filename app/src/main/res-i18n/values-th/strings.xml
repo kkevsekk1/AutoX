@@ -228,7 +228,7 @@
   <string name="text_required_7zip">ไลบรารีบีบอัด 7zip</string>  
   <string name="text_required_terminal_emulator">เทอร์มินัลอีมูเลเตอร์</string>  
   <string name="text_required_background_start">ต้องได้รับอนุญาตจากส่วนต่อประสานป๊อปอัปพื้นหลัง</string>  
-  <string name="text_required_draw_overlay">จำเป็นต้องได้รับอนุญาตจากหน้าต่างลอย</string>  
+  <string name="text_required_draw_overlay">ต้องได้รับอนุญาตจากหน้าต่างลอย</string>  
   <string name="text_volumeUpcontrol">เพิ่มระดับเสียงเพื่อสิ้นสุดงาน</string>  
   <string name="text_splash_text">ข้อความอินเทอร์เฟซเริ่มต้น</string>  
   <string name="text_splash_icon">เปิดไอคอนอินเทอร์เฟซ</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">ตัวเลือก</string>  
   <string name="text_using_id_selector">เลือกใช้ id</string>  
   <string name="text_using_text_selector">ใช้การเลือกข้อความ (ข้อความ)</string>  
-  <string name="text_using_desc_selector">เลือกโดยใช้คำอธิบาย (รายละเอียด)</string>  
+  <string name="text_using_desc_selector">ใช้คำอธิบาย เลือก (รายละเอียด)</string>  
   <string name="text_generate">สร้าง</string>  
   <string name="text_generate_fail">บิลด์ล้มเหลว o(╥﹏╥)o</string>  
   <string name="text_documentation_source">ที่มาของเอกสาร</string>  
@@ -307,7 +307,7 @@
   <string name="text_timed_task">หมดเวลางาน</string>  
   <string name="text_running_task">รันสคริปต์</string>  
   <string name="text_done">เสร็จ</string>  
-  <string name="text_disposable_task">วิ่งครั้งเดียว</string>  
+  <string name="text_disposable_task">วิ่งเพียงครั้งเดียว</string>  
   <string name="text_daily_task">วิ่งทุกวัน</string>  
   <string name="text_weekly_task">วิ่งตามสัปดาห์</string>  
   <string name="text_timing">เวลา</string>  
@@ -330,7 +330,7 @@
   <string name="text_should_not_be_empty">ไม่สามารถว่างเปล่าได้</string>  
   <string name="text_icon">ไอคอน</string>  
   <string name="text_device_not_rooted">อุปกรณ์ไม่ได้รูท</string>  
-  <string name="prompt_device_not_rooted">ตรวจพบว่าอุปกรณ์ของคุณไม่ได้รูท สคริปต์การบันทึกต้องใช้สิทธิ์ของรูท คุณต้องการดำเนินการต่อหรือไม่</string>  
+  <string name="prompt_device_not_rooted">ตรวจพบว่าอุปกรณ์ของคุณไม่ได้รูท สคริปต์การบันทึกต้องการสิทธิ์รูท คุณต้องการดำเนินการต่อหรือไม่</string>  
   <string name="text_device_rooted">ยังคงบันทึก</string>  
   <string name="text_community_category">ส่วน</string>  
   <string name="text_community_unread">ยังไม่ได้อ่าน</string>  
@@ -362,7 +362,7 @@
   <string name="text_debug">การแก้จุดบกพร่อง</string>  
   <string name="text_set_breakpoint">เบรกพอยต์</string>  
   <string name="text_launch_debugger">เริ่มแก้จุดบกพร่อง</string>  
-  <string name="text_debug_step_out">กระโดดออก</string>  
+  <string name="text_debug_step_out">กระโดดออกมา</string>  
   <string name="text_debug_step_into">เข้า</string>  
   <string name="text_debug_step_over">ขั้นตอนเดียว</string>  
   <string name="text_debug_resume_script">ดำเนินต่อ</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">คลิกเพื่อเข้าสู่อินเทอร์เฟซหลัก</string>  
   <string name="text_run_on_other_broadcast">เหตุการณ์อื่น ๆ (ออกอากาศ)</string>  
   <string name="text_broadcast_action">การดำเนินการออกอากาศ</string>  
-  <string name="text_run_on_boot">เมื่อบูท</string>  
+  <string name="text_run_on_boot">ในเวลาบูต</string>  
   <string name="text_run_on_screen_on">เมื่อเปิดหน้าจอ</string>  
   <string name="text_run_on_screen_off">เมื่อปิดหน้าจอ</string>  
   <string name="error_empty_selection">โปรดเลือกตัวเลือกกิจกรรมออกอากาศ</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">ออกจากการค้นหา</string>  
   <string name="text_licenses_other">ใบอนุญาตที่ไม่ใช่โอเพ่นซอร์ส</string>  
   <string name="text_save_successfully">บันทึกสำเร็จแล้ว</string>  
-  <string name="text_save_as_project">บันทึกเป็นโครงการ</string>
-  <string name="text_select_save_mode">กรุณาเลือกวิธีการบันทึก</string>
-  <string name="text_save_as_project_and_exit">บันทึกเป็นโครงการและออก</string>
-  <string name="apk_builder_sign">ลงนาม</string>
-  <string name="text_invalid_config">การกำหนดค่าที่ไม่ถูกต้อง</string>
-  <string name="text_abi">ABI ที่รองรับ (คั่นด้วยเครื่องหมายจุลภาค)</string>
-  <string name="text_save_project_to">บันทึกโปรเจ็กต์ไปที่: %s</string>
+  <string name="text_save_as_project">บันทึกเป็นโครงการ</string>  
+  <string name="text_select_save_mode">กรุณาเลือกวิธีการบันทึก</string>  
+  <string name="text_save_as_project_and_exit">บันทึกเป็นโครงการและออก</string>  
+  <string name="apk_builder_sign">ลงนาม</string>  
+  <string name="text_invalid_config">การกำหนดค่าที่ไม่ถูกต้อง</string>  
+  <string name="text_abi">ABI ที่รองรับ (คั่นด้วยเครื่องหมายจุลภาค)</string>  
+  <string name="text_save_project_to">บันทึกโปรเจ็กต์ไปที่: %s</string>  
+  <string name="text_hide_and_show">ซ่อน/แสดง</string>
+  <string name="text_browser_open">เปิดเบราว์เซอร์</string>
+  <string name="text_do_nothing">ไม่ทำอะไร</string>
+  <string name="text_copy_to_new_folder">คัดลอกเนื้อหาของโฟลเดอร์เดิมไปยังโฟลเดอร์ใหม่</string>
+  <string name="text_move_new_folder">ย้ายเนื้อหาของโฟลเดอร์เดิมไปยังโฟลเดอร์ใหม่</string>
+  <string name="text_accessibility_service_is_not_enable">ไม่ได้เปิดบริการการเข้าถึง</string>
+  <string name="text_set_successfully">ตั้งสำเร็จ</string>
 </resources>

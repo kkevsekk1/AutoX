@@ -24,7 +24,7 @@
   <string name="text_alert">Awgrym</string>  
   <string name="edit_exit_without_save_warn">Nid yw\'r cynnwys wedi\'i gadw, a ydych chi\'n siŵr eich bod am adael?</string>  
   <string name="text_save_and_exit">Achub a gadael</string>  
-  <string name="text_exit_directly">Gadael yn uniongyrchol</string>  
+  <string name="text_exit_directly">Ymadael yn uniongyrchol</string>  
   <string name="text_setting">Sefydlu</string>  
   <string name="text_exit">Rhoi\'r gorau iddi</string>  
   <string name="text_auto_operate_service">Gwasanaethau Hygyrchedd</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Opsiynau</string>  
   <string name="text_using_id_selector">Dewiswch gan ddefnyddio id</string>  
   <string name="text_using_text_selector">Defnyddio dewis testun (testun)</string>  
-  <string name="text_using_desc_selector">Dewiswch gan ddefnyddio disgrifiad (desc)</string>  
+  <string name="text_using_desc_selector">Defnyddiwch Description Select (desc)</string>  
   <string name="text_generate">Cynhyrchu</string>  
   <string name="text_generate_fail">Wedi methu adeiladu o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Ffynhonnell dogfennaeth</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Cliciwch i fynd i mewn i\'r prif ryngwyneb</string>  
   <string name="text_run_on_other_broadcast">Digwyddiadau eraill (darlledu)</string>  
   <string name="text_broadcast_action">Gweithredu Darlledu</string>  
-  <string name="text_run_on_boot">Wrth fotio</string>  
+  <string name="text_run_on_boot">Ar amser cychwyn</string>  
   <string name="text_run_on_screen_on">Pan fydd y sgrin ymlaen</string>  
   <string name="text_run_on_screen_off">Pan fydd y sgrin i ffwrdd</string>  
   <string name="error_empty_selection">Dewiswch opsiwn digwyddiad darlledu</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Modd nos</string>  
   <string name="text_run_on_startup">Pan fydd Autox.js yn dechrau</string>  
   <string name="text_usage_stats_permission">Mynediad defnydd</string>  
-  <string name="description_usage_stats_permission">Trwy\'r caniatâd \"gweld ystadegau defnydd\", gallwch gael defnydd cymhwysiad blaenorol y ddyfais hon, fel ei bod yn fwy cywir cael y cymhwysiad cyfredol (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Trwy\'r caniatâd \"View Usage Statistics\", gallwch gael defnydd cymhwysiad blaenorol y ddyfais hon, fel ei bod yn fwy cywir cael y cymhwysiad cyfredol (currentPackage).</string>  
   <string name="text_open_with">Ffordd agored</string>  
   <string name="text_root">Gwraidd</string>  
   <string name="text_no_root">Gwraidd am ddim</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Gadael y chwiliad</string>  
   <string name="text_licenses_other">Trwydded Ffynhonnell Heb fod yn Agored</string>  
   <string name="text_save_successfully">Wedi\'i gadw\'n llwyddiannus</string>  
-  <string name="text_save_as_project">Arbed fel prosiect</string>
-  <string name="text_select_save_mode">Dewiswch ddull arbed</string>
-  <string name="text_save_as_project_and_exit">Arbedwch fel prosiect ac ymadael</string>
-  <string name="apk_builder_sign">Arwyddo</string>
-  <string name="text_invalid_config">Cyfluniad annilys</string>
-  <string name="text_abi">ABIs â chymorth (wedi\'u gwahanu â choma)</string>
-  <string name="text_save_project_to">Prosiect wedi\'i gadw i: %s</string>
+  <string name="text_save_as_project">Arbed fel prosiect</string>  
+  <string name="text_select_save_mode">Dewiswch ddull arbed</string>  
+  <string name="text_save_as_project_and_exit">Arbedwch fel prosiect ac ymadael</string>  
+  <string name="apk_builder_sign">Arwyddo</string>  
+  <string name="text_invalid_config">Cyfluniad annilys</string>  
+  <string name="text_abi">ABIs â chymorth (wedi\'u gwahanu â choma)</string>  
+  <string name="text_save_project_to">Prosiect wedi\'i gadw i: %s</string>  
+  <string name="text_hide_and_show">Cuddio/dangos</string>
+  <string name="text_browser_open">Porwr ar agor</string>
+  <string name="text_do_nothing">Gwneud dim</string>
+  <string name="text_copy_to_new_folder">Copïwch gynnwys y ffolder gwreiddiol i\'r ffolder newydd</string>
+  <string name="text_move_new_folder">Symudwch gynnwys y ffolder gwreiddiol i\'r ffolder newydd</string>
+  <string name="text_accessibility_service_is_not_enable">Nid yw gwasanaeth hygyrchedd wedi\'i droi ymlaen</string>
+  <string name="text_set_successfully">Gosod yn llwyddiannus</string>
 </resources>

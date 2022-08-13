@@ -24,7 +24,7 @@
   <string name="text_alert">Timaan</string>  
   <string name="edit_exit_without_save_warn">Ang sulod wala ma-save, sigurado ka ba nga gusto nimong mogawas?</string>  
   <string name="text_save_and_exit">Save ug exit</string>  
-  <string name="text_exit_directly">Direkta nga paggawas</string>  
+  <string name="text_exit_directly">Diretso nga paggawas</string>  
   <string name="text_setting">Gipahimutang</string>  
   <string name="text_exit">Moundang</string>  
   <string name="text_auto_operate_service">Mga Serbisyo sa Accessibility</string>  
@@ -56,7 +56,7 @@
   <string name="text_console">Console</string>  
   <string name="text_log">Log</string>  
   <string name="text_report_fail">Napakyas ang pagsumite</string>  
-  <string name="text_report_succeed">Malampusong gisumite</string>  
+  <string name="text_report_succeed">Malampuson nga gisumite</string>  
   <string name="edit_and_run_handle_intent_error">Dili maproseso ang file</string>  
   <string name="text_issue_report">Feedback</string>  
   <string name="text_script_record">Rekord sa script</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Mga kapilian</string>  
   <string name="text_using_id_selector">Pilia gamit ang id</string>  
   <string name="text_using_text_selector">Gamita ang pagpili sa teksto (teksto)</string>  
-  <string name="text_using_desc_selector">Pagpili gamit ang paghulagway (desc)</string>  
+  <string name="text_using_desc_selector">Gamita ang Deskripsyon Pagpili (desc)</string>  
   <string name="text_generate">Makamugna</string>  
   <string name="text_generate_fail">Napakyas ang pagtukod o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Tinubdan sa dokumentasyon</string>  
@@ -330,7 +330,7 @@
   <string name="text_should_not_be_empty">Dili mahimong walay sulod</string>  
   <string name="text_icon">Icon</string>  
   <string name="text_device_not_rooted">Wala nakagamot ang device</string>  
-  <string name="prompt_device_not_rooted">Nahibal-an nga ang imong aparato wala nakagamot, ang script sa pagrekord nanginahanglan mga pribilehiyo sa gamut, gusto ba nimo ipadayon?</string>  
+  <string name="prompt_device_not_rooted">Namatikdan nga ang imong aparato wala nakagamot, ang script sa pagrekord nanginahanglan mga pribilehiyo sa gamut, gusto ka ba magpadayon?</string>  
   <string name="text_device_rooted">Mag record gihapon</string>  
   <string name="text_community_category">Seksyon</string>  
   <string name="text_community_unread">Wala mabasa</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">I-klik aron makasulod sa main interface</string>  
   <string name="text_run_on_other_broadcast">Ubang mga panghitabo (broadcast)</string>  
   <string name="text_broadcast_action">Aksyon sa Broadcast</string>  
-  <string name="text_run_on_boot">Sa pag-boot</string>  
+  <string name="text_run_on_boot">Sa panahon sa boot</string>  
   <string name="text_run_on_screen_on">Sa diha nga ang screen anaa</string>  
   <string name="text_run_on_screen_off">Kung ang screen gipalong</string>  
   <string name="error_empty_selection">Palihug pagpili og opsyon sa broadcast event</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Night mode</string>  
   <string name="text_run_on_startup">Sa diha nga ang Autox.js magsugod</string>  
   <string name="text_usage_stats_permission">Access sa paggamit</string>  
-  <string name="description_usage_stats_permission">Pinaagi sa pagtugot sa \"pagtan-aw sa mga istatistika sa paggamit\", mahimo nimong makuha ang nangaging paggamit sa aplikasyon niini nga aparato, aron mas tukma ang pagkuha sa karon nga aplikasyon (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Pinaagi sa pagtugot sa \"View Usage Statistics\", makuha nimo ang nangaging paggamit sa aplikasyon niini nga device, aron mas tukma ang pagkuha sa kasamtangan nga aplikasyon (currentPackage).</string>  
   <string name="text_open_with">Bukas nga dalan</string>  
   <string name="text_root">Gamut</string>  
   <string name="text_no_root">Walay gamut</string>  
@@ -483,7 +483,7 @@
   <string name="text_scan_qr">I-scan ang code</string>  
   <string name="text_connect_failed">Napakyas ang koneksyon: %s , palihog susiha kon ang computer firewall motugot ba sa port 9317, kon kini anaa sa samang local area network, ug kon ang VS CODE plug-in ba nagbukas sa serbisyo...</string>  
   <string name="text_start_service_failed">Ang serbisyo napakyas sa pagsugod: %s</string>  
-  <string name="text_unsupported_qr_code">Ang mga QR code niini nga format wala gisuportahan</string>  
+  <string name="text_unsupported_qr_code">Ang mga QR code sa kini nga format wala gisuportahan</string>  
   <string name="text_connected_to_computer">Konektado sa kompyuter</string>  
   <string name="text_press_again_to_exit_app">Pindota pag-usab aron makagawas sa app</string>  
   <string name="text_app_download_link">Link sa pag-download</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Paggawas sa pagpangita</string>  
   <string name="text_licenses_other">Non-Open Source License</string>  
   <string name="text_save_successfully">Malampuson nga naluwas</string>  
-  <string name="text_save_as_project">Save isip project</string>
-  <string name="text_select_save_mode">Palihug pagpili og paagi sa pagluwas</string>
-  <string name="text_save_as_project_and_exit">I-save ingon nga proyekto ug paggawas</string>
-  <string name="apk_builder_sign">Pagpirma</string>
-  <string name="text_invalid_config">Dili balido nga configuration</string>
-  <string name="text_abi">Gisuportahan nga mga ABI (gibulag sa mga koma)</string>
-  <string name="text_save_project_to">Ang proyekto gitipigan sa: %s</string>
+  <string name="text_save_as_project">Save isip project</string>  
+  <string name="text_select_save_mode">Palihug pagpili og paagi sa pagluwas</string>  
+  <string name="text_save_as_project_and_exit">I-save ingon nga proyekto ug paggawas</string>  
+  <string name="apk_builder_sign">Pagpirma</string>  
+  <string name="text_invalid_config">Dili balido nga configuration</string>  
+  <string name="text_abi">Gisuportahan nga mga ABI (gibulag sa mga koma)</string>  
+  <string name="text_save_project_to">Ang proyekto gitipigan sa: %s</string>  
+  <string name="text_hide_and_show">Tago/ipakita</string>
+  <string name="text_browser_open">Bukas nga browser</string>
+  <string name="text_do_nothing">Walay buhaton</string>
+  <string name="text_copy_to_new_folder">Kopyaha ang mga sulod sa orihinal nga folder ngadto sa bag-ong folder</string>
+  <string name="text_move_new_folder">Ibalhin ang mga sulod sa orihinal nga folder ngadto sa bag-ong folder</string>
+  <string name="text_accessibility_service_is_not_enable">Ang serbisyo sa pagka-access wala gi-on</string>
+  <string name="text_set_successfully">Malampuson nga gibutang</string>
 </resources>

@@ -24,7 +24,7 @@
   <string name="text_alert">Geşî</string>  
   <string name="edit_exit_without_save_warn">Naverok nehat tomarkirin, tu bi rastî dixwazî ​​derkevî?</string>  
   <string name="text_save_and_exit">Xilas bike û derkeve</string>  
-  <string name="text_exit_directly">Derketin rasterast</string>  
+  <string name="text_exit_directly">Rasterast derkeve</string>  
   <string name="text_setting">Damezirandin</string>  
   <string name="text_exit">Devjêberdan</string>  
   <string name="text_auto_operate_service">Xizmetên Gihîştinê</string>  
@@ -57,7 +57,7 @@
   <string name="text_log">Rojname</string>  
   <string name="text_report_fail">Radestkirin Biserneket</string>  
   <string name="text_report_succeed">Serkeftin hat şandin</string>  
-  <string name="edit_and_run_handle_intent_error">Nekarî pelê pêvajoy bike</string>  
+  <string name="edit_and_run_handle_intent_error">Nekarî dosya pêvajoy bike</string>  
   <string name="text_issue_report">Feedback</string>  
   <string name="text_script_record">Script record</string>  
   <string name="text_start_record">Dest bi tomarkirinê bike</string>  
@@ -65,7 +65,7 @@
   <string name="text_copy_to_clip">Kopî bikin li clipboard</string>  
   <string name="text_file_write_fail">Nivîsandina pelê têk çû</string>  
   <string name="text_use_volume_control_record">Ji bo kontrolê bişkojka kêmkirina deng bikar bînin</string>  
-  <string name="summary_use_volume_control_record">Piştî vekirina pencereya herikîn, her carê ku bişkojka kêmkirina dengdanê dê tomarkirina nivîsê dest pê bike an rawestîne</string>  
+  <string name="summary_use_volume_control_record">Piştî vekirina pencereya herikîn, her carê ku bişkojka kêmkirina deng dê dest bi tomarkirinê bike an jî rawestîne</string>  
   <string name="text_qq_group">Ev jimareya koma QQ ye, heke hûn nikaribin vekin, ji kerema xwe bi destan bigerin</string>  
   <string name="text_mobile_qq_not_installed">Mobile QQ nayê saz kirin</string>  
   <string name="text_edit">Weşandin</string>  
@@ -78,7 +78,7 @@
   <string name="summary_enable_accessibility_service_by_root">Piştî vebûnê, xebitandina skrîptê dê bixweber karûbarê gihîştinê bi îmtiyazên Root veke</string>  
   <string name="text_appearance">Xûyne</string>  
   <string name="text_theme_color">Rengê mijarê</string>  
-  <string name="text_select_image">Wêne hilbijêrin</string>  
+  <string name="text_select_image">Wêne hilbijêre</string>  
   <string name="text_help">Alîkarî</string>  
   <string name="text_no_floating_window_permission">Destûra pencereya herikîn tune</string>  
   <string name="text_no_accessibility_permission_to_capture">Karûbarê gihîştinê dest pê nekir</string>  
@@ -122,7 +122,7 @@
   <string name="text_code_beautify">Koda formatê</string>  
   <string name="text_processing">Xebitandinî</string>  
   <string name="text_guard_mode">Moda parastî</string>  
-  <string name="summary_guard_mode">Fermana operasyona otomatîkî di vê navbera nermalavê de nayê xebitandin da ku ji têkiliyek bêserûber dûr bixe</string>  
+  <string name="summary_guard_mode">Fermana operasyona otomatîkî di vê navbera nermalavê de nikare were xebitandin da ku ji têkiliyek bêserûber dûr bixe</string>  
   <string name="text_layout_inspector_is_dumping">Analîza Layout di pêşveçûnê de ye</string>  
   <string name="text_force_stop">Bi zorê rawestandin</string>  
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Di %f saniyeyan de xebitandin qediya</string>  
@@ -159,7 +159,7 @@
   <string name="text_import_script">Pelê script import</string>  
   <string name="text_root_record_out_file_type">Root Tomarkirina Cureyê Pelê Çêkirî</string>  
   <string name="text_binary">Binary</string>  
-  <string name="summary_stable_mode">Gava ku were çalak kirin, analîza layout aramtir e, lê dibe ku hejmareke piçûk a nivîsan bi rêkûpêk nexebite. Karûbarê gihîştinê ji nû ve bidin destpêkirin da ku bandor bike</string>  
+  <string name="summary_stable_mode">Dema ku were aktîfkirin, analîza layout stabîltir e, lê dibe ku hejmareke piçûk a nivîsan bi rêkûpêk nexebite. Karûbarê gihîştinê ji nû ve bidin destpêkirin da ku bandor bike</string>  
   <string name="text_hideLaucher">Îkonên sermaseyê veşêrin (sepanan bi adb an rêbazên din vekin)</string>  
   <string name="text_stable_mode">Moda stabîl</string>  
   <string name="text_single_build_clean_mode">Moda nûvekirina pakkirina pelê yekane</string>  
@@ -171,7 +171,7 @@
   <string name="text_manage">Rêvebirin</string>  
   <string name="not_login">Ji bo fonksiyonên normal têketinek hewce nake</string>  
   <string name="text_volume_down_control">Volume down kontrol key</string>  
-  <string name="text_auto_backup">Skrîpta hilanînê otomatîk</string>  
+  <string name="text_auto_backup">Script hilanînê otomatîk</string>  
   <string name="text_others">Yên din</string>  
   <string name="text_import">Malanîn</string>  
   <string name="text_click_too_frequently">Operasyona we pir bilez e ヽ(#`Д´)ﾉ</string>  
@@ -190,7 +190,7 @@
   <string name="text_find_or_replace">Dîtin/li şûna</string>  
   <string name="text_copy_all">Hemî kopî bikin</string>  
   <string name="text_copy_line">Rêza kopî</string>  
-  <string name="text_delete_line">Rêz jêbirin</string>  
+  <string name="text_delete_line">Rêzê jêbirin</string>  
   <string name="format_editor_info" formatted="false">Karakterên: %d \n : %d \n : %s</string>  
   <string name="text_find">Dîtin</string>  
   <string name="text_replace">Diberdaxistin</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Vebijêrk</string>  
   <string name="text_using_id_selector">Bi bikaranîna id hilbijêre</string>  
   <string name="text_using_text_selector">Hilbijartina nivîsê bikar bînin (text)</string>  
-  <string name="text_using_desc_selector">Bi karanîna ravekirinê hilbijêrin (desk)</string>  
+  <string name="text_using_desc_selector">Bikaranîn Vebijêrk Hilbijêre (desk)</string>  
   <string name="text_generate">Xûlqkirin</string>  
   <string name="text_generate_fail">Avakirin têk çû o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Çavkaniya belgekirinê</string>  
@@ -351,7 +351,7 @@
   <string name="text_size_current_value" formatted="true">Mezinahiya tîpan: %d</string>  
   <string name="error_regex_find_prev">Îfadeya bi rêkûpêk nikare li pêş binêre</string>  
   <string name="text_notification">Nivîsk</string>  
-  <string name="apk_builder_plugin_version_too_low">Guhertoya pêvekê ya pakkirî pir kêm e, û dibe ku serîlêdana pakkirî bi rêkûpêk neyê xebitandin. Ma hûn dixwazin niha guhertoya têkildar a pêveka pakkirî dakêşin?</string>  
+  <string name="apk_builder_plugin_version_too_low">Guhertoya pêveka pakkirî pir kêm e, û dibe ku serîlêdana pakkirî bi rêkûpêk neyê xebitandin. Ma hûn dixwazin niha guhertoya têkildar a pêveka pakkirî dakêşin?</string>  
   <string name="text_inspect_layout_bounds">Analîza rêza layout</string>  
   <string name="text_inspect_layout_hierarchy">Hiyerarşiya Layout</string>  
   <string name="text_inspect_layout">Analîza layout</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Bikirtînin da ku têkevin navrûya sereke</string>  
   <string name="text_run_on_other_broadcast">Bûyerên din (weşan)</string>  
   <string name="text_broadcast_action">Çalakiya Weşanê</string>  
-  <string name="text_run_on_boot">Dema bootkirinê</string>  
+  <string name="text_run_on_boot">Di dema bootê de</string>  
   <string name="text_run_on_screen_on">Dema ku ekran li ser e</string>  
   <string name="text_run_on_screen_off">Dema ku ekranê off</string>  
   <string name="error_empty_selection">Ji kerema xwe vebijarkek bûyerek weşanê hilbijêrin</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Moda şevê</string>  
   <string name="text_run_on_startup">Dema ku Autox.js dest pê dike</string>  
   <string name="text_usage_stats_permission">Gihîştina karanîna</string>  
-  <string name="description_usage_stats_permission">Bi destûra \"dîtina statîstîkên karanîna\" re, hûn dikarin karanîna serîlêdana paşîn a vê cîhazê bistînin, da ku hûn serîlêdana heyî (currentPackage) rasttir bistînin.</string>  
+  <string name="description_usage_stats_permission">Bi destûra \"Nirîna Statîstîkên Bikaranînê\" re, hûn dikarin karanîna serîlêdana paşîn a vê cîhazê bistînin, da ku hûn serîlêdana heyî (Pakêta heyî) rasttir bistînin.</string>  
   <string name="text_open_with">Riya vekirî</string>  
   <string name="text_root">Reh</string>  
   <string name="text_no_root">Root belaş</string>  
@@ -444,7 +444,7 @@
   <string name="air_label_use_guest">Nenas bişînin</string>  
   <string name="air_label_email">Poste</string>  
   <string name="air_label_email_optional">E-nameya têkiliyê (vebijarkî)</string>  
-  <string name="air_error_no_title">Ji kerema xwe pirsek binivîse</string>  
+  <string name="air_error_no_title">Ji kerema xwe pirsekê binivîse</string>  
   <string name="air_error_no_description">Ji kerema xwe ravek berfireh binivîse</string>  
   <string name="air_error_no_username">Ji kerema xwe navek bikarhênerek Github derbasdar binivîse</string>  
   <string name="air_error_no_password">Ji kerema xwe şîfreya rast binivîse</string>  
@@ -462,7 +462,7 @@
   <string name="text_default_signature">Îmzeya xwerû</string>  
   <string name="desc_done">Qedandin</string>  
   <string name="apk_icon">Îkonê APK</string>  
-  <string name="compile_options">Vebijarkan berhev bike</string>  
+  <string name="compile_options">Vebijarkên berhev bikin</string>  
   <string name="text_verification_failed">Verastkirin têk çû</string>  
   <string name="text_WebX">WebX</string>  
   <string name="text_file_manager_permission">Hemî gihîştina pelê</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Ji lêgerînê derkeve</string>  
   <string name="text_licenses_other">Lîsansa Çavkaniya Vekirî ne</string>  
   <string name="text_save_successfully">Bi serketî xilas bû</string>  
-  <string name="text_save_as_project">Wekî proje tomar bike</string>
-  <string name="text_select_save_mode">Ji kerema xwe rêbazek hilanînê hilbijêrin</string>
-  <string name="text_save_as_project_and_exit">Wek proje tomar bike û derkeve</string>
-  <string name="apk_builder_sign">Îmzekirin</string>
-  <string name="text_invalid_config">Veavakirina nederbasdar</string>
-  <string name="text_abi">ABI-yên destekkirî (bi koman têne veqetandin)</string>
-  <string name="text_save_project_to">Proje li: %s hat tomarkirin</string>
+  <string name="text_save_as_project">Wekî proje tomar bike</string>  
+  <string name="text_select_save_mode">Ji kerema xwe rêbazek hilanînê hilbijêrin</string>  
+  <string name="text_save_as_project_and_exit">Wek proje tomar bike û derkeve</string>  
+  <string name="apk_builder_sign">Îmzekirin</string>  
+  <string name="text_invalid_config">Veavakirina nederbasdar</string>  
+  <string name="text_abi">ABI-yên destekkirî (bi koman têne veqetandin)</string>  
+  <string name="text_save_project_to">Proje li: %s hat tomarkirin</string>  
+  <string name="text_hide_and_show">Veşartin / nîşan bide</string>
+  <string name="text_browser_open">Geroka vekirî</string>
+  <string name="text_do_nothing">Tiştek nekin</string>
+  <string name="text_copy_to_new_folder">Naveroka peldanka orîjînal li peldanka nû kopî bikin</string>
+  <string name="text_move_new_folder">Naveroka peldanka orîjînal biguhezînin peldanka nû</string>
+  <string name="text_accessibility_service_is_not_enable">Karûbarê gihîştinê ne vekirî ye</string>
+  <string name="text_set_successfully">Bi serkeftî danîn</string>
 </resources>

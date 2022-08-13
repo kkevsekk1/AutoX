@@ -24,7 +24,7 @@
   <string name="text_alert">Wenk</string>  
   <string name="edit_exit_without_save_warn">Die inhoud is nie gestoor nie, is jy seker jy wil verlaat?</string>  
   <string name="text_save_and_exit">Stoor en verlaat</string>  
-  <string name="text_exit_directly">Verlaat direk</string>  
+  <string name="text_exit_directly">Direk uitgaan</string>  
   <string name="text_setting">Stel op</string>  
   <string name="text_exit">Ophou</string>  
   <string name="text_auto_operate_service">Toeganklikheidsdienste</string>  
@@ -38,7 +38,7 @@
   <string name="text_floating_window">Swaai venster</string>  
   <string name="text_error_report">Foutverslag</string>  
   <string name="text_press_again_to_exit">Druk weer om die program te verlaat</string>  
-  <string name="text_already_stop_n_scripts">%d lopende skrifte is gestop</string>  
+  <string name="text_already_stop_n_scripts">%d lopende skrifte gestop</string>  
   <string name="text_start_running">Operasie begin</string>  
   <string name="text_open_by_other_apps">Maak oop met \'n ander toepassing</string>  
   <string name="text_rename">Hernoem</string>  
@@ -293,13 +293,13 @@
   <string name="text_scroll_forward">Swiep vorentoe/regs/af (rol vorentoe)</string>  
   <string name="text_scroll_backward">Rollees agteruit/op/links (blaai agtertoe)</string>  
   <string name="text_find_one">Totdat een gevind word (findOne)</string>  
-  <string name="text_until_find">Totdat alles gevind is (tot Find)</string>  
+  <string name="text_until_find">Totdat alles gevind is (totdat Vind)</string>  
   <string name="text_wait_for">Wag vir die kontrole om te verskyn (wag vir)</string>  
   <string name="text_selector_exists">Beoordeel die bestaan ​​van die beheer (bestaan)</string>  
   <string name="text_options">Opsies</string>  
   <string name="text_using_id_selector">Kies met behulp van id</string>  
   <string name="text_using_text_selector">Gebruik tekskeuse (teks)</string>  
-  <string name="text_using_desc_selector">Kies met behulp van beskrywing (beskrywing)</string>  
+  <string name="text_using_desc_selector">Gebruik Beskrywing Kies (beskrywing)</string>  
   <string name="text_generate">Genereer</string>  
   <string name="text_generate_fail">Bou het misluk o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Dokumentasie bron</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Klik om die hoofkoppelvlak te betree</string>  
   <string name="text_run_on_other_broadcast">Ander geleenthede (uitsaai)</string>  
   <string name="text_broadcast_action">Uitsaaiaksie</string>  
-  <string name="text_run_on_boot">Tydens selflaai</string>  
+  <string name="text_run_on_boot">Met opstarttyd</string>  
   <string name="text_run_on_screen_on">Wanneer die skerm aan is</string>  
   <string name="text_run_on_screen_off">Wanneer die skerm af is</string>  
   <string name="error_empty_selection">Kies asseblief \'n uitsaaigeleentheidopsie</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Nagmodus</string>  
   <string name="text_run_on_startup">Wanneer Autox.js begin</string>  
   <string name="text_usage_stats_permission">Gebruik toegang</string>  
-  <string name="description_usage_stats_permission">Deur die toestemming \"bekyk gebruikstatistieke\" kan u die vorige toepassingsgebruik van hierdie toestel verkry, sodat dit meer akkuraat is om die huidige toepassing (huidige pakket) te verkry.</string>  
+  <string name="description_usage_stats_permission">Deur die toestemming \"Bekyk gebruikstatistieke\" kan u die vorige toepassingsgebruik van hierdie toestel verkry, sodat dit meer akkuraat is om die huidige toepassing (huidige pakket) te verkry.</string>  
   <string name="text_open_with">Oop pad</string>  
   <string name="text_root">Wortel</string>  
   <string name="text_no_root">Wortel vry</string>  
@@ -443,7 +443,7 @@
   <string name="air_label_use_email">Stuur per e-pos</string>  
   <string name="air_label_use_guest">Stuur anoniem</string>  
   <string name="air_label_email">Pos</string>  
-  <string name="air_label_email_optional">Kontak-e-pos (opsioneel)</string>  
+  <string name="air_label_email_optional">Kontak e-pos (opsioneel)</string>  
   <string name="air_error_no_title">Voer asseblief \'n vraag in</string>  
   <string name="air_error_no_description">Voer asseblief \'n gedetailleerde beskrywing in</string>  
   <string name="air_error_no_username">Voer asseblief \'n geldige Github-gebruikernaam in</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Verlaat soektog</string>  
   <string name="text_licenses_other">Nie-oopbron lisensie</string>  
   <string name="text_save_successfully">Suksesvol gestoor</string>  
-  <string name="text_save_as_project">Stoor as projek</string>
-  <string name="text_select_save_mode">Kies asseblief \'n stoormetode</string>
-  <string name="text_save_as_project_and_exit">Stoor as projek en gaan uit</string>
-  <string name="apk_builder_sign">Ondertekening</string>
-  <string name="text_invalid_config">Ongeldige konfigurasie</string>
-  <string name="text_abi">Ondersteunde ABI\'s (geskei met kommas)</string>
-  <string name="text_save_project_to">Projek gestoor na: %s</string>
+  <string name="text_save_as_project">Stoor as projek</string>  
+  <string name="text_select_save_mode">Kies asseblief \'n stoormetode</string>  
+  <string name="text_save_as_project_and_exit">Stoor as projek en gaan uit</string>  
+  <string name="apk_builder_sign">Ondertekening</string>  
+  <string name="text_invalid_config">Ongeldige konfigurasie</string>  
+  <string name="text_abi">Ondersteunde ABI\'s (geskei met kommas)</string>  
+  <string name="text_save_project_to">Projek gestoor na: %s</string>  
+  <string name="text_hide_and_show">Versteek/wys</string>
+  <string name="text_browser_open">Blaaier oop</string>
+  <string name="text_do_nothing">Doen niks</string>
+  <string name="text_copy_to_new_folder">Kopieer die inhoud van die oorspronklike vouer na die nuwe vouer</string>
+  <string name="text_move_new_folder">Skuif die inhoud van die oorspronklike vouer na die nuwe vouer</string>
+  <string name="text_accessibility_service_is_not_enable">Toeganklikheiddiens is nie aangeskakel nie</string>
+  <string name="text_set_successfully">Suksesvol opgestel</string>
 </resources>

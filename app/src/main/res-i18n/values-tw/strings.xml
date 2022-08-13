@@ -161,7 +161,7 @@
   <string name="text_binary">Binary</string>  
   <string name="summary_stable_mode">Nhyehyɛe nhwehwɛmu no gyina hɔ pintinn kɛse bere a wɔahyɛ no den no, nanso ebia script dodow bi rentumi nyɛ adwuma yiye. San hyɛ accessibility service ase na ama ayɛ adwuma</string>  
   <string name="text_hideLaucher">Hide desktop icons (fa adb anaa akwan foforo so fi ase apps) .</string>  
-  <string name="text_stable_mode">Stable mode a ɛyɛ den</string>  
+  <string name="text_stable_mode">Mode a ɛyɛ den</string>  
   <string name="text_single_build_clean_mode">Fael biako packaging refreshing mode</string>  
   <string name="summary_single_build_clean_mode">Sɛ wobue wie a, wɔrenkora packaging nhyehyeɛ fael no so berɛ a wɔakyekyere fael baako no, na nhyehyeɛ ho nsɛm nyinaa te sɛ startup mfonini ne application icon no rensie.</string>  
   <string name="text_directory">Folda no mu</string>  
@@ -225,7 +225,7 @@
   <string name="text_required_accessibility_service">Nnwuma a Ɛho Hia a Wɔhwehwɛ</string>  
   <string name="text_required_opencv">OpenCv mfonini a wɔde di dwuma</string>  
   <string name="text_required_ocr">OCR nkyerɛwee a wohu</string>  
-  <string name="text_required_7zip">7zip compression nhomakorabea</string>  
+  <string name="text_required_7zip">7zip nhyɛso nhomakorabea</string>  
   <string name="text_required_terminal_emulator">Terminal emulator a wɔde yɛ nneɛma</string>  
   <string name="text_required_background_start">Ɛhia sɛ wɔma akyi popup interface kwan</string>  
   <string name="text_required_draw_overlay">Floating window ho kwan ho hia</string>  
@@ -266,7 +266,7 @@
   <string name="text_source_file_path">Script fael (folda) kwan</string>  
   <string name="text_search">Hwehwɛ</string>  
   <string name="text_select_icon">Paw ahyɛnsode no</string>  
-  <string name="text_use_android_n_shortcut">Wɔde aka Android 7.0 Ɔkwan tiaa no ho</string>  
+  <string name="text_use_android_n_shortcut">Wɔde ahyɛ Android 7.0 Ɔkwan tiaa no mu</string>  
   <string name="text_login_succeed">Login no ayɛ yiye</string>  
   <string name="text_login_fail">Login no antumi anyɛ yiye</string>  
   <string name="text_reset_password">Reset Asɛmfua no</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Nneɛma a wubetumi apaw</string>  
   <string name="text_using_id_selector">Paw denam id so</string>  
   <string name="text_using_text_selector">Fa nsɛm a wɔpaw (nkyerɛwee) di dwuma .</string>  
-  <string name="text_using_desc_selector">Paw denam nkyerɛkyerɛmu (desc) so .</string>  
+  <string name="text_using_desc_selector">Fa Nkyerɛkyerɛmu Paw (desc) .</string>  
   <string name="text_generate">Yɛ</string>  
   <string name="text_generate_fail">Ɔdan a ɛdi nkoguo o(╥╥)o</string>  
   <string name="text_documentation_source">Nwoma ahorow fibea</string>  
@@ -399,11 +399,11 @@
   <string name="foreground_notification_text">Klik so na hyɛ interface titiriw no mu</string>  
   <string name="text_run_on_other_broadcast">Nsɛm afoforo a esisi (a wɔbɔ ho dawuru) .</string>  
   <string name="text_broadcast_action">Broadcast Adeyɛ</string>  
-  <string name="text_run_on_boot">Bere a woreyɛ boot no</string>  
+  <string name="text_run_on_boot">Wɔ boot bere mu</string>  
   <string name="text_run_on_screen_on">Bere a screen no ayɛ adwuma</string>  
   <string name="text_run_on_screen_off">Bere a screen no adum no</string>  
-  <string name="error_empty_selection">Yɛsrɛ wo paw broadcast event a wobɛpaw</string>  
-  <string name="text_run_on_battery_change">Bere a tumi no sesa</string>  
+  <string name="error_empty_selection">Yɛsrɛ sɛ paw broadcast event ho nhyehyɛe</string>  
+  <string name="text_run_on_battery_change">Bere a tumi no sesa no</string>  
   <string name="text_run_on_screen_unlock">Bere a wɔabue screen no so no</string>  
   <string name="text_run_on_power_connect">Bere a wɔde tumi no abɔ mu no</string>  
   <string name="text_run_on_power_disconnect">Bere a wɔatwa anyinam ahoɔden no mu</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Anadwo mode</string>  
   <string name="text_run_on_startup">Bere a Autox.js fi ase no</string>  
   <string name="text_usage_stats_permission">Dwumadie ho kwan</string>  
-  <string name="description_usage_stats_permission">Ɛnam \"hwɛ dwumadie akontabuo\" kwan no so no, wobɛtumi anya aplikeshɔn dwumadie a atwam a ɛwɔ saa afiri yi mu, sɛdeɛ ɛbɛyɛ a ɛbɛyɛ pɛpɛɛpɛ sɛ wobɛnya aplikeshɔn a ɛwɔ hɔ seesei (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Ɛnam \"Hwɛ Usage Statistics\" kwan no so no, wobɛtumi anya application a atwam a wode adi dwuma wɔ saa afiri yi mu, sɛdeɛ ɛbɛyɛ a ɛbɛyɛ pɛpɛɛpɛ sɛ wobɛnya application a ɛwɔ hɔ seesei (currentPackage).</string>  
   <string name="text_open_with">Kwan a wɔabue ano</string>  
   <string name="text_root">Nhini</string>  
   <string name="text_no_root">Ntini a enni hɔ</string>  
@@ -451,7 +451,7 @@
   <string name="air_error_no_email">Yɛsrɛ wo, fa wo email no hyɛ mu</string>  
   <string name="air_dialog_title_loading">Wɔde rekɔ GitHub so...</string>  
   <string name="air_dialog_title_failed">Entumi mfa bug amanneɛbɔ nkɔma</string>  
-  <string name="air_dialog_description_failed_wrong_credentials">Edin a wɔde di dwuma anaa asɛmfua a ɛnteɛ</string>  
+  <string name="air_dialog_description_failed_wrong_credentials">Edin anaa password a ɛnteɛ</string>  
   <string name="air_dialog_description_failed_invalid_token">Access token a enni mu Yɛsrɛ wo, kɔ software developer no nkyɛn.</string>  
   <string name="air_dialog_description_failed_issues_not_available">Nsɛmpɔw biara nni hɔ, yɛsrɛ wo, kɔ software developer no nkyɛn.</string>  
   <string name="air_dialog_description_failed_unknown">Mfomso a wonnim</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Fi hwehwɛ mu</string>  
   <string name="text_licenses_other">Tumi krataa a Ɛnyɛ Open Source</string>  
   <string name="text_save_successfully">Wogyee nkwa no yiye</string>  
-  <string name="text_save_as_project">Sie sɛ adwuma</string>
-  <string name="text_select_save_mode">Yɛsrɛ wo paw ɔkwan a wobɛfa so akora so</string>
-  <string name="text_save_as_project_and_exit">Fa sie sɛ project na fi adi</string>
-  <string name="apk_builder_sign">A wɔde wɔn nsa hyɛ ase</string>
-  <string name="text_invalid_config">Nhyehyɛe a enni mu</string>
-  <string name="text_abi">ABI ahorow a wɔboa (wɔde koma atew mu) .</string>
-  <string name="text_save_project_to">Project a wɔakora so wɔ: %s</string>
+  <string name="text_save_as_project">Sie sɛ adwuma</string>  
+  <string name="text_select_save_mode">Yɛsrɛ wo paw ɔkwan a wobɛfa so akora so</string>  
+  <string name="text_save_as_project_and_exit">Fa sie sɛ project na fi adi</string>  
+  <string name="apk_builder_sign">A wɔde wɔn nsa hyɛ ase</string>  
+  <string name="text_invalid_config">Nhyehyɛe a enni mu</string>  
+  <string name="text_abi">ABI ahorow a wɔboa (wɔde koma atew mu) .</string>  
+  <string name="text_save_project_to">Project a wɔakora so wɔ: %s</string>  
+  <string name="text_hide_and_show">Sie/kyerɛ</string>
+  <string name="text_browser_open">Browser no bue</string>
+  <string name="text_do_nothing">Nyɛ hwee</string>
+  <string name="text_copy_to_new_folder">Fa folda a edi kan no mu nsɛm kɔ folda foforo no mu</string>
+  <string name="text_move_new_folder">Fa mfitiase folda no mu nsɛm kɔ folda foforo no mu</string>
+  <string name="text_accessibility_service_is_not_enable">Wɔnnyɛ adwuma a ɛma wotumi kɔ hɔ no</string>
+  <string name="text_set_successfully">Set no yiye</string>
 </resources>

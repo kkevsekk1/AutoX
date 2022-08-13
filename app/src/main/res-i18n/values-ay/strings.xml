@@ -8,7 +8,7 @@
   <string name="text_please_input_name">Mä suti qillqt’aña</string>  
   <string name="text_name">Chacha</string>  
   <string name="text_go_to_setting">Ukatsti configuración ukar sarañamawa</string>  
-  <string name="explain_accessibility_permission">Software ukax \"Servicios de Accesibilidad\" jist\'arañapawa apnaqañataki, ukax jist\'arañamawa \"Configuración->Servicios de Accesibilidad\" jan ukax \"Configuración->Servicios de Accesibilidad->Servicios más Descargados\", aka aplicación ukar jikxatañamawa, ukat Servicios de Accesibilidad ukar ch\'amanchañamawa \n Ukhamarakiw wakicht\'asispa qhipharux uka menú desplegable ukan uñacht’ayaña.</string>  
+  <string name="explain_accessibility_permission">Software ukax \"Servicios de Accesibilidad\" jist\'arañapawa apnaqañataki, ukax jist\'arañamawa \"Configuración->Servicios de Accesibilidad\" jan ukax \"Configuración->Servicios de Accesibilidad->Servicios más Descargados\", aka aplicación ukar jikxatañamawa, ukat Servicios de Accesibilidad ukar ch\'amanchañamawa \n Ukhamarakiw wakicht\'asispa qhiparuxa uka menú desplegable ukanxa uñacht’ayatarakiwa.</string>  
   <string name="explain_accessibility_permission2">Software ukax \"Servicios de Accesibilidad\" jist\'arañapawa apnaqañataki, ukax jist\'arañamawa \"Configuración->Servicios de Accesibilidad\" jan ukax \"Configuración->Servicios de Accesibilidad->Servicios más Descargados\", aka aplicación ukar jikxatañamawa, ukat Servicios de Accesibilidad ukar ch\'amanchañamawa</string>  
   <string name="text_cancel">Kansilaña</string>  
   <string name="text_path_is_empty">Thakhix ch’usakiwa</string>  
@@ -24,7 +24,7 @@
   <string name="text_alert">Pista</string>  
   <string name="edit_exit_without_save_warn">Contenido ukax janiw qhispiyatäkiti, ¿chiqati mistuñ munasmati?</string>  
   <string name="text_save_and_exit">Qhispiyaña ukat mistuña</string>  
-  <string name="text_exit_directly">Ukaxa chiqapawa</string>  
+  <string name="text_exit_directly">Chiqak mistuña</string>  
   <string name="text_setting">Mayjt\'ayaña</string>  
   <string name="text_exit">Jaytaña</string>  
   <string name="text_auto_operate_service">Servicios de Accesibilidad ukaxa</string>  
@@ -63,7 +63,7 @@
   <string name="text_start_record">Grabaciona qalltañataki</string>  
   <string name="text_recorded">Grabaciona tukuyañataki</string>  
   <string name="text_copy_to_clip">Ukatsti portapapeles ukar qillqt’aña</string>  
-  <string name="text_file_write_fail">Arsuwi qillqañaxa janiwa phuqhaskiti</string>  
+  <string name="text_file_write_fail">Arsuwi qillqañax janiw phuqhaskiti</string>  
   <string name="text_use_volume_control_record">Uka teclampiw volumen abajo siski uka teclampiw controlañama</string>  
   <string name="summary_use_volume_control_record">Uka ventana flotante jist’arañ tukuyasaxa, sapa kutiwa tecla de volumen abajo ukaxa script grabacion qalltaña jan ukaxa sayt’ayaña</string>  
   <string name="text_qq_group">Akax QQ tama jakhüwiwa, jan jist’arañjamäkiti, amparamp thaqhañamawa</string>  
@@ -139,7 +139,7 @@
   <string name="text_attribute">Atributos ukanaka</string>  
   <string name="text_value">Walura</string>  
   <string name="text_show_widget_infomation">Uñakipaña control yatiyawi</string>  
-  <string name="text_show_layout_hierarchy">Uñakipaña jerarquía layout ukanxa</string>  
+  <string name="text_show_layout_hierarchy">Uñakipaña jerarquía de layout ukanxa</string>  
   <string name="text_show_layout_bounds">Uñakipt’añatakix Layout Alcance ukan uñakipt’aña</string>  
   <string name="text_more">Juk\'ampi</string>  
   <string name="text_script_save_successfully">Suma qhispiyata, ukax directorio ukar machaqar tukuyañamawa</string>  
@@ -161,7 +161,7 @@
   <string name="text_binary">Binario ukax utjiwa</string>  
   <string name="summary_stable_mode">Layout uñakipañax juk’amp ch’amanchatawa, ukampis mä jisk’a jakhüwix scripts ukanakax janiw sum irnaqkaspati. Servicio de accesibilidad ukaxa mayampi qalltañatakixa wakisiwa</string>  
   <string name="text_hideLaucher">Escritorio ukan chimpunakapar imantaña (apps ukanakax adb jan ukax yaqha thakhinak tuqiw uñstayaña)</string>  
-  <string name="text_stable_mode">Modo estable ukaxa wali ch’amawa</string>  
+  <string name="text_stable_mode">Ukaxa estable ukhamawa</string>  
   <string name="text_single_build_clean_mode">Mä sapa arsuwi paquete refrescante modalidad</string>  
   <string name="summary_single_build_clean_mode">Jist’araña tukuyatatxa, paquete configuración qillqataxa janiwa qhispiyatäkaniti kunapachatixa sapa qillqataxa paqueteatäki ukhaxa, ukatxa taqi configuración yatiyawixa qalltaña uñacht’awi ukhamaraki aplicación icono ukanakaxa janiwa imatäkaniti.</string>  
   <string name="text_directory">Ukatsti mä carpeta</string>  
@@ -177,7 +177,7 @@
   <string name="text_click_too_frequently">Ukax wali jaya ヽ(#`Д ́)ヽ(#`Д ́)ツ</string>  
   <string name="text_username">Apnaqirin sutipa</string>  
   <string name="text_password">Chimpu</string>  
-  <string name="text_login">Ukar mantam</string>  
+  <string name="text_login">Ukax mä juk’a pachanakanwa</string>  
   <string name="text_forgot_password">¿Pasword armasxtati?</string>  
   <string name="text_username_cannot_be_empty">Usuario sutix janiw ch’usakïkaspati</string>  
   <string name="text_password_cannot_be_empty">Contraseña ukax janiw ch’usawjäkiti</string>  
@@ -220,16 +220,16 @@
   <string name="text_package_name">Paquete sutinaka</string>  
   <string name="text_version_name">Versión sutimpi uñt’atawa</string>  
   <string name="text_version_code">Versión uka jakhuwi</string>  
-  <string name="text_run_config">Ukatsti configuración uka luraña</string>  
+  <string name="text_run_config">Ukatsti configuración uka apnaqaña</string>  
   <string name="text_hideLogs">Qilqt’ata imantaña</string>  
   <string name="text_required_accessibility_service">Servicios de Accesibilidad ukaxa wakisiwa</string>  
-  <string name="text_required_opencv">OpenCv ukan uñacht’äwip uñakipaña</string>  
+  <string name="text_required_opencv">OpenCv ukan uñacht’ayat uñacht’äwipa</string>  
   <string name="text_required_ocr">OCR qillqat uñt’ayaña</string>  
   <string name="text_required_7zip">7zip compresión biblioteca ukax utjiwa</string>  
   <string name="text_required_terminal_emulator">Terminal ukax mä emulador ukhamawa</string>  
   <string name="text_required_background_start">Ukax mä interfaz popup ukan permiso ukaw wakisi</string>  
   <string name="text_required_draw_overlay">Flotante ventana permiso ukax wakisiwa</string>  
-  <string name="text_volumeUpcontrol">Volumen up ukax lurañ tukuyañatakiwa</string>  
+  <string name="text_volumeUpcontrol">Volumen jach’a clave ukax lurañ tukuyañataki</string>  
   <string name="text_splash_text">Qalltawi interfaz qillqata</string>  
   <string name="text_splash_icon">Uñstayaña interfaz ukan chimpupa</string>  
   <string name="text_service_desc_text">Servicios de Accesibilidad ukanaka qhananchaña</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Ukax mä amtawiwa</string>  
   <string name="text_using_id_selector">Id apnaqañamp ajlliñamawa</string>  
   <string name="text_using_text_selector">Qillqata ajlliñampi (qillqata) .</string>  
-  <string name="text_using_desc_selector">Uñacht’ayawimpi ajlliñani (desc) .</string>  
+  <string name="text_using_desc_selector">Uñakipaña Qhanancht’awi Ajlliñani (desc) .</string>  
   <string name="text_generate">Jilxatayaña</string>  
   <string name="text_generate_fail">Uñstayañax jan walt’ayataw o(╥╥)o</string>  
   <string name="text_documentation_source">Documentación ukax mä jamuqawa</string>  
@@ -346,10 +346,10 @@
   <string name="description_stable_mode">Modo estable ukax script ukaruw juk’amp estable tukuyi kunawsatix layout ukax katjaski ukhax layout detalles ukanak jaytasa, ukampirus uka pachparakiw pantalla ukan juk’a controles ukanak apsu. \n \n ukax wasitat qalltañapawa, ukhamat phuqhasiñapataki.</string>  
   <string name="text_size_min_value">2. Ukaxa</string>  
   <string name="text_size_max_value">60 ukat 60</string>  
-  <string name="text_text_size">Font ukham uñt’atawa</string>  
+  <string name="text_text_size">Font tamapa</string>  
   <string name="text_preview">Nayraqata uñakipaña</string>  
   <string name="text_size_current_value" formatted="true">Ukax akham sañ muni: %d</string>  
-  <string name="error_regex_find_prev">Sapa kuti arsuñax janiw nayrar uñtañjamäkiti</string>  
+  <string name="error_regex_find_prev">Sapa kuti arsuñax janiw nayrar sartañjamäkiti</string>  
   <string name="text_notification">Uñjaña</string>  
   <string name="apk_builder_plugin_version_too_low">Uka paquete plug-in ukax wali jisk’akiwa, ukat paqueteado ukax inas jan sum apnaqkchiti. Jichhax uka plugin paquete ukan versión correspondiente ukar apkatañ munasmati?</string>  
   <string name="text_inspect_layout_bounds">Layout ukan uñakipaña</string>  
@@ -360,7 +360,7 @@
   <string name="default_value_script_dir_path">/wakichata/</string>  
   <string name="text_error_copy_file" formatted="true">Mä pantjasiwiw utjawayi: %s</string>  
   <string name="text_debug">Jan walt’awinak askichañataki</string>  
-  <string name="text_set_breakpoint">Ukatsti ukax mä juk’a pachanakanwa</string>  
+  <string name="text_set_breakpoint">Ukatsti ukax mä juk’a ch’amanchatawa</string>  
   <string name="text_launch_debugger">Jan walt’awinak askichañ qalltaña</string>  
   <string name="text_debug_step_out">Saltaña ukatsti mistuña</string>  
   <string name="text_debug_step_into">Mantaña</string>  
@@ -399,17 +399,17 @@
   <string name="foreground_notification_text">Ukax mä jach’a interfaz ukar mantañatakiw ch’iqt’añama</string>  
   <string name="text_run_on_other_broadcast">Yaqha lurawinakampi (transmisión) .</string>  
   <string name="text_broadcast_action">Ukax Acción de Transmisión satawa</string>  
-  <string name="text_run_on_boot">Kunapachatixa arknaqaña</string>  
+  <string name="text_run_on_boot">Ukatsti boot tiempo</string>  
   <string name="text_run_on_screen_on">Kunapachatixa pantallaxa uñstki ukhaxa</string>  
   <string name="text_run_on_screen_off">Kunawsatix pantallax jist’antatäki ukhaxa</string>  
   <string name="error_empty_selection">Mä difusión evento ukar ajlliñamawa</string>  
   <string name="text_run_on_battery_change">Kunapachatixa ch’amaxa mayjt’ki ukhaxa</string>  
-  <string name="text_run_on_screen_unlock">Kunapachatixa pantallaxa jist’aratäki ukhaxa</string>  
+  <string name="text_run_on_screen_unlock">Kunapachatixa pantallaxa jist’aratäxi ukhaxa</string>  
   <string name="text_run_on_power_connect">Kunapachatixa ch’amapaxa ch’amañchata</string>  
   <string name="text_run_on_power_disconnect">Kunapachatixa ch’amapaxa chhaqtayatäxi ukhaxa</string>  
   <string name="text_run_on_conn_change">Kunapachatixa red ukaxa mayjt’ayata</string>  
   <string name="text_run_on_package_install">Kunawsatix mä machaq app uñstayatäki ukhaxa</string>  
-  <string name="text_run_on_package_uninstall">Kunapachatï app ukax jan instalatäki ukhaxa</string>  
+  <string name="text_run_on_package_uninstall">Kunapachatixa app ukax jan instalatäki ukhaxa</string>  
   <string name="text_run_on_package_update">Kunapachatixa mä actualización uñt’ayaña</string>  
   <string name="text_run_on_headset_plug">Kunapachatixa enchufe ukatxa desconecta ukaxa auriculares ukaru</string>  
   <string name="text_run_on_time_tick">Sapa minuto</string>  
@@ -472,7 +472,7 @@
   <string name="switch_fullscreen">Ukax pantalla phuqhat uñacht’ayañawa</string>  
   <string name="text_custom_ocr_model_path">Paquete ukax OCR modelo ukan uñt’ayatawa</string>  
   <string name="desc_more">Juk\'ampi</string>  
-  <string name="text_switch_web_kernel">Ukax web ukan uñt’ayatawa</string>  
+  <string name="text_switch_web_kernel">Ukax web kernel ukaruw mayjt’ayaña</string>  
   <string name="text_favorites_management">Apthapiwi apnaqaña</string>  
   <string name="text_switch_timed_task_scheduler">Mayjt’ayaña pacha lurawi wakicht’iri</string>  
   <string name="text_go_to_open">Jist’arañataki</string>  
@@ -486,7 +486,7 @@
   <string name="text_unsupported_qr_code">QR códigos ukax aka formato ukanx janiw yanapt’atäkiti</string>  
   <string name="text_connected_to_computer">Computadorampi chikt’ata</string>  
   <string name="text_press_again_to_exit_app">Uka app ukar mistuñatakix mayamp ch’iqt’añamawa</string>  
-  <string name="text_app_download_link">Ukax mä link uñt’ayañatakiw uñt’ayasi</string>  
+  <string name="text_app_download_link">Ukax mä link uñt’ayi</string>  
   <string name="text_project_link">Proyecto ukan direccionapa</string>  
   <string name="text_release_date">Uñt’ayata: %s</string>  
   <string name="text_checking_for_updates">Uñakipt’añatakix kunayman yatiyawinakaw utji</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Uka thakhi thaqhaña</string>  
   <string name="text_licenses_other">Jani Jisk’a Fuente ukan Licenciapa</string>  
   <string name="text_save_successfully">Suma qhispiyasiña</string>  
-  <string name="text_save_as_project">Proyecto ukham imaña</string>
-  <string name="text_select_save_mode">Mä qhispiyañ thakhi ajlliñamawa</string>
-  <string name="text_save_as_project_and_exit">Proyecto ukham imaña ukat mistuña</string>
-  <string name="apk_builder_sign">Firmaña</string>
-  <string name="text_invalid_config">Jan wali configuración ukanakaw utji</string>
-  <string name="text_abi">ABIs ukanakax yanapt’atawa (comas ukamp jaljatawa) .</string>
-  <string name="text_save_project_to">Proyecto ukax akham qillqt’atawa: %s</string>
+  <string name="text_save_as_project">Proyecto ukham imaña</string>  
+  <string name="text_select_save_mode">Mä qhispiyañ thakhi ajlliñamawa</string>  
+  <string name="text_save_as_project_and_exit">Proyecto ukham imaña ukat mistuña</string>  
+  <string name="apk_builder_sign">Firmaña</string>  
+  <string name="text_invalid_config">Jan wali configuración ukanakaw utji</string>  
+  <string name="text_abi">ABIs ukanakax yanapt’atawa (comas ukamp jaljatawa) .</string>  
+  <string name="text_save_project_to">Proyecto ukax akham qillqt’atawa: %s</string>  
+  <string name="text_hide_and_show">Imantaña/uñacht’ayaña</string>
+  <string name="text_browser_open">Navegador ukax jist’aratawa</string>
+  <string name="text_do_nothing">Jan kuns lurapjjamti</string>
+  <string name="text_copy_to_new_folder">Uka nayrïr carpetan utjki ukanak machaq carpetaruw copiaña</string>
+  <string name="text_move_new_folder">Uka nayrïr carpetan utjki ukanak machaq carpetaruw apayañama</string>
+  <string name="text_accessibility_service_is_not_enable">Servicio de accesibilidad ukaxa janiwa qhananchatäkiti</string>
+  <string name="text_set_successfully">Suma utt’ayaña</string>
 </resources>

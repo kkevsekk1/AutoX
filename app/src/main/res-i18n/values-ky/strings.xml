@@ -2,7 +2,7 @@
 
 <!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
 <resources> 
-  <string name="text_accessibility_service_description">Скрипт операцияларын автоматташтыруу үчүн талап кылынат (чыкылдатуу, көпкө басуу, серпүү ж.б.), эгерде өчүрүлгөн болсо, автоматтык операцияларды камтыбаган скрипттерди гана аткарууга болот.</string>  
+  <string name="text_accessibility_service_description">Скрипт операцияларын автоматташтыруу үчүн талап кылынат (чыкылдатуу, көпкө басуу, серпүү ж.б.), эгер өчүрүлгөн болсо, автоматтык операцияларды камтыбаган скрипттерди гана аткарууга болот.</string>  
   <string name="text_new_file">Жаңы файл түзүү</string>  
   <string name="text_create_fail">Түзүлбөй калды</string>  
   <string name="text_please_input_name">Атын киргизиңиз</string>  
@@ -24,7 +24,7 @@
   <string name="text_alert">Ишарат</string>  
   <string name="edit_exit_without_save_warn">Мазмун сакталган жок, чын эле чыккыңыз келеби?</string>  
   <string name="text_save_and_exit">Сактоо жана чыгуу</string>  
-  <string name="text_exit_directly">Түздөн-түз чыгуу</string>  
+  <string name="text_exit_directly">Түз чыгуу</string>  
   <string name="text_setting">Жайгашуу</string>  
   <string name="text_exit">Таштоо</string>  
   <string name="text_auto_operate_service">Жеткиликтүүлүк кызматтары</string>  
@@ -74,7 +74,7 @@
   <string name="text_accessibility_service">Жеткиликтүүлүк кызматтары</string>  
   <string name="text_enable_accessibility_service_by_root">Тамыр артыкчылыктары бар кызматтарды автоматтык түрдө иштетүү</string>  
   <string name="text_auto_operate_service_enabled_but_not_running">Атайын мүмкүнчүлүктөр кызматы иштетилген, бирок иштебей жатат, бул Android мүчүлүштүгү болушу мүмкүн, телефонду өчүрүп күйгүзүшүңүз же атайын мүмкүнчүлүктөр кызматын кайра иштетүү керек болушу мүмкүн</string>  
-  <string name="text_enable_accessibility_service_by_root_timeout">Атайын мүмкүнчүлүктөр кызматын түпкү артыкчылыктары менен баштоо үчүн күтүү</string>  
+  <string name="text_enable_accessibility_service_by_root_timeout">Атайын мүмкүнчүлүктөр кызматын тамыр артыкчылыктары менен баштоо үчүн күтүү</string>  
   <string name="summary_enable_accessibility_service_by_root">Ачылгандан кийин, скриптти иштетүү Root артыкчылыктары менен атайын мүмкүнчүлүктөр кызматын автоматтык түрдө ачат</string>  
   <string name="text_appearance">Сырткы</string>  
   <string name="text_theme_color">Тема түсү</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Параметрлер</string>  
   <string name="text_using_id_selector">Id аркылуу тандаңыз</string>  
   <string name="text_using_text_selector">Текст тандоосун колдонуу (текст)</string>  
-  <string name="text_using_desc_selector">Сүрөттөмө менен тандоо (төмөндөтүү)</string>  
+  <string name="text_using_desc_selector">Колдонуу Сүрөттөмөсүн тандоо (төмөндөтүү)</string>  
   <string name="text_generate">Түзүү</string>  
   <string name="text_generate_fail">Курулбай калды o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Документ булагы</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Негизги интерфейске кирүү үчүн чыкылдатыңыз</string>  
   <string name="text_run_on_other_broadcast">Башка окуялар (берүү)</string>  
   <string name="text_broadcast_action">Берүү аракети</string>  
-  <string name="text_run_on_boot">Жүктөөдө</string>  
+  <string name="text_run_on_boot">Жүктөө убагында</string>  
   <string name="text_run_on_screen_on">Экран күйүп турганда</string>  
   <string name="text_run_on_screen_off">Экран өчүк болгондо</string>  
   <string name="error_empty_selection">Сураныч, таркатуучу окуя опциясын тандаңыз</string>  
@@ -417,7 +417,7 @@
   <string name="error_pattern_syntax">Кадимки туюнтма катасы</string>  
   <string name="text_invalid_package_name">Мыйзамсыз пакеттин аталышы</string>  
   <string name="error_cannot_rename">Атын өзгөртүү ишке ашкан жок</string>  
-  <string name="text_project_save_success">Долбоор %s ичинде сакталды</string>  
+  <string name="text_project_save_success">Долбоор %s sке сакталды</string>  
   <string name="text_project_save_error">Долбоор сакталбай калды %s</string>  
   <string name="text_night_mode">Түн режими</string>  
   <string name="text_run_on_startup">Autox.js башталганда</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Издөөдөн чыгуу</string>  
   <string name="text_licenses_other">Ачык эмес булак лицензиясы</string>  
   <string name="text_save_successfully">Ийгиликтүү сакталды</string>  
-  <string name="text_save_as_project">Долбоор катары сактоо</string>
-  <string name="text_select_save_mode">Сураныч, сактоо ыкмасын тандаңыз</string>
-  <string name="text_save_as_project_and_exit">Долбоор катары сактоо жана чыгуу</string>
-  <string name="apk_builder_sign">Кол коюу</string>
-  <string name="text_invalid_config">Жараксыз конфигурация</string>
-  <string name="text_abi">Колдоого алынган ABI (үтүр менен бөлүнгөн)</string>
-  <string name="text_save_project_to">Долбоор сакталды: %s</string>
+  <string name="text_save_as_project">Долбоор катары сактоо</string>  
+  <string name="text_select_save_mode">Сураныч, сактоо ыкмасын тандаңыз</string>  
+  <string name="text_save_as_project_and_exit">Долбоор катары сактоо жана чыгуу</string>  
+  <string name="apk_builder_sign">Кол коюу</string>  
+  <string name="text_invalid_config">Жараксыз конфигурация</string>  
+  <string name="text_abi">Колдоого алынган ABI (үтүр менен бөлүнгөн)</string>  
+  <string name="text_save_project_to">Долбоор сакталды: %s</string>  
+  <string name="text_hide_and_show">Жашыруу/көрсөтүү</string>
+  <string name="text_browser_open">Браузер ачык</string>
+  <string name="text_do_nothing">Эч нерсе кылбоо</string>
+  <string name="text_copy_to_new_folder">Түпнуска папканын мазмунун жаңы папкага көчүрүңүз</string>
+  <string name="text_move_new_folder">Баштапкы папканын мазмунун жаңы папкага жылдырыңыз</string>
+  <string name="text_accessibility_service_is_not_enable">Атайын мүмкүнчүлүктөр кызматы күйгүзүлгөн эмес</string>
+  <string name="text_set_successfully">Ийгиликтүү орнотулду</string>
 </resources>

@@ -56,7 +56,7 @@
   <string name="text_console">קאַנסאָול</string>  
   <string name="text_log">קלאָץ</string>  
   <string name="text_report_fail">סאַבמישאַן ניט אַנדערש</string>  
-  <string name="text_report_succeed">דערלאנגט הצלחה</string>  
+  <string name="text_report_succeed">הצלחה דערלאנגט</string>  
   <string name="edit_and_run_handle_intent_error">קען נישט פּראָצעס טעקע</string>  
   <string name="text_issue_report">באַמערקונגען</string>  
   <string name="text_script_record">רעקאָרד שריפט</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">אָפּציעס</string>  
   <string name="text_using_id_selector">אויסקלייַבן ניצן שייַן</string>  
   <string name="text_using_text_selector">ניצן טעקסט סעלעקציע (טעקסט)</string>  
-  <string name="text_using_desc_selector">אויסקלייַבן ניצן באַשרייַבונג (דיסק)</string>  
+  <string name="text_using_desc_selector">ניצן דיסקריפּשאַן אויסקלייַבן (דיסק)</string>  
   <string name="text_generate">דזשענערייט</string>  
   <string name="text_generate_fail">בויען ניט אַנדערש אָ(╥﹏╥)אָ</string>  
   <string name="text_documentation_source">דאָקומענטאַטיאָן מקור</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">גיט צו אַרייַן די הויפּט צובינד</string>  
   <string name="text_run_on_other_broadcast">אנדערע געשעענישן (בראָדקאַסט)</string>  
   <string name="text_broadcast_action">בראָדקאַסט קאַמף</string>  
-  <string name="text_run_on_boot">ווען בוטינג</string>  
+  <string name="text_run_on_boot">אין שטיוול צייט</string>  
   <string name="text_run_on_screen_on">ווען די פאַרשטעלן איז אויף</string>  
   <string name="text_run_on_screen_off">ווען די פאַרשטעלן איז אַוועק</string>  
   <string name="error_empty_selection">ביטע אויסקלייַבן אַ בראָדקאַסט געשעעניש אָפּציע</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">נאַכט מאָדע</string>  
   <string name="text_run_on_startup">ווען Autox.js סטאַרץ</string>  
   <string name="text_usage_stats_permission">באַניץ צוטריט</string>  
-  <string name="description_usage_stats_permission">דורך דער דערלויבעניש \"זען באַניץ סטאַטיסטיק\", איר קענען באַקומען די לעצטע אַפּלאַקיישאַן באַניץ פון דעם מיטל, אַזוי עס איז מער פּינטלעך צו באַקומען די קראַנט אַפּלאַקיישאַן (CurrentPackage).</string>  
+  <string name="description_usage_stats_permission">דורך דער דערלויבעניש \"View Usage Statistics\", איר קענען באַקומען די לעצטע אַפּלאַקיישאַן באַניץ פון דעם מיטל, אַזוי עס איז מער פּינטלעך צו באַקומען די קראַנט אַפּלאַקיישאַן (CurrentPackage).</string>  
   <string name="text_open_with">עפענען וועג</string>  
   <string name="text_root">וואָרצל</string>  
   <string name="text_no_root">וואָרצל פריי</string>  
@@ -448,7 +448,7 @@
   <string name="air_error_no_description">ביטע אַרייַן אַ דיטיילד באַשרייַבונג</string>  
   <string name="air_error_no_username">ביטע אַרייַן אַ גילטיק גיטהוב נאמען</string>  
   <string name="air_error_no_password">ביטע אַרייַן די ריכטיק פּאַראָל</string>  
-  <string name="air_error_no_email">ביטע אַרייַן אייער בליצפּאָסט</string>  
+  <string name="air_error_no_email">ביטע אַרייַן דיין בליצפּאָסט</string>  
   <string name="air_dialog_title_loading">ופּלאָאַדינג צו GitHub ...</string>  
   <string name="air_dialog_title_failed">ניט אַנדערש צו שיקן זשוק באַריכט</string>  
   <string name="air_dialog_description_failed_wrong_credentials">אומרעכט נאמען אָדער פּאַראָל</string>  
@@ -469,7 +469,7 @@
   <string name="text_fullscreen">באַשטימען פול פאַרשטעלן מאָדע 1</string>  
   <string name="text_drawer_right">עפענען די רעכט מעניו</string>  
   <string name="text_required_default_ocr_model">פּעקל די פעליקייַט OCR טריינינג מאָדעל</string>  
-  <string name="switch_fullscreen">באַשטימען פול פאַרשטעלן מאָדע</string>  
+  <string name="switch_fullscreen">באַשטימען די פול פאַרשטעלן מאָדע</string>  
   <string name="text_custom_ocr_model_path">פּעקל מנהג OCR מאָדעל וועגווייַזער</string>  
   <string name="desc_more">מער</string>  
   <string name="text_switch_web_kernel">באַשטימען וועב קערן</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">אַרויסגאַנג זוכן</string>  
   <string name="text_licenses_other">ניט-עפֿן מקור ליסענסע</string>  
   <string name="text_save_successfully">הצלחה געראטעוועט</string>  
-  <string name="text_save_as_project">היט ווי פּרויעקט</string>
-  <string name="text_select_save_mode">ביטע אויסקלייַבן אַ ראַטעווען אופֿן</string>
-  <string name="text_save_as_project_and_exit">היט ווי פּרויעקט און אַרויסגאַנג</string>
-  <string name="apk_builder_sign">סיינינג</string>
-  <string name="text_invalid_config">פאַרקריפּלט קאַנפיגיעריישאַן</string>
-  <string name="text_abi">געשטיצט ABIs (צעשיידט מיט קאָמע)</string>
-  <string name="text_save_project_to">פּראָיעקט געראטעוועט צו: %s</string>
+  <string name="text_save_as_project">היט ווי פּרויעקט</string>  
+  <string name="text_select_save_mode">ביטע אויסקלייַבן אַ ראַטעווען אופֿן</string>  
+  <string name="text_save_as_project_and_exit">היט ווי פּרויעקט און אַרויסגאַנג</string>  
+  <string name="apk_builder_sign">סיינינג</string>  
+  <string name="text_invalid_config">פאַרקריפּלט קאַנפיגיעריישאַן</string>  
+  <string name="text_abi">געשטיצט ABIs (צעשיידט מיט קאָמע)</string>  
+  <string name="text_save_project_to">פּראָיעקט געראטעוועט צו: %s</string>  
+  <string name="text_hide_and_show">באַהאַלטן / ווייַזן</string>
+  <string name="text_browser_open">בלעטערער עפענען</string>
+  <string name="text_do_nothing">טו גארנישט</string>
+  <string name="text_copy_to_new_folder">נאָכמאַכן די אינהאַלט פון דער אָריגינעל טעקע צו די נייַע טעקע</string>
+  <string name="text_move_new_folder">מאַך די אינהאַלט פון דער אָריגינעל טעקע צו די נייַע טעקע</string>
+  <string name="text_accessibility_service_is_not_enable">אַקסעסאַביליטי דינסט איז נישט אויסגעדרייט אויף</string>
+  <string name="text_set_successfully">שטעלן הצלחה</string>
 </resources>

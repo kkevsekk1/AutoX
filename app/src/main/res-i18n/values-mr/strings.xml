@@ -2,7 +2,7 @@
 
 <!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
 <resources> 
-  <string name="text_accessibility_service_description">स्क्रिप्ट ऑपरेशन्स स्वयंचलित करण्यासाठी आवश्यक आहे (क्लिक, दीर्घ दाबा, स्वाइप, इ.), अक्षम असल्यास, केवळ स्वयंचलित ऑपरेशन्स समाविष्ट नसलेल्या स्क्रिप्ट कार्यान्वित केल्या जाऊ शकतात.</string>  
+  <string name="text_accessibility_service_description">स्क्रिप्ट ऑपरेशन्स स्वयंचलित करण्यासाठी आवश्यक आहे (क्लिक, दीर्घ दाबा, स्वाइप इ.), अक्षम असल्यास, केवळ स्वयंचलित ऑपरेशन्स समाविष्ट नसलेल्या स्क्रिप्ट कार्यान्वित केल्या जाऊ शकतात.</string>  
   <string name="text_new_file">नवीन फाइल तयार करा</string>  
   <string name="text_create_fail">तयार करण्यात अयशस्वी</string>  
   <string name="text_please_input_name">कृपया नाव प्रविष्ट करा</string>  
@@ -112,7 +112,7 @@
   <string name="text_check_for_updates">अद्यतनांसाठी तपासा</string>  
   <string name="text_is_latest_version">आधीच नवीनतम आवृत्ती</string>  
   <string name="text_version_too_old">आवृत्ती खूप कमी आहे</string>  
-  <string name="warning_version_too_old">सध्याची आवृत्ती ही सार्वजनिक बीटा आवृत्ती आहे, ज्यामध्ये अनेक स्पष्ट आणि संभाव्य समस्या आहेत आणि ती यापुढे सतत वापरण्यासाठी योग्य नाही.</string>  
+  <string name="warning_version_too_old">वर्तमान आवृत्ती ही सार्वजनिक बीटा आवृत्ती आहे, ज्यामध्ये अनेक स्पष्ट आणि संभाव्य समस्या आहेत आणि ती यापुढे सतत वापरण्यासाठी योग्य नाही.</string>  
   <string name="text_update">नूतनीकरण</string>  
   <string name="text_release_notes">चेंजलॉग</string>  
   <string name="text_download_url">डाउनलोड लिंक</string>  
@@ -163,7 +163,7 @@
   <string name="text_hideLaucher">डेस्कटॉप चिन्ह लपवा (adb किंवा इतर पद्धतींद्वारे अॅप्स लाँच करा)</string>  
   <string name="text_stable_mode">स्थिर मोड</string>  
   <string name="text_single_build_clean_mode">सिंगल फाइल पॅकेजिंग रिफ्रेशिंग मोड</string>  
-  <string name="summary_single_build_clean_mode">उघडल्यानंतर, पॅकेजिंग कॉन्फिगरेशन फाइल जतन केली जाणार नाही जेव्हा एकल फाइल पॅकेज केली जाते आणि सर्व कॉन्फिगरेशन माहिती जसे की स्टार्टअप प्रतिमा आणि अनुप्रयोग चिन्ह जतन केले जाणार नाही.</string>  
+  <string name="summary_single_build_clean_mode">उघडल्यानंतर, पॅकेजिंग कॉन्फिगरेशन फाइल जतन केली जाणार नाही जेव्हा एकल फाइल पॅकेज केली जाते, आणि सर्व कॉन्फिगरेशन माहिती जसे की स्टार्टअप प्रतिमा आणि अनुप्रयोग चिन्ह जतन केले जाणार नाही.</string>  
   <string name="text_directory">फोल्डर</string>  
   <string name="text_file">दस्तऐवज</string>  
   <string name="text_tutorial">ट्यूटोरियल</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">पर्याय</string>  
   <string name="text_using_id_selector">आयडी वापरून निवडा</string>  
   <string name="text_using_text_selector">मजकूर निवड वापरा (मजकूर)</string>  
-  <string name="text_using_desc_selector">वर्णन वापरून निवडा (डिस्क)</string>  
+  <string name="text_using_desc_selector">वर्णन निवडा (डिस्क) वापरा</string>  
   <string name="text_generate">उत्पन्न करा</string>  
   <string name="text_generate_fail">बिल्ड अयशस्वी o(╥﹏╥)o</string>  
   <string name="text_documentation_source">दस्तऐवजीकरण स्रोत</string>  
@@ -368,7 +368,7 @@
   <string name="text_debug_resume_script">सुरू</string>  
   <string name="text_stop">थांबा</string>  
   <string name="text_new_watching_variable">पाहण्यासाठी व्हेरिएबल किंवा अभिव्यक्ती जोडा</string>  
-  <string name="text_variable_or_expr">व्हेरिएबल किंवा अभिव्यक्ती</string>  
+  <string name="text_variable_or_expr">चल किंवा अभिव्यक्ती</string>  
   <string name="text_remove_all_breakpoints">सर्व ब्रेकपॉईंट काढा</string>  
   <string name="hint_long_click_run_to_debug">\"चालवा\" चिन्ह दीर्घकाळ दाबून देखील डीबगिंग सुरू केले जाऊ शकते</string>  
   <string name="format_debug_bar_title">डीबग करा [ %s ]</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">मुख्य इंटरफेस प्रविष्ट करण्यासाठी क्लिक करा</string>  
   <string name="text_run_on_other_broadcast">इतर कार्यक्रम (प्रसारण)</string>  
   <string name="text_broadcast_action">ब्रॉडकास्ट क्रिया</string>  
-  <string name="text_run_on_boot">बूट करताना</string>  
+  <string name="text_run_on_boot">बूट वेळी</string>  
   <string name="text_run_on_screen_on">स्क्रीन चालू असताना</string>  
   <string name="text_run_on_screen_off">स्क्रीन बंद असताना</string>  
   <string name="error_empty_selection">कृपया ब्रॉडकास्ट इव्हेंट पर्याय निवडा</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">शोधातून बाहेर पडा</string>  
   <string name="text_licenses_other">नॉन-ओपन सोर्स परवाना</string>  
   <string name="text_save_successfully">यशस्वीरित्या जतन केले</string>  
-  <string name="text_save_as_project">प्रकल्प म्हणून जतन करा</string>
-  <string name="text_select_save_mode">कृपया सेव्ह पद्धत निवडा</string>
-  <string name="text_save_as_project_and_exit">प्रोजेक्ट म्हणून सेव्ह करा आणि बाहेर पडा</string>
-  <string name="apk_builder_sign">स्वाक्षरी</string>
-  <string name="text_invalid_config">अवैध कॉन्फिगरेशन</string>
-  <string name="text_abi">समर्थित ABIs (स्वल्पविरामाने विभक्त केलेले)</string>
-  <string name="text_save_project_to">प्रकल्प यामध्ये जतन केला: %s</string>
+  <string name="text_save_as_project">प्रकल्प म्हणून जतन करा</string>  
+  <string name="text_select_save_mode">कृपया सेव्ह पद्धत निवडा</string>  
+  <string name="text_save_as_project_and_exit">प्रोजेक्ट म्हणून सेव्ह करा आणि बाहेर पडा</string>  
+  <string name="apk_builder_sign">स्वाक्षरी</string>  
+  <string name="text_invalid_config">अवैध कॉन्फिगरेशन</string>  
+  <string name="text_abi">समर्थित ABIs (स्वल्पविरामाने विभक्त केलेले)</string>  
+  <string name="text_save_project_to">प्रकल्प यामध्ये जतन केला: %s</string>  
+  <string name="text_hide_and_show">लपवा/दाखवा</string>
+  <string name="text_browser_open">ब्राउझर उघडा</string>
+  <string name="text_do_nothing">काही करू नको</string>
+  <string name="text_copy_to_new_folder">मूळ फोल्डरची सामग्री नवीन फोल्डरमध्ये कॉपी करा</string>
+  <string name="text_move_new_folder">मूळ फोल्डरची सामग्री नवीन फोल्डरमध्ये हलवा</string>
+  <string name="text_accessibility_service_is_not_enable">प्रवेशयोग्यता सेवा चालू नाही</string>
+  <string name="text_set_successfully">यशस्वीरित्या सेट</string>
 </resources>

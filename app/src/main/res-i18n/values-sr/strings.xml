@@ -24,7 +24,7 @@
   <string name="text_alert">Наговестити</string>  
   <string name="edit_exit_without_save_warn">Садржај није сачуван, јесте ли сигурни да желите да изађете?</string>  
   <string name="text_save_and_exit">Сачувајте и изађите</string>  
-  <string name="text_exit_directly">Изађите директно</string>  
+  <string name="text_exit_directly">Изаћи директно</string>  
   <string name="text_setting">Подесити</string>  
   <string name="text_exit">Одустати</string>  
   <string name="text_auto_operate_service">Услуге приступачности</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Опције</string>  
   <string name="text_using_id_selector">Изаберите користећи ид</string>  
   <string name="text_using_text_selector">Користи избор текста (текст)</string>  
-  <string name="text_using_desc_selector">Изаберите користећи опис (опис)</string>  
+  <string name="text_using_desc_selector">Користи избор описа (опис)</string>  
   <string name="text_generate">Генериши</string>  
   <string name="text_generate_fail">Израда није успела о(╥﹏╥)о</string>  
   <string name="text_documentation_source">Извор документације</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Кликните да бисте ушли у главни интерфејс</string>  
   <string name="text_run_on_other_broadcast">Други догађаји (емитовање)</string>  
   <string name="text_broadcast_action">Броадцаст Ацтион</string>  
-  <string name="text_run_on_boot">Приликом покретања</string>  
+  <string name="text_run_on_boot">У време покретања</string>  
   <string name="text_run_on_screen_on">Када је екран укључен</string>  
   <string name="text_run_on_screen_off">Када је екран искључен</string>  
   <string name="error_empty_selection">Изаберите опцију емитовања догађаја</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Ноћни режим</string>  
   <string name="text_run_on_startup">Када се Ауток.јс покрене</string>  
   <string name="text_usage_stats_permission">Приступ коришћењу</string>  
-  <string name="description_usage_stats_permission">Преко дозволе „прикажи статистику коришћења“ можете да добијете претходну употребу апликације овог уређаја, тако да је тачније да добијете тренутну апликацију (тренутни пакет).</string>  
+  <string name="description_usage_stats_permission">Преко дозволе „Прикажи статистику коришћења“ можете да добијете претходну употребу апликације овог уређаја, тако да је тачније да добијете тренутну апликацију (тренутни пакет).</string>  
   <string name="text_open_with">Отворен пут</string>  
   <string name="text_root">Корен</string>  
   <string name="text_no_root">Роот бесплатно</string>  
@@ -468,7 +468,7 @@
   <string name="text_file_manager_permission">Приступ свим датотекама</string>  
   <string name="text_fullscreen">Укључите режим целог екрана 1</string>  
   <string name="text_drawer_right">Отворите десни мени</string>  
-  <string name="text_required_default_ocr_model">Пакујте подразумевани ОЦР модел обуке</string>  
+  <string name="text_required_default_ocr_model">Пакујте подразумевани модел обуке за ОЦР</string>  
   <string name="switch_fullscreen">Укључите режим целог екрана</string>  
   <string name="text_custom_ocr_model_path">Пакет именик прилагођеног ОЦР модела</string>  
   <string name="desc_more">Више</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Изађите из претраге</string>  
   <string name="text_licenses_other">Лиценца без отвореног кода</string>  
   <string name="text_save_successfully">Успешно сачувано</string>  
-  <string name="text_save_as_project">Сачувати као пројекат</string>
-  <string name="text_select_save_mode">Изаберите метод чувања</string>
-  <string name="text_save_as_project_and_exit">Сачувајте као пројекат и изађите</string>
-  <string name="apk_builder_sign">Потписивање</string>
-  <string name="text_invalid_config">Неважећа конфигурација</string>
-  <string name="text_abi">Подржани АБИ (одвојени зарезима)</string>
-  <string name="text_save_project_to">Пројекат је сачуван у: %s</string>
+  <string name="text_save_as_project">Сачувати као пројекат</string>  
+  <string name="text_select_save_mode">Изаберите метод чувања</string>  
+  <string name="text_save_as_project_and_exit">Сачувајте као пројекат и изађите</string>  
+  <string name="apk_builder_sign">Потписивање</string>  
+  <string name="text_invalid_config">Неважећа конфигурација</string>  
+  <string name="text_abi">Подржани АБИ (одвојени зарезима)</string>  
+  <string name="text_save_project_to">Пројекат је сачуван у: %s</string>  
+  <string name="text_hide_and_show">Сакрити/приказати</string>
+  <string name="text_browser_open">Претраживач отворен</string>
+  <string name="text_do_nothing">Не ради ништа</string>
+  <string name="text_copy_to_new_folder">Копирајте садржај оригиналне фасцикле у нову фасциклу</string>
+  <string name="text_move_new_folder">Преместите садржај оригиналне фасцикле у нову фасциклу</string>
+  <string name="text_accessibility_service_is_not_enable">Услуга приступачности није укључена</string>
+  <string name="text_set_successfully">Постављен успешно</string>
 </resources>

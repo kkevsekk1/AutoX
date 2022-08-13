@@ -157,7 +157,7 @@
   <string name="text_edit_script">Скриптийг засах</string>  
   <string name="text_run_script">Скрипт ажиллуулах</string>  
   <string name="text_import_script">Скрипт файлыг импортлох</string>  
-  <string name="text_root_record_out_file_type">Root Бичлэг үүсгэсэн файлын төрөл</string>  
+  <string name="text_root_record_out_file_type">Үндэс бичлэгийн үүсгэсэн файлын төрөл</string>  
   <string name="text_binary">Хоёртын</string>  
   <string name="summary_stable_mode">Байршлын шинжилгээг идэвхжүүлсэн үед илүү тогтвортой байдаг ч цөөн тооны скриптүүд зөв ажиллахгүй байж магадгүй. Хүчин төгөлдөр болохын тулд хандалтын үйлчилгээг дахин эхлүүлнэ үү</string>  
   <string name="text_hideLaucher">Ширээний дүрсийг нуух (adb эсвэл бусад аргаар програмуудыг ажиллуулна уу)</string>  
@@ -224,7 +224,7 @@
   <string name="text_hideLogs">Бүртгэлийг нуух</string>  
   <string name="text_required_accessibility_service">Хүртээмжтэй үйлчилгээ шаардлагатай</string>  
   <string name="text_required_opencv">OpenCv зураг боловсруулах</string>  
-  <string name="text_required_ocr">OCR текст таних</string>  
+  <string name="text_required_ocr">OCR текстийг таних</string>  
   <string name="text_required_7zip">7zip шахалтын номын сан</string>  
   <string name="text_required_terminal_emulator">Терминал эмулятор</string>  
   <string name="text_required_background_start">Арын попап интерфейсийн зөвшөөрөл шаардлагатай</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Сонголтууд</string>  
   <string name="text_using_id_selector">Id ашиглан сонгоно уу</string>  
   <string name="text_using_text_selector">Текстийн сонголтыг ашиглах (текст)</string>  
-  <string name="text_using_desc_selector">Тайлбарыг ашиглан сонгоно уу (багалах)</string>  
+  <string name="text_using_desc_selector">Тодорхойлолтыг ашиглах (бууруулах)</string>  
   <string name="text_generate">Үүсгэх</string>  
   <string name="text_generate_fail">Бүтээлт амжилтгүй болсон o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Баримт бичгийн эх сурвалж</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Шөнийн горим</string>  
   <string name="text_run_on_startup">Autox.js эхлэх үед</string>  
   <string name="text_usage_stats_permission">Ашиглалтын хандалт</string>  
-  <string name="description_usage_stats_permission">\"Хэрэглээний статистикийг харах\" зөвшөөрлийн тусламжтайгаар та энэ төхөөрөмжийн өмнөх хэрэглээний хэрэглээг олж авах боломжтой бөгөөд ингэснээр одоогийн програмыг (currentPackage) авахад илүү нарийвчлалтай болно.</string>  
+  <string name="description_usage_stats_permission">\"Ашиглалтын статистикийг харах\" зөвшөөрлөөр дамжуулан та энэ төхөөрөмжийн өмнөх хэрэглээний хэрэглээг олж авах боломжтой бөгөөд ингэснээр одоогийн програмыг (currentPackage) авахад илүү нарийвчлалтай болно.</string>  
   <string name="text_open_with">Нээлттэй зам</string>  
   <string name="text_root">Үндэс</string>  
   <string name="text_no_root">Root үнэгүй</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Хайлтаас гарах</string>  
   <string name="text_licenses_other">Нээлттэй эхийн бус лиценз</string>  
   <string name="text_save_successfully">Амжилттай хадгалсан</string>  
-  <string name="text_save_as_project">Төсөл болгон хадгалах</string>
-  <string name="text_select_save_mode">Хадгалах аргыг сонгоно уу</string>
-  <string name="text_save_as_project_and_exit">Төсөл болгон хадгалаад гар</string>
-  <string name="apk_builder_sign">Гарын үсэг зурах</string>
-  <string name="text_invalid_config">Буруу тохиргоо</string>
-  <string name="text_abi">Дэмжигдсэн ABI (таслалаар тусгаарлагдсан)</string>
-  <string name="text_save_project_to">Төслийг хадгалсан: %s</string>
+  <string name="text_save_as_project">Төсөл болгон хадгалах</string>  
+  <string name="text_select_save_mode">Хадгалах аргыг сонгоно уу</string>  
+  <string name="text_save_as_project_and_exit">Төсөл болгон хадгалаад гар</string>  
+  <string name="apk_builder_sign">Гарын үсэг зурах</string>  
+  <string name="text_invalid_config">Буруу тохиргоо</string>  
+  <string name="text_abi">Дэмжигдсэн ABI (таслалаар тусгаарлагдсан)</string>  
+  <string name="text_save_project_to">Төслийг хадгалсан: %s</string>  
+  <string name="text_hide_and_show">Нуух/үзүүлэх</string>
+  <string name="text_browser_open">Хөтөч нээлттэй</string>
+  <string name="text_do_nothing">Юу ч хийхгүй</string>
+  <string name="text_copy_to_new_folder">Эх фолдерын агуулгыг шинэ хавтас руу хуулна уу</string>
+  <string name="text_move_new_folder">Эх фолдерын агуулгыг шинэ хавтас руу зөөнө үү</string>
+  <string name="text_accessibility_service_is_not_enable">Хандалтын үйлчилгээ асаагүй байна</string>
+  <string name="text_set_successfully">Амжилттай тохируулсан</string>
 </resources>

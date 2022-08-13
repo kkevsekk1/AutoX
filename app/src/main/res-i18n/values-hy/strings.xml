@@ -2,7 +2,7 @@
 
 <!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
 <resources> 
-  <string name="text_accessibility_service_description">Պահանջվում է սկրիպտի գործողությունների ավտոմատացման համար (սեղմեք, երկար սեղմեք, սահեցրեք և այլն), եթե անջատված է, կարող են կատարվել միայն ավտոմատ գործողություններ չներառող սկրիպտներ:</string>  
+  <string name="text_accessibility_service_description">Պահանջվում է սկրիպտի գործողությունների ավտոմատացման համար (սեղմեք, երկար սեղմեք, սահեցրեք և այլն), եթե անջատված է, կարող են կատարվել միայն ավտոմատ գործողություններ չներառող սկրիպտները:</string>  
   <string name="text_new_file">Ստեղծել նոր ֆայլ</string>  
   <string name="text_create_fail">Չհաջողվեց ստեղծել</string>  
   <string name="text_please_input_name">Խնդրում ենք մուտքագրել անուն</string>  
@@ -24,7 +24,7 @@
   <string name="text_alert">Ակնարկ</string>  
   <string name="edit_exit_without_save_warn">Բովանդակությունը չի պահպանվել, վստա՞հ եք, որ ցանկանում եք դուրս գալ:</string>  
   <string name="text_save_and_exit">Պահպանել և դուրս գալ</string>  
-  <string name="text_exit_directly">Ուղիղ ելք</string>  
+  <string name="text_exit_directly">Ուղղակիորեն դուրս գալ</string>  
   <string name="text_setting">Ստեղծել</string>  
   <string name="text_exit">Թողնել</string>  
   <string name="text_auto_operate_service">Մատչելիության ծառայություններ</string>  
@@ -64,7 +64,7 @@
   <string name="text_recorded">Ձայնագրության ավարտը</string>  
   <string name="text_copy_to_clip">Պատճենել clipboard-ում</string>  
   <string name="text_file_write_fail">Ֆայլը չհաջողվեց գրել</string>  
-  <string name="text_use_volume_control_record">Օգտագործեք ձայնի իջեցման ստեղնը վերահսկելու համար</string>  
+  <string name="text_use_volume_control_record">Օգտագործեք ձայնի իջեցման ստեղնը՝ կառավարելու համար</string>  
   <string name="summary_use_volume_control_record">Լողացող պատուհանը բացելուց հետո ամեն անգամ ձայնի իջեցման ստեղնը կսկսի կամ կդադարեցնի սցենարի ձայնագրումը</string>  
   <string name="text_qq_group">Սա QQ խմբի համարն է, եթե չեք կարողանում բացել, խնդրում ենք ձեռքով որոնել</string>  
   <string name="text_mobile_qq_not_installed">Mobile QQ-ն տեղադրված չէ</string>  
@@ -241,7 +241,7 @@
   <string name="text_sign_key_add">Ստեղծեք ստորագրություն</string>  
   <string name="text_sign_key_import">Ներմուծել ստորագրություն</string>  
   <string name="text_sign_hint_key_path">*Ֆայլի պահպանման ուղին</string>  
-  <string name="text_sign_hint_key_alias">*այլանուն</string>  
+  <string name="text_sign_hint_key_alias">* alias</string>  
   <string name="text_sign_hint_key_password">*գաղտնաբառ</string>  
   <string name="text_sign_hint_key_year">* Վավերականության ժամկետը (տարիներ)</string>  
   <string name="text_sign_key_year_def">25</string>  
@@ -267,10 +267,10 @@
   <string name="text_search">Որոնում</string>  
   <string name="text_select_icon">Ընտրեք պատկերակը</string>  
   <string name="text_use_android_n_shortcut">Ավելացվել է Android 7.0 դյուրանցում</string>  
-  <string name="text_login_succeed">Մուտքը հաջողված է</string>  
+  <string name="text_login_succeed">Մուտքը հաջող է</string>  
   <string name="text_login_fail">Մուտքը ձախողվեց</string>  
   <string name="text_reset_password">Վերականգնել գաղտնաբառը</string>  
-  <string name="text_logining">Մուտք գործելը</string>  
+  <string name="text_logining">Մուտք գործել</string>  
   <string name="text_register">Գրանցել</string>  
   <string name="text_email">Փոստ</string>  
   <string name="text_email_cannot_be_empty">Էլփոստը չի կարող դատարկ լինել</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Ընտրանքներ</string>  
   <string name="text_using_id_selector">Ընտրեք՝ օգտագործելով ID-ն</string>  
   <string name="text_using_text_selector">Օգտագործեք տեքստի ընտրություն (տեքստ)</string>  
-  <string name="text_using_desc_selector">Ընտրեք՝ օգտագործելով նկարագրությունը (նկարագրություն)</string>  
+  <string name="text_using_desc_selector">Օգտագործել Նկարագրություն Ընտրել (նկարագրել)</string>  
   <string name="text_generate">Առաջացնել</string>  
   <string name="text_generate_fail">Կառուցումը ձախողվեց o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Փաստաթղթերի աղբյուր</string>  
@@ -396,10 +396,10 @@
   <string name="text_foreground_service">Ընդունելություն</string>  
   <string name="foreground_notification_channel_name">Առջևի սեղանի սպասարկման ծանուցում</string>  
   <string name="foreground_notification_title">Autox.js-ը շարունակում է աշխատել</string>  
-  <string name="foreground_notification_text">Սեղմեք՝ հիմնական ինտերֆեյսը մուտք գործելու համար</string>  
-  <string name="text_run_on_other_broadcast">Այլ միջոցառումներ (հեռարձակում)</string>  
+  <string name="foreground_notification_text">Սեղմեք՝ հիմնական ինտերֆեյսը մուտքագրելու համար</string>  
+  <string name="text_run_on_other_broadcast">Այլ իրադարձություններ (հեռարձակում)</string>  
   <string name="text_broadcast_action">Հեռարձակման գործողություն</string>  
-  <string name="text_run_on_boot">Երբ booting</string>  
+  <string name="text_run_on_boot">Բեռնման ժամանակ</string>  
   <string name="text_run_on_screen_on">Երբ էկրանը միացված է</string>  
   <string name="text_run_on_screen_off">Երբ էկրանն անջատված է</string>  
   <string name="error_empty_selection">Խնդրում ենք ընտրել հեռարձակման միջոցառման տարբերակ</string>  
@@ -413,7 +413,7 @@
   <string name="text_run_on_package_update">Թարմացում կիրառելիս</string>  
   <string name="text_run_on_headset_plug">Ականջակալը միացնելիս և անջատելիս</string>  
   <string name="text_run_on_time_tick">Ամեն րոպե</string>  
-  <string name="text_run_on_config_change">Երբ փոխվում են որոշակի կարգավորումներ (էկրանի կողմնորոշում, տարածաշրջան և այլն):</string>  
+  <string name="text_run_on_config_change">Երբ որոշակի կարգավորումներ (էկրանի կողմնորոշում, տարածաշրջան և այլն) փոխվում են</string>  
   <string name="error_pattern_syntax">Սովորական արտահայտության սխալ</string>  
   <string name="text_invalid_package_name">Անօրինական փաթեթի անվանումը</string>  
   <string name="error_cannot_rename">Չհաջողվեց վերանվանել</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Գիշերային ռեժիմ</string>  
   <string name="text_run_on_startup">Երբ սկսվում է Autox.js-ը</string>  
   <string name="text_usage_stats_permission">Օգտագործման հասանելիություն</string>  
-  <string name="description_usage_stats_permission">«Դիտել օգտագործման վիճակագրության» թույլտվության միջոցով դուք կարող եք ձեռք բերել այս սարքի հավելվածի նախկին օգտագործումը, որպեսզի ավելի ճշգրիտ լինի ստանալ ընթացիկ հավելվածը (currentPackage):</string>  
+  <string name="description_usage_stats_permission">«Դիտել Օգտագործման վիճակագրությունը» թույլտվության միջոցով դուք կարող եք ստանալ այս սարքի հավելվածի նախկին օգտագործումը, որպեսզի ավելի ճշգրիտ լինի ստանալ ընթացիկ հավելվածը (currentPackage):</string>  
   <string name="text_open_with">Բաց ճանապարհ</string>  
   <string name="text_root">Արմատ</string>  
   <string name="text_no_root">Root ազատ</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Դուրս գալ որոնումից</string>  
   <string name="text_licenses_other">Ոչ բաց կոդով լիցենզիա</string>  
   <string name="text_save_successfully">Հաջողությամբ պահպանվեց</string>  
-  <string name="text_save_as_project">Պահպանել որպես նախագիծ</string>
-  <string name="text_select_save_mode">Խնդրում ենք ընտրել պահպանման մեթոդ</string>
-  <string name="text_save_as_project_and_exit">Պահել որպես նախագիծ և դուրս գալ</string>
-  <string name="apk_builder_sign">Ստորագրում</string>
-  <string name="text_invalid_config">Անվավեր կոնֆիգուրացիա</string>
-  <string name="text_abi">Աջակցվող ABI-ներ (առանձնացված ստորակետերով)</string>
-  <string name="text_save_project_to">Նախագիծը պահվել է՝ %s</string>
+  <string name="text_save_as_project">Պահպանել որպես նախագիծ</string>  
+  <string name="text_select_save_mode">Խնդրում ենք ընտրել պահպանման մեթոդ</string>  
+  <string name="text_save_as_project_and_exit">Պահել որպես նախագիծ և դուրս գալ</string>  
+  <string name="apk_builder_sign">Ստորագրում</string>  
+  <string name="text_invalid_config">Անվավեր կոնֆիգուրացիա</string>  
+  <string name="text_abi">Աջակցվող ABI-ներ (առանձնացված ստորակետերով)</string>  
+  <string name="text_save_project_to">Նախագիծը պահվել է՝ %s</string>  
+  <string name="text_hide_and_show">Թաքցնել/ցուցադրել</string>
+  <string name="text_browser_open">Զննարկիչը բաց է</string>
+  <string name="text_do_nothing">Չանել ոչինչ</string>
+  <string name="text_copy_to_new_folder">Պատճենեք բնօրինակ թղթապանակի բովանդակությունը նոր թղթապանակում</string>
+  <string name="text_move_new_folder">Տեղափոխեք սկզբնական թղթապանակի բովանդակությունը նոր թղթապանակ</string>
+  <string name="text_accessibility_service_is_not_enable">Մատչելիության ծառայությունը միացված չէ</string>
+  <string name="text_set_successfully">Հաջողությամբ սահմանել</string>
 </resources>

@@ -24,10 +24,10 @@
   <string name="text_alert">Elembo</string>  
   <string name="edit_exit_without_save_warn">Contenu ebombami te, ozali sûr que olingi kobima?</string>  
   <string name="text_save_and_exit">Bomba mpe bima</string>  
-  <string name="text_exit_directly">Bima mbala moko</string>  
+  <string name="text_exit_directly">Kobima mbala moko</string>  
   <string name="text_setting">Kobongisa</string>  
   <string name="text_exit">Kolongwa</string>  
-  <string name="text_auto_operate_service">Misala ya bozwi ya bato</string>  
+  <string name="text_auto_operate_service">Misala ya kozwa nzela ya kozwa biloko</string>  
   <string name="text_about">Pene</string>  
   <string name="text_licenses">Licence ya Source ya polele</string>  
   <string name="text_do_not_remind_again">Kokundolisa lisusu te</string>  
@@ -71,7 +71,7 @@
   <string name="text_edit">Kokoma</string>  
   <string name="text_max_length_for_code_completion">Bosilisi ya Code Bolai ya Fisyé ya likolo</string>  
   <string name="text_file_exists">Fichier ezali déjà</string>  
-  <string name="text_accessibility_service">Misala ya kozwa nzela ya kozwa biloko</string>  
+  <string name="text_accessibility_service">Misala ya bozwi ya bato</string>  
   <string name="text_enable_accessibility_service_by_root">Activer automatiquement ba services na ba privilèges ya root</string>  
   <string name="text_auto_operate_service_enabled_but_not_running">Service ya accessibilité ezali activé kasi ezali kosala te, oyo ekoki kozala bug ya Android, ekoki kozala na besoin ya ko restarter téléphone to ko restarter service ya accessibilité</string>  
   <string name="text_enable_accessibility_service_by_root_timeout">Timeout mpo na kobanda service ya accessibilité na ba privilèges ya root</string>  
@@ -171,7 +171,7 @@
   <string name="text_manage">Kosala</string>  
   <string name="not_login">Login moko te esengeli mpo na ba fonctions normales</string>  
   <string name="text_volume_down_control">Contrôle ya touche ya kokita ya volume</string>  
-  <string name="text_auto_backup">Script ya sauvegarde automatique</string>  
+  <string name="text_auto_backup">Script ya kosala sauvegarde automatique</string>  
   <string name="text_others">Mosusu</string>  
   <string name="text_import">Komema</string>  
   <string name="text_click_too_frequently">Opération na yo eza mbangu mingi ヽ(#`Д ́)ヽ</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Makambo oyo okoki kopona</string>  
   <string name="text_using_id_selector">Pona kosalela id</string>  
   <string name="text_using_text_selector">Salelá kopona makomi (makomi) .</string>  
-  <string name="text_using_desc_selector">Pona kosalela ndimbola (desc) .</string>  
+  <string name="text_using_desc_selector">Salelá Bolimbisi Pona (desc) .</string>  
   <string name="text_generate">Kobimisa</string>  
   <string name="text_generate_fail">Kotonga elongi te o(╥╥)o</string>  
   <string name="text_documentation_source">Liziba ya mikanda</string>  
@@ -343,7 +343,7 @@
   <string name="nodebb_error_change_password_error_match">Ba mots de passe mibale oyo okotisi ekokani te</string>  
   <string name="text_logout">Signer libanda</string>  
   <string name="nodebb_error_forbidden">Opération elongi te, meka lisusu sima</string>  
-  <string name="description_stable_mode">Mode stable esalaka que script ezala stable mingi tango ozali kokanga layout na kolongolaka ba détails ya layout, kasi na tango moko kozua ba contrôles moke na écran. \n \n lisusu mosala ya bozwi mpo na kosala.</string>  
+  <string name="description_stable_mode">Mode stable ekomisaka script stable mingi tango ozali kokanga layout na kolongolaka ba détails ya layout, kasi na tango moko kozua ba contrôles moke na écran. \n \n lisusu mosala ya bozwi mpo na kosala.</string>  
   <string name="text_size_min_value">2. 2</string>  
   <string name="text_size_max_value">60</string>  
   <string name="text_text_size">Bonene ya makomi</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Finá mpo na kokɔta na interface monene</string>  
   <string name="text_run_on_other_broadcast">Makambo mosusu (emission) .</string>  
   <string name="text_broadcast_action">Action ya émission</string>  
-  <string name="text_run_on_boot">Ntango ozali kosala démarrage</string>  
+  <string name="text_run_on_boot">Na ngonga ya bobandi</string>  
   <string name="text_run_on_screen_on">Ntango écran ezali kopela</string>  
   <string name="text_run_on_screen_off">Ntango écran ezali kokangama</string>  
   <string name="error_empty_selection">Svp pona option ya événement ya émission</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Mode ya butu</string>  
   <string name="text_run_on_startup">Tango Autox.js ebandi</string>  
   <string name="text_usage_stats_permission">Nzela ya kosalela yango</string>  
-  <string name="description_usage_stats_permission">Na nzela ya ndingisa ya \"tala ba statistiques ya bosaleli\", okoki kozwa bosaleli ya application ya kala ya dispositif oyo, mpo ete ezala ya sikisiki mingi mpo na kozwa application ya lelo (currentPackage).</string>  
+  <string name="description_usage_stats_permission">Na nzela ya ndingisa ya \"Tala Statistiques ya bosaleli\", okoki kozwa bosaleli ya application ya kala ya dispositif oyo, mpo ete ezala na bosikisiki mingi kozwa application ya lelo (currentPackage).</string>  
   <string name="text_open_with">Nzela ya polele</string>  
   <string name="text_root">Mosisa</string>  
   <string name="text_no_root">Misisa ya ofele</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Bima na boluki</string>  
   <string name="text_licenses_other">Licence ya Source ya polele te</string>  
   <string name="text_save_successfully">Babikisami na elonga</string>  
-  <string name="text_save_as_project">Bomba lokola projet</string>
-  <string name="text_select_save_mode">Svp pona lolenge ya kobomba</string>
-  <string name="text_save_as_project_and_exit">Bomba lokola projet mpe bima</string>
-  <string name="apk_builder_sign">Kotia maboko</string>
-  <string name="text_invalid_config">Configuration oyo ezali malamu te</string>
-  <string name="text_abi">Ba ABI oyo esungami (ekabwani na ba virgule) .</string>
-  <string name="text_save_project_to">Projet ebombami na: %s</string>
+  <string name="text_save_as_project">Bomba lokola projet</string>  
+  <string name="text_select_save_mode">Svp pona lolenge ya kobomba</string>  
+  <string name="text_save_as_project_and_exit">Bomba lokola projet mpe bima</string>  
+  <string name="apk_builder_sign">Kotia maboko</string>  
+  <string name="text_invalid_config">Configuration oyo ezali malamu te</string>  
+  <string name="text_abi">Ba ABI oyo esungami (ekabwani na ba virgule) .</string>  
+  <string name="text_save_project_to">Projet ebombami na: %s</string>  
+  <string name="text_hide_and_show">Kobomba/kolakisa</string>
+  <string name="text_browser_open">Navigateur ya kofungwama</string>
+  <string name="text_do_nothing">Kosala eloko moko te</string>
+  <string name="text_copy_to_new_folder">Salá kopi ya makambo oyo ezali na dosyé ya ebandeli na dosyé ya sika</string>
+  <string name="text_move_new_folder">Bokende na makambo oyo ezali na dosyé ya ebandeli na dosyé ya sika</string>
+  <string name="text_accessibility_service_is_not_enable">Service ya accessibilité ezali kofungolama te</string>
+  <string name="text_set_successfully">Set na elonga</string>
 </resources>

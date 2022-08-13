@@ -2,13 +2,13 @@
 
 <!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
 <resources> 
-  <string name="text_accessibility_service_description">Ubligatoriu per automatizà l\'operazioni di script (cliccate, pressu longu, swipe, etc.), se disabilitatu, solu scripts chì ùn implicanu micca operazioni automatiche ponu esse eseguiti.</string>  
+  <string name="text_accessibility_service_description">Ubligatoriu per automatizà l\'operazioni di script (cliccate, presse longu, swipe, etc.), se disabilitatu, solu scripts chì ùn implicanu micca operazioni automatiche ponu esse eseguiti.</string>  
   <string name="text_new_file">Crià un novu schedariu</string>  
-  <string name="text_create_fail">Fiascatu di creà</string>  
+  <string name="text_create_fail">Fallu di creà</string>  
   <string name="text_please_input_name">Per piacè inserite un nome</string>  
   <string name="text_name">Nomu</string>  
   <string name="text_go_to_setting">Vai à i paràmetri</string>  
-  <string name="explain_accessibility_permission">U software hà bisognu à apre \"Servizi d\'accessibilità\" per eseguisce, per piacè apre \"Settings->Servizi d\'accessibilità\" o \"Settings->Servizi d\'accessibilità->More Downloaded Services\", truvate sta applicazione, è attivate i servizii d\'accessibilità \n ancu esse stabilitu. più tardi in u menu a tendina.</string>  
+  <string name="explain_accessibility_permission">U software hà bisognu di apre \"Servizi d\'accessibilità\" per eseguisce, per piacè apre \"Configurazione->Servizi d\'accessibilità\" o \"Configurazione->Servizi d\'accessibilità->Servizi più telecaricati\", truvate sta applicazione, è attivate i servizii d\'accessibilità \n ancu esse stabilitu. più tardi in u menu a tendina.</string>  
   <string name="explain_accessibility_permission2">U software hà bisognu à apre \"Servizi d\'accessibilità\" per eseguisce, per piacè apre \"Settings->Servizi d\'accessibilità\" o \"Settings->Servizi d\'accessibilità->More Downloaded Services\", truvate sta applicazione è attivate i servizii d\'accessibilità.</string>  
   <string name="text_cancel">Cancella</string>  
   <string name="text_path_is_empty">Caminu hè viotu</string>  
@@ -24,7 +24,7 @@
   <string name="text_alert">Suggerimentu</string>  
   <string name="edit_exit_without_save_warn">U cuntenutu ùn hè micca statu salvatu, sì sicuru chì vulete esce ?</string>  
   <string name="text_save_and_exit">Salvà è esci</string>  
-  <string name="text_exit_directly">Esci direttamente</string>  
+  <string name="text_exit_directly">Esce direttamente</string>  
   <string name="text_setting">Istituisci</string>  
   <string name="text_exit">Lascià</string>  
   <string name="text_auto_operate_service">Servizi d\'accessibilità</string>  
@@ -75,7 +75,7 @@
   <string name="text_enable_accessibility_service_by_root">Abilita automaticamente i servizii cù privilegi di root</string>  
   <string name="text_auto_operate_service_enabled_but_not_running">U serviziu d\'accessibilità hè attivatu ma micca in esecuzione, questu pò esse un bug di Android, pudete avè bisognu di riavvia u telefunu o riavvia u serviziu di accessibilità</string>  
   <string name="text_enable_accessibility_service_by_root_timeout">Timeout per inizià u serviziu di accessibilità cù privilegi di root</string>  
-  <string name="summary_enable_accessibility_service_by_root">Dopu l\'apertura, eseguisce u script apre automaticamente u serviziu di accessibilità cù privilegi Root</string>  
+  <string name="summary_enable_accessibility_service_by_root">Dopu l\'apertura, eseguisce u script apre automaticamente u serviziu d\'accessibilità cù privilegi Root</string>  
   <string name="text_appearance">Esternu</string>  
   <string name="text_theme_color">Culore di tema</string>  
   <string name="text_select_image">Selezziunà Image</string>  
@@ -101,7 +101,7 @@
   <string name="notice_no_running_script">Aucun script en cours d\'exécution φ(>ω&lt;*)</string>  
   <string name="text_please_choose_a_script">Per piacè selezziunate un script</string>  
   <string name="text_edit_prepare_script">Edizione di scripts pre-eseguiti</string>  
-  <string name="text_pre_execute_script">Pre-eseguite script</string>  
+  <string name="text_pre_execute_script">Script pre-eseguitu</string>  
   <string name="text_clear_pre_execute_script">Cancella scripts pre-eseguiti</string>  
   <string name="text_clear_file_selection">Resetta a selezzione di u schedariu di script</string>  
   <string name="summary_pre_execute_script">Serà eseguitu prima chì u schedariu di script hè eseguitu</string>  
@@ -198,7 +198,7 @@
   <string name="text_replace_all">Rimpiazzà tuttu</string>  
   <string name="text_find_next">Giù</string>  
   <string name="text_find_prev">Su</string>  
-  <string name="hint_regex">A sintassi regulare hè a stessa cum\'è in JavaScript, pudete aduprà $ 1 ~ 9 invece di partiti catturati</string>  
+  <string name="hint_regex">A sintassi regulare hè a stessa cum\'è in JavaScript, pudete aduprà $ 1 ~ 9 invece di partite catturate</string>  
   <string name="text_jump">Saltà</string>  
   <string name="text_jump_to_end">Vai à a fine di u schedariu</string>  
   <string name="text_jump_to_start">Vai à u file start</string>  
@@ -234,7 +234,7 @@
   <string name="text_splash_icon">Lanciare l\'icona di l\'interfaccia</string>  
   <string name="text_service_desc_text">Descrizzione di servizii d\'accessibilità</string>  
   <string name="text_sign">Signu</string>  
-  <string name="text_sign_choose">Selezziunà a firma</string>  
+  <string name="text_sign_choose">Sceglie a firma</string>  
   <string name="text_sign_password">Password di u certificatu di firma</string>  
   <string name="text_sign_password_input">Per piacè verificate a password</string>  
   <string name="text_sign_manage">Gestione di a firma</string>  
@@ -279,7 +279,7 @@
   <string name="text_register_fail">Iscrizzione falluta</string>  
   <string name="text_register_succeed">Successu di iscrizzione</string>  
   <string name="text_sample">Codice di mostra</string>  
-  <string name="text_reset_to_initial_content">Resettate à u cuntenutu originale</string>  
+  <string name="text_reset_to_initial_content">Resetta à u cuntenutu uriginale</string>  
   <string name="text_reset_succeed">Resettate cun successu</string>  
   <string name="text_cannot_read_file">Impossibile di leghje u schedariu</string>  
   <string name="text_service">Servite</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Opzioni</string>  
   <string name="text_using_id_selector">Sceglite cù l\'id</string>  
   <string name="text_using_text_selector">Utilizà a selezzione di testu (testu)</string>  
-  <string name="text_using_desc_selector">Selezziunà cù a descrizzione (desc)</string>  
+  <string name="text_using_desc_selector">Use Description Select (desc)</string>  
   <string name="text_generate">Generà</string>  
   <string name="text_generate_fail">Custruzzione falluta o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Fonte di documentazione</string>  
@@ -340,7 +340,7 @@
   <string name="nodebb_error_invalid_login_credentials">Credenziali di login invalide</string>  
   <string name="nodebb_error_change_password_error_length">A password hè troppu corta</string>  
   <string name="nodebb_error_email_taken">Mailbox hè occupatu</string>  
-  <string name="nodebb_error_change_password_error_match">I dui password inseriti ùn currispondenu micca</string>  
+  <string name="nodebb_error_change_password_error_match">E duie password inserite ùn currispondenu micca</string>  
   <string name="text_logout">Sorte</string>  
   <string name="nodebb_error_forbidden">L\'operazione hà fiascatu, per piacè pruvate di novu più tardi</string>  
   <string name="description_stable_mode">U modu stabile rende u script più stabile quandu pigliate u layout omettendu i dettagli di layout, ma à u stessu tempu ottene menu cuntrolli nantu à u screnu. \n \n u serviziu d\'accessibilità per fà effettu.</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Cliccate per entre in l\'interfaccia principale</string>  
   <string name="text_run_on_other_broadcast">Altri avvenimenti (trasmissione)</string>  
   <string name="text_broadcast_action">Azzione di trasmissione</string>  
-  <string name="text_run_on_boot">Quandu u booting</string>  
+  <string name="text_run_on_boot">À u tempu di boot</string>  
   <string name="text_run_on_screen_on">Quandu u screnu hè nantu</string>  
   <string name="text_run_on_screen_off">Quandu u screnu hè off</string>  
   <string name="error_empty_selection">Per piacè selezziunate una opzione di avvenimentu di trasmissione</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Modu di notte</string>  
   <string name="text_run_on_startup">Quandu Autox.js principia</string>  
   <string name="text_usage_stats_permission">Accessu à usu</string>  
-  <string name="description_usage_stats_permission">Per mezu di l\'autorizazione \"Vede e statistiche di l\'usu\", pudete ottene l\'usu di l\'applicazioni passatu di stu dispusitivu, in modu chì hè più precisu per ottene l\'applicazione attuale (Package currente).</string>  
+  <string name="description_usage_stats_permission">Per mezu di l\'autorizazione \"Vedi Statistiche d\'Utilizazione\", pudete ottene l\'utilizazione di l\'applicazione passata di stu dispositivu, in modu chì hè più precisa per ottene l\'applicazione attuale (Package currente).</string>  
   <string name="text_open_with">Manera aperta</string>  
   <string name="text_root">Radica</string>  
   <string name="text_no_root">Root free</string>  
@@ -472,7 +472,7 @@
   <string name="switch_fullscreen">Cambia u modu di schermu pienu</string>  
   <string name="text_custom_ocr_model_path">Pacchettu cartulare di mudelli OCR persunalizati</string>  
   <string name="desc_more">Più</string>  
-  <string name="text_switch_web_kernel">Cambià u kernel web</string>  
+  <string name="text_switch_web_kernel">Cambià u web kernel</string>  
   <string name="text_favorites_management">Gestione di cullezzione</string>  
   <string name="text_switch_timed_task_scheduler">Cambia u pianificatore di attività cronometrata</string>  
   <string name="text_go_to_open">Per apre</string>  
@@ -485,7 +485,7 @@
   <string name="text_start_service_failed">U serviziu hà fiascatu à inizià: %s</string>  
   <string name="text_unsupported_qr_code">I codici QR in stu formatu ùn sò micca supportati</string>  
   <string name="text_connected_to_computer">Cunnessu à l\'urdinatore</string>  
-  <string name="text_press_again_to_exit_app">Press di novu per esce da l\'app</string>  
+  <string name="text_press_again_to_exit_app">Preme torna per esce da l\'app</string>  
   <string name="text_app_download_link">Ligame di scaricamentu</string>  
   <string name="text_project_link">Indirizzu di u prugettu</string>  
   <string name="text_release_date">Publicatu: %s</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Esci da a ricerca</string>  
   <string name="text_licenses_other">Licenza Non-Open Source</string>  
   <string name="text_save_successfully">Salvatu successu</string>  
-  <string name="text_save_as_project">Salvà cum\'è prughjettu</string>
-  <string name="text_select_save_mode">Per piacè selezziunate un metudu di salvezza</string>
-  <string name="text_save_as_project_and_exit">Salvà cum\'è prughjettu è esce</string>
-  <string name="apk_builder_sign">Firmà</string>
-  <string name="text_invalid_config">Cunfigurazione invalida</string>
-  <string name="text_abi">ABI supportati (separati da virgule)</string>
-  <string name="text_save_project_to">Prughjettu salvatu à: %s</string>
+  <string name="text_save_as_project">Salvà cum\'è prughjettu</string>  
+  <string name="text_select_save_mode">Per piacè selezziunate un metudu di salvezza</string>  
+  <string name="text_save_as_project_and_exit">Salvà cum\'è prughjettu è esce</string>  
+  <string name="apk_builder_sign">Firmà</string>  
+  <string name="text_invalid_config">Cunfigurazione invalida</string>  
+  <string name="text_abi">ABI supportati (separati da virgule)</string>  
+  <string name="text_save_project_to">Prughjettu salvatu à: %s</string>  
+  <string name="text_hide_and_show">Ammuccià / mostra</string>
+  <string name="text_browser_open">Navigatore apertu</string>
+  <string name="text_do_nothing">Fà nunda</string>
+  <string name="text_copy_to_new_folder">Copia u cuntenutu di u cartulare originale à u novu cartulare</string>
+  <string name="text_move_new_folder">Sposta u cuntenutu di u cartulare originale à u novu cartulare</string>
+  <string name="text_accessibility_service_is_not_enable">U serviziu di accessibilità ùn hè micca attivatu</string>
+  <string name="text_set_successfully">Stabilitu cù successu</string>
 </resources>

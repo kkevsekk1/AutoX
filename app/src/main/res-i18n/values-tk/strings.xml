@@ -198,7 +198,7 @@
   <string name="text_replace_all">Hemmesini çalyş</string>  
   <string name="text_find_next">Aşak</string>  
   <string name="text_find_prev">Ýokary</string>  
-  <string name="hint_regex">Adaty sintaksis, JavaScript-de bolşy ýaly, düşürilen oýunlaryň ýerine $ 1 ~ 9 ulanyp bilersiňiz</string>  
+  <string name="hint_regex">Adaty sintaksis JavaScript-de bolşy ýaly, düşürilen oýunlaryň ýerine $ 1 ~ 9 ulanyp bilersiňiz</string>  
   <string name="text_jump">Bökmek</string>  
   <string name="text_jump_to_end">Faýlyň soňuna geç</string>  
   <string name="text_jump_to_start">Faýl başlamaga geç</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Görnüş</string>  
   <string name="text_using_id_selector">Id ulanyp saýlaň</string>  
   <string name="text_using_text_selector">Tekst saýlamasyny ulanyň (tekst)</string>  
-  <string name="text_using_desc_selector">Düşündiriş (aşak) ulanyp saýlaň</string>  
+  <string name="text_using_desc_selector">Düşündiriş ulanyň Saýlamak (aşak)</string>  
   <string name="text_generate">Öndürmek</string>  
   <string name="text_generate_fail">Gurmak şowsuz o (╥﹏╥) o</string>  
   <string name="text_documentation_source">Resminamalaryň çeşmesi</string>  
@@ -330,7 +330,7 @@
   <string name="text_should_not_be_empty">Boş bolup bilmez</string>  
   <string name="text_icon">Nyşany</string>  
   <string name="text_device_not_rooted">Enjam kök däl</string>  
-  <string name="prompt_device_not_rooted">Enjamyňyzyň kök däldigi ýüze çykaryldy, ýazgy skripti kök artykmaçlyklaryny talap edýär, dowam etmek isleýärsiňizmi?</string>  
+  <string name="prompt_device_not_rooted">Enjamyňyzyň kök däldigi, ýazgy skriptiniň kök artykmaçlyklaryny talap edýändigi anyklandy, dowam etmek isleýärsiňizmi?</string>  
   <string name="text_device_rooted">Henizem ýazga geçirmeli</string>  
   <string name="text_community_category">Bölüm</string>  
   <string name="text_community_unread">Okalmadyk</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Esasy interfeýsi girizmek üçin basyň</string>  
   <string name="text_run_on_other_broadcast">Beýleki wakalar (ýaýlym)</string>  
   <string name="text_broadcast_action">Broadaýlym Hereketi</string>  
-  <string name="text_run_on_boot">Ýüklenende</string>  
+  <string name="text_run_on_boot">Ýüklenen wagty</string>  
   <string name="text_run_on_screen_on">Ekranyň açyk wagty</string>  
   <string name="text_run_on_screen_off">Ekran öçürilende</string>  
   <string name="error_empty_selection">Broadcastaýlym hadysasyny saýlaň</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Gözlegden çyk</string>  
   <string name="text_licenses_other">Açyk däl çeşme ygtyýarnamasy</string>  
   <string name="text_save_successfully">Üstünlik bilen halas edildi</string>  
-  <string name="text_save_as_project">Taslama hökmünde tygşytlaň</string>
-  <string name="text_select_save_mode">Saklamak usulyny saýlaň</string>
-  <string name="text_save_as_project_and_exit">Taslama hökmünde ýazdyryň we çykyň</string>
-  <string name="apk_builder_sign">Gol çekmek</string>
-  <string name="text_invalid_config">Nädogry konfigurasiýa</string>
-  <string name="text_abi">Goldanýan ABI-ler (dyngy bilen bölünýär)</string>
-  <string name="text_save_project_to">Taslama saklandy: %s</string>
+  <string name="text_save_as_project">Taslama hökmünde tygşytlaň</string>  
+  <string name="text_select_save_mode">Saklamak usulyny saýlaň</string>  
+  <string name="text_save_as_project_and_exit">Taslama hökmünde ýazdyryň we çykyň</string>  
+  <string name="apk_builder_sign">Gol çekmek</string>  
+  <string name="text_invalid_config">Nädogry konfigurasiýa</string>  
+  <string name="text_abi">Goldanýan ABI-ler (dyngy bilen bölünýär)</string>  
+  <string name="text_save_project_to">Taslama saklandy: %s</string>  
+  <string name="text_hide_and_show">Gizlemek / görkezmek</string>
+  <string name="text_browser_open">Brauzer açyk</string>
+  <string name="text_do_nothing">Hiç zat etme</string>
+  <string name="text_copy_to_new_folder">Asyl bukjanyň mazmunyny täze bukja göçüriň</string>
+  <string name="text_move_new_folder">Asyl bukjanyň mazmunyny täze bukja geçiriň</string>
+  <string name="text_accessibility_service_is_not_enable">Elýeterlilik hyzmaty açyk däl</string>
+  <string name="text_set_successfully">Üstünlikli düzüň</string>
 </resources>

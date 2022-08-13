@@ -34,7 +34,7 @@
   <string name="github">Proqram təminatının mənbə kodu</string>  
   <string name="text_already_copy_to_clip">Buferə kopyalandı</string>  
   <string name="text_qq_already_copy_to_clip">QQ qrup nömrəsi buferə kopyalandı</string>  
-  <string name="share_app">[Autox.js] Endirmə ünvanı: https://github.com/kkevsekk1/AutoX/releases</string>  
+  <string name="share_app">[Autox.js] Yükləmə ünvanı: https://github.com/kkevsekk1/AutoX/releases</string>  
   <string name="text_floating_window">Üzən pəncərə</string>  
   <string name="text_error_report">Səhv hesabatı</string>  
   <string name="text_press_again_to_exit">Proqramdan çıxmaq üçün yenidən basın</string>  
@@ -74,7 +74,7 @@
   <string name="text_accessibility_service">Əlçatanlıq Xidmətləri</string>  
   <string name="text_enable_accessibility_service_by_root">Kök imtiyazları olan xidmətləri avtomatik olaraq aktivləşdirin</string>  
   <string name="text_auto_operate_service_enabled_but_not_running">Əlçatımlılıq xidməti aktivdir, lakin işləmir, bu Android xətası ola bilər, telefonu yenidən başlatmalı və ya əlçatımlılıq xidmətini yenidən başlatmalı ola bilərsiniz</string>  
-  <string name="text_enable_accessibility_service_by_root_timeout">Kök imtiyazları ilə əlçatanlıq xidmətinin başlaması üçün vaxt aşımı</string>  
+  <string name="text_enable_accessibility_service_by_root_timeout">Kök imtiyazları ilə əlçatanlıq xidmətinin işə salınması üçün vaxt aşımı</string>  
   <string name="summary_enable_accessibility_service_by_root">Açıldıqdan sonra skriptin işə salınması avtomatik olaraq Kök imtiyazları ilə əlçatanlıq xidmətini açacaqdır</string>  
   <string name="text_appearance">Xarici</string>  
   <string name="text_theme_color">Mövzu rəngi</string>  
@@ -125,7 +125,7 @@
   <string name="summary_guard_mode">Təsadüfən toxunmamaq üçün bu proqram interfeysində avtomatik əməliyyat əmri işlədilə bilməz</string>  
   <string name="text_layout_inspector_is_dumping">Layout təhlili davam edir</string>  
   <string name="text_force_stop">Məcburi dayandırmaq</string>  
-  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] %f saniyəyə qaçış tamamlandı</string>  
+  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] %f saniyəyə işləməyi tamamladı</string>  
   <string name="text_again">Yenidən</string>  
   <string name="text_again_and_again">Ikiqat</string>  
   <string name="text_again_and_again_again">Yenidən ikiqat</string>  
@@ -208,11 +208,11 @@
   <string name="text_select_save_path">Saxlamaq</string>  
   <string name="text_cancel_download">Yükləməni ləğv edin</string>  
   <string name="text_download">Yükləyin</string>  
-  <string name="format_file_downloaded" formatted="true">Fayl %s yaddaşında saxlanıldı</string>  
+  <string name="format_file_downloaded" formatted="true">Fayl %s -də yadda saxlanıldı</string>  
   <string name="confirm_overwrite_file">Fayl artıq mövcuddur, onun üzərinə yazmaq istəyirsiniz?</string>  
   <string name="text_select_file_to_upload">Yükləmək üçün faylı seçin</string>  
   <string name="text_select_file_to_import">Import etmək üçün faylı seçin</string>  
-  <string name="text_build_apk">Paketli Proqramlar</string>  
+  <string name="text_build_apk">Paketlənmiş Proqramlar</string>  
   <string name="text_select">Seçin</string>  
   <string name="text_output_apk_path">Paketlənmiş proqramlar məkanı yadda saxlayır</string>  
   <string name="text_config">Konfiqurasiya edin</string>  
@@ -299,7 +299,7 @@
   <string name="text_options">Seçimlər</string>  
   <string name="text_using_id_selector">Id istifadə edərək seçin</string>  
   <string name="text_using_text_selector">Mətn seçimindən istifadə edin (mətn)</string>  
-  <string name="text_using_desc_selector">Təsvirdən istifadə edərək seçin (az)</string>  
+  <string name="text_using_desc_selector">İstifadə Təsviri Seç (az)</string>  
   <string name="text_generate">Yaratmaq</string>  
   <string name="text_generate_fail">Quraşdırma uğursuz oldu o(╥﹏╥)o</string>  
   <string name="text_documentation_source">Sənəd mənbəyi</string>  
@@ -353,7 +353,7 @@
   <string name="text_notification">Xəbərdarlıq</string>  
   <string name="apk_builder_plugin_version_too_low">Paketlənmiş plug-in versiyası çox aşağıdır və paketlənmiş proqram düzgün işləməyə bilər. Paketlənmiş plaqinin müvafiq versiyasını indi yükləmək istəyirsiniz?</string>  
   <string name="text_inspect_layout_bounds">Layout diapazonunun təhlili</string>  
-  <string name="text_inspect_layout_hierarchy">Layout İerarxiyası</string>  
+  <string name="text_inspect_layout_hierarchy">Layout iyerarxiyası</string>  
   <string name="text_inspect_layout">Layout təhlili</string>  
   <string name="text_pointer_location">Göstərici mövqeyi [Kök]</string>  
   <string name="text_change_script_dir">Skript qovluğunun yolunu dəyişdirin</string>  
@@ -370,7 +370,7 @@
   <string name="text_new_watching_variable">Baxmaq üçün dəyişən və ya ifadə əlavə edin</string>  
   <string name="text_variable_or_expr">Dəyişən və ya ifadə</string>  
   <string name="text_remove_all_breakpoints">Bütün kəsilmə nöqtələrini çıxarın</string>  
-  <string name="hint_long_click_run_to_debug">Sazlama, həmçinin \"Çalış\" ikonasına uzun basmaqla başlana bilər</string>  
+  <string name="hint_long_click_run_to_debug">Sazlama, həmçinin \"Çalış\" simgesini uzun müddət basmaqla da başlana bilər</string>  
   <string name="format_debug_bar_title">Debug [ %s ]</string>  
   <string name="text_copy_value">Kopya dəyəri</string>  
   <string name="text_execute_code">Kodu icra edin</string>  
@@ -399,7 +399,7 @@
   <string name="foreground_notification_text">Əsas interfeysə daxil olmaq üçün klikləyin</string>  
   <string name="text_run_on_other_broadcast">Digər tədbirlər (yayım)</string>  
   <string name="text_broadcast_action">Yayım Fəaliyyəti</string>  
-  <string name="text_run_on_boot">Yükləyərkən</string>  
+  <string name="text_run_on_boot">Yükləmə zamanı</string>  
   <string name="text_run_on_screen_on">Ekran açıq olduqda</string>  
   <string name="text_run_on_screen_off">Ekran söndürüldükdə</string>  
   <string name="error_empty_selection">Yayım tədbiri seçimini seçin</string>  
@@ -422,7 +422,7 @@
   <string name="text_night_mode">Gecə rejimi</string>  
   <string name="text_run_on_startup">Autox.js başlayanda</string>  
   <string name="text_usage_stats_permission">Istifadəyə giriş</string>  
-  <string name="description_usage_stats_permission">\"İstifadə statistikasına baxmaq\" icazəsi vasitəsilə siz bu cihazın keçmiş tətbiq istifadəsini əldə edə bilərsiniz ki, cari tətbiqi (currentPackage) əldə etmək daha dəqiq olsun.</string>  
+  <string name="description_usage_stats_permission">\"İstifadə Statistikasına Baxın\" icazəsi vasitəsilə siz bu cihazın keçmiş tətbiq istifadəsini əldə edə bilərsiniz ki, cari tətbiqi (currentPackage) əldə etmək daha dəqiq olsun.</string>  
   <string name="text_open_with">Açıq yol</string>  
   <string name="text_root">Kök</string>  
   <string name="text_no_root">Kök pulsuz</string>  
@@ -453,7 +453,7 @@
   <string name="air_dialog_title_failed">Baq hesabatını göndərmək alınmadı</string>  
   <string name="air_dialog_description_failed_wrong_credentials">Səhv istifadəçi adı və ya parol</string>  
   <string name="air_dialog_description_failed_invalid_token">Yanlış giriş nişanı. Lütfən, proqram təminatçısı ilə əlaqə saxlayın.</string>  
-  <string name="air_dialog_description_failed_issues_not_available">Problemlər mövcud deyil, lütfən proqram təminatı ilə əlaqə saxlayın.</string>  
+  <string name="air_dialog_description_failed_issues_not_available">Problemlər mövcud deyil, proqram təminatı tərtibatçısı ilə əlaqə saxlayın.</string>  
   <string name="air_dialog_description_failed_unknown">Bilinməyən səhv</string>  
   <string name="air_dialog_action_failed">Tamam</string>  
   <string name="text_template_apk_not_found">Şablon apk tapılmadı, lütfən, apk faylını \"build/outputs/apk/common/release\" qovluğunda \"app/src/main/assets\" qovluğuna kopyalayın və onu \"template.apk\" adlandırın və yenidən qurun.</string>  
@@ -498,11 +498,18 @@
   <string name="text_exit_search">Axtarışdan çıxın</string>  
   <string name="text_licenses_other">Qeyri Açıq Mənbə Lisenziyası</string>  
   <string name="text_save_successfully">Uğurla yadda saxlanıldı</string>  
-  <string name="text_save_as_project">Layihə kimi saxla</string>
-  <string name="text_select_save_mode">Lütfən, saxlama üsulu seçin</string>
-  <string name="text_save_as_project_and_exit">Layihə olaraq yadda saxlayın və çıxın</string>
-  <string name="apk_builder_sign">Imzalanması</string>
-  <string name="text_invalid_config">Yanlış konfiqurasiya</string>
-  <string name="text_abi">Dəstəklənən ABI (vergüllə ayrılmış)</string>
-  <string name="text_save_project_to">Layihə yadda saxlandı: %s</string>
+  <string name="text_save_as_project">Layihə kimi saxla</string>  
+  <string name="text_select_save_mode">Lütfən, saxlama üsulu seçin</string>  
+  <string name="text_save_as_project_and_exit">Layihə olaraq yadda saxlayın və çıxın</string>  
+  <string name="apk_builder_sign">Imzalanması</string>  
+  <string name="text_invalid_config">Yanlış konfiqurasiya</string>  
+  <string name="text_abi">Dəstəklənən ABI (vergüllə ayrılmış)</string>  
+  <string name="text_save_project_to">Layihə yadda saxlandı: %s</string>  
+  <string name="text_hide_and_show">Gizlətmək/göstərmək</string>
+  <string name="text_browser_open">Brauzer açıqdır</string>
+  <string name="text_do_nothing">Heçnə etmə</string>
+  <string name="text_copy_to_new_folder">Orijinal qovluğun məzmununu yeni qovluğa kopyalayın</string>
+  <string name="text_move_new_folder">Orijinal qovluğun məzmununu yeni qovluğa köçürün</string>
+  <string name="text_accessibility_service_is_not_enable">Əlçatanlıq xidməti aktiv deyil</string>
+  <string name="text_set_successfully">Uğurla təyin edin</string>
 </resources>
