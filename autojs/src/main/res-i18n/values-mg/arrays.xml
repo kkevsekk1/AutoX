@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Toerana misy anao</item>  
+    <item>Asehoy indray mandeha isan\'andro</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>Kianjoanjo</item>  
+    <item>NEWS</item>  
+    <item>Fifandraisana ara-tsosialy</item>  
+    <item>Sarimiaina</item>  
+    <item>Tapaka ny</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>Rakitra js azo ovaina</item>  
+    <item>Binary tsy azo ovaina</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Antontan-taratasy eo an-toerana</item>  
+    <item>Antontan-taratasy an-tserasera</item> 
+  </string-array>
+</resources>

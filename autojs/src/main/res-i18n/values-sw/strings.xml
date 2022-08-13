@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Makosa:</string>
+  <string name="text_start_running">Kuanza operesheni</string>
+  <string name="text_path_is_empty">Njia ni tupu</string>
+  <string name="text_file_not_exists">Faili haipo</string>
+  <string name="text_no_file_rw_permission">Hakuna ruhusa ya kusoma na kuandika faili</string>
+  <string name="text_no_running_script">Hakuna hati inayoendesha</string>
+  <string name="text_already_stop_n_scripts">%d zinazoendesha zimesimamishwa</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Hati hii inahitaji toleo hili la Android kuendeshwa:</string>
+  <string name="ok">Hakika</string>
+  <string name="cancel">Ghairi</string>
+  <string name="text_console">Console</string>
+  <string name="text_no_floating_window_permission">Hakuna ruhusa ya dirisha inayoelea</string>
+  <string name="text_accessibility_service_description">Inahitajika ili kufanya shughuli za hati kiotomatiki (bofya, bonyeza kwa muda mrefu, telezesha kidole, n.k.), ikiwa imezimwa, hati ambazo hazihusishi shughuli za kiotomatiki zinaweza kutekelezwa.</string>
+  <string name="text_should_enable_key_observing">Ufuatiliaji muhimu haujawezeshwa, tafadhali uwashe katika mipangilio ya programu</string>
+  <string name="text_should_enable_gesture_observing">Ufuatiliaji wa ishara haujawezeshwa, tafadhali uwashe katika mipangilio ya programu</string>
+  <string name="no_write_settings_permissin">Hakuna ruhusa ya kurekebisha mipangilio ya mfumo</string>
+  <string name="exception_notification_service_disabled">Huduma ya arifa haifanyiki, tafadhali washa tena ruhusa ya arifa</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Hati hii inahitaji nambari ya toleo la Auto.js %d au toleo jipya zaidi ili kuendeshwa</string>
+  <string name="text_drawer_open">Fungua menyu kunjuzi</string>
+  <string name="text_drawer_close">Funga menyu kunjuzi</string>
+  <string name="no_read_phone_state_permissin">Hakuna ruhusa ya kusoma maelezo ya kifaa</string>
+</resources>

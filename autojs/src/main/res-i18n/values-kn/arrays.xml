@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>ಪೂರ್ವನಿಯೋಜಿತ</item>  
+    <item>ದಿನಕ್ಕೆ ಒಮ್ಮೆ ತೋರಿಸಿ</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>ಯಾದೃಚ್ಛಿಕ</item>  
+    <item>ಸುದ್ದಿ</item>  
+    <item>ಸಾಮಾಜಿಕ ಸಂಪರ್ಕ</item>  
+    <item>ಕಾರ್ಟೂನ್</item>  
+    <item>ಆಟ</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>ಸಂಪಾದಿಸಬಹುದಾದ js ಫೈಲ್</item>  
+    <item>ಸಂಪಾದಿಸಲಾಗದ ಬೈನರಿ</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>ಸ್ಥಳೀಯ ದಸ್ತಾವೇಜನ್ನು</item>  
+    <item>ಆನ್ಲೈನ್ ​​ದಸ್ತಾವೇಜನ್ನು</item> 
+  </string-array>
+</resources>

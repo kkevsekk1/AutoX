@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_no_accessibility_permission">접근성 서비스가 시작되지 않았습니다.</string>
+  <string name="text_auto_operate_service_enabled_but_not_running">접근성 서비스가 활성화되었지만 실행되고 있지 않습니다. 전화기를 다시 활성화하거나 다시 시작할 수 있습니다.</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">루트 권한으로 접근성 서비스를 활성화하지 못했습니다.</string>
+  <string name="text_settings">설정</string>
+  <string name="text_script_running">스크립트 실행</string>
+  <string name="text_keep_running_with_foreground_service">포그라운드 서비스를 사용하여 앱 실행 유지</string>
+  <string name="text_use_accessibility_service">접근성 서비스</string>
+  <string name="text_use_floating_window">플로팅 윈도우</string>
+  <string name="summary_enable_accessibility_service">접근성 서비스 작업을 실행하려면 활성화(예약)해야 합니다.</string>
+  <string name="summary_enable_floating_window">로그(예약상품)를 보려면 플로팅 창을 열어야 합니다.</string>
+  <string name="text_use_volume_to_stop_running">볼륨 높이기 키는 모든 스크립트를 중지합니다.</string>
+  <string name="summary_enable_accessibility_service_by_root">연 후 스크립트를 실행하면 루트 권한(예약 항목)으로 접근성 서비스가 자동으로 열립니다.</string>
+  <string name="text_enable_accessibility_service_by_root">루트 권한으로 서비스를 자동으로 활성화</string>
+  <string name="summary_stable_mode">레이아웃 분석을 활성화하면 더 안정적이지만 일부 스크립트는 제대로 작동하지 않을 수 있습니다. 적용하려면 접근성 서비스를 다시 시작하세요.</string>
+  <string name="text_stable_mode">안정 모드</string>
+  <string name="text_accessibility_service">접근성 서비스</string>
+  <string name="text_dont_show_main_activity">기본 인터페이스를 표시하지 않음</string>
+  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
+  <string name="summary_dont_show_main_activity">앱을 연 후 바로 스크립트 실행</string>
+  <string name="text_hide_logs">로그 숨기기</string>
+  <string name="key_hide_logs">Key_hide_logs</string>
+  <string name="summary_hide_logs">로그 인터페이스가 표시되지 않으며 다음에 이 인터페이스를 열려면 스크립트 지원이 필요합니다.</string>
+  <string name="text_others">다른</string>
+  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] %f 초 후에 실행 완료</string>
+  <string name="prompt_email">이메일</string>
+  <string name="prompt_password">비밀번호</string>
+  <string name="action_sign_in">로그인 또는 등록</string>
+  <string name="action_sign_in_short">로그인</string>
+  <string name="welcome">\"환영하다!\"</string>
+  <string name="invalid_username">유효한 사용자 이름이 아닙니다</string>
+  <string name="invalid_password">비밀번호는 5자 이상이어야 합니다.</string>
+  <string name="login_failed">\"로그인 실패\"</string>
+  <string name="explain_accessibility_permission">소프트웨어를 실행하려면 \"접근성 서비스\"를 열어야 합니다. \"설정->접근성 서비스\" 또는 \"설정->접근성 서비스->더 많은 다운로드 서비스\"를 열고 \" %s \"을(를) 찾아 접근성 서비스를 활성화하십시오.</string>
+  <string name="text_need_to_enable_accessibility_service">접근성 서비스를 활성화해야 합니다.</string>
+  <string name="summary_use_volume_to_stop_running">알림 표시줄은 항상 \"이 앱이 실행 중입니다\"라는 알림을 표시하여 프로그램을 계속 실행합니다.</string>
+</resources>

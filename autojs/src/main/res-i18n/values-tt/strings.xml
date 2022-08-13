@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Хата:</string>
+  <string name="text_start_running">Эшли башлау</string>
+  <string name="text_path_is_empty">Юл буш</string>
+  <string name="text_file_not_exists">Файл юк</string>
+  <string name="text_no_file_rw_permission">Уку һәм язу рөхсәте юк</string>
+  <string name="text_no_running_script">Сценарий юк</string>
+  <string name="text_already_stop_n_scripts">%d сценарийлар туктады</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Бу сценарий бу Android версиясен эшләүне таләп итә:</string>
+  <string name="ok">.Ичшиксез</string>
+  <string name="cancel">Баш тарту</string>
+  <string name="text_console">Консол</string>
+  <string name="text_no_floating_window_permission">Йөзүче тәрәзә рөхсәте юк</string>
+  <string name="text_accessibility_service_description">Скрипт операцияләрен автоматлаштыру таләп ителә (басыгыз, озын басу, сөртү һ.б.), инвалид булса, автоматик операцияләрне үз эченә алмаган сценарийлар гына башкарыла ала.</string>
+  <string name="text_should_enable_key_observing">Төп мониторинг кушылмый, зинһар, аны программа көйләүләрендә эшләгез</string>
+  <string name="text_should_enable_gesture_observing">Ишарә мониторингы кушылмый, зинһар, аны программа көйләүләрендә эшләгез</string>
+  <string name="no_write_settings_permissin">Система көйләүләрен үзгәртергә рөхсәт юк</string>
+  <string name="exception_notification_service_disabled">Хәбәрләр хезмәте эшләми, зинһар, хәбәр итү рөхсәтен яңадан эшләгез</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Бу сценарий эшләү өчен Auto.js версиясе %d яки югарырак</string>
+  <string name="text_drawer_open">Ашаучы менюны ачыгыз</string>
+  <string name="text_drawer_close">Ашаучы менюны ябыгыз</string>
+  <string name="no_read_phone_state_permissin">Deviceайланма мәгълүматын укырга рөхсәт юк</string>
+</resources>

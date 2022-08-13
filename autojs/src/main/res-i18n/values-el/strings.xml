@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Λάθος:</string>
+  <string name="text_start_running">Έναρξη λειτουργίας</string>
+  <string name="text_path_is_empty">Η διαδρομή είναι άδεια</string>
+  <string name="text_file_not_exists">Το αρχείο δεν υπάρχει</string>
+  <string name="text_no_file_rw_permission">Δεν υπάρχουν δικαιώματα ανάγνωσης και εγγραφής αρχείου</string>
+  <string name="text_no_running_script">Δεν τρέχει σενάριο</string>
+  <string name="text_already_stop_n_scripts">%d σενάρια που εκτελούνται σταμάτησαν</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Αυτό το σενάριο απαιτεί την εκτέλεση αυτής της έκδοσης Android:</string>
+  <string name="ok">Σίγουρος</string>
+  <string name="cancel">Ματαίωση</string>
+  <string name="text_console">Κονσόλα</string>
+  <string name="text_no_floating_window_permission">Δεν υπάρχει άδεια αιωρούμενου παραθύρου</string>
+  <string name="text_accessibility_service_description">Απαιτείται για την αυτοματοποίηση των λειτουργιών σεναρίου (κλικ, παρατεταμένο πάτημα, σάρωση κ.λπ.), εάν είναι απενεργοποιημένο, μπορούν να εκτελεστούν μόνο σενάρια που δεν περιλαμβάνουν αυτόματες λειτουργίες.</string>
+  <string name="text_should_enable_key_observing">Η παρακολούθηση κλειδιού δεν είναι ενεργοποιημένη, ενεργοποιήστε την στις ρυθμίσεις λογισμικού</string>
+  <string name="text_should_enable_gesture_observing">Η παρακολούθηση χειρονομιών δεν είναι ενεργοποιημένη, ενεργοποιήστε την στις ρυθμίσεις λογισμικού</string>
+  <string name="no_write_settings_permissin">Δεν επιτρέπεται η τροποποίηση των ρυθμίσεων συστήματος</string>
+  <string name="exception_notification_service_disabled">Η υπηρεσία ειδοποιήσεων δεν εκτελείται, ενεργοποιήστε ξανά την άδεια ειδοποίησης</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Αυτό το σενάριο απαιτεί τον αριθμό έκδοσης Auto.js %d ή μεγαλύτερο για να εκτελεστεί</string>
+  <string name="text_drawer_open">Ανοίξτε το αναπτυσσόμενο μενού</string>
+  <string name="text_drawer_close">Κλείστε το αναπτυσσόμενο μενού</string>
+  <string name="no_read_phone_state_permissin">Δεν επιτρέπεται η ανάγνωση πληροφοριών συσκευής</string>
+</resources>

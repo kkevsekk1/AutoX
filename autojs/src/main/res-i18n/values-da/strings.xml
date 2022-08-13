@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Fejl:</string>
+  <string name="text_start_running">Starte driften</string>
+  <string name="text_path_is_empty">Stien er tom</string>
+  <string name="text_file_not_exists">Filen eksisterer ikke</string>
+  <string name="text_no_file_rw_permission">Ingen læse- og skrivetilladelser til filer</string>
+  <string name="text_no_running_script">Intet kørende script</string>
+  <string name="text_already_stop_n_scripts">%d kørende scripts stoppet</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Dette script kræver, at denne Android-version kan køre:</string>
+  <string name="ok">Jo da</string>
+  <string name="cancel">Afbestille</string>
+  <string name="text_console">Konsol</string>
+  <string name="text_no_floating_window_permission">Ingen tilladelse til flydende vindue</string>
+  <string name="text_accessibility_service_description">Påkrævet for at automatisere script-handlinger (klik, langt tryk, swipe osv.), hvis deaktiveret, kan kun scripts, der ikke involverer automatiske handlinger, udføres.</string>
+  <string name="text_should_enable_key_observing">Nøgleovervågning er ikke aktiveret. Aktiver den i softwareindstillingerne</string>
+  <string name="text_should_enable_gesture_observing">Bevægelsesovervågning er ikke aktiveret. Aktiver det i softwareindstillingerne</string>
+  <string name="no_write_settings_permissin">Ingen tilladelse til at ændre systemindstillinger</string>
+  <string name="exception_notification_service_disabled">Notifikationstjenesten kører ikke, genaktiver venligst notifikationstilladelsen</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Dette script kræver Auto.js versionsnummer %d eller højere for at køre</string>
+  <string name="text_drawer_open">Åbn rullemenuen</string>
+  <string name="text_drawer_close">Luk rullemenuen</string>
+  <string name="no_read_phone_state_permissin">Ingen tilladelse til at læse enhedsoplysninger</string>
+</resources>

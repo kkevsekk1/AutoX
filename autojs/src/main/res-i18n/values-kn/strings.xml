@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">ತಪ್ಪು:</string>
+  <string name="text_start_running">ಕಾರ್ಯಾಚರಣೆಯನ್ನು ಪ್ರಾರಂಭಿಸಿ</string>
+  <string name="text_path_is_empty">ಮಾರ್ಗ ಖಾಲಿಯಾಗಿದೆ</string>
+  <string name="text_file_not_exists">ಕಡತ ಅಸ್ತಿತ್ವದಲ್ಲಿಲ್ಲ</string>
+  <string name="text_no_file_rw_permission">ಯಾವುದೇ ಫೈಲ್ ಓದಲು ಮತ್ತು ಬರೆಯಲು ಅನುಮತಿಗಳಿಲ್ಲ</string>
+  <string name="text_no_running_script">ಚಾಲನೆಯಲ್ಲಿರುವ ಸ್ಕ್ರಿಪ್ಟ್ ಇಲ್ಲ</string>
+  <string name="text_already_stop_n_scripts">%d ಚಾಲನೆಯಲ್ಲಿರುವ ಸ್ಕ್ರಿಪ್ಟ್‌ಗಳನ್ನು ನಿಲ್ಲಿಸಲಾಗಿದೆ</string>
+  <string name="text_requires_sdk_version_to_run_the_script">ಈ ಸ್ಕ್ರಿಪ್ಟ್ ರನ್ ಮಾಡಲು ಈ Android ಆವೃತ್ತಿಯ ಅಗತ್ಯವಿದೆ:</string>
+  <string name="ok">ಖಂಡಿತ</string>
+  <string name="cancel">ರದ್ದುಮಾಡಿ</string>
+  <string name="text_console">ಕನ್ಸೋಲ್</string>
+  <string name="text_no_floating_window_permission">ಫ್ಲೋಟಿಂಗ್ ವಿಂಡೋ ಅನುಮತಿ ಇಲ್ಲ</string>
+  <string name="text_accessibility_service_description">ಸ್ಕ್ರಿಪ್ಟ್ ಕಾರ್ಯಾಚರಣೆಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತಗೊಳಿಸಲು ಅಗತ್ಯವಿದೆ (ಕ್ಲಿಕ್, ಲಾಂಗ್ ಪ್ರೆಸ್, ಸ್ವೈಪ್, ಇತ್ಯಾದಿ), ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿದರೆ, ಸ್ವಯಂಚಾಲಿತ ಕಾರ್ಯಾಚರಣೆಗಳನ್ನು ಒಳಗೊಂಡಿರದ ಸ್ಕ್ರಿಪ್ಟ್‌ಗಳನ್ನು ಮಾತ್ರ ಕಾರ್ಯಗತಗೊಳಿಸಬಹುದು.</string>
+  <string name="text_should_enable_key_observing">ಕೀ ಮಾನಿಟರಿಂಗ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲಾಗಿಲ್ಲ, ದಯವಿಟ್ಟು ಅದನ್ನು ಸಾಫ್ಟ್‌ವೇರ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
+  <string name="text_should_enable_gesture_observing">ಗೆಸ್ಚರ್ ಮಾನಿಟರಿಂಗ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲಾಗಿಲ್ಲ, ದಯವಿಟ್ಟು ಅದನ್ನು ಸಾಫ್ಟ್‌ವೇರ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
+  <string name="no_write_settings_permissin">ಸಿಸ್ಟಂ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಮಾರ್ಪಡಿಸಲು ಅನುಮತಿ ಇಲ್ಲ</string>
+  <string name="exception_notification_service_disabled">ಅಧಿಸೂಚನೆ ಸೇವೆಯು ಚಾಲನೆಯಲ್ಲಿಲ್ಲ, ದಯವಿಟ್ಟು ಅಧಿಸೂಚನೆ ಅನುಮತಿಯನ್ನು ಮರು-ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">ಈ ಸ್ಕ್ರಿಪ್ಟ್ ಅನ್ನು ಚಲಾಯಿಸಲು Auto.js ಆವೃತ್ತಿ ಸಂಖ್ಯೆ %d ಅಥವಾ ಹೆಚ್ಚಿನದು ಅಗತ್ಯವಿದೆ</string>
+  <string name="text_drawer_open">ಡ್ರಾಪ್ ಡೌನ್ ಮೆನು ತೆರೆಯಿರಿ</string>
+  <string name="text_drawer_close">ಡ್ರಾಪ್ ಡೌನ್ ಮೆನುವನ್ನು ಮುಚ್ಚಿ</string>
+  <string name="no_read_phone_state_permissin">ಸಾಧನದ ಮಾಹಿತಿಯನ್ನು ಓದಲು ಅನುಮತಿ ಇಲ್ಲ</string>
+</resources>

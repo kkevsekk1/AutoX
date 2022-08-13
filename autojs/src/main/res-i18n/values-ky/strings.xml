@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Ката:</string>
+  <string name="text_start_running">Операцияны баштоо</string>
+  <string name="text_path_is_empty">Жол бош</string>
+  <string name="text_file_not_exists">Файл жок</string>
+  <string name="text_no_file_rw_permission">Файлды окуу жана жазуу уруксаттары жок</string>
+  <string name="text_no_running_script">Иштеп жаткан скрипт жок</string>
+  <string name="text_already_stop_n_scripts">%d иштеп жаткан скрипт токтоду</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Бул скрипт иштетүү үчүн бул Android версиясын талап кылат:</string>
+  <string name="ok">Албетте</string>
+  <string name="cancel">Жокко чыгаруу</string>
+  <string name="text_console">Консол</string>
+  <string name="text_no_floating_window_permission">Калкыма терезеге уруксат жок</string>
+  <string name="text_accessibility_service_description">Скрипт операцияларын автоматташтыруу үчүн талап кылынат (чыкылдатуу, көпкө басуу, серпүү ж.б.), эгер өчүрүлгөн болсо, автоматтык операцияларды камтыбаган скрипттерди гана аткарууга болот.</string>
+  <string name="text_should_enable_key_observing">Ачкыч мониторинги иштетилген эмес, аны программалык камсыздоонун жөндөөлөрүнөн иштетиңиз</string>
+  <string name="text_should_enable_gesture_observing">Жаңсоолорду көзөмөлдөө иштетилген эмес, аны программалык камсыздоонун жөндөөлөрүнөн иштетиңиз</string>
+  <string name="no_write_settings_permissin">Системанын жөндөөлөрүн өзгөртүүгө уруксат жок</string>
+  <string name="exception_notification_service_disabled">Эскертме кызматы иштебей жатат, эскертме уруксатын кайра иштетиңиз</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Бул скрипт иштетүү үчүн Auto.js версиясынын номери %d же андан жогору болушу керек</string>
+  <string name="text_drawer_open">Ашылма менюну ачыңыз</string>
+  <string name="text_drawer_close">Ашылма менюну жабыңыз</string>
+  <string name="no_read_phone_state_permissin">Түзмөк маалыматын окууга уруксат жок</string>
+</resources>

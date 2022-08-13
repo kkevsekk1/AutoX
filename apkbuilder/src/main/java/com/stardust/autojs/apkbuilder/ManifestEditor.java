@@ -52,17 +52,24 @@ public class ManifestEditor {
     }
 
     public ManifestEditor commit() throws IOException {
-        AxmlWriter writer = new MutableAxmlWriter();
-        AxmlReader reader = new AxmlReader(IOUtils.readFully(mManifestInputStream, mManifestInputStream.available()));
-        reader.accept(writer);
-        mManifestData = writer.toByteArray();
+        try {
+            AxmlWriter writer = new MutableAxmlWriter();
+            AxmlReader reader = new AxmlReader(IOUtils.readFully(mManifestInputStream, mManifestInputStream.available()));
+            reader.accept(writer);
+            mManifestData = writer.toByteArray();
+        } finally {
+            mManifestInputStream.close();
+        }
         return this;
     }
 
 
     public void writeTo(OutputStream manifestOutputStream) throws IOException {
-        manifestOutputStream.write(mManifestData);
-        manifestOutputStream.close();
+        try {
+            manifestOutputStream.write(mManifestData);
+        } finally {
+            manifestOutputStream.close();
+        }
     }
 
     public void onAttr(AxmlWriter.Attr attr) {

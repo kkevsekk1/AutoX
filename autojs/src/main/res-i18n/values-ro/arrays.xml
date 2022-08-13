@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Mod implicit</item>  
+    <item>Arată o dată pe zi</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>Aleatoriu</item>  
+    <item>Știri</item>  
+    <item>Contactul social</item>  
+    <item>Desen animat</item>  
+    <item>Joc</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>Fișier js editabil</item>  
+    <item>Binar needitabil</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Documentatie locala</item>  
+    <item>Documentație online</item> 
+  </string-array>
+</resources>

@@ -2,10 +2,7 @@ package zhao.arsceditor
 
 import zhao.arsceditor.ResDecoder.ARSCCallBack
 import zhao.arsceditor.ResDecoder.data.ResTable
-import java.io.FileInputStream
-import java.io.FileOutputStream
-import java.io.IOException
-import java.io.InputStream
+import java.io.*
 import java.util.*
 
 class ArscUtil {
@@ -50,20 +47,23 @@ class ArscUtil {
         resFile: String,
         callback: ((config: String, type: String, key: String, value: String) -> Unit)? = null
     ) {
-        when {
-            resFile.endsWith(".arsc") -> {
-                open(FileInputStream(resFile), ARSC, callback)
-            }
-            resFile.endsWith(".xml") -> {
-                open(FileInputStream(resFile), AXML)
-            }
-            resFile.endsWith(".dex") -> {
-                open(FileInputStream(resFile), DEX)
-            }
-            else -> {
-                throw IOException("Unsupported FileType")
+        FileInputStream(resFile).use { input->
+            when {
+                resFile.endsWith(".arsc") -> {
+                    open(input, ARSC, callback)
+                }
+                resFile.endsWith(".xml") -> {
+                    open(input, AXML)
+                }
+                resFile.endsWith(".dex") -> {
+                    open(input, DEX)
+                }
+                else -> {
+                    throw IOException("Unsupported FileType")
+                }
             }
         }
+
     }
 
     private fun open(
@@ -131,15 +131,13 @@ class ArscUtil {
         }
     }
 
-    fun saveArsc(file_name: String?, file_name1: String?) {
-        val fo1: FileOutputStream
-        try {
-            fo1 = FileOutputStream(file_name)
-            val fi1 = FileInputStream(file_name1)
-            mAndRes.mARSCDecoder.write(fo1, fi1, txtOriginal, txtTranslated)
-            fo1.close()
-        } catch (e: IOException) {
-            e.printStackTrace()
+    fun saveArsc(oldFileName: String, newFileName: String) {
+        val oldFile = File(oldFileName)
+        val newFile = File(newFileName)
+        oldFile.inputStream().use { input ->
+            newFile.outputStream().use { out ->
+                mAndRes.mARSCDecoder.write(out, input, txtOriginal, txtTranslated)
+            }
         }
         isChanged = false
     }

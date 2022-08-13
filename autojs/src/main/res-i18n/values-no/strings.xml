@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Feil:</string>
+  <string name="text_start_running">Starte driften</string>
+  <string name="text_path_is_empty">Banen er tom</string>
+  <string name="text_file_not_exists">Filen eksisterer ikke</string>
+  <string name="text_no_file_rw_permission">Ingen lese- og skrivetillatelser for filer</string>
+  <string name="text_no_running_script">Ikke kjørende skript</string>
+  <string name="text_already_stop_n_scripts">%d kjørende skript stoppet</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Dette skriptet krever at denne Android-versjonen kjøres:</string>
+  <string name="ok">Sikker</string>
+  <string name="cancel">Avbryt</string>
+  <string name="text_console">Konsoll</string>
+  <string name="text_no_floating_window_permission">Ingen tillatelse til flytende vindu</string>
+  <string name="text_accessibility_service_description">Nødvendig for å automatisere skriptoperasjoner (klikk, langt trykk, sveip osv.), hvis deaktivert, kan bare skript som ikke involverer automatiske operasjoner utføres.</string>
+  <string name="text_should_enable_key_observing">Nøkkelovervåking er ikke aktivert, vennligst aktiver den i programvareinnstillingene</string>
+  <string name="text_should_enable_gesture_observing">Bevegelsesovervåking er ikke aktivert, vennligst aktiver det i programvareinnstillingene</string>
+  <string name="no_write_settings_permissin">Ingen tillatelse til å endre systeminnstillinger</string>
+  <string name="exception_notification_service_disabled">Varslingstjenesten kjører ikke. Aktiver varslingstillatelsen på nytt</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Dette skriptet krever Auto.js versjonsnummer %d eller høyere for å kjøre</string>
+  <string name="text_drawer_open">Åpne rullegardinmenyen</string>
+  <string name="text_drawer_close">Lukk rullegardinmenyen</string>
+  <string name="no_read_phone_state_permissin">Ingen tillatelse til å lese enhetsinformasjon</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Mfomsoɔ:</string>
+  <string name="text_start_running">Fi ase yɛ adwuma</string>
+  <string name="text_path_is_empty">Kwan no yɛ hunu</string>
+  <string name="text_file_not_exists">Fael no nni hɔ</string>
+  <string name="text_no_file_rw_permission">Fael akenkan ne kyerɛw ho kwan biara nni hɔ</string>
+  <string name="text_no_running_script">Script biara nni hɔ a ɛretu mmirika</string>
+  <string name="text_already_stop_n_scripts">%d scripts a ɛretu mmirika no agyae</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Saa script yi hwehwɛ sɛ saa Android version yi betumi ayɛ adwuma:</string>
+  <string name="ok">Gye di</string>
+  <string name="cancel">Twam</string>
+  <string name="text_console">Console a wɔde yɛ adwuma</string>
+  <string name="text_no_floating_window_permission">Mfɛnsere a ɛsensɛn nsu so ho kwan biara nni hɔ</string>
+  <string name="text_accessibility_service_description">Ɛhia sɛ wode script dwumadie no yɛ adwuma ankasa (klik, mia so tenten, swipe, ne nea ɛkeka ho), sɛ wɔagyae a, script a ɛnyɛ adwuma a ɛyɛ adwuma ankasa nkutoo na wobɛtumi ayɛ.</string>
+  <string name="text_should_enable_key_observing">Key monitoring no nnyɛ adwuma, yɛsrɛ wo ma ɛnyɛ adwuma wɔ software nhyehyɛe no mu</string>
+  <string name="text_should_enable_gesture_observing">Gesture monitoring no nnyɛ adwuma, yɛsrɛ wo ma ɛnyɛ adwuma wɔ software nhyehyɛe mu</string>
+  <string name="no_write_settings_permissin">Mma ho kwan biara nni hɔ sɛ wobɛsesa nhyehyɛe nhyehyɛe ahorow</string>
+  <string name="exception_notification_service_disabled">Notification service no nnyɛ adwuma, yɛsrɛ wo san ma notification permission no nyɛ adwuma</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Saa script yi hwehwɛ Auto.js version number %d anaa nea ɛboro saa na ama ayɛ adwuma</string>
+  <string name="text_drawer_open">Bue menu a ɛwɔ ase hɔ no</string>
+  <string name="text_drawer_close">To menu a ɛwɔ ase hɔ no mu</string>
+  <string name="no_read_phone_state_permissin">Hokwan biara nni hɔ sɛ wobɛkenkan mfiri ho nsɛm</string>
+</resources>

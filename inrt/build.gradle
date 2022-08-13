@@ -15,7 +15,7 @@ android {
     buildToolsVersion versions.buildTool
 
     defaultConfig {
-        applicationId "com.stardust.auojs.inrt"
+        applicationId "org.autojs.autoxjs.inrt"
         minSdkVersion versions.mini
         targetSdkVersion versions.target
         versionCode versions.appVersionCode
@@ -53,27 +53,27 @@ android {
             }
         }
     }
-    splits {
-
-        // Configures multiple APKs based on ABI.
-        abi {
-
-            // Enables building multiple APKs per ABI.
-            enable true
-
-            // By default all ABIs are included, so use reset() and include to specify that we only
-            // want APKs for x86 and x86_64.
-
-            // Resets the list of ABIs that Gradle should create APKs for to none.
-            reset()
-
-            // Specifies a list of ABIs that Gradle should create APKs for.
-            // include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
-            include 'arm64-v8a'
-            // Specifies that we do not want to also generate a universal APK that includes all ABIs.
-            universalApk false
-        }
-    }
+//    splits {
+//
+//        // Configures multiple APKs based on ABI.
+//        abi {
+//
+//            // Enables building multiple APKs per ABI.
+//            enable true
+//
+//            // By default all ABIs are included, so use reset() and include to specify that we only
+//            // want APKs for x86 and x86_64.
+//
+//            // Resets the list of ABIs that Gradle should create APKs for to none.
+//            reset()
+//
+//            // Specifies a list of ABIs that Gradle should create APKs for.
+//            include 'armeabi-v7a', 'arm64-v8a' //,'x86', 'x86_64'
+////            include 'arm64-v8a'
+//            // Specifies that we do not want to also generate a universal APK that includes all ABIs.
+//            universalApk false
+//        }
+//    }
     buildTypes {
         debug {
             minifyEnabled false
@@ -100,10 +100,28 @@ android {
             buildConfigField "boolean", "isMarket", "true"
             manifestPlaceholders = [appName: "AIX云控"]
         }
+        template {
+            manifestPlaceholders = [appName: "template"]
+            aaptOptions {
+                //忽略ocr模型
+                ignoreAssetsPattern "models"
+            }
+            packagingOptions {
+                jniLibs {
+                    useLegacyPackaging true
+                }
+                exclude '*'
+            }
+            ndk {
+                //不打包so库
+                abiFilters = [""]
+            }
+        }
     }
     sourceSets {
         main {
             jniLibs.srcDirs = ['/libs']
+            res.srcDirs += "src/main/res-i18n"
         }
     }
     packagingOptions {
@@ -149,12 +167,9 @@ task publishMarket(group: 'build') {
 def buildApkPluginForAbi(File pluginProjectDir, String abi) {
 
     copy {
-//        from file('build/intermediates/apk/common/debug/')
-//        into new File(pluginProjectDir, 'src\\main\\assets')
-//        def fileName = "inrt-common-" + abi + "-debug.apk"
-        from file('build\\outputs\\apk\\common\\release\\')
+        from file('build\\outputs\\apk\\template\\release\\')
         into new File(pluginProjectDir, 'src\\main\\assets')
-        def fileName = "inrt-common-" + abi + "-release.apk"
+        def fileName = "inrt-template-release-unsigned.apk"//"inrt-template-" + abi + "-release.apk"
 
         include fileName
         rename fileName, 'template.apk'

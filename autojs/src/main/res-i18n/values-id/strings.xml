@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Kesalahan:</string>
+  <string name="text_start_running">Mulai operasi</string>
+  <string name="text_path_is_empty">Jalan kosong</string>
+  <string name="text_file_not_exists">File tidak ada</string>
+  <string name="text_no_file_rw_permission">Tidak ada izin membaca dan menulis file</string>
+  <string name="text_no_running_script">Tidak ada skrip yang berjalan</string>
+  <string name="text_already_stop_n_scripts">%d menjalankan skrip berhenti</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Skrip ini membutuhkan versi Android ini untuk dijalankan:</string>
+  <string name="ok">Tentu</string>
+  <string name="cancel">Membatalkan</string>
+  <string name="text_console">Menghibur</string>
+  <string name="text_no_floating_window_permission">Tidak ada izin jendela mengambang</string>
+  <string name="text_accessibility_service_description">Diperlukan untuk mengotomatiskan operasi skrip (klik, tekan lama, geser, dll.), jika dinonaktifkan, hanya skrip yang tidak melibatkan operasi otomatis yang dapat dijalankan.</string>
+  <string name="text_should_enable_key_observing">Pemantauan kunci tidak diaktifkan, harap aktifkan di pengaturan perangkat lunak</string>
+  <string name="text_should_enable_gesture_observing">Pemantauan gerakan tidak diaktifkan, harap aktifkan di pengaturan perangkat lunak</string>
+  <string name="no_write_settings_permissin">Tidak ada izin untuk mengubah pengaturan sistem</string>
+  <string name="exception_notification_service_disabled">Layanan notifikasi tidak berjalan, harap aktifkan kembali izin notifikasi</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Skrip ini memerlukan nomor versi Auto.js %d atau lebih tinggi untuk dijalankan</string>
+  <string name="text_drawer_open">Buka menu tarik-turun</string>
+  <string name="text_drawer_close">Tutup menu tarik-turun</string>
+  <string name="no_read_phone_state_permissin">Tidak ada izin untuk membaca informasi perangkat</string>
+</resources>

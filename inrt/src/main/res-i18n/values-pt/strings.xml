@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_no_accessibility_permission">Serviço de acessibilidade não iniciado</string>
+  <string name="text_auto_operate_service_enabled_but_not_running">Os serviços de acessibilidade estão ativados, mas não estão em execução. Você pode tentar reativar ou reiniciar o telefone</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">Falha ao habilitar o serviço de acessibilidade com privilégios de root</string>
+  <string name="text_settings">Configurar</string>
+  <string name="text_script_running">Execução de script</string>
+  <string name="text_keep_running_with_foreground_service">Use um serviço em primeiro plano para manter seu aplicativo em execução</string>
+  <string name="text_use_accessibility_service">Serviços de acessibilidade</string>
+  <string name="text_use_floating_window">Janela flutuante</string>
+  <string name="summary_enable_accessibility_service">As tarefas do serviço de acessibilidade devem ser habilitadas para execução (reservadas)</string>
+  <string name="summary_enable_floating_window">Você deve abrir a janela flutuante para visualizar o log (item reservado)</string>
+  <string name="text_use_volume_to_stop_running">A tecla de aumento de volume interrompe todos os scripts</string>
+  <string name="summary_enable_accessibility_service_by_root">Após a abertura, a execução do script abrirá automaticamente o serviço de acessibilidade com privilégios Root (item reservado)</string>
+  <string name="text_enable_accessibility_service_by_root">Habilite automaticamente serviços com privilégios de root</string>
+  <string name="summary_stable_mode">A análise de layout é mais estável quando habilitada, mas um pequeno número de scripts pode não funcionar corretamente. Reinicie o serviço de acessibilidade para entrar em vigor</string>
+  <string name="text_stable_mode">Modo estável</string>
+  <string name="text_accessibility_service">Serviços de acessibilidade</string>
+  <string name="text_dont_show_main_activity">Não exibe a interface principal</string>
+  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
+  <string name="summary_dont_show_main_activity">Execute o script diretamente após abrir o aplicativo</string>
+  <string name="text_hide_logs">Esconder registro</string>
+  <string name="key_hide_logs">Key_hide_logs</string>
+  <string name="summary_hide_logs">A interface de log não é exibida e o suporte a script é necessário para abrir essa interface na próxima vez</string>
+  <string name="text_others">Outro</string>
+  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Execução concluída em %f segundos</string>
+  <string name="prompt_email">O email</string>
+  <string name="prompt_password">Senha</string>
+  <string name="action_sign_in">Faça login ou cadastre-se</string>
+  <string name="action_sign_in_short">Conecte-se</string>
+  <string name="welcome">\"Bem-vindo!\"</string>
+  <string name="invalid_username">Não é um nome de usuário válido</string>
+  <string name="invalid_password">A senha deve ter mais de 5 caracteres</string>
+  <string name="login_failed">\"Falha na autenticação\"</string>
+  <string name="explain_accessibility_permission">O software precisa abrir \"Serviços de Acessibilidade\" para ser executado, abra \"Configurações->Serviços de Acessibilidade\" ou \"Configurações->Serviços de Acessibilidade->Mais Serviços Baixados\", encontre \" %s \" e ative os Serviços de Acessibilidade</string>
+  <string name="text_need_to_enable_accessibility_service">Os serviços de acessibilidade precisam ser ativados</string>
+  <string name="summary_use_volume_to_stop_running">A barra de notificação sempre exibirá a notificação \"Este aplicativo está em execução\" para manter o programa em execução</string>
+</resources>

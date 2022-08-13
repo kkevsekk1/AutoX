@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Sbagliu:</string>
+  <string name="text_start_running">Principià u funziunamentu</string>
+  <string name="text_path_is_empty">Caminu hè viotu</string>
+  <string name="text_file_not_exists">U schedariu ùn esiste micca</string>
+  <string name="text_no_file_rw_permission">Nisun schedariu di leghje è scrive permessi</string>
+  <string name="text_no_running_script">Senza script in esecuzione</string>
+  <string name="text_already_stop_n_scripts">%d script in esecuzione si fermanu</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Stu script richiede sta versione di Android per eseguisce:</string>
+  <string name="ok">Di sicuru</string>
+  <string name="cancel">Cancella</string>
+  <string name="text_console">Cunsola</string>
+  <string name="text_no_floating_window_permission">Nisun permessu di finestra flottante</string>
+  <string name="text_accessibility_service_description">Ubligatoriu per automatizà l\'operazioni di script (cliccate, pressu longu, swipe, etc.), se disabilitatu, solu scripts chì ùn implicanu micca operazioni automatiche ponu esse eseguiti.</string>
+  <string name="text_should_enable_key_observing">U monitoraghju chjave ùn hè micca attivatu, per piacè attivallu in i paràmetri di u software</string>
+  <string name="text_should_enable_gesture_observing">U monitoraghju di i gesti ùn hè micca attivatu, per piacè attivallu in i paràmetri di u software</string>
+  <string name="no_write_settings_permissin">Nisun permessu per mudificà i paràmetri di u sistema</string>
+  <string name="exception_notification_service_disabled">U serviziu di notificazione ùn hè micca in esecuzione, per piacè riattivate u permessu di notificazione</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Stu script richiede u numeru di versione di Auto.js %d o più altu per eseguisce</string>
+  <string name="text_drawer_open">Aprite u menù a tendina</string>
+  <string name="text_drawer_close">Chiudi u menù a tendina</string>
+  <string name="no_read_phone_state_permissin">Nisun permessu di leghje l\'infurmazioni di u dispusitivu</string>
+</resources>

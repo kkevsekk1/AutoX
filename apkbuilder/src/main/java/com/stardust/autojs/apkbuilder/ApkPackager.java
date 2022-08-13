@@ -3,6 +3,7 @@ package com.stardust.autojs.apkbuilder;
 import android.text.TextUtils;
 
 import com.stardust.autojs.apkbuilder.util.StreamUtils;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -34,19 +35,19 @@ public class ApkPackager {
     }
 
     public void unzip() throws IOException {
-        ZipInputStream zis = new ZipInputStream(mApkInputStream);
-        for (ZipEntry e = zis.getNextEntry(); e != null; e = zis.getNextEntry()) {
-            String name = e.getName();
-            if (!e.isDirectory() && !TextUtils.isEmpty(name)) {
-                File file = new File(mWorkspacePath, name);
-                System.out.println(file);
-                file.getParentFile().mkdirs();
-                FileOutputStream fos = new FileOutputStream(file);
-                StreamUtils.write(zis, fos);
-                fos.close();
+        try (ZipInputStream zis = new ZipInputStream(mApkInputStream)) {
+            for (ZipEntry e = zis.getNextEntry(); e != null; e = zis.getNextEntry()) {
+                String name = e.getName();
+                if (!e.isDirectory() && !TextUtils.isEmpty(name)) {
+                    File file = new File(mWorkspacePath, name);
+                    System.out.println(file);
+                    file.getParentFile().mkdirs();
+                    FileOutputStream fos = new FileOutputStream(file);
+                    StreamUtils.write(zis, fos);
+                    fos.close();
+                }
             }
         }
-        zis.close();
     }
 
     public void repackage(String newApkPath) throws Exception {

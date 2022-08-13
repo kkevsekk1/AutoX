@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Әдепкі</item>  
+    <item>Күніне бір рет көрсетіңіз</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>Кездейсоқ</item>  
+    <item>Жаңалықтар</item>  
+    <item>Әлеуметтік байланыс</item>  
+    <item>Мультфильм</item>  
+    <item>Ойын</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>Өңделетін js файлы</item>  
+    <item>Өңделмейтін екілік</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Жергілікті құжаттама</item>  
+    <item>Онлайн құжаттама</item> 
+  </string-array>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">កំហុស៖</string>
+  <string name="text_start_running">ចាប់ផ្តើមប្រតិបត្តិការ</string>
+  <string name="text_path_is_empty">ផ្លូវគឺទទេ</string>
+  <string name="text_file_not_exists">ឯកសារមិនមានទេ។</string>
+  <string name="text_no_file_rw_permission">គ្មានការអនុញ្ញាតអាន និងសរសេរឯកសារទេ។</string>
+  <string name="text_no_running_script">គ្មានស្គ្រីបដែលកំពុងដំណើរការទេ។</string>
+  <string name="text_already_stop_n_scripts">ស្គ្រីបដែលកំពុងដំណើរការ %d ត្រូវបានបញ្ឈប់</string>
+  <string name="text_requires_sdk_version_to_run_the_script">ស្គ្រីបនេះទាមទារកំណែ Android នេះដើម្បីដំណើរការ៖</string>
+  <string name="ok">ប្រាកដ</string>
+  <string name="cancel">បោះបង់</string>
+  <string name="text_console">កុងសូល</string>
+  <string name="text_no_floating_window_permission">គ្មានការអនុញ្ញាតបង្អួចអណ្តែត</string>
+  <string name="text_accessibility_service_description">តម្រូវឱ្យធ្វើប្រតិបត្តិការស្គ្រីបដោយស្វ័យប្រវត្តិ (ចុច ចុចឱ្យយូរ អូស។</string>
+  <string name="text_should_enable_key_observing">ការត្រួតពិនិត្យសោមិនត្រូវបានបើកទេ សូមបើកវានៅក្នុងការកំណត់កម្មវិធី</string>
+  <string name="text_should_enable_gesture_observing">ការត្រួតពិនិត្យកាយវិការមិនត្រូវបានបើកទេ សូមបើកវានៅក្នុងការកំណត់កម្មវិធី</string>
+  <string name="no_write_settings_permissin">គ្មានការអនុញ្ញាតឱ្យកែប្រែការកំណត់ប្រព័ន្ធទេ។</string>
+  <string name="exception_notification_service_disabled">សេវាកម្មជូនដំណឹងមិនដំណើរការទេ សូមបើកការអនុញ្ញាតការជូនដំណឹងឡើងវិញ</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">ស្គ្រីបនេះទាមទារលេខកំណែ Auto.js %d ឬខ្ពស់ជាងនេះដើម្បីដំណើរការ</string>
+  <string name="text_drawer_open">បើកម៉ឺនុយទម្លាក់ចុះ</string>
+  <string name="text_drawer_close">បិទម៉ឺនុយទម្លាក់ចុះ</string>
+  <string name="no_read_phone_state_permissin">គ្មានការអនុញ្ញាតឱ្យអានព័ត៌មានឧបករណ៍ទេ។</string>
+</resources>

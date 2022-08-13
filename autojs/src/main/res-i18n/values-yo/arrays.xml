@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Aiyipada</item>  
+    <item>Ṣe afihan lẹẹkan ni ọjọ kan</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>Laileto</item>  
+    <item>Iroyin</item>  
+    <item>Awujo olubasọrọ</item>  
+    <item>Efe</item>  
+    <item>Ere</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>Js faili ti o le ṣatunṣe</item>  
+    <item>Alakomeji uneditable</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Iwe agbegbe</item>  
+    <item>Online iwe</item> 
+  </string-array>
+</resources>

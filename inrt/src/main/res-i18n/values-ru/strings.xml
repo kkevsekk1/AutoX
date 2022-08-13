@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_no_accessibility_permission">Служба специальных возможностей не запущена</string>
+  <string name="text_auto_operate_service_enabled_but_not_running">Службы специальных возможностей включены, но не работают. Попробуйте повторно включить или перезагрузить телефон.</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">Не удалось включить службу специальных возможностей с привилегиями root</string>
+  <string name="text_settings">Настраивать</string>
+  <string name="text_script_running">Запуск сценария</string>
+  <string name="text_keep_running_with_foreground_service">Используйте службу переднего плана, чтобы ваше приложение работало</string>
+  <string name="text_use_accessibility_service">Услуги специальных возможностей</string>
+  <string name="text_use_floating_window">Плавающее окно</string>
+  <string name="summary_enable_accessibility_service">Задачи службы специальных возможностей должны быть разрешены для выполнения (зарезервировано)</string>
+  <string name="summary_enable_floating_window">Вы должны открыть плавающее окно для просмотра журнала (зарезервированный элемент)</string>
+  <string name="text_use_volume_to_stop_running">Клавиша увеличения громкости останавливает все сценарии</string>
+  <string name="summary_enable_accessibility_service_by_root">После открытия запуск скрипта автоматически откроет службу специальных возможностей с правами Root (зарезервированный пункт)</string>
+  <string name="text_enable_accessibility_service_by_root">Автоматически включать службы с привилегиями root</string>
+  <string name="summary_stable_mode">Анализ макета более стабилен при включении, но небольшое количество скриптов может работать некорректно. Перезапустите службу специальных возможностей, чтобы изменения вступили в силу.</string>
+  <string name="text_stable_mode">Стабильный режим</string>
+  <string name="text_accessibility_service">Услуги специальных возможностей</string>
+  <string name="text_dont_show_main_activity">Не отображать основной интерфейс</string>
+  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
+  <string name="summary_dont_show_main_activity">Запустите скрипт сразу после открытия приложения</string>
+  <string name="text_hide_logs">Скрыть журнал</string>
+  <string name="key_hide_logs">Key_hide_logs</string>
+  <string name="summary_hide_logs">Интерфейс журнала не отображается, и для открытия этого интерфейса в следующий раз требуется поддержка скрипта.</string>
+  <string name="text_others">Другой</string>
+  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Завершено через %f секунд</string>
+  <string name="prompt_email">Эл. почта</string>
+  <string name="prompt_password">Пароль</string>
+  <string name="action_sign_in">Войти или зарегистрироваться</string>
+  <string name="action_sign_in_short">Авторизоваться</string>
+  <string name="welcome">\"добро пожаловать!\"</string>
+  <string name="invalid_username">Недействительное имя пользователя</string>
+  <string name="invalid_password">Пароль должен быть больше 5 символов</string>
+  <string name="login_failed">\"Авторизация не удалась\"</string>
+  <string name="explain_accessibility_permission">Для запуска программного обеспечения необходимо открыть «Службы специальных возможностей», откройте «Настройки-> Службы специальных возможностей» или «Настройки-> Службы специальных возможностей-> Дополнительные загруженные службы», найдите « %s » и включите Службы специальных возможностей.</string>
+  <string name="text_need_to_enable_accessibility_service">Службы специальных возможностей должны быть включены</string>
+  <string name="summary_use_volume_to_stop_running">Панель уведомлений всегда будет отображать уведомление «Это приложение запущено», чтобы программа продолжала работать.</string>
+</resources>

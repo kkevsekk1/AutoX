@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_no_floating_window_permission">कुनै फ्लोटिंग विन्डो अनुमति छैन</string>
+  <string name="error_activity_not_found_for_apk_installing">Apk स्थापना गर्न एप फेला पार्न सकिएन</string>
+</resources>

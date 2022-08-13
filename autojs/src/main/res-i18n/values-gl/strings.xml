@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Erro:</string>
+  <string name="text_start_running">Iniciar a operación</string>
+  <string name="text_path_is_empty">Camiño está baleiro</string>
+  <string name="text_file_not_exists">Ficheiro non existe</string>
+  <string name="text_no_file_rw_permission">Non hai permisos de lectura e escritura de ficheiros</string>
+  <string name="text_no_running_script">Sen script en execución</string>
+  <string name="text_already_stop_n_scripts">Detivéronse %d scripts en execución</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Este script require esta versión de Android para executarse:</string>
+  <string name="ok">Claro</string>
+  <string name="cancel">Cancelar</string>
+  <string name="text_console">Consola</string>
+  <string name="text_no_floating_window_permission">Sen permiso de xanela flotante</string>
+  <string name="text_accessibility_service_description">Necesario para automatizar operacións de guións (clic, pulsación longa, deslizar o dedo, etc.), se está desactivado, só se poden executar guións que non impliquen operacións automáticas.</string>
+  <string name="text_should_enable_key_observing">A vixilancia de teclas non está activada, actívaa na configuración do software</string>
+  <string name="text_should_enable_gesture_observing">A supervisión de xestos non está activada, actívaa na configuración do software</string>
+  <string name="no_write_settings_permissin">Sen permiso para modificar a configuración do sistema</string>
+  <string name="exception_notification_service_disabled">O servizo de notificacións non se está a executar, volve activar o permiso de notificación</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Este script require o número de versión de Auto.js %d ou superior para executarse</string>
+  <string name="text_drawer_open">Abre o menú despregable</string>
+  <string name="text_drawer_close">Pecha o menú despregable</string>
+  <string name="no_read_phone_state_permissin">Sen permiso para ler a información do dispositivo</string>
+</resources>

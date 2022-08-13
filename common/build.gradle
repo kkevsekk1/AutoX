@@ -24,6 +24,11 @@ android {
     lintOptions {
         abortOnError false
     }
+    sourceSets{
+        main{
+            res.srcDirs += "src/main/res-i18n"
+        }
+    }
 }
 
 dependencies {

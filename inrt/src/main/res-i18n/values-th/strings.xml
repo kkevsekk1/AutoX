@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_no_accessibility_permission">ไม่ได้เริ่มบริการการเข้าถึง</string>
+  <string name="text_auto_operate_service_enabled_but_not_running">เปิดใช้งานบริการการเข้าถึงแต่ไม่ทำงาน คุณสามารถลองเปิดใช้งานใหม่หรือรีสตาร์ทโทรศัพท์ของคุณได้</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">ไม่สามารถเปิดใช้บริการการเข้าถึงด้วยสิทธิ์ของรูท</string>
+  <string name="text_settings">ติดตั้ง</string>
+  <string name="text_script_running">สคริปต์ทำงาน</string>
+  <string name="text_keep_running_with_foreground_service">ใช้บริการเบื้องหน้าเพื่อให้แอปของคุณทำงานต่อไป</string>
+  <string name="text_use_accessibility_service">บริการการเข้าถึง</string>
+  <string name="text_use_floating_window">หน้าต่างลอยน้ำ</string>
+  <string name="summary_enable_accessibility_service">งานบริการการเข้าถึงต้องเปิดใช้งานเพื่อดำเนินการ (สงวนไว้)</string>
+  <string name="summary_enable_floating_window">คุณต้องเปิดหน้าต่างลอยเพื่อดูบันทึก (รายการที่จองไว้)</string>
+  <string name="text_use_volume_to_stop_running">ปุ่มเพิ่มระดับเสียงหยุดสคริปต์ทั้งหมด</string>
+  <string name="summary_enable_accessibility_service_by_root">หลังจากเปิดแล้ว การรันสคริปต์จะเป็นการเปิดบริการการเข้าถึงอัตโนมัติด้วยสิทธิ์รูท (รายการที่จองไว้)</string>
+  <string name="text_enable_accessibility_service_by_root">เปิดใช้งานบริการโดยอัตโนมัติด้วยสิทธิ์รูท</string>
+  <string name="summary_stable_mode">การวิเคราะห์เลย์เอาต์จะเสถียรกว่าเมื่อเปิดใช้งาน แต่สคริปต์จำนวนน้อยอาจทำงานไม่ถูกต้อง เริ่มบริการการเข้าถึงใหม่เพื่อให้มีผล</string>
+  <string name="text_stable_mode">โหมดเสถียร</string>
+  <string name="text_accessibility_service">บริการการเข้าถึง</string>
+  <string name="text_dont_show_main_activity">ไม่แสดงอินเทอร์เฟซหลัก</string>
+  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
+  <string name="summary_dont_show_main_activity">เรียกใช้สคริปต์โดยตรงหลังจากเปิดแอป</string>
+  <string name="text_hide_logs">ซ่อนบันทึก</string>
+  <string name="key_hide_logs">Key_hide_logs</string>
+  <string name="summary_hide_logs">อินเทอร์เฟซบันทึกไม่ปรากฏขึ้น และจำเป็นต้องรองรับสคริปต์เพื่อเปิดอินเทอร์เฟซนี้ในครั้งต่อไป</string>
+  <string name="text_others">อื่นๆ</string>
+  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] ทำงานเสร็จใน %f วินาที</string>
+  <string name="prompt_email">อีเมล</string>
+  <string name="prompt_password">รหัสผ่าน</string>
+  <string name="action_sign_in">เข้าสู่ระบบหรือลงทะเบียน</string>
+  <string name="action_sign_in_short">เข้าสู่ระบบ</string>
+  <string name="welcome">\"ยินดีต้อนรับ!\"</string>
+  <string name="invalid_username">ไม่ใช่ชื่อผู้ใช้ที่ถูกต้อง</string>
+  <string name="invalid_password">รหัสผ่านต้องมากกว่า 5 ตัวอักษร</string>
+  <string name="login_failed">\"เข้าสู่ระบบล้มเหลว\"</string>
+  <string name="explain_accessibility_permission">ซอฟต์แวร์จำเป็นต้องเปิด \"Accessibility Services\" เพื่อเรียกใช้ โปรดเปิด \"Settings->Accessibility Services\" หรือ \"Settings->Accessibility Services->More Downloaded Services\" ค้นหา \" %s \" และเปิดใช้งาน Accessibility Services</string>
+  <string name="text_need_to_enable_accessibility_service">ต้องเปิดใช้งานบริการการเข้าถึง</string>
+  <string name="summary_use_volume_to_stop_running">แถบการแจ้งเตือนจะแสดงการแจ้งเตือน \"แอปนี้กำลังทำงาน\" เสมอเพื่อให้โปรแกรมทำงานต่อไป</string>
+</resources>

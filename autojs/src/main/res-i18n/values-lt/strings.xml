@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Klaida:</string>
+  <string name="text_start_running">Pradėti operaciją</string>
+  <string name="text_path_is_empty">Kelias tuščias</string>
+  <string name="text_file_not_exists">Failas neegzistuoja</string>
+  <string name="text_no_file_rw_permission">Nėra failų skaitymo ir rašymo teisių</string>
+  <string name="text_no_running_script">Nėra vykdomo scenarijaus</string>
+  <string name="text_already_stop_n_scripts">%d vykdomas scenarijus sustabdytas</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Šiam scenarijui paleisti reikalinga ši Android versija:</string>
+  <string name="ok">Žinoma</string>
+  <string name="cancel">Atšaukti</string>
+  <string name="text_console">Konsolė</string>
+  <string name="text_no_floating_window_permission">Nėra leidimo plaukioti langu</string>
+  <string name="text_accessibility_service_description">Reikalingas norint automatizuoti scenarijaus operacijas (spustelėti, ilgai paspausti, braukti ir pan.), jei išjungta, gali būti vykdomi tik tie scenarijai, kuriuose nėra automatinių operacijų.</string>
+  <string name="text_should_enable_key_observing">Raktų stebėjimas neįjungtas, įjunkite jį programinės įrangos nustatymuose</string>
+  <string name="text_should_enable_gesture_observing">Gestų stebėjimas neįjungtas, įjunkite jį programinės įrangos nustatymuose</string>
+  <string name="no_write_settings_permissin">Nėra leidimo keisti sistemos nustatymų</string>
+  <string name="exception_notification_service_disabled">Pranešimų paslauga neveikia, iš naujo įgalinkite pranešimų leidimą</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Šiam scenarijui paleisti reikalingas Auto.js versijos numeris %d arba didesnis</string>
+  <string name="text_drawer_open">Atidarykite išskleidžiamąjį meniu</string>
+  <string name="text_drawer_close">Uždarykite išskleidžiamąjį meniu</string>
+  <string name="no_read_phone_state_permissin">Nėra leidimo skaityti įrenginio informaciją</string>
+</resources>

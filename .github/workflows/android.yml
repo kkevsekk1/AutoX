@@ -18,13 +18,13 @@ jobs:
       - name: Build with Gradle
         run: |
           chmod 777 ./gradlew
-          ./gradlew inrt:assembleRelease
+          ./gradlew inrt:assembleTemplate
           ls
       - uses: Tlaster/android-sign@v1.2.2
         name: Sign inrt APK
         with:
           releaseDirectory: |
-            inrt/build/outputs/apk/common/release
+            inrt/build/outputs/apk/template/release
           signingKeyBase64: ${{ secrets.ISIGNING_KEY }}
           output: build/inrt/signed
           alias: ${{ secrets.IALIAS }}

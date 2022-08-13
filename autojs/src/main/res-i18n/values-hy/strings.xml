@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Սխալ:</string>
+  <string name="text_start_running">Սկսել շահագործումը</string>
+  <string name="text_path_is_empty">Ճանապարհը դատարկ է</string>
+  <string name="text_file_not_exists">Ֆայլը գոյություն չունի</string>
+  <string name="text_no_file_rw_permission">Ֆայլի կարդալու և գրելու թույլտվություններ չկան</string>
+  <string name="text_no_running_script">Գործարկման սցենար չկա</string>
+  <string name="text_already_stop_n_scripts">%d գործող սկրիպտներ դադարեցվեցին</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Այս սցենարի համար պահանջվում է Android-ի այս տարբերակը՝</string>
+  <string name="ok">Իհարկե</string>
+  <string name="cancel">Չեղարկել</string>
+  <string name="text_console">Մխիթարել</string>
+  <string name="text_no_floating_window_permission">Լողացող պատուհանի թույլտվություն չկա</string>
+  <string name="text_accessibility_service_description">Պահանջվում է սկրիպտի գործողությունների ավտոմատացման համար (սեղմեք, երկար սեղմեք, սահեցրեք և այլն), եթե անջատված է, կարող են կատարվել միայն ավտոմատ գործողություններ չներառող սկրիպտներ:</string>
+  <string name="text_should_enable_key_observing">Հիմնական մոնիտորինգը միացված չէ, խնդրում ենք միացնել այն ծրագրաշարի կարգավորումներում</string>
+  <string name="text_should_enable_gesture_observing">Ժեստերի մոնիտորինգը միացված չէ, խնդրում ենք միացնել այն ծրագրաշարի կարգավորումներում</string>
+  <string name="no_write_settings_permissin">Համակարգի կարգավորումները փոփոխելու թույլտվություն չկա</string>
+  <string name="exception_notification_service_disabled">Ծանուցման ծառայությունը չի աշխատում, խնդրում ենք նորից միացնել ծանուցման թույլտվությունը</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Այս սցենարը գործարկելու համար պահանջում է Auto.js տարբերակի %d կամ ավելի բարձր համարը</string>
+  <string name="text_drawer_open">Բացեք բացվող ընտրացանկը</string>
+  <string name="text_drawer_close">Փակեք բացվող ընտրացանկը</string>
+  <string name="no_read_phone_state_permissin">Սարքի տեղեկությունները կարդալու թույլտվություն չկա</string>
+</resources>

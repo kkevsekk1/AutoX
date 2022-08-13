@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_no_accessibility_permission">Irisgarritasun zerbitzua ez da hasi</string>
+  <string name="text_auto_operate_service_enabled_but_not_running">Irisgarritasun-zerbitzuak gaituta daude baina ez daude martxan. Telefonoa berriro gaitzen edo berrabiarazten saia zaitezke</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">Ezin izan da gaitu erabilerraztasun-zerbitzua root pribilegioekin</string>
+  <string name="text_settings">Ezarri</string>
+  <string name="text_script_running">Gidoia exekutatu</string>
+  <string name="text_keep_running_with_foreground_service">Erabili lehen planoko zerbitzu bat zure aplikazioa martxan mantentzeko</string>
+  <string name="text_use_accessibility_service">Irisgarritasun Zerbitzuak</string>
+  <string name="text_use_floating_window">Leiho flotagarria</string>
+  <string name="summary_enable_accessibility_service">Irisgarritasun-zerbitzuaren atazak gaituta egon behar dira exekutatzeko (erreserbatuta)</string>
+  <string name="summary_enable_floating_window">Leiho mugikorra ireki behar duzu erregistroa ikusteko (erreserbatutako elementua)</string>
+  <string name="text_use_volume_to_stop_running">Bolumena igotzeko teklak script guztiak geldiarazten ditu</string>
+  <string name="summary_enable_accessibility_service_by_root">Ireki ondoren, scripta exekutatzeak automatikoki irekiko du erabilerraztasun-zerbitzua Erro pribilegioekin (erreserbatutako elementua)</string>
+  <string name="text_enable_accessibility_service_by_root">Gaitu automatikoki root pribilegioak dituzten zerbitzuak</string>
+  <string name="summary_stable_mode">Diseinuaren analisia egonkorragoa da gaituta dagoenean, baina baliteke script kopuru txiki batek behar bezala ez funtzionatzea. Berrabiarazi irisgarritasun-zerbitzua indarrean jartzeko</string>
+  <string name="text_stable_mode">Modu egonkorra</string>
+  <string name="text_accessibility_service">Irisgarritasun Zerbitzuak</string>
+  <string name="text_dont_show_main_activity">Ez erakutsi interfaze nagusia</string>
+  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
+  <string name="summary_dont_show_main_activity">Exekutatu script-a zuzenean aplikazioa ireki ondoren</string>
+  <string name="text_hide_logs">Ezkutatu erregistroa</string>
+  <string name="key_hide_logs">Gako_ezkutatu_erregistroak</string>
+  <string name="summary_hide_logs">Erregistro-interfazea ez da bistaratzen, eta script-en laguntza behar da hurrengoan interfaze hau irekitzeko</string>
+  <string name="text_others">Beste</string>
+  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] %f segundotan exekutatzen amaitu da</string>
+  <string name="prompt_email">Posta elektronikoa</string>
+  <string name="prompt_password">Pasahitza</string>
+  <string name="action_sign_in">Saioa hasi edo erregistratu</string>
+  <string name="action_sign_in_short">Saioa hasi</string>
+  <string name="welcome">\"ongi etorri!\"</string>
+  <string name="invalid_username">Ez da baliozko erabiltzaile-izen bat</string>
+  <string name="invalid_password">Pasahitzak 5 karaktere baino handiagoa izan behar du</string>
+  <string name="login_failed">\"Errorea saioa hastean\"</string>
+  <string name="explain_accessibility_permission">Softwareak \"Irisgarritasun-zerbitzuak\" ireki behar du exekutatzeko, ireki \"Ezarpenak->Irisgarritasun-zerbitzuak\" edo \"Ezarpenak->Irisgarritasun zerbitzuak->Deskargatutako zerbitzu gehiago\", bilatu \" %s \" eta gaitu Irisgarritasun zerbitzuak.</string>
+  <string name="text_need_to_enable_accessibility_service">Irisgarritasun zerbitzuak gaitu behar dira</string>
+  <string name="summary_use_volume_to_stop_running">Jakinarazpen-barrak \"Aplikazio hau martxan dago\" jakinarazpena bistaratuko du beti programa martxan mantentzeko</string>
+</resources>

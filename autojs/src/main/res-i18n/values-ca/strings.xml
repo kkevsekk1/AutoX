@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Errada:</string>
+  <string name="text_start_running">Iniciar l\'operació</string>
+  <string name="text_path_is_empty">El camí està buit</string>
+  <string name="text_file_not_exists">L\'arxiu no existeix</string>
+  <string name="text_no_file_rw_permission">No hi ha permís de lectura i escriptura de fitxers</string>
+  <string name="text_no_running_script">Sense script en execució</string>
+  <string name="text_already_stop_n_scripts">%d scripts en execució s\'han aturat</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Aquest script requereix aquesta versió d\'Android per executar-se:</string>
+  <string name="ok">Segur</string>
+  <string name="cancel">Cancel · lar</string>
+  <string name="text_console">Consola</string>
+  <string name="text_no_floating_window_permission">Sense permís de finestra flotant</string>
+  <string name="text_accessibility_service_description">Necessari per automatitzar operacions d\'script (clic, premsa llarga, llisca, etc.), si està desactivat, només es poden executar scripts que no impliquin operacions automàtiques.</string>
+  <string name="text_should_enable_key_observing">La supervisió de claus no està activada, si us plau, activeu-la a la configuració del programari</string>
+  <string name="text_should_enable_gesture_observing">La supervisió de gestos no està activada, si us plau, activeu-la a la configuració del programari</string>
+  <string name="no_write_settings_permissin">No hi ha permís per modificar la configuració del sistema</string>
+  <string name="exception_notification_service_disabled">El servei de notificació no s\'està executant, torneu a activar el permís de notificació</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Aquest script requereix el número de versió d\'Auto.js %d o superior per executar-se</string>
+  <string name="text_drawer_open">Obriu el menú desplegable</string>
+  <string name="text_drawer_close">Tanqueu el menú desplegable</string>
+  <string name="no_read_phone_state_permissin">No hi ha permís per llegir la informació del dispositiu</string>
+</resources>

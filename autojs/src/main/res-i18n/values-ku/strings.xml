@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Şaşî:</string>
+  <string name="text_start_running">Dest bi operasyonê bike</string>
+  <string name="text_path_is_empty">Rê vala ye</string>
+  <string name="text_file_not_exists">Pel nîne</string>
+  <string name="text_no_file_rw_permission">Destûrên xwendin û nivîsandinê yên pelê tune</string>
+  <string name="text_no_running_script">No skrîpta diherike</string>
+  <string name="text_already_stop_n_scripts">%d skrîptên xebitandinê rawestiyan</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Ev skrîpt ji bo xebitandina vê guhertoya Android-ê hewce dike:</string>
+  <string name="ok">Emîn</string>
+  <string name="cancel">Bişûndekirin</string>
+  <string name="text_console">Konsolê</string>
+  <string name="text_no_floating_window_permission">Destûra pencereya herikîn tune</string>
+  <string name="text_accessibility_service_description">Ji bo otomatîkkirina operasyonên nivîsarê (bitikîne, çapkirina dirêj, swipe, hwd.) pêdivî ye, heke neçalak be, tenê skrîptên ku operasyonên otomatîkî tev nagirin dikarin bêne darve kirin.</string>
+  <string name="text_should_enable_key_observing">Çavdêriya mifteyê ne çalak e, ji kerema xwe wê di mîhengên nermalavê de çalak bike</string>
+  <string name="text_should_enable_gesture_observing">Çavdêriya tevgerê ne çalak e, ji kerema xwe wê di mîhengên nermalavê de çalak bike</string>
+  <string name="no_write_settings_permissin">Destûr tune ku mîhengên pergalê biguhezîne</string>
+  <string name="exception_notification_service_disabled">Karûbarê ragihandinê nayê xebitandin, ji kerema xwe destûra ragihandinê ji nû ve çalak bikin</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Ev skrîpt ji bo xebitandinê ji jimareya guhertoya Auto.js ya %d an mezintir hewce dike</string>
+  <string name="text_drawer_open">Pêşeka dakêşanê vekin</string>
+  <string name="text_drawer_close">Menûya dakêşanê bigire</string>
+  <string name="no_read_phone_state_permissin">Destûra xwendina agahdariya amûrê tune</string>
+</resources>

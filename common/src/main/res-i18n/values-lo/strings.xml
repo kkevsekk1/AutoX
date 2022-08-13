@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_no_floating_window_permission">ບໍ່ມີການອະນຸຍາດປ່ອງຢ້ຽມເລື່ອນ</string>
+  <string name="error_activity_not_found_for_apk_installing">ບໍ່ສາມາດຊອກຫາແອັບເພື່ອຕິດຕັ້ງ apk ໄດ້</string>
+</resources>

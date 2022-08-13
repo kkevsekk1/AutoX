@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Kuskure:</string>
+  <string name="text_start_running">Fara aiki</string>
+  <string name="text_path_is_empty">Hanya babu kowa</string>
+  <string name="text_file_not_exists">Fayil ba ya wanzu</string>
+  <string name="text_no_file_rw_permission">Babu izinin karantawa da rubuta fayil</string>
+  <string name="text_no_running_script">Babu rubutun gudu</string>
+  <string name="text_already_stop_n_scripts">%d rubutun da ke gudana ya tsaya</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Wannan rubutun yana buƙatar wannan sigar Android don aiki:</string>
+  <string name="ok">Tabbas</string>
+  <string name="cancel">Soke</string>
+  <string name="text_console">Wasan bidiyo</string>
+  <string name="text_no_floating_window_permission">Babu izinin taga mai iyo</string>
+  <string name="text_accessibility_service_description">Ana buƙata don sarrafa ayyukan rubutun (danna, dogon latsa, swipe, da sauransu), idan an kashe shi, kawai rubutun da ba su ƙunshi ayyukan atomatik ba za a iya aiwatar da su.</string>
+  <string name="text_should_enable_key_observing">Ba a kunna maɓalli na saka idanu ba, da fatan za a kunna shi a cikin saitunan software</string>
+  <string name="text_should_enable_gesture_observing">Ba a kunna saka idanu ba, da fatan za a kunna shi a cikin saitunan software</string>
+  <string name="no_write_settings_permissin">Babu izini don gyara saitunan tsarin</string>
+  <string name="exception_notification_service_disabled">Sabis na sanarwa baya gudana, da fatan za a sake kunna izinin sanarwa</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Wannan rubutun yana buƙatar lambar sigar Auto.js %d ko sama don aiki</string>
+  <string name="text_drawer_open">Bude menu na saukewa</string>
+  <string name="text_drawer_close">Rufe menu na saukewa</string>
+  <string name="no_read_phone_state_permissin">Babu izini don karanta bayanan na\'urar</string>
+</resources>

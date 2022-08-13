@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">गलती:</string>
+  <string name="text_start_running">संचालन शुरू करें</string>
+  <string name="text_path_is_empty">रास्ता खाली है</string>
+  <string name="text_file_not_exists">दस्तावेज मौजूद नहीं है</string>
+  <string name="text_no_file_rw_permission">कोई फ़ाइल पढ़ने और लिखने की अनुमति नहीं है</string>
+  <string name="text_no_running_script">कोई चल रही स्क्रिप्ट</string>
+  <string name="text_already_stop_n_scripts">%d चल रही स्क्रिप्ट बंद हो गई</string>
+  <string name="text_requires_sdk_version_to_run_the_script">इस स्क्रिप्ट को चलाने के लिए इस Android संस्करण की आवश्यकता है:</string>
+  <string name="ok">ज़रूर</string>
+  <string name="cancel">रद्द करना</string>
+  <string name="text_console">सांत्वना देना</string>
+  <string name="text_no_floating_window_permission">कोई फ़्लोटिंग विंडो अनुमति नहीं</string>
+  <string name="text_accessibility_service_description">स्क्रिप्ट संचालन को स्वचालित करने के लिए आवश्यक (क्लिक करें, लंबे समय तक दबाएं, स्वाइप करें, आदि), यदि अक्षम है, तो केवल उन स्क्रिप्ट को निष्पादित किया जा सकता है जिनमें स्वचालित संचालन शामिल नहीं है।</string>
+  <string name="text_should_enable_key_observing">कुंजी निगरानी सक्षम नहीं है, कृपया इसे सॉफ़्टवेयर सेटिंग में सक्षम करें</string>
+  <string name="text_should_enable_gesture_observing">हावभाव निगरानी सक्षम नहीं है, कृपया इसे सॉफ़्टवेयर सेटिंग में सक्षम करें</string>
+  <string name="no_write_settings_permissin">सिस्टम सेटिंग्स को संशोधित करने की अनुमति नहीं है</string>
+  <string name="exception_notification_service_disabled">अधिसूचना सेवा नहीं चल रही है, कृपया अधिसूचना अनुमति पुनः सक्षम करें</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">इस स्क्रिप्ट को चलाने के लिए Auto.js संस्करण संख्या %d या उच्चतर की आवश्यकता है</string>
+  <string name="text_drawer_open">ड्रॉप डाउन मेनू खोलें</string>
+  <string name="text_drawer_close">ड्रॉप डाउन मेनू बंद करें</string>
+  <string name="no_read_phone_state_permissin">डिवाइस की जानकारी पढ़ने की अनुमति नहीं</string>
+</resources>

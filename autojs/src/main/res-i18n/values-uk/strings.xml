@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Помилка:</string>
+  <string name="text_start_running">Почати операцію</string>
+  <string name="text_path_is_empty">Шлях порожній</string>
+  <string name="text_file_not_exists">Файл не існує</string>
+  <string name="text_no_file_rw_permission">Немає дозволів на читання та запис файлів</string>
+  <string name="text_no_running_script">Немає запущеного сценарію</string>
+  <string name="text_already_stop_n_scripts">%d запущених сценаріїв зупинено</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Для роботи цього сценарію потрібна така версія Android:</string>
+  <string name="ok">Звичайно</string>
+  <string name="cancel">Скасувати</string>
+  <string name="text_console">Консоль</string>
+  <string name="text_no_floating_window_permission">Немає дозволу на плаваюче вікно</string>
+  <string name="text_accessibility_service_description">Потрібен для автоматизації операцій сценарію (клацання, тривале натискання, проведення пальцем тощо). Якщо вимкнено, можна виконувати лише сценарії, які не передбачають автоматичних операцій.</string>
+  <string name="text_should_enable_key_observing">Моніторинг ключів не ввімкнено, увімкніть його в налаштуваннях програмного забезпечення</string>
+  <string name="text_should_enable_gesture_observing">Моніторинг жестів не ввімкнено, увімкніть його в налаштуваннях програмного забезпечення</string>
+  <string name="no_write_settings_permissin">Немає дозволу змінювати налаштування системи</string>
+  <string name="exception_notification_service_disabled">Служба сповіщень не працює, увімкніть знову дозвіл на сповіщення</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Для запуску цього сценарію потрібен номер версії Auto.js %d або вище</string>
+  <string name="text_drawer_open">Відкрийте спадне меню</string>
+  <string name="text_drawer_close">Закрийте спадне меню</string>
+  <string name="no_read_phone_state_permissin">Немає дозволу на читання інформації про пристрій</string>
+</resources>

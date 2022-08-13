@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Fehler:</string>
+  <string name="text_start_running">Betrieb starten</string>
+  <string name="text_path_is_empty">Pfad ist leer</string>
+  <string name="text_file_not_exists">Die Datei existiert nicht</string>
+  <string name="text_no_file_rw_permission">Keine Lese- und Schreibberechtigungen für die Datei</string>
+  <string name="text_no_running_script">Kein laufendes Skript</string>
+  <string name="text_already_stop_n_scripts">%d laufende Skripte wurden angehalten</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Dieses Skript erfordert die Ausführung dieser Android-Version:</string>
+  <string name="ok">Sicher</string>
+  <string name="cancel">Absagen</string>
+  <string name="text_console">Konsole</string>
+  <string name="text_no_floating_window_permission">Keine schwebende Fensterberechtigung</string>
+  <string name="text_accessibility_service_description">Erforderlich zum Automatisieren von Skriptvorgängen (Klicken, langes Drücken, Wischen usw.). Wenn deaktiviert, können nur Skripts ausgeführt werden, die keine automatischen Vorgänge beinhalten.</string>
+  <string name="text_should_enable_key_observing">Die Tastenüberwachung ist nicht aktiviert, bitte aktivieren Sie sie in den Softwareeinstellungen</string>
+  <string name="text_should_enable_gesture_observing">Die Gestenüberwachung ist nicht aktiviert, bitte aktivieren Sie sie in den Softwareeinstellungen</string>
+  <string name="no_write_settings_permissin">Keine Berechtigung zum Ändern der Systemeinstellungen</string>
+  <string name="exception_notification_service_disabled">Der Benachrichtigungsdienst wird nicht ausgeführt, bitte aktivieren Sie die Benachrichtigungsberechtigung erneut</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Für die Ausführung dieses Skripts ist die Auto.js-Versionsnummer %d oder höher erforderlich</string>
+  <string name="text_drawer_open">Öffnen Sie das Dropdown-Menü</string>
+  <string name="text_drawer_close">Schließen Sie das Dropdown-Menü</string>
+  <string name="no_read_phone_state_permissin">Keine Berechtigung zum Lesen von Geräteinformationen</string>
+</resources>

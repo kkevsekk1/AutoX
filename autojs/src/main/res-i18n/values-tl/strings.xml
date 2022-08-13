@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Pagkakamali:</string>
+  <string name="text_start_running">Simulan ang operasyon</string>
+  <string name="text_path_is_empty">Walang laman ang landas</string>
+  <string name="text_file_not_exists">Wala ang file</string>
+  <string name="text_no_file_rw_permission">Walang pahintulot sa pagbasa at pagsulat ng file</string>
+  <string name="text_no_running_script">Walang tumatakbong script</string>
+  <string name="text_already_stop_n_scripts">Huminto ang %d tumatakbong mga script</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Kinakailangan ng script na ito na tumakbo ang bersyon ng Android na ito:</string>
+  <string name="ok">Oo naman</string>
+  <string name="cancel">Kanselahin</string>
+  <string name="text_console">Console</string>
+  <string name="text_no_floating_window_permission">Walang pahintulot sa lumulutang na bintana</string>
+  <string name="text_accessibility_service_description">Kinakailangang i-automate ang mga pagpapatakbo ng script (i-click, pindutin nang matagal, mag-swipe, atbp.), kung hindi pinagana, ang mga script lamang na walang mga awtomatikong operasyon ang maaaring isagawa.</string>
+  <string name="text_should_enable_key_observing">Ang pangunahing pagsubaybay ay hindi pinagana, mangyaring paganahin ito sa mga setting ng software</string>
+  <string name="text_should_enable_gesture_observing">Ang pagsubaybay sa kilos ay hindi pinagana, mangyaring paganahin ito sa mga setting ng software</string>
+  <string name="no_write_settings_permissin">Walang pahintulot na baguhin ang mga setting ng system</string>
+  <string name="exception_notification_service_disabled">Hindi tumatakbo ang serbisyo ng notification, paki-enable muli ang pahintulot sa notification</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Nangangailangan ang script na ito ng numero ng bersyon ng Auto.js na %d o mas mataas para tumakbo</string>
+  <string name="text_drawer_open">Buksan ang drop down na menu</string>
+  <string name="text_drawer_close">Isara ang drop down na menu</string>
+  <string name="no_read_phone_state_permissin">Walang pahintulot na basahin ang impormasyon ng device</string>
+</resources>

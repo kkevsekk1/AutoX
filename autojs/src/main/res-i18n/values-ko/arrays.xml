@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>기본</item>  
+    <item>하루에 한 번 표시</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>무작위의</item>  
+    <item>소식</item>  
+    <item>사회적 접촉</item>  
+    <item>만화</item>  
+    <item>게임</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>편집 가능한 js 파일</item>  
+    <item>편집할 수 없는 바이너리</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>현지 문서</item>  
+    <item>온라인 문서</item> 
+  </string-array>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">טעות:</string>
+  <string name="text_start_running">להתחיל פעולה</string>
+  <string name="text_path_is_empty">השביל ריק</string>
+  <string name="text_file_not_exists">הקובץ אינו קיים</string>
+  <string name="text_no_file_rw_permission">אין הרשאות קריאה וכתיבה של קובץ</string>
+  <string name="text_no_running_script">אין סקריפט פועל</string>
+  <string name="text_already_stop_n_scripts">%d הפעלת סקריפטים הופסקה</string>
+  <string name="text_requires_sdk_version_to_run_the_script">הסקריפט הזה מחייב את גרסת האנדרואיד הזו כדי לרוץ:</string>
+  <string name="ok">בטוח</string>
+  <string name="cancel">לְבַטֵל</string>
+  <string name="text_console">לְנַחֵם</string>
+  <string name="text_no_floating_window_permission">אין הרשאת חלון צף</string>
+  <string name="text_accessibility_service_description">נדרש לאוטומציה של פעולות סקריפט (לחיצה, לחיצה ארוכה, החלקה וכו\'), אם מושבת, ניתן לבצע רק סקריפטים שאינם כוללים פעולות אוטומטיות.</string>
+  <string name="text_should_enable_key_observing">ניטור מפתח אינו מופעל, אנא הפעל אותו בהגדרות התוכנה</string>
+  <string name="text_should_enable_gesture_observing">ניטור מחוות אינו מופעל, אנא הפעל אותו בהגדרות התוכנה</string>
+  <string name="no_write_settings_permissin">אין הרשאה לשנות את הגדרות המערכת</string>
+  <string name="exception_notification_service_disabled">שירות ההתראות אינו פועל, אנא הפעל מחדש את הרשאת ההתראה</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">סקריפט זה דורש גרסה של Auto.js מספר %d ומעלה כדי להפעיל</string>
+  <string name="text_drawer_open">פתח את התפריט הנפתח</string>
+  <string name="text_drawer_close">סגור את התפריט הנפתח</string>
+  <string name="no_read_phone_state_permissin">אין הרשאה לקרוא מידע על המכשיר</string>
+</resources>

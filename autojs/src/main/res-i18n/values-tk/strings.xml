@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Ýalňyşlyk:</string>
+  <string name="text_start_running">Işe başla</string>
+  <string name="text_path_is_empty">Ýol boş</string>
+  <string name="text_file_not_exists">Faýl ýok</string>
+  <string name="text_no_file_rw_permission">Hiç bir faýl okamak we ýazmak üçin rugsat ýok</string>
+  <string name="text_no_running_script">Işleýän skript ýok</string>
+  <string name="text_already_stop_n_scripts">%d işleýän skriptler saklandy</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Bu skript bu Android wersiýasynyň işlemegini talap edýär:</string>
+  <string name="ok">Elbetde</string>
+  <string name="cancel">Elatyr</string>
+  <string name="text_console">Konsol</string>
+  <string name="text_no_floating_window_permission">Floüzýän penjire rugsady ýok</string>
+  <string name="text_accessibility_service_description">Scriptazgy amallaryny awtomatlaşdyrmak zerur (basyň, uzyn basyň, süpüriň we ş.m.), ýapyk bolsa, diňe awtomatiki amallary öz içine almaýan skriptler ýerine ýetirilip bilner.</string>
+  <string name="text_should_enable_key_observing">Esasy gözegçilik açyk däl, programma üpjünçiliginde işlediň</string>
+  <string name="text_should_enable_gesture_observing">Jest gözegçiligi açyk däl, programma üpjünçiliginde işlediň</string>
+  <string name="no_write_settings_permissin">Ulgam sazlamalaryny üýtgetmäge rugsat ýok</string>
+  <string name="exception_notification_service_disabled">Duýduryş hyzmaty işlemeýär, habarnamanyň rugsadyny täzeden açyň</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Bu skript işlemek üçin Auto.js wersiýa belgisi %d ýa-da has ýokary bolmagy talap edýär</string>
+  <string name="text_drawer_open">Açylýan menýuny açyň</string>
+  <string name="text_drawer_close">Açylýan menýuny ýapyň</string>
+  <string name="no_read_phone_state_permissin">Enjam maglumatyny okamaga rugsat ýok</string>
+</resources>

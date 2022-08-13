@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Bunaiteach</item>  
+    <item>Seall aon uair san latha</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>Air thuaiream</item>  
+    <item>Naidheachdan</item>  
+    <item>Conaltradh sòisealta</item>  
+    <item>Cartùn</item>  
+    <item>Geama</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>Js faidhle a ghabhas deasachadh</item>  
+    <item>Binary nach gabh atharrachadh</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Sgrìobhainnean ionadail</item>  
+    <item>Sgrìobhainnean air-loidhne</item> 
+  </string-array>
+</resources>

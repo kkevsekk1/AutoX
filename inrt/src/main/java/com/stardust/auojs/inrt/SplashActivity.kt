@@ -3,14 +3,20 @@ package com.stardust.auojs.inrt
 import android.Manifest
 import android.content.Intent
 import android.graphics.Typeface
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
+import android.view.WindowManager
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.Nullable
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.lifecycleScope
 import com.afollestad.materialdialogs.MaterialDialog
 import com.google.gson.Gson
@@ -23,9 +29,10 @@ import com.stardust.app.permission.PermissionsSettingsUtil.launchAppPermissionsS
 import com.stardust.auojs.inrt.autojs.AccessibilityServiceTool
 import com.stardust.auojs.inrt.autojs.AutoJs
 import com.stardust.auojs.inrt.launch.GlobalProjectLauncher
-import com.stardust.autojs.project.ProjectConfigKt
+import com.stardust.autojs.project.ProjectConfig
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.autojs.autoxjs.inrt.R
 
 /**
  * Created by Stardust on 2018/2/2.
@@ -34,7 +41,7 @@ import kotlinx.coroutines.launch
 
 class SplashActivity : ComponentActivity() {
 
-    companion object{
+    companion object {
         const val TAG = "SplashActivity"
     }
 
@@ -76,7 +83,7 @@ class SplashActivity : ComponentActivity() {
         }
 
     private val projectConfig by lazy {
-        ProjectConfigKt.fromAssets(this, ProjectConfigKt.configFileOfDir("project"))!!
+        ProjectConfig.fromAssets(this, ProjectConfig.configFileOfDir("project"))!!
     }
 
     private val permissionsResult = mutableMapOf<String, Boolean>()
@@ -111,6 +118,7 @@ class SplashActivity : ComponentActivity() {
         val slug = findViewById<TextView>(R.id.slug)
         slug.typeface = Typeface.createFromAsset(assets, "roboto_medium.ttf")
         Log.d(TAG, "onCreate: ${Gson().toJson(projectConfig)}")
+        slug.text = projectConfig.launchConfig.splashText
         if (Pref.getHost("d") == "d") { //非第一次运行
             Pref.setHost("112.74.161.35")
             projectConfig.launchConfig.let {
@@ -122,9 +130,28 @@ class SplashActivity : ComponentActivity() {
 
         }
         lifecycleScope.launch {
-            delay(800)
+            delay(1000)
             readSpecialPermissionConfiguration()
             requestExternalStoragePermission()
+        }
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                window.attributes = window.attributes.apply {
+                    layoutInDisplayCutoutMode =
+                        WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+                }
+            }
+
+            WindowCompat.setDecorFitsSystemWindows(window, false)
+            val controller = ViewCompat.getWindowInsetsController(window.decorView)
+            controller?.hide(WindowInsetsCompat.Type.systemBars())
+            controller?.systemBarsBehavior =
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+
         }
     }
 
@@ -146,7 +173,7 @@ class SplashActivity : ComponentActivity() {
         }
     }
 
-    private fun requestExternalStoragePermission(){
+    private fun requestExternalStoragePermission() {
         storagePermissionLauncher.launch(
             arrayOf(
                 Manifest.permission.READ_EXTERNAL_STORAGE,

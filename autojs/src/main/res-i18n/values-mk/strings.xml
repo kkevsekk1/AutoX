@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Грешка:</string>
+  <string name="text_start_running">Започнете со работа</string>
+  <string name="text_path_is_empty">Патеката е празна</string>
+  <string name="text_file_not_exists">Датотеката не постои</string>
+  <string name="text_no_file_rw_permission">Нема дозволи за читање и пишување датотеки</string>
+  <string name="text_no_running_script">Нема скрипта што работи</string>
+  <string name="text_already_stop_n_scripts">%d скрипти кои се извршуваат престанаа</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Оваа скрипта бара оваа верзија на Android да работи:</string>
+  <string name="ok">Секако</string>
+  <string name="cancel">Откажи</string>
+  <string name="text_console">Конзола</string>
+  <string name="text_no_floating_window_permission">Нема дозвола за пловечки прозорец</string>
+  <string name="text_accessibility_service_description">Потребно е за автоматизирање на операциите на скриптата (кликнување, долго притискање, лизгање, итн.), доколку е оневозможено, може да се извршат само скрипти кои не вклучуваат автоматски операции.</string>
+  <string name="text_should_enable_key_observing">Мониторингот на клучеви не е овозможен, овозможете го во поставките на софтверот</string>
+  <string name="text_should_enable_gesture_observing">Следењето со гестови не е овозможено, ве молиме овозможете го во поставките на софтверот</string>
+  <string name="no_write_settings_permissin">Нема дозвола за менување на системските поставки</string>
+  <string name="exception_notification_service_disabled">Услугата за известување не работи, ве молиме повторно овозможете ја дозволата за известување</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Оваа скрипта бара верзија на Auto.js број %d или повисок за да се изврши</string>
+  <string name="text_drawer_open">Отворете го паѓачкото мени</string>
+  <string name="text_drawer_close">Затворете го паѓачкото мени</string>
+  <string name="no_read_phone_state_permissin">Нема дозвола за читање информации за уредот</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Xihoxo:</string>
+  <string name="text_start_running">Sungula ntirho</string>
+  <string name="text_path_is_empty">Ndlela a yi na nchumu</string>
+  <string name="text_file_not_exists">Fayili a yi kona</string>
+  <string name="text_no_file_rw_permission">Ku hava mpfumelelo wo hlaya ni ku tsala fayili</string>
+  <string name="text_no_running_script">Ku hava tsalwa leri tirhaka</string>
+  <string name="text_already_stop_n_scripts">%d ku tirhisa switshuriwa swi yimile</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Script leyi yi lava leswaku vuhundzuluxeri lebyi bya Android byi tirha:</string>
+  <string name="ok">Tiyisisa</string>
+  <string name="cancel">Khansela</string>
+  <string name="text_console">Console ya xitombo</string>
+  <string name="text_no_floating_window_permission">Ku hava mpfumelelo wa fasitere leri papamalaka</string>
+  <string name="text_accessibility_service_description">Swi laveka ku endla matirhelo ya switshuriwa hi ku tirhisa michini (ku tikhoma, ku tshikilela nkarhi wo leha, swipa, na swin’wana), loko swi nga tirhi, ku nga tirhisiwa ntsena swikripti leswi nga katsiki matirhelo ya otomatiki.</string>
+  <string name="text_should_enable_key_observing">Ku vekiwa tihlo ka swilotlelo a ku tirhisiwi, hi kombela u ku pfumelela eka swiletelo swa software</string>
+  <string name="text_should_enable_gesture_observing">Ku vekiwa tihlo ka swikombiso swa mavoko a swi tirhisiwi, hi kombela u swi pfumelela eka swiletelo swa software</string>
+  <string name="no_write_settings_permissin">Ku hava mpfumelelo wo cinca swiletelo swa sisiteme</string>
+  <string name="exception_notification_service_disabled">Vukorhokeri bya switiviso a byi tirhi, hi kombela u tlhela u pfumelela mpfumelelo wa xitiviso</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Xitshuriwa lexi xi lava nomboro ya vuhundzuluxeri bya Auto.js %d kumbe ku tlula leswaku yi tirha</string>
+  <string name="text_drawer_open">Pfula menyu leyi nga ehansi</string>
+  <string name="text_drawer_close">Pfala menyu leyi nga ehansi</string>
+  <string name="no_read_phone_state_permissin">Ku hava mpfumelelo wo hlaya rungula ra xitirhisiwa</string>
+</resources>

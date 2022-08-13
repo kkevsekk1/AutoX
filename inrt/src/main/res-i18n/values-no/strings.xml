@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_no_accessibility_permission">Tilgjengelighetstjeneste ikke startet</string>
+  <string name="text_auto_operate_service_enabled_but_not_running">Tilgjengelighetstjenester er aktivert, men kjører ikke. Du kan prøve å aktivere eller starte telefonen på nytt</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">Kunne ikke aktivere tilgjengelighetstjeneste med root-privilegier</string>
+  <string name="text_settings">Sette opp</string>
+  <string name="text_script_running">Script kjøres</string>
+  <string name="text_keep_running_with_foreground_service">Bruk en forgrunnstjeneste for å holde appen i gang</string>
+  <string name="text_use_accessibility_service">Tilgjengelighetstjenester</string>
+  <string name="text_use_floating_window">Flytende vindu</string>
+  <string name="summary_enable_accessibility_service">Tilgjengelighetstjenesteoppgaver må være aktivert for å utføre (reservert)</string>
+  <string name="summary_enable_floating_window">Du må åpne det flytende vinduet for å se loggen (reservert element)</string>
+  <string name="text_use_volume_to_stop_running">Volum opp-tast stopper alle skript</string>
+  <string name="summary_enable_accessibility_service_by_root">Etter åpning vil kjøring av skriptet automatisk åpne tilgjengelighetstjenesten med root-privilegier (reservert element)</string>
+  <string name="text_enable_accessibility_service_by_root">Aktiver automatisk tjenester med root-privilegier</string>
+  <string name="summary_stable_mode">Layoutanalyse er mer stabil når den er aktivert, men et lite antall skript vil kanskje ikke fungere ordentlig. Start tilgjengelighetstjenesten på nytt for å tre i kraft</string>
+  <string name="text_stable_mode">Stabil modus</string>
+  <string name="text_accessibility_service">Tilgjengelighetstjenester</string>
+  <string name="text_dont_show_main_activity">Ikke vis hovedgrensesnittet</string>
+  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
+  <string name="summary_dont_show_main_activity">Kjør skriptet rett etter å ha åpnet appen</string>
+  <string name="text_hide_logs">Skjule loggen</string>
+  <string name="key_hide_logs">Key_hide_logs</string>
+  <string name="summary_hide_logs">Logggrensesnittet vises ikke, og skriptstøtte er nødvendig for å åpne dette grensesnittet neste gang</string>
+  <string name="text_others">Annen</string>
+  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Kjørte ferdig på %f sekunder</string>
+  <string name="prompt_email">E-post</string>
+  <string name="prompt_password">Passord</string>
+  <string name="action_sign_in">Logg inn eller registrert</string>
+  <string name="action_sign_in_short">Logg Inn</string>
+  <string name="welcome">\"Velkommen!\"</string>
+  <string name="invalid_username">Er ikke et gyldig brukernavn</string>
+  <string name="invalid_password">Passordet må være større enn 5 tegn</string>
+  <string name="login_failed">\"Innlogging feilet\"</string>
+  <string name="explain_accessibility_permission">Programvaren må åpne \"Tilgjengelighetstjenester\" for å kjøre, vennligst åpne \"Innstillinger->Tilgjengelighetstjenester\" eller \"Innstillinger->Tilgjengelighetstjenester->Flere nedlastede tjenester\", finn \" %s \" og aktiver tilgjengelighetstjenester</string>
+  <string name="text_need_to_enable_accessibility_service">Tilgjengelighetstjenester må aktiveres</string>
+  <string name="summary_use_volume_to_stop_running">Varslingslinjen vil alltid vise \"Denne appen kjører\"-varselet for å holde programmet i gang</string>
+</resources>

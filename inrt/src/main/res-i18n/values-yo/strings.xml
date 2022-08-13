@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_no_accessibility_permission">Iṣẹ iraye si ko bẹrẹ</string>
+  <string name="text_auto_operate_service_enabled_but_not_running">Awọn iṣẹ iraye si ṣiṣẹ ṣugbọn ko ṣiṣẹ, o le gbiyanju tun muu ṣiṣẹ tabi tun foonu rẹ bẹrẹ</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">Kuna lati jeki iṣẹ iraye si pẹlu awọn anfani gbongbo</string>
+  <string name="text_settings">Ṣeto</string>
+  <string name="text_script_running">Ṣiṣe akosile</string>
+  <string name="text_keep_running_with_foreground_service">Lo iṣẹ iwaju lati jẹ ki app rẹ ṣiṣẹ</string>
+  <string name="text_use_accessibility_service">Wiwọle Awọn iṣẹ</string>
+  <string name="text_use_floating_window">Ferese lilefoofo</string>
+  <string name="summary_enable_accessibility_service">Awọn iṣẹ-ṣiṣe iṣẹ iraye si gbọdọ ṣiṣẹ lati ṣiṣẹ (fipamọ)</string>
+  <string name="summary_enable_floating_window">O gbọdọ ṣii ferese lilefoofo lati wo akọọlẹ (ohun ti a fi pamọ)</string>
+  <string name="text_use_volume_to_stop_running">Bọtini iwọn didun da gbogbo awọn iwe afọwọkọ duro</string>
+  <string name="summary_enable_accessibility_service_by_root">Lẹhin ṣiṣi, ṣiṣe iwe afọwọkọ naa yoo ṣii iṣẹ iraye si laifọwọyi pẹlu awọn anfani gbongbo (ohun ti a fi pamọ)</string>
+  <string name="text_enable_accessibility_service_by_root">Mu awọn iṣẹ ṣiṣẹ laifọwọyi pẹlu awọn anfani gbongbo</string>
+  <string name="summary_stable_mode">Itupalẹ iṣeto jẹ iduroṣinṣin diẹ sii nigbati o ba ṣiṣẹ, ṣugbọn nọmba kekere ti awọn iwe afọwọkọ le ma ṣiṣẹ daradara. Tun iṣẹ iraye bẹrẹ lati mu ipa</string>
+  <string name="text_stable_mode">Ipo iduroṣinṣin</string>
+  <string name="text_accessibility_service">Wiwọle Awọn iṣẹ</string>
+  <string name="text_dont_show_main_activity">Maṣe ṣe afihan wiwo akọkọ</string>
+  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
+  <string name="summary_dont_show_main_activity">Ṣiṣe awọn iwe afọwọkọ taara lẹhin ṣiṣi ohun elo naa</string>
+  <string name="text_hide_logs">Pamọ log</string>
+  <string name="key_hide_logs">Key_hide_logs</string>
+  <string name="summary_hide_logs">Ni wiwo log ko han, ati atilẹyin iwe afọwọkọ nilo lati ṣii wiwo yii ni igba miiran</string>
+  <string name="text_others">Miiran</string>
+  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Ti pari ni ṣiṣiṣẹ ni %f iṣẹju-aaya</string>
+  <string name="prompt_email">Imeeli</string>
+  <string name="prompt_password">Ọrọigbaniwọle</string>
+  <string name="action_sign_in">Wọle tabi forukọsilẹ</string>
+  <string name="action_sign_in_short">Wo ile</string>
+  <string name="welcome">\"kaabo!\"</string>
+  <string name="invalid_username">Kii ṣe orukọ olumulo to wulo</string>
+  <string name="invalid_password">Ọrọigbaniwọle gbọdọ tobi ju awọn ohun kikọ 5 lọ</string>
+  <string name="login_failed">\"Wọle kuna\"</string>
+  <string name="explain_accessibility_permission">Sọfitiwia naa nilo lati ṣii “Awọn iṣẹ Wiwọle” lati ṣiṣẹ, jọwọ ṣii “Eto->Awọn iṣẹ Wiwọle” tabi “Eto->Awọn iṣẹ Wiwọle->Awọn iṣẹ Igbasilẹ Diẹ sii”, wa “ %s ”, ati mu Awọn iṣẹ Wiwọle ṣiṣẹ</string>
+  <string name="text_need_to_enable_accessibility_service">Awọn iṣẹ iraye si nilo lati mu ṣiṣẹ</string>
+  <string name="summary_use_volume_to_stop_running">Pẹpẹ ifitonileti yoo ma ṣafihan ifitonileti “app yii nṣiṣẹ” nigbagbogbo lati jẹ ki eto naa ṣiṣẹ</string>
+</resources>

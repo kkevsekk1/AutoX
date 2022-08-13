@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">錯誤:</string>
+  <string name="text_start_running">開始運行</string>
+  <string name="text_path_is_empty">路徑為空</string>
+  <string name="text_file_not_exists">文件不存在</string>
+  <string name="text_no_file_rw_permission">無文件讀寫權限</string>
+  <string name="text_no_running_script">沒有正在運行的腳本</string>
+  <string name="text_already_stop_n_scripts">已停止%d個正在運行的腳本</string>
+  <string name="text_requires_sdk_version_to_run_the_script">本腳本需要此安卓版本以上才能運行:</string>
+  <string name="ok">確定</string>
+  <string name="cancel">取消</string>
+  <string name="text_console">控制台</string>
+  <string name="text_no_floating_window_permission">沒有懸浮窗權限</string>
+  <string name="text_accessibility_service_description">使腳本自動操作(點擊、長按、滑動等)所需，若關閉則只能執行不涉及自動操作的腳本。</string>
+  <string name="text_should_enable_key_observing">按鍵監聽未啟用，請在軟件設置中開啟</string>
+  <string name="text_should_enable_gesture_observing">手勢監聽未啟用，請在軟件設置中開啟</string>
+  <string name="no_write_settings_permissin">沒有修改系統設置權限</string>
+  <string name="exception_notification_service_disabled">通知服務未運行，請重新啟用通知權限</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">本腳本需要Auto.js版本號%d以上才能運行</string>
+  <string name="text_drawer_open">打開側拉菜單</string>
+  <string name="text_drawer_close">關閉側拉菜單</string>
+  <string name="no_read_phone_state_permissin">沒有讀取設備信息權限</string>
+</resources>

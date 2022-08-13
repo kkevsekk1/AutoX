@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_no_floating_window_permission">மிதக்கும் சாளர அனுமதி இல்லை</string>
+  <string name="error_activity_not_found_for_apk_installing">Apk ஐ நிறுவுவதற்கான பயன்பாட்டைக் கண்டறிய முடியவில்லை</string>
+</resources>

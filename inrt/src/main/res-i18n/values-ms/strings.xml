@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_no_accessibility_permission">Perkhidmatan kebolehaksesan tidak dimulakan</string>
+  <string name="text_auto_operate_service_enabled_but_not_running">Perkhidmatan kebolehaksesan didayakan tetapi tidak berjalan, anda boleh cuba mendayakan semula atau memulakan semula telefon anda</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">Gagal mendayakan perkhidmatan kebolehaksesan dengan keistimewaan root</string>
+  <string name="text_settings">Sediakan</string>
+  <string name="text_script_running">Skrip dijalankan</string>
+  <string name="text_keep_running_with_foreground_service">Gunakan perkhidmatan latar depan untuk memastikan apl anda berjalan</string>
+  <string name="text_use_accessibility_service">Perkhidmatan Kebolehcapaian</string>
+  <string name="text_use_floating_window">Tingkap terapung</string>
+  <string name="summary_enable_accessibility_service">Tugas perkhidmatan kebolehcapaian mesti didayakan untuk dilaksanakan (terpelihara)</string>
+  <string name="summary_enable_floating_window">Anda mesti membuka tetingkap terapung untuk melihat log (item simpanan)</string>
+  <string name="text_use_volume_to_stop_running">Kekunci kelantangan naik menghentikan semua skrip</string>
+  <string name="summary_enable_accessibility_service_by_root">Selepas dibuka, menjalankan skrip akan membuka perkhidmatan kebolehaksesan secara automatik dengan keistimewaan Root (item simpanan)</string>
+  <string name="text_enable_accessibility_service_by_root">Dayakan perkhidmatan dengan keistimewaan root secara automatik</string>
+  <string name="summary_stable_mode">Analisis reka letak lebih stabil apabila didayakan, tetapi sebilangan kecil skrip mungkin tidak berfungsi dengan betul. Mulakan semula perkhidmatan kebolehaksesan untuk berkuat kuasa</string>
+  <string name="text_stable_mode">Mod stabil</string>
+  <string name="text_accessibility_service">Perkhidmatan Kebolehcapaian</string>
+  <string name="text_dont_show_main_activity">Jangan paparkan antara muka utama</string>
+  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
+  <string name="summary_dont_show_main_activity">Jalankan skrip terus selepas membuka apl</string>
+  <string name="text_hide_logs">Sembunyikan log</string>
+  <string name="key_hide_logs">Key_hide_logs</string>
+  <string name="summary_hide_logs">Antara muka log tidak dipaparkan dan sokongan skrip diperlukan untuk membuka antara muka ini pada masa akan datang</string>
+  <string name="text_others">Lain</string>
+  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Selesai berjalan dalam %f saat</string>
+  <string name="prompt_email">E-mel</string>
+  <string name="prompt_password">Kata laluan</string>
+  <string name="action_sign_in">Log masuk atau berdaftar</string>
+  <string name="action_sign_in_short">Log masuk</string>
+  <string name="welcome">\"selamat datang!\"</string>
+  <string name="invalid_username">Bukan nama pengguna yang sah</string>
+  <string name="invalid_password">Kata laluan mestilah lebih besar daripada 5 aksara</string>
+  <string name="login_failed">\"Daftar masuk gagal\"</string>
+  <string name="explain_accessibility_permission">Perisian perlu membuka \"Perkhidmatan Kebolehcapaian\" untuk dijalankan, sila buka \"Tetapan->Perkhidmatan Kebolehcapaian\" atau \"Tetapan->Perkhidmatan Kebolehcapaian->Lagi Perkhidmatan Dimuat Turun\", cari \" %s \" dan dayakan Perkhidmatan Kebolehcapaian</string>
+  <string name="text_need_to_enable_accessibility_service">Perkhidmatan kebolehaksesan perlu didayakan</string>
+  <string name="summary_use_volume_to_stop_running">Bar pemberitahuan akan sentiasa memaparkan pemberitahuan \"Apl ini sedang berjalan\" untuk memastikan program berjalan</string>
+</resources>

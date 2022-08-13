@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">തെറ്റ്:</string>
+  <string name="text_start_running">പ്രവർത്തനം ആരംഭിക്കുക</string>
+  <string name="text_path_is_empty">പാത ശൂന്യമാണ്</string>
+  <string name="text_file_not_exists">ഫയൽ നിലവിലില്ല</string>
+  <string name="text_no_file_rw_permission">ഫയൽ വായിക്കാനും എഴുതാനും അനുമതിയില്ല</string>
+  <string name="text_no_running_script">പ്രവർത്തിക്കുന്ന സ്ക്രിപ്റ്റ് ഇല്ല</string>
+  <string name="text_already_stop_n_scripts">%d പ്രവർത്തിക്കുന്ന സ്ക്രിപ്റ്റുകൾ നിർത്തി</string>
+  <string name="text_requires_sdk_version_to_run_the_script">ഈ സ്ക്രിപ്റ്റിന് ഈ Android പതിപ്പ് പ്രവർത്തിക്കേണ്ടതുണ്ട്:</string>
+  <string name="ok">തീർച്ചയായും</string>
+  <string name="cancel">റദ്ദാക്കുക</string>
+  <string name="text_console">കൺസോൾ</string>
+  <string name="text_no_floating_window_permission">ഫ്ലോട്ടിംഗ് വിൻഡോ അനുമതിയില്ല</string>
+  <string name="text_accessibility_service_description">സ്‌ക്രിപ്റ്റ് ഓപ്പറേഷനുകൾ (ക്ലിക്ക്, ലോംഗ് പ്രസ്സ്, സ്വൈപ്പ് മുതലായവ) ഓട്ടോമേറ്റ് ചെയ്യുന്നതിന് ആവശ്യമാണ്, പ്രവർത്തനരഹിതമാക്കിയാൽ, സ്വയമേവയുള്ള പ്രവർത്തനങ്ങൾ ഉൾപ്പെടാത്ത സ്‌ക്രിപ്റ്റുകൾ മാത്രമേ എക്‌സിക്യൂട്ട് ചെയ്യാനാകൂ.</string>
+  <string name="text_should_enable_key_observing">കീ മോണിറ്ററിംഗ് പ്രവർത്തനക്ഷമമാക്കിയിട്ടില്ല, സോഫ്റ്റ്‌വെയർ ക്രമീകരണങ്ങളിൽ ഇത് പ്രവർത്തനക്ഷമമാക്കുക</string>
+  <string name="text_should_enable_gesture_observing">ജെസ്റ്റർ മോണിറ്ററിംഗ് പ്രവർത്തനക്ഷമമാക്കിയിട്ടില്ല, സോഫ്റ്റ്‌വെയർ ക്രമീകരണങ്ങളിൽ ഇത് പ്രവർത്തനക്ഷമമാക്കുക</string>
+  <string name="no_write_settings_permissin">സിസ്റ്റം ക്രമീകരണങ്ങൾ പരിഷ്‌ക്കരിക്കുന്നതിന് അനുമതിയില്ല</string>
+  <string name="exception_notification_service_disabled">അറിയിപ്പ് സേവനം പ്രവർത്തിക്കുന്നില്ല, അറിയിപ്പ് അനുമതി വീണ്ടും പ്രവർത്തനക്ഷമമാക്കുക</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">ഈ സ്ക്രിപ്റ്റ് പ്രവർത്തിപ്പിക്കുന്നതിന് Auto.js പതിപ്പ് നമ്പർ %d അല്ലെങ്കിൽ ഉയർന്നത് ആവശ്യമാണ്</string>
+  <string name="text_drawer_open">ഡ്രോപ്പ് ഡൗൺ മെനു തുറക്കുക</string>
+  <string name="text_drawer_close">ഡ്രോപ്പ് ഡൗൺ മെനു അടയ്ക്കുക</string>
+  <string name="no_read_phone_state_permissin">ഉപകരണ വിവരങ്ങൾ വായിക്കാൻ അനുമതിയില്ല</string>
+</resources>

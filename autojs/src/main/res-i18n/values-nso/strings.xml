@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Phošo:</string>
+  <string name="text_start_running">Qala tshebetso</string>
+  <string name="text_path_is_empty">Tsela ga e na selo</string>
+  <string name="text_file_not_exists">Faele ga e gona</string>
+  <string name="text_no_file_rw_permission">Ga go na ditumelelo tša go bala le go ngwala tša faele</string>
+  <string name="text_no_running_script">Ga go na sengwalwa seo se šomago</string>
+  <string name="text_already_stop_n_scripts">%d dingwalwa tše di šomago di emišitšwe</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Sengwalwa se se nyaka gore phetolelo ye ya Android e šome:</string>
+  <string name="ok">Kgonthiša</string>
+  <string name="cancel">Khansela</string>
+  <string name="text_console">Console ya go homotša</string>
+  <string name="text_no_floating_window_permission">Ga go na tumelelo ya lefasetere leo le phaphametšego</string>
+  <string name="text_accessibility_service_description">E nyakega go dira gore ditiro tša sengwalwa di itiriše (klika, go tobetša nako ye telele, go swipa, bjalobjalo), ge e le gore di šitišitšwe, ke fela dingwalwa tšeo di sa akaretšego ditiro tša go itiriša tšeo di ka phethagatšwago.</string>
+  <string name="text_should_enable_key_observing">Go hlokomela senotlelo ga go kgontšhwa, hle e kgontšhe ka go dipeakanyo tša softwere</string>
+  <string name="text_should_enable_gesture_observing">Go hlokomela boitšhišinyo bja mmele ga go kgontšhwa, hle e kgontšhe ka go dipeakanyo tša softwere</string>
+  <string name="no_write_settings_permissin">Ga go na tumelelo ya go fetoša dipeakanyo tša tshepedišo</string>
+  <string name="exception_notification_service_disabled">Tirelo ya tsebišo ga e šome, hle kgontšha gape tumelelo ya tsebišo</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Sengwalwa se se nyaka nomoro ya phetolelo ya Auto.js %d goba go feta gore e šome</string>
+  <string name="text_drawer_open">Bula thepo ya go theoga</string>
+  <string name="text_drawer_close">Tswala menu ya go theoga</string>
+  <string name="no_read_phone_state_permissin">Ga go na tumelelo ya go bala tshedimošo ya sedirišwa</string>
+</resources>

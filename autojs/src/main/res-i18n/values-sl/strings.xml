@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Napaka:</string>
+  <string name="text_start_running">Začetek delovanja</string>
+  <string name="text_path_is_empty">Pot je prazna</string>
+  <string name="text_file_not_exists">Datoteka ne obstaja</string>
+  <string name="text_no_file_rw_permission">Ni dovoljenj za branje in pisanje datotek</string>
+  <string name="text_no_running_script">Ni delujočega skripta</string>
+  <string name="text_already_stop_n_scripts">%d zagnani skripti so ustavljeni</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Ta skript za delovanje zahteva to različico Androida:</string>
+  <string name="ok">Seveda</string>
+  <string name="cancel">Prekliči</string>
+  <string name="text_console">Konzola</string>
+  <string name="text_no_floating_window_permission">Ni dovoljenja za plavajoče okno</string>
+  <string name="text_accessibility_service_description">Zahtevano za avtomatizacijo operacij skripta (klik, dolg pritisk, vlečenje itd.), če je onemogočeno, se lahko izvajajo samo skripti, ki ne vključujejo samodejnih operacij.</string>
+  <string name="text_should_enable_key_observing">Spremljanje ključev ni omogočeno, omogočite ga v nastavitvah programske opreme</string>
+  <string name="text_should_enable_gesture_observing">Nadzor s kretnjami ni omogočen, omogočite ga v nastavitvah programske opreme</string>
+  <string name="no_write_settings_permissin">Ni dovoljenja za spreminjanje sistemskih nastavitev</string>
+  <string name="exception_notification_service_disabled">Storitev obveščanja se ne izvaja, znova omogočite dovoljenje za obveščanje</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Za izvajanje tega skripta je potrebna številka različice Auto.js %d ali višja</string>
+  <string name="text_drawer_open">Odprite spustni meni</string>
+  <string name="text_drawer_close">Zaprite spustni meni</string>
+  <string name="no_read_phone_state_permissin">Ni dovoljenja za branje informacij o napravi</string>
+</resources>

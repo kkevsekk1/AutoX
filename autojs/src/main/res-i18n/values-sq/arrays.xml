@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Default</item>  
+    <item>Shfaq një herë në ditë</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>Të rastësishme</item>  
+    <item>Lajme</item>  
+    <item>Kontakti social</item>  
+    <item>Film vizatimor</item>  
+    <item>Lojë</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>Skedar js i modifikueshëm</item>  
+    <item>Binar i paeditueshëm</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Dokumentacion lokal</item>  
+    <item>Dokumentacion online</item> 
+  </string-array>
+</resources>

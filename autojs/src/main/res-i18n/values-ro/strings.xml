@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Greşeală:</string>
+  <string name="text_start_running">Începe operațiunea</string>
+  <string name="text_path_is_empty">Calea este goală</string>
+  <string name="text_file_not_exists">Fisierul nu exista</string>
+  <string name="text_no_file_rw_permission">Nu există permisiuni de citire și scriere pentru fișiere</string>
+  <string name="text_no_running_script">Nici un script care rulează</string>
+  <string name="text_already_stop_n_scripts">%d scripturi care rulează s-au oprit</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Acest script necesită această versiune de Android pentru a rula:</string>
+  <string name="ok">Sigur</string>
+  <string name="cancel">Anulare</string>
+  <string name="text_console">Consolă</string>
+  <string name="text_no_floating_window_permission">Fără permisiunea ferestrei plutitoare</string>
+  <string name="text_accessibility_service_description">Necesar pentru automatizarea operațiunilor de script (clic, apăsare lungă, glisare etc.), dacă este dezactivat, pot fi executate doar scripturile care nu implică operații automate.</string>
+  <string name="text_should_enable_key_observing">Monitorizarea cheii nu este activată, vă rugăm să o activați în setările software-ului</string>
+  <string name="text_should_enable_gesture_observing">Monitorizarea gesturilor nu este activată, vă rugăm să o activați în setările software</string>
+  <string name="no_write_settings_permissin">Fără permisiunea de a modifica setările sistemului</string>
+  <string name="exception_notification_service_disabled">Serviciul de notificare nu rulează, vă rugăm să reactivați permisiunea de notificare</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Acest script necesită versiunea Auto.js cu numărul %d sau mai mare pentru a rula</string>
+  <string name="text_drawer_open">Deschideți meniul drop-down</string>
+  <string name="text_drawer_close">Închideți meniul drop-down</string>
+  <string name="no_read_phone_state_permissin">Fără permisiunea de a citi informațiile despre dispozitiv</string>
+</resources>

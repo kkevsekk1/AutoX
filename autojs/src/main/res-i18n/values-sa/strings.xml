@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">त्रुटि:</string>
+  <string name="text_start_running">प्रारम्भ संचालन</string>
+  <string name="text_path_is_empty">मार्गः शून्यः अस्ति</string>
+  <string name="text_file_not_exists">सञ्चिका नास्ति</string>
+  <string name="text_no_file_rw_permission">सञ्चिकापठनस्य लेखनस्य च अनुमतिः नास्ति</string>
+  <string name="text_no_running_script">न चलति स्क्रिप्ट्</string>
+  <string name="text_already_stop_n_scripts">%d चालितानि स्क्रिप्ट् स्थगितानि</string>
+  <string name="text_requires_sdk_version_to_run_the_script">अस्याः स्क्रिप्ट् चालयितुं एतत् एण्ड्रॉयड् संस्करणम् आवश्यकम् अस्ति:</string>
+  <string name="ok">निश्चयेन</string>
+  <string name="cancel">निरसयतु</string>
+  <string name="text_console">Console इति</string>
+  <string name="text_no_floating_window_permission">प्लवमानविण्डो अनुमतिः नास्ति</string>
+  <string name="text_accessibility_service_description">स्क्रिप्ट्-क्रियाणां स्वचालितीकरणाय आवश्यकम् (क्लिक्, दीर्घ-प्रेस्, स्वाइप् इत्यादीनि), यदि अक्षमम् अस्ति, तर्हि केवलं तानि स्क्रिप्ट्-कार्याणि निष्पादयितुं शक्यन्ते येषु स्वचालित-क्रियाः न सन्ति</string>
+  <string name="text_should_enable_key_observing">कुञ्जीनिरीक्षणं सक्षमं नास्ति, कृपया सॉफ्टवेयरसेटिंग्स् मध्ये सक्षमं कुर्वन्तु</string>
+  <string name="text_should_enable_gesture_observing">इशारानिरीक्षणं सक्षमं नास्ति, कृपया सॉफ्टवेयरसेटिंग्स् मध्ये सक्षमं कुर्वन्तु</string>
+  <string name="no_write_settings_permissin">प्रणालीसेटिंग्स् परिवर्तयितुं अनुमतिः नास्ति</string>
+  <string name="exception_notification_service_disabled">सूचनासेवा न चाल्यते, कृपया सूचनानुमतिम् पुनः सक्षमं कुर्वन्तु</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">अस्याः स्क्रिप्ट् चालयितुं Auto.js संस्करणसङ्ख्या %d अथवा उच्चतरस्य आवश्यकता अस्ति</string>
+  <string name="text_drawer_open">ड्रॉप् डाउन मेनू उद्घाटयन्तु</string>
+  <string name="text_drawer_close">ड्रॉप् डाउन मेनू बन्दं कुर्वन्तु</string>
+  <string name="no_read_phone_state_permissin">यन्त्रसूचना पठितुं अनुमतिः नास्ति</string>
+</resources>

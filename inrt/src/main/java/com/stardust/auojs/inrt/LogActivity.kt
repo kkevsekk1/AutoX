@@ -12,6 +12,7 @@ import com.stardust.auojs.inrt.autojs.AutoJs
 import com.stardust.auojs.inrt.launch.GlobalProjectLauncher
 import com.stardust.autojs.core.console.ConsoleView
 import com.stardust.autojs.core.console.ConsoleImpl
+import org.autojs.autoxjs.inrt.R
 
 class LogActivity : AppCompatActivity() {
 

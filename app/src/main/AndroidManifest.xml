@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="org.autojs.autojs">
+    package="org.autojs.autoxjs">
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -451,7 +451,7 @@
             android:theme="@style/AppTheme.Settings" />
         <activity android:name=".ui.error.ErrorReportActivity" />
         <activity
-            android:name=".external.tasker.TaskerScriptEditActivity_"
+            android:name="TaskerScriptEditActivity_"
             android:configChanges="orientation|screenSize" />
         <activity android:name=".ui.edit.ViewSampleActivity" />
         <activity
@@ -508,7 +508,7 @@
 
         <service
             android:name=".external.tile.LayoutBoundsTile"
-            android:exported="false"
+            android:exported="true"
             android:icon="@drawable/ic_circular_menu_bounds"
             android:label="@string/text_inspect_layout_bounds"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
@@ -522,7 +522,7 @@
         </service>
         <service
             android:name=".external.tile.LayoutHierarchyTile"
-            android:exported="false"
+            android:exported="true"
             android:icon="@drawable/ic_circular_menu_hierarchy"
             android:label="@string/text_inspect_layout_hierarchy"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
@@ -672,7 +672,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="org.autojs.autojs.ui.widget.DownloadReceiver"
+            android:name="org.autojs.autoxjs.ui.widget.DownloadReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />

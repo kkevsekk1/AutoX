@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Vergissing:</string>
+  <string name="text_start_running">Operatie starten</string>
+  <string name="text_path_is_empty">Pad is leeg</string>
+  <string name="text_file_not_exists">Bestand bestaat niet</string>
+  <string name="text_no_file_rw_permission">Geen lees- en schrijfrechten voor bestanden</string>
+  <string name="text_no_running_script">Geen lopend script</string>
+  <string name="text_already_stop_n_scripts">%d lopende scripts gestopt</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Dit script vereist dat deze Android-versie wordt uitgevoerd:</string>
+  <string name="ok">Zeker</string>
+  <string name="cancel">Annuleren</string>
+  <string name="text_console">Troosten</string>
+  <string name="text_no_floating_window_permission">Geen toestemming voor zwevend venster</string>
+  <string name="text_accessibility_service_description">Vereist om scriptbewerkingen te automatiseren (klikken, lang indrukken, vegen, enz.), indien uitgeschakeld, kunnen alleen scripts worden uitgevoerd die geen automatische bewerkingen omvatten.</string>
+  <string name="text_should_enable_key_observing">Sleutelbewaking is niet ingeschakeld, schakel het in de software-instellingen in</string>
+  <string name="text_should_enable_gesture_observing">Gebaarbewaking is niet ingeschakeld, schakel het in in de software-instellingen</string>
+  <string name="no_write_settings_permissin">Geen toestemming om systeeminstellingen te wijzigen</string>
+  <string name="exception_notification_service_disabled">De meldingsservice is niet actief, schakel de meldingsrechten opnieuw in</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Dit script vereist Auto.js versienummer %d of hoger om te worden uitgevoerd</string>
+  <string name="text_drawer_open">Open het vervolgkeuzemenu</string>
+  <string name="text_drawer_close">Sluit het vervolgkeuzemenu</string>
+  <string name="no_read_phone_state_permissin">Geen toestemming om apparaatinformatie te lezen</string>
+</resources>

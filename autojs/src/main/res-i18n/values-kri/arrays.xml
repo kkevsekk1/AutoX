@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Balans</item>  
+    <item>Sho wan tɛm insay di de</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>Jɔs apin</item>  
+    <item>Nyuz</item>  
+    <item>Soshal kɔntakt</item>  
+    <item>Katun fim dɛn</item>  
+    <item>Gem</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>Js fayl we yu kin ɛdit</item>  
+    <item>Baynary we nɔ de ɛdit</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Lokal dɔkyumɛnt dɛn</item>  
+    <item>Di dɔkyumɛnt dɛn we de na di Intanɛt</item> 
+  </string-array>
+</resources>

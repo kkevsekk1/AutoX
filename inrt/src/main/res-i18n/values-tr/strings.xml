@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_no_accessibility_permission">Erişilebilirlik hizmeti başlatılmadı</string>
+  <string name="text_auto_operate_service_enabled_but_not_running">Erişilebilirlik hizmetleri etkin ancak çalışmıyor, telefonunuzu yeniden etkinleştirmeyi veya yeniden başlatmayı deneyebilirsiniz</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">Kök ayrıcalıklarıyla erişilebilirlik hizmeti etkinleştirilemedi</string>
+  <string name="text_settings">Kurmak</string>
+  <string name="text_script_running">Komut dosyası çalıştırma</string>
+  <string name="text_keep_running_with_foreground_service">Uygulamanızı çalışır durumda tutmak için bir ön plan hizmeti kullanın</string>
+  <string name="text_use_accessibility_service">Erişilebilirlik Hizmetleri</string>
+  <string name="text_use_floating_window">Yüzer pencere</string>
+  <string name="summary_enable_accessibility_service">Erişilebilirlik hizmeti görevlerinin yürütülebilmesi için etkinleştirilmesi gerekir (ayrılmış)</string>
+  <string name="summary_enable_floating_window">Günlüğü görüntülemek için kayan pencereyi açmalısınız (ayrılmış öğe)</string>
+  <string name="text_use_volume_to_stop_running">Sesi açma tuşu tüm komut dosyalarını durdurur</string>
+  <string name="summary_enable_accessibility_service_by_root">Açtıktan sonra, komut dosyasını çalıştırmak, erişilebilirlik hizmetini Kök ayrıcalıklarıyla (ayrılmış öğe) otomatik olarak açacaktır.</string>
+  <string name="text_enable_accessibility_service_by_root">Hizmetleri kök ayrıcalıklarıyla otomatik olarak etkinleştirin</string>
+  <string name="summary_stable_mode">Düzen analizi, etkinleştirildiğinde daha kararlıdır, ancak az sayıda komut dosyası düzgün çalışmayabilir. Etkili olması için erişilebilirlik hizmetini yeniden başlatın</string>
+  <string name="text_stable_mode">Kararlı mod</string>
+  <string name="text_accessibility_service">Erişilebilirlik Hizmetleri</string>
+  <string name="text_dont_show_main_activity">Ana arayüzü görüntüleme</string>
+  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
+  <string name="summary_dont_show_main_activity">Uygulamayı açtıktan sonra komut dosyasını doğrudan çalıştırın</string>
+  <string name="text_hide_logs">Günlüğü gizle</string>
+  <string name="key_hide_logs">Key_hide_logs</string>
+  <string name="summary_hide_logs">Günlük arabirimi görüntülenmiyor ve bu arabirimi bir dahaki sefere açmak için komut dosyası desteği gerekiyor</string>
+  <string name="text_others">Başka</string>
+  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Çalıştırma %f saniye içinde tamamlandı</string>
+  <string name="prompt_email">E-posta</string>
+  <string name="prompt_password">Şifre</string>
+  <string name="action_sign_in">Giriş yap veya kayıt ol</string>
+  <string name="action_sign_in_short">Giriş yapmak</string>
+  <string name="welcome">\"Hoşgeldiniz!\"</string>
+  <string name="invalid_username">Geçerli bir kullanıcı adı değil</string>
+  <string name="invalid_password">Şifre 5 karakterden uzun olmalıdır</string>
+  <string name="login_failed">\"Giriş başarısız\"</string>
+  <string name="explain_accessibility_permission">Yazılımın çalışması için \"Erişilebilirlik Hizmetleri\"ni açması gerekiyor, lütfen \"Ayarlar->Erişilebilirlik Hizmetleri\" veya \"Ayarlar->Erişilebilirlik Hizmetleri->Daha Fazla İndirilen Hizmetler\"i açın, \" %s \" öğesini bulun ve Erişilebilirlik Hizmetlerini etkinleştirin</string>
+  <string name="text_need_to_enable_accessibility_service">Erişilebilirlik hizmetlerinin etkinleştirilmesi gerekiyor</string>
+  <string name="summary_use_volume_to_stop_running">Programın çalışmaya devam etmesi için bildirim çubuğu her zaman \"Bu uygulama çalışıyor\" bildirimini görüntüler.</string>
+</resources>

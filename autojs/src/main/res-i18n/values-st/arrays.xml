@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Ya kamehla</item>  
+    <item>Bontša hang ka letsatsi</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>Ka tšohanyetso</item>  
+    <item>Litaba</item>  
+    <item>Ho kopana le batho</item>  
+    <item>Setsoantso</item>  
+    <item>Papali</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>Js file e ka fetoloang</item>  
+    <item>E ke keng ea lekanngoa binary</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Litokomane tsa sebakeng seo</item>  
+    <item>Litokomane tsa inthaneteng</item> 
+  </string-array>
+</resources>

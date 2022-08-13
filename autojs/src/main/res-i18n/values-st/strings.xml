@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Phoso:</string>
+  <string name="text_start_running">Qala ts\'ebetso</string>
+  <string name="text_path_is_empty">Tsela ha e na letho</string>
+  <string name="text_file_not_exists">Faele ha e eo</string>
+  <string name="text_no_file_rw_permission">Ha ho na tumello ea ho bala le ho ngola faele</string>
+  <string name="text_no_running_script">Ha ho script e sebetsang</string>
+  <string name="text_already_stop_n_scripts">%d tse sebetsang li emisitsoe</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Mongolo ona o hloka hore mofuta ona oa Android o sebetse:</string>
+  <string name="ok">Ehlile</string>
+  <string name="cancel">Hlakola</string>
+  <string name="text_console">Tšelisa</string>
+  <string name="text_no_floating_window_permission">Ha ho tumello ea fensetere e phaphametseng</string>
+  <string name="text_accessibility_service_description">Ho hlokahala hore o iketsetse ts\'ebetso ea mongolo (tobetsa, tobetsa nako e telele, swipe, joalo-joalo), haeba e koetsoe, ke lingoloa feela tse sa kenyelletseng tšebetso ea othomathike e ka sebetsoang.</string>
+  <string name="text_should_enable_key_observing">Tlhokomelo ea bohlokoa ha e ea etsoa, ​​ka kopo e lumelle ho li-setting tsa software</string>
+  <string name="text_should_enable_gesture_observing">Tlhokomelo ea boitšisinyo ha e ea etsoa, ​​ka kopo e lumelle ho litlhophiso tsa software</string>
+  <string name="no_write_settings_permissin">Ha ho tumello ea ho fetola litlhophiso tsa sistimi</string>
+  <string name="exception_notification_service_disabled">Ts\'ebeletso ea tsebiso ha e sebetse, ka kopo lumella tumello ea tsebiso hape</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Sengoloa sena se hloka nomoro ea mofuta oa Auto.js %d kapa ho feta ho sebetsa</string>
+  <string name="text_drawer_open">Bula menu e theoha</string>
+  <string name="text_drawer_close">Koala menu e theoha</string>
+  <string name="no_read_phone_state_permissin">Ha ho tumello ea ho bala lintlha tsa sesebelisoa</string>
+</resources>

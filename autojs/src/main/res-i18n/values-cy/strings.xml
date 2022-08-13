@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Camgymeriad:</string>
+  <string name="text_start_running">Dechrau gweithredu</string>
+  <string name="text_path_is_empty">Llwybr yn wag</string>
+  <string name="text_file_not_exists">Nid yw\'r ffeil yn bodoli</string>
+  <string name="text_no_file_rw_permission">Dim caniatâd darllen ac ysgrifennu ffeil</string>
+  <string name="text_no_running_script">Dim sgript rhedeg</string>
+  <string name="text_already_stop_n_scripts">%d sgriptiau rhedeg wedi stopio</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Mae\'r sgript hon yn ei gwneud yn ofynnol i\'r fersiwn Android hon redeg:</string>
+  <string name="ok">Cadarn</string>
+  <string name="cancel">Canslo</string>
+  <string name="text_console">Consol</string>
+  <string name="text_no_floating_window_permission">Dim caniatâd ffenestr arnofio</string>
+  <string name="text_accessibility_service_description">Yn ofynnol i awtomeiddio gweithrediadau sgript (cliciwch, gwasg hir, swipe, ac ati), os yw\'n anabl, dim ond sgriptiau nad ydynt yn cynnwys gweithrediadau awtomatig y gellir eu gweithredu.</string>
+  <string name="text_should_enable_key_observing">Nid yw monitro allweddi wedi\'i alluogi, galluogwch ef yn y gosodiadau meddalwedd</string>
+  <string name="text_should_enable_gesture_observing">Nid yw monitro ystumiau wedi\'i alluogi, galluogwch ef mewn gosodiadau meddalwedd</string>
+  <string name="no_write_settings_permissin">Dim caniatâd i addasu gosodiadau system</string>
+  <string name="exception_notification_service_disabled">Nid yw\'r gwasanaeth hysbysu yn rhedeg, a wnewch chi ail-alluogi caniatâd hysbysu</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Mae angen rhif fersiwn Auto.js %d neu uwch ar y sgript hon i redeg</string>
+  <string name="text_drawer_open">Agorwch y gwymplen</string>
+  <string name="text_drawer_close">Caewch y gwymplen</string>
+  <string name="no_read_phone_state_permissin">Dim caniatâd i ddarllen gwybodaeth dyfais</string>
+</resources>

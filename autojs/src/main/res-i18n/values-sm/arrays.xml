@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string-array name="ad_showing_mode_keys"> 
+    <item>Faaletonu</item>  
+    <item>Fa\'aali tasi i le aso</item> 
+  </string-array>
+  <string-array name="ad_types_keys"> 
+    <item>Fa\'afuase\'i</item>  
+    <item>Tala fou</item>  
+    <item>Feso\'ota\'iga lautele</item>  
+    <item>Ata tifaga</item>  
+    <item>Taaloga</item> 
+  </string-array>
+  <string-array name="root_record_out_file_type_keys"> 
+    <item>Faila js fa\'asa\'o</item>  
+    <item>Binary e le mafai ona suia</item> 
+  </string-array>
+  <string-array name="keys_documentation_source"> 
+    <item>Fa\'amaumauga fa\'apitonu\'u</item>  
+    <item>Fa\'amaumauga i luga ole laiga</item> 
+  </string-array>
+</resources>

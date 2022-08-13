@@ -7,6 +7,8 @@ import androidx.preference.PreferenceManager;
 
 import com.stardust.app.GlobalAppContext;
 
+import org.autojs.autoxjs.inrt.R;
+
 import java.io.File;
 
 public class Pref {

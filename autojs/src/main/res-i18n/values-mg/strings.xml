@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
+<resources>
+  <string name="text_error">Fahadisoana:</string>
+  <string name="text_start_running">Manomboka miasa</string>
+  <string name="text_path_is_empty">Banga ny lalana</string>
+  <string name="text_file_not_exists">Tsy misy ny rakitra</string>
+  <string name="text_no_file_rw_permission">Tsy misy fahazoan-dàlana mamaky sy manoratra rakitra</string>
+  <string name="text_no_running_script">Tsy misy script mihazakazaka</string>
+  <string name="text_already_stop_n_scripts">%d scripts mandeha dia nijanona</string>
+  <string name="text_requires_sdk_version_to_run_the_script">Ity script ity dia mitaky ity kinova Android ity mba hampandehanana:</string>
+  <string name="ok">Azo antoka</string>
+  <string name="cancel">Hanafoana</string>
+  <string name="text_console">Hampionona</string>
+  <string name="text_no_floating_window_permission">Tsy nahazo alalana varavarankely mitsingevana</string>
+  <string name="text_accessibility_service_description">Ilaina ny manao automatique ny fampandehanana script (tsindrio, fanindriana lava, swipe, sns.), raha toa ka kilemaina, ny script izay tsy misy asa mandeha ho azy ihany no azo tanterahina.</string>
+  <string name="text_should_enable_key_observing">Tsy mandeha ny fanaraha-maso manan-danja, azafady ampidiro ao amin\'ny firafitry ny rindrambaiko</string>
+  <string name="text_should_enable_gesture_observing">Tsy mandeha ny fanaraha-maso ny fihetsehana, avelao izy io amin\'ny firafitry ny rindrambaiko</string>
+  <string name="no_write_settings_permissin">Tsy misy alalana hanova ny firafitry ny rafitra</string>
+  <string name="exception_notification_service_disabled">Tsy mandeha ny serivisy fampahafantarana, azafady avereno indray ny fahazoan-dàlana fampahafantarana</string>
+  <string name="text_requires_app_version_to_run_the_script" formatted="true">Mila laharan\'ny dikan-teny %d na mihoatra ny Auto.js ity script ity raha handeha</string>
+  <string name="text_drawer_open">Sokafy ny menio midina</string>
+  <string name="text_drawer_close">Akatona ny sakafo midina</string>
+  <string name="no_read_phone_state_permissin">Tsy misy alalana hamaky ny mombamomba ny fitaovana</string>
+</resources>
