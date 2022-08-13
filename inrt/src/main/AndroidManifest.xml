@@ -284,7 +284,7 @@
         tools:ignore="ProtectedPermissions" />
 
     <application
-        android:name=".App"
+        android:name="com.stardust.auojs.inrt.App"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="${appName}"
@@ -295,14 +295,14 @@
         tools:replace="android:label, android:allowBackup"
         tools:targetApi="m">
         <activity
-            android:name=".LoginActivity"
+            android:name="com.stardust.auojs.inrt.LoginActivity"
             android:label="@string/title_activity_login" />
 
-        <activity android:name=".LogActivity" />
-        <activity android:name=".FeatureActivity" />
+        <activity android:name="com.stardust.auojs.inrt.LogActivity" />
+        <activity android:name="com.stardust.auojs.inrt.FeatureActivity" />
 
         <activity
-            android:name=".SplashActivity"
+            android:name="com.stardust.auojs.inrt.SplashActivity"
             android:clearTaskOnLaunch="true"
             android:finishOnTaskLaunch="true"
             android:theme="@style/AppTheme.Splash"
@@ -312,7 +312,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SettingsActivity" />
+        <activity android:name="com.stardust.auojs.inrt.SettingsActivity" />
 
         <service
             android:name="com.stardust.notification.NotificationListenerService"

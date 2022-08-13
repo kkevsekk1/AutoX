@@ -28,6 +28,7 @@
     <string name="key_max_length_for_code_completion" translatable="false">key_max_length_for_code_completion</string>
     <string name="key_use_volume_control_record" translatable="false">key_use_volume_control_record</string>
     <string name="key_guard_mode" translatable="false">key_guard_mode</string>
+    <string name="default_value_script_dir_path" translatable="false">/脚本/</string>
 
     <string name="text_accessibility_service_description">使脚本自动操作(点击、长按、滑动等)所需，若关闭则只能执行不涉及自动操作的脚本。</string>
     <string name="text_new_file">新建文件</string>
@@ -388,7 +389,6 @@
     <string name="text_inspect_layout">布局分析</string>
     <string name="text_pointer_location">指针位置[Root]</string>
     <string name="text_change_script_dir">更改脚本文件夹路径</string>
-    <string name="default_value_script_dir_path" translatable="false">/脚本/</string>
     <string name="text_error_copy_file" formatted="true">发生错误: %s</string>
     <string name="text_debug">调试</string>
     <string name="text_set_breakpoint">断点</string>

@@ -451,7 +451,7 @@
             android:theme="@style/AppTheme.Settings" />
         <activity android:name=".ui.error.ErrorReportActivity" />
         <activity
-            android:name="TaskerScriptEditActivity_"
+            android:name=".external.tasker.TaskerScriptEditActivity_"
             android:configChanges="orientation|screenSize" />
         <activity android:name=".ui.edit.ViewSampleActivity" />
         <activity
