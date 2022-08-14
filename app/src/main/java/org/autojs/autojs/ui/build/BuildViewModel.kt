@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.stardust.app.GlobalAppContext
 import com.stardust.autojs.project.Asset
+import com.stardust.autojs.project.Constant
 import com.stardust.autojs.project.ProjectConfig
 import com.stardust.pio.PFiles
 import com.stardust.toast
@@ -194,8 +195,6 @@ class BuildViewModel(private val app: Application, private var source: String) :
     ) {
         syncToProjectConfig()
         CoroutineScope(Dispatchers.Main).launch {
-            saveLogo()
-            saveSplashIcon()
             writeProjectConfigAndRefreshView()
             onCompletion()
         }
@@ -203,6 +202,8 @@ class BuildViewModel(private val app: Application, private var source: String) :
 
     suspend fun writeProjectConfigAndRefreshView() {
         withContext(Dispatchers.IO) {
+            saveLogo()
+            saveSplashIcon()
             PFiles.write(
                 ProjectConfig.configFileOfDir(directory!!, configName),
                 projectConfig.toJson()
@@ -247,7 +248,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
             displaySplash = viewModel.displaySplash
             assets = getAssets()
             libs = getLibs()
-            abis = getAbiList()
+            abis = getAbiList().toMutableList()
             name = viewModel.appName
             versionCode = viewModel.versionCode.toInt()
             versionName = viewModel.versionName
@@ -370,7 +371,9 @@ class BuildViewModel(private val app: Application, private var source: String) :
     }
 
     private fun setAbis(projectConfig: ProjectConfig) {
-        abiList = projectConfig.abis.joinToString(",")
+        abiList = if (Constant.Abi.abis.any { projectConfig.abis.contains(it) }) {
+            projectConfig.abis.joinToString(", ")
+        } else Constant.Abi.abis.joinToString(", ")
     }
 
     private fun setAssets(projectConfig: ProjectConfig) {
@@ -572,8 +575,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
                 } finally {
                     apkBuilder.finish()
                     if (isOldProjectConfigExist) {
-                        oldProjectConfig = projectConfig.copy()
-                        writeProjectConfigAndRefreshView()
+                        saveConfig{}
                     }
                 }
             }

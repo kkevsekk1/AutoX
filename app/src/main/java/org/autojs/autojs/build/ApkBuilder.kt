@@ -22,7 +22,7 @@ import org.apache.commons.io.IOUtils
 import org.autojs.autojs.tool.copyTo
 import org.autojs.autojs.tool.parseUriOrNull
 import org.autojs.autojs.tool.unzip
-import org.autojs.autojs.ui.build.Constant
+import com.stardust.autojs.project.Constant
 import pxb.android.StringItem
 import pxb.android.axml.AxmlWriter
 import zhao.arsceditor.ArscUtil
@@ -207,6 +207,9 @@ class ApkBuilder(
     }
 
     private fun copyLibraries(config: ProjectConfig) {
+        if (!config.abis.containsAll(Constant.Libraries.TERMINAL_EMULATOR)) {
+            config.abis.addAll(Constant.Libraries.TERMINAL_EMULATOR)
+        }
         config.abis.forEach { abi ->
             config.libs.forEach { name ->
                 kotlin.runCatching {

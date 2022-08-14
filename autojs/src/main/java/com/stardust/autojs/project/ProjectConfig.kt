@@ -41,7 +41,7 @@ data class ProjectConfig(
     val buildDir: String = "build",
     var ignoredDirs: List<File> = emptyList(),
     var libs: List<String> = emptyList(),
-    var abis: List<String> = emptyList(),
+    var abis: MutableList<String> = arrayListOf<String>().apply { addAll(Constant.Abi.abis) },
     var assets: List<Asset> = emptyList(),
     var signingConfig: SigningConfig = SigningConfig(),
 ) {

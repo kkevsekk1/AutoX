@@ -1,4 +1,4 @@
-package org.autojs.autojs.ui.build
+package com.stardust.autojs.project
 
 /**
  * @author wilinz
@@ -6,8 +6,8 @@ package org.autojs.autojs.ui.build
  */
 object Constant {
     object Libraries {
-        val OPEN_CV = arrayOf("libopencv_java4.so")
-        val OCR = arrayOf(
+        val OPEN_CV = listOf("libopencv_java4.so")
+        val OCR = listOf(
             "libc++_shared.so",
             "libpaddle_light_api_shared.so",
             "libhiai.so",
@@ -15,8 +15,8 @@ object Constant {
             "libhiai_ir_build.so",
             "libNative.so"
         )
-        val P7ZIP = arrayOf("libp7zip.so")
-        val TERMINAL_EMULATOR = arrayOf(
+        val P7ZIP = listOf("libp7zip.so")
+        val TERMINAL_EMULATOR = listOf(
             "libjackpal-androidterm5.so",
             "libjackpal-termexec2.so"
         )
@@ -41,7 +41,7 @@ object Constant {
         const val ARMEABI_V7A = "armeabi-v7a"
         const val X86 = "x86"
         const val X86_64 = "x86_64"
-        val abis = arrayOf(ARM64_V8A, ARMEABI_V7A, X86, X86_64)
+        val abis = listOf(ARM64_V8A, ARMEABI_V7A, X86, X86_64)
     }
 
     object ResourceId {
