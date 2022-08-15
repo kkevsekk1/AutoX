@@ -27,7 +27,7 @@ object EncryptedScriptFileHeader {
     }
 
     fun isValidFile(bytes: ByteArray): Boolean {
-        for (i in 0 until BLOCK.size) {
+        for (i in BLOCK.indices) {
             if (bytes[i] != BLOCK[i]) {
                 return false
             }
