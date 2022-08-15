@@ -7,22 +7,20 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Zugriffsdienst konnte nicht mit Root-Rechten aktiviert werden</string>
   <string name="text_settings">Konfiguration</string>
   <string name="text_script_running">Skript ausführen</string>
-  <string name="text_keep_running_with_foreground_service">Verwenden Sie einen Vordergrunddienst, um Ihre App am Laufen zu halten</string>
+  <string name="text_keep_running_with_foreground_service">Verwenden Sie Vordergrunddienste, um Apps am Laufen zu halten</string>
   <string name="text_use_accessibility_service">Zugänglichkeitsdienste</string>
   <string name="text_use_floating_window">Schwebendes Fenster</string>
   <string name="summary_enable_accessibility_service">Zugänglichkeitsdienstaufgaben müssen zur Ausführung aktiviert sein (reserviert)</string>
   <string name="summary_enable_floating_window">Sie müssen das schwebende Fenster öffnen, um das Protokoll anzuzeigen (reserviertes Element).</string>
   <string name="text_use_volume_to_stop_running">Lauter-Taste stoppt alle Skripte</string>
-  <string name="summary_enable_accessibility_service_by_root">Nach dem Öffnen wird durch Ausführen des Skripts automatisch der Barrierefreiheitsdienst mit Root-Rechten geöffnet (reserviertes Element).</string>
+  <string name="summary_enable_accessibility_service_by_root">Wenn Sie das Skript nach dem Öffnen ausführen, wird der Barrierefreiheitsdienst automatisch mit Root-Rechten geöffnet (reserviertes Element).</string>
   <string name="text_enable_accessibility_service_by_root">Dienste automatisch mit Root-Rechten aktivieren</string>
   <string name="summary_stable_mode">Die Layoutanalyse ist stabiler, wenn sie aktiviert ist, aber eine kleine Anzahl von Skripten funktioniert möglicherweise nicht richtig. Starten Sie den Barrierefreiheitsdienst neu, damit er wirksam wird</string>
   <string name="text_stable_mode">Stabiler Modus</string>
   <string name="text_accessibility_service">Zugänglichkeitsdienste</string>
   <string name="text_dont_show_main_activity">Zeigen Sie nicht die Hauptschnittstelle an</string>
-  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
   <string name="summary_dont_show_main_activity">Führen Sie das Skript direkt nach dem Öffnen der App aus</string>
   <string name="text_hide_logs">Protokoll verstecken</string>
-  <string name="key_hide_logs">Key_hide_logs</string>
   <string name="summary_hide_logs">Die Protokollschnittstelle wird nicht angezeigt, und zum nächsten Öffnen dieser Schnittstelle ist Skriptunterstützung erforderlich</string>
   <string name="text_others">Sonstiges</string>
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Ausführung beendet in %f Sekunden</string>
@@ -37,4 +35,12 @@
   <string name="explain_accessibility_permission">Die Software muss „Eingabehilfen“ öffnen, damit sie ausgeführt werden kann. Bitte öffnen Sie „Einstellungen->Eingabehilfen“ oder „Einstellungen->Eingabehilfen->Weitere heruntergeladene Dienste“, suchen Sie nach „ %s “ und aktivieren Sie die Eingabehilfen</string>
   <string name="text_need_to_enable_accessibility_service">Barrierefreiheitsdienste müssen aktiviert werden</string>
   <string name="summary_use_volume_to_stop_running">Die Benachrichtigungsleiste zeigt immer die Benachrichtigung „Diese App wird ausgeführt“ an, um das Programm am Laufen zu halten</string>
+  <string name="text_to_open">Öffnen</string>
+  <string name="text_cancel">Absagen</string>
+  <string name="text_requires_background_start">Erfordert die Berechtigung, die Benutzeroberfläche im Hintergrund zu öffnen</string>
+  <string name="text_requires_background_start_desc">Benötigt die Berechtigung zum Öffnen der Oberfläche im Hintergrund ausgeführt zu werden, gehen Sie bitte zu den Einstellungen zum Öffnen</string>
+  <string name="text_required_floating_window_permission">Floating-Window-Berechtigung erforderlich</string>
+  <string name="text_please_enable_permissions_before_running">Bitte aktivieren Sie die Berechtigungen, bevor Sie sie ausführen!</string>
+  <string name="text_accessibility_service_is_not_turned_on">Der Barrierefreiheitsdienst ist nicht aktiviert</string>
+  <string name="text_accessibility_service_turned_on">Barrierefreiheit ist eingeschaltet</string>
 </resources>

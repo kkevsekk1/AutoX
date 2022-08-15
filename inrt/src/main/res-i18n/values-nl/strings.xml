@@ -7,22 +7,20 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Kan toegankelijkheidsservice niet inschakelen met rootrechten</string>
   <string name="text_settings">Opgericht</string>
   <string name="text_script_running">Script uitvoeren</string>
-  <string name="text_keep_running_with_foreground_service">Gebruik een voorgrondservice om uw app actief te houden</string>
+  <string name="text_keep_running_with_foreground_service">Gebruik voorgrondservices om apps actief te houden</string>
   <string name="text_use_accessibility_service">Toegankelijkheidsdiensten</string>
   <string name="text_use_floating_window">Zwevend raam</string>
   <string name="summary_enable_accessibility_service">Toegankelijkheidsservicetaken moeten zijn ingeschakeld om uit te voeren (gereserveerd)</string>
   <string name="summary_enable_floating_window">U moet het zwevende venster openen om het logboek te bekijken (gereserveerd item)</string>
   <string name="text_use_volume_to_stop_running">Volume omhoog-toets stopt alle scripts</string>
-  <string name="summary_enable_accessibility_service_by_root">Na het openen zal het uitvoeren van het script automatisch de toegankelijkheidsservice openen met root-rechten (gereserveerd item)</string>
+  <string name="summary_enable_accessibility_service_by_root">Als u het script na het openen uitvoert, wordt de toegankelijkheidsservice automatisch geopend met root-rechten (gereserveerd item)</string>
   <string name="text_enable_accessibility_service_by_root">Services automatisch inschakelen met root-rechten</string>
   <string name="summary_stable_mode">Lay-outanalyse is stabieler als deze is ingeschakeld, maar een klein aantal scripts werkt mogelijk niet goed. Start de toegankelijkheidsservice opnieuw om van kracht te worden</string>
   <string name="text_stable_mode">Stabiele modus</string>
   <string name="text_accessibility_service">Toegankelijkheidsdiensten</string>
   <string name="text_dont_show_main_activity">Geef de hoofdinterface niet weer</string>
-  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
   <string name="summary_dont_show_main_activity">Voer het script direct uit na het openen van de app</string>
   <string name="text_hide_logs">Verberg log</string>
-  <string name="key_hide_logs">Key_hide_logs</string>
   <string name="summary_hide_logs">De log-interface wordt niet weergegeven en scriptondersteuning is vereist om deze interface de volgende keer te openen</string>
   <string name="text_others">Ander</string>
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Voltooid in %f seconden</string>
@@ -37,4 +35,12 @@
   <string name="explain_accessibility_permission">De software moet \"Toegankelijkheidsservices\" openen om te kunnen werken, open \"Instellingen->Toegankelijkheidsservices\" of \"Instellingen->Toegankelijkheidsservices->Meer gedownloade services\", zoek \" %s \" en schakel Toegankelijkheidsservices in</string>
   <string name="text_need_to_enable_accessibility_service">Toegankelijkheidsservices moeten zijn ingeschakeld</string>
   <string name="summary_use_volume_to_stop_running">De meldingsbalk geeft altijd de melding \"Deze app wordt uitgevoerd\" weer om het programma actief te houden</string>
+  <string name="text_to_open">Openen</string>
+  <string name="text_cancel">Annuleren</string>
+  <string name="text_requires_background_start">Vereist toestemming om de interface op de achtergrond te openen</string>
+  <string name="text_requires_background_start_desc">Vereist toestemming om de interface op de achtergrond te openen, ga naar de instellingen om te openen</string>
+  <string name="text_required_floating_window_permission">Toestemming voor zwevend venster vereist</string>
+  <string name="text_please_enable_permissions_before_running">Schakel machtigingen in voordat u begint!</string>
+  <string name="text_accessibility_service_is_not_turned_on">Toegankelijkheidsservice is niet ingeschakeld</string>
+  <string name="text_accessibility_service_turned_on">Toegankelijkheid is ingeschakeld</string>
 </resources>

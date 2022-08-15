@@ -7,23 +7,21 @@
   <string name="text_enable_accessibility_service_by_root_timeout">I rahua te whakahohe i te ratonga uru me nga mana pakiaka</string>
   <string name="text_settings">Whakaturia</string>
   <string name="text_script_running">Rere tuhi</string>
-  <string name="text_keep_running_with_foreground_service">Whakamahia he ratonga papamua kia haere tonu to taupānga</string>
-  <string name="text_use_accessibility_service">Ratonga Urunga</string>
+  <string name="text_keep_running_with_foreground_service">Whakamahia nga ratonga papamua kia haere tonu nga taupānga</string>
+  <string name="text_use_accessibility_service">Ratonga Whakauru</string>
   <string name="text_use_floating_window">Matapihi mānu</string>
   <string name="summary_enable_accessibility_service">Me whakaahei nga mahi ratonga urunga ki te mahi (kua rahuitia)</string>
   <string name="summary_enable_floating_window">Me whakatuwhera e koe te matapihi maanu hei tiro i te rangitaki (tuemi kua rahuitia)</string>
   <string name="text_use_volume_to_stop_running">Ka mutu te taviri ake i nga tuhinga katoa</string>
-  <string name="summary_enable_accessibility_service_by_root">I muri i te whakatuwheratanga, ko te whakahaere i te tuhinga ka whakatuwhera aunoa i te ratonga uru me nga mana Root (tuemi kua rahuitia)</string>
+  <string name="summary_enable_accessibility_service_by_root">Ko te whakahaere i te tuhinga i muri i te whakatuwheratanga ka whakatuwhera aunoa i te ratonga uru me nga mana Root (tuemi kua rahuitia)</string>
   <string name="text_enable_accessibility_service_by_root">Whakahohe aunoa i nga ratonga whai mana pakiaka</string>
   <string name="summary_stable_mode">He pai ake te tātaritanga tahora ina whakahohea, engari he iti noa nga tuhinga ka kore e mahi tika. Tīmataria anō te ratonga uru kia whai mana</string>
   <string name="text_stable_mode">Aratau pumau</string>
-  <string name="text_accessibility_service">Ratonga Urunga</string>
+  <string name="text_accessibility_service">Ratonga Whakauru</string>
   <string name="text_dont_show_main_activity">Kaua e whakaatu i te atanga matua</string>
-  <string name="key_dont_show_main_activity">Kī_kaua_whakaatu_mahi_matua</string>
   <string name="summary_dont_show_main_activity">Whakahaerehia te tuhinga tika i muri i te whakatuwheratanga o te taupānga</string>
   <string name="text_hide_logs">Huna rangitaki</string>
-  <string name="key_hide_logs">Key_huna_logs</string>
-  <string name="summary_hide_logs">Kaore i te whakaatuhia te atanga rangitaki, me te tautoko tuhinga hei whakatuwhera i tenei atanga a muri ake nei</string>
+  <string name="summary_hide_logs">Ko te atanga rangitaki kaore i te whakaatuhia, me te tautoko tuhinga hei whakatuwhera i tenei atanga a muri ake nei</string>
   <string name="text_others">Atu</string>
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Kua mutu te whakahaere i roto i te %f hēkona</string>
   <string name="prompt_email">Ī-mēra</string>
@@ -37,4 +35,12 @@
   <string name="explain_accessibility_permission">Me whakatuwhera e te rorohiko \"Ratonga Whakaaetanga\" ki te whakahaere, whakatuwheratia \"Tautuhinga->Ratonga Whakaaetanga\" ranei \"Tautuhinga->Ratonga Whakauru->Ratonga Whakaaetanga Ake\", kimihia \" %s \", ka whakahohe i nga Ratonga Uru</string>
   <string name="text_need_to_enable_accessibility_service">Me whakahohea nga ratonga uru</string>
   <string name="summary_use_volume_to_stop_running">Ko te pae whakamohiotanga ka whakaatu tonu i te panui \"Kei te rere tenei taupānga\" kia haere tonu te kaupapa</string>
+  <string name="text_to_open">Ki te whakatuwhera</string>
+  <string name="text_cancel">Whakakore</string>
+  <string name="text_requires_background_start">Me whai whakaaetanga ki te whakatuwhera i te atanga i muri</string>
+  <string name="text_requires_background_start_desc">Me whai whakaaetanga ki te whakatuwhera i te atanga i te papamuri kia rere, tena koa haere ki nga tautuhinga hei whakatuwhera</string>
+  <string name="text_required_floating_window_permission">E hiahiatia ana te whakaaetanga matapihi māngi</string>
+  <string name="text_please_enable_permissions_before_running">Whakahohehia nga whakaaetanga i mua i te whakahaere!</string>
+  <string name="text_accessibility_service_is_not_turned_on">Ko te ratonga urunga kaore i te whakaka</string>
+  <string name="text_accessibility_service_turned_on">Kua whakakā te urunga</string>
 </resources>

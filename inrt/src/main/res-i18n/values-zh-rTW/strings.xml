@@ -19,10 +19,8 @@
   <string name="text_stable_mode">穩定模式</string>
   <string name="text_accessibility_service">無障礙服務</string>
   <string name="text_dont_show_main_activity">不顯示主界面</string>
-  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
   <string name="summary_dont_show_main_activity">打開應用後直接運行腳本</string>
   <string name="text_hide_logs">隱藏日誌</string>
-  <string name="key_hide_logs">Key_hide_logs</string>
   <string name="summary_hide_logs">不顯示日誌界面,在次打開本界面需要腳本支持</string>
   <string name="text_others">其他</string>
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ]運行結束，用時%f秒</string>
@@ -37,4 +35,12 @@
   <string name="explain_accessibility_permission">軟件需要打開\"無障礙服務\"才能運行，請打開”設置->無障礙服務“或”設置->無障礙服務->更多已下載的服務“，找到” %s “，開啟無障礙服務</string>
   <string name="text_need_to_enable_accessibility_service">需要啟用無障礙服務</string>
   <string name="summary_use_volume_to_stop_running">通知欄將會一直顯示“此應用運行中”的通知，使程序保持運行</string>
+  <string name="text_to_open">去打開</string>
+  <string name="text_cancel">取消</string>
+  <string name="text_requires_background_start">需要後台打開界面權限</string>
+  <string name="text_requires_background_start_desc">需要後台打開界面權限才能運行，請前往設置打開</string>
+  <string name="text_required_floating_window_permission">需要懸浮窗權限</string>
+  <string name="text_please_enable_permissions_before_running">請開啟權限後，再運行!</string>
+  <string name="text_accessibility_service_is_not_turned_on">無障礙服務未開啟</string>
+  <string name="text_accessibility_service_turned_on">無障礙服務已開啟</string>
 </resources>

@@ -7,22 +7,20 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Απέτυχε η ενεργοποίηση της υπηρεσίας προσβασιμότητας με δικαιώματα root</string>
   <string name="text_settings">Στήνω</string>
   <string name="text_script_running">Εκτέλεση σεναρίου</string>
-  <string name="text_keep_running_with_foreground_service">Χρησιμοποιήστε μια υπηρεσία προσκηνίου για να διατηρήσετε την εφαρμογή σας σε λειτουργία</string>
+  <string name="text_keep_running_with_foreground_service">Χρησιμοποιήστε υπηρεσίες προσκηνίου για να συνεχίσετε να εκτελούνται οι εφαρμογές</string>
   <string name="text_use_accessibility_service">Υπηρεσίες προσβασιμότητας</string>
   <string name="text_use_floating_window">Πλωτό παράθυρο</string>
-  <string name="summary_enable_accessibility_service">Οι εργασίες υπηρεσίας προσβασιμότητας πρέπει να είναι ενεργοποιημένες για να εκτελεστούν (δεσμευμένες)</string>
-  <string name="summary_enable_floating_window">Πρέπει να ανοίξετε το αιωρούμενο παράθυρο για να προβάλετε το αρχείο καταγραφής (δεσμευμένο στοιχείο)</string>
+  <string name="summary_enable_accessibility_service">Οι εργασίες υπηρεσίας προσβασιμότητας πρέπει να είναι ενεργοποιημένες για εκτέλεση (δεσμευμένες)</string>
+  <string name="summary_enable_floating_window">Πρέπει να ανοίξετε το αιωρούμενο παράθυρο για να δείτε το αρχείο καταγραφής (δεσμευμένο στοιχείο)</string>
   <string name="text_use_volume_to_stop_running">Το πλήκτρο αύξησης της έντασης του ήχου σταματά όλα τα σενάρια</string>
-  <string name="summary_enable_accessibility_service_by_root">Μετά το άνοιγμα, η εκτέλεση του σεναρίου θα ανοίξει αυτόματα την υπηρεσία προσβασιμότητας με δικαιώματα Root (δεσμευμένο στοιχείο)</string>
+  <string name="summary_enable_accessibility_service_by_root">Η εκτέλεση του σεναρίου μετά το άνοιγμα θα ανοίξει αυτόματα την υπηρεσία προσβασιμότητας με δικαιώματα Root (δεσμευμένο στοιχείο)</string>
   <string name="text_enable_accessibility_service_by_root">Αυτόματη ενεργοποίηση υπηρεσιών με δικαιώματα root</string>
   <string name="summary_stable_mode">Η ανάλυση διάταξης είναι πιο σταθερή όταν είναι ενεργοποιημένη, αλλά ένας μικρός αριθμός σεναρίων ενδέχεται να μην λειτουργεί σωστά. Επανεκκινήστε την υπηρεσία προσβασιμότητας για να τεθεί σε ισχύ</string>
   <string name="text_stable_mode">Σταθερή λειτουργία</string>
   <string name="text_accessibility_service">Υπηρεσίες προσβασιμότητας</string>
   <string name="text_dont_show_main_activity">Μην εμφανίζετε την κύρια διεπαφή</string>
-  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
   <string name="summary_dont_show_main_activity">Εκτελέστε το σενάριο απευθείας μετά το άνοιγμα της εφαρμογής</string>
   <string name="text_hide_logs">Απόκρυψη ημερολογίου</string>
-  <string name="key_hide_logs">Key_hide_logs</string>
   <string name="summary_hide_logs">Η διεπαφή καταγραφής δεν εμφανίζεται και απαιτείται υποστήριξη σεναρίων για να ανοίξετε αυτήν τη διεπαφή την επόμενη φορά</string>
   <string name="text_others">Άλλα</string>
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Ολοκληρώθηκε η εκτέλεση σε %f δευτερόλεπτα</string>
@@ -37,4 +35,12 @@
   <string name="explain_accessibility_permission">Το λογισμικό πρέπει να ανοίξει τις \"Υπηρεσίες προσβασιμότητας\" για να εκτελεστεί, ανοίξτε τις \"Ρυθμίσεις->Υπηρεσίες προσβασιμότητας\" ή \"Ρυθμίσεις->Υπηρεσίες προσβασιμότητας->Περισσότερες υπηρεσίες που έχουν ληφθεί\", βρείτε το \" %s \" και ενεργοποιήστε τις Υπηρεσίες προσβασιμότητας</string>
   <string name="text_need_to_enable_accessibility_service">Οι υπηρεσίες προσβασιμότητας πρέπει να είναι ενεργοποιημένες</string>
   <string name="summary_use_volume_to_stop_running">Η γραμμή ειδοποιήσεων θα εμφανίζει πάντα την ειδοποίηση \"Αυτή η εφαρμογή εκτελείται\" για να συνεχίσει να λειτουργεί το πρόγραμμα</string>
+  <string name="text_to_open">Για να ανοίξω</string>
+  <string name="text_cancel">Ματαίωση</string>
+  <string name="text_requires_background_start">Απαιτεί άδεια για το άνοιγμα της διεπαφής στο παρασκήνιο</string>
+  <string name="text_requires_background_start_desc">Απαιτείται άδεια για το άνοιγμα της διεπαφής στο παρασκήνιο για να εκτελεστεί, μεταβείτε στις ρυθμίσεις για άνοιγμα</string>
+  <string name="text_required_floating_window_permission">Απαιτείται άδεια πλωτού παραθύρου</string>
+  <string name="text_please_enable_permissions_before_running">Ενεργοποιήστε τα δικαιώματα πριν την εκτέλεση!</string>
+  <string name="text_accessibility_service_is_not_turned_on">Η υπηρεσία προσβασιμότητας δεν είναι ενεργοποιημένη</string>
+  <string name="text_accessibility_service_turned_on">Η προσβασιμότητα είναι ενεργοποιημένη</string>
 </resources>

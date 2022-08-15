@@ -4,10 +4,10 @@
 <resources>
   <string name="text_no_accessibility_permission">Хандалтын үйлчилгээг эхлүүлээгүй байна</string>
   <string name="text_auto_operate_service_enabled_but_not_running">Хандалтын үйлчилгээ идэвхжсэн боловч ажиллахгүй байгаа тул та утсаа дахин идэвхжүүлэх эсвэл дахин асааж үзээрэй</string>
-  <string name="text_enable_accessibility_service_by_root_timeout">Root эрх бүхий хандалтын үйлчилгээг идэвхжүүлж чадсангүй</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">Root эрхтэй хандалтын үйлчилгээг идэвхжүүлж чадсангүй</string>
   <string name="text_settings">Тохируулах</string>
   <string name="text_script_running">Скрипт ажиллуулах</string>
-  <string name="text_keep_running_with_foreground_service">Програмаа үргэлжлүүлэн ажиллуулахын тулд үндсэн үйлчилгээг ашиглаарай</string>
+  <string name="text_keep_running_with_foreground_service">Аппликешнүүдийг ажиллуулахын тулд урд талын үйлчилгээг ашиглана уу</string>
   <string name="text_use_accessibility_service">Хүртээмжтэй байдлын үйлчилгээ</string>
   <string name="text_use_floating_window">Хөвөгч цонх</string>
   <string name="summary_enable_accessibility_service">Хандалтын үйлчилгээний даалгавруудыг гүйцэтгэхийн тулд идэвхжүүлсэн байх ёстой (нөөцлөгдсөн)</string>
@@ -19,10 +19,8 @@
   <string name="text_stable_mode">Тогтвортой горим</string>
   <string name="text_accessibility_service">Хүртээмжтэй байдлын үйлчилгээ</string>
   <string name="text_dont_show_main_activity">Үндсэн интерфейсийг бүү харуул</string>
-  <string name="key_dont_show_main_activity">Гол_үйл ажиллагааг_ харуулахгүй_гээрэй</string>
   <string name="summary_dont_show_main_activity">Програмыг нээсний дараа шууд скриптийг ажиллуулна уу</string>
   <string name="text_hide_logs">Бүртгэлийг нуух</string>
-  <string name="key_hide_logs">Түлхүүрийн_нуух_лог</string>
   <string name="summary_hide_logs">Бүртгэлийн интерфейс харагдахгүй байгаа бөгөөд дараагийн удаа энэ интерфейсийг нээхийн тулд скриптийн дэмжлэг шаардлагатай</string>
   <string name="text_others">Бусад</string>
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] %f секундын дотор гүйж дууслаа</string>
@@ -37,4 +35,12 @@
   <string name="explain_accessibility_permission">Програм хангамжийг ажиллуулахын тулд \"Хандалтын үйлчилгээ\"-г нээх шаардлагатай. \"Тохиргоо->Хандалтын үйлчилгээ\" эсвэл \"Тохиргоо->Хандалтын үйлчилгээ->Татаж авсан бусад үйлчилгээ\"-г нээж, \" %s \"-г олоод, Хандалтын үйлчилгээг идэвхжүүлнэ үү.</string>
   <string name="text_need_to_enable_accessibility_service">Хандалтын үйлчилгээг идэвхжүүлэх шаардлагатай</string>
   <string name="summary_use_volume_to_stop_running">Мэдэгдлийн талбар нь програмыг ажиллуулахын тулд \"Энэ програм ажиллаж байна\" гэсэн мэдэгдлийг үргэлж харуулах болно</string>
+  <string name="text_to_open">Нээх</string>
+  <string name="text_cancel">Цуцлах</string>
+  <string name="text_requires_background_start">Ар талд интерфэйсийг нээх зөвшөөрөл шаардлагатай</string>
+  <string name="text_requires_background_start_desc">Ажиллуулахын тулд далд интерфэйсийг нээх зөвшөөрөл шаардлагатай тул нээхийн тулд тохиргоо руу очно уу</string>
+  <string name="text_required_floating_window_permission">Хөвөгч цонхны зөвшөөрөл шаардлагатай</string>
+  <string name="text_please_enable_permissions_before_running">Ажиллуулахаасаа өмнө зөвшөөрлийг идэвхжүүлнэ үү!</string>
+  <string name="text_accessibility_service_is_not_turned_on">Хандалтын үйлчилгээ асаагүй байна</string>
+  <string name="text_accessibility_service_turned_on">Хандалтыг идэвхжүүлсэн</string>
 </resources>

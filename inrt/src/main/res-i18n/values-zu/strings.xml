@@ -7,22 +7,20 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Yehlulekile ukunika amandla isevisi yokufinyeleleka ngamalungelo ezimpande</string>
   <string name="text_settings">Misa</string>
   <string name="text_script_running">Script run</string>
-  <string name="text_keep_running_with_foreground_service">Sebenzisa isevisi yangaphambili ukuze ugcine uhlelo lwakho lokusebenza lusebenza</string>
+  <string name="text_keep_running_with_foreground_service">Sebenzisa amasevisi angaphambili ukuze ugcine izinhlelo zokusebenza zisebenza</string>
   <string name="text_use_accessibility_service">Amasevisi Okufinyelela</string>
   <string name="text_use_floating_window">Iwindi elintantayo</string>
   <string name="summary_enable_accessibility_service">Imisebenzi yesevisi yokufinyelela kufanele inikwe amandla ukuze isetshenziswe (igodliwe)</string>
   <string name="summary_enable_floating_window">Kufanele uvule iwindi elintantayo ukuze ubuke ilogu (into egodliwe)</string>
-  <string name="text_use_volume_to_stop_running">Ukhiye wevolumu umisa zonke izikripthi</string>
-  <string name="summary_enable_accessibility_service_by_root">Ngemva kokuvula, ukusebenzisa iskripthi kuzovula ngokuzenzakalelayo isevisi yokufinyeleleka ngamalungelo e-Root (into egodliwe)</string>
+  <string name="text_use_volume_to_stop_running">Ukhiye wevolumu umisa yonke imibhalo</string>
+  <string name="summary_enable_accessibility_service_by_root">Ukuqalisa iskripthi ngemva kokuvula kuzovula ngokuzenzakalelayo isevisi yokufinyeleleka ngamalungelo e-Root (into egodliwe)</string>
   <string name="text_enable_accessibility_service_by_root">Nika amandla ngokuzenzakalela amasevisi ngamalungelo ezimpande</string>
   <string name="summary_stable_mode">Ukuhlaziywa kwesakhiwo kuzinze kakhulu uma kunikwe amandla, kodwa inombolo encane yeskripthi ingase ingasebenzi kahle. Qala kabusha isevisi yokufinyeleleka ukuze isebenze</string>
   <string name="text_stable_mode">Imodi ezinzile</string>
   <string name="text_accessibility_service">Amasevisi Okufinyelela</string>
   <string name="text_dont_show_main_activity">Ungabonisi isixhumi esibonakalayo esiyinhloko</string>
-  <string name="key_dont_show_main_activity">Ukhiye_ungabonisi_umsebenzi_oyinhloko</string>
   <string name="summary_dont_show_main_activity">Qalisa iskripthi ngokuqondile ngemva kokuvula uhlelo lokusebenza</string>
   <string name="text_hide_logs">Fihla ugodo</string>
-  <string name="key_hide_logs">Key_hide_logs</string>
   <string name="summary_hide_logs">I-interface yelogi ayiboniswa, futhi ukusekelwa kweskripthi kuyadingeka ukuze uvule lesi sikhombimsebenzisi ngokuzayo</string>
   <string name="text_others">Okunye</string>
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Iqedile ukusebenza ngemizuzwana %f</string>
@@ -37,4 +35,12 @@
   <string name="explain_accessibility_permission">Isofthiwe idinga ukuvula \"Izinsizakalo Zokufinyeleleka\" ukuze isebenze, sicela uvule \"Izilungiselelo->Izinsizakalo Zokufinyeleleka\" noma \"Izilungiselelo->Izinsizakalo Zokufinyeleleka->Izinsizakalo Ezilandiwe Ezengeziwe\", thola \" %s \", bese uvula Amasevisi Okufinyelela</string>
   <string name="text_need_to_enable_accessibility_service">Amasevisi okufinyeleleka adinga ukuvunyelwa</string>
   <string name="summary_use_volume_to_stop_running">Ibha yesaziso izohlala ibonisa isaziso sokuthi \"Lolu hlelo lokusebenza luyasebenza\" ukuze kugcinwe uhlelo lusebenza</string>
+  <string name="text_to_open">Ukuvula</string>
+  <string name="text_cancel">Khansela</string>
+  <string name="text_requires_background_start">Idinga imvume ukuze uvule isixhumi esibonakalayo ngemuva</string>
+  <string name="text_requires_background_start_desc">Idinga imvume yokuvula isixhumi esibonakalayo ngemuva ukuze isebenze, sicela uye kuzilungiselelo ukuze uvule</string>
+  <string name="text_required_floating_window_permission">Kudingeka imvume yewindi elintantayo</string>
+  <string name="text_please_enable_permissions_before_running">Sicela unike amandla izimvume ngaphambi kokuqalisa!</string>
+  <string name="text_accessibility_service_is_not_turned_on">Isevisi yokufinyeleleka ayivulwanga</string>
+  <string name="text_accessibility_service_turned_on">Ukufinyelela kuvuliwe</string>
 </resources>

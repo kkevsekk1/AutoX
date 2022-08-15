@@ -7,22 +7,20 @@
   <string name="text_enable_accessibility_service_by_root_timeout">ລົ້ມເຫລວໃນການເປີດໃຊ້ການບໍລິການຊ່ວຍເຂົ້າເຖິງດ້ວຍສິດທິຂອງຮາກ</string>
   <string name="text_settings">ຕັ້ງ​ຄ່າ</string>
   <string name="text_script_running">ແລ່ນສະຄຣິບ</string>
-  <string name="text_keep_running_with_foreground_service">ໃຊ້ການບໍລິການດ້ານໜ້າເພື່ອເຮັດໃຫ້ແອັບຂອງທ່ານເຮັດວຽກຢູ່</string>
+  <string name="text_keep_running_with_foreground_service">ໃຊ້ການບໍລິການດ້ານໜ້າເພື່ອຮັກສາແອັບຯໃຫ້ເຮັດວຽກ</string>
   <string name="text_use_accessibility_service">ບໍລິການຊ່ວຍເຂົ້າເຖິງ</string>
   <string name="text_use_floating_window">ປ່ອງຢ້ຽມທີ່ເລື່ອນໄດ້</string>
   <string name="summary_enable_accessibility_service">ວຽກງານການບໍລິການຊ່ວຍເຂົ້າເຖິງຕ້ອງຖືກເປີດໃຊ້ເພື່ອປະຕິບັດ (ສະຫງວນໄວ້)</string>
   <string name="summary_enable_floating_window">ທ່ານຕ້ອງເປີດປ່ອງຢ້ຽມທີ່ເລື່ອນໄດ້ເພື່ອເບິ່ງບັນທຶກ (ລາຍການທີ່ສະຫງວນໄວ້)</string>
-  <string name="text_use_volume_to_stop_running">ປຸ່ມເພີ່ມສຽງຈະຢຸດສະຄຣິບທັງໝົດ</string>
-  <string name="summary_enable_accessibility_service_by_root">ຫຼັງ​ຈາກ​ການ​ເປີດ​, ການ​ແລ່ນ​ສະ​ຄິບ​ຈະ​ເປີດ​ອັດ​ຕະ​ໂນ​ມັດ​ການ​ບໍ​ລິ​ການ​ການ​ເຂົ້າ​ເຖິງ​ທີ່​ມີ​ສິດ​ທິ​ຂອງ Root (ລາຍ​ການ​ຈອງ​)</string>
+  <string name="text_use_volume_to_stop_running">ປຸ່ມເພີ່ມສຽງຢຸດສະຄຣິບທັງໝົດ</string>
+  <string name="summary_enable_accessibility_service_by_root">ການແລ່ນສະຄຣິບຫຼັງຈາກການເປີດຈະເປີດບໍລິການການຊ່ວຍເຂົ້າເຖິງໂດຍອັດຕະໂນມັດດ້ວຍສິດທິ Root (ລາຍການທີ່ສະຫງວນໄວ້)</string>
   <string name="text_enable_accessibility_service_by_root">ເປີດໃຊ້ການບໍລິການອັດຕະໂນມັດດ້ວຍສິດທິຂອງຮາກ</string>
   <string name="summary_stable_mode">ການວິເຄາະໂຄງຮ່າງແມ່ນມີຄວາມໝັ້ນທ່ຽງກວ່າເມື່ອເປີດໃຊ້ງານ, ແຕ່ສະຄຣິບຈຳນວນໜ້ອຍອາດຈະເຮັດວຽກບໍ່ຖືກຕ້ອງ. ຣີສະຕາດການບໍລິການຊ່ວຍເຂົ້າເຖິງເພື່ອໃຫ້ມີຜົນ</string>
   <string name="text_stable_mode">ຮູບ​ແບບ​ຄວາມ​ຫມັ້ນ​ຄົງ​</string>
   <string name="text_accessibility_service">ບໍລິການຊ່ວຍເຂົ້າເຖິງ</string>
-  <string name="text_dont_show_main_activity">ຢ່າສະແດງການໂຕ້ຕອບຕົ້ນຕໍ</string>
-  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
+  <string name="text_dont_show_main_activity">ບໍ່ສະແດງການໂຕ້ຕອບຕົ້ນຕໍ</string>
   <string name="summary_dont_show_main_activity">ແລ່ນສະຄຣິບໂດຍກົງຫຼັງຈາກເປີດແອັບຯ</string>
   <string name="text_hide_logs">ເຊື່ອງບັນທຶກ</string>
-  <string name="key_hide_logs">Key_hide_logs</string>
   <string name="summary_hide_logs">ການໂຕ້ຕອບຂອງບັນທຶກບໍ່ຖືກສະແດງ, ແລະການຮອງຮັບສະຄິບແມ່ນຕ້ອງການເພື່ອເປີດການໂຕ້ຕອບນີ້ໃນຄັ້ງຕໍ່ໄປ</string>
   <string name="text_others">ອື່ນໆ</string>
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] ແລ່ນສຳເລັດໃນ %f ວິນາທີ</string>
@@ -37,4 +35,12 @@
   <string name="explain_accessibility_permission">ຊອບ​ແວ​ຕ້ອງ​ການ​ເປີດ \"ການ​ບໍ​ລິ​ການ​ການ​ເຂົ້າ​ເຖິງ​\" ເພື່ອ​ດໍາ​ເນີນ​ການ​, ກະ​ລຸ​ນາ​ເປີດ \"ການ​ຕັ້ງ​ຄ່າ​-​> ການ​ບໍ​ລິ​ການ​ການ​ເຂົ້າ​ເຖິງ​\" ຫຼື \"ການ​ຕັ້ງ​ຄ່າ​-​> ການ​ບໍ​ລິ​ການ​ການ​ເຂົ້າ​ເຖິງ​-​> ການ​ບໍ​ລິ​ການ​ດາວ​ໂຫຼດ​ເພີ່ມ​ເຕີມ​\"​, ຊອກ​ຫາ \" %s \" , ແລະ​ເປີດ​ບໍ​ລິ​ການ​ການ​ເຂົ້າ​ເຖິງ</string>
   <string name="text_need_to_enable_accessibility_service">ບໍລິການຊ່ວຍເຂົ້າເຖິງຕ້ອງຖືກເປີດໃຊ້</string>
   <string name="summary_use_volume_to_stop_running">ແຖບການແຈ້ງເຕືອນຈະສະແດງການແຈ້ງເຕືອນ \"ແອັບນີ້ກຳລັງເຮັດວຽກຢູ່\" ເພື່ອເຮັດໃຫ້ໂປຣແກຣມເຮັດວຽກຢູ່ສະເໝີ</string>
+  <string name="text_to_open">ເພື່ອ​ເປີດ</string>
+  <string name="text_cancel">ຍົກເລີກ</string>
+  <string name="text_requires_background_start">ຕ້ອງການການອະນຸຍາດເພື່ອເປີດການໂຕ້ຕອບໃນພື້ນຫຼັງ</string>
+  <string name="text_requires_background_start_desc">ຕ້ອງ​ການ​ອະ​ນຸ​ຍາດ​ເພື່ອ​ເປີດ​ການ​ໂຕ້​ຕອບ​ໃນ​ພື້ນ​ຖານ​ເພື່ອ​ດໍາ​ເນີນ​ການ​, ກະ​ລຸ​ນາ​ໄປ​ທີ່​ການ​ຕັ້ງ​ຄ່າ​ເພື່ອ​ເປີດ​</string>
+  <string name="text_required_floating_window_permission">ຕ້ອງການສິດອະນຸຍາດໜ້າຈໍເລື່ອນ</string>
+  <string name="text_please_enable_permissions_before_running">ກະລຸນາເປີດການອະນຸຍາດກ່ອນທີ່ຈະແລ່ນ!</string>
+  <string name="text_accessibility_service_is_not_turned_on">ບໍລິການຊ່ວຍເຂົ້າເຖິງບໍ່ໄດ້ເປີດ</string>
+  <string name="text_accessibility_service_turned_on">ການຊ່ວຍເຂົ້າເຖິງເປີດຢູ່</string>
 </resources>

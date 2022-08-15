@@ -7,22 +7,20 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Tajaajila dhaqqabummaa mirga hundee waliin dandeessisuun hin dandeenye</string>
   <string name="text_settings">Qixeessuu</string>
   <string name="text_script_running">Iskiriiptii fiigicha</string>
-  <string name="text_keep_running_with_foreground_service">Appiin keessan akka hojjetu gochuuf tajaajila fuulduraa fayyadamaa</string>
+  <string name="text_keep_running_with_foreground_service">Appilikeeshiniiwwan akka hojjetan gochuuf tajaajila fuulduraa fayyadamaa</string>
   <string name="text_use_accessibility_service">Tajaajila Dhaqqabummaa</string>
   <string name="text_use_floating_window">Foddaa lola\'aa</string>
   <string name="summary_enable_accessibility_service">Hojiiwwan tajaajila dhaqqabummaa raawwachuuf dandeessisuun dirqama (reserved) .</string>
   <string name="summary_enable_floating_window">Galmee ilaaluuf foddaa lola\'aa banuun dirqama (wanta eegame) .</string>
   <string name="text_use_volume_to_stop_running">Furtuun sagalee ol kaasu iskiriiptii hunda dhaaba</string>
-  <string name="summary_enable_accessibility_service_by_root">Erga banamee booda, iskiriiptii hojjechuun tajaajila dhaqqabummaa ofumaan mirga Root (wanta eegame) waliin bana .</string>
+  <string name="summary_enable_accessibility_service_by_root">Iskiriiptii erga banamee booda hojjechuun tajaajila dhaqqabummaa ofumaan mirga Root (wanta eegame) waliin bana .</string>
   <string name="text_enable_accessibility_service_by_root">Tajaajiloota mirga hundee qaban ofumaan dandeessisi</string>
   <string name="summary_stable_mode">Xiinxalli qindaa\'ina yeroo dandeessifamu caalaatti tasgabbaa\'aadha, garuu iskiriiptii muraasni sirriitti hojjechuu dhiisuu danda\'a. Tajaajila dhaqqabummaa hojiirra oolchuuf irra deebi\'ii jalqabi</string>
   <string name="text_stable_mode">Haala tasgabbaa’aa ta’e</string>
   <string name="text_accessibility_service">Tajaajila Dhaqqabummaa</string>
   <string name="text_dont_show_main_activity">Interfeesii guddaa hin agarsiisinaa</string>
-  <string name="key_dont_show_main_activity">Furtuu_gocha_ijoo_hin_agarsiisiin</string>
   <string name="summary_dont_show_main_activity">Erga app banannee booda kallattiin iskiriiptii hojjedhaa</string>
   <string name="text_hide_logs">Galmee dhoksi</string>
-  <string name="key_hide_logs">Furtuu_galmeewwan_dhoksuu</string>
   <string name="summary_hide_logs">Walqunnamtiin galmee hin agarsiifamu, yeroo itti aanutti walqunnamtii kana banuuf deeggarsa iskiriiptii barbaachisaadha</string>
   <string name="text_others">Kan biraa</string>
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] %f sekondii keessatti hojjechuu xumure</string>
@@ -37,4 +35,12 @@
   <string name="explain_accessibility_permission">Softiweeriin sun hojjechuuf \"Tajaajila Dhaqqabummaa\" banuu qaba, maaloo \"Sajoo->Tajaajila Dhaqqabummaa\" ykn \"Sajoo->Tajaajila Dhaqqabummaa->Tajaajiloota Dabalata Buufaman\" bani, \" %s \" barbaadi, fi Tajaajila Dhaqqabummaa dandeessisi</string>
   <string name="text_need_to_enable_accessibility_service">Tajaajilli dhaqqabummaa dandeessisuun barbaachisaadha</string>
   <string name="summary_use_volume_to_stop_running">Barri beeksisaa yeroo hunda beeksisa \"This app is running\" jedhu agarsiisa saganticha akka hojjetu taasisa</string>
+  <string name="text_to_open">Banuuf</string>
+  <string name="text_cancel">Haquu</string>
+  <string name="text_requires_background_start">Walqunnamtii duubatti banuuf hayyama barbaada</string>
+  <string name="text_requires_background_start_desc">Hojjechuuf hayyama interfeesii duubatti banuuf barbaada, maaloo banuuf gara qindaa\'inootaatti deemi</string>
+  <string name="text_required_floating_window_permission">Hayyama foddaa lola\'aa barbaachisa</string>
+  <string name="text_please_enable_permissions_before_running">Maaloo osoo hin fiigin dura hayyama dandeessisi!</string>
+  <string name="text_accessibility_service_is_not_turned_on">Tajaajilli dhaqqabummaa hin banamu</string>
+  <string name="text_accessibility_service_turned_on">Dhaqqabummaan ni banama</string>
 </resources>
