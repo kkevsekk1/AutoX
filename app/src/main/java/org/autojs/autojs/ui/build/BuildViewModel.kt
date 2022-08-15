@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.stardust.app.GlobalAppContext
 import com.stardust.autojs.project.Asset
+import com.stardust.autojs.project.Constant
 import com.stardust.autojs.project.ProjectConfig
 import com.stardust.pio.PFiles
 import com.stardust.toast
@@ -32,6 +33,7 @@ import org.autojs.autojs.build.ApkSigner
 import org.autojs.autojs.model.explorer.ExplorerFileItem
 import org.autojs.autojs.model.explorer.Explorers
 import org.autojs.autojs.model.script.ScriptFile
+import org.autojs.autojs.tool.getRandomString
 import org.autojs.autojs.tool.parseUriOrNull
 import org.autojs.autojs.tool.saveIcon
 import java.io.File
@@ -194,8 +196,6 @@ class BuildViewModel(private val app: Application, private var source: String) :
     ) {
         syncToProjectConfig()
         CoroutineScope(Dispatchers.Main).launch {
-            saveLogo()
-            saveSplashIcon()
             writeProjectConfigAndRefreshView()
             onCompletion()
         }
@@ -203,6 +203,8 @@ class BuildViewModel(private val app: Application, private var source: String) :
 
     suspend fun writeProjectConfigAndRefreshView() {
         withContext(Dispatchers.IO) {
+            saveLogo()
+            saveSplashIcon()
             PFiles.write(
                 ProjectConfig.configFileOfDir(directory!!, configName),
                 projectConfig.toJson()
@@ -243,11 +245,12 @@ class BuildViewModel(private val app: Application, private var source: String) :
         val viewModel = this
         projectConfig.apply {
             sourcePath = viewModel.sourcePath
+            projectDirectory = directory!!
             outputPath = viewModel.outputPath
             displaySplash = viewModel.displaySplash
             assets = getAssets()
             libs = getLibs()
-            abis = getAbiList()
+            abis = getAbiList().toMutableList()
             name = viewModel.appName
             versionCode = viewModel.versionCode.toInt()
             versionName = viewModel.versionName
@@ -269,6 +272,39 @@ class BuildViewModel(private val app: Application, private var source: String) :
                 alias = viewModel.keyStore?.alias
             }
         }
+    }
+
+    fun syncViewModelByConfig(projectConfig: ProjectConfig) {
+
+        projectConfig.sourcePath?.takeIf { it.isNotBlank() }?.let { sourcePath = it }
+        projectConfig.outputPath?.takeIf { it.isNotBlank() }?.let { outputPath = it }
+        projectConfig.name?.takeIf { it.isNotBlank() }?.let { appName = it }
+        projectConfig.packageName?.takeIf { it.isNotBlank() }?.let { packageName = it }
+        versionName = projectConfig.versionName
+        versionCode = projectConfig.versionCode.toString()
+        icon = projectConfig.icon?.let {
+            getUri(it)
+        }
+        mainScriptFile = projectConfig.mainScript ?: getMainScriptName()
+        isStableMode = projectConfig.launchConfig.isStableMode
+        isHideLauncher = projectConfig.launchConfig.isHideLauncher
+        isHideLogs = projectConfig.launchConfig.isHideLogs
+        isVolumeUpControl = projectConfig.launchConfig.isVolumeUpControl
+        splashText = projectConfig.launchConfig.splashText
+        serviceDesc = projectConfig.launchConfig.serviceDesc
+        splashIcon = projectConfig.launchConfig.splashIcon?.let {
+            getUri(it)
+        }
+
+        val signConfig = projectConfig.signingConfig
+        if (!signConfig.keyStore.isNullOrEmpty()) {
+            appSignKeyPath = signConfig.keyStore
+            keyStore = ApkSigner.loadApkKeyStore(signConfig.keyStore)
+        }
+        setPermissions(projectConfig)
+        setLibs(projectConfig)
+        setAssets(projectConfig)
+        setAbis(projectConfig)
     }
 
     private fun Uri.toRelativePathOrString(): String {
@@ -302,6 +338,14 @@ class BuildViewModel(private val app: Application, private var source: String) :
                 )
             )
         }
+        if (!isSingleFile) {
+            assetsList.add(
+                Asset(
+                    form = directory!!,
+                    to = "/${Constant.Assets.PROJECT}"
+                )
+            )
+        }
         return assetsList
     }
 
@@ -326,38 +370,6 @@ class BuildViewModel(private val app: Application, private var source: String) :
         return permissionList
     }
 
-    fun syncViewModelByConfig(projectConfig: ProjectConfig) {
-
-        projectConfig.sourcePath?.let { sourcePath = it }
-        projectConfig.outputPath?.let { outputPath = it }
-        projectConfig.name?.let { appName = it }
-        projectConfig.packageName?.let { packageName = it }
-        versionName = projectConfig.versionName
-        versionCode = projectConfig.versionCode.toString()
-        icon = projectConfig.icon?.let {
-            getUri(it)
-        }
-        mainScriptFile = projectConfig.mainScript ?: getMainScriptName()
-        isStableMode = projectConfig.launchConfig.isStableMode
-        isHideLauncher = projectConfig.launchConfig.isHideLauncher
-        isHideLogs = projectConfig.launchConfig.isHideLogs
-        isVolumeUpControl = projectConfig.launchConfig.isVolumeUpControl
-        splashText = projectConfig.launchConfig.splashText
-        serviceDesc = projectConfig.launchConfig.serviceDesc
-        splashIcon = projectConfig.launchConfig.splashIcon?.let {
-            getUri(it)
-        }
-
-        val signConfig = projectConfig.signingConfig
-        if (!signConfig.keyStore.isNullOrEmpty()) {
-            appSignKeyPath = signConfig.keyStore
-            keyStore = ApkSigner.loadApkKeyStore(signConfig.keyStore)
-        }
-        setPermissions(projectConfig)
-        setLibs(projectConfig)
-        setAssets(projectConfig)
-        setAbis(projectConfig)
-    }
 
     private fun getMainScriptName(): String {
         return if (source.endsWith(".js")) {
@@ -370,7 +382,9 @@ class BuildViewModel(private val app: Application, private var source: String) :
     }
 
     private fun setAbis(projectConfig: ProjectConfig) {
-        abiList = projectConfig.abis.joinToString(",")
+        abiList = if (Constant.Abi.abis.any { projectConfig.abis.contains(it) }) {
+            projectConfig.abis.joinToString(", ")
+        } else Constant.Abi.abis.joinToString(", ")
     }
 
     private fun setAssets(projectConfig: ProjectConfig) {
@@ -456,7 +470,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
         if (!checkPackageNameValid(packageName)) {
             packageName = app.getString(
                 R.string.format_default_package_name,
-                "test"
+                getRandomString(6)
             )
         }
         setSource(file)
@@ -478,6 +492,9 @@ class BuildViewModel(private val app: Application, private var source: String) :
         oldProjectConfig?.let {
             isOldProjectConfigExist = true
             projectConfig = it.copy()
+            it.mainScript?.let { mainScript ->
+                sourcePath = File(directory!!, mainScript).path
+            }
             syncViewModelByConfig(projectConfig)
         } ?: kotlin.run {
             outputPath = if (!isSingleFile) File(source, projectConfig.buildDir).path
@@ -495,7 +512,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
             String.format("%s_v%s.apk", projectConfig.name, projectConfig.versionName)
         )
         withContext(Dispatchers.IO) {
-            callApkBuilder(tmpDir, outApk, projectConfig)
+            callApkBuilder(tmpDir, outApk, projectConfig.copy())
         }
     }
 
@@ -571,10 +588,6 @@ class BuildViewModel(private val app: Application, private var source: String) :
                     onBuildFailed(e)
                 } finally {
                     apkBuilder.finish()
-                    if (isOldProjectConfigExist) {
-                        oldProjectConfig = projectConfig.copy()
-                        writeProjectConfigAndRefreshView()
-                    }
                 }
             }
         }

@@ -22,7 +22,7 @@ import org.apache.commons.io.IOUtils
 import org.autojs.autojs.tool.copyTo
 import org.autojs.autojs.tool.parseUriOrNull
 import org.autojs.autojs.tool.unzip
-import org.autojs.autojs.ui.build.Constant
+import com.stardust.autojs.project.Constant
 import pxb.android.StringItem
 import pxb.android.axml.AxmlWriter
 import zhao.arsceditor.ArscUtil
@@ -106,35 +106,32 @@ class ApkBuilder(
         if (PFiles.isDir(path)) {
             copyDir(path, "assets/project/")
         } else {
-            replaceFile(oldFile = File(path), "assets/project/main.js")
-            if (projectConfig!!.mainScript != "main.js") {
-                File(workspacePath, "assets/project/main.js").renameTo(
-                    File(
-                        workspacePath,
-                        "assets/project/${projectConfig!!.mainScript}"
-                    )
-                )
-            }
+            replaceFile(oldFile = File(path), "assets/project/${projectConfig!!.mainScript}")
         }
         return this
     }
 
-    fun copyDir(srcPath: String, relativeTargetPath: String) {
+    fun copyDir(
+        srcPath: String,
+        relativeTargetPath: String,
+        ignoredPath: List<String> = projectConfig!!.ignoredDirs,
+        ignoredName: List<String> = emptyList()
+    ) {
         val fromDir = File(srcPath)
         val toDir = File(workspacePath, relativeTargetPath)
         toDir.mkdirs()
         val children = fromDir.listFiles() ?: return
         for (child in children) {
+            val ignored = ignoredPath.contains(child.path) || ignoredName.contains(child.name)
+            if (ignored) continue
             if (child.isFile) {
                 if (child.name.endsWith(".js")) {
                     encryptToDir(child, toDir)
                 } else {
-                    FileInputStream(child).copyToAndClose(FileOutputStream(File(toDir, child.name)))
+                    child.copyTo(File(toDir, child.name), true)
                 }
             } else {
-                if (!projectConfig!!.ignoredDirs.contains(child)) {
-                    copyDir(child.path, PFiles.join(relativeTargetPath, child.name + "/"))
-                }
+                copyDir(child.path, PFiles.join(relativeTargetPath, child.name + "/"))
             }
         }
     }
@@ -184,13 +181,29 @@ class ApkBuilder(
 
     private fun copyAssets(config: ProjectConfig) {
         config.assets.forEach {
-            val form = it.form
+            var form = it.form
+            if (!form.matches(Regex("^.*?://.*|^/.*")) || form.startsWith("./")) {
+                form = File(projectConfig!!.projectDirectory!!, form).path
+            }
             val relativeTo = File("assets", it.to)
             val to = File(workspacePath, relativeTo.path)
 
             if (form.startsWith(Constant.Protocol.ASSETS)) {
                 val path = form.replace(Constant.Protocol.ASSETS + "/", "")
                 PFiles.copyAssetDir(GlobalAppContext.get().assets, path, to.path, null)
+                return@forEach
+            }
+
+            if (it.to == "/${Constant.Assets.PROJECT}") {
+                val file = File(form)
+                copyDir(
+                    srcPath = file.path,
+                    relativeTargetPath = relativeTo.path,
+                    ignoredPath = listOf(
+                        File(projectConfig!!.projectDirectory, ProjectConfig.CONFIG_FILE_NAME).path,
+                        projectConfig!!.sourcePath!!
+                    )
+                )
                 return@forEach
             }
 
@@ -203,10 +216,14 @@ class ApkBuilder(
                     relativeTargetPath = relativeTo.path,
                 )
             }
+
         }
     }
 
     private fun copyLibraries(config: ProjectConfig) {
+        if (!config.abis.containsAll(Constant.Libraries.TERMINAL_EMULATOR)) {
+            config.abis.addAll(Constant.Libraries.TERMINAL_EMULATOR)
+        }
         config.abis.forEach { abi ->
             config.libs.forEach { name ->
                 kotlin.runCatching {
@@ -244,7 +261,7 @@ class ApkBuilder(
         _progressState.emit(BuildState.BUILD)
         manifestEditor?.commit()
         manifestEditor?.writeTo(FileOutputStream(manifestFile))
-        val dir = File(projectConfig!!.sourcePath!!).parentFile
+        val dir = projectConfig!!.projectDirectory
         buildArsc(
             onReplaceIcon = { key, path ->
                 val icon: String? = when (key) {

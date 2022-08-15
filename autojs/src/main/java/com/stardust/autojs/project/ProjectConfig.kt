@@ -27,7 +27,7 @@ data class ProjectConfig(
     @SerializedName("icon")
     var icon: String? = null,
     @SerializedName("main")
-    var mainScript: String = "main.js",
+    var mainScript: String? = null,
     @SerializedName("scripts")
     var scripts: Map<String, ScriptConfig> = HashMap(),
     @SerializedName("build")
@@ -37,11 +37,12 @@ data class ProjectConfig(
     @SerializedName("useFeatures")
     var features: ArrayList<String> = arrayListOf(),
     var sourcePath: String? = null,
+    var projectDirectory: String? = null,
     var outputPath: String? = null,
     val buildDir: String = "build",
-    var ignoredDirs: List<File> = emptyList(),
+    var ignoredDirs: List<String> = emptyList(),
     var libs: List<String> = emptyList(),
-    var abis: List<String> = emptyList(),
+    var abis: MutableList<String> = arrayListOf<String>().apply { addAll(Constant.Abi.abis) },
     var assets: List<Asset> = emptyList(),
     var signingConfig: SigningConfig = SigningConfig(),
 ) {
@@ -60,7 +61,7 @@ data class ProjectConfig(
                 !name.isNullOrBlank()
                         && !packageName.isNullOrEmpty()
                         && versionName.isNotEmpty()
-                        && mainScript.isNotEmpty()
+                        && !mainScript.isNullOrEmpty()
                         && versionCode != -1
             }
         }
@@ -172,7 +173,7 @@ data class LaunchConfig(
     @SerializedName("stableMode")
     var isStableMode: Boolean = false,
     @SerializedName("volumeUpcontrol")
-    var isVolumeUpControl: Boolean = true,
+    var isVolumeUpControl: Boolean = false,
     @SerializedName("hideLauncher")
     var isHideLauncher: Boolean = false,
 )

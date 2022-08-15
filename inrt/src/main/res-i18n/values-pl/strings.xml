@@ -7,22 +7,20 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Nie udało się włączyć usługi ułatwień dostępu z uprawnieniami administratora</string>
   <string name="text_settings">Organizować coś</string>
   <string name="text_script_running">Uruchomienie skryptu</string>
-  <string name="text_keep_running_with_foreground_service">Użyj usługi pierwszoplanowej, aby utrzymać działanie aplikacji</string>
+  <string name="text_keep_running_with_foreground_service">Korzystaj z usług pierwszoplanowych, aby utrzymać działanie aplikacji</string>
   <string name="text_use_accessibility_service">Usługi ułatwień dostępu</string>
   <string name="text_use_floating_window">Pływające okno</string>
   <string name="summary_enable_accessibility_service">Zadania usługi ułatwień dostępu muszą być włączone do wykonywania (zarezerwowane)</string>
   <string name="summary_enable_floating_window">Musisz otworzyć pływające okno, aby wyświetlić dziennik (zarezerwowany element)</string>
   <string name="text_use_volume_to_stop_running">Klawisz zwiększania głośności zatrzymuje wszystkie skrypty</string>
-  <string name="summary_enable_accessibility_service_by_root">Po otwarciu, uruchomienie skryptu automatycznie otworzy usługę ułatwień dostępu z uprawnieniami Root (pozycja zastrzeżona)</string>
+  <string name="summary_enable_accessibility_service_by_root">Uruchomienie skryptu po otwarciu automatycznie otworzy usługę ułatwień dostępu z uprawnieniami Root (pozycja zarezerwowana)</string>
   <string name="text_enable_accessibility_service_by_root">Automatycznie włączaj usługi z uprawnieniami administratora</string>
   <string name="summary_stable_mode">Analiza układu jest bardziej stabilna, gdy jest włączona, ale niewielka liczba skryptów może nie działać poprawnie. Uruchom ponownie usługę ułatwień dostępu, aby zaczęła obowiązywać</string>
   <string name="text_stable_mode">Tryb stabilny</string>
   <string name="text_accessibility_service">Usługi ułatwień dostępu</string>
   <string name="text_dont_show_main_activity">Nie wyświetlaj głównego interfejsu</string>
-  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
   <string name="summary_dont_show_main_activity">Uruchom skrypt bezpośrednio po otwarciu aplikacji</string>
   <string name="text_hide_logs">Ukryj dziennik</string>
-  <string name="key_hide_logs">Key_hide_logs</string>
   <string name="summary_hide_logs">Interfejs dziennika nie jest wyświetlany, a do ponownego otwarcia tego interfejsu wymagana jest obsługa skryptów</string>
   <string name="text_others">Inny</string>
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Zakończono działanie za %f sekund</string>
@@ -37,4 +35,12 @@
   <string name="explain_accessibility_permission">Aby uruchomić oprogramowanie, należy otworzyć „Usługi ułatwień dostępu”, otwórz „Ustawienia->Usługi ułatwień dostępu” lub „Ustawienia->Usługi ułatwień dostępu->Więcej pobranych usług”, znajdź „ %s ” i włącz usługi ułatwień dostępu</string>
   <string name="text_need_to_enable_accessibility_service">Usługi ułatwień dostępu muszą być włączone</string>
   <string name="summary_use_volume_to_stop_running">Pasek powiadomień zawsze wyświetla powiadomienie „Ta aplikacja jest uruchomiona”, aby utrzymać działanie programu</string>
+  <string name="text_to_open">Otworzyć</string>
+  <string name="text_cancel">Anulować</string>
+  <string name="text_requires_background_start">Wymaga uprawnień do otwierania interfejsu w tle</string>
+  <string name="text_requires_background_start_desc">Wymaga uprawnień do otwierania interfejsu w tle, aby uruchomić, przejdź do ustawień, aby otworzyć</string>
+  <string name="text_required_floating_window_permission">Wymagane zezwolenie na ruchome okno</string>
+  <string name="text_please_enable_permissions_before_running">Proszę włączyć uprawnienia przed uruchomieniem!</string>
+  <string name="text_accessibility_service_is_not_turned_on">Usługa ułatwień dostępu nie jest włączona</string>
+  <string name="text_accessibility_service_turned_on">Ułatwienia dostępu są włączone</string>
 </resources>

@@ -27,11 +27,14 @@ import com.stardust.app.permission.DrawOverlaysPermission.launchCanDrawOverlaysS
 import com.stardust.app.permission.Permissions
 import com.stardust.app.permission.PermissionsSettingsUtil.launchAppPermissionsSettings
 import com.stardust.auojs.inrt.autojs.AccessibilityServiceTool
+import com.stardust.auojs.inrt.autojs.AccessibilityServiceTool1
 import com.stardust.auojs.inrt.autojs.AutoJs
 import com.stardust.auojs.inrt.launch.GlobalProjectLauncher
 import com.stardust.autojs.project.ProjectConfig
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.autojs.autoxjs.inrt.R
 
 /**
@@ -47,14 +50,18 @@ class SplashActivity : ComponentActivity() {
 
     private val accessibilitySettingsLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            if (AccessibilityServiceTool.isAccessibilityServiceEnabled(this)) {
-                permissionsResult[Permissions.ACCESSIBILITY_SERVICES] = true
-                Toast.makeText(this, "无障碍服务已开启", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "无障碍服务未开启", Toast.LENGTH_SHORT).show()
-            }
+            checkAccessibilityServices()
             checkSpecialPermissions()
         }
+
+    private fun checkAccessibilityServices() {
+        if (AccessibilityServiceTool.isAccessibilityServiceEnabled(this)) {
+            permissionsResult[Permissions.ACCESSIBILITY_SERVICES] = true
+            Toast.makeText(this, getString(R.string.text_accessibility_service_turned_on), Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, getString(R.string.text_accessibility_service_is_not_turned_on), Toast.LENGTH_SHORT).show()
+        }
+    }
 
     private val backgroundStartSettingsLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -77,7 +84,7 @@ class SplashActivity : ComponentActivity() {
             if (result.all { it.value }) {
                 checkSpecialPermissions()
             } else {
-                GlobalAppContext.toast("请开启权限后，再运行!")
+                GlobalAppContext.toast(getString(R.string.text_please_enable_permissions_before_running))
                 requestExternalStoragePermission()
             }
         }
@@ -184,9 +191,11 @@ class SplashActivity : ComponentActivity() {
 
     private fun requestDrawOverlays() {
         val dialog =
-            MaterialDialog.Builder(this).title("需要悬浮窗权限").content("需要悬浮窗权限")//内容
-                .positiveText("去打开") //肯定按键
-                .negativeText("取消")
+            MaterialDialog.Builder(this)
+                .title(getString(R.string.text_required_floating_window_permission))
+                .content(getString(R.string.text_required_floating_window_permission))//内容
+                .positiveText(getString(R.string.text_to_open)) //肯定按键
+                .negativeText(getString(R.string.text_cancel))
                 .onPositive { dialog, _ ->
                     dialog.dismiss()
                     drawOverlaysSettingsLauncher.launchCanDrawOverlaysSettings(packageName)
@@ -200,10 +209,10 @@ class SplashActivity : ComponentActivity() {
 
     private fun requestBackgroundStart() {
         val dialog = MaterialDialog.Builder(this)
-            .title("需要后台打开界面权限")
-            .content("需要后台打开界面权限才能运行，请前往设置打开")
-            .positiveText("去打开") //肯定按键
-            .negativeText("取消")
+            .title(getString(R.string.text_requires_background_start))
+            .content(getString(R.string.text_requires_background_start_desc))
+            .positiveText(getString(R.string.text_to_open)) //肯定按键
+            .negativeText(getString(R.string.text_cancel))
             .onPositive { dialog, _ ->
                 dialog.dismiss()
                 backgroundStartSettingsLauncher.launchAppPermissionsSettings(packageName)
@@ -217,21 +226,32 @@ class SplashActivity : ComponentActivity() {
     }
 
     private fun requestAccessibilityService() {
-        val dialog = MaterialDialog.Builder(this)
-            .title(R.string.text_need_to_enable_accessibility_service)
-            .content(R.string.explain_accessibility_permission, GlobalAppContext.appName)
-            .positiveText("去打开") //肯定按键
-            .negativeText("取消")
-            .onPositive { dialog, _ ->
-                dialog.dismiss()
-                accessibilitySettingsLauncher.launch(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
+        lifecycleScope.launch {
+            val enabled = withContext(Dispatchers.IO) {
+                AccessibilityServiceTool1.enableAccessibilityServiceByRootAndWaitFor(2000)
             }
-            .onNegative { _, _ ->
-                finish()
+            if (enabled) {
+                permissionsResult[Permissions.ACCESSIBILITY_SERVICES] = true
+                Toast.makeText(this@SplashActivity, getString(R.string.text_accessibility_service_turned_on), Toast.LENGTH_SHORT).show()
+                checkSpecialPermissions()
+                return@launch
             }
-            .canceledOnTouchOutside(false)
-            .build()
-        dialog.show()
+            val dialog = MaterialDialog.Builder(this@SplashActivity)
+                .title(R.string.text_need_to_enable_accessibility_service)
+                .content(R.string.explain_accessibility_permission, GlobalAppContext.appName)
+                .positiveText(getString(R.string.text_to_open)) //肯定按键
+                .negativeText(getString(R.string.text_cancel))
+                .onPositive { dialog, _ ->
+                    dialog.dismiss()
+                    accessibilitySettingsLauncher.launch(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
+                }
+                .onNegative { _, _ ->
+                    finish()
+                }
+                .canceledOnTouchOutside(false)
+                .build()
+            dialog.show()
+        }
     }
 
     private fun runScript() {

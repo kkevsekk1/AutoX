@@ -7,22 +7,20 @@
   <string name="text_enable_accessibility_service_by_root_timeout">ৰূট বিশেষাধিকাৰসমূহৰ সৈতে অভিগম্যতা সেৱা সামৰ্থবান কৰাত ব্যৰ্থ</string>
   <string name="text_settings">স্থাপন কৰা</string>
   <string name="text_script_running">লিপি চলাওক</string>
-  <string name="text_keep_running_with_foreground_service">আপোনাৰ এপটো চলি থাকিবলৈ এটা অগ্ৰভূমি সেৱা ব্যৱহাৰ কৰক</string>
+  <string name="text_keep_running_with_foreground_service">এপসমূহ চলি থাকিবলৈ অগ্ৰভূমি সেৱাসমূহ ব্যৱহাৰ কৰক</string>
   <string name="text_use_accessibility_service">অভিগম্যতা সেৱাসমূহ</string>
   <string name="text_use_floating_window">ভাসমান খিৰিকী</string>
   <string name="summary_enable_accessibility_service">অভিগম্যতা সেৱা কাৰ্য্যসমূহ এক্সিকিউট কৰিবলে সামৰ্থবান কৰিব লাগিব (সংৰক্ষিত)</string>
   <string name="summary_enable_floating_window">লগ চাবলৈ আপুনি ভাসমান উইন্ডো খোলিব লাগিব (সংৰক্ষিত বস্তু)</string>
   <string name="text_use_volume_to_stop_running">ভলিউম আপ কি\'ই সকলো লিপি বন্ধ কৰে</string>
-  <string name="summary_enable_accessibility_service_by_root">খোলাৰ পিছত, স্ক্ৰিপ্ট চলোৱাটোৱে স্বয়ংক্ৰিয়ভাৱে ৰূট বিশেষাধিকাৰসমূহৰ সৈতে অভিগম্যতা সেৱা খোলিব (সংৰক্ষিত বস্তু)</string>
+  <string name="summary_enable_accessibility_service_by_root">খোলাৰ পিছত স্ক্ৰিপ্ট চলোৱাটোৱে স্বয়ংক্ৰিয়ভাৱে ৰূট বিশেষাধিকাৰসমূহৰ সৈতে অভিগম্যতা সেৱা খোলিব (সংৰক্ষিত বস্তু)</string>
   <string name="text_enable_accessibility_service_by_root">ৰূট বিশেষাধিকাৰসমূহৰ সৈতে সেৱাসমূহ স্বয়ংক্ৰিয়ভাৱে সামৰ্থবান কৰক</string>
   <string name="summary_stable_mode">সামৰ্থবান কৰাৰ সময়ত পৰিকল্পনা বিশ্লেষণ অধিক সুস্থিৰ হয়, কিন্তু কম সংখ্যক লিপিসমূহে সঠিকভাৱে কাম নকৰিবও পাৰে। কাৰ্য্যকৰী হ\'বলৈ অভিগম্যতা সেৱা পুনৰাৰম্ভ কৰক</string>
-  <string name="text_stable_mode">স্থিতিশীল ধৰণ</string>
+  <string name="text_stable_mode">স্থিতিশীল মোড</string>
   <string name="text_accessibility_service">অভিগম্যতা সেৱাসমূহ</string>
   <string name="text_dont_show_main_activity">মূল আন্তঃপৃষ্ঠ প্ৰদৰ্শন নকৰিব</string>
-  <string name="key_dont_show_main_activity">Key_dont_show_মূল_কাৰ্য্যকলাপ</string>
   <string name="summary_dont_show_main_activity">এপটো খোলাৰ পিছত পোনপটীয়াকৈ স্ক্ৰীপ্টটো চলাওক</string>
   <string name="text_hide_logs">লগ লুকুৱাওক</string>
-  <string name="key_hide_logs">Key_hide_logs সমূহ</string>
   <string name="summary_hide_logs">লগ আন্তঃপৃষ্ঠ প্ৰদৰ্শিত নহয়, আৰু এই আন্তঃপৃষ্ঠ পৰৱৰ্তী সময়ত খোলিবলৈ লিপি সমৰ্থনৰ প্ৰয়োজন</string>
   <string name="text_others">অন্যান্য</string>
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] %f ছেকেণ্ডত চলি থকা সমাপ্ত</string>
@@ -37,4 +35,12 @@
   <string name="explain_accessibility_permission">চফ্টৱেৰটো চলাবলৈ \"প্ৰৱেশযোগ্যতা সেৱাসমূহ\" খোলিব লাগিব, অনুগ্ৰহ কৰি \"সংহতিসমূহ->প্ৰৱেশযোগ্যতা সেৱাসমূহ\" বা \"সংহতিসমূহ->প্ৰৱেশযোগ্যতা সেৱাসমূহ->অধিক ডাউনলোড কৰা সেৱাসমূহ\" খোলক, \" %s \" বিচাৰক, আৰু অভিগম্যতা সেৱাসমূহ সামৰ্থবান কৰক</string>
   <string name="text_need_to_enable_accessibility_service">অভিগম্যতা সেৱাসমূহ সক্ৰিয় কৰিব লাগিব</string>
   <string name="summary_use_volume_to_stop_running">প্ৰগ্ৰেমটো চলি থাকিবলৈ নোটিফিকেচন বাৰত সদায় \"এই এপটো চলি আছে\" নোটিফিকেচন প্ৰদৰ্শন কৰা হ\'ব</string>
+  <string name="text_to_open">খুলিবলৈ</string>
+  <string name="text_cancel">বাতিল কৰক</string>
+  <string name="text_requires_background_start">পটভূমিত আন্তঃপৃষ্ঠ খোলিবলৈ অনুমতিৰ প্ৰয়োজন</string>
+  <string name="text_requires_background_start_desc">চলাবলৈ পটভূমিত আন্তঃপৃষ্ঠ খোলাৰ অনুমতিৰ প্ৰয়োজন, অনুগ্ৰহ কৰি খোলিবলৈ সংহতিসমূহলৈ যাওক</string>
+  <string name="text_required_floating_window_permission">ভাসমান উইণ্ড\'ৰ অনুমতিৰ প্ৰয়োজন</string>
+  <string name="text_please_enable_permissions_before_running">চলাৰ আগতে অনুগ্ৰহ কৰি অনুমতিসমূহ সামৰ্থবান কৰক!</string>
+  <string name="text_accessibility_service_is_not_turned_on">অভিগম্যতা সেৱা অন কৰা হোৱা নাই</string>
+  <string name="text_accessibility_service_turned_on">অভিগম্যতা অন কৰা হৈছে</string>
 </resources>

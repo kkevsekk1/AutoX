@@ -7,22 +7,20 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Не вдалося ввімкнути службу доступності з правами root</string>
   <string name="text_settings">Налаштувати</string>
   <string name="text_script_running">Виконання сценарію</string>
-  <string name="text_keep_running_with_foreground_service">Використовуйте передову службу, щоб підтримувати роботу програми</string>
+  <string name="text_keep_running_with_foreground_service">Використовуйте активні служби, щоб підтримувати роботу програм</string>
   <string name="text_use_accessibility_service">Служби доступності</string>
   <string name="text_use_floating_window">Плаваюче вікно</string>
   <string name="summary_enable_accessibility_service">Завдання служби доступності мають бути ввімкнені для виконання (зарезервовано)</string>
   <string name="summary_enable_floating_window">Ви повинні відкрити плаваюче вікно, щоб переглянути журнал (зарезервований елемент)</string>
   <string name="text_use_volume_to_stop_running">Клавіша збільшення гучності зупиняє всі сценарії</string>
-  <string name="summary_enable_accessibility_service_by_root">Після відкриття запуск сценарію автоматично відкриє службу доступності з привілеями Root (зарезервований елемент)</string>
+  <string name="summary_enable_accessibility_service_by_root">Запуск сценарію після відкриття автоматично відкриє службу доступності з привілеями Root (зарезервований елемент)</string>
   <string name="text_enable_accessibility_service_by_root">Автоматично вмикати служби з правами root</string>
   <string name="summary_stable_mode">Аналіз макета стабільніший, якщо його ввімкнено, але невелика кількість сценаріїв може не працювати належним чином. Щоб діяти, перезапустіть службу доступності</string>
   <string name="text_stable_mode">Стабільний режим</string>
   <string name="text_accessibility_service">Служби доступності</string>
   <string name="text_dont_show_main_activity">Не відображати головний інтерфейс</string>
-  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
-  <string name="summary_dont_show_main_activity">Запустіть сценарій відразу після відкриття програми</string>
+  <string name="summary_dont_show_main_activity">Запустіть сценарій безпосередньо після відкриття програми</string>
   <string name="text_hide_logs">Приховати журнал</string>
-  <string name="key_hide_logs">Key_hide_logs</string>
   <string name="summary_hide_logs">Інтерфейс журналу не відображається, і для наступного відкриття цього інтерфейсу потрібна підтримка сценаріїв</string>
   <string name="text_others">Інший</string>
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Завершено через %f секунд</string>
@@ -37,4 +35,12 @@
   <string name="explain_accessibility_permission">Щоб запустити програмне забезпечення, потрібно відкрити «Служби спеціальних можливостей». Відкрийте «Налаштування->Служби спеціальних можливостей» або «Налаштування->Служби спеціальних можливостей->Інші завантажені служби», знайдіть « %s » і ввімкніть служби доступності</string>
   <string name="text_need_to_enable_accessibility_service">Необхідно ввімкнути служби доступності</string>
   <string name="summary_use_volume_to_stop_running">На панелі сповіщень завжди відображатиметься сповіщення «Ця програма запущена», щоб програма продовжувала працювати</string>
+  <string name="text_to_open">Відкривати</string>
+  <string name="text_cancel">Скасувати</string>
+  <string name="text_requires_background_start">Потрібен дозвіл, щоб відкрити інтерфейс у фоновому режимі</string>
+  <string name="text_requires_background_start_desc">Для роботи потрібен дозвіл на відкриття інтерфейсу у фоновому режимі. Щоб відкрити, перейдіть до налаштувань</string>
+  <string name="text_required_floating_window_permission">Потрібен дозвіл на плаваюче вікно</string>
+  <string name="text_please_enable_permissions_before_running">Увімкніть дозволи перед запуском!</string>
+  <string name="text_accessibility_service_is_not_turned_on">Служба доступності не ввімкнена</string>
+  <string name="text_accessibility_service_turned_on">Доступність увімкнено</string>
 </resources>

@@ -1,0 +1,56 @@
+{
+  "abis": [
+    "arm64-v8a",
+    "armeabi-v7a",
+    "x86",
+    "x86_64"
+  ],
+  "assets": [
+    {
+      "form": "file:///android_asset/models",
+      "to": "/models"
+    }
+  ],
+  "buildDir": "build",
+  "build": {
+    "build_id": null,
+    "build_number": 0,
+    "build_time": 0
+  },
+  "useFeatures": [],
+  "icon": null,
+  "ignoredDirs": [],
+  "launchConfig": {
+    "displaySplash": false,
+    "hideLauncher": false,
+    "hideLogs": false,
+    "stableMode": false,
+    "volumeUpcontrol": false,
+    "permissions": [],
+    "serviceDesc": "使脚本自动操作(点击、长按、滑动等)所需，若关闭则只能执行不涉及自动操作的脚本。",
+    "splashIcon": null,
+    "splashText": "Powered by paddle ocr"
+  },
+  "libs": [
+    "libc++_shared.so",
+    "libpaddle_light_api_shared.so",
+    "libhiai.so",
+    "libhiai_ir.so",
+    "libhiai_ir_build.so",
+    "libNative.so",
+    "libjackpal-androidterm5.so",
+    "libjackpal-termexec2.so"
+  ],
+  "main": "PaddleOCR.js",
+  "name": "PaddleOCR",
+  "outputPath": null,
+  "packageName": "com.script.paddleocr",
+  "scripts": {},
+  "signingConfig": {
+    "alias": null,
+    "keystore": null
+  },
+  "sourcePath": null,
+  "versionCode": 1,
+  "versionName": "1.0.0"
+}

@@ -7,22 +7,20 @@
   <string name="text_enable_accessibility_service_by_root_timeout">No se pudo habilitar el servicio de accesibilidad con privilegios de root</string>
   <string name="text_settings">Configurar</string>
   <string name="text_script_running">Ejecución del guión</string>
-  <string name="text_keep_running_with_foreground_service">Use un servicio de primer plano para mantener su aplicación en ejecución</string>
+  <string name="text_keep_running_with_foreground_service">Use servicios de primer plano para mantener las aplicaciones en ejecución</string>
   <string name="text_use_accessibility_service">Servicios de accesibilidad</string>
   <string name="text_use_floating_window">Ventana flotante</string>
-  <string name="summary_enable_accessibility_service">Las tareas del servicio de accesibilidad deben estar habilitadas para ejecutarse (reservadas)</string>
+  <string name="summary_enable_accessibility_service">Las tareas del servicio de accesibilidad deben estar habilitadas para ejecutarse (reservado)</string>
   <string name="summary_enable_floating_window">Debe abrir la ventana flotante para ver el registro (elemento reservado)</string>
   <string name="text_use_volume_to_stop_running">La tecla para subir el volumen detiene todos los scripts</string>
-  <string name="summary_enable_accessibility_service_by_root">Después de abrir, ejecutar el script abrirá automáticamente el servicio de accesibilidad con privilegios de raíz (elemento reservado)</string>
+  <string name="summary_enable_accessibility_service_by_root">Ejecutar el script después de abrirlo abrirá automáticamente el servicio de accesibilidad con privilegios de raíz (elemento reservado)</string>
   <string name="text_enable_accessibility_service_by_root">Habilite automáticamente los servicios con privilegios de root</string>
   <string name="summary_stable_mode">El análisis de diseño es más estable cuando está habilitado, pero es posible que una pequeña cantidad de scripts no funcione correctamente. Reinicie el servicio de accesibilidad para que surta efecto</string>
   <string name="text_stable_mode">Modo estable</string>
   <string name="text_accessibility_service">Servicios de accesibilidad</string>
   <string name="text_dont_show_main_activity">No mostrar la interfaz principal</string>
-  <string name="key_dont_show_main_activity">Clave_no_mostrar_actividad_principal</string>
   <string name="summary_dont_show_main_activity">Ejecute el script directamente después de abrir la aplicación</string>
   <string name="text_hide_logs">Ocultar registro</string>
-  <string name="key_hide_logs">Key_hide_logs</string>
   <string name="summary_hide_logs">La interfaz de registro no se muestra y se requiere compatibilidad con secuencias de comandos para abrir esta interfaz la próxima vez</string>
   <string name="text_others">Otro</string>
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Terminó de ejecutarse en %f segundos</string>
@@ -37,4 +35,12 @@
   <string name="explain_accessibility_permission">El software debe abrir \"Servicios de accesibilidad\" para ejecutarse, abra \"Configuración->Servicios de accesibilidad\" o \"Configuración->Servicios de accesibilidad->Más servicios descargados\", busque \" %s \" y habilite los Servicios de accesibilidad</string>
   <string name="text_need_to_enable_accessibility_service">Los servicios de accesibilidad deben estar habilitados</string>
   <string name="summary_use_volume_to_stop_running">La barra de notificaciones siempre mostrará la notificación \"Esta aplicación se está ejecutando\" para mantener el programa en ejecución</string>
+  <string name="text_to_open">Abrir</string>
+  <string name="text_cancel">Cancelar</string>
+  <string name="text_requires_background_start">Requiere permiso para abrir la interfaz en segundo plano</string>
+  <string name="text_requires_background_start_desc">Requiere el permiso para abrir la interfaz en segundo plano para ejecutar, vaya a la configuración para abrir</string>
+  <string name="text_required_floating_window_permission">Se requiere permiso de ventana flotante</string>
+  <string name="text_please_enable_permissions_before_running">¡Habilite los permisos antes de ejecutar!</string>
+  <string name="text_accessibility_service_is_not_turned_on">El servicio de accesibilidad no está activado</string>
+  <string name="text_accessibility_service_turned_on">La accesibilidad está activada</string>
 </resources>

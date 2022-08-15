@@ -7,22 +7,20 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Storitve dostopnosti s korenskimi pravicami ni bilo mogoče omogočiti</string>
   <string name="text_settings">Nastaviti</string>
   <string name="text_script_running">Zagon skripta</string>
-  <string name="text_keep_running_with_foreground_service">Za delovanje aplikacije uporabite storitev v ospredju</string>
+  <string name="text_keep_running_with_foreground_service">Uporabite storitve v ospredju, da zagotovite delovanje aplikacij</string>
   <string name="text_use_accessibility_service">Storitve dostopnosti</string>
   <string name="text_use_floating_window">Lebdeče okno</string>
-  <string name="summary_enable_accessibility_service">Opravila storitev dostopnosti morajo biti omogočena za izvajanje (rezervirano)</string>
-  <string name="summary_enable_floating_window">Za ogled dnevnika morate odpreti plavajoče okno (rezervirana postavka)</string>
+  <string name="summary_enable_accessibility_service">Opravila storitve dostopnosti morajo biti omogočena za izvajanje (rezervirano)</string>
+  <string name="summary_enable_floating_window">Za ogled dnevnika morate odpreti plavajoče okno (rezerviran element)</string>
   <string name="text_use_volume_to_stop_running">Tipka za povečanje glasnosti ustavi vse skripte</string>
-  <string name="summary_enable_accessibility_service_by_root">Po odprtju bo zagon skripta samodejno odprl storitev dostopnosti s korenskimi pravicami (rezerviran element)</string>
+  <string name="summary_enable_accessibility_service_by_root">Z zagonom skripta po odprtju se samodejno odpre storitev dostopnosti s korenskimi pravicami (rezerviran element)</string>
   <string name="text_enable_accessibility_service_by_root">Samodejno omogoči storitve s korenskimi pravicami</string>
   <string name="summary_stable_mode">Analiza postavitve je stabilnejša, ko je omogočena, vendar majhno število skriptov morda ne bo delovalo pravilno. Znova zaženite storitev dostopnosti, da začne veljati</string>
   <string name="text_stable_mode">Stabilen način</string>
   <string name="text_accessibility_service">Storitve dostopnosti</string>
   <string name="text_dont_show_main_activity">Ne prikaži glavnega vmesnika</string>
-  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
   <string name="summary_dont_show_main_activity">Zaženite skript neposredno po odprtju aplikacije</string>
   <string name="text_hide_logs">Skrij dnevnik</string>
-  <string name="key_hide_logs">Key_hide_logs</string>
   <string name="summary_hide_logs">Vmesnik dnevnika ni prikazan in za naslednjič je potrebna podpora za skripte</string>
   <string name="text_others">Drugo</string>
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Končano z izvajanjem v %f sekundah</string>
@@ -37,4 +35,12 @@
   <string name="explain_accessibility_permission">Za zagon mora programska oprema odpreti »Storitve dostopnosti«. Odprite »Nastavitve->Storitve dostopnosti« ali »Nastavitve->Storitve dostopnosti->Več prenesenih storitev«, poiščite » %s « in omogočite storitve dostopnosti</string>
   <string name="text_need_to_enable_accessibility_service">Storitve dostopnosti morajo biti omogočene</string>
   <string name="summary_use_volume_to_stop_running">V vrstici z obvestili bo vedno prikazano obvestilo »Ta aplikacija se izvaja«, da bo program deloval</string>
+  <string name="text_to_open">Odpreti</string>
+  <string name="text_cancel">Prekliči</string>
+  <string name="text_requires_background_start">Zahteva dovoljenje za odpiranje vmesnika v ozadju</string>
+  <string name="text_requires_background_start_desc">Za zagon je potrebno dovoljenje za odpiranje vmesnika v ozadju. Za odpiranje pojdite v nastavitve</string>
+  <string name="text_required_floating_window_permission">Potrebno je dovoljenje za plavajoče okno</string>
+  <string name="text_please_enable_permissions_before_running">Pred zagonom omogočite dovoljenja!</string>
+  <string name="text_accessibility_service_is_not_turned_on">Storitev dostopnosti ni vklopljena</string>
+  <string name="text_accessibility_service_turned_on">Dostopnost je vklopljena</string>
 </resources>

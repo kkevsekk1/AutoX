@@ -28,13 +28,13 @@ import java.io.IOException
  */
 
 open class AssetsProjectLauncher(
-    private val mAssetsProjectDir: String,
-    private val mActivity: Context
+    private val assetsProjectDir: String,
+    private val context: Context
 ) {
-    private val mProjectDir: String = File(mActivity.filesDir, "project/").path
+    private val mProjectDir: String = File(context.filesDir, "project/").path
     private val mProjectConfig =
-        ProjectConfig.fromAssets(mActivity, ProjectConfig.configFileOfDir(mAssetsProjectDir))!!
-    private val mMainScriptFile: File = File(mProjectDir, mProjectConfig.mainScript)
+        ProjectConfig.fromAssets(context, ProjectConfig.configFileOfDir(assetsProjectDir))!!
+    private val mMainScriptFile: File = File(mProjectDir, mProjectConfig.mainScript!!)
     private val mHandler: Handler = Handler(Looper.getMainLooper())
     private var mScriptExecution: ScriptExecution? = null
 
@@ -56,7 +56,7 @@ open class AssetsProjectLauncher(
             //且当前不是日志
             mHandler.post {
                 activity.startActivity(
-                    Intent(mActivity, LogActivity::class.java)
+                    Intent(context, LogActivity::class.java)
                         .putExtra(LogActivity.EXTRA_LAUNCH_SCRIPT, true)
                 )
                 activity.finish()
@@ -100,7 +100,7 @@ open class AssetsProjectLauncher(
         initKey(mProjectConfig)
         PFiles.deleteRecursively(File(mProjectDir))
         try {
-            PFiles.copyAssetDir(mActivity.assets, mAssetsProjectDir, mProjectDir, null)
+            PFiles.copyAssetDir(context.assets, assetsProjectDir, mProjectDir, null)
         } catch (e: IOException) {
             throw UncheckedIOException(e)
         }

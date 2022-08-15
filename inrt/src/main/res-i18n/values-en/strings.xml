@@ -13,16 +13,14 @@
   <string name="summary_enable_accessibility_service">Accessibility service tasks must be enabled to execute (reserved)</string>
   <string name="summary_enable_floating_window">You must open the floating window to view the log (reserved item)</string>
   <string name="text_use_volume_to_stop_running">Volume up key stops all scripts</string>
-  <string name="summary_enable_accessibility_service_by_root">After opening, running the script will automatically open the accessibility service with Root privileges (reserved item)</string>
+  <string name="summary_enable_accessibility_service_by_root">Running the script after opening will automatically open the accessibility service with Root privileges (reserved item)</string>
   <string name="text_enable_accessibility_service_by_root">Automatically enable services with root privileges</string>
   <string name="summary_stable_mode">Layout analysis is more stable when enabled, but a small number of scripts may not work properly. Restart accessibility service to take effect</string>
   <string name="text_stable_mode">Stable mode</string>
   <string name="text_accessibility_service">Accessibility Services</string>
   <string name="text_dont_show_main_activity">Do not display the main interface</string>
-  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
   <string name="summary_dont_show_main_activity">Run the script directly after opening the app</string>
   <string name="text_hide_logs">Hide log</string>
-  <string name="key_hide_logs">Key_hide_logs</string>
   <string name="summary_hide_logs">The log interface is not displayed, and script support is required to open this interface next time</string>
   <string name="text_others">Other</string>
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Finished running in %f seconds</string>
@@ -37,4 +35,12 @@
   <string name="explain_accessibility_permission">The software needs to open \"Accessibility Services\" to run, please open \"Settings->Accessibility Services\" or \"Settings->Accessibility Services->More Downloaded Services\", find \" %s \", and enable Accessibility Services</string>
   <string name="text_need_to_enable_accessibility_service">Accessibility services need to be enabled</string>
   <string name="summary_use_volume_to_stop_running">The notification bar will always display the \"This app is running\" notification to keep the program running</string>
+  <string name="text_to_open">To open</string>
+  <string name="text_cancel">Cancel</string>
+  <string name="text_requires_background_start">Requires permission to open the interface in the background</string>
+  <string name="text_requires_background_start_desc">Requires the permission to open the interface in the background to run, please go to the settings to open</string>
+  <string name="text_required_floating_window_permission">Floating window permission required</string>
+  <string name="text_please_enable_permissions_before_running">Please enable permissions before running!</string>
+  <string name="text_accessibility_service_is_not_turned_on">Accessibility service is not turned on</string>
+  <string name="text_accessibility_service_turned_on">Accessibility is turned on</string>
 </resources>

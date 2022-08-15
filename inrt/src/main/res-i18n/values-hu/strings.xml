@@ -7,22 +7,20 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Nem sikerült engedélyezni a kisegítő lehetőségeket root jogosultságokkal</string>
   <string name="text_settings">Beállít</string>
   <string name="text_script_running">Script futtatása</string>
-  <string name="text_keep_running_with_foreground_service">Használjon előtérbeli szolgáltatást az alkalmazás futásának fenntartásához</string>
+  <string name="text_keep_running_with_foreground_service">Használjon előtérbeli szolgáltatásokat az alkalmazások futásának fenntartásához</string>
   <string name="text_use_accessibility_service">Kisegítő lehetőségek</string>
   <string name="text_use_floating_window">Lebegő ablak</string>
-  <string name="summary_enable_accessibility_service">A kisegítő lehetőségek szolgáltatási feladatok végrehajtásához engedélyezni kell (lefoglalva)</string>
-  <string name="summary_enable_floating_window">A napló (lefoglalt tétel) megtekintéséhez meg kell nyitnia a lebegő ablakot</string>
+  <string name="summary_enable_accessibility_service">Az akadálymentesítési szolgáltatási feladatok végrehajtásához engedélyezni kell (lefoglalva)</string>
+  <string name="summary_enable_floating_window">A napló megtekintéséhez meg kell nyitnia a lebegő ablakot (lefoglalt tétel)</string>
   <string name="text_use_volume_to_stop_running">A hangerő növelése gomb leállítja az összes szkriptet</string>
-  <string name="summary_enable_accessibility_service_by_root">Megnyitás után a szkript futtatása automatikusan megnyitja a kisegítő lehetőségeket Root jogosultságokkal (lefoglalt elem)</string>
+  <string name="summary_enable_accessibility_service_by_root">A szkript futtatása a megnyitás után automatikusan megnyitja a kisegítő lehetőségeket Root jogosultságokkal (lefoglalt elem)</string>
   <string name="text_enable_accessibility_service_by_root">Szolgáltatások automatikus engedélyezése root jogosultságokkal</string>
   <string name="summary_stable_mode">Az elrendezéselemzés stabilabb, ha engedélyezve van, de előfordulhat, hogy néhány szkript nem működik megfelelően. Indítsa újra a kisegítő lehetőségeket, hogy életbe lépjen</string>
   <string name="text_stable_mode">Stabil üzemmód</string>
   <string name="text_accessibility_service">Kisegítő lehetőségek</string>
   <string name="text_dont_show_main_activity">Ne jelenítse meg a fő felületet</string>
-  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
   <string name="summary_dont_show_main_activity">Futtassa a szkriptet közvetlenül az alkalmazás megnyitása után</string>
   <string name="text_hide_logs">Napló elrejtése</string>
-  <string name="key_hide_logs">Key_hide_logs</string>
   <string name="summary_hide_logs">A naplófelület nem jelenik meg, és a felület legközelebbi megnyitásához szkript támogatás szükséges</string>
   <string name="text_others">Egyéb</string>
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] A futás %f másodpercen belül befejeződött</string>
@@ -37,4 +35,12 @@
   <string name="explain_accessibility_permission">A szoftver futtatásához meg kell %s a \"Hozzáférhetőségi szolgáltatásokat\"</string>
   <string name="text_need_to_enable_accessibility_service">A kisegítő lehetőségeket engedélyezni kell</string>
   <string name="summary_use_volume_to_stop_running">Az értesítési sáv mindig megjeleníti az „Ez az alkalmazás fut” értesítést, hogy a program futhasson</string>
+  <string name="text_to_open">Kinyitni</string>
+  <string name="text_cancel">Megszünteti</string>
+  <string name="text_requires_background_start">Engedély szükséges a felület háttérben történő megnyitásához</string>
+  <string name="text_requires_background_start_desc">A futtatáshoz engedély szükséges a felület háttérben történő megnyitásához, a megnyitáshoz lépjen a beállításokhoz</string>
+  <string name="text_required_floating_window_permission">Lebegő ablak engedély szükséges</string>
+  <string name="text_please_enable_permissions_before_running">Kérjük, engedélyezze az engedélyeket a futtatás előtt!</string>
+  <string name="text_accessibility_service_is_not_turned_on">A kisegítő lehetőségek szolgáltatása nincs bekapcsolva</string>
+  <string name="text_accessibility_service_turned_on">A kisegítő lehetőségek be vannak kapcsolva</string>
 </resources>

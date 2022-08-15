@@ -7,7 +7,7 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Չհաջողվեց միացնել հասանելիության ծառայությունը արմատային արտոնություններով</string>
   <string name="text_settings">Ստեղծել</string>
   <string name="text_script_running">Սցենարի գործարկում</string>
-  <string name="text_keep_running_with_foreground_service">Օգտագործեք առաջին պլանի ծառայություն՝ ձեր հավելվածն աշխատեցնելու համար</string>
+  <string name="text_keep_running_with_foreground_service">Օգտագործեք առաջին պլանի ծառայություններ՝ հավելվածները գործարկելու համար</string>
   <string name="text_use_accessibility_service">Մատչելիության ծառայություններ</string>
   <string name="text_use_floating_window">Լողացող պատուհան</string>
   <string name="summary_enable_accessibility_service">Մատչելիության ծառայության առաջադրանքները պետք է հնարավորություն ունենան կատարելու (վերապահված)</string>
@@ -19,11 +19,9 @@
   <string name="text_stable_mode">Կայուն ռեժիմ</string>
   <string name="text_accessibility_service">Մատչելիության ծառայություններ</string>
   <string name="text_dont_show_main_activity">Մի ցուցադրեք հիմնական ինտերֆեյսը</string>
-  <string name="key_dont_show_main_activity">Key_dont_show_main_activity</string>
   <string name="summary_dont_show_main_activity">Գործարկեք սցենարը անմիջապես հավելվածը բացելուց հետո</string>
   <string name="text_hide_logs">Թաքցնել տեղեկամատյանը</string>
-  <string name="key_hide_logs">Key_hide_logs</string>
-  <string name="summary_hide_logs">Մատյան միջերեսը չի ցուցադրվում, և հաջորդ անգամ այս ինտերֆեյսը բացելու համար անհրաժեշտ է սկրիպտի աջակցություն</string>
+  <string name="summary_hide_logs">Մատյան միջերեսը չի ցուցադրվում, և հաջորդ անգամ այս ինտերֆեյսը բացելու համար պահանջվում է սկրիպտի աջակցություն</string>
   <string name="text_others">Այլ</string>
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Գործարկումն ավարտվեց %f վայրկյանից</string>
   <string name="prompt_email">Էլ</string>
@@ -37,4 +35,12 @@
   <string name="explain_accessibility_permission">Ծրագրաշարը գործարկելու համար պետք է բացի «Մատչելիության ծառայությունները», խնդրում ենք բացել «Կարգավորումներ->Հասանելիության ծառայություններ» կամ «Կարգավորումներ->Հասանելիության ծառայություններ->Ավելի ներբեռնված ծառայություններ», գտնել « %s » և միացնել Մատչելիության ծառայությունները:</string>
   <string name="text_need_to_enable_accessibility_service">Մատչելիության ծառայությունները պետք է միացված լինեն</string>
   <string name="summary_use_volume_to_stop_running">Ծանուցումների տողում միշտ կցուցադրվի «Այս հավելվածն աշխատում է» ծանուցումը` ծրագիրը շարունակելու համար</string>
+  <string name="text_to_open">Բացել</string>
+  <string name="text_cancel">Չեղարկել</string>
+  <string name="text_requires_background_start">Պահանջվում է թույլտվություն՝ ինտերֆեյսը հետին պլանում բացելու համար</string>
+  <string name="text_requires_background_start_desc">Գործարկման համար պահանջվում է ինտերֆեյսի բացման թույլտվություն, բացելու համար խնդրում ենք գնալ կարգավորումներ</string>
+  <string name="text_required_floating_window_permission">Պահանջվում է լողացող պատուհանի թույլտվություն</string>
+  <string name="text_please_enable_permissions_before_running">Խնդրում ենք գործարկելուց առաջ միացրեք թույլտվությունները:</string>
+  <string name="text_accessibility_service_is_not_turned_on">Մատչելիության ծառայությունը միացված չէ</string>
+  <string name="text_accessibility_service_turned_on">Մատչելիությունը միացված է</string>
 </resources>
