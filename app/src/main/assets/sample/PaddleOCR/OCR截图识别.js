@@ -106,8 +106,6 @@ window.canvas.on('draw', function (canvas) {
   if (result && result.length > 0) {
     for (let i = 0; i < result.length; i++) {
       let ocrResult = result[i]
-      log(ocrResult);
-      log("   |  ");
       drawRectAndText(ocrResult.words + ' #信心:' + ocrResult.confidence.toFixed(2), ocrResult.bounds, '#00ff00', canvas, paint);
     }
   }
