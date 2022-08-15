@@ -24,6 +24,7 @@ object Constant {
 
     object Assets {
         const val OCR_MODELS = "models"
+        const val PROJECT = "project"
     }
 
     object Permissions {

@@ -363,6 +363,7 @@ private fun RunConfigCard(model: BuildViewModel) {
             Text(text = stringResource(id = R.string.text_splash_icon))
 
             val modifier = Modifier
+                .padding(8.dp)
                 .size(64.dp)
                 .clickable {
                     selectIconLauncher.launch(null)
@@ -441,6 +442,7 @@ private fun ConfigCard(model: BuildViewModel) {
                     Text(text = stringResource(id = R.string.text_icon))
                     Box {
                         val modifier = Modifier
+                            .padding(8.dp)
                             .size(64.dp)
                             .align(Alignment.Center)
                             .clickable {
