@@ -75,7 +75,7 @@ function AutoX() {
         let callId = data.callId;
         let params = data.params;
         let callbackFun = getCallback(callId);
-        if (callbackFun) {
+        if (callbackFun && callbackFun.callback) {
             callbackFun.callback(params);
         }
     };
