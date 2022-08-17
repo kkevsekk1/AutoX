@@ -34,9 +34,15 @@ public class Zip {
                 }
             }
         } finally {
-            closeSilently(fos);
-            closeSilently(stream);
-            closeSilently(zis);
+            if (fos != null) {
+                closeSilently(fos);
+            }
+            if (stream != null) {
+                closeSilently(stream);
+            }
+            if (zis != null) {
+                closeSilently(zis);
+            }
         }
     }
 
