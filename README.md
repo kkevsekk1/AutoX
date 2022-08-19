@@ -138,6 +138,17 @@ pc端开发[VS Code 插件](https://marketplace.visualstudio.com/items?itemName=
 ```
 生成的是未签名的APK文件，在 app/build/outputs/apk/v6/release 下，需要签名后才能安装
 
+##### 本地 Android Studio 运行调试版本到设备：
+先运行以下命令：
+
+```shell
+./gradlew inrt:assembleTemplate && ./gradlew inrt:cp2APP
+#或
+./gradlew inrt:assembleTemplate ; ./gradlew inrt:cp2APP
+```
+
+再点击 Android Studio 运行按钮
+
 ##### 本地 Android Studio 编译发布版本并签名：
 先运行以下命令：
 
