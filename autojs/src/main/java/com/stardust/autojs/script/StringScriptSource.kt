@@ -1,37 +1,23 @@
-package com.stardust.autojs.script;
+package com.stardust.autojs.script
 
-
-import androidx.annotation.Nullable;
-
-import java.io.Reader;
+import java.io.Reader
 
 /**
  * Created by Stardust on 2017/4/2.
  */
+class StringScriptSource : JavaScriptSource {
 
-public class StringScriptSource extends JavaScriptSource {
+    override var script: String
+        private set
 
-    private String mScript;
-
-    public StringScriptSource(String script) {
-        super("Tmp");
-        mScript = script;
+    constructor(script: String) : super("Tmp") {
+        this.script = script
     }
 
-    public StringScriptSource(String name, String script) {
-        super(name);
-        mScript = script;
+    constructor(name: String, script: String) : super(name) {
+        this.script = script
     }
 
-    @Override
-    public String getScript() {
-        return mScript;
-    }
-
-    @Nullable
-    @Override
-    public Reader getScriptReader() {
-        return null;
-    }
-
+    override val scriptReader: Reader?
+        get() = null
 }
