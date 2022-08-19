@@ -1,53 +1,75 @@
-package com.stardust.autojs.script
+package com.stardust.autojs.script;
 
-import com.stardust.autojs.script.EncryptedScriptFileHeader.getHeaderFlags
-import com.stardust.pio.PFiles.read
-import com.stardust.pio.UncheckedIOException
-import java.io.File
-import java.io.FileNotFoundException
-import java.io.Reader
+import androidx.annotation.NonNull;
+
+import com.stardust.pio.PFiles;
+import com.stardust.pio.UncheckedIOException;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.Reader;
 
 /**
  * Created by Stardust on 2017/4/2.
  */
-class JavaScriptFileSource : JavaScriptSource {
-    var file: File
-        private set
-    private var mScript: String? = null
-    private var mCustomsName = false
 
-    constructor(file: File) : super(file.nameWithoutExtension) {
-        this.file = file
+public class JavaScriptFileSource extends JavaScriptSource {
+
+    private File mFile;
+    private String mScript;
+    private boolean mCustomsName = false;
+
+    public JavaScriptFileSource(File file) {
+        super(PFiles.getNameWithoutExtension(file.getName()));
+        mFile = file;
     }
 
-    constructor(path: String) : this(File(path)) {}
-    constructor(name: String, file: File) : super(name) {
-        mCustomsName = true
-        this.file = file
+    public JavaScriptFileSource(String path) {
+        this(new File(path));
     }
 
-    override fun parseExecutionMode(): Int {
-        val flags = getHeaderFlags(file)
-        return if (flags == EncryptedScriptFileHeader.FLAG_INVALID_FILE) {
-            super.parseExecutionMode()
-        } else flags.toInt()
+    public JavaScriptFileSource(String name, File file) {
+        super(name);
+        mCustomsName = true;
+        mFile = file;
     }
 
-    override val script: String
-        get() = mScript ?: read(file).also { mScript = it }
+    @NonNull
+    @Override
+    public String getScript() {
+        if (mScript == null)
+            mScript = PFiles.read(mFile);
+        return mScript;
+    }
 
-    override val scriptReader: Reader?
-        get() {
-            return try {
-                file.reader()
-            } catch (e: FileNotFoundException) {
-                throw UncheckedIOException(e)
-            }
+    @Override
+    protected int parseExecutionMode() {
+        short flags = EncryptedScriptFileHeader.INSTANCE.getHeaderFlags(mFile);
+        if (flags == EncryptedScriptFileHeader.FLAG_INVALID_FILE) {
+            return super.parseExecutionMode();
         }
+        return flags;
+    }
 
-    override fun toString(): String {
-        return if (mCustomsName) {
-            super.toString()
-        } else file.toString()
+    @Override
+    public Reader getScriptReader() {
+        try {
+            return new FileReader(mFile);
+        } catch (FileNotFoundException e) {
+            throw new UncheckedIOException(e);
+        }
+    }
+
+    public File getFile() {
+        return mFile;
+    }
+
+    @Override
+    public String toString() {
+        if (mCustomsName) {
+            return super.toString();
+        }
+        return mFile.toString();
     }
 }

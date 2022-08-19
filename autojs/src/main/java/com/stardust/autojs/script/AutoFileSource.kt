@@ -1,25 +1,39 @@
-package com.stardust.autojs.script
+package com.stardust.autojs.script;
 
-import java.io.File
+import com.stardust.pio.PFiles;
+
+import java.io.File;
 
 /**
  * Created by Stardust on 2017/8/2.
  */
-class AutoFileSource(val file: File) : ScriptSource(
-    file.nameWithoutExtension
-) {
 
-    constructor(path: String) : this(File(path)) {}
+public class AutoFileSource extends ScriptSource {
 
-    override val engineName: String
-        get() = ENGINE
+    public static final String ENGINE = AutoFileSource.class.getName() + ".Engine";
+    private File mFile;
 
-    override fun toString(): String {
-        return file.toString()
+    public AutoFileSource(File file) {
+        super(PFiles.getNameWithoutExtension(file.getAbsolutePath()));
+        mFile = file;
     }
 
-    companion object {
-        @JvmField
-        val ENGINE = AutoFileSource::class.java.name + ".Engine"
+    public AutoFileSource(String path) {
+        this(new File(path));
+    }
+
+
+    @Override
+    public String getEngineName() {
+        return ENGINE;
+    }
+
+    public File getFile() {
+        return mFile;
+    }
+
+    @Override
+    public String toString() {
+        return mFile.toString();
     }
 }
