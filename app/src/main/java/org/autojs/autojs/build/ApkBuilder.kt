@@ -44,13 +44,6 @@ class ApkBuilder(
     private val outApkFile: File,
     private val workspacePath: String
 ) {
-    @Deprecated("")
-    interface ProgressCallback {
-        fun onPrepare(builder: ApkBuilder?)
-        fun onBuild(builder: ApkBuilder?)
-        fun onSign(builder: ApkBuilder?)
-        fun onClean(builder: ApkBuilder?)
-    }
 
     object BuildState {
         const val PREPARE = 0
@@ -74,12 +67,6 @@ class ApkBuilder(
     private var encryptKey: String? = null
 
     private val nativePath = File(GlobalAppContext.get().cacheDir, "native-lib").path
-
-    @Deprecated("use progressEvent", ReplaceWith("this"))
-    fun setProgressCallback(callback: ProgressCallback): ApkBuilder {
-//        progressCallback = callback
-        return this
-    }
 
     /**
      * 新建工作目录并解压apk
@@ -419,84 +406,6 @@ class ApkBuilder(
 
     init {
         PFiles.ensureDir(outApkFile.path)
-    }
-
-    @Deprecated("use com.stardust.autojs.project.ProjectConfig")
-    data class AppConfig(
-        var appName: String? = null,
-        var versionName: String? = null,
-        var versionCode: Int = 0,
-        var sourcePath: String? = null,
-        var packageName: String? = null,
-        var ignoredDirs: ArrayList<File> = ArrayList(),
-        var icon: (() -> Bitmap)? = null,
-        var splashIcon: (() -> Bitmap)? = null,
-        var splashText: String? = null,
-        var hideLauncher: Boolean = false,
-        var serviceDesc: String? = null,
-        var excludeLibraries: MutableList<String> = mutableListOf(),
-        var excludeAssets: MutableList<String> = mutableListOf(),
-        var customOcrModelPath: String? = null
-    ) {
-
-        fun addExcludeLibrary(library: String) {
-            excludeLibraries.add(library)
-        }
-
-        fun ignoreDir(dir: File): AppConfig {
-            ignoredDirs.add(dir)
-            return this
-        }
-
-        fun setIcon(icon: (() -> Bitmap)): AppConfig {
-            this.icon = icon
-            return this
-        }
-
-        fun setIcon(iconPath: String): AppConfig {
-            icon = { BitmapFactory.decodeFile(iconPath) }
-            return this
-        }
-
-        fun setSplashIcon(icon: (() -> Bitmap)): AppConfig {
-            this.splashIcon = icon
-            return this
-        }
-
-        fun setSplashIcon(iconPath: String): AppConfig {
-            splashIcon = { BitmapFactory.decodeFile(iconPath) }
-            return this
-        }
-
-        companion object {
-            @JvmStatic
-            fun fromProjectConfig(projectDir: String, projectConfig: ProjectConfig): AppConfig {
-                val icon = projectConfig.icon
-                val splashIcon = projectConfig.launchConfig.splashIcon
-
-                val appConfig = AppConfig(
-                    appName = projectConfig.name,
-                    packageName = projectConfig.packageName,
-                    hideLauncher = projectConfig.launchConfig.isHideLauncher,
-                    versionCode = projectConfig.versionCode,
-                    versionName = projectConfig.versionName,
-                    splashText = projectConfig.launchConfig.splashText,
-                    serviceDesc = projectConfig.launchConfig.serviceDesc,
-                    sourcePath = projectDir,
-                ).apply {
-//                    ignoreDir(File(projectDir, projectConfig.buildDir))
-                    icon?.let { setIcon(getIconPath(projectDir, it)) }
-                    splashIcon?.let { setIcon(getIconPath(projectDir, it)) }
-                }
-                return appConfig
-            }
-
-            private fun getIconPath(dir: String, icon: String): String {
-                return if (PFiles.isDir(dir)) {
-                    File(dir, icon).path
-                } else File(File(dir).parent, icon).path
-            }
-        }
     }
 
 }

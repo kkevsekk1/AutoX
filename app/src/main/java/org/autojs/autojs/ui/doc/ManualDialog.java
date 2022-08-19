@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.stardust.util.IntentUtil;
+
 import org.autojs.autoxjs.R;
 import org.autojs.autojs.ui.widget.EWebView;
 
@@ -75,9 +77,7 @@ public class ManualDialog {
     @OnClick(R.id.fullscreen)
     void viewInNewActivity() {
         mDialog.dismiss();
-        DocumentationActivity_.intent(mContext)
-                .extra(DocumentationActivity.EXTRA_URL, mEWebView.getWebView().getUrl())
-                .start();
+        IntentUtil.browse(mContext,mEWebView.getWebView().getUrl());
     }
 
 }

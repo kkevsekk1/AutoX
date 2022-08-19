@@ -25,7 +25,6 @@ import org.autojs.autoxjs.BuildConfig;
 import org.autojs.autojs.Pref;
 import org.autojs.autoxjs.R;
 import org.autojs.autojs.devplugin.DevPlugin;
-import org.autojs.autojs.devplugin.DevPluginService;
 import org.autojs.autojs.external.fileprovider.AppFileProvider;
 import org.autojs.autojs.tool.AccessibilityServiceTool;
 import org.autojs.autojs.ui.floating.FloatyWindowManger;
@@ -117,7 +116,6 @@ public class AutoJs extends com.stardust.autojs.AutoJs {
             @Override
             public String println(int level, CharSequence charSequence) {
                 String log = super.println(level, charSequence);
-                DevPluginService.instance.log(log);
                 DevPlugin.INSTANCE.log(log);
                 return log;
             }
