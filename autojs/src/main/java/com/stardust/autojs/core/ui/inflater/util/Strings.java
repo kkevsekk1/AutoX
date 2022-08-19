@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.view.View;
 
+import com.stardust.app.GlobalAppContext;
+
 /**
  * Created by Stardust on 2017/11/4.
  */
@@ -15,7 +17,7 @@ public class Strings {
         if (str.startsWith("@string/")) {
             Resources resources = context.getResources();
             return resources.getString(resources.getIdentifier(str, "string",
-                    context.getPackageName()));
+                    GlobalAppContext.getAutojsPackageName()));
         }
         return str;
     }

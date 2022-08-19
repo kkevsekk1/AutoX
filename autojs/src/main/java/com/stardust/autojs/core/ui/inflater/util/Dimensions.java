@@ -7,6 +7,8 @@ import android.view.InflateException;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.stardust.app.GlobalAppContext;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -48,7 +50,7 @@ public class Dimensions {
     public static float parseToPixel(String dimension, Context context) {
         if (dimension.startsWith("?")) {
             int[] attr = {context.getResources().getIdentifier(dimension.substring(1), "attr",
-                    context.getPackageName())};
+                    GlobalAppContext.getAutojsPackageName())};
             TypedArray ta = context.obtainStyledAttributes(attr);
             float d = ta.getDimension(0, 0);
             ta.recycle();

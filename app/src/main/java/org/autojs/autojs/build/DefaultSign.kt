@@ -171,15 +171,13 @@ object DefaultSign {
 
     @Throws(NoSuchAlgorithmException::class, IOException::class)
     private fun zipAndSha1(dir: File, zos: ZipOutputStream, dos: DigestOutputStream, m: Manifest) {
-        val `arr$` = dir.listFiles()
-        val `len$` = `arr$`.size
-        for (`i$` in 0 until `len$`) {
-            val f = `arr$`[`i$`]
-            if (!f.name.startsWith("META-INF")) {
-                if (f.isFile) {
-                    doFile(f.name, f, zos, dos, m)
+        val children = dir.listFiles()?:return
+        for (element in children) {
+            if (!element.name.matches(Regex("^META-INF/(MANIFEST.MF|CERT.RSA|CERT.SF)$"))) {
+                if (element.isFile) {
+                    doFile(element.name, element, zos, dos, m)
                 } else {
-                    doDir(f.name + "/", f, zos, dos, m)
+                    doDir(element.name + "/", element, zos, dos, m)
                 }
             }
         }

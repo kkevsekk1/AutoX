@@ -43,3 +43,14 @@
 -keep class com.tencent.tbs.** {
     *;
 }
+
+-keep class org.autojs.autoxjs.inrt.BuildConfig{
+   *;
+}
+
+-keep interface kotlin.reflect.jvm.internal.impl.builtins.BuiltInsLoader{
+    *;
+}
+-keep class kotlin.reflect.jvm.internal.impl.serialization.deserialization.builtins.BuiltInsLoaderImpl{
+    *;
+}

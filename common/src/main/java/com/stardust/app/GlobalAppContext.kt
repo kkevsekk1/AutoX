@@ -3,26 +3,34 @@ package com.stardust.app
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
-import com.stardust.app.GlobalAppContext
-import android.os.Looper
-import android.os.Build
-import android.content.pm.PackageManager
-import android.content.pm.PackageInfo
 import android.graphics.drawable.Drawable
 import android.os.Handler
-import android.widget.Toast
-import androidx.annotation.RequiresApi
-import com.stardust.R
-import java.lang.Exception
+import android.os.Looper
+import android.util.Log
+import androidx.core.content.ContextCompat
 
 /**
  * Created by Stardust on 2018/3/22.
  */
 object GlobalAppContext {
+
+    const val TAG = "GlobalAppContext"
+
     @SuppressLint("StaticFieldLeak")
     private var sApplicationContext: Context? = null
     private var sHandler: Handler? = null
-    fun set(a: Application) {
+
+    @JvmStatic
+    lateinit var buildConfig: BuildConfig
+        private set
+
+    @JvmStatic
+    val autojsPackageName
+        get() = buildConfig.APPLICATION_ID
+
+    fun set(a: Application, buildConfig: BuildConfig) {
+        this.buildConfig = buildConfig
+        Log.d(TAG, buildConfig.toString())
         sHandler = Handler(Looper.getMainLooper())
         sApplicationContext = a.applicationContext
     }
@@ -43,9 +51,8 @@ object GlobalAppContext {
         return get().getString(resId, *formatArgs)
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     fun getColor(id: Int): Int {
-        return get().getColor(id)
+        return ContextCompat.getColor(get(), id)
     }
 
     @JvmStatic

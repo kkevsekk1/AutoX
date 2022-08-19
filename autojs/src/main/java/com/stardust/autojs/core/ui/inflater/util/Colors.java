@@ -5,6 +5,8 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.view.View;
 
+import com.stardust.app.GlobalAppContext;
+
 /**
  * Created by Stardust on 2017/11/3.
  */
@@ -14,7 +16,7 @@ public class Colors {
     public static int parse(Context context, String color) {
         Resources resources = context.getResources();
         if (color.startsWith("@color/")) {
-            return resources.getColor(resources.getIdentifier(color.substring("@color/".length()), "color", context.getPackageName()));
+            return resources.getColor(resources.getIdentifier(color.substring("@color/".length()), "color", GlobalAppContext.getAutojsPackageName()));
         }
         if (color.startsWith("@android:color/")) {
             return Color.parseColor(color.substring(15));

@@ -42,7 +42,9 @@ class App : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
-        GlobalAppContext.set(this)
+        GlobalAppContext.set(
+            this, com.stardust.app.BuildConfig.generate(BuildConfig::class.java)
+        )
         instance = WeakReference(this)
         setUpStaticsTool()
         setUpDebugEnvironment()
