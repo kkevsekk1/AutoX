@@ -120,6 +120,17 @@ The generated debug version APK file is under app/build/outputs/apk/v6/debug wit
 ```
 The generated APK file is an unsigned APK file. Under app/build/outputs/apk/v6/release, it needs to be signed before it can be installed.
 
+##### Local Android Studio to run the debug build to the device:
+First run the following command:
+
+```shell
+./gradlew inrt:assembleTemplate && ./gradlew inrt:cp2APP
+#or
+./gradlew inrt:assembleTemplate ; ./gradlew inrt:cp2APP
+```
+
+Then click the Android Studio Run button
+
 ##### Local Android Studio compiles and signs the release APK:
 First run the following command:
 
