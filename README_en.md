@@ -101,3 +101,35 @@ No one in the original text states that the license is MPL2.0, and the newly add
 * If you want to support project contributors, you can do this by
 * [wilinz](https://github.com/wilinz/Sponsor)
 
+#### Compilation related：
+Command description: Run the command in the project root directory, if using Windows powerShell < 7.0, use the command containing ";"
+
+##### Install the debug build locally to the device：
+```shell
+./gradlew inrt:assembleTemplateDebug && ./gradlew inrt:cp2APPDebug && ./gradlew app:assembleV6Debug && ./gradlew app:installV6Debug
+#or
+./gradlew inrt:assembleTemplateDebug ; ./gradlew inrt:cp2APPDebug ; ./gradlew app:assembleV6Debug ; ./gradlew app:installV6Debug
+```
+The generated debug version APK file is under app/build/outputs/apk/v6/debug with the default signature
+
+##### Compile the release version locally：
+```shell
+./gradlew inrt:assembleTemplate && ./gradlew inrt:cp2APP && ./gradlew app:assembleV6
+#or
+./gradlew inrt:assembleTemplate ; ./gradlew inrt:cp2APP ; ./gradlew app:assembleV6
+```
+The generated APK file is an unsigned APK file. Under app/build/outputs/apk/v6/release, it needs to be signed before it can be installed.
+
+##### Local Android Studio compiles and signs the release APK:
+First run the following command:
+
+```shell
+./gradlew inrt:assembleTemplate && ./gradlew inrt:cp2APP
+#or
+./gradlew inrt:assembleTemplate ; ./gradlew inrt:cp2APP
+```
+
+Then click Android Studio menu "Build" -> "Generate Signed Bundle APK..." -> check "APK" 
+-> "Next" -> select or create a new certificate -> "Next" -> select "v6Release" -> "Finish"
+Generated APK file, under app/v6/release
+
