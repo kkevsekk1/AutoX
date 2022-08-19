@@ -40,4 +40,5 @@ dependencies {
     api 'androidx.annotation:annotation:1.4.0'
     api 'com.github.hyb1996:settingscompat:1.1.5'
     implementation "androidx.activity:activity-ktx:1.5.1"
+    api "org.jetbrains.kotlin:kotlin-reflect:1.7.10"
 }
