@@ -82,18 +82,6 @@ class DevPluginResponseHandler(private val cacheDir: File) : Handler {
         return router.handle(data)
     }
 
-    @Deprecated("use handleBytes1")
-    fun handleBytes(data: JsonObject, bytes: Bytes): Observable<File> {
-        val id = data["data"].asJsonObject["id"].asString
-        val idMd5 = MD5.md5(id)
-        return Observable.fromCallable {
-            val dir = File(cacheDir, idMd5)
-            Zip.unzip(ByteArrayInputStream(bytes.bytes), dir)
-            dir
-        }
-            .subscribeOn(Schedulers.io())
-    }
-
     suspend fun handleBytes1(data: JsonObject, bytes: Bytes): File = withContext(Dispatchers.IO) {
         val id = data["data"].asJsonObject["id"].asString
         val projectDir = URLEncoder.encode(id, Charsets.UTF_8.toString())
