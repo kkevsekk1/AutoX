@@ -1,126 +1,129 @@
-package com.stardust.autojs.script
+package com.stardust.autojs.script;
 
-import android.content.Context
-import android.view.View
-import com.stardust.autojs.engine.module.AssetAndUrlModuleSourceProvider
-import com.stardust.pio.PFiles.join
-import com.stardust.pio.PFiles.read
-import com.stardust.pio.UncheckedIOException
-import org.mozilla.javascript.Function
-import org.mozilla.javascript.ImporterTopLevel
-import org.mozilla.javascript.Scriptable
-import org.mozilla.javascript.commonjs.module.RequireBuilder
-import org.mozilla.javascript.commonjs.module.provider.SoftCachingModuleScriptProvider
-import java.io.File
-import java.io.IOException
-import java.util.concurrent.Executors
+import android.content.Context;
+import android.view.View;
+
+import com.stardust.autojs.engine.module.AssetAndUrlModuleSourceProvider;
+import com.stardust.pio.PFiles;
+import com.stardust.pio.UncheckedIOException;
+
+import org.mozilla.javascript.Function;
+import org.mozilla.javascript.ImporterTopLevel;
+import org.mozilla.javascript.Scriptable;
+import org.mozilla.javascript.commonjs.module.RequireBuilder;
+import org.mozilla.javascript.commonjs.module.provider.SoftCachingModuleScriptProvider;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Collections;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by Stardust on 2017/4/12.
  */
-class JsBeautifier(view: View, beautifyJsDirPath: String) {
-    interface Callback {
-        fun onSuccess(beautifiedCode: String?)
-        fun onException(e: Exception?)
+
+public class JsBeautifier {
+
+
+    public interface Callback {
+
+        void onSuccess(String beautifiedCode);
+
+        void onException(Exception e);
     }
 
-    private val mExecutor = Executors.newSingleThreadExecutor()
-    private val mContext: Context
-    private var mJsBeautifyFunction: Function? = null
-    private var mScriptContext: org.mozilla.javascript.Context? = null
-    private var mScriptable: Scriptable? = null
-    private val mBeautifyJsPath: String
-    private val mBeautifyJsDir: String
-    private var mView: View?
-    fun beautify(code: String, callback: Callback) {
-        mExecutor.execute {
+    private ExecutorService mExecutor = Executors.newSingleThreadExecutor();
+    private Context mContext;
+    private Function mJsBeautifyFunction;
+    private org.mozilla.javascript.Context mScriptContext;
+    private Scriptable mScriptable;
+    private final String mBeautifyJsPath;
+    private final String mBeautifyJsDir;
+    private View mView;
+
+    public JsBeautifier(View view, String beautifyJsDirPath) {
+        mContext = view.getContext();
+        mView = view;
+        mBeautifyJsDir = beautifyJsDirPath;
+        mBeautifyJsPath = PFiles.join(beautifyJsDirPath, "beautify.js");
+    }
+
+    public void beautify(final String code, final Callback callback) {
+        mExecutor.execute(() -> {
             try {
-                prepareIfNeeded()
-                enterContext()
-                val beautifiedCode = mJsBeautifyFunction!!.call(
-                    mScriptContext,
-                    mScriptable,
-                    mScriptable,
-                    arrayOf<Any>(code)
-                )
-                mView!!.post { callback.onSuccess(beautifiedCode.toString()) }
-            } catch (e: Exception) {
-                mView!!.post { callback.onException(e) }
+                prepareIfNeeded();
+                enterContext();
+                Object beautifiedCode = mJsBeautifyFunction.call(mScriptContext, mScriptable, mScriptable, new Object[]{code});
+                mView.post(() -> callback.onSuccess(beautifiedCode.toString()));
+            } catch (Exception e) {
+                mView.post(() -> callback.onException(e));
             } finally {
-                exitContext()
+                exitContext();
             }
+        });
+    }
+
+    private void exitContext() {
+        if (mScriptContext != null) {
+            org.mozilla.javascript.Context.exit();
+            mScriptContext = null;
         }
     }
 
-    private fun exitContext() {
+    private void enterContext() {
         if (mScriptContext != null) {
-            org.mozilla.javascript.Context.exit()
-            mScriptContext = null
+            return;
         }
-    }
-
-    private fun enterContext() {
-        if (mScriptContext != null) {
-            return
-        }
-        mScriptContext = org.mozilla.javascript.Context.enter()
-        mScriptContext!!.languageVersion = org.mozilla.javascript.Context.VERSION_1_8
-        mScriptContext!!.optimizationLevel = -1
+        mScriptContext = org.mozilla.javascript.Context.enter();
+        mScriptContext.setLanguageVersion(org.mozilla.javascript.Context.VERSION_1_8);
+        mScriptContext.setOptimizationLevel(-1);
         if (mScriptable == null) {
-            val importerTopLevel = ImporterTopLevel()
-            importerTopLevel.initStandardObjects(mScriptContext, false)
-            mScriptable = importerTopLevel
+            ImporterTopLevel importerTopLevel = new ImporterTopLevel();
+            importerTopLevel.initStandardObjects(mScriptContext, false);
+            mScriptable = importerTopLevel;
         }
-        val provider =
-            AssetAndUrlModuleSourceProvider(mContext, mBeautifyJsDir, listOf(File("/").toURI()))
-        RequireBuilder()
-            .setModuleScriptProvider(SoftCachingModuleScriptProvider(provider))
-            .setSandboxed(false)
-            .createRequire(mScriptContext, mScriptable)
-            .install(mScriptable)
+        AssetAndUrlModuleSourceProvider provider = new AssetAndUrlModuleSourceProvider(mContext, mBeautifyJsDir,
+                Collections.singletonList(new File("/").toURI()));
+        new RequireBuilder()
+                .setModuleScriptProvider(new SoftCachingModuleScriptProvider(provider))
+                .setSandboxed(false)
+                .createRequire(mScriptContext, mScriptable)
+                .install(mScriptable);
     }
 
-    fun prepare() {
-        mExecutor.execute {
+    public void prepare() {
+        mExecutor.execute(() -> {
             try {
-                prepareIfNeeded()
-            } catch (e: Exception) {
-                e.printStackTrace()
+                prepareIfNeeded();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+        });
+    }
+
+
+    private void prepareIfNeeded() {
+        if (mJsBeautifyFunction != null)
+            return;
+        compile();
+    }
+
+    private void compile() {
+        try {
+            enterContext();
+            InputStream is = mContext.getAssets().open(mBeautifyJsPath);
+            mJsBeautifyFunction = (Function) mScriptContext.evaluateString(mScriptable, PFiles.read(is), "<js_beautify>", 1, null);
+        } catch (IOException e) {
+            exitContext();
+            throw new UncheckedIOException(e);
         }
     }
 
-    private fun prepareIfNeeded() {
-        if (mJsBeautifyFunction != null) return
-        compile()
+    public void shutdown(){
+        mExecutor.shutdownNow();
+        mView = null;
     }
 
-    private fun compile() {
-        mJsBeautifyFunction = try {
-            enterContext()
-            val `is` = mContext.assets.open(mBeautifyJsPath)
-            mScriptContext!!.evaluateString(
-                mScriptable,
-                read(`is`),
-                "<js_beautify>",
-                1,
-                null
-            ) as Function
-        } catch (e: IOException) {
-            exitContext()
-            throw UncheckedIOException(e)
-        }
-    }
-
-    fun shutdown() {
-        mExecutor.shutdownNow()
-        mView = null
-    }
-
-    init {
-        mContext = view.context
-        mView = view
-        mBeautifyJsDir = beautifyJsDirPath
-        mBeautifyJsPath = join(beautifyJsDirPath, "beautify.js")
-    }
 }
