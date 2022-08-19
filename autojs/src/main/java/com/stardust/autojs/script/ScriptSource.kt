@@ -1,22 +1,10 @@
-package com.stardust.autojs.script;
+package com.stardust.autojs.script
 
-import java.io.Serializable;
+import java.io.Serializable
 
 /**
  * Created by Stardust on 2017/4/2.
  */
-
-public abstract class ScriptSource implements Serializable {
-
-    private String mName;
-
-    public ScriptSource(String name) {
-        mName = name;
-    }
-
-    public String getName() {
-        return mName;
-    }
-
-    public abstract String getEngineName();
+abstract class ScriptSource(val name: String) : Serializable {
+    abstract val engineName: String
 }
