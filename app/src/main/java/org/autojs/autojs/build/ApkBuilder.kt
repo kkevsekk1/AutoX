@@ -1,13 +1,10 @@
 package org.autojs.autojs.build
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.util.Log
 import androidx.core.net.toUri
 import com.stardust.app.GlobalAppContext
 import com.stardust.autojs.apkbuilder.ApkPackager
 import com.stardust.autojs.apkbuilder.ManifestEditor
-import com.stardust.pio.copyToAndClose
 import com.stardust.autojs.project.BuildInfo
 import com.stardust.autojs.project.ProjectConfig
 import com.stardust.autojs.script.EncryptedScriptFileHeader
@@ -105,12 +102,16 @@ class ApkBuilder(
         ignoredPath: List<String> = projectConfig!!.ignoredDirs,
         ignoredName: List<String> = emptyList()
     ) {
+        val ignoredPath1 = ignoredPath.map {
+            if (it.startsWith("/")) it
+            else PFiles.join(projectConfig!!.projectDirectory!!, it)
+        }
         val fromDir = File(srcPath)
         val toDir = File(workspacePath, relativeTargetPath)
         toDir.mkdirs()
         val children = fromDir.listFiles() ?: return
         for (child in children) {
-            val ignored = ignoredPath.contains(child.path) || ignoredName.contains(child.name)
+            val ignored = ignoredPath1.any { child.path.startsWith(it) } || ignoredName.contains(child.name)
             if (ignored) continue
             if (child.isFile) {
                 if (child.name.endsWith(".js")) {
@@ -188,7 +189,7 @@ class ApkBuilder(
                     srcPath = file.path,
                     relativeTargetPath = relativeTo.path,
                     ignoredPath = listOf(
-                        File(projectConfig!!.projectDirectory, ProjectConfig.CONFIG_FILE_NAME).path,
+                        ProjectConfig.CONFIG_FILE_NAME,
                         projectConfig!!.sourcePath!!
                     )
                 )

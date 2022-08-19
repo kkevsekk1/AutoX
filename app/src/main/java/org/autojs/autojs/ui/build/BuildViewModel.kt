@@ -79,7 +79,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
     //文件
     var sourcePath by mutableStateOf("")
     var outputPath by mutableStateOf("")
-    var customOcrModelPath by mutableStateOf("")
+//    var customOcrModelPath by mutableStateOf("")
 
 
     //配置
@@ -251,6 +251,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
             assets = getAssets()
             libs = getLibs()
             abis = getAbiList().toMutableList()
+            if (ignoredDirs.isEmpty()) ignoredDirs = listOf(buildDir)
             name = viewModel.appName
             versionCode = viewModel.versionCode.toInt()
             versionName = viewModel.versionName
@@ -329,15 +330,15 @@ class BuildViewModel(private val app: Application, private var source: String) :
                 )
             )
         }
-        if (customOcrModelPath.isNotBlank()) {
-            val dirName = File(customOcrModelPath).name
-            assetsList.add(
-                Asset(
-                    form = customOcrModelPath,
-                    to = "/${Constant.Assets.OCR_MODELS}/$dirName"
-                )
-            )
-        }
+//        if (customOcrModelPath.isNotBlank()) {
+//            val dirName = File(customOcrModelPath).name
+//            assetsList.add(
+//                Asset(
+//                    form = customOcrModelPath,
+//                    to = "/${Constant.Assets.OCR_MODELS}/$dirName"
+//                )
+//            )
+//        }
         if (!isSingleFile) {
             assetsList.add(
                 Asset(
@@ -389,9 +390,9 @@ class BuildViewModel(private val app: Application, private var source: String) :
 
     private fun setAssets(projectConfig: ProjectConfig) {
         projectConfig.assets.forEach {
-            if (it.to.startsWith("/${Constant.Assets.OCR_MODELS}/")) {
-                customOcrModelPath = it.form
-            }
+//            if (it.to.startsWith("/${Constant.Assets.OCR_MODELS}/")) {
+//                customOcrModelPath = it.form
+//            }
             if (it.form == "${Constant.Protocol.ASSETS}/${Constant.Assets.OCR_MODELS}") {
                 isRequiredDefaultOcrModel = true
             }
@@ -457,11 +458,6 @@ class BuildViewModel(private val app: Application, private var source: String) :
     }
 
     private fun setupWithSourceFile(file: ScriptFile) {
-        var dir: String = file.parent ?: ""
-        if (dir.startsWith(app.filesDir.path)) {
-            dir = Pref.getScriptDirPath() ?: ""
-        }
-        outputPath = dir
         appName = file.simplifiedName
         packageName = app.getString(
             R.string.format_default_package_name,
@@ -496,9 +492,21 @@ class BuildViewModel(private val app: Application, private var source: String) :
                 sourcePath = File(directory!!, mainScript).path
             }
             syncViewModelByConfig(projectConfig)
+        }
+
+        setOutputPath()
+    }
+
+    private fun setOutputPath() {
+        oldProjectConfig?.outputPath?.let {
+            outputPath = it
         } ?: kotlin.run {
-            outputPath = if (!isSingleFile) File(source, projectConfig.buildDir).path
-            else directory!!
+            var dir: String = if (isSingleFile) directory!!
+            else File(source, projectConfig.buildDir).path
+            if (dir.startsWith(app.filesDir.path)) {
+                dir = PFiles.join(Pref.getScriptDirPath(), "build")
+            }
+            outputPath = dir
         }
     }
 

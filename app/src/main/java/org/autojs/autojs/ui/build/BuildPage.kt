@@ -517,23 +517,23 @@ private fun FileCard(model: BuildViewModel) {
                 }
             }
 
-            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                MyTextField(
-                    value = model.customOcrModelPath,
-                    onValueChange = { model.customOcrModelPath = it },
-                    label = { Text(text = stringResource(id = R.string.text_custom_ocr_model_path)) },
-                    modifier = Modifier.weight(1f),
-                )
-                TextButton(onClick = {
-                    selectCustomOcrModelPath(
-                        context = context,
-                        scriptPath = model.sourcePath,
-                        onResult = { model.customOcrModelPath = it.absolutePath },
-                    )
-                }) {
-                    Text(text = stringResource(id = R.string.text_select))
-                }
-            }
+//            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+//                MyTextField(
+//                    value = model.customOcrModelPath,
+//                    onValueChange = { model.customOcrModelPath = it },
+//                    label = { Text(text = stringResource(id = R.string.text_custom_ocr_model_path)) },
+//                    modifier = Modifier.weight(1f),
+//                )
+//                TextButton(onClick = {
+//                    selectCustomOcrModelPath(
+//                        context = context,
+//                        scriptPath = model.sourcePath,
+//                        onResult = { model.customOcrModelPath = it.absolutePath },
+//                    )
+//                }) {
+//                    Text(text = stringResource(id = R.string.text_select))
+//                }
+//            }
 
         }
     }
