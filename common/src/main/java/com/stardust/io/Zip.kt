@@ -10,17 +10,20 @@ object Zip {
 
     @JvmStatic
     fun unzip(stream: InputStream, dir: File) {
-        ZipInputStream(stream).use { zis ->
-            var entry: ZipEntry
-            while (zis.nextEntry.also { entry = it } != null) {
-                val file = File(dir, entry.name)
-                if (entry.isDirectory) {
-                    file.mkdirs()
-                } else {
-                    file.parentFile?.let { if (!it.exists()) it.mkdirs() }
-                    file.outputStream().use { fos ->
-                        zis.copyTo(fos)
-                        zis.closeEntry()
+        stream.use {
+            ZipInputStream(stream).use { zis ->
+                var z: ZipEntry?
+                while (zis.nextEntry.also { z = it } != null) {
+                    val entry = z ?: continue
+                    val file = File(dir, entry.name)
+                    if (entry.isDirectory) {
+                        file.mkdirs()
+                    } else {
+                        file.parentFile?.let { if (!it.exists()) it.mkdirs() }
+                        file.outputStream().use { fos ->
+                            zis.copyTo(fos)
+                            zis.closeEntry()
+                        }
                     }
                 }
             }

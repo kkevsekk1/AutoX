@@ -14,19 +14,23 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.withContext
 import org.autojs.autojs.Pref
-import org.autojs.autoxjs.R
 import org.autojs.autojs.autojs.AutoJs
 import org.autojs.autojs.model.script.Scripts.run
+import org.autojs.autoxjs.R
 import java.io.*
+import java.net.URLEncoder
 
 /**
  * Created by Stardust on 2017/5/11.
  */
 class DevPluginResponseHandler(private val cacheDir: File) : Handler {
+
+    companion object {
+        val TAG = DevPluginResponseHandler::class.java.simpleName
+    }
+
     private val router = Router.RootRouter("type")
         .handler("command", Router("command")
             .handler("run") { data: JsonObject ->
@@ -90,14 +94,12 @@ class DevPluginResponseHandler(private val cacheDir: File) : Handler {
             .subscribeOn(Schedulers.io())
     }
 
-    fun handleBytes1(data: JsonObject, bytes: Bytes): Flow<File> {
+    suspend fun handleBytes1(data: JsonObject, bytes: Bytes): File = withContext(Dispatchers.IO) {
         val id = data["data"].asJsonObject["id"].asString
-        val idMd5 = MD5.md5(id)
-        return flow {
-            val dir = File(cacheDir, idMd5)
-            Zip.unzip(ByteArrayInputStream(bytes.bytes), dir)
-            emit(dir)
-        }.flowOn(Dispatchers.IO)
+        val projectDir = URLEncoder.encode(id, Charsets.UTF_8.toString())
+        val dir = File(cacheDir, projectDir)
+        Zip.unzip(ByteArrayInputStream(bytes.bytes), dir)
+        dir
     }
 
     private fun runScript(viewId: String, name: String, script: String) {
@@ -130,8 +132,8 @@ class DevPluginResponseHandler(private val cacheDir: File) : Handler {
     }
 
     private fun saveScript(name: String, script: String) {
-        val name1 = if (name.isEmpty())"untitled" else PFiles.getName(name)
-         //PFiles.getNameWithoutExtension(name);
+        val name1 = if (name.isEmpty()) "untitled" else PFiles.getName(name)
+        //PFiles.getNameWithoutExtension(name);
 //        if (!name1.endsWith(".js")) {
 //            name = name + ".js";
 //        }
@@ -143,7 +145,7 @@ class DevPluginResponseHandler(private val cacheDir: File) : Handler {
 
     @SuppressLint("CheckResult")
     private fun saveProject(name: String, dir: String) {
-        val name1 = if (name.isEmpty())  "untitled" else PFiles.getNameWithoutExtension(name)
+        val name1 = if (name.isEmpty()) "untitled" else PFiles.getNameWithoutExtension(name)
         val toDir = File(Pref.getScriptDirPath(), name1)
         Observable.fromCallable {
             copyDir(File(dir), toDir)

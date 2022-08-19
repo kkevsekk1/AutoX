@@ -68,7 +68,8 @@ class ApkBuilder(
     private var arscPackageName: String? = null
     private var manifestEditor: ManifestEditor? = null
     private var projectConfig: ProjectConfig? = null
-    private val waitSignApk1: String = outApkFile.absolutePath + NO_SIGN_APK_SUFFIX
+    private val waitSignApk1: String =
+        PFiles.join(outApkFile.parent!!, outApkFile.nameWithoutExtension + NO_SIGN_APK_SUFFIX)
     private var encryptInitVector: String? = null
     private var encryptKey: String? = null
 

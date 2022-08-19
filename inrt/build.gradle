@@ -164,13 +164,15 @@ task publishMarket(group: 'build') {
 }
 
 
-def buildApkPluginForAbi(File pluginProjectDir, String abi) {
-
+def buildApkPlugin(File pluginProjectDir, boolean isDebug) {
     copy {
-        from file('build\\outputs\\apk\\template\\release\\')
+        def form = 'build\\outputs\\apk\\template\\'
+        if (isDebug) form += "debug\\"
+        else form += "release\\"
+        from file(form)
         into new File(pluginProjectDir, 'src\\main\\assets')
-        def fileName = "inrt-template-release-unsigned.apk"//"inrt-template-" + abi + "-release.apk"
-
+        def fileName = "inrt-template-release-unsigned.apk"
+        if (isDebug) fileName = "inrt-template-debug.apk"
         include fileName
         rename fileName, 'template.apk'
     }
@@ -179,19 +181,28 @@ def buildApkPluginForAbi(File pluginProjectDir, String abi) {
 
 task cp2APP(group: 'build') {
     doLast {
-        def pluginProjectDirPath = '..\\app'
-        println pluginProjectDirPath
-        def pluginProjectDir = file(pluginProjectDirPath)
-        if (!pluginProjectDir.exists() || !pluginProjectDir.isDirectory()) {
-            println 'app 目录 not exists'
-            return
-        }
-        println pluginProjectDir
-        // buildApkPluginForAbi(pluginProjectDir, 'armeabi-v7a')
-        buildApkPluginForAbi(pluginProjectDir, 'arm64-v8a')
+        copyTemplateToAPP(false)
     }
 }
 
+task cp2APPDebug(group: 'build') {
+    doLast {
+        copyTemplateToAPP(true)
+    }
+}
+
+def copyTemplateToAPP(boolean isDebug) {
+    def pluginProjectDirPath = '..\\app'
+    println pluginProjectDirPath
+    def pluginProjectDir = file(pluginProjectDirPath)
+    if (!pluginProjectDir.exists() || !pluginProjectDir.isDirectory()) {
+        println 'app 目录 not exists'
+        return
+    }
+    println pluginProjectDir
+    // buildApkPluginForAbi(pluginProjectDir, 'armeabi-v7a')
+    buildApkPlugin(pluginProjectDir, isDebug)
+}
 
 tasks.whenTaskAdded { task ->
     println("=================task " + task.name + " added=================")

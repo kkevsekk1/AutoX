@@ -178,15 +178,9 @@ object DevPlugin {
 
 
     private suspend fun handleBytes(obj: JsonObject, bytes: Bytes) {
-        withContext(Dispatchers.IO) {
-            responseHandler.handleBytes1(obj, bytes)
-                .flowOn(Dispatchers.Main)
-                .onEach {
-                    obj["data"].asJsonObject.add("dir", JsonPrimitive(it.path))
-                    responseHandler.handle(obj)
-                }
-                .launchIn(this)
-        }
+        val projectDir = responseHandler.handleBytes1(obj, bytes)
+        obj["data"].asJsonObject.add("dir", JsonPrimitive(projectDir.path))
+        responseHandler.handle(obj)
     }
 
     private suspend fun serveHello(message: JsonObject) {
