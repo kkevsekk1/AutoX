@@ -1,6 +1,7 @@
 package org.autojs.autojs.build
 
 import android.util.Base64
+import com.stardust.pio.PFiles
 import org.apache.commons.io.FileUtils
 import org.apache.commons.io.IOUtils
 import java.io.*
@@ -117,9 +118,10 @@ object DefaultSign {
 
     @Throws(Exception::class)
     fun sign(dir: File, out: OutputStream) {
+        File(dir, "META-INF").listFiles()?.forEach {
+            if (it.extension.matches(Regex("MF|SF|RSA"))) it.delete()
+        }
         val zos = ZipOutputStream(out)
-        zos.putNextEntry(ZipEntry("META-INF/"))
-        zos.closeEntry()
         val manifest = Manifest()
         val sha1Manifest = writeMF(dir, manifest, zos)
         val sf = generateSF(manifest)
@@ -171,9 +173,11 @@ object DefaultSign {
 
     @Throws(NoSuchAlgorithmException::class, IOException::class)
     private fun zipAndSha1(dir: File, zos: ZipOutputStream, dos: DigestOutputStream, m: Manifest) {
-        val children = dir.listFiles()?:return
+        val metaDir = File(dir, "META-INF")
+        if (!metaDir.exists()) metaDir.mkdirs()
+        val children = dir.listFiles() ?: return
         for (element in children) {
-            if (!element.name.matches(Regex("^META-INF/(MANIFEST.MF|CERT.RSA|CERT.SF)$"))) {
+            if (!PFiles.getExtension(element.name).matches(Regex("MF|RSA|SF"))) {
                 if (element.isFile) {
                     doFile(element.name, element, zos, dos, m)
                 } else {
