@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="title" format="string|reference"/>
+    <attr name="icon" format="reference"/>
+    <attr name="drawer_item_text_color" format="color|reference"/>
+    <attr name="drawer_group_text_color" format="color|reference"/>
+    <attr name="itemBackgroundDark" format="color|reference"/>
+
+    <declare-styleable name="ToolbarMenuItem">
+        <attr name="text" format="string|reference"/>
+        <attr name="icon"/>
+        <attr name="icon_color" format="color|reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="PrefSwitch">
+        <attr name="key" format="string|reference"/>
+        <attr name="default_value" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="DrawerMenuItem">
+        <attr name="title"/>
+        <attr name="icon"/>
+        <attr name="with_switch" format="boolean"/>
+        <attr name="pref_key" format="string|reference"/>
+        <attr name="anti_shake" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="DrawerMenuGroup">
+        <attr name="title"/>
+    </declare-styleable>
+
+    <declare-styleable name="CircularActionMenu">
+        <attr name="cam_radius" format="dimension|reference"/>
+        <attr name="cam_angle" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="ImageText">
+        <attr name="text"/>
+        <attr name="altSrc"/>
+        <attr name="image_width" format="dimension|reference"/>
+    </declare-styleable>
+
+</resources>
