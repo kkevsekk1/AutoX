@@ -105,9 +105,6 @@ class ApkBuilder(
     ) {
         val ignoredPath1 = ignoredPathList.toMutableList()
             .apply { addAll(projectConfig!!.ignoredDirs.map { getAbsolutePath(it) }) }
-            .map { path ->
-                if (File(path).isDirectory && !path.endsWith("/")) "$path/" else path
-            }
 
         val fromDir = File(srcPath)
         val toDir = File(workspacePath, relativeTargetPath)
@@ -116,7 +113,8 @@ class ApkBuilder(
         val children = fromDir.listFiles()
             ?.filter { file ->
                 !ignoredPath1.any {
-                    (file.path.startsWith(it) || file.canonicalFile == File(it).canonicalFile)
+                    val dir = if (it.endsWith("/")) it else "$it/"
+                    (file.path.startsWith(dir) || file.canonicalFile == File(it).canonicalFile)
                 }
             } ?: return
 
