@@ -46,6 +46,12 @@ data class ProjectConfig(
     var assets: List<Asset> = emptyList(),
     var signingConfig: SigningConfig = SigningConfig(),
 ) {
+
+    fun getAbsolutePath(name: String): String {
+        return if (name.startsWith("/")) name
+        else File(this.projectDirectory, name).absolutePath
+    }
+
     companion object {
 
         const val CONFIG_FILE_NAME = "project.json"
@@ -97,6 +103,7 @@ data class ProjectConfig(
         fun configFileOfDir(projectDir: String, configName: String): String {
             return PFiles.join(projectDir, configName)
         }
+
     }
 
     fun toJson(): String {

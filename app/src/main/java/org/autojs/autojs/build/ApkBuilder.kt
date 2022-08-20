@@ -96,23 +96,31 @@ class ApkBuilder(
         return this
     }
 
+    private fun getAbsolutePath(name: String): String = projectConfig!!.getAbsolutePath(name)
+
     fun copyDir(
         srcPath: String,
         relativeTargetPath: String,
-        ignoredPath: List<String> = projectConfig!!.ignoredDirs,
-        ignoredName: List<String> = emptyList()
+        ignoredPathList: List<String> = emptyList(),
     ) {
-        val ignoredPath1 = ignoredPath.map {
-            if (it.startsWith("/")) it
-            else PFiles.join(projectConfig!!.projectDirectory!!, it)
-        }
+        val ignoredPath1 = ignoredPathList.toMutableList()
+            .apply { addAll(projectConfig!!.ignoredDirs.map { getAbsolutePath(it) }) }
+            .map { path ->
+                if (File(path).isDirectory && !path.endsWith("/")) "$path/" else path
+            }
+
         val fromDir = File(srcPath)
         val toDir = File(workspacePath, relativeTargetPath)
         toDir.mkdirs()
-        val children = fromDir.listFiles() ?: return
+
+        val children = fromDir.listFiles()
+            ?.filter { file ->
+                !ignoredPath1.any {
+                    (file.path.startsWith(it) || file.canonicalFile == File(it).canonicalFile)
+                }
+            } ?: return
+
         for (child in children) {
-            val ignored = ignoredPath1.any { child.path.startsWith(it) } || ignoredName.contains(child.name)
-            if (ignored) continue
             if (child.isFile) {
                 if (child.name.endsWith(".js")) {
                     encryptToDir(child, toDir)
@@ -188,9 +196,9 @@ class ApkBuilder(
                 copyDir(
                     srcPath = file.path,
                     relativeTargetPath = relativeTo.path,
-                    ignoredPath = listOf(
-                        ProjectConfig.CONFIG_FILE_NAME,
-                        projectConfig!!.sourcePath!!
+                    ignoredPathList = listOf(
+                        getAbsolutePath(ProjectConfig.CONFIG_FILE_NAME),
+                        getAbsolutePath(projectConfig!!.sourcePath!!)
                     )
                 )
                 return@forEach

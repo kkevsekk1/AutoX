@@ -30,7 +30,7 @@ object GlobalAppContext {
 
     fun set(a: Application, buildConfig: BuildConfig) {
         this.buildConfig = buildConfig
-        Log.d(TAG, buildConfig.toString())
+        Log.i(TAG, buildConfig.toString())
         sHandler = Handler(Looper.getMainLooper())
         sApplicationContext = a.applicationContext
     }
