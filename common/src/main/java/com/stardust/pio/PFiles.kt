@@ -3,6 +3,7 @@ package com.stardust.pio
 import android.content.Context
 import android.content.res.AssetManager
 import android.os.Environment
+import android.util.Log
 import com.stardust.util.Func1
 import java.io.*
 import java.nio.charset.Charset
@@ -244,8 +245,15 @@ object PFiles {
             val fullAssetsPath = join(assetsDir, file)
             val children = manager.list(fullAssetsPath)
             if (children.isNullOrEmpty()) {
-                manager.open(fullAssetsPath).use {
-                    copyStream(it, join(toDir, file))
+                //空目录会报错，所以加 try catch
+                try {
+                    manager.open(fullAssetsPath).use {
+                        copyStream(it, join(toDir, file))
+                    }
+                } catch (e: FileNotFoundException) {
+                    Log.e(TAG, "${e.message} is a directory", e)
+                } catch (e: Exception) {
+                    e.printStackTrace()
                 }
             } else {
                 copyAssetDir(manager, fullAssetsPath, join(toDir, file), children)
