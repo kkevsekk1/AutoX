@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="rename" type="id"/>
+    <item name="open_by_other_apps" type="id"/>
+    <item name="create_shortcut" type="id"/>
+    <item name="delete" type="id"/>
+    <item name="package_name" type="id"/>
+    <item name="class_name" type="id"/>
+    <item name="open_launcher" type="id"/>
+    <item name="accessibility_service" type="id"/>
+    <item name="layout_bounds" type="id"/>
+    <item name="layout_hierarchy" type="id"/>
+    <item name="pointer_location" type="id"/>
+    <item name="disable_pointer_location" type="id"/>
+</resources>

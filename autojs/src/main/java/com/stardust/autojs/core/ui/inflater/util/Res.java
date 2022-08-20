@@ -3,6 +3,8 @@ package com.stardust.autojs.core.ui.inflater.util;
 import android.content.Context;
 import android.view.View;
 
+import com.stardust.app.GlobalAppContext;
+
 /**
  * Created by Stardust on 2017/11/5.
  */
@@ -17,6 +19,6 @@ public class Res {
         if (value.startsWith("@style/")) {
             value = value.substring(7);
         }
-        return context.getResources().getIdentifier(value, "style", context.getPackageName());
+        return context.getResources().getIdentifier(value, "style", GlobalAppContext.getAutojsPackageName());
     }
 }

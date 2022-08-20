@@ -33,7 +33,6 @@ dependencies {
     api files('libs/tiny-sign-0.9.jar') 
     api files('libs/commons-io-2.5.jar')
     implementation "androidx.core:core-ktx:1.8.0"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {
     mavenCentral()

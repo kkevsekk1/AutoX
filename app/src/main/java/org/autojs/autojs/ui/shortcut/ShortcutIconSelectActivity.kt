@@ -159,39 +159,5 @@ open class ShortcutIconSelectActivity : BaseActivity() {
             }
         }
 
-        @Deprecated("Use org/autojs/autojs/ui/shortcut/ShortcutIconSelectResult")
-        suspend fun getBitmapFromIntent2(context: Context, intent: Intent): Bitmap? {
-            val drawable = withContext(Dispatchers.IO) {
-                intent.getStringExtra(EXTRA_PACKAGE_NAME)?.let {
-                    return@withContext BitmapTool.drawableToBitmap(
-                        context.packageManager.getApplicationIcon(
-                            it
-                        )
-                    )
-                }
-                return@withContext null
-            } ?: intent.data?.let { uri ->
-                context.contentResolver.openInputStream(uri)?.use {
-                    BitmapFactory.decodeStream(it)
-                }
-            }
-            return withContext(Dispatchers.Main) {
-                drawable
-            }
-        }
-
-        @Deprecated("Use org/autojs/autojs/ui/shortcut/ShortcutIconSelectResult")
-        suspend fun getDrawableOrUriFromIntent(context: Context, intent: Intent): Any? {
-            val drawable = withContext(Dispatchers.IO) {
-                intent.getStringExtra(EXTRA_PACKAGE_NAME)?.let {
-                    return@withContext context.packageManager.getApplicationIcon(it)
-                }
-                return@withContext null
-            }
-            return withContext(Dispatchers.Main) {
-                drawable ?: intent.data
-            }
-        }
-
     }
 }

@@ -1,13 +1,10 @@
 package org.autojs.autojs.build
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.util.Log
 import androidx.core.net.toUri
 import com.stardust.app.GlobalAppContext
 import com.stardust.autojs.apkbuilder.ApkPackager
 import com.stardust.autojs.apkbuilder.ManifestEditor
-import com.stardust.pio.copyToAndClose
 import com.stardust.autojs.project.BuildInfo
 import com.stardust.autojs.project.ProjectConfig
 import com.stardust.autojs.script.EncryptedScriptFileHeader
@@ -44,13 +41,6 @@ class ApkBuilder(
     private val outApkFile: File,
     private val workspacePath: String
 ) {
-    @Deprecated("")
-    interface ProgressCallback {
-        fun onPrepare(builder: ApkBuilder?)
-        fun onBuild(builder: ApkBuilder?)
-        fun onSign(builder: ApkBuilder?)
-        fun onClean(builder: ApkBuilder?)
-    }
 
     object BuildState {
         const val PREPARE = 0
@@ -68,17 +58,12 @@ class ApkBuilder(
     private var arscPackageName: String? = null
     private var manifestEditor: ManifestEditor? = null
     private var projectConfig: ProjectConfig? = null
-    private val waitSignApk1: String = outApkFile.absolutePath + NO_SIGN_APK_SUFFIX
+    private val waitSignApk1: String =
+        PFiles.join(outApkFile.parent!!, outApkFile.nameWithoutExtension + NO_SIGN_APK_SUFFIX)
     private var encryptInitVector: String? = null
     private var encryptKey: String? = null
 
     private val nativePath = File(GlobalAppContext.get().cacheDir, "native-lib").path
-
-    @Deprecated("use progressEvent", ReplaceWith("this"))
-    fun setProgressCallback(callback: ProgressCallback): ApkBuilder {
-//        progressCallback = callback
-        return this
-    }
 
     /**
      * 新建工作目录并解压apk
@@ -117,12 +102,16 @@ class ApkBuilder(
         ignoredPath: List<String> = projectConfig!!.ignoredDirs,
         ignoredName: List<String> = emptyList()
     ) {
+        val ignoredPath1 = ignoredPath.map {
+            if (it.startsWith("/")) it
+            else PFiles.join(projectConfig!!.projectDirectory!!, it)
+        }
         val fromDir = File(srcPath)
         val toDir = File(workspacePath, relativeTargetPath)
         toDir.mkdirs()
         val children = fromDir.listFiles() ?: return
         for (child in children) {
-            val ignored = ignoredPath.contains(child.path) || ignoredName.contains(child.name)
+            val ignored = ignoredPath1.any { child.path.startsWith(it) } || ignoredName.contains(child.name)
             if (ignored) continue
             if (child.isFile) {
                 if (child.name.endsWith(".js")) {
@@ -200,7 +189,7 @@ class ApkBuilder(
                     srcPath = file.path,
                     relativeTargetPath = relativeTo.path,
                     ignoredPath = listOf(
-                        File(projectConfig!!.projectDirectory, ProjectConfig.CONFIG_FILE_NAME).path,
+                        ProjectConfig.CONFIG_FILE_NAME,
                         projectConfig!!.sourcePath!!
                     )
                 )
@@ -418,84 +407,6 @@ class ApkBuilder(
 
     init {
         PFiles.ensureDir(outApkFile.path)
-    }
-
-    @Deprecated("use com.stardust.autojs.project.ProjectConfig")
-    data class AppConfig(
-        var appName: String? = null,
-        var versionName: String? = null,
-        var versionCode: Int = 0,
-        var sourcePath: String? = null,
-        var packageName: String? = null,
-        var ignoredDirs: ArrayList<File> = ArrayList(),
-        var icon: (() -> Bitmap)? = null,
-        var splashIcon: (() -> Bitmap)? = null,
-        var splashText: String? = null,
-        var hideLauncher: Boolean = false,
-        var serviceDesc: String? = null,
-        var excludeLibraries: MutableList<String> = mutableListOf(),
-        var excludeAssets: MutableList<String> = mutableListOf(),
-        var customOcrModelPath: String? = null
-    ) {
-
-        fun addExcludeLibrary(library: String) {
-            excludeLibraries.add(library)
-        }
-
-        fun ignoreDir(dir: File): AppConfig {
-            ignoredDirs.add(dir)
-            return this
-        }
-
-        fun setIcon(icon: (() -> Bitmap)): AppConfig {
-            this.icon = icon
-            return this
-        }
-
-        fun setIcon(iconPath: String): AppConfig {
-            icon = { BitmapFactory.decodeFile(iconPath) }
-            return this
-        }
-
-        fun setSplashIcon(icon: (() -> Bitmap)): AppConfig {
-            this.splashIcon = icon
-            return this
-        }
-
-        fun setSplashIcon(iconPath: String): AppConfig {
-            splashIcon = { BitmapFactory.decodeFile(iconPath) }
-            return this
-        }
-
-        companion object {
-            @JvmStatic
-            fun fromProjectConfig(projectDir: String, projectConfig: ProjectConfig): AppConfig {
-                val icon = projectConfig.icon
-                val splashIcon = projectConfig.launchConfig.splashIcon
-
-                val appConfig = AppConfig(
-                    appName = projectConfig.name,
-                    packageName = projectConfig.packageName,
-                    hideLauncher = projectConfig.launchConfig.isHideLauncher,
-                    versionCode = projectConfig.versionCode,
-                    versionName = projectConfig.versionName,
-                    splashText = projectConfig.launchConfig.splashText,
-                    serviceDesc = projectConfig.launchConfig.serviceDesc,
-                    sourcePath = projectDir,
-                ).apply {
-//                    ignoreDir(File(projectDir, projectConfig.buildDir))
-                    icon?.let { setIcon(getIconPath(projectDir, it)) }
-                    splashIcon?.let { setIcon(getIconPath(projectDir, it)) }
-                }
-                return appConfig
-            }
-
-            private fun getIconPath(dir: String, icon: String): String {
-                return if (PFiles.isDir(dir)) {
-                    File(dir, icon).path
-                } else File(File(dir).parent, icon).path
-            }
-        }
     }
 
 }

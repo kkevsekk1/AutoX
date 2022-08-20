@@ -40,7 +40,9 @@ class App : Application() {
     var TAG = "inrt.application";
     override fun onCreate() {
         super.onCreate()
-        GlobalAppContext.set(this)
+        GlobalAppContext.set(
+            this, com.stardust.app.BuildConfig.generate(BuildConfig::class.java)
+        )
         Utils.init(this);
         AutoJs.initInstance(this)
         GlobalKeyObserver.init()
@@ -108,15 +110,16 @@ class App : Application() {
             getString(R.string.key_keep_running_with_foreground_service),
             false
         )
-        if (keepRunningWithForegroundService){
-            val foregroundNotification = ForegroundNotification(GlobalAppContext.appName +"正在运行中",
+        if (keepRunningWithForegroundService) {
+            val foregroundNotification = ForegroundNotification(
+                GlobalAppContext.appName + "正在运行中",
                 "点击打开【" + GlobalAppContext.appName + "】",
                 R.mipmap.ic_launcher
             )  //定义前台服务的通知点击事件
             { context, intent ->
                 Log.d(TAG, "foregroundNotificationClick: ");
                 val splashActivityintent = Intent(context, ScriptExecuteActivity::class.java)
-                splashActivityintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK );
+                splashActivityintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context!!.startActivity(splashActivityintent)
             }
             KeepLive.startWork(

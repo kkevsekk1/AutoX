@@ -291,7 +291,7 @@ public class DynamicLayoutInflater {
             }
             Class<?> clazz = Class.forName(name);
             String style = attrs.get("style");
-            if (style == null || Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            if (style == null) {
                 return (View) clazz.getConstructor(Context.class).newInstance(mContext);
             } else {
                 int styleRes = Res.parseStyle(mContext, style);

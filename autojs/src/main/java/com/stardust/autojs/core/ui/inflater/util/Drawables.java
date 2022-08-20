@@ -14,6 +14,9 @@ import android.util.Base64;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.core.content.ContextCompat;
+
+import com.stardust.app.GlobalAppContext;
 import com.stardust.autojs.core.ui.inflater.ImageLoader;
 
 import java.net.URL;
@@ -56,15 +59,15 @@ public class Drawables {
 
     public Drawable loadDrawableResources(Context context, String value) {
         int resId = context.getResources().getIdentifier(value, "drawable",
-                context.getPackageName());
+                GlobalAppContext.getAutojsPackageName());
         if (resId == 0)
             throw new Resources.NotFoundException("drawable not found: " + value);
-        return context.getResources().getDrawable(resId);
+        return ContextCompat.getDrawable(context,resId);
     }
 
     public Drawable loadAttrResources(Context context, String value) {
         int[] attr = {context.getResources().getIdentifier(value.substring(1), "attr",
-                context.getPackageName())};
+                GlobalAppContext.getAutojsPackageName())};
         TypedArray ta = context.obtainStyledAttributes(attr);
         Drawable drawable = ta.getDrawable(0 /* index */);
         ta.recycle();

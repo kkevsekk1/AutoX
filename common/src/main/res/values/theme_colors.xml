@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="theme_color_red">红色</string>
+    <string name="theme_color_pink">粉色</string>
+    <string name="theme_color_purple">紫色</string>
+    <string name="theme_color_dark_purple">深紫</string>
+    <string name="theme_color_indigo">靛蓝</string>
+    <string name="theme_color_blue">蓝色</string>
+    <string name="theme_color_light_blue">亮蓝</string>
+    <string name="theme_color_blue_green">蓝绿</string>
+    <string name="theme_color_cyan">青色</string>
+    <string name="theme_color_green">绿色</string>
+    <string name="theme_color_light_green">亮绿</string>
+    <string name="theme_color_yellow_green">黄绿</string>
+    <string name="theme_color_yellow">黄色</string>
+    <string name="theme_color_amber">琥珀</string>
+    <string name="theme_color_orange">橙色</string>
+    <string name="theme_color_dark_orange">深橙</string>
+    <string name="theme_color_brown">棕色</string>
+    <string name="theme_color_gray">灰色</string>
+    <string name="theme_color_blue_gray">蓝灰</string>
+
+
+    <color name="theme_color_red">#F44336</color>
+    <color name="theme_color_pink">#E91E63</color>
+    <color name="theme_color_purple">#9C27B0</color>
+    <color name="theme_color_dark_purple">#673AB7</color>
+    <color name="theme_color_indigo">#3F51B5</color>
+    <color name="theme_color_blue">#2196F3</color>
+    <color name="theme_color_light_blue">#03A9F4</color>
+    <color name="theme_color_blue_green">#00BCD4</color>
+    <color name="theme_color_cyan">#009688</color>
+    <color name="theme_color_green">#4CAF50</color>
+    <color name="theme_color_light_green">#8BC34A</color>
+    <color name="theme_color_yellow_green">#CDDC39</color>
+    <color name="theme_color_yellow">#FFEB3B</color>
+    <color name="theme_color_amber">#FFC107</color>
+    <color name="theme_color_orange">#FF9800</color>
+    <color name="theme_color_dark_orange">#FF5722</color>
+    <color name="theme_color_brown">#795548</color>
+    <color name="theme_color_gray">#9E9E9E</color>
+    <color name="theme_color_blue_gray">#607D8B</color>
+</resources>

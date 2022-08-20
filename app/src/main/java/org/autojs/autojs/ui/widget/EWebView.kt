@@ -748,17 +748,17 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener,
     private var execution: ScriptExecution? = null
 
     @JavascriptInterface
-    fun run(code: String?, name: String?): String {
+    fun run(code: String, name: String): String {
         stop(execution)
         execution = Scripts.run(StringScriptSource(name, code))
-        return if (execution == null) "Fail! Code: " + code.toString() else "Success! Code: " + code.toString()
+        return if (execution == null) "Fail! Code: $code" else "Success! Code: $code"
     }
 
     @JavascriptInterface
-    fun run(code: String?): String {
+    fun run(code: String): String {
         stop(execution)
         execution = Scripts.run(StringScriptSource("", code))
-        return if (execution == null) "Fail! Code: " + code.toString() else "Success! Code: " + code.toString()
+        return if (execution == null) "Fail! Code: $code" else "Success! Code: $code"
     }
 
     @JavascriptInterface

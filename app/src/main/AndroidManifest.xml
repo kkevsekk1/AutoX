@@ -407,12 +407,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="org.autojs.autojs.ui.main.MainActivity_"
-            android:exported="true"
-            android:hardwareAccelerated="true"
-            android:launchMode="singleTask"
-            android:theme="@style/AppTheme.FullScreen" />
-        <activity
             android:name="org.autojs.autojs.ui.main.MainActivityCompose"
             android:exported="true"
             android:launchMode="singleTask" />
@@ -467,7 +461,6 @@
         <activity android:name="org.autojs.autojs.ui.build.SignManageActivityKt" />
         <activity android:name="org.autojs.autojs.ui.build.ProjectConfigActivity_" />
         <activity android:name="org.autojs.autojs.ui.log.LogActivityKt" />
-        <activity android:name="org.autojs.autojs.ui.doc.DocumentationActivity_" />
         <activity android:name="org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity_" />
         <activity android:name="org.autojs.autojs.ui.timing.TimedTaskSettingActivity_" />
         <activity

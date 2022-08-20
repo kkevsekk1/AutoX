@@ -15,6 +15,8 @@ import java.util.List;
 public class Paddle {
     private Predictor mPredictor = new Predictor();
 
+    private final int availableProcessors = Runtime.getRuntime().availableProcessors();
+
     public void initOcr(Context context, int cpuThreadNum, boolean useSlim) {
         mPredictor.initOcr(context, cpuThreadNum, useSlim);
     }
@@ -34,7 +36,7 @@ public class Paddle {
         if (!mPredictor.isLoaded()) {
             initOcr(GlobalAppContext.get(), cpuThreadNum, useSlim);
         }
-        return mPredictor.runOcr(bitmap, 4, true);
+        return mPredictor.runOcr(bitmap, cpuThreadNum, true);
     }
 
     public List<OcrResult> ocr(ImageWrapper image, int cpuThreadNum, String myModelPath) {
@@ -51,12 +53,20 @@ public class Paddle {
         return mPredictor.runOcr(bitmap, cpuThreadNum, true);
     }
 
+    public List<OcrResult> ocr(ImageWrapper image, boolean useSlim) {
+        return ocr(image, availableProcessors, useSlim);
+    }
+
+    public List<OcrResult> ocr(ImageWrapper image, String myModelPath) {
+        return ocr(image, availableProcessors, myModelPath);
+    }
+
     public List<OcrResult> ocr(ImageWrapper image, int cpuThreadNum) {
         return ocr(image, cpuThreadNum, true);
     }
 
     public List<OcrResult> ocr(ImageWrapper image) {
-        return ocr(image, 4, true);
+        return ocr(image, availableProcessors, true);
     }
 
     public String[] ocrText(ImageWrapper image, int cpuThreadNum, boolean useSlim) {
@@ -69,12 +79,22 @@ public class Paddle {
         return sortResult(wordsResult);
     }
 
+    public String[] ocrText(ImageWrapper image, String myModelPath) {
+        List<OcrResult> wordsResult = ocr(image, myModelPath);
+        return sortResult(wordsResult);
+    }
+
+    public String[] ocrText(ImageWrapper image, boolean useSlim) {
+        List<OcrResult> wordsResult = ocr(image, useSlim);
+        return sortResult(wordsResult);
+    }
+
     public String[] ocrText(ImageWrapper image, int cpuThreadNum) {
         return ocrText(image, cpuThreadNum, true);
     }
 
     public String[] ocrText(ImageWrapper image) {
-        return ocrText(image, 4, true);
+        return ocrText(image, availableProcessors, true);
     }
 
     public void release() {

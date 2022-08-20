@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#009688</color>
+    <color name="colorPrimaryDark">#009688</color>
+    <color name="colorAccent">#03a9f4</color>
+    <color name="sliding_up_panel_shadow_color">#99444444</color>
+    <color name="bubble_bg">#eef2f3f9</color>
+    <color name="color_r">#FD999A</color>
+    <color name="color_j">#99CC99</color>
+    <color name="prefTextColorSecondary">#9DA0A2</color>
+    <color name="prefTextColorPrimary">#282C2F</color>
+    <color name="divider_functions_keyboard">#f0f0f0</color>
+    <color name="theme_color_black">#111214</color>
+
+    <color name="background">#FFFFFF</color>
+    <color name="item_background">#FFFFFF</color>
+    <color name="item_background_dark">#FFFFFF</color>
+    <color name="text_color_secondary">#484C4F</color>
+    <color name="text_color_thirdly">#9DA0A2</color>
+    <color name="divider">#f2f3f5</color>
+    <color name="drawer_menu_item_text_color">#484C4F</color>
+    <color name="drawer_menu_group_text_color">#999999</color>
+    <color name="tab_indicator">@android:color/white</color>
+    <color name="tab_text">#a0ffffff</color>
+    <color name="toolbar">@android:color/white</color>
+    <color name="toolbar_disabled">#77e0e0e0</color>
+    <color name="console_debug">#cc000000</color>
+    <color name="console_verbose">#dfc0c0c0</color>
+    <color name="market_button_selected">#e14123</color>
+    <color name="market_button_unselected">#939393</color>
+    <color name="surface">#FFFFFFFF</color>
+    <color name="on_surface">#FF000000</color>
+    <color name="on_secondary">#FFFFFFFF</color>
+    <color name="on_background">#FF000000</color>
+</resources>
