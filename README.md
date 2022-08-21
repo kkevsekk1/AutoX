@@ -30,12 +30,16 @@
 
 * Autox.js文档： http://doc.autoxjs.com/
 * 开源地址  https://github.com/kkevsekk1/AutoX
-*
-
-pc端开发[VS Code 插件](https://marketplace.visualstudio.com/items?itemName=aaroncheng.auto-js-vsce-fixed)
-
+* pc端开发[VS Code 插件](https://marketplace.visualstudio.com/items?itemName=aaroncheng.auto-js-vsce-fixed)
 * 官方论坛： [www.autoxjs.com](http://www.autoxjs.com)
 * autoxjs[更新日志](CHANGELOG.md)
+
+### Autox.js下载地址：
+[https://github.com/kkevsekk1/AutoX/release](https://github.com/kkevsekk1/AutoX/release)
+#### APK版本说明：
+- universal: 通用版（不在乎安装包大小/懒得选就用这个版本，包含以下2种CPU架构so）
+- armeabi-v7a: 32位ARM设备（备用机首选）
+- arm64-v8a: 64位ARM设备（主流旗舰机）
 
 ### 特性
 
