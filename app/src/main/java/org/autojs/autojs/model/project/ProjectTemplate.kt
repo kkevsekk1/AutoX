@@ -1,37 +1,18 @@
-package org.autojs.autojs.model.project;
+package org.autojs.autojs.model.project
 
-import android.annotation.SuppressLint;
+import com.stardust.autojs.project.ProjectConfig
+import com.stardust.autojs.project.ProjectConfig.Companion.configFileOfDir
+import com.stardust.pio.PFiles.write
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import java.io.File
 
-import com.stardust.autojs.project.ProjectConfig;
-import com.stardust.pio.PFiles;
+class ProjectTemplate(private val mProjectConfig: ProjectConfig, private val mProjectDir: File) {
 
-import java.io.File;
-
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
-
-public class ProjectTemplate {
-
-
-    private final ProjectConfig mProjectConfig;
-    private final File mProjectDir;
-
-    public ProjectTemplate(ProjectConfig projectConfig, File projectDir) {
-        mProjectConfig = projectConfig;
-        mProjectDir = projectDir;
+    suspend fun newProject(): File = withContext(Dispatchers.IO) {
+        mProjectDir.mkdirs()
+        write(configFileOfDir(mProjectDir.path), mProjectConfig.toJson())
+        File(mProjectDir, mProjectConfig.mainScript!!).createNewFile()
+        mProjectDir
     }
-
-    @SuppressLint("CheckResult")
-    public Observable<File> newProject() {
-        return Observable.fromCallable(() -> {
-            mProjectDir.mkdirs();
-            PFiles.write(ProjectConfig.Companion.configFileOfDir(mProjectDir.getPath()), mProjectConfig.toJson());
-            new File(mProjectDir, mProjectConfig.getMainScript()).createNewFile();
-            return mProjectDir;
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
-    }
-
 }

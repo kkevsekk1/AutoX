@@ -11,6 +11,7 @@ import androidx.core.net.toUri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.stardust.app.GlobalAppContext
 import com.stardust.autojs.project.Asset
 import com.stardust.autojs.project.Constant
@@ -33,9 +34,7 @@ import org.autojs.autojs.build.ApkSigner
 import org.autojs.autojs.model.explorer.ExplorerFileItem
 import org.autojs.autojs.model.explorer.Explorers
 import org.autojs.autojs.model.script.ScriptFile
-import org.autojs.autojs.tool.getRandomString
-import org.autojs.autojs.tool.parseUriOrNull
-import org.autojs.autojs.tool.saveIcon
+import org.autojs.autojs.tool.*
 import java.io.File
 import java.net.URLDecoder
 
@@ -248,9 +247,9 @@ class BuildViewModel(private val app: Application, private var source: String) :
             projectDirectory = directory!!
             outputPath = viewModel.outputPath
             displaySplash = viewModel.displaySplash
-            assets = getAssets()
-            libs = getLibs()
-            abis = getAbiList().toMutableList()
+            assets = updateAssets(assets)
+            libs = updateLibs(libs).toMutableList()
+            abis = updateAbiList(abis).toMutableList()
             if (ignoredDirs.isEmpty()) ignoredDirs = listOf(buildDir)
             name = viewModel.appName
             versionCode = viewModel.versionCode.toInt()
@@ -266,7 +265,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
                 splashText = viewModel.splashText
                 splashIcon = viewModel.splashIcon?.toRelativePathOrString()
                 serviceDesc = viewModel.serviceDesc
-                permissions = getPermissions()
+                permissions = updatePermissions(permissions)
             }
             signingConfig.apply {
                 keyStore = viewModel.keyStore?.path
@@ -320,10 +319,10 @@ class BuildViewModel(private val app: Application, private var source: String) :
         return uriString
     }
 
-    private fun getAssets(): MutableList<Asset> {
-        val assetsList = mutableListOf<Asset>()
+    private fun updateAssets(oldAsset: List<Asset>): List<Asset> {
+        val assetsList = oldAsset.toMutableList()
         if (isRequiredDefaultOcrModel) {
-            assetsList.add(
+            assetsList.addIfNotExist(
                 Asset(
                     form = Constant.Protocol.ASSETS + "/" + Constant.Assets.OCR_MODELS,
                     to = "/${Constant.Assets.OCR_MODELS}"
@@ -340,35 +339,36 @@ class BuildViewModel(private val app: Application, private var source: String) :
 //            )
 //        }
         if (!isSingleFile) {
-            assetsList.add(
+            assetsList.addIfNotExist(
                 Asset(
                     form = directory!!,
                     to = "/${Constant.Assets.PROJECT}"
                 )
             )
         }
-        return assetsList
+        return assetsList.distinct()
     }
 
-    private fun getAbiList(): List<String> {
-        return abiList.split(",").map { it.trim() }
+    private fun updateAbiList(oldAbis: List<String>): List<String> {
+        val newAbis = abiList.split(",").map { it.trim() }
+        return oldAbis.toMutableList().apply { addAllIfNotExist(newAbis) }.distinct()
     }
 
-    private fun getLibs(): MutableList<String> {
-        val libList = mutableListOf<String>()
-        if (isRequiredOpenCv) libList.addAll(Constant.Libraries.OPEN_CV)
-        if (isRequiredOCR) libList.addAll(Constant.Libraries.OCR)
-        if (isRequired7Zip) libList.addAll(Constant.Libraries.P7ZIP)
-        if (isRequiredTerminalEmulator) libList.addAll(Constant.Libraries.TERMINAL_EMULATOR)
-        return libList
+    private fun updateLibs(oldLibs: List<String>): List<String> {
+        val libList = oldLibs.toMutableList()
+        if (isRequiredOpenCv) libList.addAllIfNotExist(Constant.Libraries.OPEN_CV)
+        if (isRequiredOCR) libList.addAllIfNotExist(Constant.Libraries.OCR)
+        if (isRequired7Zip) libList.addAllIfNotExist(Constant.Libraries.P7ZIP)
+        if (isRequiredTerminalEmulator) libList.addAllIfNotExist(Constant.Libraries.TERMINAL_EMULATOR)
+        return libList.distinct()
     }
 
-    private fun getPermissions(): MutableList<String> {
-        val permissionList = mutableListOf<String>()
-        if (isRequiredAccessibilityServices) permissionList.add(Constant.Permissions.ACCESSIBILITY_SERVICES)
-        if (isRequiredBackgroundStart) permissionList.add(Constant.Permissions.BACKGROUND_START)
-        if (isRequiredDrawOverlay) permissionList.add(Constant.Permissions.DRAW_OVERLAY)
-        return permissionList
+    private fun updatePermissions(oldPermissions: List<String>): List<String> {
+        val permissionList = oldPermissions.toMutableList()
+        if (isRequiredAccessibilityServices) permissionList.addIfNotExist(Constant.Permissions.ACCESSIBILITY_SERVICES)
+        if (isRequiredBackgroundStart) permissionList.addIfNotExist(Constant.Permissions.BACKGROUND_START)
+        if (isRequiredDrawOverlay) permissionList.addIfNotExist(Constant.Permissions.DRAW_OVERLAY)
+        return permissionList.distinct()
     }
 
 
@@ -469,21 +469,23 @@ class BuildViewModel(private val app: Application, private var source: String) :
                 getRandomString(6)
             )
         }
-        setSource(file)
+        viewModelScope.launch {
+            setSource(file)
+        }
     }
 
-    private fun setSource(file: File) {
+    private suspend fun setSource(file: File) {
         if (file.isFile) {
             //如果是文件
             directory = file.parent
             sourcePath = file.path
             //尝试获取配置文件
             oldProjectConfig =
-                ProjectConfig.fromProjectDir(directory!!, configName)
+                ProjectConfig.fromProjectDirAsync(directory!!, configName)
         } else {
             //如果是目录
             directory = source
-            oldProjectConfig = ProjectConfig.fromProjectDir(file.path)
+            oldProjectConfig = ProjectConfig.fromProjectDirAsync(file.path)
         }
         oldProjectConfig?.let {
             isOldProjectConfigExist = true

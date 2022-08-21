@@ -20,6 +20,7 @@ import org.autojs.autojs.tool.copyTo
 import org.autojs.autojs.tool.parseUriOrNull
 import org.autojs.autojs.tool.unzip
 import com.stardust.autojs.project.Constant
+import org.autojs.autojs.tool.addAllIfNotExist
 import pxb.android.StringItem
 import pxb.android.axml.AxmlWriter
 import zhao.arsceditor.ArscUtil
@@ -104,7 +105,7 @@ class ApkBuilder(
         ignoredPathList: List<String> = emptyList(),
     ) {
         val ignoredPath1 = ignoredPathList.toMutableList()
-            .apply { addAll(projectConfig!!.ignoredDirs.map { getAbsolutePath(it) }) }
+            .apply { addAllIfNotExist(projectConfig!!.ignoredDirs.map { getAbsolutePath(it) }) }
 
         val fromDir = File(srcPath)
         val toDir = File(workspacePath, relativeTargetPath)
@@ -216,9 +217,7 @@ class ApkBuilder(
     }
 
     private fun copyLibraries(config: ProjectConfig) {
-        if (!config.abis.containsAll(Constant.Libraries.TERMINAL_EMULATOR)) {
-            config.abis.addAll(Constant.Libraries.TERMINAL_EMULATOR)
-        }
+        config.libs.addAllIfNotExist(Constant.Libraries.TERMINAL_EMULATOR)
         config.abis.forEach { abi ->
             config.libs.forEach { name ->
                 kotlin.runCatching {

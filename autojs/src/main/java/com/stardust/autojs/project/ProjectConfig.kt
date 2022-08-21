@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName
 import com.stardust.app.GlobalAppContext
 import com.stardust.autojs.R
 import com.stardust.pio.PFiles
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.io.File
 import java.util.zip.CRC32
 
@@ -41,7 +43,7 @@ data class ProjectConfig(
     var outputPath: String? = null,
     val buildDir: String = "build",
     var ignoredDirs: List<String> = emptyList(),
-    var libs: List<String> = emptyList(),
+    var libs: MutableList<String> = mutableListOf(),
     var abis: MutableList<String> = arrayListOf<String>().apply { addAll(Constant.Abi.abis) },
     var assets: List<Asset> = emptyList(),
     var signingConfig: SigningConfig = SigningConfig(),
@@ -95,6 +97,32 @@ data class ProjectConfig(
         fun fromProjectDir(path: String, configName: String): ProjectConfig? {
             return fromFile(configFileOfDir(path, configName))
         }
+
+        suspend fun fromAssetsAsync(context: Context, path: String): ProjectConfig? =
+            withContext(Dispatchers.IO) {
+                return@withContext try {
+                    fromJson(context.assets.open(path).reader().use { it.readText() })
+                } catch (e: Exception) {
+                    null
+                }
+            }
+
+        suspend fun fromFileAsync(path: String): ProjectConfig? = withContext(Dispatchers.IO) {
+            return@withContext try {
+                fromJson(File(path).readText())
+            } catch (e: Exception) {
+                null
+            }
+        }
+
+        suspend fun fromProjectDirAsync(path: String): ProjectConfig? = withContext(Dispatchers.IO) {
+            return@withContext fromFile(configFileOfDir(path))
+        }
+
+        suspend fun fromProjectDirAsync(path: String, configName: String): ProjectConfig? =
+            withContext(Dispatchers.IO) {
+                return@withContext fromFile(configFileOfDir(path, configName))
+            }
 
         fun configFileOfDir(projectDir: String): String {
             return PFiles.join(projectDir, CONFIG_FILE_NAME)

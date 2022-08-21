@@ -10,18 +10,22 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.textfield.TextInputLayout
 import com.stardust.autojs.project.ProjectConfig
 import com.stardust.autojs.project.ProjectConfig.Companion.configFileOfDir
-import com.stardust.autojs.project.ProjectConfig.Companion.fromProjectDir
+import com.stardust.autojs.project.ProjectConfig.Companion.fromProjectDirAsync
 import com.stardust.pio.PFiles.ensureDir
 import com.stardust.pio.PFiles.write
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.androidannotations.annotations.AfterViews
 import org.androidannotations.annotations.Click
 import org.androidannotations.annotations.EActivity
@@ -93,13 +97,15 @@ open class ProjectConfigActivity : BaseActivity() {
                 return
             }
             mDirectory = File(dir)
-            mProjectConfig = fromProjectDir(dir)
-            if (mProjectConfig == null) {
-                ThemeColorMaterialDialogBuilder(this)
-                    .title(R.string.text_invalid_project)
-                    .positiveText(R.string.ok)
-                    .dismissListener { finish() }
-                    .show()
+            lifecycleScope.launch {
+                mProjectConfig = fromProjectDirAsync(dir)
+                if (mProjectConfig == null) {
+                    ThemeColorMaterialDialogBuilder(this@ProjectConfigActivity)
+                        .title(R.string.text_invalid_project)
+                        .positiveText(R.string.ok)
+                        .dismissListener { finish() }
+                        .show()
+                }
             }
         }
     }
@@ -184,36 +190,32 @@ open class ProjectConfigActivity : BaseActivity() {
 
     @SuppressLint("CheckResult")
     private fun saveProjectConfig() {
-        if (mNewProject) {
-            ProjectTemplate(mProjectConfig, mDirectory)
-                .newProject()
-                .subscribe({
+        lifecycleScope.launch {
+
+            try {
+                if (mNewProject) {
+                    ProjectTemplate(mProjectConfig!!, mDirectory!!).newProject()
                     Explorers.workspace()
                         .notifyChildrenChanged(ExplorerDirPage(mParentDirectory, null))
-                    finish()
-                }) { e: Throwable ->
-                    e.printStackTrace()
-                    Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
-                }
-        } else {
-            Observable.fromCallable {
-                write(
-                    configFileOfDir(mDirectory!!.path),
-                    mProjectConfig!!.toJson()
-                )
-                Void.TYPE
-            }
-                .observeOn(Schedulers.io())
-                .subscribeOn(AndroidSchedulers.mainThread())
-                .subscribe({
+                } else {
+                    asyncWriteProjectConfig()
                     val item = ExplorerFileItem(mDirectory, null)
                     Explorers.workspace().notifyItemChanged(item, item)
-                    finish()
-                }) { e: Throwable ->
-                    e.printStackTrace()
-                    Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
                 }
+                finish()
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Toast.makeText(this@ProjectConfigActivity, e.message, Toast.LENGTH_SHORT).show()
+            }
+
         }
+    }
+
+    private suspend fun asyncWriteProjectConfig() = withContext(Dispatchers.IO) {
+        write(
+            configFileOfDir(mDirectory!!.path),
+            mProjectConfig!!.toJson()
+        )
     }
 
     @Click(R.id.icon)
