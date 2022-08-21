@@ -52,4 +52,7 @@
     <string name="text_please_enable_permissions_before_running">请开启权限后，再运行!</string>
     <string name="text_accessibility_service_is_not_turned_on">无障碍服务未开启</string>
     <string name="text_accessibility_service_turned_on">无障碍服务已开启</string>
+    <string name="text_rerun">重新运行</string>
+    <string name="text_clear_logcat">清除日志</string>
+    <string name="text_stop_run">停止运行</string>
 </resources>

@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/settings"
         android:title="@string/text_settings"/>
+    <item
+        android:id="@+id/rerun"
+        android:title="@string/text_rerun"
+        android:icon="@drawable/ic_rerun"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/stop"
+        android:title="@string/text_stop_run"
+        android:icon="@drawable/ic_stop"
+        app:showAsAction="always"/>
+    <item
+    android:id="@+id/clear"
+    android:title="@string/text_clear_logcat"
+    android:icon="@drawable/ic_delete1"
+    app:showAsAction="always"/>
 </menu>
