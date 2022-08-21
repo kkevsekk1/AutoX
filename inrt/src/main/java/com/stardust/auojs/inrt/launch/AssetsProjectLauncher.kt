@@ -66,11 +66,17 @@ open class AssetsProjectLauncher(
         }
     }
 
+    fun stop() {
+        if (mScriptExecution?.engine?.isDestroyed != true) {
+            mScriptExecution?.engine?.forceStop()
+        }
+    }
+
     private fun runScript(activity: Activity?) {
         if (mScriptExecution != null && mScriptExecution!!.engine != null &&
             !mScriptExecution!!.engine.isDestroyed
         ) {
-            return
+            stop()
         }
         try {
             val source = JavaScriptFileSource("main", mMainScriptFile)
