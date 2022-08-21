@@ -84,7 +84,7 @@ class DevPluginResponseHandler(private val cacheDir: File) : Handler {
 
     suspend fun handleBytes1(data: JsonObject, bytes: Bytes): File = withContext(Dispatchers.IO) {
         val id = data["data"].asJsonObject["id"].asString
-        val projectDir = URLEncoder.encode(id, Charsets.UTF_8.toString())
+        val projectDir = MD5.md5(id)
         val dir = File(cacheDir, projectDir)
         Zip.unzip(ByteArrayInputStream(bytes.bytes), dir)
         dir
