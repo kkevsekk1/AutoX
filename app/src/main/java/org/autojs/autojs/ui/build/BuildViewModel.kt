@@ -97,12 +97,13 @@ class BuildViewModel(private val app: Application, private var source: String) :
 
     //--so
     var isRequiredOpenCv by mutableStateOf(false)
-    var isRequiredOCR by mutableStateOf(false)
+    var isRequiredPaddleOCR by mutableStateOf(false)
+    var isRequiredTesseractOCR by mutableStateOf(false)
     var isRequired7Zip by mutableStateOf(false)
     var isRequiredTerminalEmulator by mutableStateOf(true)
 
     //--assets
-    var isRequiredDefaultOcrModel by mutableStateOf(false)
+    var isRequiredDefaultOcrModelData by mutableStateOf(false)
 
 
     //运行配置
@@ -321,7 +322,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
 
     private fun updateAssets(oldAsset: List<Asset>): List<Asset> {
         val assetsList = oldAsset.toMutableList()
-        if (isRequiredDefaultOcrModel) {
+        if (isRequiredDefaultOcrModelData) {
             assetsList.addIfNotExist(
                 Asset(
                     form = Constant.Protocol.ASSETS + "/" + Constant.Assets.OCR_MODELS,
@@ -357,7 +358,8 @@ class BuildViewModel(private val app: Application, private var source: String) :
     private fun updateLibs(oldLibs: List<String>): List<String> {
         val libList = oldLibs.toMutableList()
         if (isRequiredOpenCv) libList.addAllIfNotExist(Constant.Libraries.OPEN_CV)
-        if (isRequiredOCR) libList.addAllIfNotExist(Constant.Libraries.OCR)
+        if (isRequiredPaddleOCR) libList.addAllIfNotExist(Constant.Libraries.OCR)
+        if (isRequiredTesseractOCR)libList.addAllIfNotExist(Constant.Libraries.TESSERACT_OCR)
         if (isRequired7Zip) libList.addAllIfNotExist(Constant.Libraries.P7ZIP)
         if (isRequiredTerminalEmulator) libList.addAllIfNotExist(Constant.Libraries.TERMINAL_EMULATOR)
         return libList.distinct()
@@ -394,7 +396,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
 //                customOcrModelPath = it.form
 //            }
             if (it.form == "${Constant.Protocol.ASSETS}/${Constant.Assets.OCR_MODELS}") {
-                isRequiredDefaultOcrModel = true
+                isRequiredDefaultOcrModelData = true
             }
         }
     }
@@ -402,7 +404,8 @@ class BuildViewModel(private val app: Application, private var source: String) :
     private fun setLibs(projectConfig: ProjectConfig) {
         projectConfig.libs.let {
             when {
-                it.containsAll(Constant.Libraries.OCR.toList()) -> isRequiredOCR = true
+                it.containsAll(Constant.Libraries.OCR.toList()) -> isRequiredPaddleOCR = true
+                it.containsAll(Constant.Libraries.TESSERACT_OCR.toList()) -> isRequiredTesseractOCR = true
                 it.containsAll(Constant.Libraries.P7ZIP.toList()) -> isRequired7Zip = true
                 it.containsAll(Constant.Libraries.OPEN_CV.toList()) -> isRequiredOpenCv = true
             }

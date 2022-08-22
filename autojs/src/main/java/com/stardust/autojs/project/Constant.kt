@@ -15,6 +15,12 @@ object Constant {
             "libhiai_ir_build.so",
             "libNative.so"
         )
+        val TESSERACT_OCR = listOf(
+            "libtesseract.so",
+            "libpng.so",
+            "libleptonica.so",
+            "libjpeg.so",
+        )
         val P7ZIP = listOf("libp7zip.so")
         val TERMINAL_EMULATOR = listOf(
             "libjackpal-androidterm5.so",
