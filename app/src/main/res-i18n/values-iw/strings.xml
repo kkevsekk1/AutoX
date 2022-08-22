@@ -226,9 +226,6 @@
   <string name="text_run_config">להפעיל תצורה</string>
   <string name="text_hideLogs">הסתר יומן</string>
   <string name="text_required_accessibility_service">נדרשים שירותי נגישות</string>
-  <string name="text_required_opencv">עיבוד תמונה של OpenCv</string>
-  <string name="text_required_ocr">זיהוי טקסט OCR</string>
-  <string name="text_required_7zip">ספריית דחיסה 7zip</string>
   <string name="text_required_terminal_emulator">אמולטור מסוף</string>
   <string name="text_required_background_start">דורש הרשאת ממשק קופץ ברקע</string>
   <string name="text_required_draw_overlay">נדרשת הרשאת חלון צף</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">חתימת ברירת מחדל</string>
   <string name="desc_done">סיים</string>
   <string name="apk_icon">סמל APK</string>
-  <string name="compile_options">אפשרויות קומפילציה</string>
+  <string name="text_packaging_options">אפשרויות קומפילציה</string>
   <string name="text_verification_failed">האימות נכשל</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">כל גישה לקבצים</string>
   <string name="text_fullscreen">החלף מצב מסך מלא 1</string>
   <string name="text_drawer_right">פתח את התפריט הימני</string>
-  <string name="text_required_default_ocr_model">ארוז את מודל אימון ברירת המחדל של OCR</string>
+  <string name="text_required_default_paddle_ocr_model">חבילת ברירת המחדל של נתוני אימון PaddleOCR</string>
   <string name="switch_fullscreen">החלף מצב מסך מלא</string>
   <string name="text_custom_ocr_model_path">חבילת ספריית דגמי OCR מותאמת אישית</string>
   <string name="desc_more">יותר</string>

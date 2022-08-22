@@ -226,9 +226,6 @@
   <string name="text_run_config">Ruith rèiteachadh</string>
   <string name="text_hideLogs">Log falaich</string>
   <string name="text_required_accessibility_service">Seirbheisean Ruigsinneachd a dhìth</string>
-  <string name="text_required_opencv">Làimhseachadh ìomhaighean OpenCv</string>
-  <string name="text_required_ocr">Aithneachadh teacsa OCR</string>
-  <string name="text_required_7zip">Leabharlann teannachaidh 7zip</string>
   <string name="text_required_terminal_emulator">Emulator terminal</string>
   <string name="text_required_background_start">Feumaidh cead eadar-aghaidh popup cùl-fhiosrachaidh</string>
   <string name="text_required_draw_overlay">Feumar cead uinneag fleòdraidh</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Ainm-sgrìobhte bunaiteach</string>
   <string name="desc_done">Crìochnaich</string>
   <string name="apk_icon">Ìomhaigh APK</string>
-  <string name="compile_options">Roghainnean a chur ri chèile</string>
+  <string name="text_packaging_options">Roghainnean a chur ri chèile</string>
   <string name="text_verification_failed">Dh\'fhàillig an dearbhadh</string>
   <string name="text_WebX">LìonX</string>
   <string name="text_file_manager_permission">A h-uile cothrom air faidhlichean</string>
   <string name="text_fullscreen">Tog modh làn-sgrìn 1</string>
   <string name="text_drawer_right">Fosgail an clàr-taice ceart</string>
-  <string name="text_required_default_ocr_model">Pacaich am modal trèanaidh OCR bunaiteach</string>
+  <string name="text_required_default_paddle_ocr_model">Pasgan dàta trèanaidh PaddleOCR bunaiteach</string>
   <string name="switch_fullscreen">Tog modh làn-sgrìn</string>
   <string name="text_custom_ocr_model_path">Luchdaich a-nuas an leabhar modal OCR</string>
   <string name="desc_more">Tuilleadh</string>

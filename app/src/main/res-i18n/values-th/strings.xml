@@ -226,9 +226,6 @@
   <string name="text_run_config">เรียกใช้การกำหนดค่า</string>
   <string name="text_hideLogs">ซ่อนบันทึก</string>
   <string name="text_required_accessibility_service">บริการการเข้าถึงที่จำเป็น</string>
-  <string name="text_required_opencv">การประมวลผลภาพ OpenCv</string>
-  <string name="text_required_ocr">การจดจำข้อความ OCR</string>
-  <string name="text_required_7zip">ไลบรารีบีบอัด 7zip</string>
   <string name="text_required_terminal_emulator">เทอร์มินัลอีมูเลเตอร์</string>
   <string name="text_required_background_start">ต้องได้รับอนุญาตจากส่วนต่อประสานป๊อปอัปพื้นหลัง</string>
   <string name="text_required_draw_overlay">ต้องได้รับอนุญาตจากหน้าต่างลอย</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">ลายเซ็นเริ่มต้น</string>
   <string name="desc_done">เสร็จ</string>
   <string name="apk_icon">ไอคอน APK</string>
-  <string name="compile_options">รวบรวมตัวเลือก</string>
+  <string name="text_packaging_options">รวบรวมตัวเลือก</string>
   <string name="text_verification_failed">การตรวจสอบล้มเหลว</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">การเข้าถึงไฟล์ทั้งหมด</string>
   <string name="text_fullscreen">สลับโหมดเต็มหน้าจอ 1</string>
   <string name="text_drawer_right">เปิดเมนูทางขวา</string>
-  <string name="text_required_default_ocr_model">แพ็กเกจโมเดลการฝึก OCR เริ่มต้น</string>
+  <string name="text_required_default_paddle_ocr_model">แพ็กเกจข้อมูลการฝึก PaddleOCR เริ่มต้น</string>
   <string name="switch_fullscreen">สลับโหมดเต็มหน้าจอ</string>
   <string name="text_custom_ocr_model_path">ไดเร็กทอรีโมเดล OCR แบบกำหนดเองของแพ็คเกจ</string>
   <string name="desc_more">มากกว่า</string>

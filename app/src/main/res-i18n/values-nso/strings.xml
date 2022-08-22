@@ -226,9 +226,6 @@
   <string name="text_run_config">Matha peakanyo</string>
   <string name="text_hideLogs">Pata log</string>
   <string name="text_required_accessibility_service">Ditirelo tša Phihlelelo di a Nyakega</string>
-  <string name="text_required_opencv">OpenCv setšoantšo tshebetso</string>
-  <string name="text_required_ocr">Temogo ya sengwalwa sa OCR</string>
-  <string name="text_required_7zip">7zip bokgobapuku bja kgatelelo</string>
   <string name="text_required_terminal_emulator">Emulator ya terminal</string>
   <string name="text_required_background_start">E nyaka tumelelo ya segokanyimmediamentsi sa sebolokigolo sa popup ya ka morao</string>
   <string name="text_required_draw_overlay">Go nyakega tumelelo ya lefasetere leo le phaphametšego</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Mosaeno wa kamehla</string>
   <string name="desc_done">Fetša</string>
   <string name="apk_icon">Letšoao la APK</string>
-  <string name="compile_options">Go kgoboketša dikgetho</string>
+  <string name="text_packaging_options">Go kgoboketša dikgetho</string>
   <string name="text_verification_failed">Netefatšo e paletšwe</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Phihlelelo yohle ya faele</string>
   <string name="text_fullscreen">Toggle mokgwa wa skrine se tletseng 1</string>
   <string name="text_drawer_right">Bula menu ya le letona</string>
-  <string name="text_required_default_ocr_model">Package ya mohlala ya thupelo ya OCR ya kamehla</string>
+  <string name="text_required_default_paddle_ocr_model">Package ya data ya thupelo ya PaddleOCR ya kamehla</string>
   <string name="switch_fullscreen">Toggle mokgwa wa skrine se tletseng</string>
   <string name="text_custom_ocr_model_path">Package tloaelo OCR mohlala directory</string>
   <string name="desc_more">Go feta</string>

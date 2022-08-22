@@ -226,9 +226,6 @@
   <string name="text_run_config">ውቅር ምጉያይ</string>
   <string name="text_hideLogs">ምዝገባ ምሕባእ እዩ።</string>
   <string name="text_required_accessibility_service">ናይ ተበፃሕነት ኣገልግሎት የድሊ</string>
-  <string name="text_required_opencv">OpenCv መስርሕ ምስሊ</string>
-  <string name="text_required_ocr">ናይ OCR ጽሑፍ ምልላይ</string>
-  <string name="text_required_7zip">7zip ምጽቃጥ ቤተ መጻሕፍቲ</string>
   <string name="text_required_terminal_emulator">ተርሚናል ኤሙለተር</string>
   <string name="text_required_background_start">ናይ ድሕረ ባይታ ፖፕኣፕ መተሓላለፊ ፍቓድ የድልዮ</string>
   <string name="text_required_draw_overlay">ተንሳፋፊ መስኮት ፍቓድ የድሊ</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">ነባሪ ፌርማ</string>
   <string name="desc_done">ወደአ</string>
   <string name="apk_icon">ናይ APK ምልክት</string>
-  <string name="compile_options">ናይ ምጥርናፍ ኣማራጺታት</string>
+  <string name="text_packaging_options">ናይ ምጥርናፍ ኣማራጺታት</string>
   <string name="text_verification_failed">ምርግጋጽ ኣይተዓወተን</string>
   <string name="text_WebX">ዌብኤክስ</string>
   <string name="text_file_manager_permission">ኩሉ ፋይል ምእታው</string>
   <string name="text_fullscreen">ምሉእ ስክሪን ሞድ ምቕያር 1</string>
   <string name="text_drawer_right">ነቲ ቅኑዕ ዝርዝር ክፈቶ</string>
-  <string name="text_required_default_ocr_model">ነቲ ነባሪ ሞዴል ስልጠና OCR ዕሹግ ግበሮ</string>
+  <string name="text_required_default_paddle_ocr_model">ፓኬጅ ነባሪ ናይ PaddleOCR ስልጠና ዳታ</string>
   <string name="switch_fullscreen">ምሉእ ስክሪን ሞድ ምቕያር</string>
   <string name="text_custom_ocr_model_path">ፓኬጅ ብሕታዊ OCR ሞዴል ማህደር</string>
   <string name="desc_more">ቡዙሕ</string>

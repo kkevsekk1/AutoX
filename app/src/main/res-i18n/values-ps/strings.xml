@@ -226,9 +226,6 @@
   <string name="text_run_config">ترتیب چلول</string>
   <string name="text_hideLogs">Log پټول</string>
   <string name="text_required_accessibility_service">د لاسرسي خدماتو ته اړتیا ده</string>
-  <string name="text_required_opencv">د OpenCv عکس پروسس کول</string>
-  <string name="text_required_ocr">د OCR متن پیژندنه</string>
-  <string name="text_required_7zip">7zip کمپریشن کتابتون</string>
   <string name="text_required_terminal_emulator">ترمینل ایمولیټر</string>
   <string name="text_required_background_start">د شاليد پاپ اپ انٹرفیس اجازې ته اړتیا لري</string>
   <string name="text_required_draw_overlay">د تیرولو کړکۍ اجازه اړینه ده</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">ډیفالټ لاسلیک</string>
   <string name="desc_done">ختم</string>
   <string name="apk_icon">د APK آیکون</string>
-  <string name="compile_options">تالیف انتخابونه</string>
+  <string name="text_packaging_options">تالیف انتخابونه</string>
   <string name="text_verification_failed">تایید ناکام شو</string>
   <string name="text_WebX">ویب ایکس</string>
   <string name="text_file_manager_permission">ټول فایل ته لاسرسی</string>
   <string name="text_fullscreen">د بشپړ سکرین حالت بدلول 1</string>
   <string name="text_drawer_right">ښی مینو خلاص کړئ</string>
-  <string name="text_required_default_ocr_model">د ډیفالټ OCR روزنې ماډل بسته کړئ</string>
+  <string name="text_required_default_paddle_ocr_model">د بسته ډیفالټ PaddleOCR روزنې ډاټا</string>
   <string name="switch_fullscreen">د بشپړ سکرین حالت بدل کړئ</string>
   <string name="text_custom_ocr_model_path">بسته د دودیز OCR ماډل لارښود</string>
   <string name="desc_more">نور</string>

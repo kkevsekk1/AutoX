@@ -226,9 +226,6 @@
   <string name="text_run_config">Køre konfiguration</string>
   <string name="text_hideLogs">Skjul log</string>
   <string name="text_required_accessibility_service">Tilgængelighedstjenester påkrævet</string>
-  <string name="text_required_opencv">OpenCv billedbehandling</string>
-  <string name="text_required_ocr">OCR tekstgenkendelse</string>
-  <string name="text_required_7zip">7zip komprimeringsbibliotek</string>
   <string name="text_required_terminal_emulator">Terminal emulator</string>
   <string name="text_required_background_start">Kræver baggrunds popup-grænsefladetilladelse</string>
   <string name="text_required_draw_overlay">Tilladelse til flydende vindue påkrævet</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Standard signatur</string>
   <string name="desc_done">Afslut</string>
   <string name="apk_icon">APK-ikon</string>
-  <string name="compile_options">Kompiler muligheder</string>
+  <string name="text_packaging_options">Kompiler muligheder</string>
   <string name="text_verification_failed">Verifikation mislykkedes</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Al filadgang</string>
   <string name="text_fullscreen">Skift fuldskærmstilstand 1</string>
   <string name="text_drawer_right">Åbn den højre menu</string>
-  <string name="text_required_default_ocr_model">Pak standard OCR-træningsmodellen</string>
+  <string name="text_required_default_paddle_ocr_model">Pakke standard PaddleOCR træningsdata</string>
   <string name="switch_fullscreen">Skift fuldskærmstilstand</string>
   <string name="text_custom_ocr_model_path">Pakke tilpasset OCR-modelkatalog</string>
   <string name="desc_more">Mere</string>

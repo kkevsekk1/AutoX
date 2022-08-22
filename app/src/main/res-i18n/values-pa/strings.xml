@@ -226,9 +226,6 @@
   <string name="text_run_config">ਸੰਰਚਨਾ ਚਲਾਓ</string>
   <string name="text_hideLogs">ਲਾਗ ਓਹਲੇ</string>
   <string name="text_required_accessibility_service">ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾਵਾਂ ਦੀ ਲੋੜ ਹੈ</string>
-  <string name="text_required_opencv">OpenCv ਚਿੱਤਰ ਪ੍ਰੋਸੈਸਿੰਗ</string>
-  <string name="text_required_ocr">OCR ਟੈਕਸਟ ਪਛਾਣ</string>
-  <string name="text_required_7zip">7zip ਕੰਪਰੈਸ਼ਨ ਲਾਇਬ੍ਰੇਰੀ</string>
   <string name="text_required_terminal_emulator">ਟਰਮੀਨਲ ਇਮੂਲੇਟਰ</string>
   <string name="text_required_background_start">ਬੈਕਗ੍ਰਾਊਂਡ ਪੌਪਅੱਪ ਇੰਟਰਫੇਸ ਅਨੁਮਤੀ ਦੀ ਲੋੜ ਹੈ</string>
   <string name="text_required_draw_overlay">ਫਲੋਟਿੰਗ ਵਿੰਡੋ ਦੀ ਇਜਾਜ਼ਤ ਦੀ ਲੋੜ ਹੈ</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">ਮੂਲ ਦਸਤਖਤ</string>
   <string name="desc_done">ਸਮਾਪਤ</string>
   <string name="apk_icon">APK ਪ੍ਰਤੀਕ</string>
-  <string name="compile_options">ਕੰਪਾਇਲ ਵਿਕਲਪ</string>
+  <string name="text_packaging_options">ਕੰਪਾਇਲ ਵਿਕਲਪ</string>
   <string name="text_verification_failed">ਪੁਸ਼ਟੀਕਰਨ ਅਸਫਲ ਰਿਹਾ</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">ਸਾਰੀਆਂ ਫਾਈਲਾਂ ਤੱਕ ਪਹੁੰਚ</string>
   <string name="text_fullscreen">ਪੂਰੀ ਸਕ੍ਰੀਨ ਮੋਡ 1 ਨੂੰ ਟੌਗਲ ਕਰੋ</string>
   <string name="text_drawer_right">ਸੱਜਾ ਮੇਨੂ ਖੋਲ੍ਹੋ</string>
-  <string name="text_required_default_ocr_model">ਡਿਫਾਲਟ OCR ਸਿਖਲਾਈ ਮਾਡਲ ਨੂੰ ਪੈਕੇਜ ਕਰੋ</string>
+  <string name="text_required_default_paddle_ocr_model">ਪੈਕੇਜ ਡਿਫੌਲਟ PaddleOCR ਸਿਖਲਾਈ ਡੇਟਾ</string>
   <string name="switch_fullscreen">ਪੂਰੀ ਸਕ੍ਰੀਨ ਮੋਡ ਨੂੰ ਟੌਗਲ ਕਰੋ</string>
   <string name="text_custom_ocr_model_path">ਪੈਕੇਜ ਕਸਟਮ OCR ਮਾਡਲ ਡਾਇਰੈਕਟਰੀ</string>
   <string name="desc_more">ਹੋਰ</string>

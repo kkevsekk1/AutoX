@@ -226,9 +226,6 @@
   <string name="text_run_config">Konfigurazzjoni run</string>
   <string name="text_hideLogs">Jaħbi log</string>
   <string name="text_required_accessibility_service">Servizzi ta\' Aċċessibilità Meħtieġa</string>
-  <string name="text_required_opencv">Ipproċessar tal-immaġni OpenCv</string>
-  <string name="text_required_ocr">Rikonoxximent tat-test OCR</string>
-  <string name="text_required_7zip">Librerija tal-kompressjoni 7zip</string>
   <string name="text_required_terminal_emulator">Emulatur tat-terminal</string>
   <string name="text_required_background_start">Jeħtieġ permess tal-interface popup fl-isfond</string>
   <string name="text_required_draw_overlay">Permess tieqa galleġġjanti meħtieġ</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Firma awtomatika</string>
   <string name="desc_done">Temm</string>
   <string name="apk_icon">Ikona tal-APK</string>
-  <string name="compile_options">Jikkompila għażliet</string>
+  <string name="text_packaging_options">Jikkompila għażliet</string>
   <string name="text_verification_failed">Il-verifika falliet</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Aċċess għall-fajl kollu</string>
   <string name="text_fullscreen">Aqleb il-mod ta\' skrin sħiħ 1</string>
   <string name="text_drawer_right">Iftaħ il-menu t-tajjeb</string>
-  <string name="text_required_default_ocr_model">Ippakkja l-mudell ta \'taħriġ OCR default</string>
+  <string name="text_required_default_paddle_ocr_model">Pakkett tad-dejta tat-taħriġ PaddleOCR default</string>
   <string name="switch_fullscreen">Aqleb il-mod ta\' skrin sħiħ</string>
   <string name="text_custom_ocr_model_path">Pakkett tad-direttorju tal-mudell OCR tad-dwana</string>
   <string name="desc_more">Aktar</string>

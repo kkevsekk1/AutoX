@@ -226,9 +226,6 @@
   <string name="text_run_config">Chạy cấu hình</string>
   <string name="text_hideLogs">Ẩn nhật ký</string>
   <string name="text_required_accessibility_service">Dịch vụ hỗ trợ tiếp cận được yêu cầu</string>
-  <string name="text_required_opencv">Xử lý hình ảnh OpenCv</string>
-  <string name="text_required_ocr">Nhận dạng văn bản OCR</string>
-  <string name="text_required_7zip">Thư viện nén 7zip</string>
   <string name="text_required_terminal_emulator">Trình giả lập thiết bị đầu cuối</string>
   <string name="text_required_background_start">Yêu cầu quyền giao diện cửa sổ bật lên nền</string>
   <string name="text_required_draw_overlay">Cần có quyền đối với cửa sổ nổi</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Chữ ký mặc định</string>
   <string name="desc_done">Kết thúc</string>
   <string name="apk_icon">Biểu tượng APK</string>
-  <string name="compile_options">Biên dịch các tùy chọn</string>
+  <string name="text_packaging_options">Biên dịch các tùy chọn</string>
   <string name="text_verification_failed">Xác minh không hoàn thành</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Tất cả quyền truy cập tệp</string>
   <string name="text_fullscreen">Chuyển đổi chế độ toàn màn hình 1</string>
   <string name="text_drawer_right">Mở menu bên phải</string>
-  <string name="text_required_default_ocr_model">Đóng gói mô hình đào tạo OCR mặc định</string>
+  <string name="text_required_default_paddle_ocr_model">Gói dữ liệu đào tạo PaddleOCR mặc định</string>
   <string name="switch_fullscreen">Bật chế độ toàn màn hình</string>
   <string name="text_custom_ocr_model_path">Gói thư mục mô hình OCR tùy chỉnh</string>
   <string name="desc_more">Hơn</string>

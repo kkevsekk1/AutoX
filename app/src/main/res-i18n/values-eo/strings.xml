@@ -226,9 +226,6 @@
   <string name="text_run_config">Ruli agordon</string>
   <string name="text_hideLogs">Kaŝi protokolon</string>
   <string name="text_required_accessibility_service">Alirebleco Servoj Bezonataj</string>
-  <string name="text_required_opencv">OpenCv-traktado de bildoj</string>
-  <string name="text_required_ocr">OCR-teksta rekono</string>
-  <string name="text_required_7zip">7zip kunprema biblioteko</string>
   <string name="text_required_terminal_emulator">Terminala emulilo</string>
   <string name="text_required_background_start">Postulas fonan ŝprucan interfacon-permeson</string>
   <string name="text_required_draw_overlay">Permeso por ŝveba fenestro bezonata</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Defaŭlta subskribo</string>
   <string name="desc_done">Finu</string>
   <string name="apk_icon">APK-ikono</string>
-  <string name="compile_options">Kompili elektojn</string>
+  <string name="text_packaging_options">Kompili elektojn</string>
   <string name="text_verification_failed">Konfirmo malsukcesis</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Ĉiuj aliro al dosieroj</string>
   <string name="text_fullscreen">Ŝaltu plenekranan reĝimon 1</string>
   <string name="text_drawer_right">Malfermu la ĝustan menuon</string>
-  <string name="text_required_default_ocr_model">Paku la defaŭltan OCR-trejnan modelon</string>
+  <string name="text_required_default_paddle_ocr_model">Pakaj defaŭltaj trejnaj datumoj de PaddleOCR</string>
   <string name="switch_fullscreen">Ŝaltu plenekranan reĝimon</string>
   <string name="text_custom_ocr_model_path">Pako kutima OCR-modeldosierujo</string>
   <string name="desc_more">Pli</string>

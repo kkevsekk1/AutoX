@@ -226,9 +226,6 @@
   <string name="text_run_config">გაშვების კონფიგურაცია</string>
   <string name="text_hideLogs">ჟურნალის დამალვა</string>
   <string name="text_required_accessibility_service">საჭიროა ხელმისაწვდომობის სერვისები</string>
-  <string name="text_required_opencv">OpenCv გამოსახულების დამუშავება</string>
-  <string name="text_required_ocr">OCR ტექსტის ამოცნობა</string>
-  <string name="text_required_7zip">7zip შეკუმშვის ბიბლიოთეკა</string>
   <string name="text_required_terminal_emulator">ტერმინალის ემულატორი</string>
   <string name="text_required_background_start">მოითხოვს ფონური ამომხტარი ინტერფეისის ნებართვას</string>
   <string name="text_required_draw_overlay">საჭიროა მცურავი ფანჯრის ნებართვა</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">ნაგულისხმევი ხელმოწერა</string>
   <string name="desc_done">დასრულება</string>
   <string name="apk_icon">APK ხატულა</string>
-  <string name="compile_options">პარამეტრების შედგენა</string>
+  <string name="text_packaging_options">პარამეტრების შედგენა</string>
   <string name="text_verification_failed">დადასტურება ვერ მოხერხდა</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">ყველა ფაილზე წვდომა</string>
   <string name="text_fullscreen">სრული ეკრანის რეჟიმის ჩართვა 1</string>
   <string name="text_drawer_right">გახსენით მარჯვენა მენიუ</string>
-  <string name="text_required_default_ocr_model">შეფუთეთ ნაგულისხმევი OCR ტრენინგის მოდელი</string>
+  <string name="text_required_default_paddle_ocr_model">შეფუთეთ ნაგულისხმევი PaddleOCR სასწავლო მონაცემები</string>
   <string name="switch_fullscreen">სრული ეკრანის რეჟიმის გადართვა</string>
   <string name="text_custom_ocr_model_path">შეფუთეთ მორგებული OCR მოდელის დირექტორია</string>
   <string name="desc_more">მეტი</string>

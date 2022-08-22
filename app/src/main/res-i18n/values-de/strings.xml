@@ -226,9 +226,6 @@
   <string name="text_run_config">Konfiguration ausführen</string>
   <string name="text_hideLogs">Protokoll verstecken</string>
   <string name="text_required_accessibility_service">Erforderliche Barrierefreiheitsdienste</string>
-  <string name="text_required_opencv">OpenCv-Bildverarbeitung</string>
-  <string name="text_required_ocr">OCR-Texterkennung</string>
-  <string name="text_required_7zip">7zip-Komprimierungsbibliothek</string>
   <string name="text_required_terminal_emulator">Terminal-Emulator</string>
   <string name="text_required_background_start">Erfordert die Berechtigung für die Hintergrund-Popup-Schnittstelle</string>
   <string name="text_required_draw_overlay">Floating-Window-Berechtigung erforderlich</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Standard-Signatur</string>
   <string name="desc_done">Fertig</string>
   <string name="apk_icon">APK-Symbol</string>
-  <string name="compile_options">Optionen kompilieren</string>
+  <string name="text_packaging_options">Optionen kompilieren</string>
   <string name="text_verification_failed">Überprüfung fehlgeschlagen</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Alle Dateizugriffe</string>
   <string name="text_fullscreen">Vollbildmodus umschalten 1</string>
   <string name="text_drawer_right">Öffnen Sie das rechte Menü</string>
-  <string name="text_required_default_ocr_model">Packen Sie das Standard-OCR-Trainingsmodell</string>
+  <string name="text_required_default_paddle_ocr_model">Paket standardmäßige PaddleOCR-Trainingsdaten</string>
   <string name="switch_fullscreen">Vollbildmodus umschalten</string>
   <string name="text_custom_ocr_model_path">Paket benutzerdefiniertes OCR-Modellverzeichnis</string>
   <string name="desc_more">Mehr</string>

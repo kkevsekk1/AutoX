@@ -226,9 +226,6 @@
   <string name="text_run_config">ដំណើរការការកំណត់រចនាសម្ព័ន្ធ</string>
   <string name="text_hideLogs">លាក់កំណត់ហេតុ</string>
   <string name="text_required_accessibility_service">តម្រូវការសេវាភាពងាយស្រួល</string>
-  <string name="text_required_opencv">ដំណើរការរូបភាព OpenCv</string>
-  <string name="text_required_ocr">ការទទួលស្គាល់អត្ថបទ OCR</string>
-  <string name="text_required_7zip">បណ្ណាល័យបង្ហាប់ 7zip</string>
   <string name="text_required_terminal_emulator">កម្មវិធីត្រាប់តាមស្ថានីយ</string>
   <string name="text_required_background_start">ទាមទារការអនុញ្ញាតលើចំណុចប្រទាក់លេចឡើងផ្ទៃខាងក្រោយ</string>
   <string name="text_required_draw_overlay">ទាមទារការអនុញ្ញាតបង្អួចអណ្តែត</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">ហត្ថលេខាលំនាំដើម</string>
   <string name="desc_done">បញ្ចប់</string>
   <string name="apk_icon">រូបតំណាង APK</string>
-  <string name="compile_options">ចងក្រងជម្រើស</string>
+  <string name="text_packaging_options">ចងក្រងជម្រើស</string>
   <string name="text_verification_failed">ការផ្ទៀងផ្ទាត់បានបរាជ័យ</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">ការចូលប្រើឯកសារទាំងអស់។</string>
   <string name="text_fullscreen">បិទបើករបៀបពេញអេក្រង់ 1</string>
   <string name="text_drawer_right">បើកម៉ឺនុយត្រឹមត្រូវ។</string>
-  <string name="text_required_default_ocr_model">ខ្ចប់គំរូបណ្តុះបណ្តាល OCR លំនាំដើម</string>
+  <string name="text_required_default_paddle_ocr_model">កញ្ចប់ទិន្នន័យបណ្តុះបណ្តាល PaddleOCR លំនាំដើម</string>
   <string name="switch_fullscreen">បិទបើករបៀបពេញអេក្រង់</string>
   <string name="text_custom_ocr_model_path">កញ្ចប់ថតគំរូ OCR ផ្ទាល់ខ្លួន</string>
   <string name="desc_more">ច្រើនទៀត</string>

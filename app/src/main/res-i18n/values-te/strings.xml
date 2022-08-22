@@ -226,9 +226,6 @@
   <string name="text_run_config">రన్ కాన్ఫిగరేషన్</string>
   <string name="text_hideLogs">లాగ్ దాచు</string>
   <string name="text_required_accessibility_service">యాక్సెసిబిలిటీ సేవలు అవసరం</string>
-  <string name="text_required_opencv">OpenCv ఇమేజ్ ప్రాసెసింగ్</string>
-  <string name="text_required_ocr">OCR టెక్స్ట్ గుర్తింపు</string>
-  <string name="text_required_7zip">7జిప్ కంప్రెషన్ లైబ్రరీ</string>
   <string name="text_required_terminal_emulator">టెర్మినల్ ఎమ్యులేటర్</string>
   <string name="text_required_background_start">నేపథ్య పాప్అప్ ఇంటర్‌ఫేస్ అనుమతి అవసరం</string>
   <string name="text_required_draw_overlay">ఫ్లోటింగ్ విండో అనుమతి అవసరం</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">డిఫాల్ట్ సంతకం</string>
   <string name="desc_done">ముగించు</string>
   <string name="apk_icon">APK చిహ్నం</string>
-  <string name="compile_options">ఎంపికలను కంపైల్ చేయండి</string>
+  <string name="text_packaging_options">ఎంపికలను కంపైల్ చేయండి</string>
   <string name="text_verification_failed">ధృవీకరణ విఫలమైంది</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">అన్ని ఫైల్ యాక్సెస్</string>
   <string name="text_fullscreen">పూర్తి స్క్రీన్ మోడ్‌ను టోగుల్ చేయండి 1</string>
   <string name="text_drawer_right">కుడి మెనుని తెరవండి</string>
-  <string name="text_required_default_ocr_model">డిఫాల్ట్ OCR శిక్షణ నమూనాను ప్యాకేజీ చేయండి</string>
+  <string name="text_required_default_paddle_ocr_model">ప్యాకేజీ డిఫాల్ట్ PaddleOCR శిక్షణ డేటా</string>
   <string name="switch_fullscreen">పూర్తి స్క్రీన్ మోడ్‌ని టోగుల్ చేయండి</string>
   <string name="text_custom_ocr_model_path">ప్యాకేజీ అనుకూల OCR మోడల్ డైరెక్టరీ</string>
   <string name="desc_more">మరింత</string>

@@ -226,9 +226,6 @@
   <string name="text_run_config">Rɔn kɔnfigyushɔn</string>
   <string name="text_hideLogs">Ayd di lɔg</string>
   <string name="text_required_accessibility_service">Aksesibiliti Savis dɛn we dɛn nid</string>
-  <string name="text_required_opencv">OpenCv imej prɔsesin</string>
-  <string name="text_required_ocr">OCR tɛks rɛkɔgnishɔn</string>
-  <string name="text_required_7zip">7zip kɔmpreshɔn laybri</string>
   <string name="text_required_terminal_emulator">Tɛminal ɛmulatɔ</string>
   <string name="text_required_background_start">Rikways bakgrɔn popup intafays permishɔn</string>
   <string name="text_required_draw_overlay">Flɔtin winda permishɔn nid fɔ de</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Difɔlt sayn</string>
   <string name="desc_done">Dɔn</string>
   <string name="apk_icon">APK aykɔn</string>
-  <string name="compile_options">Kɔmpilayt opshɔn dɛn</string>
+  <string name="text_packaging_options">Kɔmpilayt opshɔn dɛn</string>
   <string name="text_verification_failed">Di verifyeshɔn nɔ bin wok</string>
   <string name="text_WebX">WɛbX</string>
   <string name="text_file_manager_permission">Ɔl di fayl dɛn akses</string>
   <string name="text_fullscreen">Toggle ful skrin mod 1</string>
   <string name="text_drawer_right">Opin di rayt mɛnyu</string>
-  <string name="text_required_default_ocr_model">Pakɛj di difɔlt OCR trenin mɔdel</string>
+  <string name="text_required_default_paddle_ocr_model">Paket difɔlt PaddleOCR trenin data</string>
   <string name="switch_fullscreen">Toggle di ful skrin mod</string>
   <string name="text_custom_ocr_model_path">Paket kɔstɔm OCR mɔdel dairektrɔ</string>
   <string name="desc_more">Mɔ</string>

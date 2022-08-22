@@ -226,9 +226,6 @@
   <string name="text_run_config">Покренути конфигурацију</string>
   <string name="text_hideLogs">Сакрити дневник</string>
   <string name="text_required_accessibility_service">Потребне су услуге приступачности</string>
-  <string name="text_required_opencv">ОпенЦв обрада слика</string>
-  <string name="text_required_ocr">ОЦР препознавање текста</string>
-  <string name="text_required_7zip">7зип библиотека компресије</string>
   <string name="text_required_terminal_emulator">Емулатор терминала</string>
   <string name="text_required_background_start">Захтева дозволу за позадински искачући интерфејс</string>
   <string name="text_required_draw_overlay">Потребна је дозвола за плутајући прозор</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Подразумевани потпис</string>
   <string name="desc_done">Заврши</string>
   <string name="apk_icon">АПК икона</string>
-  <string name="compile_options">Опције компајлирања</string>
+  <string name="text_packaging_options">Опције компајлирања</string>
   <string name="text_verification_failed">Верификација није успела</string>
   <string name="text_WebX">ВебКс</string>
   <string name="text_file_manager_permission">Приступ свим датотекама</string>
   <string name="text_fullscreen">Укључите режим целог екрана 1</string>
   <string name="text_drawer_right">Отворите десни мени</string>
-  <string name="text_required_default_ocr_model">Пакујте подразумевани модел обуке за ОЦР</string>
+  <string name="text_required_default_paddle_ocr_model">Пакет подразумеваних ПаддлеОЦР података за обуку</string>
   <string name="switch_fullscreen">Укључите режим целог екрана</string>
   <string name="text_custom_ocr_model_path">Пакет именик прилагођеног ОЦР модела</string>
   <string name="desc_more">Више</string>

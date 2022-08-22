@@ -30,7 +30,7 @@
   <string name="text_exit_directly">Шууд гарах</string>
   <string name="text_setting">Тохируулах</string>
   <string name="text_exit">Болих</string>
-  <string name="text_auto_operate_service">Хүртээмжтэй үйлчилгээ</string>
+  <string name="text_auto_operate_service">Хүртээмжтэй байдлын үйлчилгээ</string>
   <string name="text_about">Тухай</string>
   <string name="text_licenses">Нээлттэй эхийн лиценз</string>
   <string name="text_do_not_remind_again">Дахиж битгий сануул</string>
@@ -226,9 +226,6 @@
   <string name="text_run_config">Тохиргоог ажиллуулах</string>
   <string name="text_hideLogs">Бүртгэлийг нуух</string>
   <string name="text_required_accessibility_service">Хүртээмжтэй үйлчилгээ шаардлагатай</string>
-  <string name="text_required_opencv">OpenCv зураг боловсруулах</string>
-  <string name="text_required_ocr">OCR текст таних</string>
-  <string name="text_required_7zip">7zip шахалтын номын сан</string>
   <string name="text_required_terminal_emulator">Терминал эмулятор</string>
   <string name="text_required_background_start">Арын попап интерфейсийн зөвшөөрөл шаардлагатай</string>
   <string name="text_required_draw_overlay">Хөвөгч цонхны зөвшөөрөл шаардлагатай</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Анхдагч гарын үсэг</string>
   <string name="desc_done">Дуусга</string>
   <string name="apk_icon">APK дүрс</string>
-  <string name="compile_options">Сонголтуудыг эмхэтгэх</string>
+  <string name="text_packaging_options">Сонголтуудыг эмхэтгэх</string>
   <string name="text_verification_failed">Баталгаажуулалт амжилтгүй болсон</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Бүх файлын хандалт</string>
   <string name="text_fullscreen">Бүтэн дэлгэцийн горимыг асаах/унтраах 1</string>
   <string name="text_drawer_right">Баруун цэсийг нээнэ үү</string>
-  <string name="text_required_default_ocr_model">Өгөгдмөл OCR сургалтын загварыг багцлах</string>
+  <string name="text_required_default_paddle_ocr_model">PaddleOCR сургалтын өгөгдмөл өгөгдлийг багцлах</string>
   <string name="switch_fullscreen">Бүтэн дэлгэцийн горимыг асаах/унтраах</string>
   <string name="text_custom_ocr_model_path">Захиалгат OCR загварын лавлах багц</string>
   <string name="desc_more">Илүү</string>

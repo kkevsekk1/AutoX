@@ -226,9 +226,6 @@
   <string name="text_run_config">Exécuter la configuration</string>
   <string name="text_hideLogs">Masquer le journal</string>
   <string name="text_required_accessibility_service">Services d\'accessibilité requis</string>
-  <string name="text_required_opencv">Traitement d\'images OpenCv</string>
-  <string name="text_required_ocr">Reconnaissance de texte OCR</string>
-  <string name="text_required_7zip">Bibliothèque de compression 7zip</string>
   <string name="text_required_terminal_emulator">Émulateur de terminal</string>
   <string name="text_required_background_start">Nécessite une autorisation d\'interface contextuelle d\'arrière-plan</string>
   <string name="text_required_draw_overlay">Autorisation de fenêtre flottante requise</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Signature par défaut</string>
   <string name="desc_done">Finir</string>
   <string name="apk_icon">Icône APK</string>
-  <string name="compile_options">Options de compilation</string>
+  <string name="text_packaging_options">Options de compilation</string>
   <string name="text_verification_failed">Échec de la vérification</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Tous les accès aux fichiers</string>
   <string name="text_fullscreen">Basculer en mode plein écran 1</string>
   <string name="text_drawer_right">Ouvrir le menu de droite</string>
-  <string name="text_required_default_ocr_model">Empaqueter le modèle de formation OCR par défaut</string>
+  <string name="text_required_default_paddle_ocr_model">Packager les données d\'entraînement PaddleOCR par défaut</string>
   <string name="switch_fullscreen">Basculer en mode plein écran</string>
   <string name="text_custom_ocr_model_path">Package de répertoire de modèles OCR personnalisé</string>
   <string name="desc_more">Suite</string>

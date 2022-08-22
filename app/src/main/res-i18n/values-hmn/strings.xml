@@ -226,9 +226,6 @@
   <string name="text_run_config">Khiav configuration</string>
   <string name="text_hideLogs">Nkaum log</string>
   <string name="text_required_accessibility_service">Yuav tsum muaj kev pab cuam nkag mus tau</string>
-  <string name="text_required_opencv">OpenCv duab ua</string>
-  <string name="text_required_ocr">OCR ntawv lees paub</string>
-  <string name="text_required_7zip">7 zip compression tsev qiv ntawv</string>
   <string name="text_required_terminal_emulator">Davhlau ya nyob twg emulator</string>
   <string name="text_required_background_start">Yuav tsum tau tso cai rau tom qab popup interface</string>
   <string name="text_required_draw_overlay">Floating qhov rais tso cai yuav tsum tau</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Default kos npe</string>
   <string name="desc_done">Ua kom tiav</string>
   <string name="apk_icon">APK icon</string>
-  <string name="compile_options">Sau cov kev xaiv</string>
+  <string name="text_packaging_options">Sau cov kev xaiv</string>
   <string name="text_verification_failed">Kev kuaj xyuas ua tsis tiav</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Tag nrho cov ntaub ntawv nkag</string>
   <string name="text_fullscreen">Toggle puv npo hom 1</string>
   <string name="text_drawer_right">Qhib cov ntawv qhia zaub mov</string>
-  <string name="text_required_default_ocr_model">Ntim cov qauv kev cob qhia OCR default</string>
+  <string name="text_required_default_paddle_ocr_model">Package default PaddleOCR cov ntaub ntawv kev cob qhia</string>
   <string name="switch_fullscreen">Toggle puv npo hom</string>
   <string name="text_custom_ocr_model_path">Pob kev cai OCR qauv directory</string>
   <string name="desc_more">Ntau</string>

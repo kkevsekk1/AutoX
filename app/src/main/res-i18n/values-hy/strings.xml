@@ -226,9 +226,6 @@
   <string name="text_run_config">Գործարկման կոնֆիգուրացիան</string>
   <string name="text_hideLogs">Թաքցնել տեղեկամատյանը</string>
   <string name="text_required_accessibility_service">Պահանջվում է մատչելիության ծառայություններ</string>
-  <string name="text_required_opencv">OpenCv պատկերի մշակում</string>
-  <string name="text_required_ocr">OCR տեքստի ճանաչում</string>
-  <string name="text_required_7zip">7zip սեղմման գրադարան</string>
   <string name="text_required_terminal_emulator">Տերմինալի էմուլյատոր</string>
   <string name="text_required_background_start">Պահանջվում է ֆոնային բացվող ինտերֆեյսի թույլտվություն</string>
   <string name="text_required_draw_overlay">Պահանջվում է լողացող պատուհանի թույլտվություն</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Լռելյայն ստորագրություն</string>
   <string name="desc_done">Ավարտել</string>
   <string name="apk_icon">APK պատկերակ</string>
-  <string name="compile_options">Ընտրանքներ կազմել</string>
+  <string name="text_packaging_options">Ընտրանքներ կազմել</string>
   <string name="text_verification_failed">Ստուգումը ձախողվեց</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Բոլոր ֆայլերի հասանելիությունը</string>
   <string name="text_fullscreen">Միացնել ամբողջ էկրանի ռեժիմը 1</string>
   <string name="text_drawer_right">Բացեք ճիշտ ընտրացանկը</string>
-  <string name="text_required_default_ocr_model">Փաթեթավորեք լռելյայն OCR ուսուցման մոդելը</string>
+  <string name="text_required_default_paddle_ocr_model">Փաթեթի լռելյայն PaddleOCR ուսուցման տվյալները</string>
   <string name="switch_fullscreen">Միացնել ամբողջ էկրանի ռեժիմը</string>
   <string name="text_custom_ocr_model_path">Փաթեթի հատուկ OCR մոդելի գրացուցակ</string>
   <string name="desc_more">Ավելին</string>

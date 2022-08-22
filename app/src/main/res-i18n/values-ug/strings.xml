@@ -226,9 +226,6 @@
   <string name="text_run_config">سەپلىمىنى ئىجرا قىلىڭ</string>
   <string name="text_hideLogs">خاتىرىنى يوشۇرۇش</string>
   <string name="text_required_accessibility_service">قوشۇمچە مۇلازىمەت تەلەپ قىلىنىدۇ</string>
-  <string name="text_required_opencv">OpenCv رەسىم بىر تەرەپ قىلىش</string>
-  <string name="text_required_ocr">OCR تېكىست تونۇش</string>
-  <string name="text_required_7zip">7zip پىرىسلاش ئامبىرى</string>
   <string name="text_required_terminal_emulator">Terminal emulator</string>
   <string name="text_required_background_start">تەگلىك كۆرۈنمە يۈزىنىڭ رۇخسىتىنى تەلەپ قىلىدۇ</string>
   <string name="text_required_draw_overlay">لەيلىمە كۆزنەك ئىجازەتنامىسى تەلەپ قىلىنىدۇ</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">سۈكۈتتىكى ئىمزا</string>
   <string name="desc_done">تامام</string>
   <string name="apk_icon">APK سىنبەلگىسى</string>
-  <string name="compile_options">تاللاش</string>
+  <string name="text_packaging_options">تاللاش</string>
   <string name="text_verification_failed">دەلىللەش مەغلۇپ بولدى</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">بارلىق ھۆججەتلەرنى زىيارەت قىلىش</string>
   <string name="text_fullscreen">تولۇق ئېكران ھالىتىنى 1</string>
   <string name="text_drawer_right">ئوڭ تىزىملىكنى ئېچىڭ</string>
-  <string name="text_required_default_ocr_model">سۈكۈتتىكى OCR مەشىق ئەندىزىسىنى ئوراپ بېرىڭ</string>
+  <string name="text_required_default_paddle_ocr_model">ئورالما سۈكۈتتىكى PaddleOCR مەشىق سانلىق مەلۇماتلىرى</string>
   <string name="switch_fullscreen">تولۇق ئېكران ھالىتىنى ئېچىڭ</string>
   <string name="text_custom_ocr_model_path">ئورالما ئىختىيارى OCR مودېل مۇندەرىجىسى</string>
   <string name="desc_more">تېخىمۇ كۆپ</string>

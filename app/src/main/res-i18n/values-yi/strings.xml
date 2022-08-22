@@ -226,9 +226,6 @@
   <string name="text_run_config">לויפן קאַנפיגיעריישאַן</string>
   <string name="text_hideLogs">באַהאַלטן קלאָץ</string>
   <string name="text_required_accessibility_service">אַקסעסאַביליטי באַדינונגס פארלאנגט</string>
-  <string name="text_required_opencv">OpenCv בילד פּראַסעסינג</string>
-  <string name="text_required_ocr">OCR טעקסט דערקענונג</string>
-  <string name="text_required_7zip">7zip קאַמפּרעשאַן ביבליאָטעק</string>
   <string name="text_required_terminal_emulator">וואָקזאַל עמולאַטאָר</string>
   <string name="text_required_background_start">ריקוויירז הינטערגרונט אויפֿשפּרינג צובינד דערלויבעניש</string>
   <string name="text_required_draw_overlay">פלאָוטינג פֿענצטער דערלויבעניש פארלאנגט</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">פעליקייַט כסימע</string>
   <string name="desc_done">ענדיקן</string>
   <string name="apk_icon">אַפּק בילדל</string>
-  <string name="compile_options">קלייַבן אָפּציעס</string>
+  <string name="text_packaging_options">קלייַבן אָפּציעס</string>
   <string name="text_verification_failed">וועראַפאַקיישאַן ניט אַנדערש</string>
   <string name="text_WebX">וועבקס</string>
   <string name="text_file_manager_permission">כל טעקע אַקסעס</string>
   <string name="text_fullscreen">באַשטימען פול פאַרשטעלן מאָדע 1</string>
   <string name="text_drawer_right">עפענען די רעכט מעניו</string>
-  <string name="text_required_default_ocr_model">פּעקל די פעליקייַט OCR טריינינג מאָדעל</string>
+  <string name="text_required_default_paddle_ocr_model">פּעקל פעליקייַט PaddleOCR טריינינג דאַטן</string>
   <string name="switch_fullscreen">באַשטימען פול פאַרשטעלן מאָדע</string>
   <string name="text_custom_ocr_model_path">פּעקל מנהג OCR מאָדעל וועגווייַזער</string>
   <string name="desc_more">מער</string>

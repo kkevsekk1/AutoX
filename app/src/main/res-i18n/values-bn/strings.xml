@@ -21,7 +21,7 @@
   <string name="text_redo">পুনরায় করা</string>
   <string name="text_save">সংরক্ষণ</string>
   <string name="text_save_as_project">প্রকল্প হিসাবে সংরক্ষণ করুন</string>
-  <string name="text_run">চালানো</string>
+  <string name="text_run">চালান</string>
   <string name="text_alert">ইঙ্গিত</string>
   <string name="edit_exit_without_save_warn">বিষয়বস্তু সংরক্ষণ করা হয়নি, আপনি কি নিশ্চিত আপনি প্রস্থান করতে চান?</string>
   <string name="text_select_save_mode">একটি সংরক্ষণ পদ্ধতি নির্বাচন করুন</string>
@@ -226,9 +226,6 @@
   <string name="text_run_config">কনফিগারেশন চালান</string>
   <string name="text_hideLogs">লগ লুকান</string>
   <string name="text_required_accessibility_service">অ্যাক্সেসিবিলিটি পরিষেবার প্রয়োজন</string>
-  <string name="text_required_opencv">OpenCv ইমেজ প্রসেসিং</string>
-  <string name="text_required_ocr">OCR পাঠ্য স্বীকৃতি</string>
-  <string name="text_required_7zip">7zip কম্প্রেশন লাইব্রেরি</string>
   <string name="text_required_terminal_emulator">টার্মিনাল এমুলেটর</string>
   <string name="text_required_background_start">পটভূমি পপআপ ইন্টারফেস অনুমতি প্রয়োজন</string>
   <string name="text_required_draw_overlay">ভাসমান জানালার অনুমতি প্রয়োজন</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">ডিফল্ট স্বাক্ষর</string>
   <string name="desc_done">শেষ করুন</string>
   <string name="apk_icon">APK আইকন</string>
-  <string name="compile_options">কম্পাইল অপশন</string>
+  <string name="text_packaging_options">কম্পাইল অপশন</string>
   <string name="text_verification_failed">যাচাই ব্যর্থ</string>
   <string name="text_WebX">ওয়েবএক্স</string>
   <string name="text_file_manager_permission">সমস্ত ফাইল অ্যাক্সেস</string>
   <string name="text_fullscreen">পূর্ণ স্ক্রীন মোড টগল করুন 1</string>
   <string name="text_drawer_right">ডান মেনু খুলুন</string>
-  <string name="text_required_default_ocr_model">ডিফল্ট OCR প্রশিক্ষণ মডেল প্যাকেজ করুন</string>
+  <string name="text_required_default_paddle_ocr_model">প্যাকেজ ডিফল্ট PaddleOCR প্রশিক্ষণ ডেটা</string>
   <string name="switch_fullscreen">পূর্ণ স্ক্রীন মোড টগল করুন</string>
   <string name="text_custom_ocr_model_path">প্যাকেজ কাস্টম OCR মডেল ডিরেক্টরি</string>
   <string name="desc_more">আরও</string>

@@ -226,9 +226,6 @@
   <string name="text_run_config">هلائڻ جي تشڪيل</string>
   <string name="text_hideLogs">لاگ لڪايو</string>
   <string name="text_required_accessibility_service">رسائي گهربل خدمتون</string>
-  <string name="text_required_opencv">OpenCv تصويري پروسيسنگ</string>
-  <string name="text_required_ocr">OCR متن جي سڃاڻپ</string>
-  <string name="text_required_7zip">7zip ڪمپريشن لائبريري</string>
   <string name="text_required_terminal_emulator">ٽرمينل ايموليٽر</string>
   <string name="text_required_background_start">پس منظر پاپ اپ انٽرفيس جي اجازت جي ضرورت آهي</string>
   <string name="text_required_draw_overlay">فلوٽنگ ونڊو جي اجازت گهربل</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">ڊفالٽ دستخط</string>
   <string name="desc_done">ختم ڪر</string>
   <string name="apk_icon">APK آئڪن</string>
-  <string name="compile_options">گڏ ڪرڻ جا اختيار</string>
+  <string name="text_packaging_options">گڏ ڪرڻ جا اختيار</string>
   <string name="text_verification_failed">تصديق ناڪام ٿي</string>
   <string name="text_WebX">ويب ايڪس</string>
   <string name="text_file_manager_permission">سڀ فائل رسائي</string>
   <string name="text_fullscreen">مڪمل اسڪرين موڊ کي ٽوگل ڪريو 1</string>
   <string name="text_drawer_right">صحيح مينيو کوليو</string>
-  <string name="text_required_default_ocr_model">ڊفالٽ OCR ٽريننگ ماڊل پيڪيج ڪريو</string>
+  <string name="text_required_default_paddle_ocr_model">پيڪيج ڊفالٽ PaddleOCR ٽريننگ ڊيٽا</string>
   <string name="switch_fullscreen">مڪمل اسڪرين موڊ کي ٽوگل ڪريو</string>
   <string name="text_custom_ocr_model_path">ڪسٽم OCR ماڊل ڊاريڪٽري پيڪيج</string>
   <string name="desc_more">وڌيڪ</string>

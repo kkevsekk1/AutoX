@@ -226,9 +226,6 @@
   <string name="text_run_config">Запусціць канфігурацыю</string>
   <string name="text_hideLogs">Схаваць часопіс</string>
   <string name="text_required_accessibility_service">Патрабуюцца паслугі даступнасці</string>
-  <string name="text_required_opencv">Апрацоўка малюнкаў OpenCv</string>
-  <string name="text_required_ocr">Распазнаванне тэксту OCR</string>
-  <string name="text_required_7zip">Бібліятэка сціску 7zip</string>
   <string name="text_required_terminal_emulator">Эмулятар тэрмінала</string>
   <string name="text_required_background_start">Патрабуецца дазвол фонавага ўсплывальнага інтэрфейсу</string>
   <string name="text_required_draw_overlay">Патрабуецца дазвол на плаваючае акно</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Подпіс па змаўчанні</string>
   <string name="desc_done">Скончыць</string>
   <string name="apk_icon">Значок APK</string>
-  <string name="compile_options">Параметры кампіляцыі</string>
+  <string name="text_packaging_options">Параметры кампіляцыі</string>
   <string name="text_verification_failed">Праверка не атрымалася</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Доступ да ўсіх файлаў</string>
   <string name="text_fullscreen">Пераключыць поўнаэкранны рэжым 1</string>
   <string name="text_drawer_right">Адкрыйце правае меню</string>
-  <string name="text_required_default_ocr_model">Спакуйце стандартную мадэль навучання OCR</string>
+  <string name="text_required_default_paddle_ocr_model">Пакет навучальных даных PaddleOCR па змаўчанні</string>
   <string name="switch_fullscreen">Пераключыць поўнаэкранны рэжым</string>
   <string name="text_custom_ocr_model_path">Упакуйце карыстальніцкі каталог мадэляў OCR</string>
   <string name="desc_more">Больш</string>

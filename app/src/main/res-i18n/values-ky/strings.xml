@@ -226,9 +226,6 @@
   <string name="text_run_config">Конфигурацияны иштетүү</string>
   <string name="text_hideLogs">Журналды жашыруу</string>
   <string name="text_required_accessibility_service">Атайын мүмкүнчүлүктөр кызматтары талап кылынат</string>
-  <string name="text_required_opencv">OpenCv сүрөтүн иштетүү</string>
-  <string name="text_required_ocr">OCR текстти таануу</string>
-  <string name="text_required_7zip">7zip кысуу китепканасы</string>
   <string name="text_required_terminal_emulator">Терминалдык эмулятор</string>
   <string name="text_required_background_start">Фондук калкып чыкма интерфейсине уруксат талап кылынат</string>
   <string name="text_required_draw_overlay">Калкыма терезеге уруксат талап кылынат</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Демейки кол коюу</string>
   <string name="desc_done">Бүтүрүү</string>
   <string name="apk_icon">APK сүрөтчөсү</string>
-  <string name="compile_options">Параметрлерди түзүү</string>
+  <string name="text_packaging_options">Параметрлерди түзүү</string>
   <string name="text_verification_failed">Текшерүү ишке ашкан жок</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Бардык файлга кирүү</string>
   <string name="text_fullscreen">Толук экран режимин которуштуруу 1</string>
   <string name="text_drawer_right">Туура менюну ачыңыз</string>
-  <string name="text_required_default_ocr_model">Демейки OCR окутуу моделин топтоо</string>
+  <string name="text_required_default_paddle_ocr_model">Пакет демейки PaddleOCR машыгуу берилиштери</string>
   <string name="switch_fullscreen">Толук экран режимин которуштуруу</string>
   <string name="text_custom_ocr_model_path">Ыңгайлаштырылган OCR моделинин каталогун топтоо</string>
   <string name="desc_more">Дагы</string>

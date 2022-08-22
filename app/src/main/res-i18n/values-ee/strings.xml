@@ -226,9 +226,6 @@
   <string name="text_run_config">Ƒu du ɖoɖowɔɖi</string>
   <string name="text_hideLogs">Ɣla nuŋlɔɖi</string>
   <string name="text_required_accessibility_service">Subɔsubɔdɔ Siwo Wohiã Be Woatsɔ Ate Ŋu Ate Ŋu Akpɔ Nu Nyuie</string>
-  <string name="text_required_opencv">OpenCv nɔnɔmetatawo ŋuti dɔwɔwɔ</string>
-  <string name="text_required_ocr">OCR ƒe nuŋɔŋlɔwo nyanya</string>
-  <string name="text_required_7zip">7zip ƒe nutete ƒe agbalẽdzraɖoƒe</string>
   <string name="text_required_terminal_emulator">Terminal ƒe nɔnɔmetata</string>
   <string name="text_required_background_start">Ebia be woaɖe mɔ na megbenyawo ƒe popup interface</string>
   <string name="text_required_draw_overlay">Wobia be woaɖe mɔ na fesre si le tsia dzi</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Asidede agbalẽ te si woɖo ɖi</string>
   <string name="desc_done">Wu enu</string>
   <string name="apk_icon">APK ƒe dzesi</string>
-  <string name="compile_options">Nuƒoƒoƒu ƒe tiatiawɔblɔɖewo</string>
+  <string name="text_packaging_options">Nuƒoƒoƒu ƒe tiatiawɔblɔɖewo</string>
   <string name="text_verification_failed">Kpeɖodzinana do kpo nu</string>
   <string name="text_WebX">NyatakakadzraɖoƒeX</string>
   <string name="text_file_manager_permission">Failwo katã ƒe mɔɖeɖe</string>
   <string name="text_fullscreen">Trɔ asi le screen bliboa ƒe nɔnɔme ŋu 1</string>
   <string name="text_drawer_right">Ʋu nuɖuɖu siwo le ɖusime la</string>
-  <string name="text_required_default_ocr_model">Package OCR hehenana ƒe kpɔɖeŋu si woɖo ɖi la</string>
+  <string name="text_required_default_paddle_ocr_model">Package default PaddleOCR hehenana nyatakakawo</string>
   <string name="switch_fullscreen">Trɔ asi le screen bliboa ƒe nɔnɔme ŋu</string>
   <string name="text_custom_ocr_model_path">Package custom OCR ƒe kpɔɖeŋu ƒe agbalẽdzraɖoƒe</string>
   <string name="desc_more">Gawu</string>

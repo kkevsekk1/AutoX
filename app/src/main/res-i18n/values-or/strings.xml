@@ -226,9 +226,6 @@
   <string name="text_run_config">ବିନ୍ୟାସ ଚଲାନ୍ତୁ |</string>
   <string name="text_hideLogs">ଲଗ୍ ଲୁଚାନ୍ତୁ |</string>
   <string name="text_required_accessibility_service">ଅଭିଗମ୍ୟତା ସେବା ଆବଶ୍ୟକ |</string>
-  <string name="text_required_opencv">OpenCv ପ୍ରତିଛବି ପ୍ରକ୍ରିୟାକରଣ |</string>
-  <string name="text_required_ocr">OCR ପାଠ୍ୟ ସ୍ୱୀକୃତି |</string>
-  <string name="text_required_7zip">7zip ସଙ୍କୋଚନ ଲାଇବ୍ରେରୀ |</string>
   <string name="text_required_terminal_emulator">ଟର୍ମିନାଲ୍ ଏମୁଲେଟର</string>
   <string name="text_required_background_start">ପୃଷ୍ଠଭୂମି ପପ୍ଅପ୍ ଇଣ୍ଟରଫେସ୍ ଅନୁମତି ଆବଶ୍ୟକ କରେ |</string>
   <string name="text_required_draw_overlay">ଫ୍ଲୋଟିଂ ୱିଣ୍ଡୋ ଅନୁମତି ଆବଶ୍ୟକ |</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">ଡିଫଲ୍ଟ ଦସ୍ତଖତ</string>
   <string name="desc_done">ସମାପ୍ତ</string>
   <string name="apk_icon">APK ଆଇକନ୍ |</string>
-  <string name="compile_options">ବିକଳ୍ପଗୁଡ଼ିକ ସଂକଳନ କରନ୍ତୁ |</string>
+  <string name="text_packaging_options">ବିକଳ୍ପଗୁଡ଼ିକ ସଂକଳନ କରନ୍ତୁ |</string>
   <string name="text_verification_failed">ଯାଞ୍ଚ ବିଫଳ ହେଲା |</string>
   <string name="text_WebX">ୱେବ୍</string>
   <string name="text_file_manager_permission">ସମସ୍ତ ଫାଇଲ୍ ଆକ୍ସେସ୍ |</string>
   <string name="text_fullscreen">ପୂର୍ଣ୍ଣ ସ୍କ୍ରିନ୍ ମୋଡ୍ 1 ଟୋଗଲ୍ କରନ୍ତୁ |</string>
   <string name="text_drawer_right">ଡାହାଣ ମେନୁ ଖୋଲ |</string>
-  <string name="text_required_default_ocr_model">ଡିଫଲ୍ଟ OCR ତାଲିମ ମଡେଲକୁ ପ୍ୟାକେଜ୍ କରନ୍ତୁ |</string>
+  <string name="text_required_default_paddle_ocr_model">ପ୍ୟାକେଜ୍ ଡିଫଲ୍ଟ PaddleOCR ତାଲିମ ତଥ୍ୟ |</string>
   <string name="switch_fullscreen">ପୂର୍ଣ୍ଣ ସ୍କ୍ରିନ୍ ମୋଡ୍ ଟୋଗଲ୍ କରନ୍ତୁ |</string>
   <string name="text_custom_ocr_model_path">ପ୍ୟାକେଜ୍ କଷ୍ଟମ୍ OCR ମଡେଲ୍ ଡିରେକ୍ଟୋରୀ |</string>
   <string name="desc_more">ଅଧିକ</string>

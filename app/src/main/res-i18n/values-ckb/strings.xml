@@ -226,9 +226,6 @@
   <string name="text_run_config">ڕێکخستن جێبەجێ بکە</string>
   <string name="text_hideLogs">شاردنەوەی لۆگ</string>
   <string name="text_required_accessibility_service">خزمەتگوزاری دەستڕاگەیشتن پێویستە</string>
-  <string name="text_required_opencv">پرۆسێسی وێنەی OpenCv</string>
-  <string name="text_required_ocr">ناسینەوەی دەقی OCR</string>
-  <string name="text_required_7zip">کتێبخانەی پاڵپێوەنانی 7zip</string>
   <string name="text_required_terminal_emulator">ئیمۆلیتەری تێرمیناڵ</string>
   <string name="text_required_background_start">پێویستی بە مۆڵەتی ڕووکاری پەلەوەری پاشبنەما هەیە</string>
   <string name="text_required_draw_overlay">پێویستە مۆڵەتی پەنجەرەی هەڵدەفڕێت</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">واژۆی پێشوەختە</string>
   <string name="desc_done">تەواو</string>
   <string name="apk_icon">ئایکۆنی APK</string>
-  <string name="compile_options">هەڵبژاردەکانی کۆکردنەوە</string>
+  <string name="text_packaging_options">هەڵبژاردەکانی کۆکردنەوە</string>
   <string name="text_verification_failed">پشتڕاستکردنەوە شکستی هێنا</string>
   <string name="text_WebX">وێب ئێکس</string>
   <string name="text_file_manager_permission">هەموو دەستگەیشتن بە فایلەکان</string>
   <string name="text_fullscreen">دۆخی تەواوی شاشە بگۆڕە 1</string>
   <string name="text_drawer_right">مینیوی ڕاست بکەرەوە</string>
-  <string name="text_required_default_ocr_model">مۆدێلی ڕاهێنانی پێشوەختەی OCR پاکەت بکە</string>
+  <string name="text_required_default_paddle_ocr_model">داتاکانی ڕاهێنانی PaddleOCR بە پێشوەختەی پاکێجەکە</string>
   <string name="switch_fullscreen">دۆخی تەواوی شاشە بگۆڕە</string>
   <string name="text_custom_ocr_model_path">بەڕێوەبەرایەتی مۆدێلی OCRی تایبەت بە پاکێج</string>
   <string name="desc_more">زیاتر</string>

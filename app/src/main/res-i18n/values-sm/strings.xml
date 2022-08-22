@@ -226,9 +226,6 @@
   <string name="text_run_config">Tamomoe configuration</string>
   <string name="text_hideLogs">Nana ogalaau</string>
   <string name="text_required_accessibility_service">Au\'aunaga Avanoa Manaomia</string>
-  <string name="text_required_opencv">OpenCv faiga ata</string>
-  <string name="text_required_ocr">OCR fa\'ailoga tusitusiga</string>
-  <string name="text_required_7zip">7zip compression faletusi</string>
   <string name="text_required_terminal_emulator">Emulator fa\'amau</string>
   <string name="text_required_background_start">E mana\'omia le fa\'atagaga o fa\'aulufale fa\'aalatua</string>
   <string name="text_required_draw_overlay">Manaomia le faatagaga o le faamalama opeopea</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Saini faaletonu</string>
   <string name="desc_done">Faauma</string>
   <string name="apk_icon">APK icon</string>
-  <string name="compile_options">Tuufaatasia filifiliga</string>
+  <string name="text_packaging_options">Tuufaatasia filifiliga</string>
   <string name="text_verification_failed">Le fa\'amaonia</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Avanoa uma faila</string>
   <string name="text_fullscreen">Su\'e le ata atoa 1</string>
   <string name="text_drawer_right">Tatala le lisi sa\'o</string>
-  <string name="text_required_default_ocr_model">Fa\'apipi\'i le fa\'ata\'ita\'iga a\'oa\'oga o le OCR</string>
+  <string name="text_required_default_paddle_ocr_model">Fa\'amaumauga o a\'oa\'oga a le PaddleOCR fa\'apipi\'i</string>
   <string name="switch_fullscreen">Su\'e le ata atoa</string>
   <string name="text_custom_ocr_model_path">Fa\'apipi\'i fa\'ata\'ita\'iga fa\'ata\'ita\'iga OCR</string>
   <string name="desc_more">E sili atu</string>

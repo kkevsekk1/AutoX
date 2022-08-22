@@ -226,9 +226,6 @@
   <string name="text_run_config">Configuration kalpui rawh</string>
   <string name="text_hideLogs">Log thup rawh</string>
   <string name="text_required_accessibility_service">Accessibility Services mamawh a ni</string>
-  <string name="text_required_opencv">OpenCv hmanga thlalak siam dan</string>
-  <string name="text_required_ocr">OCR thuziak hriat theihna</string>
-  <string name="text_required_7zip">7zip compression library a awm bawk</string>
   <string name="text_required_terminal_emulator">Terminal emulator hmanga siam a ni</string>
   <string name="text_required_background_start">Background popup interface phalna a mamawh</string>
   <string name="text_required_draw_overlay">Floating window phalna pek a ngai a ni</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Default signature a ni</string>
   <string name="desc_done">Zo</string>
   <string name="apk_icon">APK icon chu a rawn lang a</string>
-  <string name="compile_options">Compile tih theih a ni</string>
+  <string name="text_packaging_options">Compile tih theih a ni</string>
   <string name="text_verification_failed">Verification a hlawhchham</string>
   <string name="text_WebX">WebX a ni</string>
   <string name="text_file_manager_permission">File zawng zawng a lut vek</string>
   <string name="text_fullscreen">Full screen mode kha thlak danglam rawh 1</string>
   <string name="text_drawer_right">Menu dinglam chu hawng rawh</string>
-  <string name="text_required_default_ocr_model">OCR training model hmasa ber chu package rawh</string>
+  <string name="text_required_default_paddle_ocr_model">Package hmasa ber chu PaddleOCR training data a ni</string>
   <string name="switch_fullscreen">Full screen mode ah chuan a inthlak ang</string>
   <string name="text_custom_ocr_model_path">Package custom OCR model directory a awm bawk</string>
   <string name="desc_more">Belh</string>

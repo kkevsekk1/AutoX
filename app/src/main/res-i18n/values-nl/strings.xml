@@ -226,9 +226,6 @@
   <string name="text_run_config">Configuratie uitvoeren</string>
   <string name="text_hideLogs">Verberg log</string>
   <string name="text_required_accessibility_service">Toegankelijkheidsservices vereist</string>
-  <string name="text_required_opencv">OpenCv-beeldverwerking</string>
-  <string name="text_required_ocr">OCR-tekstherkenning</string>
-  <string name="text_required_7zip">7zip-compressiebibliotheek</string>
   <string name="text_required_terminal_emulator">Terminal-emulator:</string>
   <string name="text_required_background_start">Vereist toestemming voor pop-upinterface op de achtergrond</string>
   <string name="text_required_draw_overlay">Toestemming voor zwevend venster vereist</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Standaard handtekening</string>
   <string name="desc_done">Af hebben</string>
   <string name="apk_icon">APK-pictogram</string>
-  <string name="compile_options">Compileer opties</string>
+  <string name="text_packaging_options">Compileer opties</string>
   <string name="text_verification_failed">Verificatie mislukt</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Alle bestandstoegang</string>
   <string name="text_fullscreen">Schakel de modus volledig scherm 1</string>
   <string name="text_drawer_right">Open het rechtermenu</string>
-  <string name="text_required_default_ocr_model">Pak het standaard OCR-trainingsmodel in</string>
+  <string name="text_required_default_paddle_ocr_model">Pakket standaard PaddleOCR-trainingsgegevens</string>
   <string name="switch_fullscreen">Schakel de modus voor volledig scherm in</string>
   <string name="text_custom_ocr_model_path">Aangepaste OCR-modelmap inpakken</string>
   <string name="desc_more">Meer</string>

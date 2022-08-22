@@ -226,9 +226,6 @@
   <string name="text_run_config">Emboguata configuración</string>
   <string name="text_hideLogs">Omokañy registro</string>
   <string name="text_required_accessibility_service">Oñeikotevẽ Servicios de Accesibilidad rehegua</string>
-  <string name="text_required_opencv">OpenCv taꞌãngamýi ñemboguata</string>
-  <string name="text_required_ocr">OCR jehaipyre jehechakuaa</string>
-  <string name="text_required_7zip">7zip aranduka’i compresión rehegua</string>
   <string name="text_required_terminal_emulator">Emulador terminal rehegua</string>
   <string name="text_required_background_start">Oikotevẽ permiso interfaz popup fondo rehegua</string>
   <string name="text_required_draw_overlay">Oñeikotevẽ permiso ventána flotante rehegua</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Firma por defecto rehegua</string>
   <string name="desc_done">Mohu\'ã</string>
   <string name="apk_icon">Icono de APK rehegua</string>
-  <string name="compile_options">Opciones de compilación rehegua</string>
+  <string name="text_packaging_options">Opciones de compilación rehegua</string>
   <string name="text_verification_failed">Ndoikói verificación</string>
   <string name="text_WebX">WebX rehegua</string>
   <string name="text_file_manager_permission">Opaite vore jeike</string>
   <string name="text_fullscreen">Ombohasa pantalla completa modo 1</string>
   <string name="text_drawer_right">Eipe’a pe menú oike porãva</string>
-  <string name="text_required_default_ocr_model">Embohyru pe modelo de capacitación OCR por defecto rehegua</string>
+  <string name="text_required_default_paddle_ocr_model">Paquete rehegua PaddleOCR ñembokatupyry datokuéra ñepyrũrã</string>
   <string name="switch_fullscreen">Embohasa pe modo pantalla completa rehegua</string>
   <string name="text_custom_ocr_model_path">Paquete personalizado OCR modelo directorio rehegua</string>
   <string name="desc_more">Heta</string>

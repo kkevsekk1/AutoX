@@ -74,7 +74,7 @@
   <string name="text_edit">Whakatika</string>
   <string name="text_max_length_for_code_completion">Te Whakaoti Waehere Morahi Te Roa Kōnae</string>
   <string name="text_file_exists">Kei te tīariari kē te kōnae</string>
-  <string name="text_accessibility_service">Ratonga Urunga</string>
+  <string name="text_accessibility_service">Ratonga Whakauru</string>
   <string name="text_enable_accessibility_service_by_root">Whakahohe aunoa i nga ratonga whai mana pakiaka</string>
   <string name="text_auto_operate_service_enabled_but_not_running">Kua whakahohea te ratonga urunga engari karekau e rere, he bug Android pea tenei, ka hiahia koe ki te whakaara ano i te waea, ki te whakaara ano ranei i te ratonga urunga.</string>
   <string name="text_enable_accessibility_service_by_root_timeout">He waahi mo te tiimata i te ratonga uru me nga mana pakiaka</string>
@@ -226,9 +226,6 @@
   <string name="text_run_config">Whakahaere whirihoranga</string>
   <string name="text_hideLogs">Huna rangitaki</string>
   <string name="text_required_accessibility_service">E hiahiatia ana nga Ratonga Uru</string>
-  <string name="text_required_opencv">Tukatuka whakaahua OpenCv</string>
-  <string name="text_required_ocr">Ahukahuka kupu OCR</string>
-  <string name="text_required_7zip">7zip whare pukapuka kōpeketanga</string>
   <string name="text_required_terminal_emulator">Emulator kāpeka</string>
   <string name="text_required_background_start">Me whai whakaaetanga atanga pakūake papamuri</string>
   <string name="text_required_draw_overlay">E hiahiatia ana te whakaaetanga matapihi māngi</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Hainatanga taunoa</string>
   <string name="desc_done">Whakaoti</string>
   <string name="apk_icon">Ata APK</string>
-  <string name="compile_options">Whakahiato kōwhiringa</string>
+  <string name="text_packaging_options">Whakahiato kōwhiringa</string>
   <string name="text_verification_failed">I rahua te manatoko</string>
   <string name="text_WebX">TukutukuX</string>
   <string name="text_file_manager_permission">Te urunga kōnae katoa</string>
   <string name="text_fullscreen">Takahurihia te aratau mata katoa 1</string>
   <string name="text_drawer_right">Whakatuwheratia te tahua matau</string>
-  <string name="text_required_default_ocr_model">Whakakīa te tauira whakangungu OCR taunoa</string>
+  <string name="text_required_default_paddle_ocr_model">Paeke raraunga whakangungu PaddleOCR taunoa</string>
   <string name="switch_fullscreen">Takahurihia te aratau mata katoa</string>
   <string name="text_custom_ocr_model_path">Whakapaihia te whaiaronga tauira OCR ritenga</string>
   <string name="desc_more">Ētahi atu</string>

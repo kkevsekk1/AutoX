@@ -226,9 +226,6 @@
   <string name="text_run_config">Konfiguráció futtatása</string>
   <string name="text_hideLogs">Napló elrejtése</string>
   <string name="text_required_accessibility_service">Kisegítő szolgáltatások szükségesek</string>
-  <string name="text_required_opencv">OpenCv képfeldolgozás</string>
-  <string name="text_required_ocr">OCR szövegfelismerés</string>
-  <string name="text_required_7zip">7zip tömörítési könyvtár</string>
   <string name="text_required_terminal_emulator">Terminál emulátor</string>
   <string name="text_required_background_start">A háttérben felugró interfész engedélye szükséges</string>
   <string name="text_required_draw_overlay">Lebegő ablak engedély szükséges</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Alapértelmezett aláírás</string>
   <string name="desc_done">Befejez</string>
   <string name="apk_icon">APK ikonra</string>
-  <string name="compile_options">Összeállítási lehetőségek</string>
+  <string name="text_packaging_options">Összeállítási lehetőségek</string>
   <string name="text_verification_failed">Az ellenőrzés nem sikerült</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Minden fájl hozzáférés</string>
   <string name="text_fullscreen">Teljes képernyős mód váltása 1</string>
   <string name="text_drawer_right">Nyissa meg a jobb oldali menüt</string>
-  <string name="text_required_default_ocr_model">Csomagolja be az alapértelmezett OCR képzési modellt</string>
+  <string name="text_required_default_paddle_ocr_model">Csomag alapértelmezett PaddleOCR edzési adatok</string>
   <string name="switch_fullscreen">Teljes képernyős mód váltása</string>
   <string name="text_custom_ocr_model_path">Csomagolja be az egyéni OCR-modell könyvtárát</string>
   <string name="desc_more">Több</string>

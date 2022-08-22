@@ -226,9 +226,6 @@
   <string name="text_run_config">Konfigurasiýany işlediň</string>
   <string name="text_hideLogs">Gündeligi gizläň</string>
   <string name="text_required_accessibility_service">Elýeterlilik hyzmatlary zerur</string>
-  <string name="text_required_opencv">OpenCv şekili gaýtadan işlemek</string>
-  <string name="text_required_ocr">OCR tekst tanamak</string>
-  <string name="text_required_7zip">7zip gysyş kitaphanasy</string>
   <string name="text_required_terminal_emulator">Terminal emulýatory</string>
   <string name="text_required_background_start">Fon açylýan interfeýs rugsady talap edilýär</string>
   <string name="text_required_draw_overlay">Floüzýän penjire rugsady talap edilýär</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Deslapky gol</string>
   <string name="desc_done">Tamamla</string>
   <string name="apk_icon">APK nyşany</string>
-  <string name="compile_options">Opsiýalary düzmek</string>
+  <string name="text_packaging_options">Opsiýalary düzmek</string>
   <string name="text_verification_failed">Barlamak şowsuz</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Filehli faýllara giriş</string>
   <string name="text_fullscreen">Doly ekran re modeimini üýtgediň</string>
   <string name="text_drawer_right">Dogry menýuny açyň</string>
-  <string name="text_required_default_ocr_model">Adaty OCR okuw modelini gaplaň</string>
+  <string name="text_required_default_paddle_ocr_model">Paket deslapky PaddleOCR okuw maglumatlary</string>
   <string name="switch_fullscreen">Doly ekran re modeimini üýtgediň</string>
   <string name="text_custom_ocr_model_path">Hususy OCR model bukjasy</string>
   <string name="desc_more">Has köp</string>

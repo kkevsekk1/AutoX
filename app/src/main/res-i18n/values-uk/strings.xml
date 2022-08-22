@@ -226,9 +226,6 @@
   <string name="text_run_config">Запустити конфігурацію</string>
   <string name="text_hideLogs">Приховати журнал</string>
   <string name="text_required_accessibility_service">Потрібні служби доступності</string>
-  <string name="text_required_opencv">Обробка зображень OpenCv</string>
-  <string name="text_required_ocr">OCR розпізнавання тексту</string>
-  <string name="text_required_7zip">Бібліотека стиснення 7zip</string>
   <string name="text_required_terminal_emulator">Емулятор терміналу</string>
   <string name="text_required_background_start">Потрібен дозвіл фонового спливаючого інтерфейсу</string>
   <string name="text_required_draw_overlay">Потрібен дозвіл на плаваюче вікно</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Підпис за замовчуванням</string>
   <string name="desc_done">Закінчити</string>
   <string name="apk_icon">Значок APK</string>
-  <string name="compile_options">Параметри компіляції</string>
+  <string name="text_packaging_options">Параметри компіляції</string>
   <string name="text_verification_failed">Не вдалося перевірити</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Доступ до всіх файлів</string>
   <string name="text_fullscreen">Перемкнути повноекранний режим 1</string>
   <string name="text_drawer_right">Відкрийте праворуч меню</string>
-  <string name="text_required_default_ocr_model">Упакуйте стандартну навчальну модель OCR</string>
+  <string name="text_required_default_paddle_ocr_model">Пакуйте стандартні навчальні дані PaddleOCR</string>
   <string name="switch_fullscreen">Перемкнути повноекранний режим</string>
   <string name="text_custom_ocr_model_path">Пакуйте спеціальний каталог моделей OCR</string>
   <string name="desc_more">Більше</string>

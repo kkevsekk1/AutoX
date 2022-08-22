@@ -226,9 +226,6 @@
   <string name="text_run_config">રૂપરેખાંકન ચલાવો</string>
   <string name="text_hideLogs">લોગ છુપાવો</string>
   <string name="text_required_accessibility_service">ઍક્સેસિબિલિટી સેવાઓ જરૂરી છે</string>
-  <string name="text_required_opencv">OpenCv ઇમેજ પ્રોસેસિંગ</string>
-  <string name="text_required_ocr">OCR ટેક્સ્ટ ઓળખ</string>
-  <string name="text_required_7zip">7zip કમ્પ્રેશન લાઇબ્રેરી</string>
   <string name="text_required_terminal_emulator">ટર્મિનલ ઇમ્યુલેટર</string>
   <string name="text_required_background_start">પૃષ્ઠભૂમિ પોપઅપ ઇન્ટરફેસ પરવાનગીની જરૂર છે</string>
   <string name="text_required_draw_overlay">ફ્લોટિંગ વિન્ડોની પરવાનગી જરૂરી છે</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">મૂળભૂત હસ્તાક્ષર</string>
   <string name="desc_done">સમાપ્ત કરો</string>
   <string name="apk_icon">APK આઇકન</string>
-  <string name="compile_options">કમ્પાઇલ વિકલ્પો</string>
+  <string name="text_packaging_options">કમ્પાઇલ વિકલ્પો</string>
   <string name="text_verification_failed">ચકાસણી નિષ્ફળ</string>
   <string name="text_WebX">વેબએક્સ</string>
   <string name="text_file_manager_permission">બધી ફાઇલ એક્સેસ</string>
   <string name="text_fullscreen">પૂર્ણ સ્ક્રીન મોડને ટૉગલ કરો 1</string>
   <string name="text_drawer_right">જમણું મેનુ ખોલો</string>
-  <string name="text_required_default_ocr_model">ડિફૉલ્ટ OCR તાલીમ મૉડલને પૅકેજ કરો</string>
+  <string name="text_required_default_paddle_ocr_model">પેકેજ ડિફોલ્ટ PaddleOCR તાલીમ ડેટા</string>
   <string name="switch_fullscreen">પૂર્ણ સ્ક્રીન મોડને ટૉગલ કરો</string>
   <string name="text_custom_ocr_model_path">પેકેજ કસ્ટમ OCR મોડેલ ડિરેક્ટરી</string>
   <string name="desc_more">વધુ</string>

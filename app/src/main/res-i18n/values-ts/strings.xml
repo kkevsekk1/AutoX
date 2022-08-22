@@ -226,9 +226,6 @@
   <string name="text_run_config">Ku fambisa vuhlanganisi</string>
   <string name="text_hideLogs">Fihla log</string>
   <string name="text_required_accessibility_service">Vukorhokeri bya Mfikelelo bya Laveka</string>
-  <string name="text_required_opencv">Ku lulamisiwa ka swifaniso swa OpenCv</string>
-  <string name="text_required_ocr">Ku lemuka tsalwa ra OCR</string>
-  <string name="text_required_7zip">7zip layiburari ya ku tshikileriwa</string>
   <string name="text_required_terminal_emulator">Xifaniso xa theminali</string>
   <string name="text_required_background_start">Swi lava mpfumelelo wa interface ya popup ya le ndzhaku</string>
   <string name="text_required_draw_overlay">Mpfumelelo wa fasitere leri papamalaka wa laveka</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Sayina ya xiviri</string>
   <string name="desc_done">Hetisa</string>
   <string name="apk_icon">Xifaniso xa APK</string>
-  <string name="compile_options">Ku hlengeleta swihlawulekisi</string>
+  <string name="text_packaging_options">Ku hlengeleta swihlawulekisi</string>
   <string name="text_verification_failed">Ku tiyisisiwa ku tsandzekile</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Hinkwaswo ku fikelela tifayela</string>
   <string name="text_fullscreen">Cinca movha wa xikirini lexi heleleke 1</string>
   <string name="text_drawer_right">Pfula menyu leyi faneleke</string>
-  <string name="text_required_default_ocr_model">Paka modele wa ndzetelo wa OCR wa ntolovelo</string>
+  <string name="text_required_default_paddle_ocr_model">Data ya ndzetelo wa PaddleOCR ya xiviri ya phasela</string>
   <string name="switch_fullscreen">Cinca movha wa xikirini lexi heleleke</string>
   <string name="text_custom_ocr_model_path">Xikombo xa xikombiso xa OCR xa ntolovelo xa phasela</string>
   <string name="desc_more">Swo tala</string>

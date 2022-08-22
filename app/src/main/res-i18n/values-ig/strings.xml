@@ -226,9 +226,6 @@
   <string name="text_run_config">Na-agba ọsọ nhazi</string>
   <string name="text_hideLogs">Zoo log</string>
   <string name="text_required_accessibility_service">Achọrọ ọrụ nnweta</string>
-  <string name="text_required_opencv">Nhazi ihe onyonyo OpenCv</string>
-  <string name="text_required_ocr">Nchọpụta ederede OCR</string>
-  <string name="text_required_7zip">Ọbá akwụkwọ mkpakọ 7zip</string>
   <string name="text_required_terminal_emulator">Ọnụ emulator</string>
   <string name="text_required_background_start">Achọrọ ikike interface mmapụta ndabere</string>
   <string name="text_required_draw_overlay">Achọrọ ikike windo na-ese n\'elu mmiri</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Mbinye aka ndabara</string>
   <string name="desc_done">Mechaa</string>
   <string name="apk_icon">Akara ngosi APK</string>
-  <string name="compile_options">Chịkọta nhọrọ</string>
+  <string name="text_packaging_options">Chịkọta nhọrọ</string>
   <string name="text_verification_failed">Nkwenye dara</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Nweta faịlụ niile</string>
   <string name="text_fullscreen">Gbanwee ọnọdụ ihuenyo zuru oke 1</string>
   <string name="text_drawer_right">Mepee menu nri</string>
-  <string name="text_required_default_ocr_model">Kwakọ ụdị ọzụzụ OCR nke ndabara</string>
+  <string name="text_required_default_paddle_ocr_model">Data ọzụzụ PaddleOCR ndabara ngwugwu</string>
   <string name="switch_fullscreen">Gbanwee ọnọdụ ihuenyo zuru oke</string>
   <string name="text_custom_ocr_model_path">Akwụkwọ ndekọ ụkpụrụ OCR omenala ngwugwu</string>
   <string name="desc_more">Ọzọ</string>

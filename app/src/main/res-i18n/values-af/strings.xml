@@ -226,9 +226,6 @@
   <string name="text_run_config">Hardloop konfigurasie</string>
   <string name="text_hideLogs">Versteek logboek</string>
   <string name="text_required_accessibility_service">Toeganklikheiddienste word vereis</string>
-  <string name="text_required_opencv">OpenCv beeldverwerking</string>
-  <string name="text_required_ocr">OCR-teksherkenning</string>
-  <string name="text_required_7zip">7zip kompressie biblioteek</string>
   <string name="text_required_terminal_emulator">Terminale emulator</string>
   <string name="text_required_background_start">Vereis agtergrond pop-up koppelvlak toestemming</string>
   <string name="text_required_draw_overlay">Toestemming vir drywende venster word vereis</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Verstek handtekening</string>
   <string name="desc_done">Voltooi</string>
   <string name="apk_icon">APK-ikoon</string>
-  <string name="compile_options">Opsies saam te stel</string>
+  <string name="text_packaging_options">Opsies saam te stel</string>
   <string name="text_verification_failed">Verifikasie het misluk</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Alle lêertoegang</string>
   <string name="text_fullscreen">Wissel volskermmodus 1</string>
   <string name="text_drawer_right">Maak die regte spyskaart oop</string>
-  <string name="text_required_default_ocr_model">Verpak die standaard OCR-opleidingsmodel</string>
+  <string name="text_required_default_paddle_ocr_model">Pakket verstek PaddleOCR-opleidingsdata</string>
   <string name="switch_fullscreen">Wissel volskermmodus</string>
   <string name="text_custom_ocr_model_path">Pak pasgemaakte OCR-modelgids</string>
   <string name="desc_more">Meer</string>

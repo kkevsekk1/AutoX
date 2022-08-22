@@ -226,9 +226,6 @@
   <string name="text_run_config">বিন্যাস চলাওক</string>
   <string name="text_hideLogs">লগ লুকুৱাওক</string>
   <string name="text_required_accessibility_service">অভিগম্যতা সেৱাসমূহৰ প্ৰয়োজন</string>
-  <string name="text_required_opencv">OpenCv ছবি প্ৰচেছিং</string>
-  <string name="text_required_ocr">OCR লিখনী চিনাক্তকৰণ</string>
-  <string name="text_required_7zip">7zip কম্প্ৰেছন লাইব্ৰেৰী</string>
   <string name="text_required_terminal_emulator">টাৰ্মিনেল ইমুলেটৰ</string>
   <string name="text_required_background_start">পটভূমি পপআপ আন্তঃপৃষ্ঠ অনুমতিৰ প্ৰয়োজন</string>
   <string name="text_required_draw_overlay">ভাসমান উইণ্ড\'ৰ অনুমতিৰ প্ৰয়োজন</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">অবিকল্পিত স্বাক্ষৰ</string>
   <string name="desc_done">সমাপ্ত</string>
   <string name="apk_icon">APK আইকন</string>
-  <string name="compile_options">কম্পাইল বিকল্পসমূহ</string>
+  <string name="text_packaging_options">কম্পাইল বিকল্পসমূহ</string>
   <string name="text_verification_failed">সত্যাপন ব্যৰ্থ</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">সকলো নথিপত্ৰ অভিগম</string>
   <string name="text_fullscreen">সম্পূৰ্ণ পৰ্দা ধৰণ টগল কৰক 1</string>
   <string name="text_drawer_right">সোঁফালৰ মেনুখন খোলক</string>
-  <string name="text_required_default_ocr_model">অবিকল্পিত OCR প্ৰশিক্ষণ আৰ্হি পেকেজ কৰক</string>
+  <string name="text_required_default_paddle_ocr_model">পেকেজ অবিকল্পিত PaddleOCR প্ৰশিক্ষণ তথ্য</string>
   <string name="switch_fullscreen">সম্পূৰ্ণ পৰ্দা অৱস্থা টগল কৰক</string>
   <string name="text_custom_ocr_model_path">পেকেজ স্বনিৰ্বাচিত OCR আৰ্হি পঞ্জিকা</string>
   <string name="desc_more">অধিক</string>

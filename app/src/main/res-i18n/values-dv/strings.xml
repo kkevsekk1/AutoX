@@ -226,9 +226,6 @@
   <string name="text_run_config">ކޮންފިގްރޭޝަން ހިންގާށެވެ</string>
   <string name="text_hideLogs">ލޮގް ފޮރުވުން</string>
   <string name="text_required_accessibility_service">އެކްސެސިބިލިޓީ ޚިދުމަތްތައް ބޭނުންވެއްޖެއެވެ</string>
-  <string name="text_required_opencv">އޯޕަންސީވީ އިމޭޖް ޕްރޮސެސިންގ</string>
-  <string name="text_required_ocr">އޯސީއާރު ޓެކްސްޓް ދެނެގަތުން</string>
-  <string name="text_required_7zip">7ޒިޕް ކޮމްޕްރެޝަން ލައިބްރަރީ</string>
   <string name="text_required_terminal_emulator">ޓާރމިނަލް އެމިއުލޭޓަރ އެވެ</string>
   <string name="text_required_background_start">ބެކްގްރައުންޑް ޕޮޕްއަޕް އިންޓަރފޭސްގެ ހުއްދަ ބޭނުންވެއެވެ</string>
   <string name="text_required_draw_overlay">ފްލޯޓިންގ ވިންޑޯގެ ހުއްދަ ބޭނުންވެއެވެ</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">ޑިފޯލްޓް ސޮއި</string>
   <string name="desc_done">ނިންމުން</string>
   <string name="apk_icon">އޭޕީކޭ އައިކޮން</string>
-  <string name="compile_options">ކޮމްޕައިލް އޮޕްޝަންސް އެވެ</string>
+  <string name="text_packaging_options">ކޮމްޕައިލް އޮޕްޝަންސް އެވެ</string>
   <string name="text_verification_failed">ވެރިފިކޭޝަން ފެއިލްވެއްޖެއެވެ</string>
   <string name="text_WebX">ވެބްއެކްސް އެވެ</string>
   <string name="text_file_manager_permission">ހުރިހާ ފައިލެއް އެކްސެސް ކުރެވޭނެއެވެ</string>
   <string name="text_fullscreen">ފުލް ސްކްރީން މޯޑް ޓޮގްލް ކުރުން 1</string>
   <string name="text_drawer_right">ކަނާތްފަރާތުގެ މެނޫ ހުޅުވާލާށެވެ</string>
-  <string name="text_required_default_ocr_model">ޑިފޯލްޓް އޯސީއާރު ޓްރެއިނިންގ މޮޑެލް ޕެކޭޖްކުރުން</string>
+  <string name="text_required_default_paddle_ocr_model">ޕެކޭޖް ޑިފޯލްޓް ޕެޑަލްއޯސީއާރު ޓްރެއިނިންގ ޑޭޓާ</string>
   <string name="switch_fullscreen">ފުލް ސްކްރީން މޯޑް ޓޮގްލް ކުރާށެވެ</string>
   <string name="text_custom_ocr_model_path">ޕެކޭޖް ކަސްޓަމް އޯސީއާރު މޮޑެލް ޑައިރެކްޓަރީ</string>
   <string name="desc_more">އިތުރަށް</string>

@@ -226,9 +226,6 @@
   <string name="text_run_config">Configuration ကို run</string>
   <string name="text_hideLogs">မှတ်တမ်းကို ဝှက်ထားပါ။</string>
   <string name="text_required_accessibility_service">သုံးစွဲနိုင်မှု ဝန်ဆောင်မှုများ လိုအပ်ပါသည်။</string>
-  <string name="text_required_opencv">OpenCv ရုပ်ပုံလုပ်ဆောင်ခြင်း။</string>
-  <string name="text_required_ocr">OCR စာသားအသိအမှတ်ပြုမှု</string>
-  <string name="text_required_7zip">7zip ချုံ့စာကြည့်တိုက်</string>
   <string name="text_required_terminal_emulator">Terminal emulator</string>
   <string name="text_required_background_start">နောက်ခံ ပေါ့ပ်အပ် အင်တာဖေ့စ် ခွင့်ပြုချက် လိုအပ်သည်။</string>
   <string name="text_required_draw_overlay">Floating Window ခွင့်ပြုချက် လိုအပ်သည်။</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">မူရင်းလက်မှတ်</string>
   <string name="desc_done">ပြီးအောင်</string>
   <string name="apk_icon">APK အိုင်ကွန်</string>
-  <string name="compile_options">Compile options များ</string>
+  <string name="text_packaging_options">Compile options များ</string>
   <string name="text_verification_failed">အတည်ပြုခြင်း မအောင်မြင်ပါ။</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">ဖိုင်အားလုံးဝင်ရောက်ခွင့်</string>
   <string name="text_fullscreen">မျက်နှာပြင်အပြည့်မုဒ်ကို ပြောင်းရန် ၁</string>
   <string name="text_drawer_right">ညာဘက် menu ကိုဖွင့်ပါ။</string>
-  <string name="text_required_default_ocr_model">မူရင်း OCR လေ့ကျင့်ရေးမော်ဒယ်ကို ထုပ်ပိုးပါ။</string>
+  <string name="text_required_default_paddle_ocr_model">ပုံသေ PaddleOCR လေ့ကျင့်ရေးဒေတာ အထုပ်</string>
   <string name="switch_fullscreen">မျက်နှာပြင်အပြည့်မုဒ်ကို ပြောင်းပါ။</string>
   <string name="text_custom_ocr_model_path">Package စိတ်ကြိုက် OCR မော်ဒယ်လမ်းညွှန်</string>
   <string name="desc_more">နောက်ထပ်</string>

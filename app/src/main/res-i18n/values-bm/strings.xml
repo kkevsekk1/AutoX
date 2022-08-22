@@ -226,9 +226,6 @@
   <string name="text_run_config">Bolicogo labɛnni</string>
   <string name="text_hideLogs">Sɛbɛnfura dogo</string>
   <string name="text_required_accessibility_service">Baarakɛminɛn minnu bɛ se ka sɔrɔ, olu wajibiyalen don</string>
-  <string name="text_required_opencv">OpenCv ja labɛnni</string>
-  <string name="text_required_ocr">OCR sɛbɛnni dɔnni</string>
-  <string name="text_required_7zip">7zip compression bibliothèque</string>
   <string name="text_required_terminal_emulator">Terminal emulateur (emulateur) ye</string>
   <string name="text_required_background_start">A bɛ kɔkanna popup interface yamaruya ɲini</string>
   <string name="text_required_draw_overlay">Floating window ka yamaruya wajibiyalen don</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Bolonɔbila daminɛ na</string>
   <string name="desc_done">Laban</string>
   <string name="apk_icon">APK taamasiyɛn</string>
-  <string name="compile_options">Sugandiliw lajɛ</string>
+  <string name="text_packaging_options">Sugandiliw lajɛ</string>
   <string name="text_verification_failed">Sɛgɛsɛgɛli ma ɲɛ</string>
   <string name="text_WebX">WebX ye</string>
   <string name="text_file_manager_permission">Filenw bɛɛ sɔrɔli</string>
   <string name="text_fullscreen">Toggle ka ekran dafalen cogoya 1</string>
   <string name="text_drawer_right">Meniw min bɛ kinin fɛ, o da wuli</string>
-  <string name="text_required_default_ocr_model">OCR ka kalan kɛcogo misali fɔlɔw pake</string>
+  <string name="text_required_default_paddle_ocr_model">Package default PaddleOCR kalan kunnafoniw</string>
   <string name="switch_fullscreen">Toggle cogo la min bɛ ekran dafalen na</string>
   <string name="text_custom_ocr_model_path">Pake ladamu OCR modɛli ɲɛbilasɛbɛn</string>
   <string name="desc_more">Caman</string>

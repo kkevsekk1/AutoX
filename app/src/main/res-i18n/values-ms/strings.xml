@@ -226,9 +226,6 @@
   <string name="text_run_config">Jalankan konfigurasi</string>
   <string name="text_hideLogs">Sembunyikan log</string>
   <string name="text_required_accessibility_service">Perkhidmatan Kebolehcapaian Diperlukan</string>
-  <string name="text_required_opencv">Pemprosesan imej OpenCv</string>
-  <string name="text_required_ocr">Pengecaman teks OCR</string>
-  <string name="text_required_7zip">Perpustakaan mampatan 7zip</string>
   <string name="text_required_terminal_emulator">Emulator terminal</string>
   <string name="text_required_background_start">Memerlukan kebenaran antara muka timbul latar belakang</string>
   <string name="text_required_draw_overlay">Kebenaran tingkap terapung diperlukan</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Tandatangan lalai</string>
   <string name="desc_done">Selesai</string>
   <string name="apk_icon">Ikon APK</string>
-  <string name="compile_options">Menyusun pilihan</string>
+  <string name="text_packaging_options">Menyusun pilihan</string>
   <string name="text_verification_failed">Pengesahan gagal</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Semua akses fail</string>
   <string name="text_fullscreen">Togol mod skrin penuh 1</string>
   <string name="text_drawer_right">Buka menu yang betul</string>
-  <string name="text_required_default_ocr_model">Pakej model latihan OCR lalai</string>
+  <string name="text_required_default_paddle_ocr_model">Pakej data latihan PaddleOCR lalai</string>
   <string name="switch_fullscreen">Togol mod skrin penuh</string>
   <string name="text_custom_ocr_model_path">Pakej direktori model OCR tersuai</string>
   <string name="desc_more">Lagi</string>

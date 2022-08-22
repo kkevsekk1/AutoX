@@ -226,9 +226,6 @@
   <string name="text_run_config">Yapılandırmayı çalıştır</string>
   <string name="text_hideLogs">Günlüğü gizle</string>
   <string name="text_required_accessibility_service">Erişilebilirlik Hizmetleri Gerekli</string>
-  <string name="text_required_opencv">OpenCv görüntü işleme</string>
-  <string name="text_required_ocr">OCR metin tanıma</string>
-  <string name="text_required_7zip">7zip sıkıştırma kitaplığı</string>
   <string name="text_required_terminal_emulator">Bağlantı emülatörü</string>
   <string name="text_required_background_start">Arka planda açılır arayüz izni gerektirir</string>
   <string name="text_required_draw_overlay">Kayan pencere izni gerekli</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Varsayılan imza</string>
   <string name="desc_done">Bitiş</string>
   <string name="apk_icon">APK simgesi</string>
-  <string name="compile_options">Derleme seçenekleri</string>
+  <string name="text_packaging_options">Derleme seçenekleri</string>
   <string name="text_verification_failed">Doğrulama başarısız oldu</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Tüm dosya erişimi</string>
   <string name="text_fullscreen">Tam ekran modunu değiştir 1</string>
   <string name="text_drawer_right">Sağ menüyü aç</string>
-  <string name="text_required_default_ocr_model">Varsayılan OCR eğitim modelini paketleyin</string>
+  <string name="text_required_default_paddle_ocr_model">Varsayılan PaddleOCR eğitim verilerini paketleyin</string>
   <string name="switch_fullscreen">Tam ekran modunu değiştir</string>
   <string name="text_custom_ocr_model_path">Paket özel OCR model dizini</string>
   <string name="desc_more">Daha</string>

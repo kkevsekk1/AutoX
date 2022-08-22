@@ -226,9 +226,6 @@
   <string name="text_run_config">Veavakirina run</string>
   <string name="text_hideLogs">Têketinê veşêre</string>
   <string name="text_required_accessibility_service">Xizmetên Gihîştinê Pêdivî ye</string>
-  <string name="text_required_opencv">Pêvajoya wêneya OpenCv</string>
-  <string name="text_required_ocr">Naskirina nivîsê OCR</string>
-  <string name="text_required_7zip">7zip pirtûkxaneya compression</string>
   <string name="text_required_terminal_emulator">Emulatora termînalê</string>
   <string name="text_required_background_start">Destûra pêwendiya paşîn a paşîn hewce dike</string>
   <string name="text_required_draw_overlay">Destûra pencereya pêvekirî hewce ye</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Îmzeya xwerû</string>
   <string name="desc_done">Qedandin</string>
   <string name="apk_icon">Îkonê APK</string>
-  <string name="compile_options">Vebijarkên berhev bikin</string>
+  <string name="text_packaging_options">Vebijarkên berhev bikin</string>
   <string name="text_verification_failed">Verastkirin têk çû</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Hemî gihîştina pelê</string>
   <string name="text_fullscreen">Moda ekrana tevahî 1 biguherînin</string>
   <string name="text_drawer_right">Menuya rastê vekin</string>
-  <string name="text_required_default_ocr_model">Modela perwerdehiya OCR ya xwerû pak bikin</string>
+  <string name="text_required_default_paddle_ocr_model">Daneyên perwerdehiya PaddleOCR-a xwerû pakêt bikin</string>
   <string name="switch_fullscreen">Moda ekrana tevahî biguhezînin</string>
   <string name="text_custom_ocr_model_path">Peldanka modela OCR ya xwerû ya pakêtê</string>
   <string name="desc_more">Zêde</string>

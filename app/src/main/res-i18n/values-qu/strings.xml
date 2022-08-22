@@ -226,9 +226,6 @@
   <string name="text_run_config">Configuración nisqa purichiy</string>
   <string name="text_hideLogs">Pakay qillqa</string>
   <string name="text_required_accessibility_service">Servicios de Accesibilidad nisqa necesitakun</string>
-  <string name="text_required_opencv">OpenCv siq\'i ruway</string>
-  <string name="text_required_ocr">OCR qillqa riqsiy</string>
-  <string name="text_required_7zip">7zip ñit\'iy biblioteca</string>
   <string name="text_required_terminal_emulator">Emulador de terminal nisqa</string>
   <string name="text_required_background_start">Qhipa popup interfaz atiyta munan</string>
   <string name="text_required_draw_overlay">Flotante ventana permisota mañakun</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Ñawpaqmanta churasqa firma</string>
   <string name="desc_done">Tukuy</string>
   <string name="apk_icon">Icono de APK</string>
-  <string name="compile_options">Akllanakunata huñuy</string>
+  <string name="text_packaging_options">Akllanakunata huñuy</string>
   <string name="text_verification_failed">Chiqapchayqa manam atirqachu</string>
   <string name="text_WebX">WebX nisqa</string>
   <string name="text_file_manager_permission">Tukuy willañiqiman yaykuy</string>
   <string name="text_fullscreen">Modo de pantalla completa nisqa tikray 1</string>
   <string name="text_drawer_right">Paña kaq menú nisqapi kichay</string>
-  <string name="text_required_default_ocr_model">Paquete el modelo de capacitación OCR predeterminado nisqa</string>
+  <string name="text_required_default_paddle_ocr_model">Paquete ñawpaqmanta churasqa PaddleOCR yachachiy willayta</string>
   <string name="switch_fullscreen">Modo de pantalla completa nisqa tikray</string>
   <string name="text_custom_ocr_model_path">Paquete costumbre OCR modelo directorio</string>
   <string name="desc_more">Aswan</string>

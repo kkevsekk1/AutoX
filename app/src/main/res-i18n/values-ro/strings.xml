@@ -226,9 +226,6 @@
   <string name="text_run_config">Rulați configurația</string>
   <string name="text_hideLogs">Ascunde jurnalul</string>
   <string name="text_required_accessibility_service">Sunt necesare servicii de accesibilitate</string>
-  <string name="text_required_opencv">Procesarea imaginii OpenCv</string>
-  <string name="text_required_ocr">Recunoașterea textului OCR</string>
-  <string name="text_required_7zip">Biblioteca de compresie 7zip</string>
   <string name="text_required_terminal_emulator">Emulator de terminal</string>
   <string name="text_required_background_start">Necesită permisiunea de interfață pop-up de fundal</string>
   <string name="text_required_draw_overlay">Este necesară permisiunea ferestrei flotante</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Semnătură implicită</string>
   <string name="desc_done">Finalizarea</string>
   <string name="apk_icon">Pictograma APK</string>
-  <string name="compile_options">Opțiuni de compilare</string>
+  <string name="text_packaging_options">Opțiuni de compilare</string>
   <string name="text_verification_failed">Verificare esuata</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Acces la toate fișierele</string>
   <string name="text_fullscreen">Comutați modul ecran complet 1</string>
   <string name="text_drawer_right">Deschide meniul din dreapta</string>
-  <string name="text_required_default_ocr_model">Pachetați modelul implicit de instruire OCR</string>
+  <string name="text_required_default_paddle_ocr_model">Pachetul implicit de date de antrenament PaddleOCR</string>
   <string name="switch_fullscreen">Comutați modul ecran complet</string>
   <string name="text_custom_ocr_model_path">Director de modele OCR personalizat pachet</string>
   <string name="desc_more">Mai mult</string>

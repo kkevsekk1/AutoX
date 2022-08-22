@@ -226,9 +226,6 @@
   <string name="text_run_config">Cumraíocht rith</string>
   <string name="text_hideLogs">Loga cheilt</string>
   <string name="text_required_accessibility_service">Seirbhísí Inrochtaineachta de dhíth</string>
-  <string name="text_required_opencv">Próiseáil íomhánna OpenCv</string>
-  <string name="text_required_ocr">Aitheantas téacs OCR saor in aisce,</string>
-  <string name="text_required_7zip">Leabharlann comhbhrúite 7zip saor in aisce,</string>
   <string name="text_required_terminal_emulator">Aithriseoir teirminéil</string>
   <string name="text_required_background_start">Teastaíonn cead cúlra aníos aníos</string>
   <string name="text_required_draw_overlay">Teastaíonn cead fuinneog ar snámh</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Síniú réamhshocraithe</string>
   <string name="desc_done">Críochnaigh</string>
   <string name="apk_icon">Deilbhín APK</string>
-  <string name="compile_options">Roghanna a thiomsú</string>
+  <string name="text_packaging_options">Roghanna a thiomsú</string>
   <string name="text_verification_failed">Theip ar an bhfíorú</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Gach rochtain comhad</string>
   <string name="text_fullscreen">Scoránaigh mód scáileán iomlán 1</string>
   <string name="text_drawer_right">Oscail an roghchlár ceart</string>
-  <string name="text_required_default_ocr_model">Íoslódáil an tsamhail oiliúna OCR réamhshocraithe</string>
+  <string name="text_required_default_paddle_ocr_model">Sonraí oiliúna PaddleOCR réamhshocraithe pacáiste</string>
   <string name="switch_fullscreen">Scoránaigh mód scáileán iomlán</string>
   <string name="text_custom_ocr_model_path">Pacáiste eolaire samhail OCR saincheaptha</string>
   <string name="desc_more">Tuilleadh</string>

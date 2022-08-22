@@ -226,9 +226,6 @@
   <string name="text_run_config">실행 구성</string>
   <string name="text_hideLogs">로그 숨기기</string>
   <string name="text_required_accessibility_service">접근성 서비스 필요</string>
-  <string name="text_required_opencv">OpenCv 이미지 처리</string>
-  <string name="text_required_ocr">OCR 텍스트 인식</string>
-  <string name="text_required_7zip">7zip 압축 라이브러리</string>
   <string name="text_required_terminal_emulator">터미널 에뮬레이터</string>
   <string name="text_required_background_start">배경 팝업 인터페이스 권한이 필요합니다</string>
   <string name="text_required_draw_overlay">부동 창 권한이 필요합니다</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">기본 서명</string>
   <string name="desc_done">마치다</string>
   <string name="apk_icon">APK 아이콘</string>
-  <string name="compile_options">컴파일 옵션</string>
+  <string name="text_packaging_options">컴파일 옵션</string>
   <string name="text_verification_failed">확인 실패</string>
   <string name="text_WebX">웹엑스</string>
   <string name="text_file_manager_permission">모든 파일 액세스</string>
   <string name="text_fullscreen">전체 화면 모드 1 전환</string>
   <string name="text_drawer_right">오른쪽 메뉴 열기</string>
-  <string name="text_required_default_ocr_model">기본 OCR 학습 모델 패키징</string>
+  <string name="text_required_default_paddle_ocr_model">패키지 기본 PaddleOCR 교육 데이터</string>
   <string name="switch_fullscreen">전체 화면 모드 전환</string>
   <string name="text_custom_ocr_model_path">패키지 사용자 정의 OCR 모델 디렉토리</string>
   <string name="desc_more">더</string>

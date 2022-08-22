@@ -226,9 +226,6 @@
   <string name="text_run_config">Konfiqurasiyanı işə salın</string>
   <string name="text_hideLogs">Log gizlət</string>
   <string name="text_required_accessibility_service">Əlçatanlıq Xidmətləri Tələb olunur</string>
-  <string name="text_required_opencv">OpenCv təsvirin işlənməsi</string>
-  <string name="text_required_ocr">OCR mətn tanınması</string>
-  <string name="text_required_7zip">7zip sıxılma kitabxanası</string>
   <string name="text_required_terminal_emulator">Terminal emulyatoru</string>
   <string name="text_required_background_start">Fon popup interfeysi icazəsi tələb edir</string>
   <string name="text_required_draw_overlay">Üzən pəncərə icazəsi tələb olunur</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Standart imza</string>
   <string name="desc_done">Bitir</string>
   <string name="apk_icon">APK nişanı</string>
-  <string name="compile_options">Variantları tərtib edin</string>
+  <string name="text_packaging_options">Variantları tərtib edin</string>
   <string name="text_verification_failed">Doğrulama uğursuz oldu</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Bütün fayl girişi</string>
   <string name="text_fullscreen">Tam ekran rejimini dəyişin 1</string>
   <string name="text_drawer_right">Sağ menyunu açın</string>
-  <string name="text_required_default_ocr_model">Defolt OCR təlim modelini paketləyin</string>
+  <string name="text_required_default_paddle_ocr_model">Defolt PaddleOCR təlim məlumatlarını paketləyin</string>
   <string name="switch_fullscreen">Tam ekran rejimini dəyişin</string>
   <string name="text_custom_ocr_model_path">Xüsusi OCR model kataloqunu paketləyin</string>
   <string name="desc_more">Daha çox</string>

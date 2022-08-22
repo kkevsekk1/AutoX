@@ -226,9 +226,6 @@
   <string name="text_run_config">Kör konfiguration</string>
   <string name="text_hideLogs">Dölja loggen</string>
   <string name="text_required_accessibility_service">Tillgänglighetstjänster krävs</string>
-  <string name="text_required_opencv">OpenCv bildbehandling</string>
-  <string name="text_required_ocr">OCR-textigenkänning</string>
-  <string name="text_required_7zip">7zip komprimeringsbibliotek</string>
   <string name="text_required_terminal_emulator">Terminalemulator</string>
   <string name="text_required_background_start">Kräver bakgrundsbehörighet för popup-gränssnitt</string>
   <string name="text_required_draw_overlay">Behörighet för flytande fönster krävs</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Standardsignatur</string>
   <string name="desc_done">Avsluta</string>
   <string name="apk_icon">APK-ikon</string>
-  <string name="compile_options">Kompilera alternativ</string>
+  <string name="text_packaging_options">Kompilera alternativ</string>
   <string name="text_verification_failed">Verifiering misslyckades</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">All filåtkomst</string>
   <string name="text_fullscreen">Växla helskärmsläge 1</string>
   <string name="text_drawer_right">Öppna den högra menyn</string>
-  <string name="text_required_default_ocr_model">Paketera standard OCR-träningsmodellen</string>
+  <string name="text_required_default_paddle_ocr_model">Paketstandard PaddleOCR-träningsdata</string>
   <string name="switch_fullscreen">Växla helskärmsläge</string>
   <string name="text_custom_ocr_model_path">Paketera anpassad OCR-modellkatalog</string>
   <string name="desc_more">Mer</string>

@@ -226,9 +226,6 @@
   <string name="text_run_config">विन्यासं चालयन्तु</string>
   <string name="text_hideLogs">Hide log इति</string>
   <string name="text_required_accessibility_service">सुलभता सेवा आवश्यकी</string>
-  <string name="text_required_opencv">OpenCv इमेज प्रोसेसिंग</string>
-  <string name="text_required_ocr">ओसीआर पाठ मान्यता</string>
-  <string name="text_required_7zip">7zip संपीडन पुस्तकालय</string>
   <string name="text_required_terminal_emulator">टर्मिनल एमुलेटर</string>
   <string name="text_required_background_start">पृष्ठभूमि पॉपअप अन्तरफलक अनुमति आवश्यक है</string>
   <string name="text_required_draw_overlay">प्लवमानविण्डो अनुमतिः आवश्यकी</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">पूर्वनिर्धारित हस्ताक्षर</string>
   <string name="desc_done">समापन</string>
   <string name="apk_icon">APK चिह्न</string>
-  <string name="compile_options">संकलन विकल्प</string>
+  <string name="text_packaging_options">संकलन विकल्प</string>
   <string name="text_verification_failed">सत्यापन असफल हो गया</string>
   <string name="text_WebX">WebX इति</string>
   <string name="text_file_manager_permission">सर्वाणि सञ्चिकाप्रवेशः</string>
   <string name="text_fullscreen">पूर्ण स्क्रीन मोड टॉगल करें 1</string>
   <string name="text_drawer_right">दक्षिणं मेनू उद्घाटयन्तु</string>
-  <string name="text_required_default_ocr_model">पूर्वनिर्धारितं OCR प्रशिक्षणप्रतिरूपं संकुलं कुर्वन्तु</string>
+  <string name="text_required_default_paddle_ocr_model">संकुल पूर्वनिर्धारित PaddleOCR प्रशिक्षण डेटा</string>
   <string name="switch_fullscreen">पूर्ण स्क्रीन मोड टॉगल करें</string>
   <string name="text_custom_ocr_model_path">संकुल कस्टम OCR मॉडल निर्देशिका</string>
   <string name="desc_more">अधिकः</string>

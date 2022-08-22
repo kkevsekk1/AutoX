@@ -226,9 +226,6 @@
   <string name="text_run_config">Spustit konfiguraci</string>
   <string name="text_hideLogs">Skrýt protokol</string>
   <string name="text_required_accessibility_service">Jsou vyžadovány služby usnadnění</string>
-  <string name="text_required_opencv">OpenCv zpracování obrazu</string>
-  <string name="text_required_ocr">OCR rozpoznávání textu</string>
-  <string name="text_required_7zip">7zip kompresní knihovna</string>
   <string name="text_required_terminal_emulator">Emulátor terminálu</string>
   <string name="text_required_background_start">Vyžaduje oprávnění k vyskakovacímu rozhraní na pozadí</string>
   <string name="text_required_draw_overlay">Vyžaduje se oprávnění k plovoucímu oknu</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Výchozí podpis</string>
   <string name="desc_done">Dokončit</string>
   <string name="apk_icon">Ikona APK</string>
-  <string name="compile_options">Možnosti kompilace</string>
+  <string name="text_packaging_options">Možnosti kompilace</string>
   <string name="text_verification_failed">Ověření se nezdařilo</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Veškerý přístup k souborům</string>
   <string name="text_fullscreen">Přepnout režim celé obrazovky 1</string>
   <string name="text_drawer_right">Otevřete pravé menu</string>
-  <string name="text_required_default_ocr_model">Zabalte výchozí model školení OCR</string>
+  <string name="text_required_default_paddle_ocr_model">Výchozí tréninková data PaddleOCR</string>
   <string name="switch_fullscreen">Přepnout režim celé obrazovky</string>
   <string name="text_custom_ocr_model_path">Zabalte vlastní adresář modelu OCR</string>
   <string name="desc_more">Více</string>

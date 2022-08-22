@@ -226,9 +226,6 @@
   <string name="text_run_config">Palaist konfigurāciju</string>
   <string name="text_hideLogs">Paslēpt žurnālu</string>
   <string name="text_required_accessibility_service">Nepieciešami pieejamības pakalpojumi</string>
-  <string name="text_required_opencv">OpenCv attēlu apstrāde</string>
-  <string name="text_required_ocr">OCR teksta atpazīšana</string>
-  <string name="text_required_7zip">7zip saspiešanas bibliotēka</string>
   <string name="text_required_terminal_emulator">Termināļa emulators</string>
   <string name="text_required_background_start">Nepieciešama fona uznirstošā saskarnes atļauja</string>
   <string name="text_required_draw_overlay">Nepieciešama peldoša loga atļauja</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Noklusējuma paraksts</string>
   <string name="desc_done">Pabeigt</string>
   <string name="apk_icon">APK ikona</string>
-  <string name="compile_options">Kompilēšanas opcijas</string>
+  <string name="text_packaging_options">Kompilēšanas opcijas</string>
   <string name="text_verification_failed">Verifikācija neizdevās</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Piekļuve visiem failiem</string>
   <string name="text_fullscreen">Pārslēgt pilnekrāna režīmu 1</string>
   <string name="text_drawer_right">Atveriet labo izvēlni</string>
-  <string name="text_required_default_ocr_model">Iesaiņojiet noklusējuma OCR apmācības modeli</string>
+  <string name="text_required_default_paddle_ocr_model">Iesaiņojiet noklusējuma PaddleOCR apmācības datus</string>
   <string name="switch_fullscreen">Pārslēgt pilnekrāna režīmu</string>
   <string name="text_custom_ocr_model_path">Iesaiņojiet pielāgotu OCR modeļa direktoriju</string>
   <string name="desc_more">Vairāk</string>

@@ -226,9 +226,6 @@
   <string name="text_run_config">پیکربندی اجرا</string>
   <string name="text_hideLogs">پنهان کردن گزارش</string>
   <string name="text_required_accessibility_service">خدمات دسترسی مورد نیاز است</string>
-  <string name="text_required_opencv">پردازش تصویر OpenCv</string>
-  <string name="text_required_ocr">تشخیص متن OCR</string>
-  <string name="text_required_7zip">کتابخانه فشرده سازی 7zip</string>
   <string name="text_required_terminal_emulator">شبیه ساز ترمینال</string>
   <string name="text_required_background_start">به مجوز رابط پنجره بازشو پس زمینه نیاز دارد</string>
   <string name="text_required_draw_overlay">مجوز پنجره شناور مورد نیاز است</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">امضای پیش فرض</string>
   <string name="desc_done">پایان</string>
   <string name="apk_icon">نماد APK</string>
-  <string name="compile_options">گزینه ها را کامپایل کنید</string>
+  <string name="text_packaging_options">گزینه ها را کامپایل کنید</string>
   <string name="text_verification_failed">تأیید ناموفق بود</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">همه دسترسی به فایل</string>
   <string name="text_fullscreen">تغییر حالت تمام صفحه 1</string>
   <string name="text_drawer_right">منوی سمت راست را باز کنید</string>
-  <string name="text_required_default_ocr_model">بسته بندی مدل آموزش پیش فرض OCR</string>
+  <string name="text_required_default_paddle_ocr_model">بسته بندی پیش فرض داده های آموزشی PaddleOCR</string>
   <string name="switch_fullscreen">حالت تمام صفحه را تغییر دهید</string>
   <string name="text_custom_ocr_model_path">بسته راهنمای مدل OCR سفارشی</string>
   <string name="desc_more">بیشتر</string>

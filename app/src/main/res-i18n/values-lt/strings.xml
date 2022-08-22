@@ -108,7 +108,7 @@
   <string name="text_clear_pre_execute_script">Išvalykite iš anksto įvykdytus scenarijus</string>
   <string name="text_clear_file_selection">Iš naujo nustatyti scenarijaus failo pasirinkimą</string>
   <string name="summary_pre_execute_script">Bus vykdomas prieš paleidžiant scenarijaus failą</string>
-  <string name="text_checking_update">Tikrinama, ar nėra atnaujinimų</string>
+  <string name="text_checking_update">Tikrinama, ar nėra naujinimų</string>
   <string name="text_new_version">Nauja versija</string>
   <string name="text_new_version2">Nauja versija: %s</string>
   <string name="text_check_update_error">Nepavyko patikrinti, ar nėra naujinimų: %s</string>
@@ -226,9 +226,6 @@
   <string name="text_run_config">Paleisti konfigūraciją</string>
   <string name="text_hideLogs">Paslėpti žurnalą</string>
   <string name="text_required_accessibility_service">Reikalingos pritaikymo neįgaliesiems paslaugos</string>
-  <string name="text_required_opencv">OpenCv vaizdo apdorojimas</string>
-  <string name="text_required_ocr">OCR teksto atpažinimas</string>
-  <string name="text_required_7zip">7zip glaudinimo biblioteka</string>
   <string name="text_required_terminal_emulator">Terminalo emuliatorius</string>
   <string name="text_required_background_start">Reikalingas fono iššokančiųjų langų sąsajos leidimas</string>
   <string name="text_required_draw_overlay">Reikalingas plaukiojančio lango leidimas</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Numatytasis parašas</string>
   <string name="desc_done">Baigti</string>
   <string name="apk_icon">APK piktograma</string>
-  <string name="compile_options">Kompiliavimo parinktis</string>
+  <string name="text_packaging_options">Kompiliavimo parinktis</string>
   <string name="text_verification_failed">Patvirtinimas nepavyko</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Prieiga prie visų failų</string>
   <string name="text_fullscreen">Perjungti viso ekrano režimą 1</string>
   <string name="text_drawer_right">Atidarykite dešinįjį meniu</string>
-  <string name="text_required_default_ocr_model">Supakuokite numatytąjį OCR mokymo modelį</string>
+  <string name="text_required_default_paddle_ocr_model">Supakuokite numatytuosius PaddleOCR treniruočių duomenis</string>
   <string name="switch_fullscreen">Perjungti viso ekrano režimą</string>
   <string name="text_custom_ocr_model_path">Supakuokite pasirinktinį OCR modelio katalogą</string>
   <string name="desc_more">Daugiau</string>

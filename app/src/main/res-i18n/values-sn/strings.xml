@@ -226,9 +226,6 @@
   <string name="text_run_config">Run configuration</string>
   <string name="text_hideLogs">Hide log</string>
   <string name="text_required_accessibility_service">Accessibility Services Inodiwa</string>
-  <string name="text_required_opencv">OpenCv mufananidzo kugadzirisa</string>
-  <string name="text_required_ocr">OCR kucherechedzwa kwemavara</string>
-  <string name="text_required_7zip">7zip compression raibhurari</string>
   <string name="text_required_terminal_emulator">Terminal emulator</string>
   <string name="text_required_background_start">Inoda mvumo yekumashure popup interface</string>
   <string name="text_required_draw_overlay">Mvumo yewindow inoyangarara inodiwa</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Default siginecha</string>
   <string name="desc_done">Finish</string>
   <string name="apk_icon">APK icon</string>
-  <string name="compile_options">Unganidza sarudzo</string>
+  <string name="text_packaging_options">Unganidza sarudzo</string>
   <string name="text_verification_failed">Kuongorora kwakundikana</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Yese mafaera kuwana</string>
   <string name="text_fullscreen">Shandura yakazara skrini modhi 1</string>
   <string name="text_drawer_right">Vhura menyu yekurudyi</string>
-  <string name="text_required_default_ocr_model">Pakeji iyo yakasarudzika OCR yekudzidzisa modhi</string>
+  <string name="text_required_default_paddle_ocr_model">Package default PaddleOCR yekudzidzisa data</string>
   <string name="switch_fullscreen">Toggle full screen mode</string>
   <string name="text_custom_ocr_model_path">Pakeji tsika OCR modhi dhairekitori</string>
   <string name="desc_more">Zvimwe</string>

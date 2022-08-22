@@ -226,9 +226,6 @@
   <string name="text_run_config">Tarayen ti konfigurasion</string>
   <string name="text_hideLogs">Ilemmeng ti log</string>
   <string name="text_required_accessibility_service">Masapul dagiti Serbisio ti Accessibility</string>
-  <string name="text_required_opencv">Panagproseso ti ladawan ti OpenCv</string>
-  <string name="text_required_ocr">Panangbigbig iti teksto ti OCR</string>
-  <string name="text_required_7zip">7zip nga biblioteka ti panagkompresion</string>
   <string name="text_required_terminal_emulator">Terminal nga emulator</string>
   <string name="text_required_background_start">Kasapulan ti pammalubos ti background popup interface</string>
   <string name="text_required_draw_overlay">Masapul ti pammalubos ti floating window</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Default a pirma</string>
   <string name="desc_done">Palpasen</string>
   <string name="apk_icon">Ikon ti APK</string>
-  <string name="compile_options">Dagiti pagpilian iti panagtipon</string>
+  <string name="text_packaging_options">Dagiti pagpilian iti panagtipon</string>
   <string name="text_verification_failed">Napaay ti panangpaneknek</string>
   <string name="text_WebX">WebX nga</string>
   <string name="text_file_manager_permission">Amin a file access</string>
   <string name="text_fullscreen">I-toggle ti naan-anay nga iskrin a kasasaad 1</string>
   <string name="text_drawer_right">Luktan ti kannawan a menu</string>
-  <string name="text_required_default_ocr_model">Ipakete ti default a modelo ti panagsanay ti OCR</string>
+  <string name="text_required_default_paddle_ocr_model">Pakete ti default a datos ti panagsanay ti PaddleOCR</string>
   <string name="switch_fullscreen">I-toggle ti naan-anay nga iskrin a kasasaad</string>
   <string name="text_custom_ocr_model_path">Pakete ti kostumbre nga OCR a modelo ti direktorio</string>
   <string name="desc_more">Ad-adu pay</string>

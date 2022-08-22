@@ -226,9 +226,6 @@
   <string name="text_run_config">Запустить конфигурацию</string>
   <string name="text_hideLogs">Скрыть журнал</string>
   <string name="text_required_accessibility_service">Требуются службы доступности</string>
-  <string name="text_required_opencv">Обработка изображений OpenCv</string>
-  <string name="text_required_ocr">Распознавание текста OCR</string>
-  <string name="text_required_7zip">Библиотека сжатия 7zip</string>
   <string name="text_required_terminal_emulator">Эмулятор терминала</string>
   <string name="text_required_background_start">Требуется разрешение на фоновое всплывающее окно</string>
   <string name="text_required_draw_overlay">Требуется разрешение на плавающее окно</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Подпись по умолчанию</string>
   <string name="desc_done">Заканчивать</string>
   <string name="apk_icon">Значок APK</string>
-  <string name="compile_options">Параметры компиляции</string>
+  <string name="text_packaging_options">Параметры компиляции</string>
   <string name="text_verification_failed">Проверка не удалась</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Полный доступ к файлам</string>
   <string name="text_fullscreen">Переключить полноэкранный режим 1</string>
   <string name="text_drawer_right">Откройте правое меню</string>
-  <string name="text_required_default_ocr_model">Упакуйте модель обучения OCR по умолчанию</string>
+  <string name="text_required_default_paddle_ocr_model">Упаковать обучающие данные PaddleOCR по умолчанию</string>
   <string name="switch_fullscreen">Переключить полноэкранный режим</string>
   <string name="text_custom_ocr_model_path">Упаковать каталог пользовательской модели OCR</string>
   <string name="desc_more">Более</string>

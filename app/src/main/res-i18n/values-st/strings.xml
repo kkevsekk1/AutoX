@@ -226,9 +226,6 @@
   <string name="text_run_config">Matha tlhophiso</string>
   <string name="text_hideLogs">Pata kota</string>
   <string name="text_required_accessibility_service">Litšebeletso tsa phihlello lia Hlokahala</string>
-  <string name="text_required_opencv">Ts\'ebetso ea setšoantšo sa OpenCv</string>
-  <string name="text_required_ocr">Tlhokomeliso ea mongolo oa OCR</string>
-  <string name="text_required_7zip">Laebrari ea khatiso ea 7zip</string>
   <string name="text_required_terminal_emulator">Emulator ea terminal</string>
   <string name="text_required_background_start">E hloka tumello ea sebopeho sa popup sa bokamorao</string>
   <string name="text_required_draw_overlay">Ho hlokahala tumello ea fensetere e phaphametseng</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Mosaeno oa kamehla</string>
   <string name="desc_done">Qetella</string>
   <string name="apk_icon">Letšoao la APK</string>
-  <string name="compile_options">Bokella dikgetho</string>
+  <string name="text_packaging_options">Bokella dikgetho</string>
   <string name="text_verification_failed">Netefatso e hlotsoe</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Lifaele tsohle li fihlella</string>
   <string name="text_fullscreen">Fetolela skrineng se felletseng 1</string>
   <string name="text_drawer_right">Bula lenane le nepahetseng</string>
-  <string name="text_required_default_ocr_model">Kopanya mofuta oa kamehla oa koetliso oa OCR</string>
+  <string name="text_required_default_paddle_ocr_model">Sephutheloana sa data ea kamehla ea koetliso ea PaddleOCR</string>
   <string name="switch_fullscreen">Fetolela skrineng se felletseng</string>
   <string name="text_custom_ocr_model_path">Sephutheloana sa bukana ea mohlala oa OCR</string>
   <string name="desc_more">Hape</string>

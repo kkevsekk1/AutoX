@@ -226,9 +226,6 @@
   <string name="text_run_config">कॉन्फ़िगरेशन चलाओ</string>
   <string name="text_hideLogs">लॉग छिपाओ</string>
   <string name="text_required_accessibility_service">सुलभता सेवाएं दी लोड़ ऐ</string>
-  <string name="text_required_opencv">ओपनसीवी छवि प्रसंस्करण</string>
-  <string name="text_required_ocr">ओसीआर पाठ मान्यता</string>
-  <string name="text_required_7zip">7ज़िप संपीड़न लाइब्रेरी</string>
   <string name="text_required_terminal_emulator">टर्मिनल एमुलेटर ऐ</string>
   <string name="text_required_background_start">बैकग्राउंड पॉपअप इंटरफेस दी अनुमति दी लोड़ ऐ</string>
   <string name="text_required_draw_overlay">फ्लोटिंग विंडो दी अनुमति दी लोड़ ऐ</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">डिफ़ॉल्ट हस्ताक्षर</string>
   <string name="desc_done">पूरा करना</string>
   <string name="apk_icon">ए पी के आइकन</string>
-  <string name="compile_options">विकल्प संकलित करना</string>
+  <string name="text_packaging_options">विकल्प संकलित करना</string>
   <string name="text_verification_failed">सत्यापन असफल हो गया</string>
   <string name="text_WebX">वेबएक्स ऐ</string>
   <string name="text_file_manager_permission">सारी फाइल एक्सेस</string>
   <string name="text_fullscreen">फुल स्क्रीन मोड टॉगल करो 1</string>
   <string name="text_drawer_right">दाहिना मेनू खोलो</string>
-  <string name="text_required_default_ocr_model">डिफ़ॉल्ट ओसीआर प्रशिक्षण मॉडल गी पैकेज करो</string>
+  <string name="text_required_default_paddle_ocr_model">पैकेज डिफ़ॉल्ट पैडलओसीआर प्रशिक्षण डेटा</string>
   <string name="switch_fullscreen">फुल स्क्रीन मोड टॉगल करो</string>
   <string name="text_custom_ocr_model_path">पैकेज कस्टम ओसीआर मॉडल निर्देशिका</string>
   <string name="desc_more">होर</string>

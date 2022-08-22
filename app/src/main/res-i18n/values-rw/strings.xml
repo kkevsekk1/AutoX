@@ -226,9 +226,6 @@
   <string name="text_run_config">Koresha Iboneza</string>
   <string name="text_hideLogs">Guhisha ibiti</string>
   <string name="text_required_accessibility_service">Serivise zo kugerwaho zirakenewe</string>
-  <string name="text_required_opencv">Gufungura amashusho ya OpenCv</string>
-  <string name="text_required_ocr">Kumenyekanisha inyandiko ya OCR</string>
-  <string name="text_required_7zip">7zip ububiko bwibitabo</string>
   <string name="text_required_terminal_emulator">Kwigana</string>
   <string name="text_required_background_start">Irasaba uruhushya rwimbere rwimbere</string>
   <string name="text_required_draw_overlay">Kureremba idirishya biremewe</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Umukono usanzwe</string>
   <string name="desc_done">Kurangiza</string>
   <string name="apk_icon">Agashusho ka APK</string>
-  <string name="compile_options">Gukusanya amahitamo</string>
+  <string name="text_packaging_options">Gukusanya amahitamo</string>
   <string name="text_verification_failed">Kugenzura byarananiranye</string>
   <string name="text_WebX">UrubugaX</string>
   <string name="text_file_manager_permission">Idosiye yose</string>
   <string name="text_fullscreen">Hindura uburyo bwuzuye bwa ecran 1</string>
   <string name="text_drawer_right">Fungura menu iburyo</string>
-  <string name="text_required_default_ocr_model">Gupakira icyitegererezo cyamahugurwa ya OCR</string>
+  <string name="text_required_default_paddle_ocr_model">Amapaki asanzwe ya PaddleOCR yamahugurwa</string>
   <string name="switch_fullscreen">Hindura uburyo bwuzuye bwa ecran</string>
   <string name="text_custom_ocr_model_path">Gupakira ibicuruzwa OCR yububiko</string>
   <string name="desc_more">Ibindi</string>

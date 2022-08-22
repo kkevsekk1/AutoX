@@ -226,9 +226,6 @@
   <string name="text_run_config">Zagon konfiguracije</string>
   <string name="text_hideLogs">Skrij dnevnik</string>
   <string name="text_required_accessibility_service">Zahtevane so storitve dostopnosti</string>
-  <string name="text_required_opencv">Obdelava slik OpenCv</string>
-  <string name="text_required_ocr">OCR prepoznavanje besedila</string>
-  <string name="text_required_7zip">Knjižnica za stiskanje 7zip</string>
   <string name="text_required_terminal_emulator">Terminalski emulator</string>
   <string name="text_required_background_start">Zahteva dovoljenje za pojavni vmesnik v ozadju</string>
   <string name="text_required_draw_overlay">Potrebno je dovoljenje za plavajoče okno</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Privzeti podpis</string>
   <string name="desc_done">Končaj</string>
   <string name="apk_icon">Ikona APK</string>
-  <string name="compile_options">Možnosti prevajanja</string>
+  <string name="text_packaging_options">Možnosti prevajanja</string>
   <string name="text_verification_failed">Preverjanje ni uspelo</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Vsi dostopi do datotek</string>
   <string name="text_fullscreen">Preklop celozaslonskega načina 1</string>
   <string name="text_drawer_right">Odprite desni meni</string>
-  <string name="text_required_default_ocr_model">Zapakirajte privzeti model usposabljanja OCR</string>
+  <string name="text_required_default_paddle_ocr_model">Paket privzetih podatkov o usposabljanju PaddleOCR</string>
   <string name="switch_fullscreen">Preklop celozaslonskega načina</string>
   <string name="text_custom_ocr_model_path">Paket imenika modelov OCR po meri</string>
   <string name="desc_more">Več</string>

@@ -226,9 +226,6 @@
   <string name="text_run_config">Configuratione currere</string>
   <string name="text_hideLogs">Celare log</string>
   <string name="text_required_accessibility_service">Accessibility Services required</string>
-  <string name="text_required_opencv">OpenCv imago processus</string>
-  <string name="text_required_ocr">OCR text recognition</string>
-  <string name="text_required_7zip">7zip pressio bibliotheca</string>
   <string name="text_required_terminal_emulator">Terminus aemulator</string>
   <string name="text_required_background_start">Requirit background populus interface permission</string>
   <string name="text_required_draw_overlay">Fluitans fenestra permission requiritur</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Default signature</string>
   <string name="desc_done">Perago</string>
   <string name="apk_icon">APK icon</string>
-  <string name="compile_options">Ordinare optiones</string>
+  <string name="text_packaging_options">Ordinare optiones</string>
   <string name="text_verification_failed">Verificationem defuit</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Omnes lima accessum</string>
   <string name="text_fullscreen">Toggle plenus screen modus I \"</string>
   <string name="text_drawer_right">Aperi ius menu</string>
-  <string name="text_required_default_ocr_model">Package default PDF disciplina exemplar</string>
+  <string name="text_required_default_paddle_ocr_model">Sarcina default PaddleOCR disciplina notitia</string>
   <string name="switch_fullscreen">Toggle plenus screen modus</string>
   <string name="text_custom_ocr_model_path">Sarcina consuetudo OCR exemplar Directory</string>
   <string name="desc_more">More</string>

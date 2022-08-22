@@ -226,9 +226,6 @@
   <string name="text_run_config">Run configuration</string>
   <string name="text_hideLogs">Itago log</string>
   <string name="text_required_accessibility_service">Gikinahanglan ang mga Serbisyo sa Pag-access</string>
-  <string name="text_required_opencv">Pagproseso sa imahe sa OpenCv</string>
-  <string name="text_required_ocr">OCR text recognition</string>
-  <string name="text_required_7zip">7zip compression librarya</string>
   <string name="text_required_terminal_emulator">Terminal emulator</string>
   <string name="text_required_background_start">Nagkinahanglan og pagtugot sa background popup interface</string>
   <string name="text_required_draw_overlay">Gikinahanglan ang pagtugot sa floating window</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Default nga pirma</string>
   <string name="desc_done">Paghuman</string>
   <string name="apk_icon">APK icon</string>
-  <string name="compile_options">Pag-compile sa mga kapilian</string>
+  <string name="text_packaging_options">Pag-compile sa mga kapilian</string>
   <string name="text_verification_failed">Napakyas ang pag-verify</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Tanan nga pag-access sa file</string>
   <string name="text_fullscreen">I-toggle ang full screen mode 1</string>
   <string name="text_drawer_right">Ablihi ang husto nga menu</string>
-  <string name="text_required_default_ocr_model">I-package ang default nga modelo sa pagbansay sa OCR</string>
+  <string name="text_required_default_paddle_ocr_model">Ang default nga pakete sa datos sa pagbansay sa PaddleOCR</string>
   <string name="switch_fullscreen">I-toggle ang full screen mode</string>
   <string name="text_custom_ocr_model_path">Package custom OCR nga direktoryo sa modelo</string>
   <string name="desc_more">Dugang pa</string>

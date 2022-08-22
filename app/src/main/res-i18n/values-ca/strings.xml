@@ -226,9 +226,6 @@
   <string name="text_run_config">Executar la configuració</string>
   <string name="text_hideLogs">Amagar el registre</string>
   <string name="text_required_accessibility_service">Serveis d\'accessibilitat necessaris</string>
-  <string name="text_required_opencv">Processament d\'imatges OpenCv</string>
-  <string name="text_required_ocr">Reconeixement de text OCR</string>
-  <string name="text_required_7zip">Biblioteca de compressió 7zip</string>
   <string name="text_required_terminal_emulator">Emulador de terminal</string>
   <string name="text_required_background_start">Requereix permís d\'interfície emergent en segon pla</string>
   <string name="text_required_draw_overlay">Cal permís de finestra flotant</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Signatura per defecte</string>
   <string name="desc_done">Acabar</string>
   <string name="apk_icon">Icona APK</string>
-  <string name="compile_options">Compilar opcions</string>
+  <string name="text_packaging_options">Compilar opcions</string>
   <string name="text_verification_failed">La verificació ha fallat</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Accés a tots els fitxers</string>
   <string name="text_fullscreen">Canvia el mode de pantalla completa 1</string>
   <string name="text_drawer_right">Obriu el menú de la dreta</string>
-  <string name="text_required_default_ocr_model">Empaqueta el model d\'entrenament OCR predeterminat</string>
+  <string name="text_required_default_paddle_ocr_model">Paquet predeterminat de dades d\'entrenament de PaddleOCR</string>
   <string name="switch_fullscreen">Canvia el mode de pantalla completa</string>
   <string name="text_custom_ocr_model_path">Directori de models OCR de paquets personalitzats</string>
   <string name="desc_more">Més</string>

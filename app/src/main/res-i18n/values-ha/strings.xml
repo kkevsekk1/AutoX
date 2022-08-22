@@ -226,9 +226,6 @@
   <string name="text_run_config">Gudanar da tsari</string>
   <string name="text_hideLogs">Boye log</string>
   <string name="text_required_accessibility_service">Ana Bukatar Sabis na Samun dama</string>
-  <string name="text_required_opencv">Aikin sarrafa hoto na OpenCv</string>
-  <string name="text_required_ocr">Gane rubutu na OCR</string>
-  <string name="text_required_7zip">7zip matsawa ɗakin karatu</string>
   <string name="text_required_terminal_emulator">M emulator</string>
   <string name="text_required_background_start">Yana buƙatar izinin dubawar fayafai na bango</string>
   <string name="text_required_draw_overlay">Ana buƙatar izinin taga mai iyo</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Tsoho sa hannu</string>
   <string name="desc_done">Gama</string>
   <string name="apk_icon">Ikon apk</string>
-  <string name="compile_options">Tattara zaɓuɓɓuka</string>
+  <string name="text_packaging_options">Tattara zaɓuɓɓuka</string>
   <string name="text_verification_failed">Tabbaci ya kasa</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Duk damar fayil</string>
   <string name="text_fullscreen">Juya yanayin cikakken allo 1</string>
   <string name="text_drawer_right">Bude menu na dama</string>
-  <string name="text_required_default_ocr_model">Kunshin tsoho samfurin horo na OCR</string>
+  <string name="text_required_default_paddle_ocr_model">Fakitin tsohowar bayanan horo na PaddleOCR</string>
   <string name="switch_fullscreen">Juya yanayin cikakken allo</string>
   <string name="text_custom_ocr_model_path">Kunshin al\'ada OCR kundin tsarin mulki</string>
   <string name="desc_more">Kara</string>

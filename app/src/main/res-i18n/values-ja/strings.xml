@@ -226,9 +226,6 @@
   <string name="text_run_config">実行構成</string>
   <string name="text_hideLogs">ログを隠す</string>
   <string name="text_required_accessibility_service">必要なアクセシビリティ サービス</string>
-  <string name="text_required_opencv">OpenCv 画像処理</string>
-  <string name="text_required_ocr">OCR テキスト認識</string>
-  <string name="text_required_7zip">7zip 圧縮ライブラリ</string>
   <string name="text_required_terminal_emulator">端末エミュレータ</string>
   <string name="text_required_background_start">バックグラウンド ポップアップ インターフェイスのアクセス許可が必要です</string>
   <string name="text_required_draw_overlay">フローティング ウィンドウの許可が必要です</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">デフォルトの署名</string>
   <string name="desc_done">終了</string>
   <string name="apk_icon">APK アイコン</string>
-  <string name="compile_options">コンパイルオプション</string>
+  <string name="text_packaging_options">コンパイルオプション</string>
   <string name="text_verification_failed">検証に失敗しました</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">すべてのファイル アクセス</string>
   <string name="text_fullscreen">全画面モードの切り替え 1</string>
   <string name="text_drawer_right">右のメニューを開く</string>
-  <string name="text_required_default_ocr_model">デフォルトの OCR トレーニング モデルをパッケージ化する</string>
+  <string name="text_required_default_paddle_ocr_model">デフォルトの PaddleOCR トレーニング データをパッケージ化する</string>
   <string name="switch_fullscreen">全画面モードの切り替え</string>
   <string name="text_custom_ocr_model_path">カスタム OCR モデル ディレクトリをパッケージ化する</string>
   <string name="desc_more">もっと</string>

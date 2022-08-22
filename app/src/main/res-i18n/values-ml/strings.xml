@@ -226,9 +226,6 @@
   <string name="text_run_config">റൺ കോൺഫിഗറേഷൻ</string>
   <string name="text_hideLogs">ലോഗ് മറയ്ക്കുക</string>
   <string name="text_required_accessibility_service">പ്രവേശനക്ഷമത സേവനങ്ങൾ ആവശ്യമാണ്</string>
-  <string name="text_required_opencv">OpenCv ഇമേജ് പ്രോസസ്സിംഗ്</string>
-  <string name="text_required_ocr">OCR ടെക്സ്റ്റ് തിരിച്ചറിയൽ</string>
-  <string name="text_required_7zip">7zip കംപ്രഷൻ ലൈബ്രറി</string>
   <string name="text_required_terminal_emulator">ടെർമിനൽ എമുലേറ്റർ</string>
   <string name="text_required_background_start">പശ്ചാത്തല പോപ്പ്അപ്പ് ഇന്റർഫേസ് അനുമതി ആവശ്യമാണ്</string>
   <string name="text_required_draw_overlay">ഫ്ലോട്ടിംഗ് വിൻഡോ അനുമതി ആവശ്യമാണ്</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">സ്ഥിരമായ ഒപ്പ്</string>
   <string name="desc_done">പൂർത്തിയാക്കുക</string>
   <string name="apk_icon">APK ഐക്കൺ</string>
-  <string name="compile_options">കംപൈൽ ഓപ്ഷനുകൾ</string>
+  <string name="text_packaging_options">കംപൈൽ ഓപ്ഷനുകൾ</string>
   <string name="text_verification_failed">സ്ഥിരീകരണം പരാജയപ്പെട്ടു</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">എല്ലാ ഫയൽ ആക്സസ്</string>
   <string name="text_fullscreen">പൂർണ്ണ സ്‌ക്രീൻ മോഡ് ടോഗിൾ ചെയ്യുക 1</string>
   <string name="text_drawer_right">വലത് മെനു തുറക്കുക</string>
-  <string name="text_required_default_ocr_model">ഡിഫോൾട്ട് OCR പരിശീലന മോഡൽ പാക്കേജ് ചെയ്യുക</string>
+  <string name="text_required_default_paddle_ocr_model">പാക്കേജ് ഡിഫോൾട്ട് PaddleOCR പരിശീലന ഡാറ്റ</string>
   <string name="switch_fullscreen">പൂർണ്ണ സ്‌ക്രീൻ മോഡ് ടോഗിൾ ചെയ്യുക</string>
   <string name="text_custom_ocr_model_path">പാക്കേജ് ഇഷ്‌ടാനുസൃത OCR മോഡൽ ഡയറക്‌ടറി</string>
   <string name="desc_more">കൂടുതൽ</string>

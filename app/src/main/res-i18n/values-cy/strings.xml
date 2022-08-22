@@ -226,9 +226,6 @@
   <string name="text_run_config">Rhedeg cyfluniad</string>
   <string name="text_hideLogs">Cuddio log</string>
   <string name="text_required_accessibility_service">Gwasanaethau Hygyrchedd Angenrheidiol</string>
-  <string name="text_required_opencv">Prosesu delwedd OpenCv</string>
-  <string name="text_required_ocr">Adnabod testun OCR</string>
-  <string name="text_required_7zip">Llyfrgell cywasgu 7zip</string>
   <string name="text_required_terminal_emulator">Efelychydd terfynell</string>
   <string name="text_required_background_start">Angen caniatâd rhyngwyneb naid cefndir</string>
   <string name="text_required_draw_overlay">Mae angen caniatâd ffenestr arnofio</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Llofnod rhagosodedig</string>
   <string name="desc_done">Gorffen</string>
   <string name="apk_icon">Eicon APK</string>
-  <string name="compile_options">Llunio opsiynau</string>
+  <string name="text_packaging_options">Llunio opsiynau</string>
   <string name="text_verification_failed">Dilysu wedi methu</string>
   <string name="text_WebX">GweX</string>
   <string name="text_file_manager_permission">Pob mynediad ffeil</string>
   <string name="text_fullscreen">Toglo modd sgrin lawn 1</string>
   <string name="text_drawer_right">Agorwch y ddewislen iawn</string>
-  <string name="text_required_default_ocr_model">Pecynnwch y model hyfforddi OCR rhagosodedig</string>
+  <string name="text_required_default_paddle_ocr_model">Pecyn data hyfforddiant PaddleOCR rhagosodedig</string>
   <string name="switch_fullscreen">Toggle modd sgrin lawn</string>
   <string name="text_custom_ocr_model_path">Pecyn cyfeiriadur model OCR arferol</string>
   <string name="desc_more">Mwy</string>

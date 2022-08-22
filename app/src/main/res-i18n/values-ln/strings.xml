@@ -226,9 +226,6 @@
   <string name="text_run_config">Kosala configuration ya kosala</string>
   <string name="text_hideLogs">Bomba mokanda ya mokanda</string>
   <string name="text_required_accessibility_service">Ba Services ya Accessibilité Esengeli</string>
-  <string name="text_required_opencv">Bosalisi ya bilili ya OpenCv</string>
-  <string name="text_required_ocr">Boyebi ya makomi ya OCR</string>
-  <string name="text_required_7zip">7zip bibliothèque ya compression</string>
   <string name="text_required_terminal_emulator">Emulateur ya terminal</string>
   <string name="text_required_background_start">Esengaka ndingisa ya interface ya popup ya fond</string>
   <string name="text_required_draw_overlay">Ndingisa ya fenêtre flottante esengeli</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Signature ya défaut</string>
   <string name="desc_done">Kosilisa</string>
   <string name="apk_icon">Icône ya APK</string>
-  <string name="compile_options">Ba options ya ko compiler</string>
+  <string name="text_packaging_options">Ba options ya ko compiler</string>
   <string name="text_verification_failed">Vérification elongi te</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Accès nionso ya fichier</string>
   <string name="text_fullscreen">Toggle mode ya écran mobimba 1</string>
   <string name="text_drawer_right">Fungola menu ya malamu</string>
-  <string name="text_required_default_ocr_model">Emballage ya modèle ya formation ya OCR par défaut</string>
+  <string name="text_required_default_paddle_ocr_model">Ba données ya formation ya PaddleOCR par défaut ya paquet</string>
   <string name="switch_fullscreen">Toggle mode ya écran mobimba</string>
   <string name="text_custom_ocr_model_path">Paquet répertoire ya modèle OCR personnalisé</string>
   <string name="desc_more">Lisusu</string>

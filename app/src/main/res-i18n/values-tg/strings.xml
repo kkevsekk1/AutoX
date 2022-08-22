@@ -226,9 +226,6 @@
   <string name="text_run_config">Конфигуратсияро иҷро кунед</string>
   <string name="text_hideLogs">Сабтро пинҳон кунед</string>
   <string name="text_required_accessibility_service">Хидматҳои дастрасӣ талаб карда мешаванд</string>
-  <string name="text_required_opencv">Коркарди тасвири OpenCv</string>
-  <string name="text_required_ocr">Шинохти матни OCR</string>
-  <string name="text_required_7zip">Китобхонаи фишурдани 7zip</string>
   <string name="text_required_terminal_emulator">Эмулятори терминал</string>
   <string name="text_required_background_start">Иҷозаи интерфейси поп-ап заминаро талаб мекунад</string>
   <string name="text_required_draw_overlay">Иҷозати равзанаи шинокунанда лозим аст</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Имзои пешфарз</string>
   <string name="desc_done">Анҷом</string>
   <string name="apk_icon">Тасвири APK</string>
-  <string name="compile_options">Вариантҳоро тартиб диҳед</string>
+  <string name="text_packaging_options">Вариантҳоро тартиб диҳед</string>
   <string name="text_verification_failed">Тафтиш натавонист</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Ҳама дастрасии файл</string>
   <string name="text_fullscreen">Гузаронидани ҳолати пурраи экран 1</string>
   <string name="text_drawer_right">Менюи ростро кушоед</string>
-  <string name="text_required_default_ocr_model">Модели таълимии OCR-ро баста кунед</string>
+  <string name="text_required_default_paddle_ocr_model">Бастаи пешфарз маълумоти омӯзиши PaddleOCR</string>
   <string name="switch_fullscreen">Гузаронидани ҳолати пурраи экран</string>
   <string name="text_custom_ocr_model_path">Феҳристи модели OCR-ро баста кунед</string>
   <string name="desc_more">Бештар</string>

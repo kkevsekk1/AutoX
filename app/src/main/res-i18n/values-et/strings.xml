@@ -226,9 +226,6 @@
   <string name="text_run_config">Käivitada konfiguratsioon</string>
   <string name="text_hideLogs">Peida logi</string>
   <string name="text_required_accessibility_service">Vajalikud on juurdepääsetavuse teenused</string>
-  <string name="text_required_opencv">OpenCv pilditöötlus</string>
-  <string name="text_required_ocr">OCR tekstituvastus</string>
-  <string name="text_required_7zip">7zip tihendusteek</string>
   <string name="text_required_terminal_emulator">Terminali emulaator</string>
   <string name="text_required_background_start">Nõuab taustal hüpikakna liidese luba</string>
   <string name="text_required_draw_overlay">Vajalik ujuva akna luba</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Vaikeallkiri</string>
   <string name="desc_done">Lõpetama</string>
   <string name="apk_icon">APK ikoon</string>
-  <string name="compile_options">Kompileerimisvalikud</string>
+  <string name="text_packaging_options">Kompileerimisvalikud</string>
   <string name="text_verification_failed">Kinnitamine ebaõnnestus</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Juurdepääs kõigile failidele</string>
   <string name="text_fullscreen">Lülitage täisekraanirežiim 1</string>
   <string name="text_drawer_right">Avage parempoolne menüü</string>
-  <string name="text_required_default_ocr_model">Pakkige OCR-i vaikeõppemudel</string>
+  <string name="text_required_default_paddle_ocr_model">Pakkige PaddleOCR treeningu vaikeandmed</string>
   <string name="switch_fullscreen">Lülitage täisekraanirežiim sisse</string>
   <string name="text_custom_ocr_model_path">Pakkige kohandatud OCR-mudeli kataloog</string>
   <string name="desc_more">Rohkem</string>

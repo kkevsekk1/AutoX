@@ -226,9 +226,6 @@
   <string name="text_run_config">Eseguite a cunfigurazione</string>
   <string name="text_hideLogs">Ammuccià u logu</string>
   <string name="text_required_accessibility_service">I servizii d\'accessibilità richiesti</string>
-  <string name="text_required_opencv">Trattamentu di l\'imagine OpenCv</string>
-  <string name="text_required_ocr">Ricunniscenza di testu OCR</string>
-  <string name="text_required_7zip">Biblioteca di compressione 7zip</string>
   <string name="text_required_terminal_emulator">Emulatore di terminal</string>
   <string name="text_required_background_start">Richiede l\'autorizazione di l\'interfaccia popup di fondo</string>
   <string name="text_required_draw_overlay">Permissione di finestra flottante necessaria</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Firma predeterminata</string>
   <string name="desc_done">Finisci</string>
   <string name="apk_icon">Icona APK</string>
-  <string name="compile_options">Compile opzioni</string>
+  <string name="text_packaging_options">Compile opzioni</string>
   <string name="text_verification_failed">A verificazione hà fiascatu</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Tutti l\'accessu à i schedari</string>
   <string name="text_fullscreen">Cambia u modu di schermu pienu 1</string>
   <string name="text_drawer_right">Aprite u menù ghjustu</string>
-  <string name="text_required_default_ocr_model">Impaccate u mudellu di furmazione OCR predeterminatu</string>
+  <string name="text_required_default_paddle_ocr_model">Dati di furmazione PaddleOCR di pacchettu predeterminatu</string>
   <string name="switch_fullscreen">Cambia u modu di schermu pienu</string>
   <string name="text_custom_ocr_model_path">Pacchetti di repertoriu di mudelli OCR persunalizati</string>
   <string name="desc_more">Più</string>

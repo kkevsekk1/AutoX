@@ -226,9 +226,6 @@
   <string name="text_run_config">कॉन्फ़िगरेशन चलावे के बा</string>
   <string name="text_hideLogs">लॉग के छिपावे के बा</string>
   <string name="text_required_accessibility_service">सुलभता सेवा के जरूरत बा</string>
-  <string name="text_required_opencv">ओपनसीवी इमेज प्रोसेसिंग के बा</string>
-  <string name="text_required_ocr">ओसीआर पाठ के पहचान कइल जाला</string>
-  <string name="text_required_7zip">7zip संपीड़न लाइब्रेरी के बा</string>
   <string name="text_required_terminal_emulator">टर्मिनल एमुलेटर के बा</string>
   <string name="text_required_background_start">बैकग्राउंड पॉपअप इंटरफेस के अनुमति के जरूरत बा</string>
   <string name="text_required_draw_overlay">फ्लोटिंग विंडो के अनुमति के जरूरत बा</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">डिफ़ॉल्ट हस्ताक्षर बा</string>
   <string name="desc_done">खतम करीं</string>
   <string name="apk_icon">एपीके के आइकन बा</string>
-  <string name="compile_options">संकलित करे के विकल्प बा</string>
+  <string name="text_packaging_options">संकलित करे के विकल्प बा</string>
   <string name="text_verification_failed">सत्यापन असफल हो गइल</string>
   <string name="text_WebX">वेबएक्स के बा</string>
   <string name="text_file_manager_permission">सभ फाइल के पहुँच बा</string>
   <string name="text_fullscreen">फुल स्क्रीन मोड 1 के टॉगल करीं</string>
   <string name="text_drawer_right">दाहिना मेनू खोलीं</string>
-  <string name="text_required_default_ocr_model">डिफ़ॉल्ट ओसीआर प्रशिक्षण मॉडल के पैकेज करीं</string>
+  <string name="text_required_default_paddle_ocr_model">पैकेज डिफ़ॉल्ट पैडलओसीआर प्रशिक्षण डेटा बा</string>
   <string name="switch_fullscreen">फुल स्क्रीन मोड में टॉगल करीं</string>
   <string name="text_custom_ocr_model_path">पैकेज कस्टम ओसीआर मॉडल निर्देशिका बा</string>
   <string name="desc_more">अधिका</string>

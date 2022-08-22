@@ -226,9 +226,6 @@
   <string name="text_run_config">Konfiguratsiyani ishga tushirish</string>
   <string name="text_hideLogs">Jurnalni yashirish</string>
   <string name="text_required_accessibility_service">Maxsus imkoniyatlar xizmatlari talab qilinadi</string>
-  <string name="text_required_opencv">OpenCv tasvirni qayta ishlash</string>
-  <string name="text_required_ocr">OCR matnni aniqlash</string>
-  <string name="text_required_7zip">7zip siqish kutubxonasi</string>
   <string name="text_required_terminal_emulator">Terminal emulyatori</string>
   <string name="text_required_background_start">Orqa fonda qalqib chiquvchi oyna interfeysi ruxsatini talab qiladi</string>
   <string name="text_required_draw_overlay">Suzuvchi oynaga ruxsat kerak</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Standart imzo</string>
   <string name="desc_done">Tugatish</string>
   <string name="apk_icon">APK belgisi</string>
-  <string name="compile_options">Kompilyatsiya variantlari</string>
+  <string name="text_packaging_options">Kompilyatsiya variantlari</string>
   <string name="text_verification_failed">Tekshirish amalga oshmadi</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Barcha fayllarga kirish</string>
   <string name="text_fullscreen">Toʻliq ekran rejimiga oʻtish 1</string>
   <string name="text_drawer_right">To\'g\'ri menyuni oching</string>
-  <string name="text_required_default_ocr_model">Standart OCR o\'quv modelini to\'plang</string>
+  <string name="text_required_default_paddle_ocr_model">Standart PaddleOCR o‘quv ma’lumotlarini to‘plang</string>
   <string name="switch_fullscreen">Toʻliq ekran rejimiga oʻtish</string>
   <string name="text_custom_ocr_model_path">Maxsus OCR model katalogini to\'plang</string>
   <string name="desc_more">Ko\'proq</string>

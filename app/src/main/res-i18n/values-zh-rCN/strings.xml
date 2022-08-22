@@ -226,9 +226,6 @@
   <string name="text_run_config">运行配置</string>
   <string name="text_hideLogs">隐藏日志</string>
   <string name="text_required_accessibility_service">需要无障碍服务</string>
-  <string name="text_required_opencv">OpenCv图片处理</string>
-  <string name="text_required_ocr">OCR文字识别</string>
-  <string name="text_required_7zip">7zip压缩库</string>
   <string name="text_required_terminal_emulator">终端模拟器</string>
   <string name="text_required_background_start">需要后台弹出界面权限</string>
   <string name="text_required_draw_overlay">需要悬浮窗权限</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">默认签名</string>
   <string name="desc_done">完成</string>
   <string name="apk_icon">APK图标</string>
-  <string name="compile_options">编译选项</string>
+  <string name="text_packaging_options">编译选项</string>
   <string name="text_verification_failed">验证失败</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">所有文件访问权限</string>
   <string name="text_fullscreen">切换全屏模式1</string>
   <string name="text_drawer_right">打开右侧菜单</string>
-  <string name="text_required_default_ocr_model">打包默认OCR训练模型</string>
+  <string name="text_required_default_paddle_ocr_model">打包默认的PaddleOCR训练数据</string>
   <string name="switch_fullscreen">切换全屏模式</string>
   <string name="text_custom_ocr_model_path">打包自定义OCR模型目录</string>
   <string name="desc_more">更多</string>

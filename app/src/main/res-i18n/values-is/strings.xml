@@ -226,9 +226,6 @@
   <string name="text_run_config">Keyra stillingar</string>
   <string name="text_hideLogs">Fela log</string>
   <string name="text_required_accessibility_service">Aðgengisþjónusta áskilin</string>
-  <string name="text_required_opencv">OpenCv myndvinnsla</string>
-  <string name="text_required_ocr">OCR textagreining</string>
-  <string name="text_required_7zip">7zip þjöppunarsafn</string>
   <string name="text_required_terminal_emulator">Flugstöðvahermi</string>
   <string name="text_required_background_start">Krefst heimild fyrir sprettigluggaviðmót í bakgrunni</string>
   <string name="text_required_draw_overlay">Leyfi fyrir fljótandi glugga þarf</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Sjálfgefna undirskrift</string>
   <string name="desc_done">Klára</string>
   <string name="apk_icon">APK táknið</string>
-  <string name="compile_options">Setja saman valkosti</string>
+  <string name="text_packaging_options">Setja saman valkosti</string>
   <string name="text_verification_failed">Staðfesting mistókst</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Allur skráaaðgangur</string>
   <string name="text_fullscreen">Skipta um allan skjástillingu 1</string>
   <string name="text_drawer_right">Opnaðu hægri valmyndina</string>
-  <string name="text_required_default_ocr_model">Pakkaðu sjálfgefna OCR þjálfunarlíkanið</string>
+  <string name="text_required_default_paddle_ocr_model">Pakki sjálfgefin PaddleOCR þjálfunargögn</string>
   <string name="switch_fullscreen">Skiptu um allan skjástillingu</string>
   <string name="text_custom_ocr_model_path">Pakka sérsniðna OCR líkanaskrá</string>
   <string name="desc_more">Meira</string>

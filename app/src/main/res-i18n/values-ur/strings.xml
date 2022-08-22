@@ -226,9 +226,6 @@
   <string name="text_run_config">ترتیب چلائیں</string>
   <string name="text_hideLogs">لاگ چھپائیں</string>
   <string name="text_required_accessibility_service">قابل رسائی خدمات درکار ہیں۔</string>
-  <string name="text_required_opencv">اوپن سی وی امیج پروسیسنگ</string>
-  <string name="text_required_ocr">OCR متن کی شناخت</string>
-  <string name="text_required_7zip">7 زپ کمپریشن لائبریری</string>
   <string name="text_required_terminal_emulator">ٹرمینل ایمولیٹر</string>
   <string name="text_required_background_start">پس منظر کے پاپ اپ انٹرفیس کی اجازت درکار ہے۔</string>
   <string name="text_required_draw_overlay">فلوٹنگ ونڈو کی اجازت درکار ہے۔</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">پہلے سے طے شدہ دستخط</string>
   <string name="desc_done">ختم کرنا</string>
   <string name="apk_icon">APK کا آئیکن</string>
-  <string name="compile_options">اختیارات مرتب کریں۔</string>
+  <string name="text_packaging_options">اختیارات مرتب کریں۔</string>
   <string name="text_verification_failed">تصدیق ناکام ہوگئی</string>
   <string name="text_WebX">ویب ایکس</string>
   <string name="text_file_manager_permission">تمام فائل تک رسائی</string>
   <string name="text_fullscreen">فل سکرین موڈ کو ٹوگل کریں 1</string>
   <string name="text_drawer_right">دائیں مینو کو کھولیں۔</string>
-  <string name="text_required_default_ocr_model">پہلے سے طے شدہ OCR ٹریننگ ماڈل کو پیک کریں۔</string>
+  <string name="text_required_default_paddle_ocr_model">پیکیج ڈیفالٹ PaddleOCR ٹریننگ ڈیٹا</string>
   <string name="switch_fullscreen">فل سکرین موڈ کو ٹوگل کریں۔</string>
   <string name="text_custom_ocr_model_path">پیکیج کسٹم OCR ماڈل ڈائرکٹری</string>
   <string name="desc_more">مزید</string>

@@ -226,9 +226,6 @@
   <string name="text_run_config">Εκτέλεση διαμόρφωσης</string>
   <string name="text_hideLogs">Απόκρυψη ημερολογίου</string>
   <string name="text_required_accessibility_service">Απαιτούνται υπηρεσίες προσβασιμότητας</string>
-  <string name="text_required_opencv">Επεξεργασία εικόνας OpenCv</string>
-  <string name="text_required_ocr">Αναγνώριση κειμένου OCR</string>
-  <string name="text_required_7zip">Βιβλιοθήκη συμπίεσης 7zip</string>
   <string name="text_required_terminal_emulator">Εξομοιωτή τερματικού</string>
   <string name="text_required_background_start">Απαιτεί άδεια διεπαφής αναδυόμενου παρασκηνίου</string>
   <string name="text_required_draw_overlay">Απαιτείται άδεια πλωτού παραθύρου</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Προεπιλεγμένη υπογραφή</string>
   <string name="desc_done">Φινίρισμα</string>
   <string name="apk_icon">Εικονίδιο APK</string>
-  <string name="compile_options">Μεταγλώττιση επιλογών</string>
+  <string name="text_packaging_options">Μεταγλώττιση επιλογών</string>
   <string name="text_verification_failed">Η επαλήθευση απέτυχε</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Όλη η πρόσβαση σε αρχεία</string>
   <string name="text_fullscreen">Εναλλαγή λειτουργίας πλήρους οθόνης 1</string>
   <string name="text_drawer_right">Ανοίξτε το δεξί μενού</string>
-  <string name="text_required_default_ocr_model">Συσκευάστε το προεπιλεγμένο μοντέλο εκπαίδευσης OCR</string>
+  <string name="text_required_default_paddle_ocr_model">Πακέτο προεπιλεγμένων δεδομένων εκπαίδευσης PaddleOCR</string>
   <string name="switch_fullscreen">Εναλλαγή λειτουργίας πλήρους οθόνης</string>
   <string name="text_custom_ocr_model_path">Κατάλογος προσαρμοσμένου μοντέλου OCR πακέτου</string>
   <string name="desc_more">Περισσότερο</string>

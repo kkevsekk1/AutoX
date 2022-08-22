@@ -226,9 +226,6 @@
   <string name="text_run_config">Ngajalankeun konfigurasi</string>
   <string name="text_hideLogs">Sumputkeun log</string>
   <string name="text_required_accessibility_service">Jasa Aksesibilitas Diperlukeun</string>
-  <string name="text_required_opencv">Ngolah gambar OpenCv</string>
-  <string name="text_required_ocr">Pangenal téks OCR</string>
-  <string name="text_required_7zip">Perpustakaan komprési 7zip</string>
   <string name="text_required_terminal_emulator">Émulator terminal</string>
   <string name="text_required_background_start">Merlukeun idin panganteur popup latar tukang</string>
   <string name="text_required_draw_overlay">Idin jandela ngambang diperlukeun</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Tanda tangan standar</string>
   <string name="desc_done">Bérés</string>
   <string name="apk_icon">Ikon APK</string>
-  <string name="compile_options">Pilihan nyusun</string>
+  <string name="text_packaging_options">Pilihan nyusun</string>
   <string name="text_verification_failed">Verifikasi gagal</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Sadaya aksés file</string>
   <string name="text_fullscreen">Togél mode layar pinuh 1</string>
   <string name="text_drawer_right">Buka ménu katuhu</string>
-  <string name="text_required_default_ocr_model">Pakét modél latihan OCR standar</string>
+  <string name="text_required_default_paddle_ocr_model">Paket data latihan PaddleOCR standar</string>
   <string name="switch_fullscreen">Togél modeu layar pinuh</string>
   <string name="text_custom_ocr_model_path">Pakét custom diréktori modél OCR</string>
   <string name="desc_more">Tambih deui</string>

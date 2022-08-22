@@ -226,9 +226,6 @@
   <string name="text_run_config">Executar a configuración</string>
   <string name="text_hideLogs">Ocultar rexistro</string>
   <string name="text_required_accessibility_service">Servizos de accesibilidade necesarios</string>
-  <string name="text_required_opencv">Procesamento de imaxes OpenCv</string>
-  <string name="text_required_ocr">Recoñecemento de texto OCR</string>
-  <string name="text_required_7zip">Biblioteca de compresión 7zip</string>
   <string name="text_required_terminal_emulator">Emulador de terminal</string>
   <string name="text_required_background_start">Require permiso de interface emerxente en segundo plano</string>
   <string name="text_required_draw_overlay">Requírese permiso de xanela flotante</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Sinatura predeterminada</string>
   <string name="desc_done">Remate</string>
   <string name="apk_icon">Icona APK</string>
-  <string name="compile_options">Opcións de compilación</string>
+  <string name="text_packaging_options">Opcións de compilación</string>
   <string name="text_verification_failed">Fallou a verificación</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Acceso a todos os ficheiros</string>
   <string name="text_fullscreen">Cambiar o modo de pantalla completa 1</string>
   <string name="text_drawer_right">Abre o menú da dereita</string>
-  <string name="text_required_default_ocr_model">Empaqueta o modelo de adestramento OCR predeterminado</string>
+  <string name="text_required_default_paddle_ocr_model">Paquete de datos de adestramento PaddleOCR predeterminados</string>
   <string name="switch_fullscreen">Alterna o modo de pantalla completa</string>
   <string name="text_custom_ocr_model_path">Paquete de directorio de modelos de OCR personalizado</string>
   <string name="desc_more">Máis</string>

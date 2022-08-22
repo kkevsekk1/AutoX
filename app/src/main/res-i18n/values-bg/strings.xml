@@ -226,9 +226,6 @@
   <string name="text_run_config">Стартирайте конфигурация</string>
   <string name="text_hideLogs">Скрий дневника</string>
   <string name="text_required_accessibility_service">Необходими са услуги за достъпност</string>
-  <string name="text_required_opencv">OpenCv обработка на изображения</string>
-  <string name="text_required_ocr">OCR разпознаване на текст</string>
-  <string name="text_required_7zip">7zip библиотека за компресиране</string>
   <string name="text_required_terminal_emulator">Терминален емулатор</string>
   <string name="text_required_background_start">Изисква разрешение за фонов изскачащ интерфейс</string>
   <string name="text_required_draw_overlay">Изисква се разрешение за плаващ прозорец</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Подпис по подразбиране</string>
   <string name="desc_done">Завършек</string>
   <string name="apk_icon">Икона на APK</string>
-  <string name="compile_options">Опции за компилиране</string>
+  <string name="text_packaging_options">Опции за компилиране</string>
   <string name="text_verification_failed">Неуспешна проверка</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Достъп до всички файлове</string>
   <string name="text_fullscreen">Превключване на режим на цял екран 1</string>
   <string name="text_drawer_right">Отворете дясното меню</string>
-  <string name="text_required_default_ocr_model">Пакетирайте стандартния модел за обучение на OCR</string>
+  <string name="text_required_default_paddle_ocr_model">Пакет данни за обучение по подразбиране PaddleOCR</string>
   <string name="switch_fullscreen">Превключване на режима на цял екран</string>
   <string name="text_custom_ocr_model_path">Пакет персонализирана директория за OCR модел</string>
   <string name="desc_more">| Повече ▼</string>

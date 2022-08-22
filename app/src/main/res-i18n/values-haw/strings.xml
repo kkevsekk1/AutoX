@@ -226,9 +226,6 @@
   <string name="text_run_config">Holo hoʻonohonoho</string>
   <string name="text_hideLogs">Huna log</string>
   <string name="text_required_accessibility_service">Pono nā lawelawe hiki ke komo</string>
-  <string name="text_required_opencv">ʻO ka hana kiʻi OpenCv</string>
-  <string name="text_required_ocr">ʻIke kikokikona OCR</string>
-  <string name="text_required_7zip">7zip hale waihona puke</string>
   <string name="text_required_terminal_emulator">Emulator terminal</string>
   <string name="text_required_background_start">Pono i ka ʻae ʻana o ka popup interface</string>
   <string name="text_required_draw_overlay">Pono ka ʻae pukaaniani lana</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">Pūlima paʻamau</string>
   <string name="desc_done">Hoʻopau</string>
   <string name="apk_icon">Ikona APK</string>
-  <string name="compile_options">Hōʻuluʻulu koho</string>
+  <string name="text_packaging_options">Hōʻuluʻulu koho</string>
   <string name="text_verification_failed">Hāʻule ka hōʻoia</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">Loaʻa nā faila āpau</string>
   <string name="text_fullscreen">E hoʻololi i ke ʻano pale piha 1</string>
   <string name="text_drawer_right">E wehe i ka papa kuhikuhi pololei</string>
-  <string name="text_required_default_ocr_model">Hoʻopili i ke kumu hoʻonaʻauao OCR paʻamau</string>
+  <string name="text_required_default_paddle_ocr_model">Hoʻopili i ka ʻikepili aʻo PaddleOCR paʻamau</string>
   <string name="switch_fullscreen">E hoʻololi i ke ʻano pale piha</string>
   <string name="text_custom_ocr_model_path">Hoʻopili i ka papa kuhikuhi kumu hoʻohālike maʻamau</string>
   <string name="desc_more">ʻOi aku</string>

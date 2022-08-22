@@ -226,9 +226,6 @@
   <string name="text_run_config">இயங்கு கட்டமைப்பு</string>
   <string name="text_hideLogs">மறை பதிவு</string>
   <string name="text_required_accessibility_service">அணுகல் சேவைகள் தேவை</string>
-  <string name="text_required_opencv">OpenCv பட செயலாக்கம்</string>
-  <string name="text_required_ocr">OCR உரை அங்கீகாரம்</string>
-  <string name="text_required_7zip">7zip சுருக்க நூலகம்</string>
   <string name="text_required_terminal_emulator">முனைய முன்மாதிரி</string>
   <string name="text_required_background_start">பின்னணி பாப்அப் இடைமுக அனுமதி தேவை</string>
   <string name="text_required_draw_overlay">மிதக்கும் சாளர அனுமதி தேவை</string>
@@ -465,13 +462,13 @@
   <string name="text_default_signature">இயல்புநிலை கையொப்பம்</string>
   <string name="desc_done">முடிக்கவும்</string>
   <string name="apk_icon">APK ஐகான்</string>
-  <string name="compile_options">விருப்பங்களை தொகுக்க</string>
+  <string name="text_packaging_options">விருப்பங்களை தொகுக்க</string>
   <string name="text_verification_failed">சரிபார்ப்பு தோல்வியடைந்தது</string>
   <string name="text_WebX">WebX</string>
   <string name="text_file_manager_permission">அனைத்து கோப்பு அணுகல்</string>
   <string name="text_fullscreen">முழுத்திரை பயன்முறையை நிலைமாற்று 1</string>
   <string name="text_drawer_right">வலது மெனுவைத் திறக்கவும்</string>
-  <string name="text_required_default_ocr_model">இயல்புநிலை OCR பயிற்சி மாதிரியை தொகுக்கவும்</string>
+  <string name="text_required_default_paddle_ocr_model">பேக்கேஜ் இயல்புநிலை PaddleOCR பயிற்சி தரவு</string>
   <string name="switch_fullscreen">முழுத்திரை பயன்முறையை நிலைமாற்று</string>
   <string name="text_custom_ocr_model_path">தொகுப்பு தனிப்பயன் OCR மாதிரி கோப்பகம்</string>
   <string name="desc_more">மேலும்</string>
