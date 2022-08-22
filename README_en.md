@@ -39,7 +39,7 @@ About the two protocols:
 * autoxjs[Changelog](CHANGELOG.md)
 
 ### Autox.js download address: 
-[https://github.com/kkevsekk1/AutoX/release](https://github.com/kkevsekk1/AutoX/release)
+[https://github.com/kkevsekk1/AutoX/releases](https://github.com/kkevsekk1/AutoX/releases)
 #### APK version description：
 - universal: Universal version (don't care about the size of the installation package, just use this version, including the following 2 CPU architectures so)
 - armeabi-v7a: 32-bit ARM device (preferred for spare)
