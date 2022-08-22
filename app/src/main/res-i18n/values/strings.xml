@@ -548,4 +548,7 @@
     <string name="text_move_new_folder">移动原文件夹内容到新文件夹</string>
     <string name="text_accessibility_service_is_not_enable">无障碍服务未开启</string>
     <string name="text_set_successfully">设置成功</string>
+    <string name="text_reconnecting">正在重新连接</string>
+    <string name="text_connecting">正在连接</string>
+    <string name="text_handshake_failed">握手失败</string>
 </resources>

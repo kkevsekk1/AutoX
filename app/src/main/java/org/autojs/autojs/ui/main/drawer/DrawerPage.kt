@@ -391,31 +391,10 @@ private fun ConnectComputerSwitch() {
         })
     LaunchedEffect(key1 = Unit, block = {
         DevPlugin.connectState.collect {
-            when (it.state) {
-                DevPlugin.State.CONNECTING -> {
-                    Log.d(TAG, "ConnectComputerSwitch: CONNECTING")
-                }
-                DevPlugin.State.CONNECTED -> {
-                    enable = true
-                    Log.d(TAG, "ConnectComputerSwitch: CONNECTED")
-                }
-                DevPlugin.State.DISCONNECTED -> {
-                    Log.d(TAG, "ConnectComputerSwitch: DISCONNECTED")
-                    enable = false
-                    it.e?.printStackTrace()
-                }
-                DevPlugin.State.CONNECTION_FAILED -> {
-                    Log.d(TAG, "ConnectComputerSwitch: CONNECTION_FAILED")
-                    enable = false
-                    Toast.makeText(
-                        context,
-                        context.getString(
-                            R.string.text_connect_failed,
-                            it.e?.localizedMessage ?: ""
-                        ),
-                        Toast.LENGTH_LONG
-                    ).show()
-                    it.e?.printStackTrace()
+            withContext(Dispatchers.Main) {
+                when (it.state) {
+                    DevPlugin.State.CONNECTED -> enable = true
+                    DevPlugin.State.DISCONNECTED -> enable = false
                 }
             }
         }
