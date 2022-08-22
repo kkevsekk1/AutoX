@@ -7,15 +7,15 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Fiascu à attivà u serviziu di accessibilità cù privilegi di root</string>
   <string name="text_settings">Istituisci</string>
   <string name="text_script_running">Script run</string>
-  <string name="text_keep_running_with_foreground_service">Aduprate i servizii di primu pianu per mantene l\'applicazioni in funzione</string>
+  <string name="text_keep_running_with_foreground_service">Aduprate un serviziu di primu pianu per mantene a vostra app in funzione</string>
   <string name="text_use_accessibility_service">Servizi d\'accessibilità</string>
   <string name="text_use_floating_window">Finestra flottante</string>
   <string name="summary_enable_accessibility_service">I travaglii di serviziu di l\'accessibilità devenu esse attivati ​​per eseguisce (riservati)</string>
   <string name="summary_enable_floating_window">Duvete apre a finestra flottante per vede u log (elementu riservatu)</string>
   <string name="text_use_volume_to_stop_running">A chjave di u voluminu ferma tutti i script</string>
-  <string name="summary_enable_accessibility_service_by_root">Eseguisce u script dopu l\'apertura apre automaticamente u serviziu d\'accessibilità cù privilegi Root (elementu riservatu)</string>
+  <string name="summary_enable_accessibility_service_by_root">Dopu l\'apertura, l\'esecuzione di u script aprirà automaticamente u serviziu di accessibilità cù privilegi Root (elementu riservatu)</string>
   <string name="text_enable_accessibility_service_by_root">Abilita automaticamente i servizii cù privilegi di root</string>
-  <string name="summary_stable_mode">L\'analisi di u layout hè più stabile quandu hè attivatu, ma un picculu numeru di script ùn pò micca travaglià bè. Riavvia u serviziu di l\'accessibilità per avè effettu</string>
+  <string name="summary_stable_mode">L\'analisi di u layout hè più stabile quandu hè attivatu, ma un picculu numeru di script ùn pò micca travaglià bè. Riavvia u serviziu d\'accessibilità per avè effettu</string>
   <string name="text_stable_mode">Modu stabile</string>
   <string name="text_accessibility_service">Servizi d\'accessibilità</string>
   <string name="text_dont_show_main_activity">Ùn mostra micca l\'interfaccia principale</string>
@@ -23,7 +23,7 @@
   <string name="text_hide_logs">Ammuccià u logu</string>
   <string name="summary_hide_logs">L\'interfaccia di log ùn hè micca visualizata, è u supportu di script hè necessariu per apre sta interfaccia a prossima volta</string>
   <string name="text_others">Altru</string>
-  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Funziona finita in %f seconde</string>
+  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Finita l\'esecuzione in %f seconde</string>
   <string name="prompt_email">E-mail</string>
   <string name="prompt_password">Codice</string>
   <string name="action_sign_in">Login o registratu</string>
@@ -41,6 +41,9 @@
   <string name="text_requires_background_start_desc">Richiede u permessu per apre l\'interfaccia in u fondu per correre, andate à i paràmetri per apre</string>
   <string name="text_required_floating_window_permission">Permissione di finestra flottante necessaria</string>
   <string name="text_please_enable_permissions_before_running">Per piacè attivate i permessi prima di correre!</string>
-  <string name="text_accessibility_service_is_not_turned_on">U serviziu di accessibilità ùn hè micca attivatu</string>
+  <string name="text_accessibility_service_is_not_turned_on">U serviziu d\'accessibilità ùn hè micca attivatu</string>
   <string name="text_accessibility_service_turned_on">L\'accessibilità hè attivata</string>
+  <string name="text_rerun">Ripete</string>
+  <string name="text_clear_logcat">Logu chjaru</string>
+  <string name="text_stop_run">Smette di corre</string>
 </resources>

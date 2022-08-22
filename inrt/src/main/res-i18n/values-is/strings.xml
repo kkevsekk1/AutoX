@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Mistókst að virkja aðgengisþjónustu með rótarréttindum</string>
   <string name="text_settings">Sett upp</string>
   <string name="text_script_running">Script keyrt</string>
-  <string name="text_keep_running_with_foreground_service">Notaðu forgrunnsþjónustur til að halda öppum í gangi</string>
+  <string name="text_keep_running_with_foreground_service">Notaðu forgrunnsþjónustu til að halda appinu þínu gangandi</string>
   <string name="text_use_accessibility_service">Aðgengisþjónusta</string>
   <string name="text_use_floating_window">Fljótandi gluggi</string>
   <string name="summary_enable_accessibility_service">Aðgengisþjónustuverkefni verður að vera virkt til að framkvæma (áskilið)</string>
-  <string name="summary_enable_floating_window">Þú verður að opna fljótandi gluggann til að skoða skrána (aftekinn hlutur)</string>
+  <string name="summary_enable_floating_window">Þú verður að opna fljótandi gluggann til að skoða skrána (aftekið atriði)</string>
   <string name="text_use_volume_to_stop_running">Hljóðstyrkslykill stöðvar allar forskriftir</string>
-  <string name="summary_enable_accessibility_service_by_root">Að keyra skriftuna eftir opnun mun sjálfkrafa opna aðgengisþjónustuna með rótarréttindum (áskilinn hlutur)</string>
+  <string name="summary_enable_accessibility_service_by_root">Eftir opnun mun keyra handritið sjálfkrafa opna aðgengisþjónustuna með rótarréttindum (áskilinn hlutur)</string>
   <string name="text_enable_accessibility_service_by_root">Virkja sjálfkrafa þjónustu með rótarréttindi</string>
   <string name="summary_stable_mode">Skipulagsgreining er stöðugri þegar hún er virkjuð, en lítill fjöldi skrifta virkar kannski ekki rétt. Endurræstu aðgengisþjónustu til að taka gildi</string>
   <string name="text_stable_mode">Stöðugur háttur</string>
@@ -39,8 +39,11 @@
   <string name="text_cancel">Hætta við</string>
   <string name="text_requires_background_start">Krefst leyfis til að opna viðmótið í bakgrunni</string>
   <string name="text_requires_background_start_desc">Krefst leyfis til að opna viðmótið í bakgrunni til að keyra, vinsamlegast farðu í stillingarnar til að opna</string>
-  <string name="text_required_floating_window_permission">Fljótandi gluggaheimild krafist</string>
+  <string name="text_required_floating_window_permission">Leyfi fyrir fljótandi glugga þarf</string>
   <string name="text_please_enable_permissions_before_running">Vinsamlegast virkjaðu heimildir áður en þú keyrir!</string>
   <string name="text_accessibility_service_is_not_turned_on">Ekki er kveikt á aðgengisþjónustu</string>
   <string name="text_accessibility_service_turned_on">Kveikt er á aðgengi</string>
+  <string name="text_rerun">Endursýnd</string>
+  <string name="text_clear_logcat">Hreinsa log</string>
+  <string name="text_stop_run">Hætta að hlaupa</string>
 </resources>

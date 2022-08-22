@@ -4,16 +4,16 @@
 <resources>
   <string name="text_no_accessibility_permission">שירות הנגישות לא הופעל</string>
   <string name="text_auto_operate_service_enabled_but_not_running">שירותי נגישות מופעלים אך אינם פועלים, אתה יכול לנסות להפעיל מחדש או להפעיל מחדש את הטלפון שלך</string>
-  <string name="text_enable_accessibility_service_by_root_timeout">נכשל הפעלת שירות נגישות עם הרשאות שורש</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">נכשל הפעלת שירות הנגישות עם הרשאות שורש</string>
   <string name="text_settings">להכין</string>
   <string name="text_script_running">הפעלת סקריפט</string>
-  <string name="text_keep_running_with_foreground_service">השתמש בשירותי חזית כדי לשמור על הפעלת אפליקציות</string>
+  <string name="text_keep_running_with_foreground_service">השתמש בשירות קדמה כדי לשמור על פעילות האפליקציה שלך</string>
   <string name="text_use_accessibility_service">שירותי נגישות</string>
   <string name="text_use_floating_window">חלון צף</string>
   <string name="summary_enable_accessibility_service">יש לאפשר ביצוע משימות שירות נגישות (שמורה)</string>
   <string name="summary_enable_floating_window">עליך לפתוח את החלון הצף כדי להציג את היומן (פריט שמור)</string>
   <string name="text_use_volume_to_stop_running">מקש הגברת עוצמת הקול עוצר את כל התסריטים</string>
-  <string name="summary_enable_accessibility_service_by_root">הפעלת הסקריפט לאחר הפתיחה תפתח אוטומטית את שירות הנגישות עם הרשאות Root (פריט שמור)</string>
+  <string name="summary_enable_accessibility_service_by_root">לאחר הפתיחה, הפעלת הסקריפט תפתח אוטומטית את שירות הנגישות עם הרשאות Root (פריט שמור)</string>
   <string name="text_enable_accessibility_service_by_root">הפעל אוטומטית שירותים עם הרשאות שורש</string>
   <string name="summary_stable_mode">ניתוח פריסה יציב יותר כאשר הוא מופעל, אך ייתכן שמספר קטן של סקריפטים לא יפעלו כראוי. הפעל מחדש את שירות הנגישות כדי להיכנס לתוקף</string>
   <string name="text_stable_mode">מצב יציב</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">אנא הפעל הרשאות לפני ההפעלה!</string>
   <string name="text_accessibility_service_is_not_turned_on">שירות הנגישות אינו מופעל</string>
   <string name="text_accessibility_service_turned_on">נגישות מופעלת</string>
+  <string name="text_rerun">שידור חוזר</string>
+  <string name="text_clear_logcat">נקה יומן</string>
+  <string name="text_stop_run">תפסיק לרוץ</string>
 </resources>

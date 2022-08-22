@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Không thể bật dịch vụ trợ năng với đặc quyền root</string>
   <string name="text_settings">Cài đặt</string>
   <string name="text_script_running">Tập lệnh chạy</string>
-  <string name="text_keep_running_with_foreground_service">Sử dụng các dịch vụ nền trước để tiếp tục chạy các ứng dụng</string>
+  <string name="text_keep_running_with_foreground_service">Sử dụng dịch vụ nền trước để giữ cho ứng dụng của bạn tiếp tục chạy</string>
   <string name="text_use_accessibility_service">Dịch vụ trợ năng</string>
   <string name="text_use_floating_window">Cửa sổ nổi</string>
   <string name="summary_enable_accessibility_service">Các tác vụ dịch vụ trợ năng phải được bật để thực thi (dành riêng)</string>
   <string name="summary_enable_floating_window">Bạn phải mở cửa sổ nổi để xem nhật ký (mục dành riêng)</string>
   <string name="text_use_volume_to_stop_running">Phím tăng âm lượng dừng tất cả các tập lệnh</string>
-  <string name="summary_enable_accessibility_service_by_root">Chạy script sau khi mở sẽ tự động mở dịch vụ trợ năng với đặc quyền Root (mục dành riêng)</string>
+  <string name="summary_enable_accessibility_service_by_root">Sau khi mở, chạy script sẽ tự động mở dịch vụ trợ năng với đặc quyền Root (mục dành riêng)</string>
   <string name="text_enable_accessibility_service_by_root">Tự động kích hoạt các dịch vụ có đặc quyền root</string>
   <string name="summary_stable_mode">Phân tích bố cục ổn định hơn khi được bật, nhưng một số ít tập lệnh có thể không hoạt động bình thường. Khởi động lại dịch vụ trợ năng để có hiệu lực</string>
   <string name="text_stable_mode">Chế độ ổn định</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Vui lòng kích hoạt quyền trước khi chạy!</string>
   <string name="text_accessibility_service_is_not_turned_on">Dịch vụ trợ năng chưa được bật</string>
   <string name="text_accessibility_service_turned_on">Hỗ trợ tiếp cận được bật</string>
+  <string name="text_rerun">Chạy lại</string>
+  <string name="text_clear_logcat">Xóa nhật ký</string>
+  <string name="text_stop_run">Ngừng chạy</string>
 </resources>

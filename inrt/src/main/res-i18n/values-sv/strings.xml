@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Det gick inte att aktivera tillgänglighetstjänsten med root-privilegier</string>
   <string name="text_settings">Uppstart</string>
   <string name="text_script_running">Skriptkörning</string>
-  <string name="text_keep_running_with_foreground_service">Använd förgrundstjänster för att hålla appar igång</string>
+  <string name="text_keep_running_with_foreground_service">Använd en förgrundstjänst för att hålla din app igång</string>
   <string name="text_use_accessibility_service">Tillgänglighetstjänster</string>
   <string name="text_use_floating_window">Flytande fönster</string>
   <string name="summary_enable_accessibility_service">Tillgänglighetstjänstuppgifter måste vara aktiverade för att utföras (reserverade)</string>
   <string name="summary_enable_floating_window">Du måste öppna det flytande fönstret för att se loggen (reserverat objekt)</string>
   <string name="text_use_volume_to_stop_running">Volym upp-tangenten stoppar alla skript</string>
-  <string name="summary_enable_accessibility_service_by_root">Att köra skriptet efter öppning öppnar automatiskt tillgänglighetstjänsten med root-privilegier (reserverat objekt)</string>
+  <string name="summary_enable_accessibility_service_by_root">Efter att ha öppnats kommer att köra skriptet automatiskt öppna tillgänglighetstjänsten med root-privilegier (reserverat objekt)</string>
   <string name="text_enable_accessibility_service_by_root">Aktivera automatiskt tjänster med root-privilegier</string>
   <string name="summary_stable_mode">Layoutanalys är mer stabil när den är aktiverad, men ett litet antal skript kanske inte fungerar korrekt. Starta om tillgänglighetstjänsten för att träda i kraft</string>
   <string name="text_stable_mode">Stabilt läge</string>
@@ -41,6 +41,9 @@
   <string name="text_requires_background_start_desc">Kräver behörighet för att öppna gränssnittet i bakgrunden för att köra, gå till inställningarna för att öppna</string>
   <string name="text_required_floating_window_permission">Behörighet för flytande fönster krävs</string>
   <string name="text_please_enable_permissions_before_running">Vänligen aktivera behörigheter innan du kör!</string>
-  <string name="text_accessibility_service_is_not_turned_on">Tillgänglighetstjänsten är inte aktiverad</string>
+  <string name="text_accessibility_service_is_not_turned_on">Tillgänglighetstjänsten är inte påslagen</string>
   <string name="text_accessibility_service_turned_on">Tillgänglighet är aktiverat</string>
+  <string name="text_rerun">Repris</string>
+  <string name="text_clear_logcat">Rensa logg</string>
+  <string name="text_stop_run">Sluta spring</string>
 </resources>

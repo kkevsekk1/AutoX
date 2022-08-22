@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Napaay a mangpabalin ti serbisio ti aksesibilidad nga addaan kadagiti ramut a pribilehio</string>
   <string name="text_settings">Iyasmang</string>
   <string name="text_script_running">Script nga ipatarayen</string>
-  <string name="text_keep_running_with_foreground_service">Usaren dagiti foreground services tapno agtultuloy nga agtaray dagiti app</string>
+  <string name="text_keep_running_with_foreground_service">Usarem ti foreground service tapno agtultuloy nga agtaray ti app-mo</string>
   <string name="text_use_accessibility_service">Serbisyo ti Accessibility</string>
   <string name="text_use_floating_window">Agtaytayab a tawa</string>
   <string name="summary_enable_accessibility_service">Dagiti trabaho ti serbisio ti aksesibilidad ket masapul a mapalubosan tapno maipatungpal (naireserba) .</string>
   <string name="summary_enable_floating_window">Masapul a luktam ti agtaytayab a tawa tapno makitam ti log (naireserba a banag) .</string>
   <string name="text_use_volume_to_stop_running">Ti Volume up key ket mangpasardeng iti amin nga iskrip</string>
-  <string name="summary_enable_accessibility_service_by_root">Ti panagtaray ti iskrip kalpasan ti panaglukat ket automatiko a manglukat ti serbisio ti aksesibilidad nga addaan kadagiti pribilehio ti Root (naireserba a banag) .</string>
+  <string name="summary_enable_accessibility_service_by_root">Kalpasan ti panaglukat, ti panagtaray ti iskrip ket automatiko a manglukat ti serbisio ti aksesibilidad nga addaan kadagiti pribilehio ti Root (naireserba a banag) .</string>
   <string name="text_enable_accessibility_service_by_root">Automatiko a pagayatan dagiti serbisio nga addaan kadagiti pribilehio ti ramut</string>
   <string name="summary_stable_mode">Ti panaganalisar ti layout ket ad-adda a natalged no mapalubosan, ngem ti bassit a bilang dagiti iskrip ket mabalin a saan nga agtrabaho a nasayaat. Irugi manen ti serbisio ti accessibility tapno epektibo</string>
   <string name="text_stable_mode">Natalged nga mode</string>
@@ -29,7 +29,7 @@
   <string name="action_sign_in">Ag-log-in wenno nakarehistro</string>
   <string name="action_sign_in_short">Login nga</string>
   <string name="welcome">\"naragsak nga isasangbay!\"</string>
-  <string name="invalid_username">Ket saan a balido a nagan ti agar-aramat</string>
+  <string name="invalid_username">Saan a balido a nagan ti agar-aramat</string>
   <string name="invalid_password">Masapul a dakdakkel ngem 5 a karakter ti password</string>
   <string name="login_failed">\"Napaay ti panaglogin\".</string>
   <string name="explain_accessibility_permission">Kasapulan ti software a luktan ti \"Serbisio ti Pannakagun-od\" tapno agtaray, pangngaasim ta luktam ti \"Dagiti Pagsaad->Serbisio ti Pannakagun-od\" wenno \"Dagiti Pagsaad->Serbisio ti Pannakagun-od->Ad-adu pay a Nai-download a Serbisio\", sapulen ti \" %s \", ken pagayatam dagiti Serbisio ti Pannakagun-od</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Pangngaasi nga ipalubos dagiti pammalubos sakbay ti panagtaray!</string>
   <string name="text_accessibility_service_is_not_turned_on">Saan a nakalukat ti serbisio ti accessibility</string>
   <string name="text_accessibility_service_turned_on">Nalukatan ti accessibility</string>
+  <string name="text_rerun">Ipatarayen manen</string>
+  <string name="text_clear_logcat">Nalawag a log</string>
+  <string name="text_stop_run">Isardeng ti agtaray</string>
 </resources>

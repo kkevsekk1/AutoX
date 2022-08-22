@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Neizdevās iespējot pieejamības pakalpojumu ar root tiesībām</string>
   <string name="text_settings">Uzstādīt</string>
   <string name="text_script_running">Skripta palaišana</string>
-  <string name="text_keep_running_with_foreground_service">Izmantojiet priekšplāna pakalpojumus, lai turpinātu lietotņu darbību</string>
+  <string name="text_keep_running_with_foreground_service">Izmantojiet priekšplāna pakalpojumu, lai jūsu lietotne darbotos</string>
   <string name="text_use_accessibility_service">Pieejamības pakalpojumi</string>
   <string name="text_use_floating_window">Peldošs logs</string>
   <string name="summary_enable_accessibility_service">Pieejamības pakalpojuma uzdevumi ir jāiespējo izpildei (rezervēti)</string>
   <string name="summary_enable_floating_window">Lai skatītu žurnālu (rezervēto vienumu), ir jāatver peldošais logs</string>
   <string name="text_use_volume_to_stop_running">Skaļuma palielināšanas taustiņš aptur visus skriptus</string>
-  <string name="summary_enable_accessibility_service_by_root">Palaižot skriptu pēc atvēršanas, tiks automātiski atvērts pieejamības pakalpojums ar saknes tiesībām (rezervēts vienums)</string>
+  <string name="summary_enable_accessibility_service_by_root">Pēc atvēršanas, palaižot skriptu, pieejamības pakalpojums tiks automātiski atvērts ar saknes tiesībām (rezervēts vienums)</string>
   <string name="text_enable_accessibility_service_by_root">Automātiski iespējot pakalpojumus ar root tiesībām</string>
   <string name="summary_stable_mode">Izkārtojuma analīze ir stabilāka, ja tā ir iespējota, taču neliels skaits skriptu var nedarboties pareizi. Lai stātos spēkā, restartējiet pieejamības pakalpojumu</string>
   <string name="text_stable_mode">Stabils režīms</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Pirms palaišanas, lūdzu, iespējojiet atļaujas!</string>
   <string name="text_accessibility_service_is_not_turned_on">Pieejamības pakalpojums nav ieslēgts</string>
   <string name="text_accessibility_service_turned_on">Pieejamība ir ieslēgta</string>
+  <string name="text_rerun">Atkārtojiet</string>
+  <string name="text_clear_logcat">Skaidrs žurnāls</string>
+  <string name="text_stop_run">Beidz skriet</string>
 </resources>

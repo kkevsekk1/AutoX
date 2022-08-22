@@ -7,7 +7,7 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Չհաջողվեց միացնել հասանելիության ծառայությունը արմատային արտոնություններով</string>
   <string name="text_settings">Ստեղծել</string>
   <string name="text_script_running">Սցենարի գործարկում</string>
-  <string name="text_keep_running_with_foreground_service">Օգտագործեք առաջին պլանի ծառայություններ՝ հավելվածները գործարկելու համար</string>
+  <string name="text_keep_running_with_foreground_service">Օգտագործեք առաջին պլանի ծառայություն՝ ձեր հավելվածն աշխատեցնելու համար</string>
   <string name="text_use_accessibility_service">Մատչելիության ծառայություններ</string>
   <string name="text_use_floating_window">Լողացող պատուհան</string>
   <string name="summary_enable_accessibility_service">Մատչելիության ծառայության առաջադրանքները պետք է հնարավորություն ունենան կատարելու (վերապահված)</string>
@@ -21,7 +21,7 @@
   <string name="text_dont_show_main_activity">Մի ցուցադրեք հիմնական ինտերֆեյսը</string>
   <string name="summary_dont_show_main_activity">Գործարկեք սցենարը անմիջապես հավելվածը բացելուց հետո</string>
   <string name="text_hide_logs">Թաքցնել տեղեկամատյանը</string>
-  <string name="summary_hide_logs">Մատյան միջերեսը չի ցուցադրվում, և հաջորդ անգամ այս ինտերֆեյսը բացելու համար պահանջվում է սկրիպտի աջակցություն</string>
+  <string name="summary_hide_logs">Մատյան միջերեսը չի ցուցադրվում, և հաջորդ անգամ այս ինտերֆեյսը բացելու համար անհրաժեշտ է սկրիպտի աջակցություն</string>
   <string name="text_others">Այլ</string>
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Գործարկումն ավարտվեց %f վայրկյանից</string>
   <string name="prompt_email">Էլ</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Խնդրում ենք գործարկելուց առաջ միացրեք թույլտվությունները:</string>
   <string name="text_accessibility_service_is_not_turned_on">Մատչելիության ծառայությունը միացված չէ</string>
   <string name="text_accessibility_service_turned_on">Մատչելիությունը միացված է</string>
+  <string name="text_rerun">Կրկնել</string>
+  <string name="text_clear_logcat">Պարզ մատյան</string>
+  <string name="text_stop_run">Դադարեցնել վազել</string>
 </resources>

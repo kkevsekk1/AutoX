@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Kök aýratynlyklary bilen elýeterlilik hyzmatyny açyp bilmedi</string>
   <string name="text_settings">Gurmak</string>
   <string name="text_script_running">Skript işledilýär</string>
-  <string name="text_keep_running_with_foreground_service">Programmalaryň işlemegi üçin öňdäki hyzmatlary ulanyň</string>
+  <string name="text_keep_running_with_foreground_service">Programmanyňyzyň işlemegi üçin öňdäki hyzmaty ulanyň</string>
   <string name="text_use_accessibility_service">Elýeterlilik hyzmatlary</string>
   <string name="text_use_floating_window">Floüzýän penjire</string>
   <string name="summary_enable_accessibility_service">Elýeterlilik hyzmat meselelerini ýerine ýetirmek üçin açyk bolmaly (ätiýaçlandyrylan)</string>
   <string name="summary_enable_floating_window">Logurnaly görmek üçin ýüzýän penjire açmaly (ätiýaçlandyrylan element)</string>
   <string name="text_use_volume_to_stop_running">Sesiň açary ähli skriptleri saklaýar</string>
-  <string name="summary_enable_accessibility_service_by_root">Scriptazgyny açanyňyzdan soň işletmek, kök aýratynlyklary (ätiýaçlandyrylan element) bilen elýeterlilik hyzmatyny awtomatiki açar.</string>
+  <string name="summary_enable_accessibility_service_by_root">Açylandan soň, skript işledilende kök aýratynlyklary (ätiýaçlandyrylan element) bilen elýeterlilik hyzmaty awtomatiki açylar.</string>
   <string name="text_enable_accessibility_service_by_root">Kök aýratynlyklary bolan hyzmatlary awtomatiki usulda işlediň</string>
   <string name="summary_stable_mode">Işleýiş tertibi derňewi has durnukly, ýöne az sanly skript dogry işlemän biler. Güýçli bolmak üçin elýeterlilik hyzmatyny täzeden açyň</string>
   <string name="text_stable_mode">Durnukly re .im</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Işlemezden ozal rugsatlary açmagyňyzy haýyş edýäris!</string>
   <string name="text_accessibility_service_is_not_turned_on">Elýeterlilik hyzmaty açyk däl</string>
   <string name="text_accessibility_service_turned_on">Elýeterlilik açyk</string>
+  <string name="text_rerun">Täzeden işlediň</string>
+  <string name="text_clear_logcat">Gündeligi arassala</string>
+  <string name="text_stop_run">Ylgamagy bes et</string>
 </resources>

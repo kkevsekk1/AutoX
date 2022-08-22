@@ -13,9 +13,9 @@
   <string name="summary_enable_accessibility_service">Tugas layanan aksesibilitas kudu diaktifake supaya bisa dieksekusi (kasedhiya)</string>
   <string name="summary_enable_floating_window">Sampeyan kudu mbukak jendhela ngambang kanggo ndeleng log (item sing dicadhangake)</string>
   <string name="text_use_volume_to_stop_running">Tombol volume munggah mandheg kabeh skrip</string>
-  <string name="summary_enable_accessibility_service_by_root">Mbukak skrip sawise mbukak bakal kanthi otomatis mbukak layanan aksesibilitas kanthi hak istimewa Root (item sing dilindhungi undhang-undhang)</string>
+  <string name="summary_enable_accessibility_service_by_root">Sawise mbukak, mbukak skrip bakal kanthi otomatis mbukak layanan aksesibilitas kanthi hak istimewa Root (item sing dilindhungi undhang-undhang)</string>
   <string name="text_enable_accessibility_service_by_root">Ngaktifake layanan kanthi otomatis kanthi hak istimewa root</string>
-  <string name="summary_stable_mode">Analisis tata letak luwih stabil nalika diaktifake, nanging sawetara skrip bisa uga ora bisa digunakake kanthi bener. Wiwiti maneh layanan aksesibilitas supaya bisa ditrapake</string>
+  <string name="summary_stable_mode">Analisis tata letak luwih stabil yen diaktifake, nanging sawetara skrip bisa uga ora bisa digunakake kanthi bener. Wiwiti maneh layanan aksesibilitas supaya bisa ditrapake</string>
   <string name="text_stable_mode">Mode stabil</string>
   <string name="text_accessibility_service">Layanan Aksesibilitas</string>
   <string name="text_dont_show_main_activity">Aja nampilake antarmuka utama</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Mangga ngaktifake ijin sadurunge mlaku!</string>
   <string name="text_accessibility_service_is_not_turned_on">Layanan aksesibilitas ora diaktifake</string>
   <string name="text_accessibility_service_turned_on">Aksesibilitas diuripake</string>
+  <string name="text_rerun">Mbaleni maneh</string>
+  <string name="text_clear_logcat">Log cetha</string>
+  <string name="text_stop_run">Mandheg mlaku</string>
 </resources>

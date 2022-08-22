@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Неуспешно активиране на услугата за достъпност с root привилегии</string>
   <string name="text_settings">Настройвам</string>
   <string name="text_script_running">Стартиране на скрипт</string>
-  <string name="text_keep_running_with_foreground_service">Използвайте услуги на преден план, за да поддържате приложенията работещи</string>
+  <string name="text_keep_running_with_foreground_service">Използвайте услуга на преден план, за да поддържате приложението си работещо</string>
   <string name="text_use_accessibility_service">Услуги за достъпност</string>
   <string name="text_use_floating_window">Плаващ прозорец</string>
-  <string name="summary_enable_accessibility_service">Задачите на услугата за достъпност трябва да бъдат разрешени за изпълнение (запазено)</string>
+  <string name="summary_enable_accessibility_service">Задачите на услугата за достъпност трябва да бъдат разрешени за изпълнение (резервирано)</string>
   <string name="summary_enable_floating_window">Трябва да отворите плаващия прозорец, за да видите дневника (запазен елемент)</string>
   <string name="text_use_volume_to_stop_running">Клавишът за увеличаване на звука спира всички скриптове</string>
-  <string name="summary_enable_accessibility_service_by_root">Изпълнението на скрипта след отваряне автоматично ще отвори услугата за достъпност с root права (запазен елемент)</string>
+  <string name="summary_enable_accessibility_service_by_root">След отваряне стартирането на скрипта автоматично ще отвори услугата за достъпност с права на root (запазен елемент)</string>
   <string name="text_enable_accessibility_service_by_root">Автоматично активиране на услуги с root привилегии</string>
   <string name="summary_stable_mode">Анализът на оформлението е по-стабилен, когато е активиран, но малък брой скриптове може да не работят правилно. Рестартирайте услугата за достъпност, за да влезе в сила</string>
   <string name="text_stable_mode">Стабилен режим</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Моля, активирайте разрешенията, преди да стартирате!</string>
   <string name="text_accessibility_service_is_not_turned_on">Услугата за достъпност не е включена</string>
   <string name="text_accessibility_service_turned_on">Достъпността е включена</string>
+  <string name="text_rerun">Повторение</string>
+  <string name="text_clear_logcat">Чист дневник</string>
+  <string name="text_stop_run">Спрете да бягате</string>
 </resources>

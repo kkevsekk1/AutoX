@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">റൂട്ട് പ്രത്യേകാവകാശങ്ങളുള്ള പ്രവേശനക്ഷമത സേവനം പ്രവർത്തനക്ഷമമാക്കുന്നതിൽ പരാജയപ്പെട്ടു</string>
   <string name="text_settings">സജ്ജമാക്കുക</string>
   <string name="text_script_running">സ്ക്രിപ്റ്റ് റൺ</string>
-  <string name="text_keep_running_with_foreground_service">ആപ്പുകൾ പ്രവർത്തിപ്പിക്കുന്നത് നിലനിർത്താൻ ഫോർഗ്രൗണ്ട് സേവനങ്ങൾ ഉപയോഗിക്കുക</string>
+  <string name="text_keep_running_with_foreground_service">നിങ്ങളുടെ ആപ്പ് പ്രവർത്തിപ്പിക്കുന്നത് നിലനിർത്താൻ ഒരു ഫോർഗ്രൗണ്ട് സേവനം ഉപയോഗിക്കുക</string>
   <string name="text_use_accessibility_service">പ്രവേശനക്ഷമത സേവനങ്ങൾ</string>
   <string name="text_use_floating_window">ഫ്ലോട്ടിംഗ് വിൻഡോ</string>
   <string name="summary_enable_accessibility_service">ആക്‌സസിബിലിറ്റി സർവീസ് ടാസ്‌ക്കുകൾ എക്‌സിക്യൂട്ട് ചെയ്യാൻ പ്രവർത്തനക്ഷമമാക്കിയിരിക്കണം (റിസർവ് ചെയ്‌തത്)</string>
   <string name="summary_enable_floating_window">ലോഗ് കാണുന്നതിന് നിങ്ങൾ ഫ്ലോട്ടിംഗ് വിൻഡോ തുറക്കണം (റിസർവ് ചെയ്ത ഇനം)</string>
   <string name="text_use_volume_to_stop_running">വോളിയം അപ്പ് കീ എല്ലാ സ്ക്രിപ്റ്റുകളും നിർത്തുന്നു</string>
-  <string name="summary_enable_accessibility_service_by_root">തുറന്നതിന് ശേഷം സ്ക്രിപ്റ്റ് പ്രവർത്തിപ്പിക്കുന്നത് റൂട്ട് പ്രത്യേകാവകാശങ്ങളുള്ള പ്രവേശനക്ഷമത സേവനം സ്വയമേവ തുറക്കും (റിസർവ് ചെയ്ത ഇനം)</string>
+  <string name="summary_enable_accessibility_service_by_root">തുറന്ന ശേഷം, സ്ക്രിപ്റ്റ് പ്രവർത്തിപ്പിക്കുന്നത് റൂട്ട് പ്രത്യേകാവകാശങ്ങളുള്ള പ്രവേശനക്ഷമത സേവനം സ്വയമേവ തുറക്കും (റിസർവ് ചെയ്ത ഇനം)</string>
   <string name="text_enable_accessibility_service_by_root">റൂട്ട് പ്രത്യേകാവകാശങ്ങളുള്ള സേവനങ്ങൾ സ്വയമേവ പ്രവർത്തനക്ഷമമാക്കുക</string>
   <string name="summary_stable_mode">പ്രവർത്തനക്ഷമമാക്കുമ്പോൾ ലേഔട്ട് വിശകലനം കൂടുതൽ സ്ഥിരതയുള്ളതാണ്, എന്നാൽ കുറച്ച് സ്ക്രിപ്റ്റുകൾ ശരിയായി പ്രവർത്തിച്ചേക്കില്ല. പ്രാബല്യത്തിൽ വരാൻ പ്രവേശനക്ഷമത സേവനം പുനരാരംഭിക്കുക</string>
   <string name="text_stable_mode">സ്ഥിരതയുള്ള മോഡ്</string>
@@ -23,7 +23,7 @@
   <string name="text_hide_logs">ലോഗ് മറയ്ക്കുക</string>
   <string name="summary_hide_logs">ലോഗ് ഇന്റർഫേസ് ദൃശ്യമാകുന്നില്ല, അടുത്ത തവണ ഈ ഇന്റർഫേസ് തുറക്കുന്നതിന് സ്ക്രിപ്റ്റ് പിന്തുണ ആവശ്യമാണ്</string>
   <string name="text_others">മറ്റുള്ളവ</string>
-  <string name="text_execution_finished" formatted="false">\n ---------- \n [ %s ] %f സെക്കൻഡിനുള്ളിൽ ഓട്ടം പൂർത്തിയാക്കി</string>
+  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] %f സെക്കൻഡിനുള്ളിൽ ഓട്ടം പൂർത്തിയാക്കി</string>
   <string name="prompt_email">ഇ-മെയിൽ</string>
   <string name="prompt_password">Password</string>
   <string name="action_sign_in">ലോഗിൻ ചെയ്യുക അല്ലെങ്കിൽ രജിസ്റ്റർ ചെയ്യുക</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">പ്രവർത്തിപ്പിക്കുന്നതിന് മുമ്പ് അനുമതികൾ പ്രവർത്തനക്ഷമമാക്കുക!</string>
   <string name="text_accessibility_service_is_not_turned_on">പ്രവേശനക്ഷമത സേവനം ഓണാക്കിയിട്ടില്ല</string>
   <string name="text_accessibility_service_turned_on">പ്രവേശനക്ഷമത ഓണാക്കി</string>
+  <string name="text_rerun">വീണ്ടും പ്രവർത്തിപ്പിക്കുക</string>
+  <string name="text_clear_logcat">വ്യക്തമായ ലോഗ്</string>
+  <string name="text_stop_run">ഓട്ടം നിർത്തുക</string>
 </resources>

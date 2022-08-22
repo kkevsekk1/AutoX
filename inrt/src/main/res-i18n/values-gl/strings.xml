@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Produciuse un erro ao habilitar o servizo de accesibilidade con privilexios de root</string>
   <string name="text_settings">Montar</string>
   <string name="text_script_running">Executar o script</string>
-  <string name="text_keep_running_with_foreground_service">Usa servizos en primeiro plano para manter as aplicacións en funcionamento</string>
+  <string name="text_keep_running_with_foreground_service">Usa un servizo en primeiro plano para manter a túa aplicación en funcionamento</string>
   <string name="text_use_accessibility_service">Servizos de Accesibilidade</string>
   <string name="text_use_floating_window">Fiestra flotante</string>
   <string name="summary_enable_accessibility_service">As tarefas do servizo de accesibilidade deben estar habilitadas para executalas (reservadas)</string>
-  <string name="summary_enable_floating_window">Debe abrir a xanela flotante para ver o rexistro (elemento reservado)</string>
+  <string name="summary_enable_floating_window">Debes abrir a xanela flotante para ver o rexistro (elemento reservado)</string>
   <string name="text_use_volume_to_stop_running">A tecla para subir o volume detén todos os scripts</string>
-  <string name="summary_enable_accessibility_service_by_root">Ao executar o script despois da súa apertura abrirá automaticamente o servizo de accesibilidade con privilexios de root (elemento reservado)</string>
+  <string name="summary_enable_accessibility_service_by_root">Despois de abrir, a execución do script abrirá automaticamente o servizo de accesibilidade con privilexios de root (elemento reservado)</string>
   <string name="text_enable_accessibility_service_by_root">Activa automaticamente os servizos con privilexios de root</string>
   <string name="summary_stable_mode">A análise do deseño é máis estable cando está activada, pero é posible que un pequeno número de scripts non funcione correctamente. Reinicie o servizo de accesibilidade para que teña efecto</string>
   <string name="text_stable_mode">Modo estable</string>
@@ -38,9 +38,12 @@
   <string name="text_to_open">Abrir</string>
   <string name="text_cancel">Cancelar</string>
   <string name="text_requires_background_start">Require permiso para abrir a interface en segundo plano</string>
-  <string name="text_requires_background_start_desc">Require o permiso para abrir a interface en segundo plano para executarse, vai á configuración para abrir</string>
+  <string name="text_requires_background_start_desc">Require o permiso para abrir a interface en segundo plano para executarse; vai á configuración para abrir</string>
   <string name="text_required_floating_window_permission">Requírese permiso de xanela flotante</string>
   <string name="text_please_enable_permissions_before_running">Activa os permisos antes de executar!</string>
   <string name="text_accessibility_service_is_not_turned_on">O servizo de accesibilidade non está activado</string>
   <string name="text_accessibility_service_turned_on">A accesibilidade está activada</string>
+  <string name="text_rerun">Repetir</string>
+  <string name="text_clear_logcat">Borrar o rexistro</string>
+  <string name="text_stop_run">Deixar de correr</string>
 </resources>

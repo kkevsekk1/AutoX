@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">रूट विशेषाधिकारें कन्नै सुलभता सेवा गी सक्षम करने च असफल</string>
   <string name="text_settings">सेट अप</string>
   <string name="text_script_running">स्क्रिप्ट चलाना</string>
-  <string name="text_keep_running_with_foreground_service">ऐपें गी चलाने लेई अग्रभूमि सेवाएं दा उपयोग करो</string>
+  <string name="text_keep_running_with_foreground_service">अपने ऐप गी चलाने लेई इक अग्रभूमि सेवा दा उपयोग करो</string>
   <string name="text_use_accessibility_service">सुलभता सेवाएं दा</string>
   <string name="text_use_floating_window">तैरती खिड़की</string>
   <string name="summary_enable_accessibility_service">एक्सेसबिलिटी सेवा कार्यें गी निष्पादत करने लेई सक्षम करना होग (आरक्षित)</string>
   <string name="summary_enable_floating_window">लॉग (आरक्षित आइटम) गी दिक्खने लेई तुसेंगी फ्लोटिंग विंडो खोलना होग</string>
   <string name="text_use_volume_to_stop_running">वॉल्यूम अप कुंजी सारी स्क्रिप्टें गी बंद करदी ऐ</string>
-  <string name="summary_enable_accessibility_service_by_root">खुलने दे बाद स्क्रिप्ट चलाने कन्नै रूट विशेषाधिकारें कन्नै एक्सेसबिलिटी सेवा स्वतः खुल्ली जाग (आरक्षित आइटम)</string>
+  <string name="summary_enable_accessibility_service_by_root">खोलने दे बाद, स्क्रिप्ट चलाने कन्नै रूट विशेषाधिकारें कन्नै एक्सेसबिलिटी सेवा स्वतः खुल्ली जाग (आरक्षित आइटम)</string>
   <string name="text_enable_accessibility_service_by_root">रूट विशेषाधिकारें कन्नै सेवाएं गी स्वतः सक्षम करो</string>
   <string name="summary_stable_mode">सक्षम होने पर लेआउट विश्लेषण मता स्थिर होंदा ऐ , पर थोह् ड़ी गिनतरी च स्क्रिप्ट ठीक ढंगै कन्नै कम्म नेईं करी सकदी ऐ । प्रभावी होने लेई एक्सेसबिलिटी सेवा गी दुबारा शुरू करो</string>
   <string name="text_stable_mode">स्थिर मोड</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">कृपया चलाने शा पैह् ले अनुमतियां सक्षम करो !</string>
   <string name="text_accessibility_service_is_not_turned_on">सुलभता सेवा चालू नेईं ऐ</string>
   <string name="text_accessibility_service_turned_on">सुलभता चालू ऐ</string>
+  <string name="text_rerun">दुबारा चलाना</string>
+  <string name="text_clear_logcat">लॉग साफ करना</string>
+  <string name="text_stop_run">दौड़ना बंद करो</string>
 </resources>

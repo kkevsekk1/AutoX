@@ -3,17 +3,17 @@
 <!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
 <resources>
   <string name="text_no_accessibility_permission">Ang serbisyo sa pagka-access wala magsugod</string>
-  <string name="text_auto_operate_service_enabled_but_not_running">Gi-enable ang mga serbisyo sa pag-access apan wala magdagan, mahimo nimong sulayan nga i-enable o i-restart ang imong telepono</string>
+  <string name="text_auto_operate_service_enabled_but_not_running">Gi-enable ang mga serbisyo sa accessibility apan wala nagdagan, mahimo nimong sulayan pag-usab o i-restart ang imong telepono</string>
   <string name="text_enable_accessibility_service_by_root_timeout">Napakyas sa pagpagana sa serbisyo sa pagka-access nga adunay mga pribilehiyo sa gamut</string>
   <string name="text_settings">Gipahimutang</string>
   <string name="text_script_running">Script run</string>
-  <string name="text_keep_running_with_foreground_service">Gamita ang mga serbisyo sa foreground aron padayong nagdagan ang mga app</string>
+  <string name="text_keep_running_with_foreground_service">Paggamit ug foreground nga serbisyo aron padayong magdagan ang imong app</string>
   <string name="text_use_accessibility_service">Mga Serbisyo sa Accessibility</string>
   <string name="text_use_floating_window">Naglutaw nga bintana</string>
-  <string name="summary_enable_accessibility_service">Ang mga buluhaton sa serbisyo sa pagka-access kinahanglan nga magamit aron ipatuman (gireserba)</string>
+  <string name="summary_enable_accessibility_service">Ang mga buluhaton sa serbisyo sa pagka-access kinahanglan nga mahimo aron mapatuman (gireserba)</string>
   <string name="summary_enable_floating_window">Kinahanglan nimong ablihan ang naglutaw nga bintana aron makita ang log (gireserba nga butang)</string>
-  <string name="text_use_volume_to_stop_running">Ang yawe sa pagpataas sa volume mohunong sa tanang mga script</string>
-  <string name="summary_enable_accessibility_service_by_root">Ang pagpadagan sa script pagkahuman sa pag-abli awtomatiko nga magbukas sa serbisyo sa pagka-access nga adunay mga pribilehiyo sa Root (gireserba nga butang)</string>
+  <string name="text_use_volume_to_stop_running">Ang yawe sa pagtaas sa volume mohunong sa tanan nga mga script</string>
+  <string name="summary_enable_accessibility_service_by_root">Pagkahuman sa pag-abli, ang pagpadagan sa script awtomatiko nga magbukas sa serbisyo sa pagka-access nga adunay mga pribilehiyo sa Root (gireserba nga butang)</string>
   <string name="text_enable_accessibility_service_by_root">Awtomatikong makapahimo sa mga serbisyo nga adunay mga pribilehiyo sa gamut</string>
   <string name="summary_stable_mode">Ang pag-analisa sa layout mas lig-on kung mahimo, apan ang gamay nga gidaghanon sa mga script mahimong dili molihok sa husto. I-restart ang serbisyo sa pagka-access aron matuman</string>
   <string name="text_stable_mode">Stable nga mode</string>
@@ -32,15 +32,18 @@
   <string name="invalid_username">Dili balido nga username</string>
   <string name="invalid_password">Ang password kinahanglang labaw sa 5 ka karakter</string>
   <string name="login_failed">\"Napakyas ang pag-login\"</string>
-  <string name="explain_accessibility_permission">Ang software kinahanglan nga moabli sa \"Accessibility Services\" aron modagan, palihug ablihi ang \"Settings->Accessibility Services\" o \"Settings->Accessibility Services->More Downloaded Services\", pangitaa ang \" %s \", ug i-enable ang Accessibility Services</string>
+  <string name="explain_accessibility_permission">Ang software kinahanglan nga ablihan ang \"Accessibility Services\" aron modagan, palihug ablihi ang \"Settings->Accessibility Services\" o \"Settings->Accessibility Services->More Downloaded Services\", pangitaa ang \" %s \", ug i-enable ang Accessibility Services</string>
   <string name="text_need_to_enable_accessibility_service">Ang mga serbisyo sa pagka-access kinahanglan nga magamit</string>
   <string name="summary_use_volume_to_stop_running">Ang notification bar kanunay nga magpakita sa \"Kini nga app nagdagan\" nga pahibalo aron magpadayon ang programa</string>
   <string name="text_to_open">Sa pag-abli</string>
   <string name="text_cancel">Pagkanselar</string>
   <string name="text_requires_background_start">Nagkinahanglan og pagtugot sa pag-abli sa interface sa background</string>
-  <string name="text_requires_background_start_desc">Nanginahanglan ug pagtugot sa pag-abli sa interface sa background aron modagan, palihug adto sa mga setting aron maablihan</string>
+  <string name="text_requires_background_start_desc">Gikinahanglan ang pagtugot sa pag-abli sa interface sa background aron modagan, palihug adto sa mga setting aron maablihan</string>
   <string name="text_required_floating_window_permission">Gikinahanglan ang pagtugot sa floating window</string>
   <string name="text_please_enable_permissions_before_running">Palihug i-enable ang mga permiso sa dili pa modagan!</string>
   <string name="text_accessibility_service_is_not_turned_on">Ang serbisyo sa pagka-access wala gi-on</string>
   <string name="text_accessibility_service_turned_on">Gi-on ang accessibility</string>
+  <string name="text_rerun">Pag-usab</string>
+  <string name="text_clear_logcat">Klaro nga log</string>
+  <string name="text_stop_run">Hunong sa pagdagan</string>
 </resources>

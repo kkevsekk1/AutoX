@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">මූල වරප්‍රසාද සහිත ප්‍රවේශ්‍යතා සේවාව සබල කිරීමට අසමත් විය</string>
   <string name="text_settings">සැලසුම</string>
   <string name="text_script_running">ස්ක්‍රිප්ට් ධාවනය</string>
-  <string name="text_keep_running_with_foreground_service">යෙදුම් ක්‍රියාත්මකව තබා ගැනීමට පෙරබිම් සේවා භාවිත කරන්න</string>
+  <string name="text_keep_running_with_foreground_service">ඔබගේ යෙදුම ක්‍රියාත්මක කිරීමට පෙරබිම් සේවාවක් භාවිතා කරන්න</string>
   <string name="text_use_accessibility_service">ප්රවේශ්යතා සේවා</string>
   <string name="text_use_floating_window">පාවෙන කවුළුව</string>
   <string name="summary_enable_accessibility_service">ප්‍රවේශ්‍යතා සේවා කාර්යයන් ක්‍රියාත්මක කිරීමට සබල කළ යුතුය (වෙන් කර ඇත)</string>
   <string name="summary_enable_floating_window">ලොගය බැලීමට ඔබ පාවෙන කවුළුව විවෘත කළ යුතුය (වෙන් කළ අයිතමය)</string>
-  <string name="text_use_volume_to_stop_running">Volume up key සියලු ස්ක්‍රිප්ට් නවත්වයි</string>
-  <string name="summary_enable_accessibility_service_by_root">විවෘත කිරීමෙන් පසු ස්ක්‍රිප්ට් ධාවනය කිරීමෙන් Root වරප්‍රසාද (වෙන් කළ අයිතමය) සමඟ ප්‍රවේශ්‍යතා සේවාව ස්වයංක්‍රීයව විවෘත වේ.</string>
+  <string name="text_use_volume_to_stop_running">Volume up key සියලු scripts නවත්වයි</string>
+  <string name="summary_enable_accessibility_service_by_root">විවෘත කිරීමෙන් පසු, ස්ක්‍රිප්ට් ධාවනය කිරීමෙන් Root වරප්‍රසාද සහිත ප්‍රවේශ්‍යතා සේවාව ස්වයංක්‍රීයව විවෘත වේ (වෙන් කළ අයිතමය)</string>
   <string name="text_enable_accessibility_service_by_root">මූල වරප්‍රසාද සහිත සේවා ස්වයංක්‍රීයව සක්‍රීය කරන්න</string>
   <string name="summary_stable_mode">සබල කළ විට පිරිසැලසුම් විශ්ලේෂණය වඩාත් ස්ථායී වේ, නමුත් ස්ක්‍රිප්ට් කුඩා සංඛ්‍යාවක් නිසි ලෙස ක්‍රියා නොකරනු ඇත. බලාත්මක වීමට ප්‍රවේශ්‍යතා සේවාව නැවත ආරම්භ කරන්න</string>
   <string name="text_stable_mode">ස්ථාවර මාදිලිය</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">ධාවනය කිරීමට පෙර කරුණාකර අවසර සබල කරන්න!</string>
   <string name="text_accessibility_service_is_not_turned_on">ප්‍රවේශ්‍යතා සේවාව ක්‍රියාත්මක කර නැත</string>
   <string name="text_accessibility_service_turned_on">ප්‍රවේශ්‍යතාව ක්‍රියාත්මක කර ඇත</string>
+  <string name="text_rerun">නැවත ධාවනය</string>
+  <string name="text_clear_logcat">පැහැදිලි ලඝු-සටහන</string>
+  <string name="text_stop_run">ධාවනය නතර කරන්න</string>
 </resources>

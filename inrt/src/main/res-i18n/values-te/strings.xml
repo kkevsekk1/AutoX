@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">రూట్ అధికారాలతో ప్రాప్యత సేవను ప్రారంభించడంలో విఫలమైంది</string>
   <string name="text_settings">ఏర్పాటు</string>
   <string name="text_script_running">స్క్రిప్ట్ రన్</string>
-  <string name="text_keep_running_with_foreground_service">యాప్‌లు రన్‌గా ఉండేందుకు ముందువైపు సేవలను ఉపయోగించండి</string>
+  <string name="text_keep_running_with_foreground_service">మీ యాప్‌ను రన్‌గా ఉంచడానికి ముందుభాగం సేవను ఉపయోగించండి</string>
   <string name="text_use_accessibility_service">యాక్సెసిబిలిటీ సేవలు</string>
-  <string name="text_use_floating_window">తేలియాడే విండో</string>
+  <string name="text_use_floating_window">ఫ్లోటింగ్ విండో</string>
   <string name="summary_enable_accessibility_service">యాక్సెసిబిలిటీ సర్వీస్ టాస్క్‌లను అమలు చేయడానికి తప్పనిసరిగా ప్రారంభించబడాలి (రిజర్వ్ చేయబడింది)</string>
   <string name="summary_enable_floating_window">లాగ్ (రిజర్వ్ చేయబడిన అంశం) వీక్షించడానికి మీరు తప్పనిసరిగా ఫ్లోటింగ్ విండోను తెరవాలి</string>
   <string name="text_use_volume_to_stop_running">వాల్యూమ్ అప్ కీ అన్ని స్క్రిప్ట్‌లను ఆపివేస్తుంది</string>
-  <string name="summary_enable_accessibility_service_by_root">తెరిచిన తర్వాత స్క్రిప్ట్‌ను రన్ చేయడం వలన రూట్ అధికారాలతో (రిజర్వ్ చేయబడిన అంశం) యాక్సెసిబిలిటీ సర్వీస్ ఆటోమేటిక్‌గా తెరవబడుతుంది</string>
+  <string name="summary_enable_accessibility_service_by_root">తెరిచిన తర్వాత, స్క్రిప్ట్‌ని రన్ చేయడం వలన రూట్ అధికారాలతో (రిజర్వ్ చేయబడిన అంశం) యాక్సెసిబిలిటీ సర్వీస్ ఆటోమేటిక్‌గా తెరవబడుతుంది</string>
   <string name="text_enable_accessibility_service_by_root">రూట్ అధికారాలతో సేవలను స్వయంచాలకంగా ప్రారంభించండి</string>
   <string name="summary_stable_mode">ప్రారంభించబడినప్పుడు లేఅవుట్ విశ్లేషణ మరింత స్థిరంగా ఉంటుంది, కానీ తక్కువ సంఖ్యలో స్క్రిప్ట్‌లు సరిగ్గా పని చేయకపోవచ్చు. అమలులోకి రావడానికి ప్రాప్యత సేవను పునఃప్రారంభించండి</string>
   <string name="text_stable_mode">స్థిరమైన మోడ్</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">దయచేసి అమలు చేయడానికి ముందు అనుమతులను ప్రారంభించండి!</string>
   <string name="text_accessibility_service_is_not_turned_on">యాక్సెసిబిలిటీ సర్వీస్ ఆన్ చేయబడలేదు</string>
   <string name="text_accessibility_service_turned_on">యాక్సెసిబిలిటీ ఆన్ చేయబడింది</string>
+  <string name="text_rerun">మళ్లీ అమలు</string>
+  <string name="text_clear_logcat">లాగ్ క్లియర్ చేయండి</string>
+  <string name="text_stop_run">పరుగు ఆపండి</string>
 </resources>

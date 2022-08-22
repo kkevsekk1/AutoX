@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Storitve dostopnosti s korenskimi pravicami ni bilo mogoče omogočiti</string>
   <string name="text_settings">Nastaviti</string>
   <string name="text_script_running">Zagon skripta</string>
-  <string name="text_keep_running_with_foreground_service">Uporabite storitve v ospredju, da zagotovite delovanje aplikacij</string>
+  <string name="text_keep_running_with_foreground_service">Za delovanje aplikacije uporabite storitev v ospredju</string>
   <string name="text_use_accessibility_service">Storitve dostopnosti</string>
   <string name="text_use_floating_window">Lebdeče okno</string>
-  <string name="summary_enable_accessibility_service">Opravila storitve dostopnosti morajo biti omogočena za izvajanje (rezervirano)</string>
-  <string name="summary_enable_floating_window">Za ogled dnevnika morate odpreti plavajoče okno (rezerviran element)</string>
+  <string name="summary_enable_accessibility_service">Opravila storitev dostopnosti morajo biti omogočena za izvajanje (rezervirano)</string>
+  <string name="summary_enable_floating_window">Za ogled dnevnika morate odpreti plavajoče okno (rezervirana postavka)</string>
   <string name="text_use_volume_to_stop_running">Tipka za povečanje glasnosti ustavi vse skripte</string>
-  <string name="summary_enable_accessibility_service_by_root">Z zagonom skripta po odprtju se samodejno odpre storitev dostopnosti s korenskimi pravicami (rezerviran element)</string>
+  <string name="summary_enable_accessibility_service_by_root">Po odprtju bo zagon skripta samodejno odprl storitev dostopnosti s korenskimi pravicami (rezerviran element)</string>
   <string name="text_enable_accessibility_service_by_root">Samodejno omogoči storitve s korenskimi pravicami</string>
   <string name="summary_stable_mode">Analiza postavitve je stabilnejša, ko je omogočena, vendar majhno število skriptov morda ne bo delovalo pravilno. Znova zaženite storitev dostopnosti, da začne veljati</string>
   <string name="text_stable_mode">Stabilen način</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Pred zagonom omogočite dovoljenja!</string>
   <string name="text_accessibility_service_is_not_turned_on">Storitev dostopnosti ni vklopljena</string>
   <string name="text_accessibility_service_turned_on">Dostopnost je vklopljena</string>
+  <string name="text_rerun">Ponovitev</string>
+  <string name="text_clear_logcat">Počisti dnevnik</string>
+  <string name="text_stop_run">Prenehaj teči</string>
 </resources>

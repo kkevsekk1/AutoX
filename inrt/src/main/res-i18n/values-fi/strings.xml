@@ -2,18 +2,18 @@
 
 <!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
 <resources>
-  <string name="text_no_accessibility_permission">Esteettömyyspalvelu ei käynnistynyt</string>
+  <string name="text_no_accessibility_permission">Esteettömyyspalvelua ei ole aloitettu</string>
   <string name="text_auto_operate_service_enabled_but_not_running">Esteettömyyspalvelut ovat käytössä, mutta ne eivät ole käynnissä. Voit yrittää ottaa puhelimesi uudelleen käyttöön tai käynnistää sen uudelleen</string>
   <string name="text_enable_accessibility_service_by_root_timeout">Esteettömyyspalvelun käyttöönotto pääkäyttäjän oikeuksilla epäonnistui</string>
   <string name="text_settings">Perustaa</string>
   <string name="text_script_running">Skriptin ajo</string>
-  <string name="text_keep_running_with_foreground_service">Käytä etualan palveluita pitääksesi sovellukset käynnissä</string>
+  <string name="text_keep_running_with_foreground_service">Käytä etualan palvelua pitääksesi sovelluksesi käynnissä</string>
   <string name="text_use_accessibility_service">Esteettömyyspalvelut</string>
   <string name="text_use_floating_window">Kelluva ikkuna</string>
   <string name="summary_enable_accessibility_service">Esteettömyyspalvelutehtävät on otettava käyttöön (varattu)</string>
   <string name="summary_enable_floating_window">Sinun on avattava kelluva ikkuna nähdäksesi lokin (varattu kohde)</string>
   <string name="text_use_volume_to_stop_running">Äänenvoimakkuuden lisäysnäppäin pysäyttää kaikki komentosarjat</string>
-  <string name="summary_enable_accessibility_service_by_root">Skriptin suorittaminen avaamisen jälkeen avaa esteettömyyspalvelun automaattisesti pääkäyttäjän oikeuksin (varattu kohde)</string>
+  <string name="summary_enable_accessibility_service_by_root">Avaamisen jälkeen komentosarjan suorittaminen avaa esteettömyyspalvelun automaattisesti pääkäyttäjän oikeuksin (varattu kohde)</string>
   <string name="text_enable_accessibility_service_by_root">Ota palvelut automaattisesti käyttöön pääkäyttäjän oikeuksilla</string>
   <string name="summary_stable_mode">Asetteluanalyysi on vakaampi, kun se on käytössä, mutta pieni määrä komentosarjoja ei välttämättä toimi kunnolla. Käynnistä esteettömyyspalvelu uudelleen, jotta se tulee voimaan</string>
   <string name="text_stable_mode">Vakaa tila</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Ota käyttöoikeudet käyttöön ennen käynnistämistä!</string>
   <string name="text_accessibility_service_is_not_turned_on">Esteettömyyspalvelu ei ole käytössä</string>
   <string name="text_accessibility_service_turned_on">Esteettömyys on käytössä</string>
+  <string name="text_rerun">Uusinta</string>
+  <string name="text_clear_logcat">Selkeä loki</string>
+  <string name="text_stop_run">Lakkaa juoksemasta</string>
 </resources>

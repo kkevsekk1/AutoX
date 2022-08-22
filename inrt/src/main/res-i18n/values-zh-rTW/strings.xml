@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">請開啟權限後，再運行!</string>
   <string name="text_accessibility_service_is_not_turned_on">無障礙服務未開啟</string>
   <string name="text_accessibility_service_turned_on">無障礙服務已開啟</string>
+  <string name="text_rerun">重新運行</string>
+  <string name="text_clear_logcat">清除日誌</string>
+  <string name="text_stop_run">停止運行</string>
 </resources>

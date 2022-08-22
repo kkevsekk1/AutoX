@@ -4,16 +4,16 @@
 <resources>
   <string name="text_no_accessibility_permission">Empeereza y’okutuuka ku bantu tetandikibwawo</string>
   <string name="text_auto_operate_service_enabled_but_not_running">Empeereza z’okutuuka ku bantu zikozesebwa naye tezikola, osobola okugezaako okuddamu okusobozesa oba okuddamu okutandika essimu yo</string>
-  <string name="text_enable_accessibility_service_by_root_timeout">Eremereddwa okusobozesa empeereza y\'okutuuka ku bantu n\'enkizo z\'ekikolo</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">Eremereddwa okusobozesa empeereza y\'okutuukako n\'enkizo z\'ekikolo</string>
   <string name="text_settings">Okutandika</string>
   <string name="text_script_running">Script okudduka</string>
-  <string name="text_keep_running_with_foreground_service">Kozesa empeereza z’omu maaso okukuuma apps nga zikola</string>
+  <string name="text_keep_running_with_foreground_service">Kozesa empeereza ey’omu maaso okukuuma app yo ng’ekola</string>
   <string name="text_use_accessibility_service">Empeereza y’okutuuka ku bantu</string>
   <string name="text_use_floating_window">Eddirisa eritengejja</string>
-  <string name="summary_enable_accessibility_service">Emirimu gy\'empeereza y\'okutuuka ku bantu girina okusobozesa okukola (reserved) .</string>
+  <string name="summary_enable_accessibility_service">Emirimu gy’empeereza y’okutuuka ku bantu girina okusobozesa okukola (reserved) .</string>
   <string name="summary_enable_floating_window">Olina okuggulawo eddirisa eritengejja okulaba ekiwandiiko (ekintu ekiterekeddwa) .</string>
   <string name="text_use_volume_to_stop_running">Ekisumuluzo kya Volume up kiyimiriza script zonna</string>
-  <string name="summary_enable_accessibility_service_by_root">Okuddukanya script oluvannyuma lw\'okuggulawo kijja kuggulawo otomatika empeereza y\'okutuuka ku nsonga n\'enkizo za Root (ekintu ekiterekeddwa) .</string>
+  <string name="summary_enable_accessibility_service_by_root">Oluvannyuma lw\'okuggulawo, okuddukanya script kujja kuggulawo otomatika empeereza y\'okutuuka ku nsonga n\'enkizo za Root (ekintu ekiterekeddwa) .</string>
   <string name="text_enable_accessibility_service_by_root">Ssobozesa mu ngeri ey\'otoma empeereza ezirina enkizo z\'ekikolo</string>
   <string name="summary_stable_mode">Okwekenenya ensengeka kunywevu nnyo nga kusobozeseddwa, naye omuwendo omutono ogw\'ebiwandiiko guyinza obutakola bulungi. Ddamu okutandika empeereza y\'okutuuka ku bantu okutandika okukola</string>
   <string name="text_stable_mode">Mode enywevu</string>
@@ -26,7 +26,7 @@
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Emalirizza okudduka mu %f sekondi</string>
   <string name="prompt_email">E-mail ebbaluwa</string>
   <string name="prompt_password">Paasiwaadi</string>
-  <string name="action_sign_in">Yingira oba weewandiise</string>
+  <string name="action_sign_in">Yingira oba wewandiise</string>
   <string name="action_sign_in_short">Okuyingira</string>
   <string name="welcome">\"kaale!\"</string>
   <string name="invalid_username">Si linnya lya mukozesa ettuufu</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Nsaba okole olukusa nga tonnadduka!</string>
   <string name="text_accessibility_service_is_not_turned_on">Empeereza y’okutuuka ku bantu tebaagikola</string>
   <string name="text_accessibility_service_turned_on">Okutuuka ku bantu kukoleddwa</string>
+  <string name="text_rerun">Okuddamu okudduka</string>
+  <string name="text_clear_logcat">Clear log</string>
+  <string name="text_stop_run">Lekera awo okudduka</string>
 </resources>

@@ -4,16 +4,16 @@
 <resources>
   <string name="text_no_accessibility_permission">Servicio de accesibilidad mana qallarisqachu</string>
   <string name="text_auto_operate_service_enabled_but_not_running">Yaykuna yanapakuykuna atichisqa kanku ichaqa mana purichkankuchu, wakmanta atichiyta utaq telefonoyki wakmanta qallariyta ruwayta atikunki</string>
-  <string name="text_enable_accessibility_service_by_root_timeout">Sapsi privilegiokunawan yaykuy atiy yanapakuyta atichiyta mana atirqachu</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">Sapsi privilegiokunawan yaykuna yanapakuyta atichiyta mana atirqachu</string>
   <string name="text_settings">Tupachiy</string>
   <string name="text_script_running">Script purichiy</string>
-  <string name="text_keep_running_with_foreground_service">Ñawpaq yanapakuykunata llamk\'achiy ruwanakuna purichkaqta waqaychaypaq</string>
+  <string name="text_keep_running_with_foreground_service">Huk ñawpaq serviciota llamk\'achiy appniyki purichinanpaq</string>
   <string name="text_use_accessibility_service">Servicios de Accesibilidad nisqa</string>
   <string name="text_use_floating_window">Unupi puriq ventana</string>
   <string name="summary_enable_accessibility_service">Yaykuna yanapakuy ruwanakuna ruwanapaq atichisqa kanan tiyan (waqaychasqa) .</string>
   <string name="summary_enable_floating_window">Yakupi puriq ventanata kichanayki tiyan qillqa mayt\'uta qhawanaykipaq (waqaychasqa kaq) .</string>
-  <string name="text_use_volume_to_stop_running">Volumen up tecla llapa scriptkunata sayachin</string>
-  <string name="summary_enable_accessibility_service_by_root">Kichaymanta qhipaman qillqa mayt\'uta purichiyqa kikinmanta kichanqa yaykuy yanapakuyta Root privilegiokunawan (waqaychasqa elemento) .</string>
+  <string name="text_use_volume_to_stop_running">Volumen wichay llave llapa scriptkunata sayachin</string>
+  <string name="summary_enable_accessibility_service_by_root">Kicharisqamanta, scriptta purichiyqa kikinmanta kichanqa chayayta yanapakuyta Root privilegiokunawan (waqaychasqa elemento) .</string>
   <string name="text_enable_accessibility_service_by_root">Sapsi privilegiokunawan yanapakuykunata kikillanmanta atichiy</string>
   <string name="summary_stable_mode">Layout t\'aqwiyqa aswan takyasqa kachkan atichisqa kaqtin, ichataq pisi yupay qillqakuna mana allintachu llamk\'anman. Yaykuna serviciota wakmanta qallariy ruwaypaq</string>
   <string name="text_stable_mode">Modo estable nisqa</string>
@@ -39,8 +39,11 @@
   <string name="text_cancel">Sayachiy</string>
   <string name="text_requires_background_start">Qhipa kaqpi interfazta kichaypaq permisota munan</string>
   <string name="text_requires_background_start_desc">Ruwananpaq qhipa kaqpi interfaz kichaypaq atiyta munan, ama hina kaspa kichaypaq churanakunaman riy</string>
-  <string name="text_required_floating_window_permission">Unupi puriq ventana permisota mañakun</string>
+  <string name="text_required_floating_window_permission">Flotante ventana permisota mañakun</string>
   <string name="text_please_enable_permissions_before_running">Ama hina kaspa, manaraq purichkaspa atichiykunata atichiy!</string>
   <string name="text_accessibility_service_is_not_turned_on">Servicio de accesibilidad nisqa mana llank’asqachu</string>
   <string name="text_accessibility_service_turned_on">Accesibilidad nisqa llank’achisqa kashan</string>
+  <string name="text_rerun">Yapamanta purichiy</string>
+  <string name="text_clear_logcat">Chuya registro</string>
+  <string name="text_stop_run">Phawayta saqiy</string>
 </resources>

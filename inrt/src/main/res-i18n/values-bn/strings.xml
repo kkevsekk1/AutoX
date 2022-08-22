@@ -3,19 +3,19 @@
 <!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
 <resources>
   <string name="text_no_accessibility_permission">অ্যাক্সেসিবিলিটি পরিষেবা শুরু হয়নি</string>
-  <string name="text_auto_operate_service_enabled_but_not_running">অ্যাক্সেসিবিলিটি পরিষেবাগুলি সক্ষম করা আছে কিন্তু চলছে না, আপনি আপনার ফোন পুনরায় সক্ষম বা পুনরায় চালু করার চেষ্টা করতে পারেন৷</string>
+  <string name="text_auto_operate_service_enabled_but_not_running">অ্যাক্সেসিবিলিটি পরিষেবাগুলি সক্ষম করা হয়েছে কিন্তু চলছে না, আপনি আপনার ফোন পুনরায় সক্ষম বা পুনরায় চালু করার চেষ্টা করতে পারেন৷</string>
   <string name="text_enable_accessibility_service_by_root_timeout">রুট সুবিধা সহ অ্যাক্সেসিবিলিটি পরিষেবা সক্ষম করতে ব্যর্থ৷</string>
   <string name="text_settings">সেট আপ</string>
   <string name="text_script_running">স্ক্রিপ্ট রান</string>
-  <string name="text_keep_running_with_foreground_service">অ্যাপ চালু রাখতে ফোরগ্রাউন্ড পরিষেবা ব্যবহার করুন</string>
+  <string name="text_keep_running_with_foreground_service">আপনার অ্যাপ চালু রাখতে একটি অগ্রভাগের পরিষেবা ব্যবহার করুন</string>
   <string name="text_use_accessibility_service">অ্যাক্সেসিবিলিটি পরিষেবা</string>
   <string name="text_use_floating_window">ভাসমান জানালা</string>
-  <string name="summary_enable_accessibility_service">অ্যাক্সেসিবিলিটি পরিষেবা কার্যগুলি কার্যকর করতে সক্ষম হতে হবে (সংরক্ষিত)</string>
+  <string name="summary_enable_accessibility_service">অ্যাক্সেসিবিলিটি পরিষেবার কাজগুলি কার্যকর করতে সক্ষম হতে হবে (সংরক্ষিত)</string>
   <string name="summary_enable_floating_window">লগ দেখতে আপনাকে ভাসমান উইন্ডো খুলতে হবে (সংরক্ষিত আইটেম)</string>
   <string name="text_use_volume_to_stop_running">ভলিউম আপ কী সমস্ত স্ক্রিপ্ট বন্ধ করে দেয়</string>
-  <string name="summary_enable_accessibility_service_by_root">খোলার পরে স্ক্রিপ্টটি চালানো স্বয়ংক্রিয়ভাবে রুট সুবিধাগুলির সাথে অ্যাক্সেসিবিলিটি পরিষেবাটি খুলবে (সংরক্ষিত আইটেম)</string>
+  <string name="summary_enable_accessibility_service_by_root">খোলার পরে, স্ক্রিপ্টটি চালানো স্বয়ংক্রিয়ভাবে রুট সুবিধাগুলির সাথে অ্যাক্সেসিবিলিটি পরিষেবাটি খুলবে (সংরক্ষিত আইটেম)</string>
   <string name="text_enable_accessibility_service_by_root">রুট সুবিধা সহ স্বয়ংক্রিয়ভাবে পরিষেবাগুলি সক্ষম করুন৷</string>
-  <string name="summary_stable_mode">বিন্যাস বিশ্লেষণ সক্রিয় করা হলে আরও স্থিতিশীল, কিন্তু অল্প সংখ্যক স্ক্রিপ্ট সঠিকভাবে কাজ নাও করতে পারে। কার্যকর করার জন্য অ্যাক্সেসিবিলিটি পরিষেবা পুনরায় চালু করুন</string>
+  <string name="summary_stable_mode">সক্রিয় করা হলে বিন্যাস বিশ্লেষণ আরও স্থিতিশীল, কিন্তু অল্প সংখ্যক স্ক্রিপ্ট সঠিকভাবে কাজ নাও করতে পারে। কার্যকর করার জন্য অ্যাক্সেসিবিলিটি পরিষেবা পুনরায় চালু করুন৷</string>
   <string name="text_stable_mode">স্থিতিশীল মোড</string>
   <string name="text_accessibility_service">অ্যাক্সেসিবিলিটি পরিষেবা</string>
   <string name="text_dont_show_main_activity">প্রধান ইন্টারফেস প্রদর্শন করবেন না</string>
@@ -42,5 +42,8 @@
   <string name="text_required_floating_window_permission">ভাসমান জানালার অনুমতি প্রয়োজন</string>
   <string name="text_please_enable_permissions_before_running">চালানোর আগে অনুমতি সক্রিয় করুন!</string>
   <string name="text_accessibility_service_is_not_turned_on">অ্যাক্সেসিবিলিটি পরিষেবা চালু নেই</string>
-  <string name="text_accessibility_service_turned_on">অ্যাক্সেসযোগ্যতা চালু আছে</string>
+  <string name="text_accessibility_service_turned_on">অ্যাক্সেসিবিলিটি চালু আছে</string>
+  <string name="text_rerun">পুনরায় চালানো</string>
+  <string name="text_clear_logcat">স্পষ্ট লগ</string>
+  <string name="text_stop_run">দৌড়ানো বন্ধ</string>
 </resources>

@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Tajaajila dhaqqabummaa mirga hundee waliin dandeessisuun hin dandeenye</string>
   <string name="text_settings">Qixeessuu</string>
   <string name="text_script_running">Iskiriiptii fiigicha</string>
-  <string name="text_keep_running_with_foreground_service">Appilikeeshiniiwwan akka hojjetan gochuuf tajaajila fuulduraa fayyadamaa</string>
+  <string name="text_keep_running_with_foreground_service">Appiin keessan akka hojjetu gochuuf tajaajila fuulduraa fayyadamaa</string>
   <string name="text_use_accessibility_service">Tajaajila Dhaqqabummaa</string>
   <string name="text_use_floating_window">Foddaa lola\'aa</string>
   <string name="summary_enable_accessibility_service">Hojiiwwan tajaajila dhaqqabummaa raawwachuuf dandeessisuun dirqama (reserved) .</string>
   <string name="summary_enable_floating_window">Galmee ilaaluuf foddaa lola\'aa banuun dirqama (wanta eegame) .</string>
   <string name="text_use_volume_to_stop_running">Furtuun sagalee ol kaasu iskiriiptii hunda dhaaba</string>
-  <string name="summary_enable_accessibility_service_by_root">Iskiriiptii erga banamee booda hojjechuun tajaajila dhaqqabummaa ofumaan mirga Root (wanta eegame) waliin bana .</string>
+  <string name="summary_enable_accessibility_service_by_root">Erga banamee booda, iskiriiptii hojjechuun tajaajila dhaqqabummaa ofumaan mirga Root (wanta eegame) waliin bana .</string>
   <string name="text_enable_accessibility_service_by_root">Tajaajiloota mirga hundee qaban ofumaan dandeessisi</string>
   <string name="summary_stable_mode">Xiinxalli qindaa\'ina yeroo dandeessifamu caalaatti tasgabbaa\'aadha, garuu iskiriiptii muraasni sirriitti hojjechuu dhiisuu danda\'a. Tajaajila dhaqqabummaa hojiirra oolchuuf irra deebi\'ii jalqabi</string>
   <string name="text_stable_mode">Haala tasgabbaa’aa ta’e</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Maaloo osoo hin fiigin dura hayyama dandeessisi!</string>
   <string name="text_accessibility_service_is_not_turned_on">Tajaajilli dhaqqabummaa hin banamu</string>
   <string name="text_accessibility_service_turned_on">Dhaqqabummaan ni banama</string>
+  <string name="text_rerun">Irra deebi\'ii fiigi</string>
+  <string name="text_clear_logcat">Galmee qulqulleessuu</string>
+  <string name="text_stop_run">Fiiguu dhiisi</string>
 </resources>

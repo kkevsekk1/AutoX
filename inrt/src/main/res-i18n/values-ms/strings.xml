@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Gagal mendayakan perkhidmatan kebolehaksesan dengan keistimewaan root</string>
   <string name="text_settings">Sediakan</string>
   <string name="text_script_running">Skrip dijalankan</string>
-  <string name="text_keep_running_with_foreground_service">Gunakan perkhidmatan latar depan untuk memastikan apl berjalan</string>
+  <string name="text_keep_running_with_foreground_service">Gunakan perkhidmatan latar depan untuk memastikan apl anda berjalan</string>
   <string name="text_use_accessibility_service">Perkhidmatan Kebolehcapaian</string>
   <string name="text_use_floating_window">Tingkap terapung</string>
   <string name="summary_enable_accessibility_service">Tugas perkhidmatan kebolehcapaian mesti didayakan untuk dilaksanakan (terpelihara)</string>
   <string name="summary_enable_floating_window">Anda mesti membuka tetingkap terapung untuk melihat log (item simpanan)</string>
   <string name="text_use_volume_to_stop_running">Kekunci kelantangan naik menghentikan semua skrip</string>
-  <string name="summary_enable_accessibility_service_by_root">Menjalankan skrip selepas dibuka akan membuka perkhidmatan kebolehaksesan secara automatik dengan keistimewaan Root (item tersimpan)</string>
+  <string name="summary_enable_accessibility_service_by_root">Selepas dibuka, menjalankan skrip akan membuka perkhidmatan kebolehaksesan secara automatik dengan keistimewaan Root (item simpanan)</string>
   <string name="text_enable_accessibility_service_by_root">Dayakan perkhidmatan dengan keistimewaan root secara automatik</string>
   <string name="summary_stable_mode">Analisis reka letak lebih stabil apabila didayakan, tetapi sebilangan kecil skrip mungkin tidak berfungsi dengan betul. Mulakan semula perkhidmatan kebolehaksesan untuk berkuat kuasa</string>
   <string name="text_stable_mode">Mod stabil</string>
@@ -33,7 +33,7 @@
   <string name="invalid_password">Kata laluan mestilah lebih besar daripada 5 aksara</string>
   <string name="login_failed">\"Daftar masuk gagal\"</string>
   <string name="explain_accessibility_permission">Perisian perlu membuka \"Perkhidmatan Kebolehcapaian\" untuk dijalankan, sila buka \"Tetapan->Perkhidmatan Kebolehcapaian\" atau \"Tetapan->Perkhidmatan Kebolehcapaian->Lagi Perkhidmatan Dimuat Turun\", cari \" %s \" dan dayakan Perkhidmatan Kebolehcapaian</string>
-  <string name="text_need_to_enable_accessibility_service">Perkhidmatan kebolehcapaian perlu didayakan</string>
+  <string name="text_need_to_enable_accessibility_service">Perkhidmatan kebolehaksesan perlu didayakan</string>
   <string name="summary_use_volume_to_stop_running">Bar pemberitahuan akan sentiasa memaparkan pemberitahuan \"Apl ini sedang berjalan\" untuk memastikan program berjalan</string>
   <string name="text_to_open">Untuk membuka</string>
   <string name="text_cancel">Batal</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Sila dayakan kebenaran sebelum berjalan!</string>
   <string name="text_accessibility_service_is_not_turned_on">Perkhidmatan kebolehaksesan tidak dihidupkan</string>
   <string name="text_accessibility_service_turned_on">Kebolehaksesan dihidupkan</string>
+  <string name="text_rerun">Tayangan semula</string>
+  <string name="text_clear_logcat">Log yang jelas</string>
+  <string name="text_stop_run">Berhenti berlari</string>
 </resources>

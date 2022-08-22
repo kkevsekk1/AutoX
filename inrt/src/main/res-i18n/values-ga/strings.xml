@@ -7,15 +7,15 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Theip ar sheirbhís inrochtaineachta le pribhléidí fréimhe a chumasú</string>
   <string name="text_settings">Ar bun</string>
   <string name="text_script_running">Rith script</string>
-  <string name="text_keep_running_with_foreground_service">Úsáid seirbhísí tulra chun aipeanna a choinneáil ag rith</string>
+  <string name="text_keep_running_with_foreground_service">Bain úsáid as seirbhís tulra chun d\'aip a choinneáil ar siúl</string>
   <string name="text_use_accessibility_service">Seirbhísí Inrochtaineachta</string>
   <string name="text_use_floating_window">Fuinneog ar snámh</string>
   <string name="summary_enable_accessibility_service">Ní mór tascanna seirbhíse inrochtaineachta a chur ar chumas a fhorghníomhú (in áirithe)</string>
   <string name="summary_enable_floating_window">Ní mór duit an fhuinneog ar snámh a oscailt chun an loga a fheiceáil (mír in áirithe)</string>
   <string name="text_use_volume_to_stop_running">Stopann an eochair toirt suas gach script</string>
-  <string name="summary_enable_accessibility_service_by_root">Má reáchtálann tú an script tar éis oscailt, osclófar an tseirbhís inrochtaineachta go huathoibríoch le pribhléidí Root (mír in áirithe)</string>
+  <string name="summary_enable_accessibility_service_by_root">Tar éis duit an script a oscailt, osclóidh sé go huathoibríoch an tseirbhís inrochtaineachta le pribhléidí Root (mír in áirithe) a rith</string>
   <string name="text_enable_accessibility_service_by_root">Cumasaigh go huathoibríoch seirbhísí le pribhléidí fréimhe</string>
-  <string name="summary_stable_mode">Bíonn anailís ar leagan amach níos cobhsaí nuair a chumasaítear í, ach seans nach n-oibreoidh líon beag scripteanna i gceart. Atosaigh an tseirbhís inrochtaineachta le cur i bhfeidhm</string>
+  <string name="summary_stable_mode">Bíonn anailís ar leagan amach níos cobhsaí nuair a chumasaítear í, ach seans nach n-oibreoidh líon beag scripteanna i gceart. Atosaigh an tseirbhís inrochtaineachta le dul i bhfeidhm</string>
   <string name="text_stable_mode">Modh cobhsaí</string>
   <string name="text_accessibility_service">Seirbhísí Inrochtaineachta</string>
   <string name="text_dont_show_main_activity">Ná taispeáin an príomh-chomhéadan</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Cumasaigh ceadanna roimh rith!</string>
   <string name="text_accessibility_service_is_not_turned_on">Níl an tseirbhís inrochtaineachta curtha ar siúl</string>
   <string name="text_accessibility_service_turned_on">Tá an inrochtaineacht ar siúl</string>
+  <string name="text_rerun">Athrith</string>
+  <string name="text_clear_logcat">Logáil soiléir</string>
+  <string name="text_stop_run">Stop ag rith</string>
 </resources>

@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">سرویس دسترس‌پذیری با امتیازات ریشه فعال نشد</string>
   <string name="text_settings">برپایی</string>
   <string name="text_script_running">اجرای اسکریپت</string>
-  <string name="text_keep_running_with_foreground_service">از خدمات پیش زمینه برای اجرای برنامه ها استفاده کنید</string>
+  <string name="text_keep_running_with_foreground_service">از یک سرویس پیش زمینه برای اجرای برنامه خود استفاده کنید</string>
   <string name="text_use_accessibility_service">خدمات دسترسی</string>
   <string name="text_use_floating_window">پنجره شناور</string>
   <string name="summary_enable_accessibility_service">وظایف سرویس دسترس‌پذیری برای اجرا باید فعال باشد (رزرو شده)</string>
   <string name="summary_enable_floating_window">برای مشاهده گزارش (مورد رزرو شده) باید پنجره شناور را باز کنید</string>
   <string name="text_use_volume_to_stop_running">کلید افزایش صدا همه اسکریپت ها را متوقف می کند</string>
-  <string name="summary_enable_accessibility_service_by_root">اجرای اسکریپت پس از باز کردن، به طور خودکار سرویس دسترسی را با امتیازات Root باز می کند (مورد رزرو شده)</string>
+  <string name="summary_enable_accessibility_service_by_root">پس از باز کردن، اجرای اسکریپت به طور خودکار سرویس دسترسی را با امتیازات Root باز می کند (مورد رزرو شده)</string>
   <string name="text_enable_accessibility_service_by_root">به طور خودکار خدمات با امتیازات ریشه را فعال کنید</string>
   <string name="summary_stable_mode">تجزیه و تحلیل چیدمان زمانی که فعال باشد پایدارتر است، اما ممکن است تعداد کمی از اسکریپت ها به درستی کار نکنند. سرویس دسترس‌پذیری را مجدداً راه‌اندازی کنید تا اعمال شود</string>
   <string name="text_stable_mode">حالت پایدار</string>
@@ -40,7 +40,10 @@
   <string name="text_requires_background_start">برای باز کردن رابط در پس‌زمینه به مجوز نیاز دارد</string>
   <string name="text_requires_background_start_desc">برای اجرا به مجوز برای باز کردن رابط در پس‌زمینه نیاز دارد، لطفاً برای باز کردن به تنظیمات بروید</string>
   <string name="text_required_floating_window_permission">مجوز پنجره شناور مورد نیاز است</string>
-  <string name="text_please_enable_permissions_before_running">لطفاً قبل از اجرا مجوزها را فعال کنید!</string>
+  <string name="text_please_enable_permissions_before_running">لطفا قبل از اجرا مجوزها را فعال کنید!</string>
   <string name="text_accessibility_service_is_not_turned_on">سرویس دسترس‌پذیری روشن نیست</string>
   <string name="text_accessibility_service_turned_on">قابلیت دسترسی روشن است</string>
+  <string name="text_rerun">اجرا مجدد</string>
+  <string name="text_clear_logcat">ورود به سیستم روشن</string>
+  <string name="text_stop_run">دویدن را متوقف کنید</string>
 </resources>

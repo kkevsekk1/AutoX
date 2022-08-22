@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Kon nie toeganklikheiddiens met wortelregte aktiveer nie</string>
   <string name="text_settings">Stel op</string>
   <string name="text_script_running">Script hardloop</string>
-  <string name="text_keep_running_with_foreground_service">Gebruik voorgronddienste om programme aan die gang te hou</string>
+  <string name="text_keep_running_with_foreground_service">Gebruik \'n voorgronddiens om jou toepassing aan die gang te hou</string>
   <string name="text_use_accessibility_service">Toeganklikheidsdienste</string>
   <string name="text_use_floating_window">Swaai venster</string>
-  <string name="summary_enable_accessibility_service">Toeganklikheiddienstake moet geaktiveer word om uit te voer (gereserveer)</string>
+  <string name="summary_enable_accessibility_service">Toeganklikheiddienstake moet in staat gestel word om uit te voer (gereserveer)</string>
   <string name="summary_enable_floating_window">Jy moet die drywende venster oopmaak om die log te sien (gereserveerde item)</string>
   <string name="text_use_volume_to_stop_running">Volume op sleutel stop alle skrifte</string>
-  <string name="summary_enable_accessibility_service_by_root">Deur die skrip te laat loop nadat dit oopgemaak is, sal die toeganklikheiddiens outomaties oopmaak met Root-regte (gereserveerde item)</string>
+  <string name="summary_enable_accessibility_service_by_root">Nadat u die skrip oopgemaak het, sal die toeganklikheiddiens outomaties oopmaak met Root-regte (gereserveerde item)</string>
   <string name="text_enable_accessibility_service_by_root">Aktiveer dienste outomaties met root-regte</string>
   <string name="summary_stable_mode">Uitlegontleding is meer stabiel wanneer dit geaktiveer is, maar \'n klein aantal skrifte sal dalk nie behoorlik werk nie. Herbegin toeganklikheiddiens om in werking te tree</string>
   <string name="text_stable_mode">Stabiele modus</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Aktiveer asseblief toestemmings voor hardloop!</string>
   <string name="text_accessibility_service_is_not_turned_on">Toeganklikheiddiens is nie aangeskakel nie</string>
   <string name="text_accessibility_service_turned_on">Toeganklikheid is aangeskakel</string>
+  <string name="text_rerun">Herloop</string>
+  <string name="text_clear_logcat">Maak logboek skoon</string>
+  <string name="text_stop_run">Hou op hardloop</string>
 </resources>

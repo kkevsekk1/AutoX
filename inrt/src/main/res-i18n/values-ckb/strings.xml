@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">شکستی هێنا لە چالاککردنی خزمەتگوزاری دەستڕاگەیشتن بە ئیمتیازاتی ڕەگ</string>
   <string name="text_settings">دا مه رزاندن</string>
   <string name="text_script_running">سکریپتەکە جێبەجێ دەکرێت</string>
-  <string name="text_keep_running_with_foreground_service">خزمەتگوزارییەکانی پێشەوە بەکاربهێنە بۆ ئەوەی ئەپەکان بەردەوام بن لە کارکردن</string>
+  <string name="text_keep_running_with_foreground_service">خزمەتگوزاری پێشەوە بەکاربهێنە بۆ ئەوەی ئەپەکەت بەردەوام بێت لە کارکردن</string>
   <string name="text_use_accessibility_service">خزمەتگوزاری دەستڕاگەیشتن</string>
   <string name="text_use_floating_window">پەنجەرەی هەڵدەفڕێت</string>
   <string name="summary_enable_accessibility_service">ئەرکەکانی خزمەتگوزاری دەستڕاگەیشتن دەبێت چالاک بکرێن بۆ جێبەجێکردن (تەرخانکراو)</string>
   <string name="summary_enable_floating_window">پێویستە پەنجەرەی هەڵدەفڕێت بکەیتەوە بۆ بینینی لۆگەکە (بابەتی تەرخانکراو)</string>
   <string name="text_use_volume_to_stop_running">کلیلی Volume up هەموو سکریپتەکان دەواسێت</string>
-  <string name="summary_enable_accessibility_service_by_root">جێبەجێکردنی سکریپتەکە دوای کردنەوەی بە شێوەیەکی ئۆتۆماتیکی خزمەتگوزاری دەستڕاگەیشتن بە ئیمتیازاتی Root دەکاتەوە (بابەتی تەرخانکراو)</string>
+  <string name="summary_enable_accessibility_service_by_root">دوای کردنەوەی، جێبەجێکردنی سکریپتەکە بە شێوەیەکی ئۆتۆماتیکی خزمەتگوزاری دەستڕاگەیشتن بە ئیمتیازاتی Root دەکاتەوە (بابەتی تەرخانکراو)</string>
   <string name="text_enable_accessibility_service_by_root">خزمەتگوزارییەکان بە ئیمتیازاتی root بە شێوەیەکی ئۆتۆماتیکی چالاک بکە</string>
   <string name="summary_stable_mode">شیکاری نەخشە جێگیرترە کاتێک چالاک دەکرێت، بەڵام ژمارەیەکی کەم لە سکریپتەکان لەوانەیە بە باشی کار نەکەن. خزمەتگوزاری دەستڕاگەیشتن دووبارە دەستپێبکەرەوە بۆ ئەوەی کاریگەر بێت</string>
   <string name="text_stable_mode">دۆخی جێگیر</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">تکایە پێش کارپێکردن مۆڵەتەکان چالاک بکە!</string>
   <string name="text_accessibility_service_is_not_turned_on">خزمەتگوزاری دەستڕاگەیشتن چالاک نەکراوە</string>
   <string name="text_accessibility_service_turned_on">دەستڕاگەیشتن چالاک کراوە</string>
+  <string name="text_rerun">دووبارە نمایشکردنەوە</string>
+  <string name="text_clear_logcat">لۆگێکی ڕوون بکەرەوە</string>
+  <string name="text_stop_run">ڕاکردن ڕابگرە</string>
 </resources>

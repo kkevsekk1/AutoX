@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">It ynskeakeljen fan tagonklikenstsjinst mei root-rjochten mislearre</string>
   <string name="text_settings">Opsette</string>
   <string name="text_script_running">Skript útfiere</string>
-  <string name="text_keep_running_with_foreground_service">Brûk foargrûntsjinsten om apps rinnend te hâlden</string>
+  <string name="text_keep_running_with_foreground_service">Brûk in foargrûntsjinst om jo app rinnend te hâlden</string>
   <string name="text_use_accessibility_service">Tagonklikheid Tsjinsten</string>
   <string name="text_use_floating_window">Floating finster</string>
   <string name="summary_enable_accessibility_service">Taken foar tagonklikenstsjinsten moatte ynskeakele wurde om út te fieren (reservearre)</string>
   <string name="summary_enable_floating_window">Jo moatte it driuwende finster iepenje om it log te besjen (reservearre item)</string>
   <string name="text_use_volume_to_stop_running">Folume omheech kaai stopt alle skripts</string>
-  <string name="summary_enable_accessibility_service_by_root">It útfieren fan it skript nei iepening sil de tagonklikenstsjinst automatysk iepenje mei Root-privileges (reservearre item)</string>
+  <string name="summary_enable_accessibility_service_by_root">Nei it iepenjen sil it útfieren fan it skript automatysk de tagonklikenstsjinst iepenje mei Root-privileges (reservearre item)</string>
   <string name="text_enable_accessibility_service_by_root">Tsjinsten automatysk ynskeakelje mei root-privileges</string>
   <string name="summary_stable_mode">Layout-analyze is stabiler as it ynskeakele is, mar in lyts oantal skripts wurket miskien net goed. Begjin tagonklikenstsjinst opnij starte om effekt te nimmen</string>
   <string name="text_stable_mode">Stabile modus</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Aktivearje asjebleaft tagongsrjochten foardat jo rinne!</string>
   <string name="text_accessibility_service_is_not_turned_on">Tagonklikheid tsjinst is net ynskeakele</string>
   <string name="text_accessibility_service_turned_on">Tagonklikheid is ynskeakele</string>
+  <string name="text_rerun">Rerun</string>
+  <string name="text_clear_logcat">Dúdlik log</string>
+  <string name="text_stop_run">Stopje mei rinnen</string>
 </resources>

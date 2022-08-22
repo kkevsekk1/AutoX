@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Do kpo mɔnukpɔkpɔwo wɔwɔ ƒe dɔwɔwɔ kple root mɔnukpɔkpɔwo</string>
   <string name="text_settings">Ɖo anyi</string>
   <string name="text_script_running">Ŋɔŋlɔdzesiwo ƒe duƒuƒu</string>
-  <string name="text_keep_running_with_foreground_service">Zã ŋgɔgbe dɔwɔnuwo nàtsɔ ana dɔwɔɖoɖowo nanɔ dɔ wɔm</string>
+  <string name="text_keep_running_with_foreground_service">Zã ŋgɔgbe dɔwɔnu aɖe nàtsɔ ana wò dɔwɔnua nanɔ dɔ wɔm</string>
   <string name="text_use_accessibility_service">Dɔwɔƒe siwo Kpɔa Mɔnukpɔkpɔwo Gbɔ</string>
   <string name="text_use_floating_window">Fesre si le tsia dzi</string>
   <string name="summary_enable_accessibility_service">Ele be woawɔ mɔɖeɖedɔa ƒe subɔsubɔdɔwo ŋudɔ be woawɔ (wodzrae ɖo) .</string>
   <string name="summary_enable_floating_window">Ele be nàʋu fesre si le tsia dzi la be nàkpɔ nuŋlɔɖi la (nu si wodzra ɖo ɖi) .</string>
   <string name="text_use_volume_to_stop_running">Volume up key la tɔ te ŋɔŋlɔdzesiwo katã</string>
-  <string name="summary_enable_accessibility_service_by_root">Ne èwɔ script la le eʋu vɔ megbe la, aʋu mɔɖeɖedɔa le eɖokui si kple Root mɔnukpɔkpɔwo (nu si wodzra ɖo ɖi) .</string>
+  <string name="summary_enable_accessibility_service_by_root">Ne èʋu vɔ la, ŋɔŋlɔdzesi la zazã aʋu mɔɖeɖedɔa le eɖokui si kple Root mɔnukpɔkpɔwo (nu si wodzra ɖo ɖi) .</string>
   <string name="text_enable_accessibility_service_by_root">Na subɔsubɔdɔ siwo si root ƒe mɔnukpɔkpɔwo le la nawɔ dɔ le ɖokuiwò si</string>
   <string name="summary_stable_mode">Ðoɖowo me dzodzro li ke wu ne wowɔe, gake ŋɔŋlɔdzesi ʋɛ aɖewo ate ŋu mawɔ dɔ nyuie o. Gbugbɔ dze mɔɖeɖedɔa gɔme be wòadze dɔwɔwɔ gɔme</string>
   <string name="text_stable_mode">Nɔnɔme si li ke</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Taflatse na mɔɖeɖewo nawɔ dɔ hafi nàƒu du!</string>
   <string name="text_accessibility_service_is_not_turned_on">Womeʋua mɔɖeɖe ɖe nu ŋu ƒe dɔwɔƒea o</string>
   <string name="text_accessibility_service_turned_on">Woʋua mɔɖeɖe ɖe nu ŋu</string>
+  <string name="text_rerun">Gbugbɔ ƒu du</string>
+  <string name="text_clear_logcat">Eme kɔ log</string>
+  <string name="text_stop_run">Dzudzɔ duƒuƒu</string>
 </resources>

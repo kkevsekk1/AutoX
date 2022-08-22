@@ -13,7 +13,7 @@
   <string name="summary_enable_accessibility_service">Accessibility service tasks must be enabled to execute (reserved)</string>
   <string name="summary_enable_floating_window">You must open the floating window to view the log (reserved item)</string>
   <string name="text_use_volume_to_stop_running">Volume up key stops all scripts</string>
-  <string name="summary_enable_accessibility_service_by_root">Running the script after opening will automatically open the accessibility service with Root privileges (reserved item)</string>
+  <string name="summary_enable_accessibility_service_by_root">After opening, running the script will automatically open the accessibility service with Root privileges (reserved item)</string>
   <string name="text_enable_accessibility_service_by_root">Automatically enable services with root privileges</string>
   <string name="summary_stable_mode">Layout analysis is more stable when enabled, but a small number of scripts may not work properly. Restart accessibility service to take effect</string>
   <string name="text_stable_mode">Stable mode</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Please enable permissions before running!</string>
   <string name="text_accessibility_service_is_not_turned_on">Accessibility service is not turned on</string>
   <string name="text_accessibility_service_turned_on">Accessibility is turned on</string>
+  <string name="text_rerun">Rerun</string>
+  <string name="text_clear_logcat">Clear log</string>
+  <string name="text_stop_run">Stop running</string>
 </resources>

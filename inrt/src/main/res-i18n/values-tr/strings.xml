@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Kök ayrıcalıklarıyla erişilebilirlik hizmeti etkinleştirilemedi</string>
   <string name="text_settings">Kurmak</string>
   <string name="text_script_running">Komut dosyası çalıştırma</string>
-  <string name="text_keep_running_with_foreground_service">Uygulamaları çalışır durumda tutmak için ön plan hizmetlerini kullanın</string>
+  <string name="text_keep_running_with_foreground_service">Uygulamanızı çalışır durumda tutmak için bir ön plan hizmeti kullanın</string>
   <string name="text_use_accessibility_service">Erişilebilirlik Hizmetleri</string>
   <string name="text_use_floating_window">Yüzer pencere</string>
   <string name="summary_enable_accessibility_service">Erişilebilirlik hizmeti görevlerinin yürütülebilmesi için etkinleştirilmesi gerekir (ayrılmış)</string>
   <string name="summary_enable_floating_window">Günlüğü görüntülemek için kayan pencereyi açmalısınız (ayrılmış öğe)</string>
   <string name="text_use_volume_to_stop_running">Sesi açma tuşu tüm komut dosyalarını durdurur</string>
-  <string name="summary_enable_accessibility_service_by_root">Komut dosyasını açtıktan sonra çalıştırmak, erişilebilirlik hizmetini Kök ayrıcalıklarıyla (ayrılmış öğe) otomatik olarak açacaktır.</string>
+  <string name="summary_enable_accessibility_service_by_root">Açtıktan sonra, komut dosyasını çalıştırmak, erişilebilirlik hizmetini Kök ayrıcalıklarıyla (ayrılmış öğe) otomatik olarak açacaktır.</string>
   <string name="text_enable_accessibility_service_by_root">Hizmetleri kök ayrıcalıklarıyla otomatik olarak etkinleştirin</string>
   <string name="summary_stable_mode">Düzen analizi, etkinleştirildiğinde daha kararlıdır, ancak az sayıda komut dosyası düzgün çalışmayabilir. Etkili olması için erişilebilirlik hizmetini yeniden başlatın</string>
   <string name="text_stable_mode">Kararlı mod</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Lütfen çalıştırmadan önce izinleri etkinleştirin!</string>
   <string name="text_accessibility_service_is_not_turned_on">Erişilebilirlik hizmeti açık değil</string>
   <string name="text_accessibility_service_turned_on">Erişilebilirlik açık</string>
+  <string name="text_rerun">Yeniden çalıştırmak</string>
+  <string name="text_clear_logcat">Günlüğü temizle</string>
+  <string name="text_stop_run">Koşmayı bırak</string>
 </resources>

@@ -7,17 +7,17 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Elongi te kofungola service ya accessibilité na ba privilèges ya root</string>
   <string name="text_settings">Kobongisa</string>
   <string name="text_script_running">Script etambolaka</string>
-  <string name="text_keep_running_with_foreground_service">Salelá ba services ya liboso mpo na kobatela ba apps</string>
-  <string name="text_use_accessibility_service">Misala ya bozwi ya bato</string>
+  <string name="text_keep_running_with_foreground_service">Salelá service moko ya liboso mpo na kobatela programɛ na yo</string>
+  <string name="text_use_accessibility_service">Misala ya kozwa nzela ya kozwa biloko</string>
   <string name="text_use_floating_window">Fenêtre oyo ezali kopumbwapumbwa</string>
   <string name="summary_enable_accessibility_service">Esengeli ko activer misala ya service ya accessibilité pona ko exécuter (réservé) .</string>
   <string name="summary_enable_floating_window">Esengeli ofungola fenetre flottante mpo na kotala journal (eloko oyo ebombami) .</string>
   <string name="text_use_volume_to_stop_running">Volume up touche etelemisaka ba scripts nionso</string>
-  <string name="summary_enable_accessibility_service_by_root">Kosala script sima ya kofungola ekofungola automatiquement service ya accessibilité na ba privilèges ya Root (eloko oyo ebombami) .</string>
+  <string name="summary_enable_accessibility_service_by_root">Nsima ya kofungola, kosala script ekofungola automatiquement service ya accessibilité na ba privilèges ya Root (eloko oyo ebombami) .</string>
   <string name="text_enable_accessibility_service_by_root">Activer automatiquement ba services na ba privilèges ya root</string>
   <string name="summary_stable_mode">Analyse ya layout ezali stable mingi soki efungolami, kasi motango moke ya ba scripts ekoki kosala malamu te. Bobandi lisusu service ya accessibilité mpo ebandaki kosala</string>
   <string name="text_stable_mode">Mode ya stable</string>
-  <string name="text_accessibility_service">Misala ya bozwi ya bato</string>
+  <string name="text_accessibility_service">Misala ya kozwa nzela ya kozwa biloko</string>
   <string name="text_dont_show_main_activity">Kolakisa interface ya monene te</string>
   <string name="summary_dont_show_main_activity">Salá script yango mbala moko nsima ya kofungola programɛ yango</string>
   <string name="text_hide_logs">Bomba mokanda ya mokanda</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Svp activer ba permissions avant ya kosala!</string>
   <string name="text_accessibility_service_is_not_turned_on">Service ya accessibilité ezali kofungolama te</string>
   <string name="text_accessibility_service_turned_on">Accessibilité ezali kofungolama</string>
+  <string name="text_rerun">Kosala lisusu</string>
+  <string name="text_clear_logcat">Polele log</string>
+  <string name="text_stop_run">Tika kopota mbangu</string>
 </resources>
