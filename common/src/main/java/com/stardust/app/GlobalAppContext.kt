@@ -30,7 +30,7 @@ object GlobalAppContext {
 
     fun set(a: Application, buildConfig: BuildConfig) {
         this.buildConfig = buildConfig
-        Log.d(TAG, buildConfig.toString())
+        Log.i(TAG, buildConfig.toString())
         sHandler = Handler(Looper.getMainLooper())
         sApplicationContext = a.applicationContext
     }
@@ -75,12 +75,17 @@ object GlobalAppContext {
 
     @JvmStatic
     fun toast(resId: Int, vararg args: Any?) {
+        toast(false,resId, args)
+    }
+
+    @JvmStatic
+    fun toast(isLongToast: Boolean, resId: Int, vararg args: Any?) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            com.stardust.toast(get(), getString(resId, *args))
+            com.stardust.toast(get(), getString(resId, *args), isLongToast)
             return
         }
         sHandler!!.post {
-            com.stardust.toast(get(), getString(resId, *args))
+            com.stardust.toast(get(), getString(resId, *args), isLongToast)
         }
     }
 

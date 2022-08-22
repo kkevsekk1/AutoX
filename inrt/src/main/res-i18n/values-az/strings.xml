@@ -7,7 +7,7 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Kök imtiyazları ilə əlçatanlıq xidmətini aktivləşdirmək alınmadı</string>
   <string name="text_settings">Qurmaq</string>
   <string name="text_script_running">Skript işləməsi</string>
-  <string name="text_keep_running_with_foreground_service">Tətbiqləri işlək vəziyyətdə saxlamaq üçün ön planda xidmətlərdən istifadə edin</string>
+  <string name="text_keep_running_with_foreground_service">Tətbiqinizin işləməsini təmin etmək üçün ön planda xidmətdən istifadə edin</string>
   <string name="text_use_accessibility_service">Əlçatanlıq Xidmətləri</string>
   <string name="text_use_floating_window">Üzən pəncərə</string>
   <string name="summary_enable_accessibility_service">Əlçatımlılıq xidməti tapşırıqları icra etmək üçün aktivləşdirilməlidir (ehtiyatda saxlanılır)</string>
@@ -23,7 +23,7 @@
   <string name="text_hide_logs">Log gizlət</string>
   <string name="summary_hide_logs">Jurnal interfeysi göstərilmir və növbəti dəfə bu interfeysi açmaq üçün skript dəstəyi tələb olunur</string>
   <string name="text_others">Başqa</string>
-  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] %f saniyəyə qaçış tamamlandı</string>
+  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] %f saniyəyə işləməyi tamamladı</string>
   <string name="prompt_email">E-poçt</string>
   <string name="prompt_password">Parol</string>
   <string name="action_sign_in">Daxil ol və ya qeydiyyatdan keç</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Çalışmadan əvvəl icazələri aktiv edin!</string>
   <string name="text_accessibility_service_is_not_turned_on">Əlçatanlıq xidməti aktiv deyil</string>
   <string name="text_accessibility_service_turned_on">Əlçatanlıq aktivdir</string>
+  <string name="text_rerun">Təkrar</string>
+  <string name="text_clear_logcat">Təmiz log</string>
+  <string name="text_stop_run">Qaçmağı dayandırın</string>
 </resources>

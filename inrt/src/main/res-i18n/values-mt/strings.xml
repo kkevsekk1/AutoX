@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Naqas milli jiġi attivat is-servizz ta\' aċċessibbiltà bi privileġġi tal-għeruq</string>
   <string name="text_settings">Imwaqqaf</string>
   <string name="text_script_running">Skript run</string>
-  <string name="text_keep_running_with_foreground_service">Uża servizzi ta\' tagħrif miksub biex l-apps jibqgħu jaħdmu</string>
+  <string name="text_keep_running_with_foreground_service">Uża servizz miksub biex iżżomm l-app tiegħek taħdem</string>
   <string name="text_use_accessibility_service">Servizzi ta\' Aċċessibbiltà</string>
   <string name="text_use_floating_window">Tieqa galleġġjanti</string>
   <string name="summary_enable_accessibility_service">Il-kompiti tas-servizz tal-aċċessibbiltà għandhom ikunu attivati ​​biex jitwettqu (riżervati)</string>
   <string name="summary_enable_floating_window">Trid tiftaħ it-tieqa galleġġjanti biex tara l-ġurnal (oġġett riżervat)</string>
   <string name="text_use_volume_to_stop_running">Iċ-ċavetta tal-volum up twaqqaf l-iskripts kollha</string>
-  <string name="summary_enable_accessibility_service_by_root">It-tħaddim tal-iskript wara l-ftuħ awtomatikament jiftaħ is-servizz tal-aċċessibbiltà bi privileġġi tal-Għerq (oġġett riżervat)</string>
+  <string name="summary_enable_accessibility_service_by_root">Wara l-ftuħ, it-tħaddim tal-iskript jiftaħ awtomatikament is-servizz tal-aċċessibbiltà bi privileġġi tal-Għerq (oġġett riżervat)</string>
   <string name="text_enable_accessibility_service_by_root">Ippermetti awtomatikament servizzi bi privileġġi tal-għeruq</string>
   <string name="summary_stable_mode">L-analiżi tat-tqassim hija aktar stabbli meta tkun attivata, iżda numru żgħir ta \'skripts jistgħu ma jaħdmux sew. Ibda mill-ġdid is-servizz ta\' aċċessibbiltà biex jidħol fis-seħħ</string>
   <string name="text_stable_mode">Mod stabbli</string>
@@ -33,7 +33,7 @@
   <string name="invalid_password">Il-password trid tkun akbar minn 5 karattri</string>
   <string name="login_failed">\"Il-login falliet\"</string>
   <string name="explain_accessibility_permission">Is-softwer jeħtieġ li jiftaħ \"Servizzi ta\' Aċċessibilità\" biex jaħdem, jekk jogħġbok iftaħ \"Settings->Servizzi ta\' Aċċessibilità\" jew \"Settings->Servizzi ta\' Aċċessibilità->Aktar Servizzi Niżżel\", sib \" %s \", u ppermetti Servizzi ta\' Aċċessibilità</string>
-  <string name="text_need_to_enable_accessibility_service">Is-servizzi ta\' aċċessibbiltà jeħtieġ li jiġu attivati</string>
+  <string name="text_need_to_enable_accessibility_service">Is-servizzi ta\' aċċessibbiltà jeħtieġ li jkunu attivati</string>
   <string name="summary_use_volume_to_stop_running">Il-bar tan-notifika dejjem se juri n-notifika \"Din l-app qed taħdem\" biex iżomm il-programm jaħdem</string>
   <string name="text_to_open">Li tiftaħ</string>
   <string name="text_cancel">Ikkanċella</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Jekk jogħġbok ippermetti l-permessi qabel ma taħdem!</string>
   <string name="text_accessibility_service_is_not_turned_on">Is-servizz ta\' aċċessibbiltà mhuwiex mixgħul</string>
   <string name="text_accessibility_service_turned_on">L-aċċessibbiltà hija mixgħula</string>
+  <string name="text_rerun">Mill-ġdid</string>
+  <string name="text_clear_logcat">Log ċar</string>
+  <string name="text_stop_run">Tieqaf taħdem</string>
 </resources>

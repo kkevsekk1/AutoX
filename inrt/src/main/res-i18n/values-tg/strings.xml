@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Барои фаъол кардани хидмати дастрасӣ бо имтиёзҳои реша муяссар нашуд</string>
   <string name="text_settings">Ташкил кардан</string>
   <string name="text_script_running">Иҷро кардани скрипт</string>
-  <string name="text_keep_running_with_foreground_service">Барои нигоҳ доштани корбарии барномаҳо аз хидматҳои пешакӣ истифода баред</string>
+  <string name="text_keep_running_with_foreground_service">Барои нигоҳ доштани корбарии барномаатон аз хидмати пешакӣ истифода баред</string>
   <string name="text_use_accessibility_service">Хидматҳои дастрасӣ</string>
   <string name="text_use_floating_window">Тирезаи шинокунанда</string>
   <string name="summary_enable_accessibility_service">Вазифаҳои хидматрасонии дастрасӣ бояд барои иҷро (захирашуда) фаъол карда шаванд</string>
   <string name="summary_enable_floating_window">Барои дидани гузориш шумо бояд равзанаи шинокунандаро кушоед (банди ҳифзшуда)</string>
   <string name="text_use_volume_to_stop_running">Калиди баланд бардоштани овоз ҳама скриптҳоро қатъ мекунад</string>
-  <string name="summary_enable_accessibility_service_by_root">Иҷрои скрипт пас аз кушодан ба таври худкор хидмати дастрасиро бо имтиёзҳои решавӣ мекушояд (банди ҳифзшуда)</string>
+  <string name="summary_enable_accessibility_service_by_root">Пас аз кушодан, иҷро кардани скрипт ба таври худкор хидмати дастрасиро бо имтиёзҳои решавӣ мекушояд (банди ҳифзшуда)</string>
   <string name="text_enable_accessibility_service_by_root">Ба таври худкор хидматҳоро бо имтиёзҳои реша фаъол созед</string>
   <string name="summary_stable_mode">Ҳангоми фаъолкунӣ таҳлили тарҳ устувортар аст, аммо шумораи ками скриптҳо метавонанд дуруст кор накунанд. Барои эътибор пайдо кардани хидмати дастрасиро аз нав оғоз кунед</string>
   <string name="text_stable_mode">Режими устувор</string>
@@ -26,7 +26,7 @@
   <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Кор дар %f сония анҷом ёфт</string>
   <string name="prompt_email">Почтаи электронӣ</string>
   <string name="prompt_password">Парол</string>
-  <string name="action_sign_in">Ворид шавед ё сабти ном шудед</string>
+  <string name="action_sign_in">Ворид шавед ё сабти ном кунед</string>
   <string name="action_sign_in_short">Даромадан</string>
   <string name="welcome">\"хуш омадед!\"</string>
   <string name="invalid_username">Номи корбарӣ дуруст нест</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Лутфан пеш аз иҷро иҷозатҳоро фаъол созед!</string>
   <string name="text_accessibility_service_is_not_turned_on">Хидмати дастрасӣ фаъол нест</string>
   <string name="text_accessibility_service_turned_on">Дастрасӣ фаъол аст</string>
+  <string name="text_rerun">Такрор</string>
+  <string name="text_clear_logcat">Сабти тоза</string>
+  <string name="text_stop_run">Давиданро бас кунед</string>
 </resources>

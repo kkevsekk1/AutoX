@@ -7,14 +7,14 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Nepavyko įjungti pritaikymo neįgaliesiems paslaugos su root teisėmis</string>
   <string name="text_settings">Nustatyti</string>
   <string name="text_script_running">Scenarijaus paleidimas</string>
-  <string name="text_keep_running_with_foreground_service">Naudokite priekinio plano paslaugas, kad programos veiktų</string>
+  <string name="text_keep_running_with_foreground_service">Naudokite priekinio plano paslaugą, kad programa veiktų</string>
   <string name="text_use_accessibility_service">Prieinamumo paslaugos</string>
   <string name="text_use_floating_window">Plaukiojantis langas</string>
   <string name="summary_enable_accessibility_service">Kad būtų galima vykdyti pritaikymo neįgaliesiems paslaugas, turi būti įgalintos (rezervuotos)</string>
-  <string name="summary_enable_floating_window">Norėdami peržiūrėti žurnalą (rezervuotas elementas), turite atidaryti slankiojantį langą</string>
+  <string name="summary_enable_floating_window">Norėdami peržiūrėti žurnalą (rezervuotas elementas), turite atidaryti slankųjį langą</string>
   <string name="text_use_volume_to_stop_running">Garsumo didinimo klavišas sustabdo visus scenarijus</string>
-  <string name="summary_enable_accessibility_service_by_root">Paleidus scenarijų atidarius, pritaikymo neįgaliesiems paslauga bus automatiškai atidaryta su Root teisėmis (rezervuotas elementas)</string>
-  <string name="text_enable_accessibility_service_by_root">Automatiškai įgalinti paslaugas su root teisėmis</string>
+  <string name="summary_enable_accessibility_service_by_root">Atidarius, paleidus scenarijų bus automatiškai atidaryta pritaikymo neįgaliesiems paslauga su Root teisėmis (rezervuotas elementas)</string>
+  <string name="text_enable_accessibility_service_by_root">Automatiškai įgalinkite paslaugas su root teisėmis</string>
   <string name="summary_stable_mode">Išdėstymo analizė yra stabilesnė, kai įjungta, tačiau nedidelis skaičius scenarijų gali neveikti tinkamai. Iš naujo paleiskite pritaikymo neįgaliesiems paslaugą, kad įsigaliotų</string>
   <string name="text_stable_mode">Stabilus režimas</string>
   <string name="text_accessibility_service">Prieinamumo paslaugos</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Prieš paleisdami įgalinkite leidimus!</string>
   <string name="text_accessibility_service_is_not_turned_on">Prieinamumo paslauga neįjungta</string>
   <string name="text_accessibility_service_turned_on">Prieinamumas įjungtas</string>
+  <string name="text_rerun">Kartoti</string>
+  <string name="text_clear_logcat">Aiškus žurnalas</string>
+  <string name="text_stop_run">Nustoti bėgti</string>
 </resources>

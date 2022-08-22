@@ -118,7 +118,7 @@ fun BuildPage(model: BuildViewModel = viewModel()) {
         ) {
             FileCard(model)
             ConfigCard(model)
-            CompileOptionCard(model)
+            PackagingOptionCard(model)
             RunConfigCard(model)
             SignatureCard(model)
         }
@@ -210,7 +210,7 @@ private fun TopBar(model: BuildViewModel, onIsShowSaveDialogChange: (Boolean) ->
 }
 
 @Composable
-private fun CompileOptionCard(
+private fun PackagingOptionCard(
     model: BuildViewModel
 ) {
     val context = LocalContext.current
@@ -220,7 +220,7 @@ private fun CompileOptionCard(
                 .fillMaxSize()
                 .padding(24.dp)
         ) {
-            Text(text = stringResource(R.string.compile_options))
+            Text(text = stringResource(R.string.text_packaging_options))
             NextActionTextField(
                 value = model.abiList,
                 onValueChange = { model.abiList = it },
@@ -234,9 +234,15 @@ private fun CompileOptionCard(
             }
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Checkbox(
-                    checked = model.isRequiredOCR,
-                    onCheckedChange = { model.isRequiredOCR = it })
-                Text(text = stringResource(id = R.string.text_required_ocr))
+                    checked = model.isRequiredPaddleOCR,
+                    onCheckedChange = { model.isRequiredPaddleOCR = it })
+                Text(text = stringResource(id = R.string.text_required_paddle_ocr))
+            }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(
+                    checked = model.isRequiredTesseractOCR,
+                    onCheckedChange = { model.isRequiredTesseractOCR = it })
+                Text(text = stringResource(id = R.string.text_required_tesseract_ocr))
             }
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Checkbox(
@@ -246,9 +252,9 @@ private fun CompileOptionCard(
             }
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Checkbox(
-                    checked = model.isRequiredDefaultOcrModel,
-                    onCheckedChange = { model.isRequiredDefaultOcrModel = it })
-                Text(text = stringResource(id = R.string.text_required_default_ocr_model))
+                    checked = model.isRequiredDefaultOcrModelData,
+                    onCheckedChange = { model.isRequiredDefaultOcrModelData = it })
+                Text(text = stringResource(id = R.string.text_required_default_paddle_ocr_model))
             }
             //目前必须为true
             /*Row(verticalAlignment = Alignment.CenterVertically) {

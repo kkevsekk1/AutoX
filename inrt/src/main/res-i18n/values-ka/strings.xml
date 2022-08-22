@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">წვდომის სერვისის ჩართვა root პრივილეგიებით ვერ მოხერხდა</string>
   <string name="text_settings">აწყობა</string>
   <string name="text_script_running">სკრიპტის გაშვება</string>
-  <string name="text_keep_running_with_foreground_service">გამოიყენეთ წინა პლანზე სერვისები აპების გასაშვებად</string>
+  <string name="text_keep_running_with_foreground_service">გამოიყენეთ წინა პლანზე სერვისი თქვენი აპის გასაშვებად</string>
   <string name="text_use_accessibility_service">ხელმისაწვდომობის სერვისები</string>
   <string name="text_use_floating_window">მცურავი ფანჯარა</string>
   <string name="summary_enable_accessibility_service">ხელმისაწვდომობის სერვისის ამოცანების შესასრულებლად ჩართული უნდა იყოს (დაჯავშნილი)</string>
   <string name="summary_enable_floating_window">თქვენ უნდა გახსნათ მცურავი ფანჯარა ჟურნალის სანახავად (დაჯავშნილი ელემენტი)</string>
   <string name="text_use_volume_to_stop_running">ხმის გაზრდის ღილაკი აჩერებს ყველა სკრიპტს</string>
-  <string name="summary_enable_accessibility_service_by_root">სკრიპტის გახსნის შემდეგ გაშვება ავტომატურად გახსნის ხელმისაწვდომობის სერვისს Root პრივილეგიებით (დაჯავშნილი ელემენტი)</string>
+  <string name="summary_enable_accessibility_service_by_root">გახსნის შემდეგ, სკრიპტის გაშვება ავტომატურად გახსნის ხელმისაწვდომობის სერვისს Root პრივილეგიებით (დაჯავშნილი ელემენტი)</string>
   <string name="text_enable_accessibility_service_by_root">ავტომატურად ჩართეთ სერვისები root პრივილეგიებით</string>
   <string name="summary_stable_mode">განლაგების ანალიზი უფრო სტაბილურია, როდესაც ჩართულია, მაგრამ სკრიპტების მცირე რაოდენობა შეიძლება არ იმუშაოს სწორად. ხელმისაწვდომობის სერვისის გადატვირთვა ძალაში შესვლისთვის</string>
   <string name="text_stable_mode">სტაბილური რეჟიმი</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">გთხოვთ, ჩართოთ ნებართვები გაშვებამდე!</string>
   <string name="text_accessibility_service_is_not_turned_on">წვდომის სერვისი არ არის ჩართული</string>
   <string name="text_accessibility_service_turned_on">წვდომა ჩართულია</string>
+  <string name="text_rerun">განმეორება</string>
+  <string name="text_clear_logcat">ლოგის გასუფთავება</string>
+  <string name="text_stop_run">შეწყვიტე სირბილი</string>
 </resources>

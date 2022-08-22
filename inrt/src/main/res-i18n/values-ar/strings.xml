@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">فشل في تمكين خدمة الوصول بامتيازات الجذر</string>
   <string name="text_settings">اقامة</string>
   <string name="text_script_running">تشغيل البرنامج النصي</string>
-  <string name="text_keep_running_with_foreground_service">استخدم خدمات المقدمة للحفاظ على تشغيل التطبيقات</string>
+  <string name="text_keep_running_with_foreground_service">استخدم خدمة المقدمة للحفاظ على تشغيل تطبيقك</string>
   <string name="text_use_accessibility_service">خدمات الوصول</string>
   <string name="text_use_floating_window">نافذة عائمة</string>
   <string name="summary_enable_accessibility_service">يجب تمكين مهام خدمة إمكانية الوصول للتنفيذ (محجوز)</string>
   <string name="summary_enable_floating_window">يجب فتح النافذة العائمة لعرض السجل (عنصر محجوز)</string>
   <string name="text_use_volume_to_stop_running">يوقف مفتاح رفع الصوت جميع البرامج النصية</string>
-  <string name="summary_enable_accessibility_service_by_root">سيؤدي تشغيل البرنامج النصي بعد الفتح إلى فتح خدمة إمكانية الوصول تلقائيًا بامتيازات الجذر (عنصر محجوز)</string>
+  <string name="summary_enable_accessibility_service_by_root">بعد الفتح ، سيؤدي تشغيل البرنامج النصي إلى فتح خدمة إمكانية الوصول تلقائيًا بامتيازات الجذر (عنصر محجوز)</string>
   <string name="text_enable_accessibility_service_by_root">تمكين الخدمات تلقائيًا بامتيازات الجذر</string>
   <string name="summary_stable_mode">يكون تحليل التخطيط أكثر استقرارًا عند تمكينه ، ولكن قد لا يعمل عدد قليل من البرامج النصية بشكل صحيح. أعد تشغيل خدمة إمكانية الوصول لتصبح سارية المفعول</string>
   <string name="text_stable_mode">الوضع المستقر</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">الرجاء تمكين الأذونات قبل التشغيل!</string>
   <string name="text_accessibility_service_is_not_turned_on">خدمة الوصول ليست قيد التشغيل</string>
   <string name="text_accessibility_service_turned_on">تم تشغيل إمكانية الوصول</string>
+  <string name="text_rerun">أعد</string>
+  <string name="text_clear_logcat">سجل نظيف</string>
+  <string name="text_stop_run">توقف عن الركض</string>
 </resources>

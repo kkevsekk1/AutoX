@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Nu s-a activat serviciul de accesibilitate cu privilegii root</string>
   <string name="text_settings">Înființat</string>
   <string name="text_script_running">Rularea scriptului</string>
-  <string name="text_keep_running_with_foreground_service">Utilizați serviciile din prim-plan pentru a menține aplicațiile în funcțiune</string>
+  <string name="text_keep_running_with_foreground_service">Utilizați un serviciu din prim-plan pentru a vă menține aplicația în funcțiune</string>
   <string name="text_use_accessibility_service">Servicii de accesibilitate</string>
   <string name="text_use_floating_window">Fereastra plutitoare</string>
-  <string name="summary_enable_accessibility_service">Sarcinile serviciului de accesibilitate trebuie să fie activate pentru a fi executate (rezervate)</string>
+  <string name="summary_enable_accessibility_service">Sarcinile de serviciu de accesibilitate trebuie să fie activate pentru a fi executate (rezervate)</string>
   <string name="summary_enable_floating_window">Trebuie să deschideți fereastra flotantă pentru a vizualiza jurnalul (articol rezervat)</string>
   <string name="text_use_volume_to_stop_running">Tasta de creștere a volumului oprește toate scripturile</string>
-  <string name="summary_enable_accessibility_service_by_root">Rularea scriptului după deschidere va deschide automat serviciul de accesibilitate cu privilegii Root (element rezervat)</string>
+  <string name="summary_enable_accessibility_service_by_root">După deschidere, rularea scriptului va deschide automat serviciul de accesibilitate cu privilegii Root (element rezervat)</string>
   <string name="text_enable_accessibility_service_by_root">Activați automat serviciile cu privilegii root</string>
   <string name="summary_stable_mode">Analiza aspectului este mai stabilă atunci când este activată, dar este posibil ca un număr mic de scripturi să nu funcționeze corect. Reporniți serviciul de accesibilitate pentru a intra în vigoare</string>
   <string name="text_stable_mode">Modul stabil</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Vă rugăm să activați permisiunile înainte de a rula!</string>
   <string name="text_accessibility_service_is_not_turned_on">Serviciul de accesibilitate nu este activat</string>
   <string name="text_accessibility_service_turned_on">Accesibilitatea este activată</string>
+  <string name="text_rerun">Reluare</string>
+  <string name="text_clear_logcat">Curăță Jurnalul</string>
+  <string name="text_stop_run">Nu mai alerga</string>
 </resources>

@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">रूट विशेषाधिकारहरू सहित पहुँच सेवा सक्षम गर्न असफल</string>
   <string name="text_settings">सेट अप</string>
   <string name="text_script_running">स्क्रिप्ट रन</string>
-  <string name="text_keep_running_with_foreground_service">एपहरू चलिरहेको राख्न अग्रभूमि सेवाहरू प्रयोग गर्नुहोस्</string>
+  <string name="text_keep_running_with_foreground_service">आफ्नो एप चलिरहेको राख्न अग्रभूमि सेवा प्रयोग गर्नुहोस्</string>
   <string name="text_use_accessibility_service">पहुँच सेवाहरू</string>
   <string name="text_use_floating_window">फ्लोटिंग विन्डो</string>
   <string name="summary_enable_accessibility_service">पहुँच सेवा कार्यहरू कार्यान्वयन गर्न सक्षम हुनुपर्छ (आरक्षित)</string>
   <string name="summary_enable_floating_window">लग (आरक्षित वस्तु) हेर्नको लागि तपाईंले फ्लोटिंग विन्डो खोल्नु पर्छ।</string>
   <string name="text_use_volume_to_stop_running">भोल्युम अप कुञ्जीले सबै स्क्रिप्टहरू रोक्छ</string>
-  <string name="summary_enable_accessibility_service_by_root">खोले पछि स्क्रिप्ट चलाउँदा रूट विशेषाधिकारहरू (आरक्षित वस्तु) सँग पहुँच सेवा स्वतः खोलिनेछ।</string>
+  <string name="summary_enable_accessibility_service_by_root">खोलिसकेपछि, स्क्रिप्ट चलाउँदा रूट विशेषाधिकारहरू (आरक्षित वस्तु) सँग पहुँच सेवा स्वतः खुल्नेछ।</string>
   <string name="text_enable_accessibility_service_by_root">रूट विशेषाधिकारहरूसँग सेवाहरू स्वचालित रूपमा सक्षम गर्नुहोस्</string>
   <string name="summary_stable_mode">लेआउट विश्लेषण सक्षम हुँदा अधिक स्थिर छ, तर स्क्रिप्ट को एक सानो संख्या राम्रो संग काम नगर्न सक्छ। प्रभावकारी हुन पहुँच सेवा पुन: सुरु गर्नुहोस्</string>
   <string name="text_stable_mode">स्थिर मोड</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">कृपया दौडनु अघि अनुमतिहरू सक्षम गर्नुहोस्!</string>
   <string name="text_accessibility_service_is_not_turned_on">पहुँच सेवा सक्रिय छैन</string>
   <string name="text_accessibility_service_turned_on">पहुँच खोलिएको छ</string>
+  <string name="text_rerun">पुन: चलाउने</string>
+  <string name="text_clear_logcat">स्पष्ट लग</string>
+  <string name="text_stop_run">दौड्न रोक्नुहोस्</string>
 </resources>

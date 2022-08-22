@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Омогућавање услуге приступачности са роот привилегијама није успело</string>
   <string name="text_settings">Подесити</string>
   <string name="text_script_running">Покретање скрипте</string>
-  <string name="text_keep_running_with_foreground_service">Користите услуге у првом плану да бисте наставили да раде апликације</string>
+  <string name="text_keep_running_with_foreground_service">Користите услугу у првом плану да би ваша апликација радила</string>
   <string name="text_use_accessibility_service">Услуге приступачности</string>
   <string name="text_use_floating_window">Плутајући прозор</string>
   <string name="summary_enable_accessibility_service">Задаци услуге приступачности морају бити омогућени за извршавање (резервисано)</string>
   <string name="summary_enable_floating_window">Морате отворити плутајући прозор да бисте видели дневник (резервисана ставка)</string>
   <string name="text_use_volume_to_stop_running">Тастер за појачавање звука зауставља све скрипте</string>
-  <string name="summary_enable_accessibility_service_by_root">Покретање скрипте након отварања ће аутоматски отворити услугу приступачности са Роот привилегијама (резервисана ставка)</string>
+  <string name="summary_enable_accessibility_service_by_root">Након отварања, покретање скрипте ће аутоматски отворити услугу приступачности са Роот привилегијама (резервисана ставка)</string>
   <string name="text_enable_accessibility_service_by_root">Аутоматски омогући услуге са роот привилегијама</string>
   <string name="summary_stable_mode">Анализа изгледа је стабилнија када је омогућена, али мали број скрипти можда неће исправно радити. Поново покрените услугу приступачности да бисте ступили на снагу</string>
   <string name="text_stable_mode">Стабилан режим</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Омогућите дозволе пре покретања!</string>
   <string name="text_accessibility_service_is_not_turned_on">Услуга приступачности није укључена</string>
   <string name="text_accessibility_service_turned_on">Приступачност је укључена</string>
+  <string name="text_rerun">Рерун</string>
+  <string name="text_clear_logcat">Обриши дневник</string>
+  <string name="text_stop_run">Престани да трчиш</string>
 </resources>

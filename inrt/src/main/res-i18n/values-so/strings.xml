@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Ku guul daraystay in uu awood u yeesho adeegga gelitaanka ee mudnaanta xididka</string>
   <string name="text_settings">Dhigay</string>
   <string name="text_script_running">Orod qoraal</string>
-  <string name="text_keep_running_with_foreground_service">Isticmaal adeegyada hore si aad apps-ku u sii socdaan</string>
+  <string name="text_keep_running_with_foreground_service">Adeegso adeeg hore si aad app-kaagu u sii wado</string>
   <string name="text_use_accessibility_service">Adeegyada Helitaanka</string>
   <string name="text_use_floating_window">Daaqadda sabaynaysa</string>
   <string name="summary_enable_accessibility_service">Hawlaha adeegga gelitaanka waa in la oggolaadaa si loo fuliyo (la hayo)</string>
   <string name="summary_enable_floating_window">Waa inaad furto daaqada sabaynaysa si aad u aragto diiwaanka (wax kaydsan)</string>
   <string name="text_use_volume_to_stop_running">Furaha kor u qaadista ayaa joojiya dhammaan qoraallada</string>
-  <string name="summary_enable_accessibility_service_by_root">Ku socodsiinta qoraalka ka dib furitaanka ayaa si toos ah u furi doonta adeegga gelitaanka oo leh mudnaanta xididka (wax la xafiday)</string>
+  <string name="summary_enable_accessibility_service_by_root">Furitaanka ka dib, socodsiinta qoraalka ayaa si toos ah u furi doonta adeegga gelitaanka oo leh mudnaanta xididka (wax la xafiday)</string>
   <string name="text_enable_accessibility_service_by_root">Si toos ah ugu suurtageli adeegyada leh mudnaanta xididka</string>
   <string name="summary_stable_mode">Falanqaynta qaabaynta ayaa aad u deggan marka la awoodo, laakiin tiro yar oo qoraallo ah ayaa laga yaabaa inaanay si sax ah u shaqayn. Dib u bilow adeega gelitaanka si uu u hirgalo</string>
   <string name="text_stable_mode">Hab deggan</string>
@@ -31,7 +31,7 @@
   <string name="welcome">\"soo dhawaada!\"</string>
   <string name="invalid_username">Ma aha isticmaale sax ah</string>
   <string name="invalid_password">Erayga sirta ah waa in uu ka badan yahay 5 xaraf</string>
-  <string name="login_failed">\"Login wuu fashilmay\"</string>
+  <string name="login_failed">\"Login waa guuldareystay\"</string>
   <string name="explain_accessibility_permission">Software-ku wuxuu u baahan yahay inuu furo \"Adeegyada Helitaanka\" si uu u shaqeeyo, fadlan fur \"Settings->Adeegyada Helitaanka\" ama \"Settings->Adeegyada Helitaanka->Adeegyo badan oo la soo dejiyey\", hel \" %s \", oo karti u geli Adeegyada Helitaanka</string>
   <string name="text_need_to_enable_accessibility_service">Adeegyada gelitaanka ayaa loo baahan yahay in la furo</string>
   <string name="summary_use_volume_to_stop_running">Barta ogaysiinta ayaa had iyo jeer soo bandhigi doonta ogaysiinta \"appkan waa socdaa\" si uu barnaamijku u sii socdo</string>
@@ -40,7 +40,10 @@
   <string name="text_requires_background_start">Waxay u baahan tahay ogolaansho si loo furo interface ka gadaal</string>
   <string name="text_requires_background_start_desc">Waxay u baahan tahay ogolaansho si loo furo interface-ka gadaal si uu u shaqeeyo, fadlan tag goobaha si aad u furto</string>
   <string name="text_required_floating_window_permission">Oggolaanshaha daaqada sabaynaysa ayaa loo baahan yahay</string>
-  <string name="text_please_enable_permissions_before_running">Fadlan oggolow oggolaanshaha ka hor inta aanad socodsiin!</string>
+  <string name="text_please_enable_permissions_before_running">Fadlan oggolow oggolaanshaha ka hor intaanad socon!</string>
   <string name="text_accessibility_service_is_not_turned_on">Adeegga gelitaanku ma daar</string>
   <string name="text_accessibility_service_turned_on">Helitaanka ayaa daaran</string>
+  <string name="text_rerun">Dib u habeyn</string>
+  <string name="text_clear_logcat">Qori cad</string>
+  <string name="text_stop_run">Orodka jooji</string>
 </resources>

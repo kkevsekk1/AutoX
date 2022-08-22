@@ -5,15 +5,15 @@
   <string name="text_no_accessibility_permission">ಪ್ರವೇಶಿಸುವಿಕೆ ಸೇವೆಯನ್ನು ಪ್ರಾರಂಭಿಸಲಾಗಿಲ್ಲ</string>
   <string name="text_auto_operate_service_enabled_but_not_running">ಪ್ರವೇಶಿಸುವಿಕೆ ಸೇವೆಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ ಆದರೆ ಚಾಲನೆಯಲ್ಲಿಲ್ಲ, ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ಮರು-ಸಕ್ರಿಯಗೊಳಿಸಲು ಅಥವಾ ಮರುಪ್ರಾರಂಭಿಸಲು ನೀವು ಪ್ರಯತ್ನಿಸಬಹುದು</string>
   <string name="text_enable_accessibility_service_by_root_timeout">ರೂಟ್ ಸವಲತ್ತುಗಳೊಂದಿಗೆ ಪ್ರವೇಶಿಸುವಿಕೆ ಸೇವೆಯನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು ವಿಫಲವಾಗಿದೆ</string>
-  <string name="text_settings">ಸ್ಥಾಪಿಸಲಾಯಿತು</string>
+  <string name="text_settings">ಸ್ಥಾಪಿಸಿದರು</string>
   <string name="text_script_running">ಸ್ಕ್ರಿಪ್ಟ್ ರನ್</string>
-  <string name="text_keep_running_with_foreground_service">ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಚಾಲನೆಯಲ್ಲಿಡಲು ಮುಂಭಾಗದ ಸೇವೆಗಳನ್ನು ಬಳಸಿ</string>
+  <string name="text_keep_running_with_foreground_service">ನಿಮ್ಮ ಅಪ್ಲಿಕೇಶನ್ ಚಾಲನೆಯಲ್ಲಿರಲು ಮುಂಭಾಗದ ಸೇವೆಯನ್ನು ಬಳಸಿ</string>
   <string name="text_use_accessibility_service">ಪ್ರವೇಶಿಸುವಿಕೆ ಸೇವೆಗಳು</string>
   <string name="text_use_floating_window">ತೇಲುವ ಕಿಟಕಿ</string>
   <string name="summary_enable_accessibility_service">ಪ್ರವೇಶಿಸುವಿಕೆ ಸೇವೆಯ ಕಾರ್ಯಗಳನ್ನು ಕಾರ್ಯಗತಗೊಳಿಸಲು ಸಕ್ರಿಯಗೊಳಿಸಬೇಕು (ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ)</string>
   <string name="summary_enable_floating_window">ಲಾಗ್ ಅನ್ನು ವೀಕ್ಷಿಸಲು ನೀವು ತೇಲುವ ವಿಂಡೋವನ್ನು ತೆರೆಯಬೇಕು (ಕಾಯ್ದಿರಿಸಿದ ಐಟಂ)</string>
   <string name="text_use_volume_to_stop_running">ವಾಲ್ಯೂಮ್ ಅಪ್ ಕೀ ಎಲ್ಲಾ ಸ್ಕ್ರಿಪ್ಟ್‌ಗಳನ್ನು ನಿಲ್ಲಿಸುತ್ತದೆ</string>
-  <string name="summary_enable_accessibility_service_by_root">ತೆರೆದ ನಂತರ ಸ್ಕ್ರಿಪ್ಟ್ ಅನ್ನು ರನ್ ಮಾಡುವುದರಿಂದ ರೂಟ್ ಸವಲತ್ತುಗಳೊಂದಿಗೆ ಪ್ರವೇಶಿಸುವಿಕೆ ಸೇವೆಯನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ತೆರೆಯುತ್ತದೆ (ಕಾಯ್ದಿರಿಸಿದ ಐಟಂ)</string>
+  <string name="summary_enable_accessibility_service_by_root">ತೆರೆದ ನಂತರ, ಸ್ಕ್ರಿಪ್ಟ್ ಅನ್ನು ಚಾಲನೆ ಮಾಡುವುದರಿಂದ ರೂಟ್ ಸವಲತ್ತುಗಳೊಂದಿಗೆ ಪ್ರವೇಶಿಸುವಿಕೆ ಸೇವೆಯು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ತೆರೆಯುತ್ತದೆ (ಕಾಯ್ದಿರಿಸಿದ ಐಟಂ)</string>
   <string name="text_enable_accessibility_service_by_root">ರೂಟ್ ಸವಲತ್ತುಗಳೊಂದಿಗೆ ಸೇವೆಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
   <string name="summary_stable_mode">ಲೇಔಟ್ ವಿಶ್ಲೇಷಣೆಯನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿದಾಗ ಹೆಚ್ಚು ಸ್ಥಿರವಾಗಿರುತ್ತದೆ, ಆದರೆ ಕಡಿಮೆ ಸಂಖ್ಯೆಯ ಸ್ಕ್ರಿಪ್ಟ್‌ಗಳು ಸರಿಯಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸದೇ ಇರಬಹುದು. ಕಾರ್ಯರೂಪಕ್ಕೆ ಬರಲು ಪ್ರವೇಶ ಸೇವೆಯನ್ನು ಮರುಪ್ರಾರಂಭಿಸಿ</string>
   <string name="text_stable_mode">ಸ್ಥಿರ ಮೋಡ್</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">ದಯವಿಟ್ಟು ಚಾಲನೆ ಮಾಡುವ ಮೊದಲು ಅನುಮತಿಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ!</string>
   <string name="text_accessibility_service_is_not_turned_on">ಪ್ರವೇಶಿಸುವಿಕೆ ಸೇವೆಯನ್ನು ಆನ್ ಮಾಡಲಾಗಿಲ್ಲ</string>
   <string name="text_accessibility_service_turned_on">ಪ್ರವೇಶಿಸುವಿಕೆಯನ್ನು ಆನ್ ಮಾಡಲಾಗಿದೆ</string>
+  <string name="text_rerun">ಮರುಪ್ರಸಾರ</string>
+  <string name="text_clear_logcat">ಸ್ಪಷ್ಟ ದಾಖಲೆ</string>
+  <string name="text_stop_run">ಓಡುವುದನ್ನು ನಿಲ್ಲಿಸಿ</string>
 </resources>

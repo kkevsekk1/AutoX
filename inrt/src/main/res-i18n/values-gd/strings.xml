@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Dh\'fhàillig an t-seirbheis ruigsinneachd le sochairean freumha a chomasachadh</string>
   <string name="text_settings">Suidhich</string>
   <string name="text_script_running">Ruith sgriobt</string>
-  <string name="text_keep_running_with_foreground_service">Cleachd seirbheisean aghaidh an deilbh gus aplacaidean a chumail a’ dol</string>
+  <string name="text_keep_running_with_foreground_service">Cleachd seirbheis aghaidh an deilbh gus an aplacaid agad a chumail a’ dol</string>
   <string name="text_use_accessibility_service">Seirbheisean Ruigsinneachd</string>
   <string name="text_use_floating_window">Uinneag air bhog</string>
   <string name="summary_enable_accessibility_service">Feumar gnìomhan seirbheis ruigsinneachd a chomasachadh (glèidhte)</string>
-  <string name="summary_enable_floating_window">Feumaidh tu an uinneag fleòdraidh fhosgladh gus an loga fhaicinn (rud glèidhte)</string>
+  <string name="summary_enable_floating_window">Feumaidh tu an uinneag air bhog fhosgladh gus an loga fhaicinn (rud glèidhte)</string>
   <string name="text_use_volume_to_stop_running">Bidh iuchair toirt suas a’ stad a h-uile sgriobt</string>
-  <string name="summary_enable_accessibility_service_by_root">Ma ruitheas tu an sgriobt às deidh dha fosgladh fosglaidh e gu fèin-ghluasadach an t-seirbheis ruigsinneachd le sochairean Root (nì glèidhte)</string>
+  <string name="summary_enable_accessibility_service_by_root">Às deidh dha fosgladh, fosglaidh an sgriobt gu fèin-ghluasadach an t-seirbheis ruigsinneachd le sochairean Root (nì glèidhte)</string>
   <string name="text_enable_accessibility_service_by_root">Dèan comas gu fèin-ghluasadach air seirbheisean le freumh-sochair</string>
   <string name="summary_stable_mode">Tha mion-sgrùdadh cruth nas seasmhaiche nuair a tha e comasach, ach is dòcha nach obraich àireamh bheag de sgriobtaichean gu ceart. Ath-thòisich seirbheis ruigsinneachd gus a thighinn gu buil</string>
   <string name="text_stable_mode">Modh seasmhach</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Feuch an cuir thu an comas ceadan mus ruith thu!</string>
   <string name="text_accessibility_service_is_not_turned_on">Chan eil seirbheis ruigsinneachd air a chuir air</string>
   <string name="text_accessibility_service_turned_on">Tha ruigsinneachd air a thionndadh air</string>
+  <string name="text_rerun">Ath-ruith</string>
+  <string name="text_clear_logcat">Log soilleir</string>
+  <string name="text_stop_run">Stad a ruith</string>
 </resources>

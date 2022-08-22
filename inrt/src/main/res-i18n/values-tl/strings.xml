@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Nabigong paganahin ang serbisyo sa pagiging naa-access na may mga pribilehiyo sa ugat</string>
   <string name="text_settings">Set up</string>
   <string name="text_script_running">Script run</string>
-  <string name="text_keep_running_with_foreground_service">Gumamit ng mga serbisyo sa foreground para panatilihing tumatakbo ang mga app</string>
+  <string name="text_keep_running_with_foreground_service">Gumamit ng serbisyo sa foreground para panatilihing tumatakbo ang iyong app</string>
   <string name="text_use_accessibility_service">Mga Serbisyo sa Accessibility</string>
   <string name="text_use_floating_window">Lumulutang na bintana</string>
   <string name="summary_enable_accessibility_service">Ang mga gawain sa serbisyo sa pagiging naa-access ay dapat na pinagana upang maisagawa (nakareserba)</string>
   <string name="summary_enable_floating_window">Dapat mong buksan ang lumulutang na window upang tingnan ang log (nakareserbang item)</string>
   <string name="text_use_volume_to_stop_running">Pinihinto ng volume up key ang lahat ng script</string>
-  <string name="summary_enable_accessibility_service_by_root">Ang pagpapatakbo ng script pagkatapos ng pagbubukas ay awtomatikong magbubukas ng serbisyo sa pagiging naa-access na may mga pribilehiyo sa Root (nakareserbang item)</string>
+  <string name="summary_enable_accessibility_service_by_root">Pagkatapos buksan, ang pagpapatakbo ng script ay awtomatikong magbubukas ng serbisyo sa pagiging naa-access na may mga pribilehiyo sa Root (nakareserbang item)</string>
   <string name="text_enable_accessibility_service_by_root">Awtomatikong paganahin ang mga serbisyong may mga pribilehiyo sa ugat</string>
   <string name="summary_stable_mode">Ang pagsusuri sa layout ay mas matatag kapag pinagana, ngunit maaaring hindi gumana nang maayos ang isang maliit na bilang ng mga script. I-restart ang serbisyo sa pagiging naa-access upang magkabisa</string>
   <string name="text_stable_mode">Stable mode</string>
@@ -23,7 +23,7 @@
   <string name="text_hide_logs">Itago ang log</string>
   <string name="summary_hide_logs">Ang interface ng log ay hindi ipinapakita, at ang suporta sa script ay kinakailangan upang buksan ang interface na ito sa susunod</string>
   <string name="text_others">Iba pa</string>
-  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Tapos na tumakbo sa %f segundo</string>
+  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] Natapos ang pagtakbo sa %f segundo</string>
   <string name="prompt_email">E-mail</string>
   <string name="prompt_password">Password</string>
   <string name="action_sign_in">Mag-log-in o nakarehistro</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Mangyaring paganahin ang mga pahintulot bago tumakbo!</string>
   <string name="text_accessibility_service_is_not_turned_on">Hindi naka-on ang serbisyo sa pagiging naa-access</string>
   <string name="text_accessibility_service_turned_on">Naka-on ang accessibility</string>
+  <string name="text_rerun">Muling ipalabas</string>
+  <string name="text_clear_logcat">Malinaw na log</string>
+  <string name="text_stop_run">Huminto sa pagtakbo</string>
 </resources>

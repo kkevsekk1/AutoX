@@ -1,0 +1,53 @@
+{
+  "abis": [
+    "arm64-v8a",
+    "armeabi-v7a",
+    "x86",
+    "x86_64"
+  ],
+  "assets": [
+  ],
+  "buildDir": "build",
+  "build": {
+    "build_id": null,
+    "build_number": 0,
+    "build_time": 0
+  },
+  "useFeatures": [],
+  "icon": null,
+  "ignoredDirs": [
+    "build"
+  ],
+  "launchConfig": {
+    "displaySplash": false,
+    "hideLauncher": false,
+    "hideLogs": false,
+    "stableMode": false,
+    "volumeUpcontrol": false,
+    "permissions": [],
+    "serviceDesc": "使脚本自动操作(点击、长按、滑动等)所需，若关闭则只能执行不涉及自动操作的脚本。",
+    "splashIcon": null,
+    "splashText": "Powered by TessOCR"
+  },
+  "libs": [
+    "libtesseract.so",
+    "libpng.so",
+    "libleptonica.so",
+    "libjpeg.so",
+    "libjackpal-androidterm5.so",
+    "libjackpal-termexec2.so"
+  ],
+  "main": "main.js",
+  "name": "TessOCR",
+  "outputPath": null,
+  "packageName": "com.script.tessocr",
+  "projectDirectory": null,
+  "scripts": {},
+  "signingConfig": {
+    "alias": null,
+    "keystore": null
+  },
+  "sourcePath": null,
+  "versionCode": 1,
+  "versionName": "1.0.0"
+}

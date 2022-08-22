@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Omogućivanje usluge pristupačnosti s root privilegijama nije uspjelo</string>
   <string name="text_settings">Postaviti</string>
   <string name="text_script_running">Pokretanje skripte</string>
-  <string name="text_keep_running_with_foreground_service">Upotrijebite usluge u prvom planu da bi aplikacije nastavile raditi</string>
+  <string name="text_keep_running_with_foreground_service">Upotrijebite uslugu u prvom planu da bi vaša aplikacija radila</string>
   <string name="text_use_accessibility_service">Usluge pristupačnosti</string>
   <string name="text_use_floating_window">Plutajući prozor</string>
   <string name="summary_enable_accessibility_service">Zadaci usluge pristupačnosti moraju biti omogućeni za izvršenje (rezervirano)</string>
   <string name="summary_enable_floating_window">Morate otvoriti plutajući prozor za pregled dnevnika (rezervirana stavka)</string>
   <string name="text_use_volume_to_stop_running">Tipka za povećanje glasnoće zaustavlja sve skripte</string>
-  <string name="summary_enable_accessibility_service_by_root">Pokretanje skripte nakon otvaranja automatski će otvoriti uslugu pristupačnosti s Root privilegijama (rezervirana stavka)</string>
+  <string name="summary_enable_accessibility_service_by_root">Nakon otvaranja, pokretanje skripte automatski će otvoriti uslugu pristupačnosti s Root privilegijama (rezervirana stavka)</string>
   <string name="text_enable_accessibility_service_by_root">Automatski omogući usluge s root privilegijama</string>
   <string name="summary_stable_mode">Analiza izgleda je stabilnija kada je omogućena, ali mali broj skripti možda neće ispravno raditi. Ponovno pokrenite uslugu pristupačnosti da stupi na snagu</string>
   <string name="text_stable_mode">Stabilan način rada</string>
@@ -37,10 +37,13 @@
   <string name="summary_use_volume_to_stop_running">Traka s obavijestima uvijek će prikazivati ​​obavijest \"Ova je aplikacija pokrenuta\" kako bi program nastavio raditi</string>
   <string name="text_to_open">Otvoriti</string>
   <string name="text_cancel">Otkazati</string>
-  <string name="text_requires_background_start">Zahtijeva dozvolu za otvaranje sučelja u pozadini</string>
+  <string name="text_requires_background_start">Zahtijeva dopuštenje za otvaranje sučelja u pozadini</string>
   <string name="text_requires_background_start_desc">Za pokretanje je potrebna dozvola za otvaranje sučelja u pozadini, idite na postavke za otvaranje</string>
   <string name="text_required_floating_window_permission">Potrebno je dopuštenje za plutajući prozor</string>
   <string name="text_please_enable_permissions_before_running">Omogućite dozvole prije pokretanja!</string>
   <string name="text_accessibility_service_is_not_turned_on">Usluga pristupačnosti nije uključena</string>
   <string name="text_accessibility_service_turned_on">Pristupačnost je uključena</string>
+  <string name="text_rerun">Repriza</string>
+  <string name="text_clear_logcat">Čisti zapisnik</string>
+  <string name="text_stop_run">Prestati trčati</string>
 </resources>

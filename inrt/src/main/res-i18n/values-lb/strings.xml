@@ -4,22 +4,22 @@
 <resources>
   <string name="text_no_accessibility_permission">Accessibilitéit Service net ugefaangen</string>
   <string name="text_auto_operate_service_enabled_but_not_running">Accessibilitéitsservicer sinn aktivéiert awer lafen net, Dir kënnt probéieren Ären Telefon nei z\'aktivéieren oder ze starten</string>
-  <string name="text_enable_accessibility_service_by_root_timeout">Ausgefall fir Accessibilitéitsservice mat root Privilegien z\'aktivéieren</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">Ausgefall fir Accessibilitéitsservice mat Root Privilegien z\'aktivéieren</string>
   <string name="text_settings">Ageriicht</string>
   <string name="text_script_running">Skript lafen</string>
-  <string name="text_keep_running_with_foreground_service">Benotzt Virdergrond Servicer fir Apps lafen ze halen</string>
+  <string name="text_keep_running_with_foreground_service">Benotzt e Virdergrond Service fir Är App weider ze halen</string>
   <string name="text_use_accessibility_service">Accessibilitéit Servicer</string>
   <string name="text_use_floating_window">Schwiewend Fënster</string>
   <string name="summary_enable_accessibility_service">Accessibilitéitsservice Aufgaben mussen aktivéiert ginn fir auszeféieren (reservéiert)</string>
   <string name="summary_enable_floating_window">Dir musst déi schwiewend Fënster opmaachen fir de Logbuch ze gesinn (reservéiert Element)</string>
   <string name="text_use_volume_to_stop_running">Volume erop Schlëssel stoppt all Scripten</string>
-  <string name="summary_enable_accessibility_service_by_root">De Skript no der Ouverture ausféieren wäert automatesch den Accessibilitéitsservice mat Root Privilegien opmaachen (reservéiert Element)</string>
+  <string name="summary_enable_accessibility_service_by_root">Nom Ouverture, laaft de Skript automatesch den Accessibilitéitsservice mat Root Privilegien op (reservéiert Element)</string>
   <string name="text_enable_accessibility_service_by_root">Aktivéiert automatesch Servicer mat Root Privilegien</string>
-  <string name="summary_stable_mode">Layout Analyse ass méi stabil wann et aktivéiert ass, awer eng kleng Zuel vu Skripte funktionéiere vläicht net richteg. Restart Accessibilitéitsservice fir a Kraaft ze trieden</string>
+  <string name="summary_stable_mode">Layout Analyse ass méi stabil wann et aktivéiert ass, awer eng kleng Zuel vu Skripte funktionnéiert vläicht net richteg. Restart Accessibilitéitsservice fir a Kraaft ze trieden</string>
   <string name="text_stable_mode">Stabil Modus</string>
   <string name="text_accessibility_service">Accessibilitéit Servicer</string>
   <string name="text_dont_show_main_activity">Net d\'Haaptrei Interface weisen</string>
-  <string name="summary_dont_show_main_activity">Run de Skript direkt nodeems Dir d\'App opgemaach huet</string>
+  <string name="summary_dont_show_main_activity">Run de Skript direkt nodeems Dir d\'App opmaacht</string>
   <string name="text_hide_logs">Verstoppen aloggen</string>
   <string name="summary_hide_logs">De Log-Interface gëtt net ugewisen, a Skriptunterstëtzung ass erfuerderlech fir dës Interface d\'nächst Kéier opzemaachen</string>
   <string name="text_others">Aner</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Aktivéiert w.e.g. Permissiounen ier Dir leeft!</string>
   <string name="text_accessibility_service_is_not_turned_on">Accessibilitéitsservice ass net ageschalt</string>
   <string name="text_accessibility_service_turned_on">Accessibilitéit ass ageschalt</string>
+  <string name="text_rerun">Rerun</string>
+  <string name="text_clear_logcat">Kloer Logbicher</string>
+  <string name="text_stop_run">Ophalen ze lafen</string>
 </resources>

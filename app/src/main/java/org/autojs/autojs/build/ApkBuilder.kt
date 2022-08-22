@@ -20,6 +20,7 @@ import org.autojs.autojs.tool.copyTo
 import org.autojs.autojs.tool.parseUriOrNull
 import org.autojs.autojs.tool.unzip
 import com.stardust.autojs.project.Constant
+import org.autojs.autojs.tool.addAllIfNotExist
 import pxb.android.StringItem
 import pxb.android.axml.AxmlWriter
 import zhao.arsceditor.ArscUtil
@@ -96,23 +97,29 @@ class ApkBuilder(
         return this
     }
 
+    private fun getAbsolutePath(name: String): String = projectConfig!!.getAbsolutePath(name)
+
     fun copyDir(
         srcPath: String,
         relativeTargetPath: String,
-        ignoredPath: List<String> = projectConfig!!.ignoredDirs,
-        ignoredName: List<String> = emptyList()
+        ignoredPathList: List<String> = emptyList(),
     ) {
-        val ignoredPath1 = ignoredPath.map {
-            if (it.startsWith("/")) it
-            else PFiles.join(projectConfig!!.projectDirectory!!, it)
-        }
+        val ignoredPath1 = ignoredPathList.toMutableList()
+            .apply { addAllIfNotExist(projectConfig!!.ignoredDirs.map { getAbsolutePath(it) }) }
+
         val fromDir = File(srcPath)
         val toDir = File(workspacePath, relativeTargetPath)
         toDir.mkdirs()
-        val children = fromDir.listFiles() ?: return
+
+        val children = fromDir.listFiles()
+            ?.filter { file ->
+                !ignoredPath1.any {
+                    val dir = if (it.endsWith("/")) it else "$it/"
+                    (file.path.startsWith(dir) || file.canonicalFile == File(it).canonicalFile)
+                }
+            } ?: return
+
         for (child in children) {
-            val ignored = ignoredPath1.any { child.path.startsWith(it) } || ignoredName.contains(child.name)
-            if (ignored) continue
             if (child.isFile) {
                 if (child.name.endsWith(".js")) {
                     encryptToDir(child, toDir)
@@ -188,9 +195,9 @@ class ApkBuilder(
                 copyDir(
                     srcPath = file.path,
                     relativeTargetPath = relativeTo.path,
-                    ignoredPath = listOf(
-                        ProjectConfig.CONFIG_FILE_NAME,
-                        projectConfig!!.sourcePath!!
+                    ignoredPathList = listOf(
+                        getAbsolutePath(ProjectConfig.CONFIG_FILE_NAME),
+                        getAbsolutePath(projectConfig!!.sourcePath!!)
                     )
                 )
                 return@forEach
@@ -210,9 +217,7 @@ class ApkBuilder(
     }
 
     private fun copyLibraries(config: ProjectConfig) {
-        if (!config.abis.containsAll(Constant.Libraries.TERMINAL_EMULATOR)) {
-            config.abis.addAll(Constant.Libraries.TERMINAL_EMULATOR)
-        }
+        config.libs.addAllIfNotExist(Constant.Libraries.TERMINAL_EMULATOR)
         config.abis.forEach { abi ->
             config.libs.forEach { name ->
                 kotlin.runCatching {

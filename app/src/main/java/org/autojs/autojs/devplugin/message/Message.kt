@@ -1,4 +1,4 @@
-package org.autojs.autojs.devplugin
+package org.autojs.autojs.devplugin.message
 
 import com.google.gson.annotations.SerializedName
 
@@ -6,8 +6,25 @@ data class Message(
     @SerializedName("type")
     val type: String,
     @SerializedName("data")
-    val data: Any,
+    val data: Any?,
 )
+
+data class HelloResponse(
+    @SerializedName("data")
+    val data: String,
+    @SerializedName("debug")
+    val debug: Boolean,
+    @SerializedName("message_id")
+    val messageId: String,
+    @SerializedName("type")
+    val type: String,
+    @SerializedName("version")
+    val version: String? = "0"
+) {
+    fun versionCode(): Long {
+        return version?.replace(".", "")?.toLongOrNull() ?: -1L
+    }
+}
 
 data class LogData(
     @SerializedName("log")

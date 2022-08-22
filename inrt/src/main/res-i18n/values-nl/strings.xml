@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Kan toegankelijkheidsservice niet inschakelen met rootrechten</string>
   <string name="text_settings">Opgericht</string>
   <string name="text_script_running">Script uitvoeren</string>
-  <string name="text_keep_running_with_foreground_service">Gebruik voorgrondservices om apps actief te houden</string>
+  <string name="text_keep_running_with_foreground_service">Gebruik een voorgrondservice om uw app actief te houden</string>
   <string name="text_use_accessibility_service">Toegankelijkheidsdiensten</string>
   <string name="text_use_floating_window">Zwevend raam</string>
   <string name="summary_enable_accessibility_service">Toegankelijkheidsservicetaken moeten zijn ingeschakeld om uit te voeren (gereserveerd)</string>
   <string name="summary_enable_floating_window">U moet het zwevende venster openen om het logboek te bekijken (gereserveerd item)</string>
   <string name="text_use_volume_to_stop_running">Volume omhoog-toets stopt alle scripts</string>
-  <string name="summary_enable_accessibility_service_by_root">Als u het script na het openen uitvoert, wordt de toegankelijkheidsservice automatisch geopend met root-rechten (gereserveerd item)</string>
+  <string name="summary_enable_accessibility_service_by_root">Na het openen zal het uitvoeren van het script automatisch de toegankelijkheidsservice openen met root-rechten (gereserveerd item)</string>
   <string name="text_enable_accessibility_service_by_root">Services automatisch inschakelen met root-rechten</string>
   <string name="summary_stable_mode">Lay-outanalyse is stabieler als deze is ingeschakeld, maar een klein aantal scripts werkt mogelijk niet goed. Start de toegankelijkheidsservice opnieuw om van kracht te worden</string>
   <string name="text_stable_mode">Stabiele modus</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Schakel machtigingen in voordat u begint!</string>
   <string name="text_accessibility_service_is_not_turned_on">Toegankelijkheidsservice is niet ingeschakeld</string>
   <string name="text_accessibility_service_turned_on">Toegankelijkheid is ingeschakeld</string>
+  <string name="text_rerun">Herhaling</string>
+  <string name="text_clear_logcat">Logboek opschonen</string>
+  <string name="text_stop_run">Stop met rennen</string>
 </resources>

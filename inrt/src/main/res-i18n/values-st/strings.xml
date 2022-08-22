@@ -7,15 +7,15 @@
   <string name="text_enable_accessibility_service_by_root_timeout">E hlolehile ho bulela litšebeletso tsa phihlello ka litokelo tsa metso</string>
   <string name="text_settings">Tlhophiso</string>
   <string name="text_script_running">Script run</string>
-  <string name="text_keep_running_with_foreground_service">Sebelisa litšebeletso tsa pele ho boloka lisebelisoa li sebetsa</string>
+  <string name="text_keep_running_with_foreground_service">Sebelisa tšebeletso ea pele ho boloka sesebelisoa sa hau se sebetsa</string>
   <string name="text_use_accessibility_service">Litšebeletso tsa phihlello</string>
   <string name="text_use_floating_window">Fesetere e phaphametseng</string>
   <string name="summary_enable_accessibility_service">Mesebetsi ea litšebeletso tsa phihlello e tlameha ho lumelloa hore e phethe (e beheletsoe)</string>
   <string name="summary_enable_floating_window">U tlameha ho bula fensetere e phaphametseng ho sheba log (ntho e bolokiloeng)</string>
   <string name="text_use_volume_to_stop_running">Konopo ea ho phahamisa molumo e emisa mangolo ohle</string>
-  <string name="summary_enable_accessibility_service_by_root">Ho tsamaisa sengoloa ka mor\'a ho bula ho tla bula tšebeletso ea phihlello ka bohona ka litokelo tsa Root (ntho e bolokiloeng)</string>
+  <string name="summary_enable_accessibility_service_by_root">Kamora ho bula, ho tsamaisa sengoloa ho tla bula ts\'ebeletso ea phihlello ka boiketsetso ka litokelo tsa Root (ntho e bolokiloeng)</string>
   <string name="text_enable_accessibility_service_by_root">Lumella litšebeletso ka boiketsetso ka litokelo tsa metso</string>
-  <string name="summary_stable_mode">Tlhahlobo ea sebopeho e tsitsitse haholoanyane ha e lumelletsoe, empa palo e nyane ea mangolo e kanna ea se sebetse hantle. Qala hape tšebeletso ea phihlello hore e sebetse</string>
+  <string name="summary_stable_mode">Tlhahlobo ea sebopeho e tsitsitse haholoanyane ha e lumelletsoe, empa palo e nyane ea lingoloa e kanna ea se sebetse hantle. Qala hape tšebeletso ea phihlello hore e sebetse</string>
   <string name="text_stable_mode">Mokhoa o tsitsitseng</string>
   <string name="text_accessibility_service">Litšebeletso tsa phihlello</string>
   <string name="text_dont_show_main_activity">U se ke ua hlahisa segokanyimmediamentsi sa sebolokigolo</string>
@@ -42,5 +42,8 @@
   <string name="text_required_floating_window_permission">Ho hlokahala tumello ea fensetere e phaphametseng</string>
   <string name="text_please_enable_permissions_before_running">Ka kopo, lumella litumello pele u sebetsa!</string>
   <string name="text_accessibility_service_is_not_turned_on">Tshebeletso ya phihlello ha e a bulelwa</string>
-  <string name="text_accessibility_service_turned_on">Tsela ea ho kena e buletsoe</string>
+  <string name="text_accessibility_service_turned_on">Kenyelletso e butswe</string>
+  <string name="text_rerun">Busetsa</string>
+  <string name="text_clear_logcat">Hlaka e hlakileng</string>
+  <string name="text_stop_run">Emisa ho matha</string>
 </resources>

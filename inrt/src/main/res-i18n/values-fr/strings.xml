@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Échec de l\'activation du service d\'accessibilité avec les privilèges root</string>
   <string name="text_settings">D\'installation</string>
   <string name="text_script_running">Exécution de script</string>
-  <string name="text_keep_running_with_foreground_service">Utiliser les services de premier plan pour maintenir les applications en cours d\'exécution</string>
+  <string name="text_keep_running_with_foreground_service">Utiliser un service de premier plan pour assurer le fonctionnement de votre application</string>
   <string name="text_use_accessibility_service">Services d\'accessibilité</string>
   <string name="text_use_floating_window">Fenêtre flottante</string>
   <string name="summary_enable_accessibility_service">Les tâches du service d\'accessibilité doivent être activées pour s\'exécuter (réservées)</string>
   <string name="summary_enable_floating_window">Vous devez ouvrir la fenêtre flottante pour visualiser le journal (élément réservé)</string>
   <string name="text_use_volume_to_stop_running">La touche d\'augmentation du volume arrête tous les scripts</string>
-  <string name="summary_enable_accessibility_service_by_root">L\'exécution du script après l\'ouverture ouvrira automatiquement le service d\'accessibilité avec les privilèges root (élément réservé)</string>
+  <string name="summary_enable_accessibility_service_by_root">Après l\'ouverture, l\'exécution du script ouvrira automatiquement le service d\'accessibilité avec les privilèges Root (élément réservé)</string>
   <string name="text_enable_accessibility_service_by_root">Activer automatiquement les services avec les privilèges root</string>
   <string name="summary_stable_mode">L\'analyse de la mise en page est plus stable lorsqu\'elle est activée, mais un petit nombre de scripts peuvent ne pas fonctionner correctement. Redémarrez le service d\'accessibilité pour prendre effet</string>
   <string name="text_stable_mode">Mode stable</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Veuillez activer les autorisations avant d\'exécuter !</string>
   <string name="text_accessibility_service_is_not_turned_on">Le service d\'accessibilité n\'est pas activé</string>
   <string name="text_accessibility_service_turned_on">L\'accessibilité est activée</string>
+  <string name="text_rerun">Rediffusion</string>
+  <string name="text_clear_logcat">Effacer le journal</string>
+  <string name="text_stop_run">Arrêter de courir</string>
 </resources>

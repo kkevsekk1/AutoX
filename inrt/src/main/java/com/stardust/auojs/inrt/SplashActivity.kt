@@ -57,9 +57,17 @@ class SplashActivity : ComponentActivity() {
     private fun checkAccessibilityServices() {
         if (AccessibilityServiceTool.isAccessibilityServiceEnabled(this)) {
             permissionsResult[Permissions.ACCESSIBILITY_SERVICES] = true
-            Toast.makeText(this, getString(R.string.text_accessibility_service_turned_on), Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                getString(R.string.text_accessibility_service_turned_on),
+                Toast.LENGTH_SHORT
+            ).show()
         } else {
-            Toast.makeText(this, getString(R.string.text_accessibility_service_is_not_turned_on), Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                getString(R.string.text_accessibility_service_is_not_turned_on),
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
@@ -89,9 +97,7 @@ class SplashActivity : ComponentActivity() {
             }
         }
 
-    private val projectConfig by lazy {
-        ProjectConfig.fromAssets(this, ProjectConfig.configFileOfDir("project"))!!
-    }
+    private lateinit var projectConfig: ProjectConfig
 
     private val permissionsResult = mutableMapOf<String, Boolean>()
 
@@ -122,21 +128,26 @@ class SplashActivity : ComponentActivity() {
     override fun onCreate(@Nullable savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        val slug = findViewById<TextView>(R.id.slug)
-        slug.typeface = Typeface.createFromAsset(assets, "roboto_medium.ttf")
-        Log.d(TAG, "onCreate: ${Gson().toJson(projectConfig)}")
-        slug.text = projectConfig.launchConfig.splashText
-        if (Pref.getHost("d") == "d") { //非第一次运行
-            Pref.setHost("112.74.161.35")
-            projectConfig.launchConfig.let {
-                Pref.setHideLogs(it.isHideLogs)
-                Pref.setStableMode(it.isStableMode)
-                Pref.setStopAllScriptsWhenVolumeUp(it.isVolumeUpControl)
-                Pref.setDisplaySplash(it.displaySplash)
-            }
-
-        }
         lifecycleScope.launch {
+            projectConfig =
+                ProjectConfig.fromAssetsAsync(
+                    this@SplashActivity,
+                    ProjectConfig.configFileOfDir("project")
+                )!!
+            val slug = findViewById<TextView>(R.id.slug)
+            slug.typeface = Typeface.createFromAsset(assets, "roboto_medium.ttf")
+            Log.d(TAG, "onCreate: ${Gson().toJson(projectConfig)}")
+            slug.text = projectConfig.launchConfig.splashText
+            if (Pref.getHost("d") == "d") { //非第一次运行
+                Pref.setHost("112.74.161.35")
+                projectConfig.launchConfig.let {
+                    Pref.setHideLogs(it.isHideLogs)
+                    Pref.setStableMode(it.isStableMode)
+                    Pref.setStopAllScriptsWhenVolumeUp(it.isVolumeUpControl)
+                    Pref.setDisplaySplash(it.displaySplash)
+                }
+
+            }
             delay(1000)
             readSpecialPermissionConfiguration()
             requestExternalStoragePermission()
@@ -232,7 +243,11 @@ class SplashActivity : ComponentActivity() {
             }
             if (enabled) {
                 permissionsResult[Permissions.ACCESSIBILITY_SERVICES] = true
-                Toast.makeText(this@SplashActivity, getString(R.string.text_accessibility_service_turned_on), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@SplashActivity,
+                    getString(R.string.text_accessibility_service_turned_on),
+                    Toast.LENGTH_SHORT
+                ).show()
                 checkSpecialPermissions()
                 return@launch
             }

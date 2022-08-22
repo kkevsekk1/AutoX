@@ -4,10 +4,10 @@
 <resources>
   <string name="text_no_accessibility_permission">Хандалтын үйлчилгээг эхлүүлээгүй байна</string>
   <string name="text_auto_operate_service_enabled_but_not_running">Хандалтын үйлчилгээ идэвхжсэн боловч ажиллахгүй байгаа тул та утсаа дахин идэвхжүүлэх эсвэл дахин асааж үзээрэй</string>
-  <string name="text_enable_accessibility_service_by_root_timeout">Root эрхтэй хандалтын үйлчилгээг идэвхжүүлж чадсангүй</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">Root эрх бүхий хандалтын үйлчилгээг идэвхжүүлж чадсангүй</string>
   <string name="text_settings">Тохируулах</string>
   <string name="text_script_running">Скрипт ажиллуулах</string>
-  <string name="text_keep_running_with_foreground_service">Аппликешнүүдийг ажиллуулахын тулд урд талын үйлчилгээг ашиглана уу</string>
+  <string name="text_keep_running_with_foreground_service">Програмаа үргэлжлүүлэн ажиллуулахын тулд үндсэн үйлчилгээг ашиглаарай</string>
   <string name="text_use_accessibility_service">Хүртээмжтэй байдлын үйлчилгээ</string>
   <string name="text_use_floating_window">Хөвөгч цонх</string>
   <string name="summary_enable_accessibility_service">Хандалтын үйлчилгээний даалгавруудыг гүйцэтгэхийн тулд идэвхжүүлсэн байх ёстой (нөөцлөгдсөн)</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Ажиллуулахаасаа өмнө зөвшөөрлийг идэвхжүүлнэ үү!</string>
   <string name="text_accessibility_service_is_not_turned_on">Хандалтын үйлчилгээ асаагүй байна</string>
   <string name="text_accessibility_service_turned_on">Хандалтыг идэвхжүүлсэн</string>
+  <string name="text_rerun">Дахин ажиллуулах</string>
+  <string name="text_clear_logcat">Цэвэр бүртгэл</string>
+  <string name="text_stop_run">Гүйхээ боль</string>
 </resources>

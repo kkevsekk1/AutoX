@@ -50,7 +50,7 @@ dependencies {
     api('com.afollestad.material-dialogs:core:0.9.2.3', {
         exclude group: 'com.android.support'
     })
-    api 'com.google.android.material:material:1.7.0-alpha03'
+    api 'com.google.android.material:material:1.7.0-beta01'
     api 'com.github.hyb1996:EnhancedFloaty:0.31'
     api 'com.makeramen:roundedimageview:2.3.0'
     // OkHttp
@@ -74,5 +74,6 @@ dependencies {
     api project(":paddleocr")
     // libs
     api fileTree(dir: '../app/libs', include: ['dx.jar', 'rhino-1.7.14-jdk7.jar'])
+    api 'cz.adaptech:tesseract4android:4.1.1'
 }
 

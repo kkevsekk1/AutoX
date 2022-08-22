@@ -2,21 +2,21 @@
 
 <!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
 <resources>
-  <string name="text_no_accessibility_permission">Servicio de accesibilidad ukaxa janiwa qalltatäkiti</string>
+  <string name="text_no_accessibility_permission">Servicio de accesibilidad ukax janiw qalltatäkiti</string>
   <string name="text_auto_operate_service_enabled_but_not_running">Servicios de accesibilidad ukax ch’amanchatawa ukampis janiw phuqhaskiti, telefono ukar wasitat ch’amanchañ jan ukax wasitat qalltañ yant’asma</string>
   <string name="text_enable_accessibility_service_by_root_timeout">Janiw saphi privilegionakampi accesibilidad servicio ukar ch’amanchañax utjkiti</string>
   <string name="text_settings">Mayjt\'ayaña</string>
   <string name="text_script_running">Script ukax t’ijt’ayatawa</string>
-  <string name="text_keep_running_with_foreground_service">Servicios de primer plano uka apnaqañax apps ukanak apnaqañapataki</string>
+  <string name="text_keep_running_with_foreground_service">Mä servicio de primer plano apnaqañamawa app ukax jan chhaqhañapataki</string>
   <string name="text_use_accessibility_service">Servicios de Accesibilidad ukaxa</string>
   <string name="text_use_floating_window">Ukax mä ventana ukankiwa</string>
   <string name="summary_enable_accessibility_service">Accesibilidad servicio lurawinakax phuqhañatakix ch’amanchatäñapawa (reservado) .</string>
   <string name="summary_enable_floating_window">Uka registro uñakipañatakix ventana flotante jist’arañamawa (artículo reservado) .</string>
   <string name="text_use_volume_to_stop_running">Volumen up tecla ukax taqi scripts ukanakaruw sayt’ayi</string>
-  <string name="summary_enable_accessibility_service_by_root">Jist’arañ tukuyatat script apnaqañax automáticamente servicio de accesibilidad ukaruw jist’arasini privilegios Root (elemento reservado) ukampi .</string>
+  <string name="summary_enable_accessibility_service_by_root">Jist’arañ tukuyatatxa, script apnaqañax automáticamente servicio de accesibilidad ukax privilegios Root (elemento reservado) ukampiw jist’arasini .</string>
   <string name="text_enable_accessibility_service_by_root">Automáticamente servicios ukanakax root privilegios ukanakampiw ch’amanchasi</string>
   <string name="summary_stable_mode">Layout uñakipañax juk’amp ch’amanchatawa, ukampis mä jisk’a jakhüwix scripts ukanakax janiw sum irnaqkaspati. Servicio de accesibilidad ukaxa mayampi qalltañatakixa wakisiwa</string>
-  <string name="text_stable_mode">Ukaxa estable ukhamawa</string>
+  <string name="text_stable_mode">Modo estable ukaxa wali ch’amawa</string>
   <string name="text_accessibility_service">Servicios de Accesibilidad ukaxa</string>
   <string name="text_dont_show_main_activity">Janiwa jach’a interfaz uñacht’ayañakiti</string>
   <string name="summary_dont_show_main_activity">App jist’arañ tukuyatatx ​​chiqak script ukar apnaqañamawa</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">¡Janïr t’ijtkasax permisos ukanakax activatäñapawa!</string>
   <string name="text_accessibility_service_is_not_turned_on">Servicio de accesibilidad ukaxa janiwa qhananchatäkiti</string>
   <string name="text_accessibility_service_turned_on">Accesibilidad ukax wali ch’amawa</string>
+  <string name="text_rerun">Wasitat uñacht’ayaña</string>
+  <string name="text_clear_logcat">Qhananchaña log</string>
+  <string name="text_stop_run">T’ijt’aña jaytaña</string>
 </resources>

@@ -4,16 +4,16 @@
 <resources>
   <string name="text_no_accessibility_permission">ユーザー補助サービスが開始されていません</string>
   <string name="text_auto_operate_service_enabled_but_not_running">ユーザー補助サービスは有効になっていますが、実行されていません。電話を再度有効にするか、再起動してみてください</string>
-  <string name="text_enable_accessibility_service_by_root_timeout">Root 権限でアクセシビリティ サービスを有効にできませんでした</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">Root 権限でユーザー補助サービスを有効にできませんでした</string>
   <string name="text_settings">設定</string>
   <string name="text_script_running">スクリプトの実行</string>
   <string name="text_keep_running_with_foreground_service">フォアグラウンド サービスを使用してアプリを実行し続ける</string>
   <string name="text_use_accessibility_service">アクセシビリティ サービス</string>
   <string name="text_use_floating_window">フローティングウィンドウ</string>
   <string name="summary_enable_accessibility_service">アクセシビリティ サービス タスクの実行を有効にする必要があります (予約済み)。</string>
-  <string name="summary_enable_floating_window">ログを表示するには、フローティング ウィンドウを開く必要があります (予約済みアイテム)</string>
+  <string name="summary_enable_floating_window">ログを表示するには、フローティング ウィンドウを開く必要があります (予約アイテム)。</string>
   <string name="text_use_volume_to_stop_running">ボリュームアップキーはすべてのスクリプトを停止します</string>
-  <string name="summary_enable_accessibility_service_by_root">開いた後にスクリプトを実行すると、ユーザー補助サービスがルート権限で自動的に開きます (予約項目)</string>
+  <string name="summary_enable_accessibility_service_by_root">開いた後、スクリプトを実行すると、ユーザー補助サービスがルート権限で自動的に開きます (予約項目)。</string>
   <string name="text_enable_accessibility_service_by_root">Root権限でサービスを自動的に有効化</string>
   <string name="summary_stable_mode">レイアウト分析は、有効にするとより安定しますが、少数のスクリプトが正しく機能しない場合があります。 ユーザー補助サービスを再起動して有効にします</string>
   <string name="text_stable_mode">安定モード</string>
@@ -34,7 +34,7 @@
   <string name="login_failed">\"ログインに失敗しました\"</string>
   <string name="explain_accessibility_permission">ソフトウェアを実行するには、「アクセシビリティ サービス」を開く必要があります。「設定 -> アクセシビリティ サービス」または「設定 -> アクセシビリティ サービス -> その他のダウンロード済みサービス」を開き、「 %s 」を見つけて、アクセシビリティ サービスを有効にしてください。</string>
   <string name="text_need_to_enable_accessibility_service">ユーザー補助サービスを有効にする必要があります</string>
-  <string name="summary_use_volume_to_stop_running">通知バーには常に「このアプリは実行中です」という通知が表示され、プログラムを実行し続けることができます</string>
+  <string name="summary_use_volume_to_stop_running">プログラムを実行し続けるために、通知バーには常に「このアプリは実行中です」という通知が表示されます</string>
   <string name="text_to_open">開く</string>
   <string name="text_cancel">キャンセル</string>
   <string name="text_requires_background_start">バックグラウンドでインターフェイスを開く権限が必要です</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">実行する前にパーミッションを有効にしてください!</string>
   <string name="text_accessibility_service_is_not_turned_on">ユーザー補助サービスがオンになっていません</string>
   <string name="text_accessibility_service_turned_on">アクセシビリティがオンになっています</string>
+  <string name="text_rerun">再実行</string>
+  <string name="text_clear_logcat">ログのクリア</string>
+  <string name="text_stop_run">走るのをやめる</string>
 </resources>

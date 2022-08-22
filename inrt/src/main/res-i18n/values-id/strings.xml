@@ -7,14 +7,14 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Gagal mengaktifkan layanan aksesibilitas dengan hak akses root</string>
   <string name="text_settings">Mempersiapkan</string>
   <string name="text_script_running">Menjalankan skrip</string>
-  <string name="text_keep_running_with_foreground_service">Gunakan layanan latar depan agar aplikasi tetap berjalan</string>
+  <string name="text_keep_running_with_foreground_service">Gunakan layanan latar depan agar aplikasi Anda tetap berjalan</string>
   <string name="text_use_accessibility_service">Layanan Aksesibilitas</string>
   <string name="text_use_floating_window">Jendela mengambang</string>
   <string name="summary_enable_accessibility_service">Tugas layanan aksesibilitas harus diaktifkan untuk dijalankan (dicadangkan)</string>
   <string name="summary_enable_floating_window">Anda harus membuka jendela mengambang untuk melihat log (item yang dipesan)</string>
   <string name="text_use_volume_to_stop_running">Tombol volume atas menghentikan semua skrip</string>
-  <string name="summary_enable_accessibility_service_by_root">Menjalankan skrip setelah dibuka akan secara otomatis membuka layanan aksesibilitas dengan hak akses Root (item yang dicadangkan)</string>
-  <string name="text_enable_accessibility_service_by_root">Secara otomatis mengaktifkan layanan dengan hak akses root</string>
+  <string name="summary_enable_accessibility_service_by_root">Setelah dibuka, menjalankan skrip akan secara otomatis membuka layanan aksesibilitas dengan hak akses Root (item yang dicadangkan)</string>
+  <string name="text_enable_accessibility_service_by_root">Aktifkan layanan secara otomatis dengan hak akses root</string>
   <string name="summary_stable_mode">Analisis tata letak lebih stabil saat diaktifkan, tetapi sejumlah kecil skrip mungkin tidak berfungsi dengan baik. Mulai ulang layanan aksesibilitas agar berlaku</string>
   <string name="text_stable_mode">Mode stabil</string>
   <string name="text_accessibility_service">Layanan Aksesibilitas</string>
@@ -38,9 +38,12 @@
   <string name="text_to_open">Membuka</string>
   <string name="text_cancel">Membatalkan</string>
   <string name="text_requires_background_start">Memerlukan izin untuk membuka antarmuka di latar belakang</string>
-  <string name="text_requires_background_start_desc">Membutuhkan izin untuk membuka antarmuka di latar belakang untuk menjalankan, silakan buka pengaturan untuk membuka</string>
+  <string name="text_requires_background_start_desc">Memerlukan izin untuk membuka antarmuka di latar belakang untuk menjalankan, silakan buka pengaturan untuk membuka</string>
   <string name="text_required_floating_window_permission">Izin jendela mengambang diperlukan</string>
   <string name="text_please_enable_permissions_before_running">Harap aktifkan izin sebelum menjalankan!</string>
   <string name="text_accessibility_service_is_not_turned_on">Layanan aksesibilitas tidak diaktifkan</string>
   <string name="text_accessibility_service_turned_on">Aksesibilitas diaktifkan</string>
+  <string name="text_rerun">Memutarkan lagi</string>
+  <string name="text_clear_logcat">Hapus log</string>
+  <string name="text_stop_run">Berhenti berlari</string>
 </resources>

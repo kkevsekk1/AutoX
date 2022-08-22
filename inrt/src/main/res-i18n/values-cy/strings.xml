@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Wedi methu galluogi gwasanaeth hygyrchedd gyda breintiau gwraidd</string>
   <string name="text_settings">Sefydlu</string>
   <string name="text_script_running">Rhediad sgript</string>
-  <string name="text_keep_running_with_foreground_service">Defnyddiwch wasanaethau blaendir i gadw apiau i redeg</string>
+  <string name="text_keep_running_with_foreground_service">Defnyddiwch wasanaeth blaendir i gadw\'ch ap i redeg</string>
   <string name="text_use_accessibility_service">Gwasanaethau Hygyrchedd</string>
   <string name="text_use_floating_window">Ffenestr arnofio</string>
   <string name="summary_enable_accessibility_service">Rhaid galluogi tasgau gwasanaeth hygyrchedd i\'w cyflawni (cadw)</string>
   <string name="summary_enable_floating_window">Rhaid agor y ffenestr sy\'n arnofio i weld y log (eitem a gadwyd yn ôl)</string>
   <string name="text_use_volume_to_stop_running">Mae bysell cyfaint i fyny yn atal pob sgript</string>
-  <string name="summary_enable_accessibility_service_by_root">Bydd rhedeg y sgript ar ôl agor yn agor y gwasanaeth hygyrchedd yn awtomatig gyda breintiau Root (eitem wedi\'i chadw)</string>
+  <string name="summary_enable_accessibility_service_by_root">Ar ôl agor, bydd rhedeg y sgript yn agor y gwasanaeth hygyrchedd yn awtomatig gyda breintiau Root (eitem wedi\'i chadw)</string>
   <string name="text_enable_accessibility_service_by_root">Galluogi gwasanaethau â breintiau gwraidd yn awtomatig</string>
   <string name="summary_stable_mode">Mae dadansoddiad gosodiad yn fwy sefydlog pan gaiff ei alluogi, ond efallai na fydd nifer fach o sgriptiau\'n gweithio\'n iawn. Ailgychwyn gwasanaeth hygyrchedd i ddod i rym</string>
   <string name="text_stable_mode">Modd sefydlog</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Galluogwch ganiatadau cyn rhedeg!</string>
   <string name="text_accessibility_service_is_not_turned_on">Nid yw gwasanaeth hygyrchedd wedi\'i droi ymlaen</string>
   <string name="text_accessibility_service_turned_on">Mae hygyrchedd wedi\'i droi ymlaen</string>
+  <string name="text_rerun">Ailredeg</string>
+  <string name="text_clear_logcat">Log clir</string>
+  <string name="text_stop_run">Stopio rhedeg</string>
 </resources>

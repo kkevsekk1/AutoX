@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">يىلتىز ئىمتىيازى بىلەن زىيارەت قىلىش مۇلازىمىتىنى قوزغىتالمىدى</string>
   <string name="text_settings">تەڭشەش</string>
   <string name="text_script_running">قوليازما ئىجرا</string>
-  <string name="text_keep_running_with_foreground_service">ئەپلەرنى ئىجرا قىلىش ئۈچۈن ئالدىنقى مۇلازىمەتلەرنى ئىشلىتىڭ</string>
+  <string name="text_keep_running_with_foreground_service">ئەپىڭىزنى ئىجرا قىلىش ئۈچۈن ئالدىنقى مۇلازىمەتنى ئىشلىتىڭ</string>
   <string name="text_use_accessibility_service">قولايلىق مۇلازىمەتلەر</string>
   <string name="text_use_floating_window">لەيلىمە كۆزنەك</string>
-  <string name="summary_enable_accessibility_service">قولايلىق مۇلازىمەت ۋەزىپىلىرىنى چوقۇم ئىجرا قىلىش كېرەك (زاپاس)</string>
+  <string name="summary_enable_accessibility_service">قولايلىق مۇلازىمەت ۋەزىپىلىرىنى ئىجرا قىلىش كېرەك (زاپاس)</string>
   <string name="summary_enable_floating_window">خاتىرە (زاپاس تۈر) نى كۆرۈش ئۈچۈن چوقۇم لەيلىمە كۆزنەكنى ئېچىشىڭىز كېرەك.</string>
   <string name="text_use_volume_to_stop_running">ئاۋاز كۇنۇپكىسى بارلىق ئورگىناللارنى توختىتىدۇ</string>
-  <string name="summary_enable_accessibility_service_by_root">قوليازمىنى ئاچقاندىن كېيىن ئىجرا قىلسىڭىز Root ئىمتىيازلىرى (زاپاس تۈر) بىلەن ئاپتوماتىك زىيارەت قىلىش مۇلازىمىتى ئېچىلىدۇ.</string>
+  <string name="summary_enable_accessibility_service_by_root">ئېچىلغاندىن كېيىن ، قوليازما ئىجرا بولغاندا Root ئىمتىيازلىرى (زاپاس تۈر) بىلەن ئاپتوماتىك زىيارەت قىلىش مۇلازىمىتى ئېچىلىدۇ.</string>
   <string name="text_enable_accessibility_service_by_root">يىلتىز ئىمتىيازى بار مۇلازىمەتلەرنى ئاپتوماتىك قوزغىتىڭ</string>
   <string name="summary_stable_mode">قوزغىتىلغاندا ئورۇنلاشتۇرۇش ئانالىزى تېخىمۇ مۇقىم بولىدۇ ، ئەمما ئاز ساندىكى ئورگىناللار نورمال ئىشلىمەسلىكى مۇمكىن. قولايلىق مۇلازىمەتنى قايتا قوزغىتىڭ</string>
   <string name="text_stable_mode">مۇقىم ھالەت</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">ئىجرا قىلىشتىن بۇرۇن ئىجازەتنى قوزغىتىڭ!</string>
   <string name="text_accessibility_service_is_not_turned_on">قولايلىق مۇلازىمەت ئېچىلمىدى</string>
   <string name="text_accessibility_service_turned_on">زىيارەت قىلىش ئىقتىدارى ئوچۇق</string>
+  <string name="text_rerun">Rerun</string>
+  <string name="text_clear_logcat">Log log</string>
+  <string name="text_stop_run">يۈگۈرۈشنى توختىتىڭ</string>
 </resources>

@@ -13,7 +13,7 @@
   <string name="summary_enable_accessibility_service">접근성 서비스 작업을 실행하려면 활성화(예약)해야 합니다.</string>
   <string name="summary_enable_floating_window">플로팅 창을 열어야 로그(예약 항목)를 볼 수 있습니다.</string>
   <string name="text_use_volume_to_stop_running">볼륨 높이기 키는 모든 스크립트를 중지합니다.</string>
-  <string name="summary_enable_accessibility_service_by_root">실행 후 스크립트를 실행하면 루트 권한(예약 항목)으로 접근성 서비스가 자동으로 열립니다.</string>
+  <string name="summary_enable_accessibility_service_by_root">연 후 스크립트를 실행하면 루트 권한(예약 항목)으로 접근성 서비스가 자동으로 열립니다.</string>
   <string name="text_enable_accessibility_service_by_root">루트 권한으로 서비스를 자동으로 활성화</string>
   <string name="summary_stable_mode">레이아웃 분석을 활성화하면 더 안정적이지만 일부 스크립트는 제대로 작동하지 않을 수 있습니다. 적용하려면 접근성 서비스를 다시 시작하세요.</string>
   <string name="text_stable_mode">안정 모드</string>
@@ -39,8 +39,11 @@
   <string name="text_cancel">취소</string>
   <string name="text_requires_background_start">백그라운드에서 인터페이스를 열려면 권한이 필요합니다.</string>
   <string name="text_requires_background_start_desc">실행하려면 백그라운드에서 인터페이스를 열 수 있는 권한이 필요합니다. 열려면 설정으로 이동하세요.</string>
-  <string name="text_required_floating_window_permission">부동 창 권한이 필요합니다.</string>
+  <string name="text_required_floating_window_permission">부동 창 권한이 필요합니다</string>
   <string name="text_please_enable_permissions_before_running">실행하기 전에 권한을 활성화하십시오!</string>
   <string name="text_accessibility_service_is_not_turned_on">접근성 서비스가 켜져 있지 않습니다</string>
   <string name="text_accessibility_service_turned_on">접근성이 켜져 있습니다.</string>
+  <string name="text_rerun">재방송</string>
+  <string name="text_clear_logcat">로그 지우기</string>
+  <string name="text_stop_run">그만 뛰다</string>
 </resources>

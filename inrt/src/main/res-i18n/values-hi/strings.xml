@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">रूट विशेषाधिकारों के साथ अभिगम्यता सेवा को सक्षम करने में विफल</string>
   <string name="text_settings">स्थापित करना</string>
   <string name="text_script_running">स्क्रिप्ट रन</string>
-  <string name="text_keep_running_with_foreground_service">ऐप्स चालू रखने के लिए अग्रभूमि सेवाओं का उपयोग करें</string>
+  <string name="text_keep_running_with_foreground_service">अपने ऐप को चालू रखने के लिए अग्रभूमि सेवा का उपयोग करें</string>
   <string name="text_use_accessibility_service">अभिगम्यता सेवाएं</string>
   <string name="text_use_floating_window">फ्लोटिंग विंडो</string>
   <string name="summary_enable_accessibility_service">एक्सेसिबिलिटी सेवा कार्यों को निष्पादित करने के लिए सक्षम होना चाहिए (आरक्षित)</string>
-  <string name="summary_enable_floating_window">लॉग देखने के लिए आपको फ्लोटिंग विंडो खोलनी होगी (आरक्षित आइटम)</string>
-  <string name="text_use_volume_to_stop_running">वॉल्यूम अप कुंजी सभी स्क्रिप्ट बंद कर देती है</string>
-  <string name="summary_enable_accessibility_service_by_root">खोलने के बाद स्क्रिप्ट चलाने से रूट विशेषाधिकारों (आरक्षित आइटम) के साथ एक्सेसिबिलिटी सेवा स्वतः खुल जाएगी</string>
+  <string name="summary_enable_floating_window">लॉग देखने के लिए आपको फ्लोटिंग विंडो खोलनी होगी (आरक्षित वस्तु)</string>
+  <string name="text_use_volume_to_stop_running">वॉल्यूम अप कुंजी सभी लिपियों को रोकता है</string>
+  <string name="summary_enable_accessibility_service_by_root">खोलने के बाद, स्क्रिप्ट चलाने से रूट विशेषाधिकारों (आरक्षित आइटम) के साथ एक्सेसिबिलिटी सेवा स्वतः खुल जाएगी</string>
   <string name="text_enable_accessibility_service_by_root">रूट विशेषाधिकारों के साथ सेवाओं को स्वचालित रूप से सक्षम करें</string>
   <string name="summary_stable_mode">सक्षम होने पर लेआउट विश्लेषण अधिक स्थिर होता है, लेकिन हो सकता है कि कुछ स्क्रिप्ट ठीक से काम न करें। प्रभावी होने के लिए पहुंच-योग्यता सेवा को पुनरारंभ करें</string>
   <string name="text_stable_mode">स्थिर मोड</string>
@@ -37,10 +37,13 @@
   <string name="summary_use_volume_to_stop_running">कार्यक्रम को चालू रखने के लिए अधिसूचना बार हमेशा \"यह ऐप चल रहा है\" अधिसूचना प्रदर्शित करेगा</string>
   <string name="text_to_open">को खोलने के लिए</string>
   <string name="text_cancel">रद्द करना</string>
-  <string name="text_requires_background_start">पृष्ठभूमि में इंटरफ़ेस खोलने की अनुमति की आवश्यकता है</string>
+  <string name="text_requires_background_start">पृष्ठभूमि में इंटरफ़ेस खोलने के लिए अनुमति की आवश्यकता है</string>
   <string name="text_requires_background_start_desc">चलाने के लिए पृष्ठभूमि में इंटरफ़ेस खोलने की अनुमति की आवश्यकता है, कृपया खोलने के लिए सेटिंग्स पर जाएं</string>
   <string name="text_required_floating_window_permission">फ़्लोटिंग विंडो अनुमति आवश्यक</string>
   <string name="text_please_enable_permissions_before_running">कृपया चलने से पहले अनुमतियाँ सक्षम करें!</string>
   <string name="text_accessibility_service_is_not_turned_on">सुलभता सेवा चालू नहीं है</string>
   <string name="text_accessibility_service_turned_on">सुलभता चालू है</string>
+  <string name="text_rerun">फिर से दौड़ना</string>
+  <string name="text_clear_logcat">अभिलेख साफ करो</string>
+  <string name="text_stop_run">दौड़ना बंद करो</string>
 </resources>

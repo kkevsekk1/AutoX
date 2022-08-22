@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">ניט אַנדערש צו געבן אַקסעסאַביליטי דינסט מיט וואָרצל פּריווילאַדזשאַז</string>
   <string name="text_settings">שטעל אויף</string>
   <string name="text_script_running">שריפט לויפן</string>
-  <string name="text_keep_running_with_foreground_service">ניצן פאָרגראַונד באַדינונגס צו האַלטן אַפּפּס פליסנדיק</string>
+  <string name="text_keep_running_with_foreground_service">ניצן אַ פאָרגראַונד דינסט צו האַלטן דיין אַפּ פליסנדיק</string>
   <string name="text_use_accessibility_service">אַקסעסאַביליטי באַדינונגס</string>
   <string name="text_use_floating_window">פלאָוטינג פֿענצטער</string>
   <string name="summary_enable_accessibility_service">אַקסעסאַביליטי סערוויס טאַסקס מוזן זיין ענייבאַלד צו ויספירן (רעזערווירט)</string>
   <string name="summary_enable_floating_window">איר מוזן עפֿענען די פלאָוטינג פֿענצטער צו זען די קלאָץ (רעזערווירט נומער)</string>
   <string name="text_use_volume_to_stop_running">באַנד אַרויף שליסל סטאַפּס אַלע סקריפּס</string>
-  <string name="summary_enable_accessibility_service_by_root">פליסנדיק די שריפט נאָך עפן וועט אויטאָמאַטיש עפענען די אַקסעסאַביליטי דינסט מיט וואָרצל פּריווילאַדזשאַז (רעזערווירט נומער)</string>
+  <string name="summary_enable_accessibility_service_by_root">נאָך עפן, פליסנדיק די שריפט וועט אויטאָמאַטיש עפֿענען די אַקסעסאַביליטי דינסט מיט וואָרצל פּריווילאַדזשאַז (רעזערווירט נומער)</string>
   <string name="text_enable_accessibility_service_by_root">אויטאָמאַטיש געבן באַדינונגס מיט וואָרצל פּריווילאַדזשאַז</string>
   <string name="summary_stable_mode">אויסלייג אַנאַליסיס איז מער סטאַביל ווען ענייבאַלד, אָבער אַ קליין נומער פון סקריפּס קען נישט אַרבעטן רעכט. ריסטאַרט אַקסעסאַביליטי דינסט צו נעמען ווירקונג</string>
   <string name="text_stable_mode">סטאַביל מאָדע</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">ביטע געבן פּערמישאַנז איידער פליסנדיק!</string>
   <string name="text_accessibility_service_is_not_turned_on">אַקסעסאַביליטי דינסט איז נישט אויסגעדרייט אויף</string>
   <string name="text_accessibility_service_turned_on">אַקסעסאַביליטי איז אויסגעדרייט אויף</string>
+  <string name="text_rerun">רירון</string>
+  <string name="text_clear_logcat">קלאָר קלאָץ</string>
+  <string name="text_stop_run">האַלטן פליסנדיק</string>
 </resources>

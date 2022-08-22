@@ -4,16 +4,16 @@
 <resources>
   <string name="text_no_accessibility_permission">Aksesibiliti savis nɔ stat</string>
   <string name="text_auto_operate_service_enabled_but_not_running">Aksesibiliti savis dɛn dɔn ɛnabul bɔt dɛn nɔ de rɔn, yu kin tray fɔ ɛnabul bak ɔ stat yu fon bak</string>
-  <string name="text_enable_accessibility_service_by_root_timeout">Fail fɔ ɛnabul aksesibiliti savis wit rut privilɛj</string>
+  <string name="text_enable_accessibility_service_by_root_timeout">Fail fɔ ɛnabul aksesibiliti savis wit rut prɛvilɛj</string>
   <string name="text_settings">Put</string>
   <string name="text_script_running">Skript de rɔn</string>
-  <string name="text_keep_running_with_foreground_service">Yuz fɔgrɔn savis dɛn fɔ mek di ap dɛn kɔntinyu fɔ de rɔn</string>
+  <string name="text_keep_running_with_foreground_service">Yuz wan fɔgrɔn savis fɔ mek yu ap kɔntinyu fɔ wok</string>
   <string name="text_use_accessibility_service">Aksesibiliti Savis dɛn</string>
   <string name="text_use_floating_window">Winda we de flɔt</string>
   <string name="summary_enable_accessibility_service">Aksesibiliti savis wok dɛn fɔ ɛnabul fɔ ɛksɛkutiv (rizɔv) .</string>
   <string name="summary_enable_floating_window">Yu fɔ opin di winda we de flɔt fɔ si di lɔg (we dɛn dɔn kip) .</string>
   <string name="text_use_volume_to_stop_running">Volume up key de stɔp ɔl di skript dɛn</string>
-  <string name="summary_enable_accessibility_service_by_root">We yu rɔn di skript afta yu dɔn opin am, i go opin di aksesbiliti savis ɔtomɛtik wan wit Rut prɛvilɛj dɛn (we dɛn dɔn kip) .</string>
+  <string name="summary_enable_accessibility_service_by_root">Afta yu opin, we yu rɔn di skript go opin di aksesibiliti savis ɔtomɛtik wan wit Rut prɛvilɛj dɛn (aytem we dɛn dɔn kip) .</string>
   <string name="text_enable_accessibility_service_by_root">Ɔtomɛtik ɛnabul savis dɛn wit rut prɛvilɛj dɛn</string>
   <string name="summary_stable_mode">Layout analysis kin stebul mɔ we dɛn ɛnabul, bɔt smɔl nɔmba pan skript dɛn nɔ kin wok fayn. Ristart aksesibiliti savis fɔ tek ɛfɛkt</string>
   <string name="text_stable_mode">Stebul mɔd</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Duya, ɛnabul di pɔmishɔn dɛn bifo yu rɔn!</string>
   <string name="text_accessibility_service_is_not_turned_on">Aksesibiliti savis nɔ de ɔp</string>
   <string name="text_accessibility_service_turned_on">Aksesibiliti dɔn opin</string>
+  <string name="text_rerun">Rirun bak</string>
+  <string name="text_clear_logcat">Klia lɔg</string>
+  <string name="text_stop_run">Stɔp fɔ rɔn</string>
 </resources>

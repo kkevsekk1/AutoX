@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">Yehlulekile ukunika amandla isevisi yokufinyeleleka ngamalungelo ezimpande</string>
   <string name="text_settings">Misa</string>
   <string name="text_script_running">Script run</string>
-  <string name="text_keep_running_with_foreground_service">Sebenzisa amasevisi angaphambili ukuze ugcine izinhlelo zokusebenza zisebenza</string>
+  <string name="text_keep_running_with_foreground_service">Sebenzisa isevisi yangaphambili ukuze ugcine uhlelo lwakho lokusebenza lusebenza</string>
   <string name="text_use_accessibility_service">Amasevisi Okufinyelela</string>
   <string name="text_use_floating_window">Iwindi elintantayo</string>
   <string name="summary_enable_accessibility_service">Imisebenzi yesevisi yokufinyelela kufanele inikwe amandla ukuze isetshenziswe (igodliwe)</string>
   <string name="summary_enable_floating_window">Kufanele uvule iwindi elintantayo ukuze ubuke ilogu (into egodliwe)</string>
-  <string name="text_use_volume_to_stop_running">Ukhiye wevolumu umisa yonke imibhalo</string>
-  <string name="summary_enable_accessibility_service_by_root">Ukuqalisa iskripthi ngemva kokuvula kuzovula ngokuzenzakalelayo isevisi yokufinyeleleka ngamalungelo e-Root (into egodliwe)</string>
+  <string name="text_use_volume_to_stop_running">Ukhiye wevolumu umisa zonke izikripthi</string>
+  <string name="summary_enable_accessibility_service_by_root">Ngemva kokuvula, ukusebenzisa iskripthi kuzovula ngokuzenzakalelayo isevisi yokufinyeleleka ngamalungelo e-Root (into egodliwe)</string>
   <string name="text_enable_accessibility_service_by_root">Nika amandla ngokuzenzakalela amasevisi ngamalungelo ezimpande</string>
   <string name="summary_stable_mode">Ukuhlaziywa kwesakhiwo kuzinze kakhulu uma kunikwe amandla, kodwa inombolo encane yeskripthi ingase ingasebenzi kahle. Qala kabusha isevisi yokufinyeleleka ukuze isebenze</string>
   <string name="text_stable_mode">Imodi ezinzile</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">Sicela unike amandla izimvume ngaphambi kokuqalisa!</string>
   <string name="text_accessibility_service_is_not_turned_on">Isevisi yokufinyeleleka ayivulwanga</string>
   <string name="text_accessibility_service_turned_on">Ukufinyelela kuvuliwe</string>
+  <string name="text_rerun">Phinda</string>
+  <string name="text_clear_logcat">Sula log</string>
+  <string name="text_stop_run">Yeka ukugijima</string>
 </resources>

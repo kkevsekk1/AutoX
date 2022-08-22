@@ -36,16 +36,14 @@ open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Co
 
     private val initScript: Script
         get() {
-            return sInitScript ?: {
-                try {
-                    val reader = InputStreamReader(mAndroidContext.assets.open("init.js"))
-                    val script = context.compileReader(reader, SOURCE_NAME_INIT, 1, null)
-                    sInitScript = script
-                    script
-                } catch (e: IOException) {
-                    throw UncheckedIOException(e)
-                }
-            }()
+            return sInitScript ?: try {
+                val reader = InputStreamReader(mAndroidContext.assets.open("init.js"))
+                val script = context.compileReader(reader, SOURCE_NAME_INIT, 1, null)
+                sInitScript = script
+                script
+            } catch (e: IOException) {
+                throw UncheckedIOException(e)
+            }
         }
 
     val scriptable: Scriptable

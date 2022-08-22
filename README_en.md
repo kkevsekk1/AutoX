@@ -38,6 +38,13 @@ About the two protocols:
 * Official Forums：[www.autoxjs.com](http://www.autoxjs.com)
 * autoxjs[Changelog](CHANGELOG.md)
 
+### Autox.js download address: 
+[https://github.com/kkevsekk1/AutoX/release](https://github.com/kkevsekk1/AutoX/release)
+#### APK version description：
+- universal: Universal version (don't care about the size of the installation package, just use this version, including the following 2 CPU architectures so)
+- armeabi-v7a: 32-bit ARM device (preferred for spare)
+- arm64-v8a: 64-bit ARM device (mainstream flagship)
+
 ### Feature
 1. Simple and easy-to-use automation functions implemented by accessibility services
 2. Floating window recording and running

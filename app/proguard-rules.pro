@@ -28,6 +28,7 @@
 -dontwarn java.lang.invoke.*
 -dontwarn **$$Lambda$*
 
+-keep class org.autojs.autojs.devplugin.message.** {*;}
 -keep class org.mozilla.javascript.** { *; }
 -keep class com.jecelyin.editor.** { *; }
 -keep class com.stardust.automator.** { *; }

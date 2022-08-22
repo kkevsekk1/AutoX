@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">ከስር መብቶች ጋር የተደራሽነት አገልግሎትን ማንቃት አልተሳካም።</string>
   <string name="text_settings">አዘገጃጀት</string>
   <string name="text_script_running">ስክሪፕት አሂድ</string>
-  <string name="text_keep_running_with_foreground_service">መተግበሪያዎች እንዲሰሩ ለማድረግ የፊት ለፊት አገልግሎቶችን ይጠቀሙ</string>
+  <string name="text_keep_running_with_foreground_service">መተግበሪያዎ እንዲሰራ ለማድረግ የፊት ለፊት አገልግሎት ይጠቀሙ</string>
   <string name="text_use_accessibility_service">የተደራሽነት አገልግሎቶች</string>
   <string name="text_use_floating_window">ተንሳፋፊ መስኮት</string>
   <string name="summary_enable_accessibility_service">የተደራሽነት አገልግሎት ተግባራትን ለማከናወን መንቃት አለባቸው (የተያዙ)</string>
   <string name="summary_enable_floating_window">መዝገቡን ለማየት ተንሳፋፊውን መስኮት መክፈት አለብህ (የተያዘለት ንጥል ነገር)</string>
   <string name="text_use_volume_to_stop_running">የድምጽ መጨመሪያ ቁልፍ ሁሉንም ስክሪፕቶች ያቆማል</string>
-  <string name="summary_enable_accessibility_service_by_root">ስክሪፕቱን ከከፈቱ በኋላ ማስኬድ የተደራሽነት አገልግሎቱን በRoot privileges (የተያዘ ንጥል) በራስ-ሰር ይከፍታል።</string>
+  <string name="summary_enable_accessibility_service_by_root">ከተከፈተ በኋላ ስክሪፕቱን ማስኬድ የተደራሽነት አገልግሎቱን በRoot privileges (የተያዘ ንጥል) በራስ-ሰር ይከፍታል።</string>
   <string name="text_enable_accessibility_service_by_root">ከስር መብቶች ጋር አገልግሎቶችን በራስ-ሰር አንቃ</string>
   <string name="summary_stable_mode">የአቀማመጥ ትንተና ሲነቃ የበለጠ የተረጋጋ ነው፣ ነገር ግን አነስተኛ ቁጥር ያላቸው ስክሪፕቶች በትክክል ላይሰሩ ይችላሉ። ተግባራዊ እንዲሆን የተደራሽነት አገልግሎትን እንደገና ያስጀምሩ</string>
   <string name="text_stable_mode">የተረጋጋ ሁነታ</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">እባክዎ ከመሮጥዎ በፊት ፈቃዶችን አንቃ!</string>
   <string name="text_accessibility_service_is_not_turned_on">የተደራሽነት አገልግሎት አልበራም።</string>
   <string name="text_accessibility_service_turned_on">ተደራሽነት በርቷል።</string>
+  <string name="text_rerun">እንደገና መሮጥ</string>
+  <string name="text_clear_logcat">ግልጽ ምዝግብ ማስታወሻ</string>
+  <string name="text_stop_run">መሮጥ አቁም</string>
 </resources>

@@ -7,13 +7,13 @@
   <string name="text_enable_accessibility_service_by_root_timeout">د روټ امتیازاتو سره د لاسرسي خدمت فعالولو کې پاتې راغلی</string>
   <string name="text_settings">چمتو کول</string>
   <string name="text_script_running">سکریپټ چلول</string>
-  <string name="text_keep_running_with_foreground_service">د ایپسونو د چلولو لپاره د مخکینۍ خدماتو څخه کار واخلئ</string>
+  <string name="text_keep_running_with_foreground_service">د خپل اپلیکیشن چلولو لپاره د مخکینۍ خدمت څخه کار واخلئ</string>
   <string name="text_use_accessibility_service">د لاسرسي خدمتونه</string>
   <string name="text_use_floating_window">د تیریدلو کړکۍ</string>
   <string name="summary_enable_accessibility_service">د لاسرسي خدماتو دندې باید د اجرا کولو لپاره فعال شي (محفوظ شوي)</string>
   <string name="summary_enable_floating_window">تاسو باید د ننوتلو (محفوظ توکي) د لیدلو لپاره د تیرولو کړکۍ پرانیزئ</string>
   <string name="text_use_volume_to_stop_running">د حجم پورته کولو کیلي ټول سکریپټونه ودروي</string>
-  <string name="summary_enable_accessibility_service_by_root">د خلاصیدو وروسته د سکریپټ چلول به په اوتومات ډول د روټ امتیازاتو سره د لاسرسي خدمت خلاص کړي (محفوظ توکي)</string>
+  <string name="summary_enable_accessibility_service_by_root">د خلاصیدو وروسته ، د سکریپټ چلول به په اوتومات ډول د روټ امتیازاتو سره د لاسرسي خدمت خلاص کړي (محفوظ توکي)</string>
   <string name="text_enable_accessibility_service_by_root">په اتوماتيک ډول د روټ امتیازاتو سره خدمتونه فعال کړئ</string>
   <string name="summary_stable_mode">د ترتیب تحلیل ډیر باثباته وي کله چې فعال شي، مګر لږ شمیر سکریپټونه ممکن په سمه توګه کار ونکړي. د اغیزمن کیدو لپاره د لاسرسي خدمت بیا پیل کړئ</string>
   <string name="text_stable_mode">باثباته حالت</string>
@@ -43,4 +43,7 @@
   <string name="text_please_enable_permissions_before_running">مهرباني وکړئ د چلولو دمخه اجازه فعاله کړئ!</string>
   <string name="text_accessibility_service_is_not_turned_on">د لاسرسي خدمت نه دی فعال شوی</string>
   <string name="text_accessibility_service_turned_on">لاسرسی فعال دی</string>
+  <string name="text_rerun">بیا چلول</string>
+  <string name="text_clear_logcat">روښانه log</string>
+  <string name="text_stop_run">چلول بند کړئ</string>
 </resources>
