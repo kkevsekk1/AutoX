@@ -47,11 +47,6 @@ jobs:
           alias: ${{ secrets.AALIAS }}
           keyStorePassword: ${{ secrets.AKEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.AKEY_PASSWORD }}
-      - name: upload apk
-        uses: actions/upload-artifact@master
-        with:
-          name: autoxjs.apk
-          path: build/app/signed
       - name: release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
