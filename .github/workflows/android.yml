@@ -70,4 +70,4 @@ jobs:
       - name: mkdir aliyun
         run: ossutil mkdir oss://autoxjsoss/autoxjs/${{ steps.vars.outputs.short_ref }}
       - name: cp files to aliyun
-        run: ossutil cp -rf build/release/signed oss://autoxjsoss/autoxjs/${{ steps.vars.outputs.short_ref }}
+        run: ossutil cp -rf build/app/signed oss://autoxjsoss/autoxjs/${{ steps.vars.outputs.short_ref }}
