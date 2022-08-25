@@ -47,14 +47,14 @@ jobs:
           alias: ${{ secrets.AALIAS }}
           keyStorePassword: ${{ secrets.AKEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.AKEY_PASSWORD }}
-      - name: release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: 'build/app/signed/**'
       - name: create-gh-release
         uses: taiki-e/create-gh-release-action@v1
         with:
           changelog: CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: 'build/app/signed/**'
