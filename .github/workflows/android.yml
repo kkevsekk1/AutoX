@@ -8,6 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+     - name: Set output
+        id: vars
+        run: echo ::set-output name=short_ref::${GITHUB_REF#refs/*/}
       - name: checkout
         id: check
         uses: actions/checkout@v1
@@ -65,6 +68,6 @@ jobs:
           access-key-id: ${{ secrets.OSS_KEY_ID }}
           access-key-secret: ${{ secrets.OSS_KEY_SECRET }}
       - name: mkdir aliyun
-        run: ossutil mkdir oss://autoxjsoss/autoxjs/${{ github.ref }}
+        run: ossutil mkdir oss://autoxjsoss/autoxjs/${{ steps.vars.outputs.short_ref }}
       - name: cp files to aliyun
-        run: ossutil cp -rf build/app/signed/ oss://autoxjsoss/autoxjs/${{ github.ref }}
+        run: ossutil cp -rf build/release/signed oss://autoxjsoss/autoxjs/${{ steps.vars.outputs.short_ref }}
