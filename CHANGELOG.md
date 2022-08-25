@@ -10,9 +10,10 @@ autoxjs 整个项目的的一些更新日志,双版本号为稳定版，单版�
 *  增加版本之间的比较 点击版本号
 
 下载地址： 
-  http://autoxoss.autoxjs.com/autoxjs/6.3.0/app-v6-arm64-v8a-release-unsigned-signed.apk
-  http://autoxoss.autoxjs.com/autoxjs/6.3.0/app-v6-armeabi-v7a-release-unsigned-signed.apk
-  http://autoxoss.autoxjs.com/autoxjs/6.3.0/app-v6-universal-release-unsigned-signed.apk
+  http://autoxoss.autoxjs.com/autoxjs/6.3.0/app-v6-arm64-v8a-release-unsigned-signed.apk \
+  http://autoxoss.autoxjs.com/autoxjs/6.3.0/app-v6-armeabi-v7a-release-unsigned-signed.apk \
+  http://autoxoss.autoxjs.com/autoxjs/6.3.0/app-v6-universal-release-unsigned-signed.apk 
+
 
 
 ## [6.2.11] - 2022-8-25
