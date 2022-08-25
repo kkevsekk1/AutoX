@@ -1,8 +1,8 @@
 # Change Log
 autoxjs 整个项目的的一些更新日志,双版本号为稳定版，单版本号为激进版本。
 
-## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.3.0...HEAD) 未发布
-## [6.3.0](https://github.com/kkevsekk1/AutoX/compare/6.2.9...6.3.0) - 2022-8-25
+## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.3.1...HEAD) 未发布
+## [6.3.1](https://github.com/kkevsekk1/AutoX/compare/6.2.9...6.3.1) - 2022-8-25
 
 *  apk 使用cdn加速,地址格式：http://autoxoss.autoxjs.com/autoxjs/{版本号}/xxx.apk 
 *  apk发布oss
