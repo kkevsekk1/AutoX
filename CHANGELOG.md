@@ -1,18 +1,20 @@
 # Change Log
 autoxjs 整个项目的的一些更新日志,双版本号为稳定版，单版本号为激进版本。
 
-## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.3.1...HEAD) 未发布
-## [6.3.1](https://github.com/kkevsekk1/AutoX/compare/6.2.9...6.3.1) - 2022-8-25
+## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.3.2...HEAD) 未发布
+## [6.3.2] - 2022-8-25
 
 *  apk 使用cdn加速,地址格式：http://autoxoss.autoxjs.com/autoxjs/{版本号}/xxx.apk 
 *  apk发布oss
 *  根据changelog自动发布release note
 *  增加版本之间的比较 点击版本号
+*  workflow 不好使 跳跃了基本版本
 
 下载地址： \
   http://autoxoss.autoxjs.com/autoxjs/6.3.0/app-v6-arm64-v8a-release-unsigned-signed.apk \
   http://autoxoss.autoxjs.com/autoxjs/6.3.0/app-v6-armeabi-v7a-release-unsigned-signed.apk \
   http://autoxoss.autoxjs.com/autoxjs/6.3.0/app-v6-universal-release-unsigned-signed.apk 
+
 
 
 
@@ -347,3 +349,5 @@ autoxjs 整个项目的的一些更新日志,双版本号为稳定版，单版�
 * TextView 导致小米手机闪退问题
 * 
 
+
+[6.3.2]:https://github.com/kkevsekk1/AutoX/compare/6.2.9...6.3.2
