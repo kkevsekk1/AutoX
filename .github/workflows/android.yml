@@ -64,6 +64,7 @@ jobs:
           endpoint: oss-cn-hangzhou.aliyuncs.com
           access-key-id: ${{ secrets.OSS_KEY_ID }}
           access-key-secret: ${{ secrets.OSS_KEY_SECRET }}
+      - name: mkdir aliyun
+        run: ossutil mkdir oss://autoxjsoss/autoxjs/$tag
       - name: cp files to aliyun
-      - run: ossutil mkdir oss://autoxjsoss/autoxjs/$tag
-      - run: ossutil cp -rf build/app/signed/ oss://autoxjsoss/autoxjs/$tag
+        run: ossutil cp -rf build/app/signed/ oss://autoxjsoss/autoxjs/$tag
