@@ -18,22 +18,77 @@ autoxjs 整个项目的一些更新日志,双版本号为稳定版，单版本�
 [6.3.3]:https://github.com/kkevsekk1/AutoX/compare/6.2.9...6.3.3
 
 
-## [6.2.11] - 2022-8-25
-  - 测试 oss 
+## [6.2.9] - 2022-8-22
 
-## [6.2.10a] - 2022-8-24
-  - 测试 oss
+@wilinz  调整如下功能
 
-## [6.2.10] - 2022-8-24
-  - 测试 workflow
-## [6.2.9] - 2022-8-24
-* 打包的APK日志页面增加 重新运行，停止运行，清除日志 3个按钮
-* 优化异步读取配置文件
-* 连接电脑增加断线重连和心跳检测（需要更新VSCODE Autox 插件到 1.109.0 以上才会启用）
-* 添加TessractOCR及例子
-* 远程项目临时文件夹改回MD5命名
-* 修复 PFile.copyAssetDir() 空目录报错（打包后的APK闪退问题） #411
-* 修复打包Bug & 优化
+
+1. [打包的APK日志页面增加 重新运行，停止运行，清除日志 3个按钮](https://github.com/wilinz/AutoX/commit/32541253d870d6b752b9c436ca6676f59638655d)
+2. [优化异步读取配置文件](https://github.com/wilinz/AutoX/commit/eca3c20ae32651fde526ef75f1cbd8c761999bd8)
+3. [连接电脑增加断线重连和心跳检测（需要更新VSCODE Autox 插件到 1.109.0 以上才会启用）](https://github.com/wilinz/AutoX/commit/a703977fcfdeda32b0d40424f7f3933f0a274a3c)
+4. [添加TessractOCR及例子](https://github.com/wilinz/AutoX/commit/1ab2345d01860b134b622d27cb3f8b7a9a14bbee)
+5. [远程项目临时文件夹改回MD5命名](https://github.com/wilinz/AutoX/commit/a654bdb727fb14997f6c696a077a8c094d3175ab)
+6. [修复 PFile.copyAssetDir() 空目录报错（打包后的APK闪退问题）](https://github.com/wilinz/AutoX/commit/0f6a7945729871fae160ad81d61c964ffb018e92) https://github.com/kkevsekk1/AutoX/issues/411
+7. [修复打包Bug & 优化](https://github.com/wilinz/AutoX/commit/81703d29b775ee11cbbe6e05a0fea2f85560f943)
+
+[6.2.9]:https://github.com/kkevsekk1/AutoX/compare/6.2.8...6.2.9
+
+## [6.2.8] - 2022-8-20
+
+@wilinz 调整如下功能
+1. [修复 “运行项目” 与 “保存项目” bug](https://github.com/wilinz/AutoX/commit/683d81eae440b53fbbd4ce57bccad1fb24124dd8)
+2. [修复打包完成之后某些ui样式失效 #397 ](https://github.com/wilinz/AutoX/commit/b118b11fd4d40bc477e0a35bf529ec0017b73964)
+3. [修复示例代码"表格控件-内置图标查看器"打包后不能正常运行BUG](https://github.com/wilinz/AutoX/commit/d72ef148cc6c258e33570125f54c756f5dfa1a3f)
+4. [修复打包的一些BUG（自定义签名BUG未修复，预计下版本修复）](https://github.com/wilinz/AutoX/commit/37762e5b4d9c6481d532094c1494c6960207b0a7)
+5. [优化ocr](https://github.com/wilinz/AutoX/commit/2724484a065d70a747653e3f1b4960e11319e239)
+6. [解决 Web注入 invoke 不指定回调方法就报错的bug](https://github.com/kkevsekk1/AutoX/commit/b7778cef2b5f0d0d875a4bf9c016092527668458)
+@xxxxue 修复示例中的一些问题
+
+[6.2.8]:https://github.com/kkevsekk1/AutoX/compare/6.2.7...6.2.8
+
+## [6.2.7] - 2022-8-15
+
+@wilinz   调整如下功能：
+
+1. [修改优化OCR示例](https://github.com/wilinz/AutoX/commit/b07aa38770e3d4a832223625886939d094c98980)
+2. [优化打包后的Apk自动使用root权限开启无障碍服务](https://github.com/wilinz/AutoX/commit/1ab37c9e8fd8e635cfa5464bd9f4af94248f0ba2)
+3. [修复OCR BUG](https://github.com/wilinz/AutoX/commit/58f763f061f121c3eb47505a70eb8ee0fd111ebb)
+4. [修复打包BUG，打包编辑框自动填充BUG](https://github.com/wilinz/AutoX/commit/8031a8e9cc0e4d70429e7f067f15876f1d789b7e)
+
+[6.2.7]:https://github.com/kkevsekk1/AutoX/compare/6.2.6...6.2.7
+
+## [6.2.6] - 2022-8-14
+
+@wilinz 增加如下功能
+1. [修复](https://github.com/wilinz/AutoX/commit/3d04d498d4c5ebdae60a41c02abd3dd43c374040) https://github.com/kkevsekk1/AutoX/issues/392 [root权限直接打开无障碍](https://github.com/wilinz/AutoX/commit/3d04d498d4c5ebdae60a41c02abd3dd43c374040)
+2. [文档页面工具栏添加在浏览器打开按钮，侧滑菜单添加切换定时任务调度器按钮](https://github.com/wilinz/AutoX/commit/991de7fb687c561c0ad9064dae3ca192bb541c22) 
+3. [修复定时任务无效问题](https://github.com/wilinz/AutoX/commit/362a1f31bc8df682f138d9d86c0d9229c8fb241f)
+4. [修复打包BUG，以及打包后的App闪退的问题](https://github.com/wilinz/AutoX/commit/2a1e5c0edb2d70ce88a07cc5f5ba608c1e4e7b8c)
+5. [修复app.autojs.versionName和app.autojs.versionCode问题](https://github.com/wilinz/AutoX/commit/af54fd82996941752d3dd5d9888fd1f4d8df7416)
+6. [新增退出布局分析悬浮窗按钮](https://github.com/wilinz/AutoX/commit/8f5a5f886d8d1071ca6b6cb5a0d67c9fb7375fff)
+7. [优化topAppBar弹出菜单, 确保点击后关闭菜单](https://github.com/wilinz/AutoX/commit/3fdd4a239b12e1c5518c5893ff9b8d65060a20d2)
+8. 修复连接vscode URL解析BUG，增加扫码连接后记住扫码结果功能
+
+[6.2.6]:https://github.com/kkevsekk1/AutoX/compare/6.2.5...6.2.6
+
+## [6.2.5] -- 2022-8-13
+
+[6.2.5]:https://github.com/kkevsekk1/AutoX/compare/6.2.3...6.2.5
+
+@wilinz 增加如下功能
+
+1. [调整UI避免文件操作按钮被挡住](https://github.com/wilinz/AutoX/commit/b65fd14d9ed01601affd9822dfbab5c54b94ee19)
+2. [调整资源文件, 添加多语言支持](https://github.com/wilinz/AutoX/commit/b9e29c663288e1cd9458a73a0deb0a99b955c65a) by [Globalization Translator](https://github.com/wilinz/globalization-translator) 
+3. [添加英文Readme](https://github.com/wilinz/AutoX/commit/7941357d0fbee713b45c3454cd27a2b3c9b657b4)
+4. [修复打包后不显示 logo 和 底部splashText 的问题](https://github.com/wilinz/AutoX/commit/35e71046e98149d74bdeb150b6900e5edea61fab)
+5. [优化文件操作，确保正常关闭文件流](https://github.com/wilinz/AutoX/commit/1bb4a1fceb13c3e87c6cc600be1afdcd560b056c)
+6. [修复http模块response.close()错误](https://github.com/wilinz/AutoX/commit/3b2f58ff0ed10ee8243fbc8d7ccc4e0e47aa187e)
+7. [优化打包，新增打包abi过滤，支持保存打包配置文件，可保存为项目。](https://github.com/wilinz/AutoX/commit/8b6776cff8b0fca4be4a52719b7d7d07c0a058f3) 
+8. [修复打包的APK不支持armeabi-v7a的BUG，优化模板apk，与Autox.js共享二进制库和Assets, 以减少Autox.js Apk 大小](https://github.com/wilinz/AutoX/commit/8b6776cff8b0fca4be4a52719b7d7d07c0a058f3) 
+9. [修改包名使Autox.js可以和Auto.js共存](https://github.com/wilinz/AutoX/commit/8b6776cff8b0fca4be4a52719b7d7d07c0a058f3)
+10. [优化检查更新](https://github.com/wilinz/AutoX/commit/629e8d90317b12ac7109ea808689c8072dd8cd83)
+11. [修复crypto模块BUG](https://github.com/kkevsekk1/AutoX/pull/391/commits/28913396430f0189a3cd0334382f44178bba55de)
+
 
 
 ## 5.7.6
