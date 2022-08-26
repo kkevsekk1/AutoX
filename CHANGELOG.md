@@ -15,7 +15,7 @@ autoxjs 整个项目的的一些更新日志,双版本号为稳定版，单版�
   http://autoxoss.autoxjs.com/autoxjs/6.3.3/app-v6-armeabi-v7a-release-unsigned-signed.apk \
   http://autoxoss.autoxjs.com/autoxjs/6.3.3/app-v6-universal-release-unsigned-signed.apk 
 
-
+[6.3.3]:https://github.com/kkevsekk1/AutoX/compare/6.2.9...6.3.3
 
 
 ## [6.2.11] - 2022-8-25
@@ -350,4 +350,3 @@ autoxjs 整个项目的的一些更新日志,双版本号为稳定版，单版�
 * 
 
 
-[6.3.2]:https://github.com/kkevsekk1/AutoX/compare/6.2.9...6.3.3
