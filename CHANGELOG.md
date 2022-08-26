@@ -1,5 +1,5 @@
 # Change Log
-autoxjs 整个项目的的一些更新日志,双版本号为稳定版，单版本号为激进版本。
+autoxjs 整个项目的一些更新日志,双版本号为稳定版，单版本号为激进版本。
 
 ## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.3.3...HEAD) 未发布
 ## [6.3.3] - 2022-8-25
