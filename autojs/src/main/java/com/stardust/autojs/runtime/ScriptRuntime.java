@@ -198,8 +198,8 @@ public class ScriptRuntime {
     @ScriptVariable
     public final Plugins plugins;
 
-    @ScriptVariable
-    public final Paddle paddle;
+//    @ScriptVariable
+//    public final Paddle paddle;
 
     private Images images;
 
@@ -232,7 +232,7 @@ public class ScriptRuntime {
         media = new Media(context, this);
         plugins = new Plugins(context, this);
         zips = new SevenZip();
-        paddle = new Paddle();
+//        paddle = new Paddle();
     }
 
     public void init() {
@@ -431,7 +431,7 @@ public class ScriptRuntime {
         ignoresException(sensors::unregisterAll);
         ignoresException(timers::recycle);
         ignoresException(ui::recycle);
-        ignoresException(paddle::release);
+//        ignoresException(paddle::release);
     }
 
     private void ignoresException(Runnable r) {

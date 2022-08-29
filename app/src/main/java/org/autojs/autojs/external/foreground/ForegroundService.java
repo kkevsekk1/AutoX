@@ -17,7 +17,7 @@ import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
 import org.autojs.autoxjs.R;
-import org.autojs.autojs.ui.main.MainActivityCompose;
+import org.autojs.autojs.ui.main.MainActivity;
 
 public class ForegroundService extends Service {
 
@@ -59,7 +59,7 @@ public class ForegroundService extends Service {
         }
 //        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, MainActivity_.intent(this).get(), 0);
         int flags = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? FLAG_IMMUTABLE : 0;
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, MainActivityCompose.class), flags);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), flags);
         return new NotificationCompat.Builder(this, CHANEL_ID)
                 .setContentTitle(getString(R.string.foreground_notification_title))
                 .setContentText(getString(R.string.foreground_notification_text))

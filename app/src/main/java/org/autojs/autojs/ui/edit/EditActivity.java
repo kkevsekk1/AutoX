@@ -34,7 +34,7 @@ import org.autojs.autojs.storage.file.TmpScriptFiles;
 import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
 import org.autojs.autojs.tool.Observers;
 import org.autojs.autojs.ui.BaseActivity;
-import org.autojs.autojs.ui.main.MainActivityCompose;
+import org.autojs.autojs.ui.main.MainActivity;
 
 import java.io.File;
 import java.io.IOException;
@@ -207,7 +207,7 @@ public class EditActivity extends BaseActivity implements OnActivityResultDelega
     private void finishAndRemoveFromRecents() {
         finishAndRemoveTask();
         if (mNewTask) {
-            startActivity(new Intent(this, MainActivityCompose.class));
+            startActivity(new Intent(this, MainActivity.class));
         }
     }
 
