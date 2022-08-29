@@ -1,4 +1,4 @@
-name: Android CI
+name: Android CI build
 on:
   workflow_dispatch:
   push:
@@ -8,6 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Set output
+        id: vars
+        run: echo ::set-output name=short_ref::${GITHUB_REF#refs/*/}
       - name: checkout
         id: check
         uses: actions/checkout@v1
@@ -47,13 +50,24 @@ jobs:
           alias: ${{ secrets.AALIAS }}
           keyStorePassword: ${{ secrets.AKEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.AKEY_PASSWORD }}
-      - name: upload apk
-        uses: actions/upload-artifact@master
+      - name: create-gh-release
+        uses: taiki-e/create-gh-release-action@v1
         with:
-          name: autoxjs.apk
-          path: build/app/signed
+          changelog: CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: 'build/app/signed/**'
+      - name: setup aliyun oss
+        uses: manyuanrong/setup-ossutil@master
+        with:
+          endpoint: oss-cn-hangzhou.aliyuncs.com
+          access-key-id: ${{ secrets.OSS_KEY_ID }}
+          access-key-secret: ${{ secrets.OSS_KEY_SECRET }}
+      - name: mkdir aliyun
+        run: ossutil mkdir oss://autoxjsoss/autoxjs/${{ steps.vars.outputs.short_ref }}
+      - name: cp files to aliyun
+        run: ossutil cp -rf build/app/signed oss://autoxjsoss/autoxjs/${{ steps.vars.outputs.short_ref }}

@@ -35,7 +35,7 @@
 * autoxjs[更新日志](CHANGELOG.md)
 
 ### Autox.js下载地址：
-[https://github.com/kkevsekk1/AutoX/releases](https://github.com/kkevsekk1/AutoX/releases)
+[https://github.com/kkevsekk1/AutoX/releases](https://github.com/kkevsekk1/AutoX/releases)  
 如果下载过慢可以右键复制 Release Assets 中APK文件的链接地址，粘贴到 [http://toolwa.com/github/](http://toolwa.com/github/) 等github加速网站下载
 
 #### APK版本说明：
