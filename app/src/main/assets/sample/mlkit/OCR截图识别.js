@@ -35,7 +35,7 @@ function captureAndOcr() {
     toastLog('截图失败')
   }
   let start = new Date()
-  result = paddle.ocr(img);
+  result = mlkit.ocr(img,"zh");
   log(result);
   toastLog('耗时' + (new Date() - start) + 'ms')
   capturing = false

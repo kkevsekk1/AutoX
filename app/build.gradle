@@ -103,8 +103,8 @@ android {
             }
         }
         release {
-            shrinkResources false
-            minifyEnabled false
+            shrinkResources true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             if (propFile.exists()) {
                 signingConfig signingConfigs.release

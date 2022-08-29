@@ -488,8 +488,6 @@ open class Predictor {
             ocrResult.inferenceTime = inferenceTime
             ocrResult.confidence = model.confidence
             ocrResult.words = model.label!!.trim { it <= ' ' }.replace("\r", "")
-            ocrResult.location =
-                RectLocation(left, top, abs(right - left), abs(bottom - top))
             ocrResult.bounds = Rect(left, top, right, bottom)
             wordsResult.add(ocrResult)
         }
@@ -508,7 +506,7 @@ open class Predictor {
                 Base64.DEFAULT
             ), 0, Base64.decode(checkImgBase64, Base64.DEFAULT).size
         )
-        val checkingResults = runOcr(checkingBitmap, 4, true)
+        val checkingResults = runOcr(checkingBitmap, 4)
         val sb = StringBuilder()
         for ((_, _, _, words) in checkingResults) {
             sb.append(words)
@@ -519,7 +517,7 @@ open class Predictor {
     }
 
     @JavascriptInterface
-    fun runOcr(inputImage: Bitmap?, cpuThreadNum: Int, useSlim: Boolean): List<OcrResult> {
+    fun runOcr(inputImage: Bitmap?, cpuThreadNum: Int): List<OcrResult> {
         var resultList: ArrayList<OcrResultModel>
         this.cpuThreadNum = cpuThreadNum
         if (inputImage == null) {
@@ -633,7 +631,7 @@ open class Predictor {
         while (paddlePredictor == null || !checkInitSuccess()) {
             initOcr(appCtx, cpuThreadNum, useSlim)
         }
-        return runOcr(inputImage, cpuThreadNum, useSlim)
+        return runOcr(inputImage, cpuThreadNum)
     }
 
     @JavascriptInterface

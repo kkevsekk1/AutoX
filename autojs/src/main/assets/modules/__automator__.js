@@ -16,6 +16,10 @@ module.exports = function(runtime, global){
         if(arguments.length == 2 && typeof(arguments[0]) == 'number' && typeof(arguments[1]) == 'number'){
             return runtime.automator.click(arguments[0], arguments[1]);
         }
+        if (arguments.length == 1 && arguments[0] instanceof android.graphics.Rect){
+            let rect=arguments[0]
+            return runtime.automator.click(rect.centerX(), rect.centerY());
+        }
         return performAction(function(target){
             return runtime.automator.click(target);
         }, arguments);
@@ -25,12 +29,22 @@ module.exports = function(runtime, global){
         if(arguments.length == 2 && typeof(arguments[0]) == 'number' && typeof(arguments[1]) == 'number'){
             return  runtime.automator.longClick(arguments[0], arguments[1]);
         }
+        if (arguments.length == 1 && arguments[0] instanceof android.graphics.Rect){
+            let rect=arguments[0]
+            return runtime.automator.longClick(rect.centerX(), rect.centerY());
+        }
         return performAction(function(target){
             return runtime.automator.longClick(target);
         }, arguments);
     }
 
-     automator.press = runtime.automator.press.bind(runtime.automator);
+     automator.press = function (){
+         if (arguments.length == 2 && arguments[0] instanceof android.graphics.Rect){
+             let rect = arguments[0]
+             return runtime.automator.press(rect.centerX(), rect.centerY(),arguments[1]);
+         }
+         return runtime.automator.press(arguments[0], arguments[1],arguments[2]);
+     }
      automator.gesture = runtime.automator.gesture.bind(runtime.automator, 0);
      automator.gestureAsync = runtime.automator.gestureAsync.bind(runtime.automator, 0);
      automator.swipe = runtime.automator.swipe.bind(runtime.automator);

@@ -53,11 +53,11 @@ import org.autojs.autojs.ui.widget.fillMaxSize
 
 data class BottomNavigationItem(val icon: Int, val label: String)
 
-class MainActivityCompose : FragmentActivity() {
+class MainActivity : FragmentActivity() {
 
     companion object {
         @JvmStatic
-        fun getIntent(context: Context) = Intent(context, MainActivityCompose::class.java)
+        fun getIntent(context: Context) = Intent(context, MainActivity::class.java)
     }
 
     private val scriptListFragment by lazy { ScriptListFragment() }

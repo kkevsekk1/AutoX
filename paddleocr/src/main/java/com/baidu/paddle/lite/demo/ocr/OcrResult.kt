@@ -4,16 +4,20 @@ import android.graphics.Rect
 import kotlin.math.abs
 
 data class OcrResult(
+    @JvmField
     var confidence: Float = 0f,
+    @JvmField
     var preprocessTime: Float = 0f,
+    @JvmField
     var inferenceTime: Float = 0f,
+    @JvmField
     var words: String? = null,
+    @JvmField
     var bounds: Rect? = null,
-    var location: RectLocation? = null
 ) : Comparable<OcrResult> {
 
     override fun compareTo(other: OcrResult): Int {
-        val deviation = (location!!.height / 2).coerceAtLeast(other.location!!.height / 2)
+        val deviation = (bounds!!.height() / 2).coerceAtLeast(other.bounds!!.height() / 2)
         return if (abs((bounds!!.top + bounds!!.bottom) / 2 - (other.bounds!!.top + other.bounds!!.bottom) / 2) < deviation) {
             bounds!!.left - other.bounds!!.left
         } else {
@@ -22,10 +26,3 @@ data class OcrResult(
     }
 
 }
-
-data class RectLocation(
-    var left: Int,
-    var top: Int,
-    var width: Int,
-    var height: Int
-)
