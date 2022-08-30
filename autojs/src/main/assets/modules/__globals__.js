@@ -142,5 +142,6 @@ module.exports = function(runtime, global){
     }
 
     global.zips = Object.create(runtime.zips);
+    global.mlkit = Object.create(runtime.mlkit);
     // global.paddle = Object.create(runtime.paddle);
 }

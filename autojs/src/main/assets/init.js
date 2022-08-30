@@ -66,7 +66,7 @@ runtime.init();
     (function (scope) {
         var modules = ['app', 'automator', 'console', 'dialogs', 'files', 'io', 'selector', 'shell', 'web', 'ui',
             "images", "threads", "events", "engines", "RootAutomator", "http", "storages", "floaty",
-            "sensors", "media", "plugins", "continuation", "$zip", "$base64", "$crypto","paddle","mlkit"];
+            "sensors", "media", "plugins", "continuation", "$zip", "$base64", "$crypto","paddle"];
         var len = modules.length;
         for (var i = 0; i < len; i++) {
             var m = modules[i];
