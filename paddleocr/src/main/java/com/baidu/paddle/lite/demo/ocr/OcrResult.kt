@@ -5,23 +5,42 @@ import kotlin.math.abs
 
 data class OcrResult(
     @JvmField
-    var confidence: Float = 0f,
+    val confidence: Float = 0f,
     @JvmField
-    var preprocessTime: Float = 0f,
+    val preprocessTime: Float = 0f,
     @JvmField
-    var inferenceTime: Float = 0f,
+    val inferenceTime: Float = 0f,
     @JvmField
-    var words: String? = null,
+    val text: String = "",
     @JvmField
-    var bounds: Rect? = null,
+    val bounds: Rect? = null,
 ) : Comparable<OcrResult> {
+
+    @Deprecated("use text", ReplaceWith("text"))
+    @JvmField
+    val words: String = text
+
+    @Deprecated("use text", ReplaceWith("text"))
+    fun getWords() = text
+
+    @Deprecated("use confidence", ReplaceWith("confidence"))
+    fun getConfidence() = confidence
+
+    @Deprecated("use preprocessTime", ReplaceWith("preprocessTime"))
+    fun getPreprocessTime() = preprocessTime
+
+    @Deprecated("use inferenceTime", ReplaceWith("inferenceTime"))
+    fun getInferenceTime() = inferenceTime
+
+    @Deprecated("use bounds", ReplaceWith("bounds"))
+    fun getBounds() = bounds
 
     override fun compareTo(other: OcrResult): Int {
         val deviation = (bounds!!.height() / 2).coerceAtLeast(other.bounds!!.height() / 2)
-        return if (abs((bounds!!.top + bounds!!.bottom) / 2 - (other.bounds!!.top + other.bounds!!.bottom) / 2) < deviation) {
-            bounds!!.left - other.bounds!!.left
+        return if (abs((bounds.top + bounds.bottom) / 2 - (other.bounds.top + other.bounds.bottom) / 2) < deviation) {
+            bounds.left - other.bounds.left
         } else {
-            bounds!!.bottom - other.bounds!!.bottom
+            bounds.bottom - other.bounds.bottom
         }
     }
 

@@ -483,12 +483,13 @@ open class Predictor {
                     bottom = p.y
                 }
             }
-            val ocrResult = OcrResult()
-            ocrResult.preprocessTime = preprocessTime
-            ocrResult.inferenceTime = inferenceTime
-            ocrResult.confidence = model.confidence
-            ocrResult.words = model.label!!.trim { it <= ' ' }.replace("\r", "")
-            ocrResult.bounds = Rect(left, top, right, bottom)
+            val ocrResult = OcrResult(
+                preprocessTime=preprocessTime,
+                inferenceTime = inferenceTime,
+                confidence = model.confidence,
+                text = model.label!!.trim { it <= ' ' }.replace("\r", ""),
+                bounds = Rect(left, top, right, bottom)
+            )
             wordsResult.add(ocrResult)
         }
         wordsResult.sort()
@@ -644,7 +645,7 @@ open class Predictor {
         val wordsResult = ocr(appCtx, bitmap, cpuThreadNum, useSlim)
         val outputResult = arrayOfNulls<String>(wordsResult.size)
         for (i in wordsResult.indices) {
-            outputResult[i] = wordsResult[i].words
+            outputResult[i] = wordsResult[i].text
             Log.i("outputResult", outputResult[i]!!) // show LOG in Logcat panel
         }
         return outputResult
