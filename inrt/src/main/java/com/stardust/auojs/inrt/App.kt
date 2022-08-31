@@ -19,6 +19,7 @@ import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.fanjun.keeplive.KeepLive
 import com.fanjun.keeplive.config.ForegroundNotification
+import com.google.mlkit.common.MlKit
 import com.linsh.utilseverywhere.Utils
 import com.stardust.app.GlobalAppContext
 import com.stardust.auojs.inrt.autojs.AutoJs
@@ -43,6 +44,7 @@ class App : Application() {
         GlobalAppContext.set(
             this, com.stardust.app.BuildConfig.generate(BuildConfig::class.java)
         )
+        MlKit.initialize(this)
         Utils.init(this);
         AutoJs.initInstance(this)
         GlobalKeyObserver.init()
