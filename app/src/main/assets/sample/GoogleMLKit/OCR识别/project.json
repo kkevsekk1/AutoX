@@ -29,7 +29,7 @@
     "permissions": [],
     "serviceDesc": "使脚本自动操作(点击、长按、滑动等)所需，若关闭则只能执行不涉及自动操作的脚本。",
     "splashIcon": null,
-    "splashText": "Powered by mlkit ocr"
+    "splashText": "Powered by Google ML Kit ocr"
   },
   "libs": [
     "libmlkit_google_ocr_pipeline.so",
@@ -37,9 +37,9 @@
     "libjackpal-termexec2.so"
   ],
   "main": "main.js",
-  "name": "MlKitOCR",
+  "name": "Google MlKitOCR",
   "outputPath": null,
-  "packageName": "com.script.mlkitocr",
+  "packageName": "com.script.gmlkitocr",
   "scripts": {},
   "signingConfig": {
     "alias": null,
