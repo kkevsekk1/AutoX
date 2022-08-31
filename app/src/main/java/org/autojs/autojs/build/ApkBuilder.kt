@@ -179,7 +179,7 @@ class ApkBuilder(
         config.assets.forEach {
             var form = it.form
             if (!form.matches(Regex("^.*?://.*|^/.*")) || form.startsWith("./")) {
-                form = File(projectConfig!!.projectDirectory!!, form).path
+                form = getAbsolutePath(form)
             }
             val relativeTo = File("assets", it.to)
             val to = File(workspacePath, relativeTo.path)
@@ -190,7 +190,7 @@ class ApkBuilder(
                 return@forEach
             }
 
-            if (it.to == "/${Constant.Assets.PROJECT}") {
+            if (it.to == Constant.Assets.PROJECT) {
                 val file = File(form)
                 copyDir(
                     srcPath = file.path,
