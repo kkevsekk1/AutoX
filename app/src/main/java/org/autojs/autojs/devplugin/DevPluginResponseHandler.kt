@@ -10,17 +10,21 @@ import com.stardust.autojs.script.StringScriptSource
 import com.stardust.io.Zip
 import com.stardust.pio.PFiles
 import com.stardust.util.MD5
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.autojs.autojs.Pref
 import org.autojs.autojs.autojs.AutoJs
 import org.autojs.autojs.model.script.Scripts.run
 import org.autojs.autoxjs.R
-import java.io.*
-import java.net.URLEncoder
+import java.io.ByteArrayInputStream
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
 
 /**
  * Created by Stardust on 2017/5/11.
@@ -135,17 +139,20 @@ class DevPluginResponseHandler(private val cacheDir: File) : Handler {
     private fun saveProject(name: String, dir: String) {
         val name1 = if (name.isEmpty()) "untitled" else PFiles.getNameWithoutExtension(name)
         val toDir = File(Pref.getScriptDirPath(), name1)
-        Observable.fromCallable {
-            copyDir(File(dir), toDir)
-            toDir.path
-        }.subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                { dest: String? -> toast(R.string.text_project_save_success, dest) }
-            ) { err: Throwable -> toast(R.string.text_project_save_error, err.message) }
+        CoroutineScope(Dispatchers.IO).launch {
+            flow<String> {
+                copyDir(File(dir), toDir)
+                emit(toDir.path)
+            }
+                .flowOn(Dispatchers.Main)
+                .catch {
+                    toast(R.string.text_project_save_error, it.message)
+                }.collect {
+                    toast(R.string.text_project_save_success, it)
+                }
+        }
     }
 
-    @Throws(FileNotFoundException::class)
     private fun copyDir(fromDir: File, toDir: File) {
         toDir.mkdirs()
         val files = fromDir.listFiles()
