@@ -95,6 +95,9 @@ android {
         common {
             buildConfigField "boolean", "isMarket", "false"
             manifestPlaceholders = [appName: "inrt"]
+            ndk {
+                abiFilters = ["armeabi-v7a","arm64-v8a"]
+            }
         }
         market {
             buildConfigField "boolean", "isMarket", "true"
@@ -105,6 +108,7 @@ android {
             aaptOptions {
                 //忽略ocr模型
                 ignoreAssetsPattern "models"
+                ignoreAssetsPattern "mlkit-google-ocr-models"
             }
             packagingOptions {
                 jniLibs {
