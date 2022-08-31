@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 15
-      - name: Build with Gradle
+      - name: Build inrt template
         run: |
           chmod 777 ./gradlew
           ./gradlew inrt:assembleTemplate
@@ -33,7 +33,7 @@ jobs:
           alias: ${{ secrets.IALIAS }}
           keyStorePassword: ${{ secrets.IKEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.IKEY_PASSWORD }}
-      - name: shell
+      - name: Build App
         run: |
           ls  build/inrt/signed
           pwd
@@ -51,6 +51,7 @@ jobs:
           keyStorePassword: ${{ secrets.AKEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.AKEY_PASSWORD }}
       - name: create-gh-release
+        if: github.repository == 'kkevsekk1/AutoX'
         uses: taiki-e/create-gh-release-action@v1
         with:
           changelog: CHANGELOG.md
@@ -62,12 +63,15 @@ jobs:
         with:
           files: 'build/app/signed/**'
       - name: setup aliyun oss
+        if: github.repository == 'kkevsekk1/AutoX'
         uses: manyuanrong/setup-ossutil@master
         with:
           endpoint: oss-cn-hangzhou.aliyuncs.com
           access-key-id: ${{ secrets.OSS_KEY_ID }}
           access-key-secret: ${{ secrets.OSS_KEY_SECRET }}
       - name: mkdir aliyun
+        if: github.repository == 'kkevsekk1/AutoX'
         run: ossutil mkdir oss://autoxjsoss/autoxjs/${{ steps.vars.outputs.short_ref }}
       - name: cp files to aliyun
+        if: github.repository == 'kkevsekk1/AutoX'
         run: ossutil cp -rf build/app/signed oss://autoxjsoss/autoxjs/${{ steps.vars.outputs.short_ref }}
