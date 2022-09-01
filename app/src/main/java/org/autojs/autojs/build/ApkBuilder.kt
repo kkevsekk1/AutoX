@@ -243,7 +243,9 @@ class ApkBuilder(
         config.buildInfo = BuildInfo.generate(
             config.versionCode.toLong()
         )
-        File(workspacePath, "assets/project/project.json").writeText(config.toJson())
+        val projectFile = File(workspacePath, "assets/project/project.json")
+        projectFile.parentFile?.let { if (!it.exists()) it.mkdirs() }
+        projectFile.writeText(config.toJson())
         encryptKey =
             MD5.md5(config.packageName + config.versionName + config.mainScript)
         encryptInitVector =
