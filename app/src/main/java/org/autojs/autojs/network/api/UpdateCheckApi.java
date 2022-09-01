@@ -15,7 +15,7 @@ import retrofit2.http.Query;
 
 public interface UpdateCheckApi {
 
-    @GET("http://file.ar01.cn/appstore/app/checkversion" + BuildConfig.APPID)
+//    @GET("http://file.ar01.cn/appstore/app/checkversion" + BuildConfig.APPID)
     @Headers("Cache-Control: no-cache")
     Observable<VersionInfo> checkForUpdates();
 
