@@ -1,7 +1,24 @@
 # Change Log
 autoxjs 整个项目的一些更新日志,双版本号为稳定版，单版本号为激进版本。
 
-## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.3.3...HEAD) 未发布
+## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.3.4...HEAD) 未发布
+
+## [6.3.4] - 2022-9-4
+
+1. [更新paddle api并向后兼容](https://github.com/wilinz/AutoX/commit/5fae0643a563b69c7691f55ee3e3ec2771a656e3)
+2. 添加Google ML kIT OCR API
+3. [修复toast bug](https://github.com/wilinz/AutoX/commit/ea1e7663af7069a3750b64cd838d0148a7dae9b9)
+4. [迁移到 kotlin build.gradle](https://github.com/wilinz/AutoX/commit/fc6d740afe1004bc4cd68dcb814afc52e5dba419)
+5. 修复打包BUG
+
+下载地址： \
+  http://autoxoss.autoxjs.com/autoxjs/6.3.4/app-v6-arm64-v8a-release-unsigned-signed.apk \
+  http://autoxoss.autoxjs.com/autoxjs/6.3.4/app-v6-armeabi-v7a-release-unsigned-signed.apk \
+  http://autoxoss.autoxjs.com/autoxjs/6.3.4/app-v6-universal-release-unsigned-signed.apk 
+
+[6.3.4]:https://github.com/kkevsekk1/AutoX/compare/6.2.3...6.3.4
+
+
 ## [6.3.3] - 2022-8-25
 
 *  apk 使用cdn加速,地址格式：http://autoxoss.autoxjs.com/autoxjs/{版本号}/xxx.apk 
