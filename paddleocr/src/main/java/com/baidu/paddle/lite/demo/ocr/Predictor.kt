@@ -483,14 +483,13 @@ open class Predictor {
                     bottom = p.y
                 }
             }
-            val ocrResult = OcrResult()
-            ocrResult.preprocessTime = preprocessTime
-            ocrResult.inferenceTime = inferenceTime
-            ocrResult.confidence = model.confidence
-            ocrResult.words = model.label!!.trim { it <= ' ' }.replace("\r", "")
-            ocrResult.location =
-                RectLocation(left, top, abs(right - left), abs(bottom - top))
-            ocrResult.bounds = Rect(left, top, right, bottom)
+            val ocrResult = OcrResult(
+                preprocessTime=preprocessTime,
+                inferenceTime = inferenceTime,
+                confidence = model.confidence,
+                text = model.label!!.trim { it <= ' ' }.replace("\r", ""),
+                bounds = Rect(left, top, right, bottom)
+            )
             wordsResult.add(ocrResult)
         }
         wordsResult.sort()
@@ -508,7 +507,7 @@ open class Predictor {
                 Base64.DEFAULT
             ), 0, Base64.decode(checkImgBase64, Base64.DEFAULT).size
         )
-        val checkingResults = runOcr(checkingBitmap, 4, true)
+        val checkingResults = runOcr(checkingBitmap, 4)
         val sb = StringBuilder()
         for ((_, _, _, words) in checkingResults) {
             sb.append(words)
@@ -519,7 +518,7 @@ open class Predictor {
     }
 
     @JavascriptInterface
-    fun runOcr(inputImage: Bitmap?, cpuThreadNum: Int, useSlim: Boolean): List<OcrResult> {
+    fun runOcr(inputImage: Bitmap?, cpuThreadNum: Int): List<OcrResult> {
         var resultList: ArrayList<OcrResultModel>
         this.cpuThreadNum = cpuThreadNum
         if (inputImage == null) {
@@ -633,7 +632,7 @@ open class Predictor {
         while (paddlePredictor == null || !checkInitSuccess()) {
             initOcr(appCtx, cpuThreadNum, useSlim)
         }
-        return runOcr(inputImage, cpuThreadNum, useSlim)
+        return runOcr(inputImage, cpuThreadNum)
     }
 
     @JavascriptInterface
@@ -646,7 +645,7 @@ open class Predictor {
         val wordsResult = ocr(appCtx, bitmap, cpuThreadNum, useSlim)
         val outputResult = arrayOfNulls<String>(wordsResult.size)
         for (i in wordsResult.indices) {
-            outputResult[i] = wordsResult[i].words
+            outputResult[i] = wordsResult[i].text
             Log.i("outputResult", outputResult[i]!!) // show LOG in Logcat panel
         }
         return outputResult

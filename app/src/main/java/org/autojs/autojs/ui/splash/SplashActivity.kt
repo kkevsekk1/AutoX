@@ -26,7 +26,7 @@ import coil.compose.rememberAsyncImagePainter
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import org.autojs.autojs.ui.main.MainActivityCompose
+import org.autojs.autojs.ui.main.MainActivity
 import org.autojs.autoxjs.R
 
 /**
@@ -122,7 +122,7 @@ class SplashActivity : ComponentActivity() {
             return
         }
         mAlreadyEnterNextActivity = true
-        startActivity(Intent(this, MainActivityCompose::class.java))
+        startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
 

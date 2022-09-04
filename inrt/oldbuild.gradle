@@ -95,6 +95,9 @@ android {
         common {
             buildConfigField "boolean", "isMarket", "false"
             manifestPlaceholders = [appName: "inrt"]
+            ndk {
+                abiFilters = ["armeabi-v7a","arm64-v8a"]
+            }
         }
         market {
             buildConfigField "boolean", "isMarket", "true"
@@ -102,10 +105,6 @@ android {
         }
         template {
             manifestPlaceholders = [appName: "template"]
-            aaptOptions {
-                //忽略ocr模型
-                ignoreAssetsPattern "models"
-            }
             packagingOptions {
                 jniLibs {
                     useLegacyPackaging true
@@ -163,6 +162,14 @@ task publishMarket(group: 'build') {
     }
 }
 
+android.applicationVariants.all { variant ->
+//    if (variant.buildType.name == 'template') {
+        variant.mergeAssets.doLast {
+            println("tag:test:"+variant)
+            delete(fileTree(dir: variant.mergeAssets.outputDir, includes: ['models/**', 'mlkit-google-ocr-models/**']))
+        }
+//    }
+}
 
 def buildApkPlugin(File pluginProjectDir, boolean isDebug) {
     copy {

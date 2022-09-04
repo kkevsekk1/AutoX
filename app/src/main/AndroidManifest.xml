@@ -407,7 +407,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="org.autojs.autojs.ui.main.MainActivityCompose"
+            android:name="org.autojs.autojs.ui.main.MainActivity"
             android:exported="true"
             android:launchMode="singleTask" />
         <activity

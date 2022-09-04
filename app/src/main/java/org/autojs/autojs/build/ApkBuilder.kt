@@ -179,7 +179,7 @@ class ApkBuilder(
         config.assets.forEach {
             var form = it.form
             if (!form.matches(Regex("^.*?://.*|^/.*")) || form.startsWith("./")) {
-                form = File(projectConfig!!.projectDirectory!!, form).path
+                form = getAbsolutePath(form)
             }
             val relativeTo = File("assets", it.to)
             val to = File(workspacePath, relativeTo.path)
@@ -190,7 +190,7 @@ class ApkBuilder(
                 return@forEach
             }
 
-            if (it.to == "/${Constant.Assets.PROJECT}") {
+            if (it.to == Constant.Assets.PROJECT) {
                 val file = File(form)
                 copyDir(
                     srcPath = file.path,
@@ -243,7 +243,9 @@ class ApkBuilder(
         config.buildInfo = BuildInfo.generate(
             config.versionCode.toLong()
         )
-        File(workspacePath, "assets/project/project.json").writeText(config.toJson())
+        val projectFile = File(workspacePath, "assets/project/project.json")
+        projectFile.parentFile?.let { if (!it.exists()) it.mkdirs() }
+        projectFile.writeText(config.toJson())
         encryptKey =
             MD5.md5(config.packageName + config.versionName + config.mainScript)
         encryptInitVector =

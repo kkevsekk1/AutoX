@@ -259,6 +259,7 @@
     <string name="text_hideLogs">隐藏日志</string>
     <string name="text_required_accessibility_service">需要无障碍服务</string>
     <string name="text_required_opencv" translatable="false">OpenCv</string>
+    <string name="text_required_google_mlkit_ocr" translatable="false">Google ML kit OCR</string>
     <string name="text_required_paddle_ocr" translatable="false">PaddleOCR</string>
     <string name="text_required_tesseract_ocr" translatable="false">TesseractOCR</string>
     <string name="text_required_7zip" translatable="false">7zip</string>

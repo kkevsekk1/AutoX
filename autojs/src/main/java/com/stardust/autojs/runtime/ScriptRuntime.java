@@ -25,7 +25,7 @@ import com.stardust.autojs.runtime.api.Files;
 import com.stardust.autojs.runtime.api.Floaty;
 import com.stardust.autojs.core.looper.Loopers;
 import com.stardust.autojs.runtime.api.Media;
-import com.stardust.autojs.runtime.api.Paddle;
+import com.stardust.autojs.runtime.api.GoogleMLKit;
 import com.stardust.autojs.runtime.api.Plugins;
 import com.stardust.autojs.runtime.api.Sensors;
 import com.stardust.autojs.runtime.api.SevenZip;
@@ -199,7 +199,9 @@ public class ScriptRuntime {
     public final Plugins plugins;
 
     @ScriptVariable
-    public final Paddle paddle;
+    public final GoogleMLKit gmlkit;
+//    @ScriptVariable
+//    public final Paddle paddle;
 
     private Images images;
 
@@ -232,7 +234,8 @@ public class ScriptRuntime {
         media = new Media(context, this);
         plugins = new Plugins(context, this);
         zips = new SevenZip();
-        paddle = new Paddle();
+        gmlkit = new GoogleMLKit();
+//        paddle = new Paddle();
     }
 
     public void init() {
@@ -431,7 +434,7 @@ public class ScriptRuntime {
         ignoresException(sensors::unregisterAll);
         ignoresException(timers::recycle);
         ignoresException(ui::recycle);
-        ignoresException(paddle::release);
+//        ignoresException(paddle::release);
     }
 
     private void ignoresException(Runnable r) {

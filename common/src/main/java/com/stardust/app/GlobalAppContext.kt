@@ -75,7 +75,7 @@ object GlobalAppContext {
 
     @JvmStatic
     fun toast(resId: Int, vararg args: Any?) {
-        toast(false,resId, args)
+        toast(false, resId, *args)
     }
 
     @JvmStatic

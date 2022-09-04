@@ -35,7 +35,7 @@ import org.autojs.autojs.ui.common.OperationDialogBuilder
 import org.autojs.autojs.ui.explorer.ExplorerViewKt
 import org.autojs.autojs.ui.floating.layoutinspector.LayoutBoundsFloatyWindow
 import org.autojs.autojs.ui.floating.layoutinspector.LayoutHierarchyFloatyWindow
-import org.autojs.autojs.ui.main.MainActivityCompose
+import org.autojs.autojs.ui.main.MainActivity
 import org.greenrobot.eventbus.EventBus
 import org.jdeferred.Deferred
 import org.jdeferred.impl.DeferredObject
@@ -304,7 +304,7 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
     @OnClick(R.id.open_launcher)
     fun openLauncher() {
         dismissSettingsDialog()
-        val intent = Intent(mContext, MainActivityCompose::class.java)
+        val intent = Intent(mContext, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         mContext.startActivity(intent)
     }

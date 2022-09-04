@@ -4,28 +4,44 @@ import android.graphics.Rect
 import kotlin.math.abs
 
 data class OcrResult(
-    var confidence: Float = 0f,
-    var preprocessTime: Float = 0f,
-    var inferenceTime: Float = 0f,
-    var words: String? = null,
-    var bounds: Rect? = null,
-    var location: RectLocation? = null
+    @JvmField
+    val confidence: Float,
+    @JvmField
+    val preprocessTime: Float,
+    @JvmField
+    val inferenceTime: Float,
+    @JvmField
+    val text: String,
+    @JvmField
+    val bounds: Rect,
 ) : Comparable<OcrResult> {
 
+    @Deprecated("use text", ReplaceWith("text"))
+    @JvmField
+    val words: String = text
+
+    @Deprecated("use text", ReplaceWith("text"))
+    fun getWords() = text
+
+    @Deprecated("use confidence", ReplaceWith("confidence"))
+    fun getConfidence() = confidence
+
+    @Deprecated("use preprocessTime", ReplaceWith("preprocessTime"))
+    fun getPreprocessTime() = preprocessTime
+
+    @Deprecated("use inferenceTime", ReplaceWith("inferenceTime"))
+    fun getInferenceTime() = inferenceTime
+
+    @Deprecated("use bounds", ReplaceWith("bounds"))
+    fun getBounds() = bounds
+
     override fun compareTo(other: OcrResult): Int {
-        val deviation = (location!!.height / 2).coerceAtLeast(other.location!!.height / 2)
-        return if (abs((bounds!!.top + bounds!!.bottom) / 2 - (other.bounds!!.top + other.bounds!!.bottom) / 2) < deviation) {
-            bounds!!.left - other.bounds!!.left
+        val deviation = (bounds.height() / 2f).coerceAtLeast(other.bounds.height() / 2f)
+        return if (abs((bounds.top + bounds.bottom) / 2f - (other.bounds.top + other.bounds.bottom) / 2f) < deviation) {
+            bounds.left - other.bounds.left
         } else {
-            bounds!!.bottom - other.bounds!!.bottom
+            bounds.bottom - other.bounds.bottom
         }
     }
 
 }
-
-data class RectLocation(
-    var left: Int,
-    var top: Int,
-    var width: Int,
-    var height: Int
-)

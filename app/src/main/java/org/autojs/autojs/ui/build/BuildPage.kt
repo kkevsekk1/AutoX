@@ -234,6 +234,12 @@ private fun PackagingOptionCard(
             }
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Checkbox(
+                    checked = model.isRequiredMlKitOCR,
+                    onCheckedChange = { model.isRequiredMlKitOCR = it })
+                Text(text = stringResource(id = R.string.text_required_google_mlkit_ocr))
+            }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(
                     checked = model.isRequiredPaddleOCR,
                     onCheckedChange = { model.isRequiredPaddleOCR = it })
                 Text(text = stringResource(id = R.string.text_required_paddle_ocr))
