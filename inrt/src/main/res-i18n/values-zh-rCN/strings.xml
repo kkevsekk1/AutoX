@@ -32,7 +32,7 @@
   <string name="invalid_username">不是有效的用户名</string>
   <string name="invalid_password">密码必须大于5 个字符</string>
   <string name="login_failed">“登录失败”</string>
-  <string name="explain_accessibility_permission">软件需要打开\"无障碍服务\"才能运行，请打开”设置->无障碍服务“或”设置->无障碍服务->更多已下载的服务“，找到” %s “，开启无障碍服务</string>
+  <string name="explain_accessibility_permission">软件需要打开“无障碍服务”才能运行，请打开“设置->无障碍服务”或“设置->无障碍服务->更多已下载的服务”，找到“%s”，开启无障碍服务</string>
   <string name="text_need_to_enable_accessibility_service">需要启用无障碍服务</string>
   <string name="summary_use_volume_to_stop_running">通知栏将会一直显示“此应用运行中”的通知，使程序保持运行</string>
   <string name="text_to_open">去打开</string>
