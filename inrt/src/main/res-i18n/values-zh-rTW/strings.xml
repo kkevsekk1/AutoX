@@ -32,7 +32,7 @@
   <string name="invalid_username">不是有效的用戶名</string>
   <string name="invalid_password">密碼必須大於5 個字符</string>
   <string name="login_failed">“登錄失敗”</string>
-  <string name="explain_accessibility_permission">軟件需要打開\"無障礙服務\"才能運行，請打開”設置->無障礙服務“或”設置->無障礙服務->更多已下載的服務“，找到” %s “，開啟無障礙服務</string>
+  <string name="explain_accessibility_permission">軟體需要打開“無障礙服務”才能運行，請打開“設置->無障礙服務”或“設置->無障礙服務->更多已下載的服務”，找到“%s”，開啟無障礙服務</string>
   <string name="text_need_to_enable_accessibility_service">需要啟用無障礙服務</string>
   <string name="summary_use_volume_to_stop_running">通知欄將會一直顯示“此應用運行中”的通知，使程序保持運行</string>
   <string name="text_to_open">去打開</string>
