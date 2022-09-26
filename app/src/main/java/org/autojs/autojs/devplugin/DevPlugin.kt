@@ -118,9 +118,11 @@ object DevPlugin {
         }
     }
 
-    fun startUSBDebug() {
-        server.listen(SERVER_PORT, "/", host = "127.0.0.1") {
-            newConnection(this)
+    suspend fun startUSBDebug() {
+        withContext(Dispatchers.IO) {
+            server.listen(SERVER_PORT, "/", host = "127.0.0.1") {
+                newConnection(this)
+            }
         }
     }
 
@@ -325,10 +327,8 @@ object DevPlugin {
                 type = "log",
                 data = LogData(log = log)
             )
-            session.let {
-                it.launch {
-                    it.send(gson.toJson(data))
-                }
+            runBlocking {
+                session.send(gson.toJson(data))
             }
         }
 
