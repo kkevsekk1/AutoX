@@ -333,8 +333,10 @@ fun USBDebugSwitch() {
         onCheckedChange = {
             if (it) {
                 try {
-                    DevPlugin.startUSBDebug()
-                    enable = true
+                    scope.launch {
+                        DevPlugin.startUSBDebug()
+                        enable = true
+                    }
                 } catch (e: Exception) {
                     enable = false
                     e.printStackTrace()
