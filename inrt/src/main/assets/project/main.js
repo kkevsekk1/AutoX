@@ -26,7 +26,7 @@ ui.zip1.click(function(){
     engines.execScriptFile("7zip.js");
 });
 
-ui.mlkitocr.click(function(){
+ui.gmlkitocr.click(function(){
     //通过getText()获取输入的内容
     engines.execScriptFile("gmlkit_ocr.js");
 });

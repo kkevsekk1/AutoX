@@ -332,20 +332,22 @@ fun USBDebugSwitch() {
         checked = enable,
         onCheckedChange = {
             if (it) {
-                try {
-                    DevPlugin.startUSBDebug()
-                    enable = true
-                } catch (e: Exception) {
-                    enable = false
-                    e.printStackTrace()
-                    Toast.makeText(
-                        context,
-                        context.getString(
-                            R.string.text_start_service_failed,
-                            e.localizedMessage
-                        ),
-                        Toast.LENGTH_SHORT
-                    ).show()
+                scope.launch {
+                    try {
+                        DevPlugin.startUSBDebug()
+                        enable = true
+                    } catch (e: Exception) {
+                        enable = false
+                        e.printStackTrace()
+                        Toast.makeText(
+                            context,
+                            context.getString(
+                                R.string.text_start_service_failed,
+                                e.localizedMessage
+                            ),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             } else {
                 scope.launch {
