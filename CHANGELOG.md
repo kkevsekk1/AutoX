@@ -1,7 +1,21 @@
 # Change Log
 autoxjs 整个项目的一些更新日志,双版本号为稳定版，单版本号为激进版本。
 
-## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.3.4...HEAD) 未发布
+## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.3.5...HEAD) 未发布
+
+## [6.3.5] - 2022-9-28
+
+@wilinz  调整如下功能
+
+1. 修复 PC端日志输出先后顺序有问题
+2. 其他js等实例脚本问题
+
+[6.3.5]:https://github.com/kkevsekk1/AutoX/compare/6.3.4...6.3.5
+
+下载地址： \
+  http://autoxoss.autoxjs.com/autoxjs/6.3.5/app-v6-arm64-v8a-release-unsigned-signed.apk \
+  http://autoxoss.autoxjs.com/autoxjs/6.3.5/app-v6-armeabi-v7a-release-unsigned-signed.apk \
+  http://autoxoss.autoxjs.com/autoxjs/6.3.5/app-v6-universal-release-unsigned-signed.apk 
 
 ## [6.3.4] - 2022-9-4
 
