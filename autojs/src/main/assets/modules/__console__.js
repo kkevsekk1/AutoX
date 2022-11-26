@@ -95,5 +95,9 @@ module.exports = function (runtime, scope) {
     scope.openConsole = console.show.bind(console);
     scope.clearConsole = console.clear.bind(console);
 
+    console.setGlobalLogConfig({
+        file: files.join(context.getExternalFilesDir("logs"), "log.txt")
+    });
+
     return console;
 }
