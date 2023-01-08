@@ -5,7 +5,7 @@ autoxjs 整个项目的一些更新日志,双版本号为稳定版，单版本�
 
 ## [6.3.6] - 2023-1-8
 
-@ 调整如下内容
+@gucong3000 调整如下内容
 1.将console打印Error对象时的行为，调整为与Chrome和Node.js等平台保持一致，打印堆栈信息。
 
 [6.3.6]:https://github.com/kkevsekk1/AutoX/compare/6.3.5...6.3.6
