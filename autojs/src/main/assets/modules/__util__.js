@@ -372,7 +372,7 @@ function formatJavaArray(javaArray){
 }
 
 function formatError(value) {
-  return '[' + Error.prototype.toString.call(value) + ']';
+  return [Error.prototype.toString.call(value), value.stack].filter(Boolean).join('\n');
 }
 
 
