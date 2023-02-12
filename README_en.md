@@ -104,10 +104,6 @@ No one in the original text states that the license is MPL2.0, and the newly add
 * Whether autojs can be commercialized depends on your understanding of the accompanying "non-commercial use" and its legal benefits.
 * Anyway, this product will not use autojs for commercial use.
 
-#### Support
-* If you want to support project contributors, you can do this by
-* [wilinz](https://github.com/wilinz/Sponsor)
-
 #### Compilation related：
 Command description: Run the command in the project root directory, if using Windows powerShell < 7.0, use the command containing ";"
 
