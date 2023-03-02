@@ -1,3 +1,0 @@
-jackpal.androidterm.emulatorview
-drawable atari_small
-drawable atari_small_nodpi
