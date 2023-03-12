@@ -40,6 +40,7 @@ dependencies {
         exclude(group = "com.android.support",module = "support-annotations")
     }
     testImplementation("junit:junit:4.13.2")
+    implementation("androidx.documentfile:documentfile:1.0.1")
     implementation("androidx.preference:preference-ktx:1.2.0")
     api("org.greenrobot:eventbus:3.3.1")
     api("net.lingala.zip4j:zip4j:1.3.2")
