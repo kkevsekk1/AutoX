@@ -55,7 +55,8 @@ runtime.init();
      global.JSON = require('__json2__.js');
      global.util = global.$util = require('__util__.js');
      global.device = runtime.device;
-     global.Promise = require('promise.js');
+     //global.Promise = require('promise.js');
+     global.Promise = require('bluebird-promise.js');
 
      //设置JavaScriptBridges用于与Java层的交互和数据转换
      runtime.bridges.setBridges(require('__bridges__.js'));
