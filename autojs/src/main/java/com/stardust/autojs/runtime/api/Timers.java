@@ -52,7 +52,11 @@ public class Timers {
         if (timer == null && Looper.myLooper() == Looper.getMainLooper()) {
             return mUiTimer;
         }
-        return timer;
+        if (timer== null){
+            return mMainTimer;
+        }else {
+            return timer;
+        }
     }
 
     public int setTimeout(Object callback, long delay, Object... args) {
