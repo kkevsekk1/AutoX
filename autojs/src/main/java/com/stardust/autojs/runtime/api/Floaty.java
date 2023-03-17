@@ -11,7 +11,6 @@ import com.stardust.autojs.core.floaty.BaseResizableFloatyWindow;
 import com.stardust.autojs.core.floaty.RawWindow;
 import com.stardust.autojs.core.ui.JsViewHelper;
 import com.stardust.autojs.core.ui.inflater.DynamicLayoutInflater;
-import com.stardust.autojs.core.ui.inflater.inflaters.Exceptions;
 import com.stardust.autojs.runtime.ScriptRuntime;
 import com.stardust.autojs.runtime.exception.ScriptInterruptedException;
 import com.stardust.autojs.util.FloatingPermission;
@@ -118,14 +117,16 @@ public class Floaty {
         private boolean mExitOnClose;
 
         public JsRawWindow(RawWindow.RawFloaty floaty) {
-            mWindow = new RawWindow(floaty);
-            mUiHandler.post(() -> {
+            mWindow = new RawWindow(floaty,mUiHandler.getContext());
+            Runnable r = () -> {
                 mUiHandler.getContext().startService(new Intent(mUiHandler.getContext(), FloatyService.class));
                 FloatyService.addWindow(mWindow);
-            });
-            RuntimeException exception = mWindow.waitForCreation();
-            if (exception != Exceptions.NO_EXCEPTION && exception != null) {
-                throw exception;
+            };
+            //如果是ui线程则直接创建
+            if (Looper.myLooper()==Looper.getMainLooper()){
+                r.run();
+            }else {//否则放入ui线程
+                mUiHandler.post(r);
             }
         }
 
@@ -162,15 +163,8 @@ public class Floaty {
         }
 
         private void runWithWindow(Runnable r) {
-            if (mWindow == null)
-                return;
-            if (Looper.myLooper() == Looper.getMainLooper()) {
-                r.run();
-                return;
-            }
+            if (mWindow == null) return;
             mUiHandler.post(() -> {
-                if (mWindow == null)
-                    return;
                 r.run();
             });
         }
@@ -221,13 +215,15 @@ public class Floaty {
                 mView = supplier.inflate(context, parent);
                 return mView;
             });
-            mUiHandler.post(() -> {
+            Runnable r = () -> {
                 mUiHandler.getContext().startService(new Intent(mUiHandler.getContext(), FloatyService.class));
                 FloatyService.addWindow(mWindow);
-            });
-            RuntimeException exception = mWindow.waitForCreation();
-            if (exception != Exceptions.NO_EXCEPTION && exception != null) {
-                throw exception;
+            };
+            //如果是ui线程则直接创建
+            if (Looper.myLooper()==Looper.getMainLooper()){
+                r.run();
+            }else {//否则放入ui线程并使当前线程阻塞
+                mUiHandler.post(r);
             }
             mWindow.setOnCloseButtonClickListener(v -> close());
             //setSize(mWindow.getWindowBridge().getScreenWidth() / 2, mWindow.getWindowBridge().getScreenHeight() / 2);
@@ -263,15 +259,8 @@ public class Floaty {
 
 
         private void runWithWindow(Runnable r) {
-            if (mWindow == null)
-                return;
-            if (Looper.myLooper() == Looper.getMainLooper()) {
-                r.run();
-                return;
-            }
+            if (mWindow == null) return;
             mUiHandler.post(() -> {
-                if (mWindow == null)
-                    return;
                 r.run();
             });
         }
