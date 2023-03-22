@@ -117,9 +117,9 @@ public class Floaty {
         private boolean mExitOnClose;
 
         public JsRawWindow(RawWindow.RawFloaty floaty) {
-            mWindow = new RawWindow(floaty,mUiHandler.getContext());
-            Runnable r = () -> {
-                mUiHandler.getContext().startService(new Intent(mUiHandler.getContext(), FloatyService.class));
+            mWindow = new RawWindow(floaty, mUiHandler.getContext());
+            mUiHandler.getContext().startService(new Intent(mUiHandler.getContext(), FloatyService.class));
+            Runnable r=() -> {
                 FloatyService.addWindow(mWindow);
             };
             //如果是ui线程则直接创建
@@ -164,9 +164,7 @@ public class Floaty {
 
         private void runWithWindow(Runnable r) {
             if (mWindow == null) return;
-            mUiHandler.post(() -> {
-                r.run();
-            });
+            mUiHandler.post(r);
         }
 
         public void setPosition(int x, int y) {
@@ -215,16 +213,17 @@ public class Floaty {
                 mView = supplier.inflate(context, parent);
                 return mView;
             });
+            mUiHandler.getContext().startService(new Intent(mUiHandler.getContext(), FloatyService.class));
             Runnable r = () -> {
-                mUiHandler.getContext().startService(new Intent(mUiHandler.getContext(), FloatyService.class));
                 FloatyService.addWindow(mWindow);
             };
             //如果是ui线程则直接创建
             if (Looper.myLooper()==Looper.getMainLooper()){
                 r.run();
-            }else {//否则放入ui线程并使当前线程阻塞
+            }else {//否则放入ui线程
                 mUiHandler.post(r);
             }
+
             mWindow.setOnCloseButtonClickListener(v -> close());
             //setSize(mWindow.getWindowBridge().getScreenWidth() / 2, mWindow.getWindowBridge().getScreenHeight() / 2);
         }
@@ -260,9 +259,7 @@ public class Floaty {
 
         private void runWithWindow(Runnable r) {
             if (mWindow == null) return;
-            mUiHandler.post(() -> {
-                r.run();
-            });
+            mUiHandler.post(r);
         }
 
         public void setPosition(int x, int y) {
