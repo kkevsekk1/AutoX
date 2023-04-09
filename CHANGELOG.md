@@ -1,7 +1,21 @@
 # Change Log
-autoxjs 整个项目的一些更新日志,双版本号为稳定版，单版本号为激进版本。
+autoxjs 整个项目的一些更新日志,双版本号为稳定版（内容以修复的bug为主），单版本号为激进版本、发布新内容。
 
-## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.3.5...HEAD) 未发布
+## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.3.7...HEAD) 未发布
+
+## [6.3.7] - 2023-4-9
+
+@aiselp 引入documentfile支持，以便使用saf框架，更换Promise库为bluebird。支持更多特性
+@aiselp 使用kt重写悬浮窗并修复错误， 修复timers模块无法在其他java线程中使用
+
+[6.3.7]:https://github.com/kkevsekk1/AutoX/compare/6.3.6...6.3.7
+
+下载地址： \
+  http://autoxoss.autoxjs.com/autoxjs/6.3.7/app-v6-arm64-v8a-release-unsigned-signed.apk \
+  http://autoxoss.autoxjs.com/autoxjs/6.3.7/app-v6-armeabi-v7a-release-unsigned-signed.apk \
+  http://autoxoss.autoxjs.com/autoxjs/6.3.7/app-v6-universal-release-unsigned-signed.apk
+
+
 
 ## [6.3.6] - 2023-1-8
 
