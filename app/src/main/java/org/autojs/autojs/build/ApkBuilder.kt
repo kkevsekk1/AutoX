@@ -332,7 +332,7 @@ class ApkBuilder(
                 launchConfig.serviceDesc
             )
         }
-        util.saveArsc(newArsc.absolutePath,oldArsc.absolutePath)
+        util.saveArsc(oldArsc.absolutePath, newArsc.absolutePath)
         newArsc.delete()
     }
 

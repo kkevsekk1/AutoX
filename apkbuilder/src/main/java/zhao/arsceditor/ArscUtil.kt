@@ -142,7 +142,7 @@ class ArscUtil {
         isChanged = false
     }
 
-    fun getResouces(key: String, cfg: String) {
+    fun getResouces(key: String, value: String) {
         // 如果储存Config的列表未初始化
         if (Configs == null) {
             // 初始化Config列表
@@ -178,21 +178,27 @@ class ArscUtil {
             //            System.out.println("NAME: " + NAME + " VALUE: " + VALUE + " TYPE: " + TYPE + " CONGIG: " + CONFIG);
             // 如果资源的Config开头存在-符号，并且Config列表中不存在该资源的Config元素，并且资源种类是params[0]的值
             if (config!!.startsWith("-") && !Configs!!.contains(config.substring(1)) && type == key) // 向Config列表中添加元素
-                Configs!!.add(config.substring(1))
-            else if (!config.startsWith("-") && !Configs!!.contains(config) && type == key)
-                Configs!!.add(config)
+                Configs!!.add(config.substring(1)) else if (!config.startsWith("-") && !Configs!!.contains(
+                    config
+                ) && type == key
+            ) Configs!!.add(config)
 
-            // 如果Config列表中存在该资源的Config元素
-            if (type == key){
-                // 如果Config是params[1]的值或者是
-                if(config == cfg || config == "-$cfg"){
-                    // 向储存字符串的列表中添加字符串成员
-                    txtOriginal.add(value)
-                    // 向储存修改后的字符串的列表中添加空成员
-                    txtTranslated.add("")
-                    // 向储存资源的键的列表添加键
-                    txtTranslatedKey.add(name)
-                }
+            // 如果资源的Config开头存在-符号，并且Config列表中存在该资源的Config元素，并且Config是params[1]的值
+            if (type == key && config.startsWith("-") && config.substring(1) == value) {
+                // 向储存字符串的列表中添加字符串成员
+                txtOriginal.add(value)
+                // 向储存修改后的字符串的列表中添加空成员
+                txtTranslated.add("")
+                // 向储存资源的键的列表添加键
+                txtTranslatedKey.add(name)
+                // 如果资源的Config开头不存在-符号，并且Config列表中存在该资源的Config元素，并且Config是params[1]的值
+            } else if (type == key && !config.startsWith("-") && config == value) {
+                // 向储存字符串的列表中添加字符串成员
+                txtOriginal.add(value)
+                // 向储存修改后的字符串的列表中添加空成员
+                txtTranslated.add("")
+                // 向储存资源的键的列表添加键
+                txtTranslatedKey.add(name)
             }
         }
         Configs?.sort()

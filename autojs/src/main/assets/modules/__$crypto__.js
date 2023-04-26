@@ -107,7 +107,7 @@ module.exports = function (runtime, global) {
         os.close();
         if (!isFile) {
             let result = os.toByteArray();
-            return $cypto._output(result, options, 'bytes');
+            return $crypto._output(result, options, 'bytes');
         }
     }
 
@@ -143,7 +143,7 @@ module.exports = function (runtime, global) {
             }
             throw new Error()
         }
-        return new SecretKeySpec(this.data, algorithm);
+        return new SecretKeySpec(key.data, algorithm);
     }
 
     Key.prototype.toString = function () {
