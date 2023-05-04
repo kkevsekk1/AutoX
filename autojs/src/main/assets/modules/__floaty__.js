@@ -6,20 +6,28 @@ module.exports = function(runtime, global){
         if(typeof(xml) == 'xml'){
             xml = xml.toXMLString();
         }
-        return wrap(runtime.floaty.window(function(context, parent){
-             runtime.ui.layoutInflater.setContext(context);
-             return runtime.ui.layoutInflater.inflate(xml.toString(), parent, true);
-        }));
+        let window;
+         ui.run(()=>{
+         window = wrap(runtime.floaty.window(function(context, parent){
+                      runtime.ui.layoutInflater.setContext(context);
+                      return runtime.ui.layoutInflater.inflate(xml.toString(), parent, true);
+                 }));
+         })
+        return window;
     }
 
     floaty.rawWindow = function(xml){
         if(typeof(xml) == 'xml'){
             xml = xml.toXMLString();
         }
-        return wrap(runtime.floaty.rawWindow(function(context, parent){
+        let window;
+        ui.run(()=>{
+        window = wrap(runtime.floaty.rawWindow(function(context, parent){
              runtime.ui.layoutInflater.setContext(context);
              return runtime.ui.layoutInflater.inflate(xml.toString(), parent, true);
         }));
+        })
+        return window;
     }
 
     function wrap(window){
