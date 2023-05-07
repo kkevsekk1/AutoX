@@ -136,7 +136,13 @@ public class Images {
             throw new IllegalArgumentException("unknown format " + format);
         Bitmap bitmap = image.getBitmap();
         FileOutputStream outputStream = new FileOutputStream(mScriptRuntime.files.path(path));
-        return bitmap.compress(compressFormat, quality, outputStream);
+        try {
+            boolean compress = bitmap.compress(compressFormat, quality, outputStream);
+            outputStream.flush();
+            return compress;
+        }finally {
+            outputStream.close();
+        }
     }
 
     public static int pixel(ImageWrapper image, int x, int y) {

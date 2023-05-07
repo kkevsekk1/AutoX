@@ -1,0 +1,30 @@
+<html>
+  <body style="font: size 2em">
+    <div style="font-size: 100px">原内容</div>
+    <!-- 导入依赖包，也可以不加，不过需要监听AutoxJsBridgeReady事件后才能使用$autox -->
+    <script src="autox://sdk.v1.js"></script>
+    <script>
+      function addText(text) {
+        const div = document.createElement("div");
+        div.innerHTML = text;
+        document.body.appendChild(div);
+      }
+      //注册一个监听函数
+      $autox.registerHandler("jsTest", (data, callBack) => {
+        addText(`来自安卓调用，data=${data}`);
+        setTimeout(() => {
+          //回调安卓
+          callBack("web回调数据");
+        }, 1000);
+      });
+      //调用安卓端
+      $autox.callHandler("test", "web调用数据", (data) => {
+        addText("安卓回调, data:" + data);
+      });
+
+      document.addEventListener("AutoxJsBridgeReady", () => {
+        //$autox.
+      });
+    </script>
+  </body>
+</html>
