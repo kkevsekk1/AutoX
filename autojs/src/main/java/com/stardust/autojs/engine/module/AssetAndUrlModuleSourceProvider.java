@@ -52,6 +52,16 @@ public class AssetAndUrlModuleSourceProvider extends UrlModuleSourceProvider {
     }
 
     @Override
+    protected ModuleSource loadFromUri(URI uri, URI base, Object validator) throws IOException, URISyntaxException {
+        ModuleSource moduleSource = super.loadFromUri(uri, base, validator);
+        if (moduleSource == null && uri.getPath().startsWith("/android_asset/")) {
+            return new ModuleSource(new InputStreamReader(mAssetManager.open(uri.getPath().replace("/android_asset/", ""))), null,
+                    uri, mBaseURI, validator);
+        }
+        return moduleSource;
+    }
+
+    @Override
     protected Reader getReader(URLConnection urlConnection) throws IOException {
         InputStream stream = urlConnection.getInputStream();
         byte[] bytes = new byte[stream.available()];
