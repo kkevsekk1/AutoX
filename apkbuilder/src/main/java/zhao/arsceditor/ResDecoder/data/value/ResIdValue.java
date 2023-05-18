@@ -29,6 +29,6 @@ public class ResIdValue extends ResValue implements GetResValues {
 	@Override
 	public void getResValues(ARSCCallBack back, ResResource res) throws IOException {
 		back.back(res.getConfig().toString(), res.getResSpec().getType().getName(), res.getResSpec().getName(),
-				res.getValue().toString());
+				res.getValue().toString(),res.getResSpec().getId().id);
 	}
 }

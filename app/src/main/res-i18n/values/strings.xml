@@ -196,6 +196,7 @@
     <string name="text_binary">binary</string>
     <string name="summary_stable_mode">开启后布局分析更稳定，但小部分脚本可能无法正常运行。重启无障碍服务生效</string>
     <string name="text_hideLaucher">隐藏桌面图标(通过adb或其他方法启动应用)</string>
+    <string name="text_display_splash">显示启动界面</string>
     <string name="text_stable_mode">稳定模式</string>
     <string name="text_single_build_clean_mode">单文件打包清爽模式</string>
     <string name="summary_single_build_clean_mode">开启后单文件打包时不保存打包配置文件,及不保存启动图和应用图标等所有配置信息</string>
@@ -258,6 +259,7 @@
     <string name="text_run_config">运行配置</string>
     <string name="text_hideLogs">隐藏日志</string>
     <string name="text_required_accessibility_service">需要无障碍服务</string>
+    <string name="text_hide_accessibility_services">去掉无障碍服务</string>
     <string name="text_required_opencv" translatable="false">OpenCv</string>
     <string name="text_required_google_mlkit_ocr" translatable="false">Google ML kit OCR</string>
     <string name="text_required_paddle_ocr" translatable="false">PaddleOCR</string>

@@ -305,7 +305,7 @@
             android:name="com.stardust.auojs.inrt.SplashActivity"
             android:clearTaskOnLaunch="true"
             android:finishOnTaskLaunch="true"
-            android:theme="@style/AppTheme.Splash"
+            android:theme="@style/ScriptTheme.Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

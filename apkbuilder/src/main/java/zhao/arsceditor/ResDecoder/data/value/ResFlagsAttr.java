@@ -149,7 +149,7 @@ public class ResFlagsAttr extends ResAttr {
 		for (int i = 0; i < mItems.length; i++) {
 			FlagItem item = mItems[i];
 			back.back(res.getConfig().toString(), res.getResSpec().getType().getName(), item.getValue(),
-					String.format("0x%08x", item.flag));
+					String.format("0x%08x", item.flag),res.getResSpec().getId().id);
 		}
 	}
 }

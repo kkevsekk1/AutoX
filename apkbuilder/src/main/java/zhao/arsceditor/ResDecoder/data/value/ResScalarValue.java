@@ -53,7 +53,7 @@ public abstract class ResScalarValue extends ResIntBasedValue implements GetResV
 		String type = res.getResSpec().getType().getName();
 
 		String body = encodeAsResValue();
-		back.back(res.getConfig().toString(), type, res.getResSpec().getName(), body);
+		back.back(res.getConfig().toString(), type, res.getResSpec().getName(), body,res.getResSpec().getId().id);
 	}
 
 	public String getType() {
