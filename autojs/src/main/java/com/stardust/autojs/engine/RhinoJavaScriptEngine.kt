@@ -123,10 +123,9 @@ open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Co
                 listOf<URI>(File("/").toURI()))
         RequireBuilder()
                 .setModuleScriptProvider(SoftCachingModuleScriptProvider(provider))
-                .setSandboxed(true)
+                .setSandboxed(false)
                 .createRequire(context, scope)
                 .install(scope)
-
     }
 
     protected fun createScope(context: Context): TopLevelScope {
