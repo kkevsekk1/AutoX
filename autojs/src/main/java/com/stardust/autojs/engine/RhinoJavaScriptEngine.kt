@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.View
 import com.stardust.autojs.core.ui.ViewExtras
 import com.stardust.autojs.engine.module.AssetAndUrlModuleSourceProvider
+import com.stardust.autojs.engine.module.ScopeRequire
 import com.stardust.autojs.execution.ExecutionConfig
 import com.stardust.autojs.project.ScriptConfig
 import com.stardust.autojs.rhino.RhinoAndroidHelper
@@ -13,7 +14,6 @@ import com.stardust.autojs.script.JavaScriptSource
 import com.stardust.automator.UiObjectCollection
 import com.stardust.pio.UncheckedIOException
 import org.mozilla.javascript.*
-import org.mozilla.javascript.commonjs.module.RequireBuilder
 import org.mozilla.javascript.commonjs.module.provider.SoftCachingModuleScriptProvider
 import java.io.File
 import java.io.IOException
@@ -121,11 +121,8 @@ open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Co
     internal fun initRequireBuilder(context: Context, scope: Scriptable) {
         val provider = AssetAndUrlModuleSourceProvider(mAndroidContext, MODULES_PATH,
                 listOf<URI>(File("/").toURI()))
-        RequireBuilder()
-                .setModuleScriptProvider(SoftCachingModuleScriptProvider(provider))
-                .setSandboxed(false)
-                .createRequire(context, scope)
-                .install(scope)
+        val require = ScopeRequire(context,scope,SoftCachingModuleScriptProvider(provider),null,null,false)
+        require.install(scope)
     }
 
     protected fun createScope(context: Context): TopLevelScope {

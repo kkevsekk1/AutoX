@@ -22,7 +22,7 @@ class AssetAndUrlModuleSourceProvider(context: Context, assetDirPath: String, li
 
     //初始化脚本以及启动文件只会从此方法加载模块，子模块加载没有以"./"或"../"开头的模块也会从此方法加载
     override fun loadFromPrivilegedLocations(moduleId: String, validator: Any?): ModuleSource? {
-        println("加载私有模块：$moduleId")
+        //println("加载私有模块：$moduleId")
         val uri = if (moduleId.startsWith("main:")) {
             File(moduleId.replace("main:", "")).toURI()
         } else if (moduleId.startsWith("/")) {
@@ -42,7 +42,7 @@ class AssetAndUrlModuleSourceProvider(context: Context, assetDirPath: String, li
     override fun loadFromUri(uri: URI, base: URI, validator: Any?): ModuleSource? {
         var uri = uri
         if (uri.scheme == null) uri = File(uri.path).toURI()
-        println("加载模块：$uri")
+        //println("加载模块：$uri")
         if (uri.scheme == "http" || uri.scheme == "https") {
             return loadFromHttp(uri, base, validator)
         }
