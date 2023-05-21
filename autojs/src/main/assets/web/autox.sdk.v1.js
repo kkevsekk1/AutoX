@@ -10,6 +10,7 @@
     $autox.callHandler = function(event, data, callBack) {
         const callBackId = nextId++;
         const reqData = {
+            id:-1,
             event,
             data,
             callBackId: null,
