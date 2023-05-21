@@ -193,7 +193,7 @@ data class BuildInfo(
 @Keep
 data class LaunchConfig(
     @SerializedName("displaySplash")
-    var displaySplash: Boolean = false,
+    var displaySplash: Boolean = true,
     @SerializedName("hideLogs")
     var isHideLogs: Boolean = false,
     @SerializedName("permissions")
@@ -211,4 +211,6 @@ data class LaunchConfig(
     var isVolumeUpControl: Boolean = false,
     @SerializedName("hideLauncher")
     var isHideLauncher: Boolean = false,
+    @SerializedName("hideAccessibilityServices")
+    var isHideAccessibilityServices: Boolean = false,
 )

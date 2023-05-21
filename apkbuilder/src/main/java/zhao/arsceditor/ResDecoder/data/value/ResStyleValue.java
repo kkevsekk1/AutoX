@@ -45,7 +45,7 @@ public class ResStyleValue extends ResBagValue implements GetResValues {
 		for (int i = 0; i < mItems.length; i++) {
 			Duo<ResReferenceValue, ResScalarValue> item = mItems[i];
 			back.back(res.getConfig().toString(), res.getResSpec().getType().getName(), res.getResSpec().getName(),
-					item.m2.encodeResValue());
+					item.m2.encodeResValue(),res.getResSpec().getId().id);
 		}
 	}
 }

@@ -45,7 +45,7 @@ class ArscUtil {
     @Throws(IOException::class)
     private fun open(
         resFile: String,
-        callback: ((config: String, type: String, key: String, value: String) -> Unit)? = null
+        callback: ((config: String, type: String, key: String, value: String, id: Int) -> Unit)? = null
     ) {
         FileInputStream(resFile).use { input->
             when {
@@ -69,7 +69,7 @@ class ArscUtil {
     private fun open(
         resInputStream: InputStream,
         resType: Int,
-        callback: ((config: String, type: String, key: String, value: String) -> Unit)? = null
+        callback: ((config: String, type: String, key: String, value: String, id: Int) -> Unit)? = null
     ) {
         // 如果储存资源类型的列表未初始化
         if (Types == null) {
@@ -78,9 +78,9 @@ class ArscUtil {
         }
 
         // 实现资源回调接口
-        val callback = ARSCCallBack { config, type, key, value ->
+        val callback = ARSCCallBack { config, type, key, value, id ->
             if (key == null || type == null) return@ARSCCallBack
-            callback?.invoke(config, type, key, value)
+            callback?.invoke(config, type, key, value, id)
             // 这里是为了出去一些不能编辑的字符串
             // 初始化键值映射
             val values: MutableMap<String, String> = HashMap()
@@ -122,7 +122,7 @@ class ArscUtil {
 
     fun openArsc(
         filename: String,
-        callback: ((config: String, type: String, key: String, value: String) -> Unit)? = null
+        callback: ((config: String, type: String, key: String, value: String, id: Int) -> Unit)? = null
     ) {
         try {
             open(filename, callback)
