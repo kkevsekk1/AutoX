@@ -115,6 +115,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
     var isHideLogs by mutableStateOf(false)
     var isVolumeUpControl by mutableStateOf(false)
     var displaySplash by mutableStateOf(true)//todo
+    var isHideAccessibilityServices by mutableStateOf(false)
 
     //--特殊权限
     var isRequiredAccessibilityServices by mutableStateOf(false)
@@ -249,7 +250,6 @@ class BuildViewModel(private val app: Application, private var source: String) :
             sourcePath = viewModel.sourcePath
             projectDirectory = directory!!
             outputPath = viewModel.outputPath
-            displaySplash = viewModel.displaySplash
             assets = updateAssets(assets)
             libs = updateLibs(libs).toMutableList()
             abis = updateAbiList(abis).toMutableList()
@@ -262,6 +262,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
             icon = viewModel.icon?.toRelativePathOrString()
             launchConfig.apply {
                 isStableMode = viewModel.isStableMode
+                displaySplash = viewModel.displaySplash
                 isHideLauncher = viewModel.isHideLauncher
                 isHideLogs = viewModel.isHideLogs
                 isVolumeUpControl = viewModel.isVolumeUpControl
@@ -269,6 +270,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
                 splashIcon = viewModel.splashIcon?.toRelativePathOrString()
                 serviceDesc = viewModel.serviceDesc
                 permissions = updatePermissions(permissions)
+                isHideAccessibilityServices = viewModel.isHideAccessibilityServices
             }
             signingConfig.apply {
                 keyStore = viewModel.keyStore?.path
@@ -290,7 +292,9 @@ class BuildViewModel(private val app: Application, private var source: String) :
         }
         mainScriptFile = projectConfig.mainScript ?: getMainScriptName()
         isStableMode = projectConfig.launchConfig.isStableMode
+        displaySplash = projectConfig.launchConfig.displaySplash
         isHideLauncher = projectConfig.launchConfig.isHideLauncher
+        isHideAccessibilityServices = projectConfig.launchConfig.isHideAccessibilityServices
         isHideLogs = projectConfig.launchConfig.isHideLogs
         isVolumeUpControl = projectConfig.launchConfig.isVolumeUpControl
         splashText = projectConfig.launchConfig.splashText

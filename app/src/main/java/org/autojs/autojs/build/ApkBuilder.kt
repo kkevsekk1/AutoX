@@ -66,6 +66,9 @@ class ApkBuilder(
 
     private val nativePath = File(GlobalAppContext.get().cacheDir, "native-lib").path
 
+    private var splashThemeId: Int = 0
+    private var noDisplayThemeId: Int = 0
+
     /**
      * 新建工作目录并解压apk
      */
@@ -161,6 +164,20 @@ class ApkBuilder(
 
     fun withConfig(config: ProjectConfig): ApkBuilder {
         projectConfig = config
+        if (!config.launchConfig.displaySplash) {
+            //在这里给splashThemeId赋值
+            val arsc = File(workspacePath, "resources.arsc")
+            val util = ArscUtil()
+            util.openArsc(arsc.absolutePath) { _, type, key, value, id ->
+                if (type == "style") {
+                    if (key == "ScriptTheme.Splash") {
+                        splashThemeId = id
+                    } else if (key == "SplashNoDisplay") {
+                        noDisplayThemeId = id
+                    }
+                }
+            }
+        }
         manifestEditor = editManifest()
             .setAppName(config.name)
             .setVersionName(config.versionName)
@@ -315,7 +332,7 @@ class ApkBuilder(
             decoder.CloneArsc(it, "org.autojs.autoxjs.inrt", false)
         }
         val util = ArscUtil()
-        util.openArsc(newArsc.absolutePath) { _, type, key, value ->
+        util.openArsc(newArsc.absolutePath) { _, type, key, value, id ->
             when (type) {
                 "mipmap", "drawable" -> {
                     onReplaceIcon(key, value)
@@ -333,7 +350,7 @@ class ApkBuilder(
                 launchConfig.serviceDesc
             )
         }
-        util.saveArsc(newArsc.absolutePath,oldArsc.absolutePath)
+        util.saveArsc(newArsc.absolutePath, oldArsc.absolutePath)
         newArsc.delete()
     }
 
@@ -372,8 +389,11 @@ class ApkBuilder(
             if (projectConfig!!.launchConfig.isHideLauncher && attr.value is StringItem && "android.intent.category.LAUNCHER" == (attr.value as StringItem).data) {
                 Log.e("attr", "onAttr: " + (attr.value as StringItem).data + "----" + "")
                 (attr.value as StringItem).data = "android.intent.category.DEFAULT"
-            }
-            if ("authorities" == attr.name.data && attr.value is StringItem) {
+            } else if (projectConfig!!.launchConfig.isHideAccessibilityServices && "permission" == attr.name.data && attr.value is StringItem && "android.permission.BIND_ACCESSIBILITY_SERVICE" == (attr.value as StringItem).data) {
+                (attr.value as StringItem).data = ""
+            } else if (!projectConfig!!.launchConfig.displaySplash && splashThemeId != 0 && attr.value == splashThemeId) {
+                attr.value = noDisplayThemeId
+            } else if ("authorities" == attr.name.data && attr.value is StringItem) {
                 (attr.value as StringItem).data = projectConfig!!.packageName + ".fileprovider"
             } else {
                 super.onAttr(attr)

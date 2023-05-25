@@ -56,7 +56,7 @@ public class ResEnumAttr extends ResAttr {
 	protected void serializeBody(ARSCCallBack back, ResResource res) throws IOException, IOException {
 		for (Duo<ResReferenceValue, ResIntValue> duo : mItems) {
 			int intVal = duo.m2.getValue();
-			back.back(res.getConfig().toString(), "enum", res.getResSpec().getName(), String.valueOf(intVal));
+			back.back(res.getConfig().toString(), "enum", res.getResSpec().getName(), String.valueOf(intVal),res.getResSpec().getId().id);
 		}
 	}
 }

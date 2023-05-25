@@ -7,7 +7,9 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
+import android.view.View
 import android.view.WindowManager
+import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -134,6 +136,10 @@ class SplashActivity : ComponentActivity() {
                     this@SplashActivity,
                     ProjectConfig.configFileOfDir("project")
                 )!!
+            if (projectConfig.launchConfig.displaySplash) {
+                val frame = findViewById<FrameLayout>(R.id.frame)
+                frame.visibility = View.VISIBLE
+            }
             val slug = findViewById<TextView>(R.id.slug)
             slug.typeface = Typeface.createFromAsset(assets, "roboto_medium.ttf")
             Log.d(TAG, "onCreate: ${Gson().toJson(projectConfig)}")
@@ -148,7 +154,9 @@ class SplashActivity : ComponentActivity() {
                 }
 
             }
-            delay(1000)
+            if (projectConfig.launchConfig.displaySplash) {
+                delay(1000)
+            }
             readSpecialPermissionConfiguration()
             requestExternalStoragePermission()
         }

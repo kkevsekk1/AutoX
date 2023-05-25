@@ -40,7 +40,7 @@ public class ResFileValue extends ResIntBasedValue implements GetResValues {
 	@Override
 	public void getResValues(ARSCCallBack back, ResResource res) throws IOException {
 		back.back(res.getConfig().toString(), res.getResSpec().getType().getName(), res.getResSpec().getName(),
-				getStrippedPath());
+				getStrippedPath(),res.getResSpec().getId().id);
 	}
 
 	public String getStrippedPath() throws IOException {
