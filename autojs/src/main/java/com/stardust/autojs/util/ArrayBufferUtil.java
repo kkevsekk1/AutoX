@@ -7,9 +7,7 @@ public class ArrayBufferUtil {
     public static byte[] getBytes(NativeArrayBuffer arrayBuffer) {
         return arrayBuffer.getBuffer();
     }
-    public static NativeArrayBuffer fromBytes(byte[] byteArray) {
-        NativeArrayBuffer buffer = new NativeArrayBuffer(byteArray.length);
-        System.arraycopy(byteArray, 0, buffer.getBuffer(), 0, byteArray.length);
-        return buffer;
+    public static void fromBytes(byte[] byteArray,NativeArrayBuffer arrayBuffer) {
+        System.arraycopy(byteArray, 0, arrayBuffer.getBuffer(), 0, byteArray.length);
     }
 }
