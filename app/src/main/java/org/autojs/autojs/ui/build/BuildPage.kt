@@ -356,6 +356,12 @@ private fun RunConfigCard(model: BuildViewModel) {
             }
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Checkbox(
+                    checked = model.isHideAccessibilityServices,
+                    onCheckedChange = { model.isHideAccessibilityServices = it })
+                Text(text = stringResource(id = R.string.text_hide_accessibility_services))
+            }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(
                     checked = model.isRequiredBackgroundStart,
                     onCheckedChange = { model.isRequiredBackgroundStart = it })
                 Text(text = stringResource(id = R.string.text_required_background_start))
@@ -365,6 +371,12 @@ private fun RunConfigCard(model: BuildViewModel) {
                     checked = model.isRequiredDrawOverlay,
                     onCheckedChange = { model.isRequiredDrawOverlay = it })
                 Text(text = stringResource(id = R.string.text_required_draw_overlay))
+            }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(
+                    checked = model.displaySplash,
+                    onCheckedChange = { model.displaySplash = it })
+                Text(text = stringResource(id = R.string.text_display_splash))
             }
             MyTextField(
                 value = model.splashText,
