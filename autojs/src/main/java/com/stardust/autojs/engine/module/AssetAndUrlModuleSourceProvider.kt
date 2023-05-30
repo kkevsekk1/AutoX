@@ -13,33 +13,48 @@ import java.io.InputStream
 import java.io.InputStreamReader
 import java.net.URI
 
-class AssetAndUrlModuleSourceProvider(context: Context, assetDirPath: String, list: List<URI>) :
-    ModuleSourceProviderBase() {
+class AssetAndUrlModuleSourceProvider(
+    context: Context,
+    assetDirPath: String,
+    list: List<URI>? = null
+) : ModuleSourceProviderBase() {
     val mContext = context
     private val okHttpClient = OkHttpClient.Builder().followRedirects(true).build()
-    private val mBaseURI: URI = URI.create("file:/android_asset/$assetDirPath")
     private val contentResolver: ContentResolver = context.contentResolver
+    private val moduleSources: ArrayList<URI> = arrayListOf(mBaseURI, npmModuleSource)
 
+    companion object {
+        val mBaseURI: URI = URI.create("file:/android_asset/modules")
+        val npmModuleSource:URI = URI.create("file:/android_asset/modules/npm")
+    }
     //初始化脚本以及启动文件只会从此方法加载模块，子模块加载没有以"./"或"../"开头的模块也会从此方法加载
     override fun loadFromPrivilegedLocations(moduleId: String, validator: Any?): ModuleSource? {
         //println("加载私有模块：$moduleId")
-        val uri = if (moduleId.startsWith("main:")) {
-            File(moduleId.replace("main:", "")).toURI()
-        } else if (moduleId.startsWith("/")) {
+        val uri = if (moduleId.startsWith("/")) {
             File(moduleId).toURI()
         } else if (moduleId.startsWith("http://") || moduleId.startsWith("https://")) {
             URI.create(moduleId)
-        } else URI.create("$mBaseURI/$moduleId")
-
-        return loadFromUri(uri, mBaseURI, validator)
+        } else null
+        if (uri != null) {
+            return loadFromUri(uri, File(uri.path).parentFile?.toURI(), validator)
+        }
+        for (baseUri in moduleSources) {
+            val sourceUri = URI.create("$baseUri/$moduleId")
+            val moduleSource = loadFromUri(sourceUri, baseUri, validator)
+            if (moduleSource != null) {
+                return moduleSource
+            }
+        }
+        return null
     }
+
     //这里处理node_module目录的模块
-    override fun loadFromFallbackLocations(moduleId: String, validator: Any?): ModuleSource {
+    override fun loadFromFallbackLocations(moduleId: String, validator: Any?): ModuleSource? {
         return super.loadFromFallbackLocations(moduleId, validator)
     }
 
     //子模块以相对路径加载时调用此方法
-    override fun loadFromUri(uri: URI, base: URI, validator: Any?): ModuleSource? {
+    override fun loadFromUri(uri: URI, base: URI?, validator: Any?): ModuleSource? {
         var uri = uri
         if (uri.scheme == null) uri = File(uri.path).toURI()
         //println("加载模块：$uri")
@@ -47,9 +62,7 @@ class AssetAndUrlModuleSourceProvider(context: Context, assetDirPath: String, li
             return loadFromHttp(uri, base, validator)
         }
         val moduleSource = loadAt(uri, base, validator) ?: loadAt(
-            File(uri.path + ".js").toURI(),
-            base,
-            validator
+            File(uri.path + ".js").toURI(), base, validator
         )
         if (moduleSource != null) {
             return moduleSource
@@ -73,7 +86,7 @@ class AssetAndUrlModuleSourceProvider(context: Context, assetDirPath: String, li
         return loadAt(main, uri, validator)
     }
 
-    private fun loadAt(uri: URI, base: URI, validator: Any?): ModuleSource? {
+    private fun loadAt(uri: URI, base: URI?, validator: Any?): ModuleSource? {
         if (uri.scheme == "http" || uri.scheme == "https") {
             return loadFromHttp(uri, base, validator)
         }
@@ -89,7 +102,7 @@ class AssetAndUrlModuleSourceProvider(context: Context, assetDirPath: String, li
         }
     }
 
-    private fun loadFromHttp(uri: URI, base: URI, validator: Any?): ModuleSource? {
+    private fun loadFromHttp(uri: URI, base: URI?, validator: Any?): ModuleSource? {
         return try {
             Request.Builder().url(uri.toString()).build().let { request ->
                 val response = okHttpClient.newCall(request).execute()
@@ -98,11 +111,11 @@ class AssetAndUrlModuleSourceProvider(context: Context, assetDirPath: String, li
                     return null
                 }
                 response.body?.let {
-                    val charset = it.contentType()?.charset()?.toString()?:"utf-8"
-                    return createModuleSource(it.byteStream(), uri, base, validator,charset)
+                    val charset = it.contentType()?.charset()?.toString() ?: "utf-8"
+                    return createModuleSource(it.byteStream(), uri, base, validator, charset)
                 }
             }
-        }catch (e: Exception) {
+        } catch (e: Exception) {
             null
         }
     }
@@ -110,13 +123,19 @@ class AssetAndUrlModuleSourceProvider(context: Context, assetDirPath: String, li
     private fun createModuleSource(
         inputStream: InputStream,
         uri: URI,
-        base: URI,
+        base: URI?,
         validator: Any?,
         charset: String? = null
     ): ModuleSource {
         val id = if (uri.scheme == "file") {
             URI.create(uri.path)
         } else uri
-        return ModuleSource(InputStreamReader(inputStream,charset?:"utf-8"), null, id, base, validator)
+        return ModuleSource(
+            InputStreamReader(inputStream, charset ?: "utf-8"),
+            null,
+            id,
+            base,
+            validator
+        )
     }
 }

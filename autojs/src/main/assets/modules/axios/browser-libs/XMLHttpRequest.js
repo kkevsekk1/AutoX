@@ -1,4 +1,4 @@
-(function() {
+(function () {
     importClass(java.io.InputStream);
     importClass(java.io.FileOutputStream);
     let RequestBody = Packages.okhttp3.RequestBody;
@@ -8,6 +8,7 @@
     let MediaType = Packages.okhttp3.MediaType;
     let Headers = Packages.okhttp3.Headers;
 
+    const stream = require("stream");
     let EventTarget = require("./EventTarget.js");
     let Event = require("./Event.js");
     let Blob = require("./Blob.js");
@@ -21,7 +22,7 @@
     let atl = new AsyncThreadLock();
 
     ///////XMLHttpRequest对象
-    let XMLHttpRequest = function() {
+    let XMLHttpRequest = function () {
         this.responseType = 'text';
         setReadonlyAttribute(this, 'upload', {})
         setReadonlyAttribute(this, 'readyState', 0);
@@ -40,19 +41,19 @@
     XMLHttpRequest.prototype[Symbol.toStringTag] = 'XMLHttpRequest';
 
     setReadonlyAttribute(XMLHttpRequest, '_parserResBody', {
-        text: function(xhr, body) {
+        text: function (xhr, body) {
             let contentType = body.contentType();
             let charset = (contentType && contentType.charset()) || 'utf-8';
             let str = String(new java.lang.String(body.bytes(), charset));
             setReadonlyAttribute(xhr, 'responseText', str);
             return str;
         },
-        json: function(xhr, body) {
+        json: function (xhr, body) {
             let str = this['text'](xhr, body);
             let json = JSON.parser(str);
             return json;
         },
-        blob: function(xhr, body) {
+        blob: function (xhr, body) {
             let blob = Blob._createBlobCache();
             let out = new FileOutputStream(blob._file);
             let inp = this.inputstream(xhr, body)
@@ -67,10 +68,14 @@
             blob.type = contentType.type() + '/' + contentType.subtype();
             return blob;
         },
-        inputstream: function(xhr, body) {
+        stream: function (xhr, body) {
+            const inputstream = this.inputstream(xhr, body)
+            return stream.fromInputStream(inputstream);
+        },
+        inputstream: function (xhr, body) {
             return body.byteStream();
         },
-        parser: function(type, xhr, body) {
+        parser: function (type, xhr, body) {
             //log('resType:', type)
             const fn = this[type.toLowerCase()] || this['text'];
             xhr._setReadyState(3);
@@ -85,7 +90,7 @@
     XMLHttpRequest.prototype.constructor = XMLHttpRequest;
     XMLHttpRequest._okHttpClient = new OkHttpClient.Builder()
         .followRedirects(true).build();
-    XMLHttpRequest.prototype.open = function(method, url, ac, user, password) {
+    XMLHttpRequest.prototype.open = function (method, url, ac, user, password) {
         Object.assign(this._requestData, {
             method,
             url: HttpUrl.parse(url).newBuilder(),
@@ -97,7 +102,7 @@
         this._setReadyState(1);
         //log(arguments)
     }
-    XMLHttpRequest.prototype.send = function(body) {
+    XMLHttpRequest.prototype.send = function (body) {
         atl.addTask();
         const xhr = this;
         const {
@@ -145,15 +150,15 @@
             }
         })
     }
-    XMLHttpRequest.prototype.setRequestHeader = function(h, v) {
+    XMLHttpRequest.prototype.setRequestHeader = function (h, v) {
         this._requestData.headers.add(h, v)
     }
-    XMLHttpRequest.prototype._setReadyState = function(i) {
+    XMLHttpRequest.prototype._setReadyState = function (i) {
         setReadonlyAttribute(this, 'readyState', i);
         this.dispatchEvent(new Event('readyStateChange'))
         this.dispatchEvent(new Event('readystatechange'))
     }
-    XMLHttpRequest.prototype.getResponseHeader = function(name) {
+    XMLHttpRequest.prototype.getResponseHeader = function (name) {
         const _resHeaders = this._resHeaders;
         if (!_resHeaders) return null;
         const list = _resHeaders.values(name)
@@ -165,7 +170,7 @@
             return jsList.join(', ')
         } else return null;
     }
-    XMLHttpRequest.prototype.getAllResponseHeaders = function() {
+    XMLHttpRequest.prototype.getAllResponseHeaders = function () {
         const _resHeaders = this._resHeaders;
         if (!_resHeaders) return null;
         let jsList = [];
@@ -176,10 +181,10 @@
         }
         return jsList.join('\r\n')
     }
-    XMLHttpRequest.prototype.abort = function() {
+    XMLHttpRequest.prototype.abort = function () {
         this._call && this._call.cancel();
     }
-    XMLHttpRequest.prototype.overrideMimeType = function() {}
+    XMLHttpRequest.prototype.overrideMimeType = function () { }
 
     function parserReqBody(xhr, body) {
         let type = xhr._requestData.headers.get('content-type');
