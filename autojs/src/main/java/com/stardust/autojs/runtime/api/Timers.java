@@ -20,24 +20,19 @@ public class Timers {
 
     private static final String LOG_TAG = "Timers";
 
-    private VolatileBox<Long> mMaxCallbackUptimeMillisForAllThreads = new VolatileBox<>(0L);
+    //private VolatileBox<Long> mMaxCallbackUptimeMillisForAllThreads = new VolatileBox<>(0L);
     private Threads mThreads;
-    private Timer mMainTimer;
     private Timer mUiTimer;
-
+    private ScriptRuntime mRuntime;
 
     public Timers(ScriptRuntime runtime) {
-        mMainTimer = new Timer(runtime, mMaxCallbackUptimeMillisForAllThreads);
-        mUiTimer = new Timer(runtime, mMaxCallbackUptimeMillisForAllThreads, Looper.getMainLooper());
+        mUiTimer = new Timer(runtime, Looper.getMainLooper());
         mThreads = runtime.threads;
+        mRuntime = runtime;
     }
 
     public Timer getMainTimer() {
-        return mMainTimer;
-    }
-
-    VolatileBox<Long> getMaxCallbackUptimeMillisForAllThreads() {
-        return mMaxCallbackUptimeMillisForAllThreads;
+        return mRuntime.loopers.getMTimer();
     }
 
     public Timer getTimerForCurrentThread() {
@@ -46,15 +41,15 @@ public class Timers {
 
     public Timer getTimerForThread(Thread thread) {
         if (thread == mThreads.getMainThread()) {
-            return mMainTimer;
+            return mRuntime.loopers.getMTimer();
         }
         Timer timer = TimerThread.getTimerForThread(thread);
         if (timer == null && Looper.myLooper() == Looper.getMainLooper()) {
             return mUiTimer;
         }
-        if (timer== null){
-            return mMainTimer;
-        }else {
+        if (timer == null) {
+            return mRuntime.loopers.getMTimer();
+        } else {
             return timer;
         }
     }
@@ -63,12 +58,20 @@ public class Timers {
         return getTimerForCurrentThread().setTimeout(callback, delay, args);
     }
 
+    public int setTimeout(Object callback) {
+        return setTimeout(callback, 1);
+    }
+
     public boolean clearTimeout(int id) {
         return getTimerForCurrentThread().clearTimeout(id);
     }
 
     public int setInterval(Object listener, long interval, Object... args) {
         return getTimerForCurrentThread().setInterval(listener, interval, args);
+    }
+
+    public int setInterval(Object listener) {
+        return setInterval(listener, 1);
     }
 
     public boolean clearInterval(int id) {
@@ -83,17 +86,8 @@ public class Timers {
         return getTimerForCurrentThread().clearImmediate(id);
     }
 
-    public boolean hasPendingCallbacks() {
-        //如果是脚本主线程，则检查所有子线程中的定时回调。mFutureCallbackUptimeMillis用来记录所有子线程中定时最久的一个。
-        if (mThreads.getMainThread() == Thread.currentThread()) {
-            return mMaxCallbackUptimeMillisForAllThreads.get() > SystemClock.uptimeMillis();
-        }
-        // 否则检查当前线程的定时回调
-        return getTimerForCurrentThread().hasPendingCallbacks();
-    }
-
     public void recycle() {
-        mMainTimer.removeAllCallbacks();
+        mRuntime.loopers.getMTimer().removeAllCallbacks();
     }
 
 }

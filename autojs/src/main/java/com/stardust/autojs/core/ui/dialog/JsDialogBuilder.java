@@ -27,7 +27,7 @@ public class JsDialogBuilder extends MaterialDialog.Builder {
     private final Timer mTimer;
     private final Loopers mLoopers;
     private JsDialog mDialog;
-    private volatile int mWaitId = -1;
+    private volatile Loopers.AsyncTask task;
 
 
     public JsDialogBuilder(Context context, ScriptRuntime runtime) {
@@ -62,14 +62,14 @@ public class JsDialogBuilder extends MaterialDialog.Builder {
             }
         });
         dismissListener(dialog -> {
-            mTimer.postDelayed(() -> mLoopers.doNotWaitWhenIdle(mWaitId), 0);
+            mTimer.postDelayed(() -> mLoopers.removeAsyncTask(task), 0);
             emit("dismiss", dialog);
         });
         cancelListener(dialog -> emit("cancel", dialog));
     }
 
     public void onShowCalled() {
-        mTimer.postDelayed(() -> mWaitId = mLoopers.waitWhenIdle(), 0);
+        mTimer.postDelayed(() -> task = mLoopers.createAndAddAsyncTask("js-dialog"), 0);
     }
 
     public JsDialog getDialog() {

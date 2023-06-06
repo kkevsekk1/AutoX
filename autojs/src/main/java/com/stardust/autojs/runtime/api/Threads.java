@@ -58,9 +58,7 @@ public class Threads {
 
     @NonNull
     private TimerThread createThread(Runnable runnable) {
-        return new TimerThread(mRuntime, mRuntime.timers.getMaxCallbackUptimeMillisForAllThreads(),
-                runnable
-        ) {
+        return new TimerThread(mRuntime, runnable) {
             @Override
             protected void onExit() {
                 synchronized (mThreads) {
