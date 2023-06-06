@@ -1,68 +1,35 @@
-
-const stream = require("stream-browserify");
 importClass(java.io.OutputStream);
 importClass(java.io.InputStream);
 importClass(java.io.FileOutputStream);
 importClass(java.io.FileInputStream);
+importClass(java.util.concurrent.CompletableFuture);
 
-const mainTherad = threads.currentThread();
+const stream = require("stream-browserify");
 
-const ioLock = {
-    lock: threads.lock(),
-    ioThread: null,
-    tasks: 0,
-    addTask() {
-        this.lock.lock();
-        this.tasks++;
-        if (this.ioThread == null) {
-            const dis = threads.disposable();
-            this.ioThread = threads.start(function () {
-                dis.setAndNotify(true);
-                const id = setInterval(() => {
-                    this.lock.lock();
-                    if (this.tasks === 0) {
-                        clearInterval(id);
-                        this.ioThread = null;
-                    }
-                    this.lock.unlock();
-                }, 200)
-            }.bind(this));
-            dis.blockedGet() //等待线程创建完成
-        }
-        this.lock.unlock();
-    },
-    removeTask() {
-        this.lock.lock();
-        this.tasks--;
-        this.lock.unlock();
-    }
-
-}
-
-function addTask(task, callback) {
-    return ioLock.ioThread.setImmediate(function () {
+function addTask(fn, callback) {
+    CompletableFuture.runAsync(function() {
         try {
-            const data = task();
-            return callback(null, data)
+            const data = fn();
+            return setImmediate(callback, null, data)
         } catch (e) {
-            return callback(e)
+            console.error(e)
+            return setImmediate(callback, e)
         }
     })
 }
 
-stream.fromInputStream = function (inp, options) {
+stream.fromInputStream = function(inp, options) {
     if (!(inp instanceof InputStream)) throw TypeError('需要InputStream流');
-    ioLock.addTask();
     options = options || {};
     options.highWaterMark = options.highWaterMark || (1024 * 64);
     options.autoDestroy = true;
     options.emitClose = true;
-    options.destroy = function (e, cb) {
+    options.destroy = function(e, cb) {
         this._inp.close();
-        ioLock.removeTask();
+        runtime.loopers.removeAsyncTask(this._task)
         return cb(e)
     }
-    options.read = function (size) {
+    options.read = function(size) {
         addTask(() => {
             const buffer = Buffer.alloc(size);
             const bytes = buffer.getBytes();
@@ -75,36 +42,36 @@ stream.fromInputStream = function (inp, options) {
         }, (err, buffer) => {
             if (err) return this.destroy(err);
             if (buffer === null) {
-                mainTherad.setImmediate(() => this.push(null));
+                this.push(null)
             }
             return this.push(buffer);
         })
     }
     const readable = new stream.Readable(options)
-    setReadonlyAttribute(readable, "_inp", inp, false)
+    setReadonlyAttribute(readable, '_inp', inp, false)
+    setReadonlyAttribute(readable, '_task', runtime.loopers.createAndAddAsyncTask('stream'), false)
     return readable;
 }
 
-stream.fromOutputStream = function (out, options) {
+stream.fromOutputStream = function(out, options) {
     if (!(out instanceof OutputStream)) throw TypeError('需要OutputStream流');
-    ioLock.addTask();
     options = options || {};
     options.highWaterMark = options.highWaterMark || (1024 * 64);
     options.autoDestroy = true;
     options.emitClose = true;
-    options.destroy = function (e, cb) {
+    options.destroy = function(e, cb) {
         this._out.close();
-        ioLock.removeTask()
+        runtime.loopers.removeAsyncTask(this._task)
         return cb(e)
     }
-    options.final = function (callback) {
+    options.final = function(callback) {
         addTask(() => {
             this._out.flush();
         }, (err) => {
-            mainTherad.setImmediate(callback)
+            callback();
         })
     }
-    options.write = function (chunk, encoding, callback) {
+    options.write = function(chunk, encoding, callback) {
         addTask(() => {
             const buffer = (chunk instanceof Buffer) ? chunk : Buffer.from(chunk, encoding);
             const bytes = buffer.getBytes()
@@ -115,16 +82,17 @@ stream.fromOutputStream = function (out, options) {
         })
     }
     const writable = new stream.Writable(options)
-    setReadonlyAttribute(writable, "_out", out, false)
+    setReadonlyAttribute(writable, '_out', out, false);
+    setReadonlyAttribute(writable, '_task', runtime.loopers.createAndAddAsyncTask('stream'), false)
     return writable;
 }
-stream.createFileReadStream = function (path, bufferSize) {
+stream.createFileReadStream = function(path, bufferSize) {
     return stream.fromInputStream(new FileInputStream(
         files.path(path)), {
         highWaterMark: bufferSize || (256 * 1024)
     })
 }
-stream.createFileWriteStream = function (path, bufferSize) {
+stream.createFileWriteStream = function(path, bufferSize) {
     return stream.fromOutputStream(new FileOutputStream(
         files.path(path)), {
         highWaterMark: bufferSize || (256 * 1024)
@@ -140,4 +108,5 @@ function setReadonlyAttribute(obj, att, value, enumerable) {
         enumerable,
     })
 }
+
 module.exports = stream
