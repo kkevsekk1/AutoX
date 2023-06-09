@@ -12,7 +12,7 @@ function addTask(fn, callback) {
             const data = fn();
             return setImmediate(callback, null, data)
         } catch (e) {
-            console.error(e)
+            //console.error(e)
             return setImmediate(callback, e)
         }
     })
