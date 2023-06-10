@@ -54,10 +54,11 @@ class Loopers(val runtime: ScriptRuntime) {
     private var mMainLooperQuitHandler: LooperQuitHandler? = null
     private val allTasks = ConcurrentLinkedQueue<AsyncTask>()
     val mTimer: Timer
+    val myLooper: Looper
 
     init {
         prepare()
-        val myLooper = Looper.myLooper()!!
+        myLooper = Looper.myLooper()!!
         mTimer = Timer(runtime, myLooper)
         waitWhenIdle = myLooper == Looper.getMainLooper()
     }
@@ -69,12 +70,16 @@ class Loopers(val runtime: ScriptRuntime) {
     }
 
     fun addAsyncTask(task: AsyncTask) {
-        allTasks.add(task)
+        synchronized(myLooper) {
+            allTasks.add(task)
+        }
     }
 
     fun removeAsyncTask(task: AsyncTask) {
-        allTasks.remove(task)
-        mTimer.post(EMPTY_RUNNABLE)
+        synchronized(myLooper) {
+            allTasks.remove(task)
+            mTimer.post(EMPTY_RUNNABLE)
+        }
     }
 
     private fun checkTask(): Boolean {
@@ -86,15 +91,17 @@ class Loopers(val runtime: ScriptRuntime) {
     }
 
     private fun shouldQuitLooper(): Boolean {
-        if (Thread.currentThread().isInterrupted) return true
-        if (mTimer.hasPendingCallbacks()) return false
-        //检查是否有运行中的线程
-        if (checkTask()) return false
-        if (waitWhenIdle) return false
-        if ((Context.getCurrentContext() as AutoJsContext).hasPendingContinuation()) {
-            return false
+        synchronized(myLooper) {
+            if (Thread.currentThread().isInterrupted) return true
+            if (mTimer.hasPendingCallbacks()) return false
+            //检查是否有运行中的线程
+            if (checkTask()) return false
+            if (waitWhenIdle) return false
+            if ((Context.getCurrentContext() as AutoJsContext).hasPendingContinuation()) {
+                return false
+            }
+            return true
         }
-        return true
     }
 
     private fun initServantThread() {

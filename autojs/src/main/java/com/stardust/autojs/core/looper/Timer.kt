@@ -4,6 +4,9 @@ import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
 import com.stardust.autojs.runtime.ScriptRuntime
+import org.mozilla.javascript.BaseFunction
+import org.mozilla.javascript.Context
+import org.mozilla.javascript.Scriptable
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.random.Random
 
@@ -14,6 +17,7 @@ class Timer(
     runtime: ScriptRuntime,
     looper: Looper
 ) {
+    private val myLooper: Looper = looper
     private val mHandlerCallbacks = ConcurrentHashMap<Int, Runnable?>()
     private val mRuntime: ScriptRuntime = runtime
     private val mHandler: Handler = Handler(looper)
@@ -21,10 +25,10 @@ class Timer(
 
     constructor(runtime: ScriptRuntime, ) : this(runtime, Looper.myLooper()!!)
 
-    fun setTimeout(callback: Any, delay: Long, vararg args: Any): Int {
+    fun setTimeout(callback: Any, delay: Long, vararg args: Any?): Int {
         val id = createTimerId()
         val r = Runnable {
-            callFunction(callback, null, args as Array<Any>)
+            callFunction(callback, null, args)
             mHandlerCallbacks.remove(id)
         }
         mHandlerCallbacks[id] = r
@@ -32,9 +36,13 @@ class Timer(
         return id
     }
 
-    private fun callFunction(callback: Any, thiz: Any?, args: Array<Any>) {
+    private fun callFunction(callback: Any, thiz: Any?, args :Any?) {
+        val myArgs  = args?.let { args as Array<*> }?: emptyArray<Any>()
+        val map = myArgs.map { Context.javaToJS(it, callback as BaseFunction) }
         try {
-            mRuntime.bridges.callFunction(callback, thiz, args)
+            (callback as BaseFunction).call(Context.getCurrentContext(),callback.parentScope,
+                thiz as? Scriptable?, map.toTypedArray()
+            )
         } catch (e: Exception) {
             if (isUiLoop) {
                 mRuntime.exit(e)
@@ -52,12 +60,12 @@ class Timer(
         return id
     }
 
-    fun setInterval(listener: Any, interval: Long, vararg args: Any): Int {
+    fun setInterval(listener: Any, interval: Long, vararg args: Any?): Int {
         val id = createTimerId()
         val r: Runnable = object : Runnable {
             override fun run() {
                 if (mHandlerCallbacks[id] == null) return
-                callFunction(listener, null, args as Array<Any>)
+                callFunction(listener, null, args)
                 postDelayed(this, interval)
             }
         }
@@ -67,22 +75,26 @@ class Timer(
     }
 
     fun postDelayed(r: Runnable, interval: Long) {
-        val uptime = SystemClock.uptimeMillis() + interval
-        mHandler.postAtTime(r, uptime)
+        synchronized(myLooper) {
+            val uptime = SystemClock.uptimeMillis() + interval
+            mHandler.postAtTime(r, uptime)
+        }
     }
 
     fun post(r: Runnable) {
-        mHandler.post(r)
+        synchronized(myLooper) {
+            mHandler.post(r)
+        }
     }
 
     fun clearInterval(id: Int): Boolean = clearCallback(id)
     fun clearImmediate(id: Int): Boolean = clearCallback(id)
     fun clearTimeout(id: Int): Boolean = clearCallback(id)
 
-    fun setImmediate(listener: Any, vararg args: Any): Int {
+    fun setImmediate(listener: Any, vararg args: Any?): Int {
         val id = createTimerId()
         val r = Runnable {
-            callFunction(listener, null, args as Array<Any>)
+            callFunction(listener, null, args)
             mHandlerCallbacks.remove(id)
         }
         mHandlerCallbacks[id] = r
