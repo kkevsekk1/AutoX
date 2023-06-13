@@ -1,9 +1,9 @@
 # Change Log
 autoxjs 整个项目的一些更新日志,双版本号为稳定版（内容以修复的bug为主），单版本号为激进版本、发布新内容。
 
-## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.3.9...HEAD) 未发布
+## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.4.1...HEAD) 未发布
 
-## [6.3.9] - 2023-6-13
+## [6.4.1] - 2023-6-13
 
 @aiselp
 * Images.copy函数修复
@@ -21,12 +21,12 @@ autoxjs 整个项目的一些更新日志,双版本号为稳定版（内容以�
 * 修复打包后访问资源文件出错的bug
 * 新增隐藏启动页功能 
 
-[6.3.9]:https://github.com/kkevsekk1/AutoX/compare/6.3.8...6.3.9
+[6.4.1]:https://github.com/kkevsekk1/AutoX/compare/6.3.8...6.4.1
 
 下载地址： \
-  http://autoxoss.autoxjs.com/autoxjs/6.3.9/app-v6-arm64-v8a-release-unsigned-signed.apk \
-  http://autoxoss.autoxjs.com/autoxjs/6.3.9/app-v6-armeabi-v7a-release-unsigned-signed.apk \
-  http://autoxoss.autoxjs.com/autoxjs/6.3.9/app-v6-universal-release-unsigned-signed.apk
+  http://autoxoss.autoxjs.com/autoxjs/6.4.1/app-v6-arm64-v8a-release-unsigned-signed.apk \
+  http://autoxoss.autoxjs.com/autoxjs/6.4.1/app-v6-armeabi-v7a-release-unsigned-signed.apk \
+  http://autoxoss.autoxjs.com/autoxjs/6.4.1/app-v6-universal-release-unsigned-signed.apk
 
 
 
