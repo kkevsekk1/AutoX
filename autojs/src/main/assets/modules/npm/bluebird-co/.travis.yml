@@ -1,0 +1,16 @@
+language: node_js
+matrix:
+  include:
+    - node_js: "0.12"
+      env: "NODE_FLAGS='--harmony'"
+    - node_js: "0.11"
+      env: "NODE_FLAGS='--harmony'"
+    - node_js: "4.2.1"
+    - node_js: "iojs-v3.3.1"
+    - node_js: "node"
+
+script: "mocha -b $NODE_FLAGS test/build"
+before_script:
+  - npm install bluebird@3
+
+sudo: false

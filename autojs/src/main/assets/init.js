@@ -55,8 +55,9 @@ runtime.init();
      global.JSON = require('__json2__.js');
      global.util = global.$util = require('__util__.js');
      global.device = runtime.device;
-     //global.Promise = require('promise.js');
-     global.Promise = require('bluebird-promise.js');
+
+     global.process = require('process')
+     global.Promise = require('bluebird.js');
 
      //设置JavaScriptBridges用于与Java层的交互和数据转换
      runtime.bridges.setBridges(require('__bridges__.js'));
@@ -67,7 +68,7 @@ runtime.init();
     (function (scope) {
         var modules = ['app', 'automator', 'console', 'dialogs', 'files', 'io', 'selector', 'shell', 'web', 'ui',
             "images", "threads", "events", "engines", "RootAutomator", "http", "storages", "floaty",
-            "sensors", "media", "plugins", "continuation", "$zip", "$base64", "$crypto","paddle","process"];
+            "sensors", "media", "plugins", "continuation", "$zip", "$base64", "$crypto","paddle"];
         var len = modules.length;
         for (var i = 0; i < len; i++) {
             var m = modules[i];

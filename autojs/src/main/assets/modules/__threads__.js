@@ -2,7 +2,18 @@
 module.exports = function (__runtime__, scope) {
     var threads = Object.create(__runtime__.threads);
 
-
+    threads.runAsync = function (fn) {
+        return new Promise(function (resolve, reject) {
+            __runtime__.threads.runTaskForThreadPool(function() {
+                try {
+                    const result = fn();
+                    setImmediate(resolve, result)
+                } catch (e) {
+                    setImmediate(reject, e)
+                }
+            })
+        })
+    }
     scope.sync = function (func, lock) {
         lock = lock || null;
         return new org.mozilla.javascript.Synchronizer(func, lock);
