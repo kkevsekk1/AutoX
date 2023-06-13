@@ -1,7 +1,34 @@
 # Change Log
 autoxjs 整个项目的一些更新日志,双版本号为稳定版（内容以修复的bug为主），单版本号为激进版本、发布新内容。
 
-## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.3.8...HEAD) 未发布
+## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.3.9...HEAD) 未发布
+
+## [6.3.9] - 2023-6-13
+
+@aiselp
+* Images.copy函数修复
+* 添加JsBridge
+* 添加node核心库buffer,events,stream,util
+* 悬浮窗bug修复
+* 新增异步http库：axios (实验性)
+* 新增npm模块cheerio，用于处理html
+* 提供java流的转换，buffer与java字节数组的转换
+* 新增bluebird-co模块
+* 定时器调用性能优化
+* 新增同步转异步任务执行器
+
+@Xiao-A-666  
+* 修复打包后访问资源文件出错的bug
+* 新增隐藏启动页功能 
+
+[6.3.9]:https://github.com/kkevsekk1/AutoX/compare/6.3.8...6.3.9
+
+下载地址： \
+  http://autoxoss.autoxjs.com/autoxjs/6.3.9/app-v6-arm64-v8a-release-unsigned-signed.apk \
+  http://autoxoss.autoxjs.com/autoxjs/6.3.9/app-v6-armeabi-v7a-release-unsigned-signed.apk \
+  http://autoxoss.autoxjs.com/autoxjs/6.3.9/app-v6-universal-release-unsigned-signed.apk
+
+
 
 ## [6.3.8] - 2023-4-25
 
