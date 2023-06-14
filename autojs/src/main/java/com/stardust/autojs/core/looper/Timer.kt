@@ -7,6 +7,7 @@ import com.stardust.autojs.runtime.ScriptRuntime
 import org.mozilla.javascript.BaseFunction
 import org.mozilla.javascript.Context
 import org.mozilla.javascript.Scriptable
+import org.mozilla.javascript.Undefined
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.random.Random
 
@@ -22,8 +23,9 @@ class Timer(
     private val mRuntime: ScriptRuntime = runtime
     private val mHandler: Handler = Handler(looper)
     private val isUiLoop: Boolean = looper == Looper.getMainLooper()
+    private val context: Context? by lazy { Context.getCurrentContext() }
 
-    constructor(runtime: ScriptRuntime, ) : this(runtime, Looper.myLooper()!!)
+    constructor(runtime: ScriptRuntime) : this(runtime, Looper.myLooper()!!)
 
     fun setTimeout(callback: Any, delay: Long, vararg args: Any?): Int {
         val id = createTimerId()
@@ -36,17 +38,22 @@ class Timer(
         return id
     }
 
-    private fun callFunction(callback: Any, thiz: Any?, args :Any?) {
-        val myArgs  = args?.let { args as Array<*> }?: emptyArray<Any>()
-        val map = myArgs.map { Context.javaToJS(it, callback as BaseFunction) }
+    private fun callFunction(callback: Any, thiz: Any?, args: Any?) {
+        val func = callback as BaseFunction
+        val map: Array<Any> =
+            (args as? Array<*>)?.map { Context.javaToJS(it, callback.parentScope) }
+                ?.toTypedArray() ?: emptyArray()
         try {
-            (callback as BaseFunction).call(Context.getCurrentContext(),callback.parentScope,
-                thiz as? Scriptable?, map.toTypedArray()
+            func.call(
+                context ?: Context.enter(), func.parentScope,
+                thiz as? Scriptable ?: Undefined.SCRIPTABLE_UNDEFINED, map
             )
         } catch (e: Exception) {
             if (isUiLoop) {
                 mRuntime.exit(e)
             } else throw e
+        }finally {
+            context ?: Context.exit()
         }
     }
 
