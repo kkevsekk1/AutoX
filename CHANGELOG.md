@@ -1,7 +1,20 @@
 # Change Log
 autoxjs 整个项目的一些更新日志,双版本号为稳定版（内容以修复的bug为主），单版本号为激进版本、发布新内容。
 
-## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.4.1...HEAD) 未发布
+## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.4.2...HEAD) 未发布
+
+## [6.4.2] - 2023-6-14
+
+@aiselp
+* 修复打包后无法加载加密模块
+
+[6.4.2]:https://github.com/kkevsekk1/AutoX/compare/6.4.1...6.4.2
+
+下载地址： \
+  http://autoxoss.autoxjs.com/autoxjs/6.4.2/app-v6-arm64-v8a-release-unsigned-signed.apk \
+  http://autoxoss.autoxjs.com/autoxjs/6.4.2/app-v6-armeabi-v7a-release-unsigned-signed.apk \
+  http://autoxoss.autoxjs.com/autoxjs/6.4.2/app-v6-universal-release-unsigned-signed.apk
+
 
 ## [6.4.1] - 2023-6-13
 
