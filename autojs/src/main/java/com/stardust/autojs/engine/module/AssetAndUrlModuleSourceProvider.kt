@@ -4,10 +4,14 @@ import android.content.ContentResolver
 import android.content.Context
 import android.net.Uri
 import com.google.gson.Gson
+import com.stardust.autojs.engine.encryption.ScriptEncryption.decrypt
+import com.stardust.autojs.script.EncryptedScriptFileHeader
+import com.stardust.autojs.script.EncryptedScriptFileHeader.isValidFile
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.mozilla.javascript.commonjs.module.provider.ModuleSource
 import org.mozilla.javascript.commonjs.module.provider.ModuleSourceProviderBase
+import java.io.ByteArrayInputStream
 import java.io.File
 import java.io.InputStream
 import java.io.InputStreamReader
@@ -22,11 +26,13 @@ class AssetAndUrlModuleSourceProvider(
     private val okHttpClient = OkHttpClient.Builder().followRedirects(true).build()
     private val contentResolver: ContentResolver = context.contentResolver
     private val moduleSources: ArrayList<URI> = arrayListOf(mBaseURI, npmModuleSource)
+    private val encryptionSource = File(context.filesDir, "project")
 
     companion object {
         val mBaseURI: URI = URI.create("file:/android_asset/modules")
-        val npmModuleSource:URI = URI.create("file:/android_asset/modules/npm")
+        val npmModuleSource: URI = URI.create("file:/android_asset/modules/npm")
     }
+
     //初始化脚本以及启动文件只会从此方法加载模块，子模块加载没有以"./"或"../"开头的模块也会从此方法加载
     override fun loadFromPrivilegedLocations(moduleId: String, validator: Any?): ModuleSource? {
         //println("加载私有模块：$moduleId")
@@ -75,10 +81,8 @@ class AssetAndUrlModuleSourceProvider(
                 InputStreamReader(packageFile.inputStream()),
                 Map::class.java
             )
-            val main = json["main"] as String?
-            main?.let {
-                packageFile.toURI().resolve(main)
-            }
+            val main = json["main"] as String
+            packageFile.toURI().resolve(main)
         } catch (e: Exception) {
             null
         }
@@ -95,11 +99,30 @@ class AssetAndUrlModuleSourceProvider(
                 mContext.assets.open(uri.path.replace("/android_asset/", ""))
             } else contentResolver.openInputStream(Uri.parse(uri.toString()))
             if (inputStream != null) {
-                createModuleSource(inputStream, uri, base, validator)
+                createModuleEncryptionSource(inputStream, uri, base, validator)
             } else null
         } catch (e: Exception) {
             null
         }
+    }
+
+    private fun createModuleEncryptionSource(
+        inputStream: InputStream,
+        uri: URI,
+        base: URI?,
+        validator: Any?,
+    ): ModuleSource? {
+        //只处理内部位于apk内部资源的脚本文件
+        val i = if (uri.path.startsWith(encryptionSource.path)) {
+            val bytes = ByteArray(inputStream.available())
+            inputStream.read(bytes)
+            inputStream.close()
+            if (isValidFile(bytes)) {
+                val clearText = decrypt(bytes, EncryptedScriptFileHeader.BLOCK_SIZE, bytes.size)
+                ByteArrayInputStream(clearText)
+            } else inputStream
+        } else inputStream
+        return createModuleSource(i, uri, base, validator)
     }
 
     private fun loadFromHttp(uri: URI, base: URI?, validator: Any?): ModuleSource? {
