@@ -26,7 +26,6 @@ class AssetAndUrlModuleSourceProvider(
     private val okHttpClient = OkHttpClient.Builder().followRedirects(true).build()
     private val contentResolver: ContentResolver = context.contentResolver
     private val moduleSources: ArrayList<URI> = arrayListOf(mBaseURI, npmModuleSource)
-    private val encryptionSource = File(context.filesDir, "project")
 
     companion object {
         val mBaseURI: URI = URI.create("file:/android_asset/modules")
@@ -111,17 +110,14 @@ class AssetAndUrlModuleSourceProvider(
         uri: URI,
         base: URI?,
         validator: Any?,
-    ): ModuleSource? {
-        //只处理内部位于apk内部资源的脚本文件
-        val i = if (uri.path.startsWith(encryptionSource.path)) {
-            val bytes = ByteArray(inputStream.available())
-            inputStream.read(bytes)
-            inputStream.close()
-            if (isValidFile(bytes)) {
-                val clearText = decrypt(bytes, EncryptedScriptFileHeader.BLOCK_SIZE, bytes.size)
-                ByteArrayInputStream(clearText)
-            } else inputStream
-        } else inputStream
+    ): ModuleSource {
+        val bytes = ByteArray(inputStream.available())
+        inputStream.read(bytes)
+        inputStream.close()
+        val i = if (isValidFile(bytes)) {
+            val clearText = decrypt(bytes, EncryptedScriptFileHeader.BLOCK_SIZE, bytes.size)
+            ByteArrayInputStream(clearText)
+        } else ByteArrayInputStream(bytes)
         return createModuleSource(i, uri, base, validator)
     }
 
