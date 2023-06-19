@@ -132,7 +132,9 @@ class Loopers(val runtime: ScriptRuntime) {
 
     @Deprecated("使用AsyncTask代替")
     fun waitWhenIdle(b: Boolean) {
-        waitWhenIdle = b
+        (Thread.currentThread() as? TimerThread)?.let {
+            it.loopers?.createAndAddAsyncTask("events")
+        }?: createAndAddAsyncTask("events")
     }
 
     fun recycle() {
