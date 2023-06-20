@@ -17,7 +17,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    lintOptions.isAbortOnError = false
     buildTypes {
         named("release") {
             isMinifyEnabled = false
@@ -28,6 +27,10 @@ android {
         named("main") {
             jniLibs.srcDirs("/libs")
         }
+    }
+    namespace = "com.stardust.automator"
+    lint {
+        abortOnError = false
     }
 }
 

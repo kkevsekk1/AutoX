@@ -21,7 +21,7 @@ data class Versions(
     @SerializedName("buildTool")
     val buildTool: String = "32.0.0",
     @SerializedName("compile")
-    val compile: Int = 0,
+    val compile: Int = 33,
     @SerializedName("devVersionCode")
     val devVersionCode: Int = 634,
     @SerializedName("devVersionName")

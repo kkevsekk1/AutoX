@@ -1,5 +1,4 @@
-import java.util.*
-import java.io.File
+import java.util.Properties
 
 plugins {
     id("com.android.application")
@@ -166,11 +165,14 @@ android {
             )
         )
     }
+    namespace = "org.autojs.autoxjs"
 
 }
 
 dependencies {
 
+    implementation("androidx.compose.material3:material3:1.0.1")
+    implementation("androidx.compose.material3:material3-window-size-class:1.0.1")
     implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.1.0")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     val accompanist_version = "0.24.13-rc"

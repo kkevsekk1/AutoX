@@ -24,6 +24,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.aiselp.autojs.component.monaco.EditorActivity
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -342,11 +343,16 @@ private fun TopBar(
                         text = stringResource(id = R.string.app_name)
                     )
                 }
-
                 IconButton(onClick = { isSearch = true }) {
                     Icon(
                         imageVector = Icons.Default.Search,
                         contentDescription = stringResource(id = R.string.text_search)
+                    )
+                }
+                IconButton(onClick = { EditorActivity.start(context) }) {
+                    Icon(
+                        imageVector = Icons.Default.Edit,
+                        contentDescription = stringResource(id = R.string.text_edit)
                     )
                 }
             } else {

@@ -24,6 +24,7 @@ android {
             jniLibs.srcDirs("src/main/jniLibs")
         }
     }
+    namespace = "org.autojs.autoxjs.paddleocr"
 }
 
 dependencies {

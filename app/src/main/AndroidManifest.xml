@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="org.autojs.autoxjs">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -461,6 +460,7 @@
         <activity android:name="org.autojs.autojs.ui.build.SignManageActivityKt" />
         <activity android:name="org.autojs.autojs.ui.build.ProjectConfigActivity_" />
         <activity android:name="org.autojs.autojs.ui.log.LogActivityKt" />
+        <activity android:name="com.aiselp.autojs.component.monaco.EditorActivity" />
         <activity android:name="org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity_" />
         <activity android:name="org.autojs.autojs.ui.timing.TimedTaskSettingActivity_" />
         <activity

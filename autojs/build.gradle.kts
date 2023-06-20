@@ -26,12 +26,15 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    lintOptions.isAbortOnError = false
     sourceSets {
         named("main") {
 //            jniLibs.srcDirs = listOf("src/main/jniLibs")
             res.srcDirs("src/main/res","src/main/res-i18n")
         }
+    }
+    namespace = "com.stardust.autojs"
+    lint {
+        abortOnError = false
     }
 }
 

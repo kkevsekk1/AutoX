@@ -28,9 +28,9 @@ import com.stardust.autojs.script.StringScriptSource
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import org.autojs.autojs.Pref
-import org.autojs.autoxjs.R
 import org.autojs.autojs.model.script.Scripts
 import org.autojs.autojs.tool.ImageSelector
+import org.autojs.autoxjs.R
 import java.io.File
 import java.io.IOException
 import java.io.InputStream
@@ -124,7 +124,6 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener,
             setNeedInitialFocus(true);
             saveFormData = true;
             cacheMode = com.tencent.smtt.sdk.WebSettings.LOAD_CACHE_ELSE_NETWORK //使用缓存
-            setAppCacheEnabled(false);
             domStorageEnabled = true
             databaseEnabled = true   //开启 database storage API 功能
             pluginState = com.tencent.smtt.sdk.WebSettings.PluginState.ON
@@ -183,7 +182,6 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener,
             setNeedInitialFocus(true);
             saveFormData = true;
             cacheMode = android.webkit.WebSettings.LOAD_CACHE_ELSE_NETWORK //使用缓存
-            setAppCacheEnabled(false);
             domStorageEnabled = true
             databaseEnabled = true   //开启 database storage API 功能
             pluginState = android.webkit.WebSettings.PluginState.ON

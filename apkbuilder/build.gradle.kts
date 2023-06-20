@@ -23,6 +23,7 @@ android {
             )
         }
     }
+    namespace = "com.stardust.autojs.apkbuilder"
 
 
 }

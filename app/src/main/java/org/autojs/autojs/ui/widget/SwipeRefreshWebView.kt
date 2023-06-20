@@ -69,7 +69,6 @@ class SwipeRefreshWebView : ThemeColorSwipeRefreshLayout {
             setNeedInitialFocus(true);
             saveFormData = true;
             cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK //使用缓存
-            setAppCacheEnabled(false);
             domStorageEnabled = true
             databaseEnabled = true   //开启 database storage API 功能
             pluginState = WebSettings.PluginState.ON
