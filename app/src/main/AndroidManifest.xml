@@ -460,7 +460,8 @@
         <activity android:name="org.autojs.autojs.ui.build.SignManageActivityKt" />
         <activity android:name="org.autojs.autojs.ui.build.ProjectConfigActivity_" />
         <activity android:name="org.autojs.autojs.ui.log.LogActivityKt" />
-        <activity android:name="com.aiselp.autojs.component.monaco.EditorActivity" />
+        <activity android:name="com.aiselp.autojs.component.monaco.EditorActivity"
+            android:configChanges="orientation|screenSize" />
         <activity android:name="org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity_" />
         <activity android:name="org.autojs.autojs.ui.timing.TimedTaskSettingActivity_" />
         <activity

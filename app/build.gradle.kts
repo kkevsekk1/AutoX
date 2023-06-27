@@ -190,7 +190,7 @@ dependencies {
     implementation("androidx.compose.material:material:$compose_version")
     implementation("androidx.compose.ui:ui-tooling-preview:$compose_version")
     implementation("androidx.activity:activity-compose:1.3.1")
-    implementation("org.chromium.net:cronet-embedded:76.3809.111")
+    implementation("org.chromium.net:cronet-embedded:108.5359.79")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
     debugImplementation("androidx.compose.ui:ui-tooling:$compose_version")
 

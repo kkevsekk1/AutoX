@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <item
+        android:id="@+id/new_editor"
+        android:title="@string/text_new_editor_open"/>
     <item
         android:id="@+id/run_repeatedly"
         android:title="@string/text_run_repeatedly"/>

@@ -3,12 +3,14 @@ package org.autojs.autojs.ui.explorer
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.GradientDrawable
+import android.os.Build
 import android.util.AttributeSet
 import android.util.Log
 import android.view.*
 import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,12 +19,12 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
+import com.aiselp.autojs.component.monaco.EditorActivity
 import com.google.android.material.snackbar.Snackbar
 import com.stardust.pio.PFiles
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import org.autojs.autoxjs.R
 import org.autojs.autojs.model.explorer.*
 import org.autojs.autojs.model.script.ScriptFile
 import org.autojs.autojs.model.script.Scripts.edit
@@ -38,6 +40,7 @@ import org.autojs.autojs.ui.viewmodel.ExplorerItemList
 import org.autojs.autojs.ui.viewmodel.ExplorerItemList.SortConfig
 import org.autojs.autojs.ui.widget.BindableViewHolder
 import org.autojs.autojs.workground.WrapContentGridLayoutManger
+import org.autojs.autoxjs.R
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import java.util.*
@@ -291,6 +294,13 @@ open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
     @SuppressLint("CheckResult")
     override fun onMenuItemClick(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.new_editor -> {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    EditorActivity.editFile(context,selectedItem!!.name,selectedItem!!.path)
+                }else{
+                    Toast.makeText(context, "你的安卓过低", Toast.LENGTH_SHORT).show();
+                }
+            }
             R.id.rename -> ScriptOperations(context, this, currentPage)
                 .rename(selectedItem as ExplorerFileItem?)
                 .subscribe(Observers.emptyObserver())

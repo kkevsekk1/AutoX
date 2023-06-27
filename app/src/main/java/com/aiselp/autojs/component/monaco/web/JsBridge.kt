@@ -91,6 +91,7 @@ class JsBridge(private val webView: WebView) {
         //web调用安卓
         fun callHandle(reqData: String) {
             val pos = gson.fromJson(reqData, Pos::class.java)
+            println("onHandle: ${pos.event}")
             val handler = handles[pos.event]
             if (pos.callBackId != null) {
                 handler?.invoke(

@@ -58,6 +58,7 @@
     <string name="edit_exit_without_save_warn">内容尚未保存，您确定要退出吗？</string>
     <string name="text_select_save_mode">请选择保存方式</string>
     <string name="text_save_and_exit">保存并退出</string>
+    <string name="text_new_editor_open">新编辑器打开</string>
     <string name="text_save_as_project_and_exit">保存为项目并退出</string>
     <string name="text_exit_directly">直接退出</string>
     <string name="text_setting">设置</string>
