@@ -129,7 +129,7 @@ public class EditActivity extends BaseActivity implements OnActivityResultDelega
     }
 
     private void setUpToolbar() {
-        BaseActivity.setToolbarAsBack(this, R.id.toolbar, mEditorView.getName());
+        BaseActivity.setToolbarAsBack(this, R.id.toolbar, mEditorView.getUri().getPath());
     }
 
     @Override

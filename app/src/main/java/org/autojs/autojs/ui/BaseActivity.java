@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
@@ -110,7 +111,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public static void setToolbarAsBack(final AppCompatActivity activity, int id, String title) {
         Toolbar toolbar = activity.findViewById(id);
-        toolbar.setTitle(title);
+        toolbar.setTitle("");
+        ((TextView)activity.findViewById(R.id.file_path)).setText(title);
         activity.setSupportActionBar(toolbar);
         if (activity.getSupportActionBar() != null) {
             toolbar.setNavigationOnClickListener(v -> activity.finish());
