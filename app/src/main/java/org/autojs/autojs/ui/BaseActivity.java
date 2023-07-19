@@ -111,8 +111,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public static void setToolbarAsBack(final AppCompatActivity activity, int id, String title) {
         Toolbar toolbar = activity.findViewById(id);
-        toolbar.setTitle("");
-        ((TextView)activity.findViewById(R.id.file_path)).setText(title);
+        toolbar.setTitle(title);
         activity.setSupportActionBar(toolbar);
         if (activity.getSupportActionBar() != null) {
             toolbar.setNavigationOnClickListener(v -> activity.finish());

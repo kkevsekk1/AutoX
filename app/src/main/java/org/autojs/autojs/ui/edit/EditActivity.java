@@ -15,6 +15,8 @@ import android.util.Log;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -93,6 +95,7 @@ public class EditActivity extends BaseActivity implements OnActivityResultDelega
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mNewTask = (getIntent().getFlags() & Intent.FLAG_ACTIVITY_NEW_TASK) != 0;
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
     }
 
     @SuppressLint("CheckResult")
@@ -129,7 +132,9 @@ public class EditActivity extends BaseActivity implements OnActivityResultDelega
     }
 
     private void setUpToolbar() {
-        BaseActivity.setToolbarAsBack(this, R.id.toolbar, mEditorView.getUri().getPath());
+        BaseActivity.setToolbarAsBack(this, R.id.toolbar, "" );
+        TextView filePath= findViewById(R.id.file_path);
+        filePath.setText(mEditorView.getUri().getPath());
     }
 
     @Override

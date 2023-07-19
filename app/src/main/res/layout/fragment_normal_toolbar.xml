@@ -82,7 +82,7 @@
         android:layout_width="37dp"
         android:layout_height="match_parent"
         android:enabled="false"
-        android:gravity="center_vertical"
+        android:gravity="center"
         app:icon="@drawable/ic_save_white_48dp"
         app:icon_color="@color/toolbar"
         app:layout_constraintEnd_toEndOf="parent"

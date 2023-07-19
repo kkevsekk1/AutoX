@@ -18,18 +18,8 @@
             android:theme="@style/ToolBarStyle"
             android:background="?attr/colorPrimary"
             android:title="@string/app_name"
-            android:layout_margin="0dp"
-            android:contentInsetLeft="0dp"
-            android:contentInsetRight="0dp"
-            android:contentInsetStart="0dp"
-            android:contentInsetEnd="0dp"
-            android:padding="0dp"
-            android:paddingEnd="0dp"
-            app:contentInsetLeft="0dp"
-            app:contentInsetStart="0dp"
-            app:contentInsetRight="0dp"
-            app:contentInsetEnd="0dp"
             app:contentInsetStartWithNavigation="0dp"
+            app:contentInsetStart="0dp"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <FrameLayout
