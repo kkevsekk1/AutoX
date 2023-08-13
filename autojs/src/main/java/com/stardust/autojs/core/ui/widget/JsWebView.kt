@@ -32,18 +32,7 @@ open class JsWebView : WebView {
         defStyleAttr
     )
     @RequiresApi(Build.VERSION_CODES.M)
-    fun injectionJsBridge() {
-        val context = this.context
-        val js: String = try {
-            val inputStream = context.assets.open(JsBridge.sdkPath)
-            val available = inputStream.available()
-            val byteArray = ByteArray(available)
-            inputStream.read(byteArray)
-            inputStream.close()
-            String(byteArray)
-        } catch (e: Exception) {
-            ""
-        }
-        jsBridge.evaluateJavascript(js);
+    fun injectionJsBridge(){
+        JsBridge.injectionJsBridge(this)
     }
 }

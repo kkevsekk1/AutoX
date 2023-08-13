@@ -7,28 +7,58 @@ import androidx.annotation.RequiresApi
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.annotations.Expose
-import com.stardust.autojs.core.ui.widget.JsWebView
 import org.mozilla.javascript.BaseFunction
+import org.mozilla.javascript.Context
 import org.mozilla.javascript.Scriptable
+import org.mozilla.javascript.Undefined
+import java.io.ByteArrayOutputStream
 import kotlin.random.Random
+
 
 class JsBridge(private val webView: WebView) {
     companion object {
         const val WEBOBJECTNAME = "\$autox"
         const val JAVABRIDGE = "AutoxJavaBridge"
         const val sdkPath = "web/autox.sdk.v1.js"
+
+        @RequiresApi(Build.VERSION_CODES.M)
+        fun evaluateJavascript(js: String, webView: WebView) {
+            Looper.getMainLooper().queue.addIdleHandler {
+                webView.evaluateJavascript(js, null)
+                false
+            }
+        }
+
+        @RequiresApi(Build.VERSION_CODES.M)
+        fun injectionJsBridge(webView: WebView) {
+            val js: String = try {
+                val inputStream = webView.context.assets.open(sdkPath)
+                val byteArrayOutputStream = ByteArrayOutputStream()
+                inputStream.use { it ->
+                    it.copyTo(byteArrayOutputStream)
+                }
+                String(byteArrayOutputStream.toByteArray())
+            } catch (e: Exception) {
+                ""
+            }
+            evaluateJavascript(js, webView);
+        }
+
         val gson: Gson = GsonBuilder().excludeFieldsWithoutExposeAnnotation().create()
     }
 
-    private val handles = HashMap<String, CrFunction>()
+    private val handles = HashMap<String, Handle>()
     private val callHandlerData = HashMap<Int, Pos>()
 
     init {
         webView.addJavascriptInterface(this.JsObject(), JAVABRIDGE)
     }
 
-    fun registerHandler(event: String, handle: CrFunction): JsBridge {
-        handles[event] = handle
+    fun registerHandler(
+        event: String,
+        handle: BaseFunction
+    ): JsBridge {
+        handles[event] = if (handle is Handle) handle else Handle(handle)
         return this
     }
 
@@ -38,15 +68,17 @@ class JsBridge(private val webView: WebView) {
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    fun callHandler(event: String, data: String?, callBack: CrFunction?) {
+    fun callHandler(event: String, data: String?, callBack: BaseFunction?) {
+        val fn = if (callBack is Handle) callBack else callBack?.let { Handle(it) }
         val pos = Pos(getId(), event, data)
         callHandlerData[pos.id] = pos
-        callBack?.let {
+        fn?.let {
+            it.name = "callBack"
             pos.callBackId = pos.id
             pos.callBack = it
         }
-        val js = "${WEBOBJECTNAME}._onCallHandler(${pos.id})"
-        evaluateJavascript(js)
+        val js = "$WEBOBJECTNAME._onCallHandler(${pos.id})"
+        evaluateJavascript(js, this.webView)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -59,7 +91,7 @@ class JsBridge(private val webView: WebView) {
         callHandler(event, null, null)
     }
 
-    fun getId(): Int {
+    private fun getId(): Int {
         val nextInt = Random.nextInt()
         if (callHandlerData.containsKey(nextInt)) {
             return getId()
@@ -67,46 +99,82 @@ class JsBridge(private val webView: WebView) {
         return nextInt
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
-    fun evaluateJavascript(js: String) {
-        Looper.getMainLooper().queue.addIdleHandler {
-            webView.evaluateJavascript(js, null)
-            false
+    class Handle : BaseFunction, (String?, Handle?) -> Unit {
+        private var jsFn: BaseFunction? = null
+        private var ktFn: ((data: String?, Handle?) -> Unit)? = null
+        var name: String = "handle"
+
+        constructor(jsFn: BaseFunction) {
+            this.jsFn = jsFn
         }
+
+        constructor(ktFn: (data: String?, Handle?) -> Unit) {
+            this.ktFn = ktFn
+        }
+
+        override fun invoke(p1: String?, p2: Handle?) {
+            ktFn?.invoke(p1, p2)
+            jsFn?.let {
+                val cx = Context.getCurrentContext()
+                try {
+                    val scope = it.parentScope
+                    val args =
+                        arrayListOf(p1, p2).map { v -> Context.javaToJS(v, scope) }.toTypedArray()
+                    it.call(cx ?: Context.enter(), scope, Undefined.SCRIPTABLE_UNDEFINED, args)
+                } finally {
+                    cx ?: Context.exit()
+                }
+            }
+        }
+
+        @RequiresApi(Build.VERSION_CODES.M)
+        fun invokeToMainThread(p1: String?, p2: Handle?) {
+            Looper.getMainLooper().queue.addIdleHandler {
+                invoke(p1, p2)
+                false
+            }
+        }
+
+        override fun call(
+            cx: Context,
+            scope: Scriptable,
+            thisObj: Scriptable?,
+            args: Array<out Any>?
+        ) {
+            val arr = args?.toList()
+            val data: String = arr?.elementAtOrNull(0) as? String ?: ""
+            val fn = arr?.elementAtOrNull(1) as? BaseFunction
+            ktFn?.invoke(data, fn?.let { Handle(fn) })
+            jsFn?.call(cx, scope, thisObj, args)
+        }
+
+        override fun getFunctionName() = name
+        override fun getArity() = 1
+        override fun getLength() = 1
     }
 
     inner class JsObject {
-        val callBackData = HashMap<Int, Any>()
+        private val callBackData = HashMap<Int, Any>()
 
+        @RequiresApi(Build.VERSION_CODES.M)
         @JavascriptInterface
         //web调用安卓
         fun callHandle(reqData: String) {
             val pos = gson.fromJson(reqData, Pos::class.java)
+            println("onHandle: ${pos.event}")
             val handler = handles[pos.event]
-            if (pos.callBackId != null) {
-                handler?.run(pos.data, object : BaseFunction() {
-                    @RequiresApi(Build.VERSION_CODES.M)
-                    override fun call(
-                        cx: org.mozilla.javascript.Context?,
-                        scope: Scriptable?,
-                        thisObj: Scriptable?,
-                        args: Array<out Any>
-                    ): Any {
-                        val d: String? = try {
-                            args[0] as String?
-                        } catch (e: Exception) {
-                            null
-                        }
-                        callBackData[pos.callBackId!!] = object {
-                            val data = d
-                            val callBackId = pos.callBackId
-                        }
-                        val js = "${WEBOBJECTNAME}._onCallBack(${pos.callBackId})"
-                        evaluateJavascript(js)
-                        return super.call(cx, scope, thisObj, args)
+            val callBack: Handle? = if (pos.callBackId != null) {
+                Handle { data, _ ->
+                    callBackData[pos.callBackId!!] = object {
+                        val data = data
+                        val callBackId = pos.callBackId
                     }
-                })
-            } else handler?.run(pos.data)
+                    val js = "$WEBOBJECTNAME._onCallBack(${pos.callBackId})"
+                    evaluateJavascript(js, webView)
+                }
+            } else null
+            handler?.let { it.name = "callBack" }
+            handler?.invokeToMainThread(pos.data, callBack)
         }
 
         @JavascriptInterface
@@ -116,11 +184,12 @@ class JsBridge(private val webView: WebView) {
             return Gson().toJson(data)
         }
 
+        @RequiresApi(Build.VERSION_CODES.M)
         @JavascriptInterface
         fun callBack(callBackId: Int, data: String?) {
             val callBack = callHandlerData[callBackId]?.callBack
             callHandlerData.remove(callBackId)
-            callBack?.run(data)
+            callBack?.invokeToMainThread(data, null)
         }
 
         @JavascriptInterface
@@ -138,23 +207,21 @@ class JsBridge(private val webView: WebView) {
         var callBackId: Int? = null
 
         @Expose(serialize = false, deserialize = false)
-        var callBack: CrFunction? = null
-    }
-
-    interface CrFunction {
-        fun run(args: Any?)
-        fun run(arg1: Any?, arg2: Any?)
-        fun run(arg1: Any?, arg2: Any?, arg3: Any?)
+        var callBack: Handle? = null
     }
 
     open class SuperWebViewClient : WebViewClient() {
+        companion object {
+            const val SDKPATH = "autox://sdk.v1.js"
+        }
+
         override fun shouldInterceptRequest(
             view: WebView,
             request: WebResourceRequest
         ): WebResourceResponse? {
             val url = request.url
             val context = view.context
-            if (url.toString().startsWith("autox://sdk.v1.js")) {
+            if (url.toString() == SDKPATH) {
                 val webResponse: WebResourceResponse? = try {
                     val inputStream = context.assets.open(sdkPath)
                     WebResourceResponse("application/javascript", "UTF-8", inputStream)
@@ -167,9 +234,11 @@ class JsBridge(private val webView: WebView) {
         }
 
         @RequiresApi(Build.VERSION_CODES.M)
-        override fun onPageFinished(view: WebView, url: String?) {
+        override fun onPageFinished(view: WebView?, url: String?) {
             super.onPageFinished(view, url)
-            (view as JsWebView).injectionJsBridge()
+            if (view != null) {
+                injectionJsBridge(view)
+            }
         }
     }
 }
