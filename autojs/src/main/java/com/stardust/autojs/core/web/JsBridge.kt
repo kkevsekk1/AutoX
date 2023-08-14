@@ -14,14 +14,13 @@ import org.mozilla.javascript.Undefined
 import java.io.ByteArrayOutputStream
 import kotlin.random.Random
 
-
+@RequiresApi(Build.VERSION_CODES.M)
 class JsBridge(private val webView: WebView) {
     companion object {
         const val WEBOBJECTNAME = "\$autox"
         const val JAVABRIDGE = "AutoxJavaBridge"
         const val sdkPath = "web/autox.sdk.v1.js"
 
-        @RequiresApi(Build.VERSION_CODES.M)
         fun evaluateJavascript(js: String, webView: WebView) {
             Looper.getMainLooper().queue.addIdleHandler {
                 webView.evaluateJavascript(js, null)
@@ -29,7 +28,6 @@ class JsBridge(private val webView: WebView) {
             }
         }
 
-        @RequiresApi(Build.VERSION_CODES.M)
         fun injectionJsBridge(webView: WebView) {
             val js: String = try {
                 val inputStream = webView.context.assets.open(sdkPath)
@@ -67,7 +65,6 @@ class JsBridge(private val webView: WebView) {
         return this
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
     fun callHandler(event: String, data: String?, callBack: BaseFunction?) {
         val fn = if (callBack is Handle) callBack else callBack?.let { Handle(it) }
         val pos = Pos(getId(), event, data)
@@ -81,12 +78,10 @@ class JsBridge(private val webView: WebView) {
         evaluateJavascript(js, this.webView)
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
     fun callHandler(event: String, data: String?) {
         callHandler(event, data, null)
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
     fun callHandler(event: String) {
         callHandler(event, null, null)
     }
@@ -127,7 +122,6 @@ class JsBridge(private val webView: WebView) {
             }
         }
 
-        @RequiresApi(Build.VERSION_CODES.M)
         fun invokeToMainThread(p1: String?, p2: Handle?) {
             Looper.getMainLooper().queue.addIdleHandler {
                 invoke(p1, p2)
@@ -156,7 +150,6 @@ class JsBridge(private val webView: WebView) {
     inner class JsObject {
         private val callBackData = HashMap<Int, Any>()
 
-        @RequiresApi(Build.VERSION_CODES.M)
         @JavascriptInterface
         //web调用安卓
         fun callHandle(reqData: String) {
@@ -184,7 +177,6 @@ class JsBridge(private val webView: WebView) {
             return Gson().toJson(data)
         }
 
-        @RequiresApi(Build.VERSION_CODES.M)
         @JavascriptInterface
         fun callBack(callBackId: Int, data: String?) {
             val callBack = callHandlerData[callBackId]?.callBack
@@ -233,7 +225,6 @@ class JsBridge(private val webView: WebView) {
             return super.shouldInterceptRequest(view, request)
         }
 
-        @RequiresApi(Build.VERSION_CODES.M)
         override fun onPageFinished(view: WebView?, url: String?) {
             super.onPageFinished(view, url)
             if (view != null) {

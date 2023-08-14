@@ -9,7 +9,7 @@ import com.stardust.autojs.core.web.JsBridge
 
 open class JsWebView : WebView {
     //val events = EventEmitter()
-
+    @RequiresApi(Build.VERSION_CODES.M)
     val jsBridge = JsBridge(this)
 
     init {
@@ -21,7 +21,7 @@ open class JsWebView : WebView {
         settings.javaScriptCanOpenWindowsAutomatically = true
         settings.domStorageEnabled = true
         settings.displayZoomControls = false
-        webViewClient = JsBridge.SuperWebViewClient()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) webViewClient = JsBridge.SuperWebViewClient()
     }
 
     constructor(context: Context) : super(context)
