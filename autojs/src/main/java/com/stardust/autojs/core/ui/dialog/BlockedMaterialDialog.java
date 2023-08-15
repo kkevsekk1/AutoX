@@ -21,6 +21,8 @@ import com.stardust.concurrent.VolatileDispose;
 import com.stardust.util.ArrayUtils;
 import com.stardust.util.UiHandler;
 
+import java.util.ArrayList;
+
 /**
  * Created by Stardust on 2017/5/8.
  */
@@ -102,7 +104,7 @@ public class BlockedMaterialDialog extends MaterialDialog {
             }
             mNotified = true;
             if (mCallback != null) {
-                mScriptBridges.callFunction(mCallback, null, new int[]{r});
+                mScriptBridges.callFunction(mCallback, null, new Integer[]{r});
             }
             if (mResultBox != null) {
                 mResultBox.setAndNotify(r);
@@ -115,7 +117,7 @@ public class BlockedMaterialDialog extends MaterialDialog {
             }
             mNotified = true;
             if (mCallback != null) {
-                mScriptBridges.callFunction(mCallback, null, new boolean[]{r});
+                mScriptBridges.callFunction(mCallback, null, new Boolean[]{r});
             }
             if (mResultBox != null) {
                 mResultBox.setAndNotify(r);
