@@ -29,6 +29,7 @@ android {
             jniLibs.srcDirs("/libs")
         }
     }
+    namespace = "com.stardust.automator"
 }
 
 dependencies {
