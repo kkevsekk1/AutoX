@@ -18,13 +18,14 @@
             android:theme="@style/ToolBarStyle"
             android:background="?attr/colorPrimary"
             android:title="@string/app_name"
+            app:contentInsetStartWithNavigation="0dp"
+            app:contentInsetStart="0dp"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <FrameLayout
                 android:id="@+id/toolbar_menu"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="right"/>
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
         </com.stardust.theme.widget.ThemeColorToolbar>
 
@@ -41,7 +42,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/file_path"
+                android:background="?attr/colorPrimary"
+                android:gravity="start"
+                android:paddingStart="10dp"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"/>
+            
             <org.autojs.autojs.ui.edit.editor.CodeEditor
                 android:id="@+id/editor"
                 android:layout_width="match_parent"

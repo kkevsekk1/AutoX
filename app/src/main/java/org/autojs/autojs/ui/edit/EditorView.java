@@ -18,9 +18,12 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.SparseBooleanArray;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -154,6 +157,7 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
     private String mRestoredText;
     private NormalToolbarFragment mNormalToolbar = new NormalToolbarFragment_();
     private boolean mDebugging = false;
+    private EditorMenu mEditorMenu;
 
     public EditorView(Context context) {
         super(context);
@@ -296,8 +300,8 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
 
     private void initNormalToolbar() {
         mNormalToolbar.setOnMenuItemClickListener(this);
-        mNormalToolbar.setOnMenuItemLongClickListener(id -> {
-            if (id == R.id.run) {
+        mNormalToolbar.setOnMenuItemLongClickListener(view -> {
+            if (view.getId() == R.id.run) {
                 debug();
                 return true;
             }
@@ -336,6 +340,7 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
         }));
         mEditor.addCursorChangeCallback(this::autoComplete);
         mEditor.getCodeEditText().setTextSize(Pref.getEditorTextSize((int) ViewUtils.pxToSp(getContext(), mEditor.getCodeEditText().getTextSize())));
+        mEditorMenu = new EditorMenu(this);
     }
 
     private void autoComplete(String line, int cursor) {
@@ -378,8 +383,8 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
     }
 
     @Override
-    public void onToolbarMenuItemClick(int id) {
-        switch (id) {
+    public void onToolbarMenuItemClick(View view) {
+        switch (view.getId()) {
             case R.id.run:
                 runAndSaveFileIfNeeded();
                 break;
@@ -404,13 +409,30 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
             case R.id.cancel_search:
                 cancelSearch();
                 break;
-            case R.id.textSizePlus:
-                setTextSizePlus();
+            case R.id.action_log:
+                LogActivityKt.start(getContext());
                 break;
-            case R.id.textSizeMinus:
-                setTextSizeMinus();
+            case R.id.debug:
+                showOptionMenu(view,R.menu.menu_editor_debug);
+                break;
+            case R.id.jump:
+                showOptionMenu(view,R.menu.menu_editor_jump);
+                break;
+            case R.id.edit:
+                showOptionMenu(view,R.menu.menu_editor_edit);
                 break;
         }
+    }
+    void showOptionMenu( View view,int menuId) {
+        PopupMenu popupMenu = new PopupMenu(getContext(), view);
+        popupMenu.inflate(menuId);
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                return mEditorMenu.onOptionsItemSelected(item);
+            }
+        });
+        popupMenu.show();
     }
 
     @SuppressLint("CheckResult")

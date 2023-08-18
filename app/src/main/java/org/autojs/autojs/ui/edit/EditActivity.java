@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,12 +30,12 @@ import com.stardust.pio.PFiles;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
-import org.autojs.autoxjs.R;
 import org.autojs.autojs.storage.file.TmpScriptFiles;
 import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
 import org.autojs.autojs.tool.Observers;
 import org.autojs.autojs.ui.BaseActivity;
 import org.autojs.autojs.ui.main.MainActivity;
+import org.autojs.autoxjs.R;
 
 import java.io.File;
 import java.io.IOException;
@@ -129,7 +130,9 @@ public class EditActivity extends BaseActivity implements OnActivityResultDelega
     }
 
     private void setUpToolbar() {
-        BaseActivity.setToolbarAsBack(this, R.id.toolbar, mEditorView.getName());
+        BaseActivity.setToolbarAsBack(this, R.id.toolbar, "" );
+        TextView filePath= findViewById(R.id.file_path);
+        filePath.setText(mEditorView.getUri().getPath());
     }
 
     @Override
