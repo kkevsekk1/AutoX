@@ -48,19 +48,19 @@ runtime.init();
         }
     };
 
-     // 初始化基础模块
-     global.timers = require('__timers__.js')(runtime, global);
+    // 初始化基础模块
+    global.timers = require('__timers__.js')(runtime, global);
 
-     //初始化不依赖环境的模块
-     global.JSON = require('__json2__.js');
-     global.util = global.$util = require('__util__.js');
-     global.device = runtime.device;
+    //初始化不依赖环境的模块
+    global.JSON = require('__json2__.js');
+    global.util = global.$util = require('__util__.js');
+    global.device = runtime.device;
 
-     global.process = require('process')
-     global.Promise = require('bluebird.js');
+    global.process = require('process')
+    global.Promise = require('bluebird');
 
-     //设置JavaScriptBridges用于与Java层的交互和数据转换
-     runtime.bridges.setBridges(require('__bridges__.js'));
+    //设置JavaScriptBridges用于与Java层的交互和数据转换
+    runtime.bridges.setBridges(require('__bridges__.js'));
 
     //初始化全局函数
     require("__globals__")(runtime, global);
@@ -68,13 +68,13 @@ runtime.init();
     (function (scope) {
         var modules = ['app', 'automator', 'console', 'dialogs', 'files', 'io', 'selector', 'shell', 'web', 'ui',
             "images", "threads", "events", "engines", "RootAutomator", "http", "storages", "floaty",
-            "sensors", "media", "plugins", "continuation", "$zip", "$base64", "$crypto","paddle"];
+            "sensors", "media", "plugins", "continuation", "$zip", "$base64", "$crypto", "paddle"];
         var len = modules.length;
         for (var i = 0; i < len; i++) {
             var m = modules[i];
             let module = require('__' + m + '__')(scope.runtime, scope);
             scope[m] = module;
-            if(!m.startsWith('$')) {
+            if (!m.startsWith('$')) {
                 scope['$' + m] = module;
             }
         }
