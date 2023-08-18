@@ -7,6 +7,7 @@
     let HttpUrl = Packages.okhttp3.HttpUrl;
     let MediaType = Packages.okhttp3.MediaType;
     let Headers = Packages.okhttp3.Headers;
+    let InterruptedIOException = java.io.InterruptedIOException
 
     const stream = require("stream");
     let EventTarget = require("./EventTarget.js");
@@ -24,6 +25,7 @@
     ///////XMLHttpRequest对象
     let XMLHttpRequest = function () {
         this.responseType = 'text';
+        this.timeout = 0;
         setReadonlyAttribute(this, 'upload', {})
         setReadonlyAttribute(this, 'readyState', 0);
         setReadonlyAttribute(this, 'status', 0);
@@ -105,12 +107,7 @@
     XMLHttpRequest.prototype.send = function (body) {
         atl.addTask();
         const xhr = this;
-        const {
-            url,
-            method,
-            ac,
-            headers,
-        } = this._requestData
+        const { url, method, ac, headers, } = this._requestData
         const responseType = xhr.responseType;
 
         const builder = new Request.Builder();
@@ -120,12 +117,20 @@
         let reqBody = parserReqBody(xhr, body);
 
         let request = builder.url(url.build()).method(method, reqBody).build();
-        let call = XMLHttpRequest._okHttpClient.newCall(request);
+        let client = XMLHttpRequest._okHttpClient;
+        if (xhr.timeout > 0) {
+            client = new OkHttpClient.Builder().callTimeout(xhr.timeout, java.util.concurrent.TimeUnit.MILLISECONDS)
+                .followRedirects(true).build();
+        }
+        let call = client.newCall(request);
         setReadonlyAttribute(xhr, '_call', call, false);
         call.enqueue({
             onFailure(call, e) {
                 xhr._setReadyState(4);
                 setReadonlyAttribute(xhr, 'statusText', e.message)
+                if (e instanceof InterruptedIOException) {
+                    xhr.dispatchEvent(new Event('timeout'));
+                }
                 xhr.dispatchEvent(new Event('error'))
                 xhr.dispatchEvent(new Event('loadend'))
                 atl.removeTask()

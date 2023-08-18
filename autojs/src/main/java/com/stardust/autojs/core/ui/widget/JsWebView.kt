@@ -9,7 +9,7 @@ import com.stardust.autojs.core.web.JsBridge
 
 open class JsWebView : WebView {
     //val events = EventEmitter()
-
+    @RequiresApi(Build.VERSION_CODES.M)
     val jsBridge = JsBridge(this)
 
     init {
@@ -21,7 +21,7 @@ open class JsWebView : WebView {
         settings.javaScriptCanOpenWindowsAutomatically = true
         settings.domStorageEnabled = true
         settings.displayZoomControls = false
-        webViewClient = JsBridge.SuperWebViewClient()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) webViewClient = JsBridge.SuperWebViewClient()
     }
 
     constructor(context: Context) : super(context)
@@ -32,18 +32,7 @@ open class JsWebView : WebView {
         defStyleAttr
     )
     @RequiresApi(Build.VERSION_CODES.M)
-    fun injectionJsBridge() {
-        val context = this.context
-        val js: String = try {
-            val inputStream = context.assets.open(JsBridge.sdkPath)
-            val available = inputStream.available()
-            val byteArray = ByteArray(available)
-            inputStream.read(byteArray)
-            inputStream.close()
-            String(byteArray)
-        } catch (e: Exception) {
-            ""
-        }
-        jsBridge.evaluateJavascript(js);
+    fun injectionJsBridge(){
+        JsBridge.injectionJsBridge(this)
     }
 }
