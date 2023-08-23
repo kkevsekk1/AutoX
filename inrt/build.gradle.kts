@@ -127,6 +127,7 @@ android {
         )
 
     }
+    namespace = "org.autojs.autoxjs.inrt"
 
 
 }

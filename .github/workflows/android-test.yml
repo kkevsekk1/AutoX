@@ -18,7 +18,7 @@ jobs:
       - name: set up JDK
         uses: actions/setup-java@v1
         with:
-          java-version: 15
+          java-version: 17
       - name: set up kotlin
         uses: fwilhe2/setup-kotlin@main
         with:

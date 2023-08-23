@@ -35,6 +35,7 @@ android {
             res.srcDirs("src/main/res","src/main/res-i18n")
         }
     }
+    namespace = "com.stardust"
 }
 
 dependencies {
