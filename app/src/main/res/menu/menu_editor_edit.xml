@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_find_or_replace"
+        android:title="@string/text_find_or_replace"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_copy_all"
+        android:title="@string/text_copy_all"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_copy_line"
+        android:title="@string/text_copy_line"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_delete_line"
+        android:title="@string/text_delete_line"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_clear"
+        android:title="@string/text_clear"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_beautify"
+        android:title="@string/text_code_beautify"
+        app:showAsAction="never" />
+</menu>

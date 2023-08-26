@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_breakpoint"
+        android:title="@string/text_set_breakpoint"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_launch_debugger"
+        android:title="@string/text_launch_debugger"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_remove_all_breakpoints"
+        android:title="@string/text_remove_all_breakpoints"
+        app:showAsAction="never" />
+</menu>

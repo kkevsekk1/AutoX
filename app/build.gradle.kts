@@ -1,5 +1,4 @@
-import java.util.*
-import java.io.File
+import java.util.Properties
 
 plugins {
     id("com.android.application")
@@ -166,6 +165,7 @@ android {
             )
         )
     }
+    namespace = "org.autojs.autoxjs"
 
 }
 
