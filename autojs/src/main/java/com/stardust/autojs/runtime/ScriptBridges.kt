@@ -1,5 +1,8 @@
 package com.stardust.autojs.runtime
 
+import android.os.Build
+import androidx.annotation.RequiresApi
+import com.stardust.automator.UiObjectCollection
 import org.mozilla.javascript.BaseFunction
 import org.mozilla.javascript.Context
 import org.mozilla.javascript.Scriptable
@@ -10,6 +13,17 @@ import org.mozilla.javascript.annotations.JSFunction
  * Created by Stardust on 2017/7/21.
  */
 class ScriptBridges {
+    companion object {
+        fun <T> useJsContext(f: (context: Context) -> T): T {
+            val context = Context.getCurrentContext()
+            try {
+                return f(context ?: Context.enter())
+            } finally {
+                context ?: Context.exit()
+            }
+        }
+    }
+
     interface Bridges {
         fun call(func: Any?, target: Any?, arg: Any?): Any
         fun toArray(o: Iterable<*>?): Any
@@ -22,46 +36,58 @@ class ScriptBridges {
     }
 
     var bridges: Bridges? = null
-    fun callFunction(func: Any?, target: Any?, args: Array<*>): Any {
+    fun callFunction(func: Any?, target: Any?, args: Array<*>): Any = useJsContext<Any> { context ->
         val jsFn = func as BaseFunction
-        val cx = Context.getCurrentContext()
         val scope = jsFn.parentScope
-        val arr = args.map { Context.javaToJS(it, scope) }.toTypedArray()
-        try {
-            return jsFn.call(
-                cx ?: Context.enter(),
-                scope,
-                (Context.javaToJS(target, scope) as? Scriptable) ?: Undefined.SCRIPTABLE_UNDEFINED,
-                arr
-            )
-        } finally {
-            cx ?: Context.exit()
-        }
-    }
+        val arg = args.map { Context.javaToJS(it, scope) }.toTypedArray()
 
-    private fun checkBridges() {
-        checkNotNull(bridges) { "no bridges set" }
+        return@useJsContext jsFn.call(
+            context, scope,
+            (Context.javaToJS(target, scope) as? Scriptable) ?: Undefined.SCRIPTABLE_UNDEFINED,
+            arg
+        )
     }
 
     @JSFunction
-    fun toArray(c: Iterable<*>): Scriptable {
-        val cx = Context.getCurrentContext()
-        val te = cx ?: Context.enter()
-        try {
-            return te.newArray(te.initStandardObjects(), c.toList().toTypedArray())
-        } finally {
-            cx ?: Context.exit()
-        }
+    fun toArray(c: Iterable<*>): Scriptable = useJsContext<Scriptable> { context ->
+        val scope = context.initStandardObjects()
+        return@useJsContext context.newArray(
+            context.initStandardObjects(),
+            c.map { Context.javaToJS(it, scope) }.toTypedArray()
+        )
     }
 
     fun toString(obj: Any?): String {
         return Context.toString(obj)
     }
 
-    fun asArray(list: Any?): Any {
-        val arr = toArray(emptyList<Any?>())
+    fun asArray(obj: UiObjectCollection): Any = useJsContext { context ->
+        val arr = toArray(obj.mNodes)
+        obj::class.members.forEach {
+            val name = it.name
+            val method = object : BaseFunction() {
+                override fun getFunctionName(): String {
+                    return name
+                }
 
-        checkBridges()
-        return bridges!!.asArray(list)
+                override fun call(
+                    cx: Context?,
+                    scope: Scriptable?,
+                    thisObj: Scriptable?,
+                    args: Array<out Any>?
+                ): Any? {
+                    return if (args != null) {
+                        it.call(obj, *args)
+                    } else it.call(obj)
+                }
+
+                @RequiresApi(Build.VERSION_CODES.O)
+                override fun getLength(): Int {
+                    return it.parameters.size
+                }
+            }
+            arr.put(name, arr, method)
+        }
+        return@useJsContext arr
     }
 }

@@ -1,12 +1,6 @@
 package com.stardust.automator
 
 import android.os.Bundle
-
-import com.stardust.util.Consumer
-
-import java.util.ArrayList
-import java.util.Collections
-
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_ACCESSIBILITY_FOCUS
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_ARGUMENT_COLUMN_INT
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_ARGUMENT_PROGRESS_VALUE
@@ -38,13 +32,13 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.Accessibilit
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_SCROLL_UP
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_SET_PROGRESS
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_SHOW_ON_SCREEN
+import com.stardust.util.Consumer
 
 /**
  * Created by Stardust on 2017/3/9.
  */
 
-class UiObjectCollection private constructor(private val mNodes: List<UiObject?>) {
-
+class UiObjectCollection private constructor(val mNodes: List<UiObject?>) {
 
     val isEmpty: Boolean
         get() = mNodes.isEmpty()
