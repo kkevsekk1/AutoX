@@ -5,8 +5,8 @@
   "devVersionName": "6.4.3",
   "target": 26,
   "mini": 21,
-  "compile": 32,
-  "buildTool": "32.0.0",
+  "compile": 33,
+  "buildTool": "33.0.0",
   "IDE": "Android Studio Bumblebee | 2021.1.1",
-  "JDK": "15"
+  "JDK": "17"
 }

@@ -1,16 +1,13 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    id("kotlin-android-extensions")
 }
 
 android {
-    buildToolsVersion = versions.buildTool
     compileSdk = versions.compile
 
     defaultConfig {
         minSdk = versions.mini
-        targetSdk = versions.target
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -22,11 +19,7 @@ android {
     }
 
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    lintOptions.isAbortOnError = false
+    lint.abortOnError = false
     sourceSets {
         named("main") {
 //            jniLibs.srcDirs = listOf("src/main/jniLibs")

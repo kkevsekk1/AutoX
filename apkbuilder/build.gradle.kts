@@ -4,12 +4,10 @@ plugins {
 }
 
 android {
-    buildToolsVersion = versions.buildTool
     compileSdk = versions.compile
 
     defaultConfig {
         minSdk = versions.mini
-        targetSdk = versions.target
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

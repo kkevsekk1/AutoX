@@ -19,7 +19,6 @@ buildscript {
         maven("https://maven.aliyun.com/repository/central")
         google { url = uri("https://maven.aliyun.com/repository/google") }
         mavenCentral { url = uri("https://maven.aliyun.com/repository/public") }
-//        maven { url = uri("https://jitpack.io") }
     }
     dependencies {
         classpath("com.android.tools.build:gradle:8.0.2")

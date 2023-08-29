@@ -19,9 +19,9 @@ data class Versions(
     @SerializedName("appVersionName")
     val appVersionName: String = "6.3.4",
     @SerializedName("buildTool")
-    val buildTool: String = "32.0.0",
+    val buildTool: String = "33.0.0",
     @SerializedName("compile")
-    val compile: Int = 0,
+    val compile: Int = 33,
     @SerializedName("devVersionCode")
     val devVersionCode: Int = 634,
     @SerializedName("devVersionName")
