@@ -1,61 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:layout_width="wrap_content"
-              android:layout_height="match_parent"
-              android:layout_gravity="right"
-              android:orientation="horizontal">
-
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:orientation="horizontal">
+    
+    <org.autojs.autojs.ui.widget.ToolbarMenuItem
+        android:id="@+id/edit"
+        android:layout_width="37dp"
+        android:layout_height="match_parent"
+        app:icon="@drawable/ic_edit_black_48dp"
+        app:icon_color="@color/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text="@string/text_edit" />
+    
+    <org.autojs.autojs.ui.widget.ToolbarMenuItem
+        android:id="@+id/jump"
+        android:layout_width="37dp"
+        android:layout_height="match_parent"
+        app:icon="@drawable/ic_low_priority_black_48dp"
+        app:icon_color="@color/toolbar"
+        app:layout_constraintStart_toEndOf="@id/edit"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text="@string/text_jump" />
+    
+    <org.autojs.autojs.ui.widget.ToolbarMenuItem
+        android:id="@+id/debug"
+        android:layout_width="37dp"
+        android:layout_height="match_parent"
+        app:icon="@drawable/ic_bug_report_black_48dp"
+        app:icon_color="@color/toolbar"
+        app:layout_constraintStart_toEndOf="@id/jump"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text="@string/text_debug" />
+    
+    <org.autojs.autojs.ui.widget.ToolbarMenuItem
+        android:id="@id/action_log"
+        android:layout_width="37dp"
+        android:layout_height="match_parent"
+        app:icon="@drawable/ic_ali_log"
+        app:icon_color="@color/toolbar"
+        app:layout_constraintEnd_toStartOf="@id/run"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text="@string/text_log" />
+    
     <org.autojs.autojs.ui.widget.ToolbarMenuItem
         android:id="@+id/run"
-        android:layout_width="40dp"
+        android:layout_width="37dp"
         android:layout_height="match_parent"
-        app:icon="@drawable/ic_play_fill"
+        app:icon="@drawable/ic_play_arrow_black_48dp"
         app:icon_color="@color/toolbar"
-        app:text="@string/text_run"/>
-
+        app:layout_constraintEnd_toStartOf="@id/undo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text="@string/text_run" />
+    
     <org.autojs.autojs.ui.widget.ToolbarMenuItem
         android:id="@+id/undo"
-        android:layout_width="40dp"
+        android:layout_width="37dp"
         android:layout_height="match_parent"
-        app:icon="@drawable/ic_undo"
+        app:icon="@drawable/ic_undo_black_48dp"
         app:icon_color="@color/toolbar"
-        app:text="@string/text_undo"/>
-
+        app:layout_constraintEnd_toStartOf="@id/redo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text="@string/text_undo" />
+    
     <org.autojs.autojs.ui.widget.ToolbarMenuItem
         android:id="@+id/redo"
-        android:layout_width="40dp"
+        android:layout_width="37dp"
         android:layout_height="match_parent"
-        app:icon="@drawable/ic_redo"
+        app:icon="@drawable/ic_redo_black_48dp"
         app:icon_color="@color/toolbar"
-        app:text="@string/text_redo"/>
-
+        app:layout_constraintEnd_toStartOf="@id/save"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text="@string/text_redo" />
+    
     <org.autojs.autojs.ui.widget.ToolbarMenuItem
         android:id="@+id/save"
-        android:layout_width="40dp"
+        android:layout_width="37dp"
         android:layout_height="match_parent"
         android:enabled="false"
-        app:icon="@drawable/ic_save"
+        android:gravity="center"
+        app:icon="@drawable/ic_save_white_48dp"
         app:icon_color="@color/toolbar"
-        app:text="@string/text_save"/>
-
-    <org.autojs.autojs.ui.widget.ToolbarMenuItem
-        android:id="@+id/textSizePlus"
-        android:layout_width="40dp"
-        android:layout_height="match_parent"
-        android:enabled="false"
-        app:icon="@drawable/ic_edit_white_24dp"
-        app:icon_color="@color/toolbar"
-        app:text="@string/textSizePlus"/>
-
-    <org.autojs.autojs.ui.widget.ToolbarMenuItem
-        android:id="@+id/textSizeMinus"
-        android:layout_width="40dp"
-        android:layout_height="match_parent"
-        android:enabled="false"
-        app:icon="@drawable/ic_edit_white_24dp"
-        app:icon_color="@color/toolbar"
-        app:text="@string/textSizeMinus"/>
-
-
-</LinearLayout>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text="@string/text_save" />
+</androidx.constraintlayout.widget.ConstraintLayout>

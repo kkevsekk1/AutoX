@@ -18,9 +18,11 @@ function addTask(th, fn, callback) {
     })
 }
 function createThread() {
-    return threads.start(() => {
+    let th = threads.start(() => {
         setInterval(() => { }, 1000)
     })
+    th.waitFor()
+    return th
 }
 
 stream.fromInputStream = function (inp, options) {
