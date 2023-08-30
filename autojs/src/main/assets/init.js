@@ -59,8 +59,6 @@ runtime.init();
     global.process = require('process')
     global.Promise = require('bluebird');
 
-    //设置JavaScriptBridges用于与Java层的交互和数据转换
-    runtime.bridges.setBridges(require('__bridges__.js'));
 
     //初始化全局函数
     require("__globals__")(runtime, global);
