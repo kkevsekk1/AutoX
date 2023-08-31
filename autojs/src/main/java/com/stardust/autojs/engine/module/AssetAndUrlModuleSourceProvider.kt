@@ -19,17 +19,20 @@ import java.net.URI
 
 class AssetAndUrlModuleSourceProvider(
     context: Context,
-    assetDirPath: String,
-    list: List<URI>? = null
+    list: List<URI> = emptyList()
 ) : ModuleSourceProviderBase() {
     val mContext = context
     private val okHttpClient = OkHttpClient.Builder().followRedirects(true).build()
     private val contentResolver: ContentResolver = context.contentResolver
-    private val moduleSources: ArrayList<URI> = arrayListOf(mBaseURI, npmModuleSource)
+    private val moduleSources: List<URI> = list
 
     companion object {
-        val mBaseURI: URI = URI.create("file:/android_asset/modules")
-        val npmModuleSource: URI = URI.create("file:/android_asset/modules/npm")
+        private const val assetRoot: String = "file:/android_asset"
+        val MODULE_DIR: URI = URI.create("file:/android_asset/modules")
+        val NPM_MODULE_DIR: URI = URI.create("file:/android_asset/modules/npm")
+        fun toAssetUri(assetDirPath: String): URI {
+            return URI.create("$assetRoot/$assetDirPath")
+        }
     }
 
     //初始化脚本以及启动文件只会从此方法加载模块，子模块加载没有以"./"或"../"开头的模块也会从此方法加载
@@ -85,8 +88,10 @@ class AssetAndUrlModuleSourceProvider(
         } catch (e: Exception) {
             null
         }
-        val main: URI = mainFile ?: File(uri.path, "index.js").toURI()
-        return loadAt(main, uri, validator)
+        mainFile?.let {
+            //若package.json中main入口读取成功则重新执行模块加载
+            return loadFromUri(it,uri,validator)
+        }?: return loadAt(File(uri.path, "index.js").toURI(),uri,validator)
     }
 
     private fun loadAt(uri: URI, base: URI?, validator: Any?): ModuleSource? {

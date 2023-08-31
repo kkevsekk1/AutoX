@@ -15,11 +15,9 @@ import com.stardust.automator.UiObjectCollection
 import com.stardust.pio.UncheckedIOException
 import org.mozilla.javascript.*
 import org.mozilla.javascript.commonjs.module.provider.SoftCachingModuleScriptProvider
-import java.io.File
 import java.io.IOException
 import java.io.InputStreamReader
 import java.io.Reader
-import java.net.URI
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 
@@ -27,7 +25,8 @@ import java.util.concurrent.ConcurrentHashMap
  * Created by Stardust on 2017/4/2.
  */
 
-open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Context) : JavaScriptEngine() {
+open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Context) :
+    JavaScriptEngine() {
 
     val context: Context
     private val mScriptable: TopLevelScope
@@ -119,9 +118,17 @@ open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Co
     }
 
     internal fun initRequireBuilder(context: Context, scope: Scriptable) {
-        val provider = AssetAndUrlModuleSourceProvider(mAndroidContext, MODULES_PATH,
-                listOf<URI>(File("/").toURI()))
-        val require = ScopeRequire(context,scope,SoftCachingModuleScriptProvider(provider),null,null,false)
+        val provider = AssetAndUrlModuleSourceProvider(
+            mAndroidContext,
+            listOf(
+                AssetAndUrlModuleSourceProvider.MODULE_DIR,
+                AssetAndUrlModuleSourceProvider.NPM_MODULE_DIR
+            )
+        )
+        val require = ScopeRequire(
+            context, scope, SoftCachingModuleScriptProvider(provider),
+            null, null, false
+        )
         require.install(scope)
     }
 
@@ -155,7 +162,12 @@ open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Co
             }
         }
 
-        override fun wrapAsJavaObject(cx: Context?, scope: Scriptable, javaObject: Any?, staticType: Class<*>?): Scriptable? {
+        override fun wrapAsJavaObject(
+            cx: Context?,
+            scope: Scriptable,
+            javaObject: Any?,
+            staticType: Class<*>?
+        ): Scriptable? {
             //Log.d(LOG_TAG, "wrapAsJavaObject: java = " + javaObject + ", result = " + result + ", scope = " + scope);
             return if (javaObject is View) {
                 ViewExtras.getNativeView(scope, javaObject, staticType, runtime)

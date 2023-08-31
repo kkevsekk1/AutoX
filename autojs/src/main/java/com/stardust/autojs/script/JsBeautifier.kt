@@ -3,15 +3,14 @@ package com.stardust.autojs.script
 import android.content.Context
 import android.view.View
 import com.stardust.autojs.engine.module.AssetAndUrlModuleSourceProvider
+import com.stardust.autojs.engine.module.ScopeRequire
 import com.stardust.pio.PFiles.join
 import com.stardust.pio.PFiles.read
 import com.stardust.pio.UncheckedIOException
 import org.mozilla.javascript.Function
 import org.mozilla.javascript.ImporterTopLevel
 import org.mozilla.javascript.Scriptable
-import org.mozilla.javascript.commonjs.module.RequireBuilder
 import org.mozilla.javascript.commonjs.module.provider.SoftCachingModuleScriptProvider
-import java.io.File
 import java.io.IOException
 import java.util.concurrent.Executors
 
@@ -71,13 +70,15 @@ class JsBeautifier(view: View, beautifyJsDirPath: String) {
             importerTopLevel.initStandardObjects(mScriptContext, false)
             mScriptable = importerTopLevel
         }
-        val provider =
-            AssetAndUrlModuleSourceProvider(mContext, mBeautifyJsDir, listOf(File("/").toURI()))
-        RequireBuilder()
-            .setModuleScriptProvider(SoftCachingModuleScriptProvider(provider))
-            .setSandboxed(false)
-            .createRequire(mScriptContext, mScriptable)
-            .install(mScriptable)
+        val provider = AssetAndUrlModuleSourceProvider(
+            mContext,
+            listOf(AssetAndUrlModuleSourceProvider.toAssetUri(mBeautifyJsDir))
+        )
+        ScopeRequire(
+            mScriptContext!!, mScriptable!!,
+            SoftCachingModuleScriptProvider(provider),
+            null, null, false
+        ).install(mScriptable!!)
     }
 
     fun prepare() {
