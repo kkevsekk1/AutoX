@@ -1,10 +1,25 @@
 # Change Log
 autoxjs 整个项目的一些更新日志,双版本号为稳定版（内容以修复的bug为主），单版本号为激进版本、发布新内容。
 
-## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.4.3...HEAD) 未发布
+## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.5.1...HEAD) 未发布
+
+## [6.5.1] - 2023-09-03
+此次改动较大，留意bug情况
+@aiselp
+* 修复7.0以下系统无法运行脚本，修复events模块存在的线程问题
+* 调整jsBridge回调执行在ui线程
+* 使axios支持设置timeout参数
+* 更新ScriptBridges使用原生代码实现
+* 更新构建工具
+* 修复编辑器格式化功能
+@xiaomaomizjh
+* 通过手势调整编辑器文本大小
+* 编辑界面右上角菜单部分选项移至顶栏，标题移至顶栏下方显示完整路径
+* 优化编辑界面顶栏
+  
+[6.5.3]:https://github.com/kkevsekk1/AutoX/compare/6.4.3...6.5.1
 
 ## [6.4.3] - 2023-6-14
-
 @aiselp
 * 修复某些情况下timer工作不正常
 * 资源文件处理、bug修复
