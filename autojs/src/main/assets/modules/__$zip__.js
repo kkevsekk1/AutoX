@@ -3,7 +3,7 @@ module.exports = function (runtime, global) {
     let ZipFile = Packages.net.lingala.zip4j.core.ZipFile;
     let File = java.io.File;
     let ArrayList = java.util.ArrayList;
-    let bridges = require("__bridges__");
+    let bridges = runtime.bridges
     let $files = global.$files;
     let Zip4jConstants = Packages.net.lingala.zip4j.util.Zip4jConstants;
 
