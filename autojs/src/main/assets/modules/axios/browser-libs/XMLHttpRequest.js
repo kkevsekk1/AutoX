@@ -126,32 +126,36 @@
         setReadonlyAttribute(xhr, '_call', call, false);
         call.enqueue({
             onFailure(call, e) {
-                xhr._setReadyState(4);
-                setReadonlyAttribute(xhr, 'statusText', e.message)
-                if (e instanceof InterruptedIOException) {
-                    xhr.dispatchEvent(new Event('timeout'));
-                }
-                xhr.dispatchEvent(new Event('error'))
-                xhr.dispatchEvent(new Event('loadend'))
-                atl.removeTask()
-            },
-            onResponse(call, res) {
-                setReadonlyAttribute(xhr, 'status', res.code());
-                setReadonlyAttribute(xhr, 'statusText', res.message());
-                setReadonlyAttribute(xhr, 'responseURL', res.request().url().toString())
-                setReadonlyAttribute(xhr, '_resHeaders', res.headers(), false)
-                xhr._setReadyState(2);
-                try {
-                    XMLHttpRequest._parserResBody
-                        .parser(xhr.responseType, xhr, res.body());
-
-                } catch (e) {
-                    res.close();
+                setImmediate(() => {
                     xhr._setReadyState(4);
+                    setReadonlyAttribute(xhr, 'statusText', e.message)
+                    if (e instanceof InterruptedIOException) {
+                        xhr.dispatchEvent(new Event('timeout'));
+                    }
                     xhr.dispatchEvent(new Event('error'))
                     xhr.dispatchEvent(new Event('loadend'))
-                }
-                atl.removeTask();
+                    atl.removeTask()
+                })
+            },
+            onResponse(call, res) {
+                setImmediate(() => {
+                    setReadonlyAttribute(xhr, 'status', res.code());
+                    setReadonlyAttribute(xhr, 'statusText', res.message());
+                    setReadonlyAttribute(xhr, 'responseURL', res.request().url().toString())
+                    setReadonlyAttribute(xhr, '_resHeaders', res.headers(), false)
+                    xhr._setReadyState(2);
+                    try {
+                        XMLHttpRequest._parserResBody
+                            .parser(xhr.responseType, xhr, res.body());
+
+                    } catch (e) {
+                        res.close();
+                        xhr._setReadyState(4);
+                        xhr.dispatchEvent(new Event('error'))
+                        xhr.dispatchEvent(new Event('loadend'))
+                    }
+                    atl.removeTask();
+                })
             }
         })
     }
