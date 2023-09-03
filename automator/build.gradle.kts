@@ -1,23 +1,20 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    id("kotlin-android-extensions")
 }
 
 android {
-    buildToolsVersion = versions.buildTool
     compileSdk = versions.compile
 
     defaultConfig {
         minSdk = versions.mini
-        targetSdk = versions.target
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    lintOptions.isAbortOnError = false
+    lint.abortOnError = false
     buildTypes {
         named("release") {
             isMinifyEnabled = false

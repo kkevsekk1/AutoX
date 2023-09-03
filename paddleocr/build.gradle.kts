@@ -4,13 +4,15 @@ plugins {
 }
 
 android {
-    buildToolsVersion = versions.buildTool
     compileSdk = versions.compile
 
     defaultConfig {
         minSdk = versions.mini
-        targetSdk = versions.target
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     buildTypes {
         named("release") {
@@ -28,7 +30,7 @@ android {
 }
 
 dependencies {
-    implementation("com.squareup.okhttp3:okhttp:4.10.0")
+    implementation(libs.okhttp)
     implementation("androidx.core:core-ktx:1.8.0")
 }
 dependencies {

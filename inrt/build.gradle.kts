@@ -4,7 +4,6 @@ import kotlin.collections.*
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    id("kotlin-android-extensions")
 }
 
 val propFile: File = File("E:/资料/jks/autojs-inrt/sign.properties");
@@ -16,7 +15,6 @@ if (propFile.exists()) {
 }
 
 android {
-    buildToolsVersion = versions.buildTool
     compileSdk = versions.compile
     defaultConfig {
         applicationId = "org.autojs.autoxjs.inrt"
@@ -40,11 +38,7 @@ android {
         add("MissingTranslation")
         add("ExtraTranslation")
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-        encoding = "utf-8"
-    }
+
     signingConfigs {
         if (propFile.exists()) {
             getByName("release") {
