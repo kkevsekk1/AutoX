@@ -13,12 +13,14 @@ import com.stardust.autojs.runtime.ScriptRuntime
 import com.stardust.autojs.script.JavaScriptSource
 import com.stardust.automator.UiObjectCollection
 import com.stardust.pio.UncheckedIOException
-import org.mozilla.javascript.*
+import org.mozilla.javascript.Context
+import org.mozilla.javascript.Script
+import org.mozilla.javascript.Scriptable
+import org.mozilla.javascript.ScriptableObject
 import org.mozilla.javascript.commonjs.module.provider.SoftCachingModuleScriptProvider
 import java.io.IOException
 import java.io.InputStreamReader
-import java.io.Reader
-import java.util.*
+import java.util.Locale
 import java.util.concurrent.ConcurrentHashMap
 
 /**
@@ -28,30 +30,23 @@ import java.util.concurrent.ConcurrentHashMap
 open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Context) :
     JavaScriptEngine() {
 
-    val context: Context
-    private val mScriptable: TopLevelScope
+    val context: Context = enterContext()
+    private val mScriptable: TopLevelScope = createScope(this.context)
     lateinit var thread: Thread
         private set
 
-    private val initScript: Script
-        get() {
-            return sInitScript ?: try {
-                val reader = InputStreamReader(mAndroidContext.assets.open("init.js"))
-                val script = context.compileReader(reader, SOURCE_NAME_INIT, 1, null)
-                sInitScript = script
-                script
-            } catch (e: IOException) {
-                throw UncheckedIOException(e)
-            }
+    private val initScript: Script by lazy<Script> {
+        try {
+            val reader = InputStreamReader(mAndroidContext.assets.open("init.js"))
+            val script = context.compileReader(reader, SOURCE_NAME_INIT, 1, null)
+            script
+        } catch (e: IOException) {
+            throw UncheckedIOException(e)
         }
+    }
 
     val scriptable: Scriptable
         get() = mScriptable
-
-    init {
-        this.context = enterContext()
-        mScriptable = createScope(this.context)
-    }
 
     override fun put(name: String, value: Any?) {
         ScriptableObject.putProperty(mScriptable, name, Context.javaToJS(value, mScriptable))
@@ -63,9 +58,8 @@ open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Co
     }
 
     public override fun doExecution(source: JavaScriptSource): Any? {
-        var reader = source.nonNullScriptReader
+        val reader = source.nonNullScriptReader
         try {
-            reader = preprocess(reader)
             val script = context.compileReader(reader, source.toString(), 1, null)
             return if (hasFeature(ScriptConfig.FEATURE_CONTINUATION)) {
                 context.executeScriptWithContinuations(script, mScriptable)
@@ -83,10 +77,6 @@ open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Co
         return config != null && config.scriptConfig.hasFeature(feature)
     }
 
-    @Throws(IOException::class)
-    protected fun preprocess(script: Reader): Reader {
-        return script
-    }
 
     override fun forceStop() {
         Log.d(LOG_TAG, "forceStop: interrupt Thread: $thread")
@@ -179,16 +169,10 @@ open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Co
     }
 
     companion object {
+        const val SOURCE_NAME_INIT = "<init>"
+        private const val LOG_TAG = "RhinoJavaScriptEngine"
 
-        val SOURCE_NAME_INIT = "<init>"
-
-        private val LOG_TAG = "RhinoJavaScriptEngine"
-
-        private val MODULES_PATH = "modules"
-        private var sInitScript: Script? = null
         private val sContextEngineMap = ConcurrentHashMap<Context, RhinoJavaScriptEngine>()
-
-
         fun getEngineOfContext(context: Context): RhinoJavaScriptEngine? {
             return sContextEngineMap[context]
         }
