@@ -7,11 +7,11 @@ import com.stardust.autojs.engine.module.AssetAndUrlModuleSourceProvider
 import com.stardust.autojs.engine.module.ScopeRequire
 import com.stardust.autojs.execution.ExecutionConfig
 import com.stardust.autojs.project.ScriptConfig
+import com.stardust.autojs.rhino.AndroidContextFactory
 import com.stardust.autojs.rhino.RhinoAndroidHelper
 import com.stardust.autojs.rhino.TopLevelScope
 import com.stardust.autojs.runtime.ScriptRuntime
 import com.stardust.autojs.script.JavaScriptSource
-import com.stardust.automator.UiObjectCollection
 import com.stardust.pio.UncheckedIOException
 import org.mozilla.javascript.Context
 import org.mozilla.javascript.Script
@@ -20,7 +20,6 @@ import org.mozilla.javascript.ScriptableObject
 import org.mozilla.javascript.commonjs.module.provider.SoftCachingModuleScriptProvider
 import java.io.IOException
 import java.io.InputStreamReader
-import java.util.Locale
 import java.util.concurrent.ConcurrentHashMap
 
 /**
@@ -48,12 +47,17 @@ open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Co
     val scriptable: Scriptable
         get() = mScriptable
 
+    init {
+
+    }
+
     override fun put(name: String, value: Any?) {
         ScriptableObject.putProperty(mScriptable, name, Context.javaToJS(value, mScriptable))
     }
 
     override fun setRuntime(runtime: ScriptRuntime) {
         super.setRuntime(runtime)
+        runtime.bridges.setup(this)
         runtime.topLevelScope = mScriptable
     }
 
@@ -135,23 +139,12 @@ open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Co
         return context
     }
 
-    protected fun setupContext(context: Context) {
-        context.optimizationLevel = -1
-        context.languageVersion = Context.VERSION_ES6
-        context.locale = Locale.getDefault()
+    private fun setupContext(context: Context) {
         context.wrapFactory = WrapFactory()
     }
 
-    private inner class WrapFactory : org.mozilla.javascript.WrapFactory() {
 
-        override fun wrap(cx: Context, scope: Scriptable, obj: Any?, staticType: Class<*>?): Any? {
-            return when {
-                obj is String -> runtime.bridges.toString(obj.toString())
-                staticType == UiObjectCollection::class.java -> runtime.bridges.asArray(obj as UiObjectCollection)
-                else -> super.wrap(cx, scope, obj, staticType)
-            }
-        }
-
+    private inner class WrapFactory : AndroidContextFactory.WrapFactory() {
         override fun wrapAsJavaObject(
             cx: Context?,
             scope: Scriptable,
