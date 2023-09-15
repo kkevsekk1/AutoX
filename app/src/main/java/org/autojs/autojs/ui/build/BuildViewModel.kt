@@ -253,8 +253,8 @@ class BuildViewModel(private val app: Application, private var source: String) :
             projectDirectory = directory!!
             outputPath = viewModel.outputPath
             assets = updateAssets(assets)
-            libs = updateLibs(libs).toMutableList()
-            abis = updateAbiList(abis).toMutableList()
+            updateLibs(libs)
+            updateAbiList(abis)
             if (ignoredDirs.isEmpty()) ignoredDirs = listOf(buildDir)
             name = viewModel.appName
             versionCode = viewModel.versionCode.toInt()
@@ -271,7 +271,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
                 splashText = viewModel.splashText
                 splashIcon = viewModel.splashIcon?.toRelativePathOrString()
                 serviceDesc = viewModel.serviceDesc
-                permissions = updatePermissions(permissions)
+                permissions = updatePermissions()
                 isHideAccessibilityServices = viewModel.isHideAccessibilityServices
             }
             signingConfig.apply {
@@ -345,15 +345,6 @@ class BuildViewModel(private val app: Application, private var source: String) :
                 )
             )
         }
-//        if (customOcrModelPath.isNotBlank()) {
-//            val dirName = File(customOcrModelPath).name
-//            assetsList.add(
-//                Asset(
-//                    form = customOcrModelPath,
-//                    to = "/${Constant.Assets.OCR_MODELS}/$dirName"
-//                )
-//            )
-//        }
         if (!isSingleFile) {
             assetsList.addIfNotExist(
                 Asset(
@@ -365,28 +356,29 @@ class BuildViewModel(private val app: Application, private var source: String) :
         return assetsList.distinct()
     }
 
-    private fun updateAbiList(oldAbis: List<String>): List<String> {
-        val newAbis = abiList.split(",").map { it.trim() }
-        return oldAbis.toMutableList().apply { addAllIfNotExist(newAbis) }.distinct()
+    private fun updateAbiList(aLibs: MutableList<String>) {
+        aLibs.clear()
+        abiList.split(",").forEach {
+            aLibs.add(it.trim())
+        }
     }
 
-    private fun updateLibs(oldLibs: List<String>): List<String> {
-        val libList = oldLibs.toMutableList()
-        if (isRequiredOpenCv) libList.addAllIfNotExist(Constant.Libraries.OPEN_CV)
-        if (isRequiredPaddleOCR) libList.addAllIfNotExist(Constant.Libraries.PADDLE_OCR)
-        if (isRequiredMlKitOCR) libList.addAllIfNotExist(Constant.Libraries.GOOGLE_ML_KIT_OCR)
-        if (isRequiredTesseractOCR) libList.addAllIfNotExist(Constant.Libraries.TESSERACT_OCR)
-        if (isRequired7Zip) libList.addAllIfNotExist(Constant.Libraries.P7ZIP)
-        if (isRequiredTerminalEmulator) libList.addAllIfNotExist(Constant.Libraries.TERMINAL_EMULATOR)
-        return libList.distinct()
+    private fun updateLibs(libs: MutableList<String>) {
+        libs.clear()
+        if (isRequiredOpenCv) libs.addAll(Constant.Libraries.OPEN_CV)
+        if (isRequiredPaddleOCR) libs.addAll(Constant.Libraries.PADDLE_OCR)
+        if (isRequiredMlKitOCR) libs.addAll(Constant.Libraries.GOOGLE_ML_KIT_OCR)
+        if (isRequiredTesseractOCR) libs.addAll(Constant.Libraries.TESSERACT_OCR)
+        if (isRequired7Zip) libs.addAll(Constant.Libraries.P7ZIP)
+        if (isRequiredTerminalEmulator) libs.addAll(Constant.Libraries.TERMINAL_EMULATOR)
     }
 
-    private fun updatePermissions(oldPermissions: List<String>): List<String> {
-        val permissionList = oldPermissions.toMutableList()
-        if (isRequiredAccessibilityServices) permissionList.addIfNotExist(Constant.Permissions.ACCESSIBILITY_SERVICES)
-        if (isRequiredBackgroundStart) permissionList.addIfNotExist(Constant.Permissions.BACKGROUND_START)
-        if (isRequiredDrawOverlay) permissionList.addIfNotExist(Constant.Permissions.DRAW_OVERLAY)
-        return permissionList.distinct()
+    private fun updatePermissions(): List<String> {
+        val permissionList = ArrayList<String>()
+        if (isRequiredAccessibilityServices) permissionList.add(Constant.Permissions.ACCESSIBILITY_SERVICES)
+        if (isRequiredBackgroundStart) permissionList.add(Constant.Permissions.BACKGROUND_START)
+        if (isRequiredDrawOverlay) permissionList.add(Constant.Permissions.DRAW_OVERLAY)
+        return permissionList
     }
 
 
@@ -410,15 +402,11 @@ class BuildViewModel(private val app: Application, private var source: String) :
         var isRequiredMlKitOCRLibs = false
         var isRequiredMlKitOCRModels = false
         projectConfig.libs.let {
-            when {
-                it.containsAll(Constant.Libraries.GOOGLE_ML_KIT_OCR) -> isRequiredMlKitOCRLibs =
-                    true
-
-                it.containsAll(Constant.Libraries.PADDLE_OCR) -> isRequiredPaddleOCR = true
-                it.containsAll(Constant.Libraries.TESSERACT_OCR) -> isRequiredTesseractOCR = true
-                it.containsAll(Constant.Libraries.P7ZIP) -> isRequired7Zip = true
-                it.containsAll(Constant.Libraries.OPEN_CV) -> isRequiredOpenCv = true
-            }
+            isRequiredMlKitOCRLibs = it.containsAll(Constant.Libraries.GOOGLE_ML_KIT_OCR)
+            isRequiredPaddleOCR = it.containsAll(Constant.Libraries.PADDLE_OCR)
+            isRequiredTesseractOCR = it.containsAll(Constant.Libraries.TESSERACT_OCR)
+            isRequired7Zip = it.containsAll(Constant.Libraries.P7ZIP)
+            isRequiredOpenCv = it.containsAll(Constant.Libraries.OPEN_CV)
         }
         projectConfig.assets.forEach {
             if (it.form == "${Constant.Protocol.ASSETS}${Constant.Assets.GOOGLE_ML_KIT_OCR}") {
@@ -428,18 +416,23 @@ class BuildViewModel(private val app: Application, private var source: String) :
                 isRequiredDefaultOcrModelData = true
             }
         }
-
         isRequiredMlKitOCR = isRequiredMlKitOCRLibs && isRequiredMlKitOCRModels
     }
 
     private fun setPermissions(projectConfig: ProjectConfig) {
         projectConfig.launchConfig.permissions.forEach {
             when (it) {
-                Constant.Permissions.ACCESSIBILITY_SERVICES -> isRequiredAccessibilityServices =
-                    true
+                Constant.Permissions.ACCESSIBILITY_SERVICES -> {
+                    isRequiredAccessibilityServices = true
+                }
 
-                Constant.Permissions.BACKGROUND_START -> isRequiredBackgroundStart = true
-                Constant.Permissions.DRAW_OVERLAY -> isRequiredDrawOverlay = true
+                Constant.Permissions.BACKGROUND_START -> {
+                    isRequiredBackgroundStart = true
+                }
+
+                Constant.Permissions.DRAW_OVERLAY -> {
+                    isRequiredDrawOverlay = true
+                }
             }
         }
     }
