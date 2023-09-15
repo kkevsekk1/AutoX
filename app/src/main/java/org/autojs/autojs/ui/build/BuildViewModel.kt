@@ -26,7 +26,6 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.autojs.autojs.Pref
-import org.autojs.autoxjs.R
 import org.autojs.autojs.build.ApkBuilder
 import org.autojs.autojs.build.ApkBuilderPluginHelper
 import org.autojs.autojs.build.ApkKeyStore
@@ -35,6 +34,7 @@ import org.autojs.autojs.model.explorer.ExplorerFileItem
 import org.autojs.autojs.model.explorer.Explorers
 import org.autojs.autojs.model.script.ScriptFile
 import org.autojs.autojs.tool.*
+import org.autojs.autoxjs.R
 import java.io.File
 import java.net.URLDecoder
 
@@ -57,6 +57,7 @@ class BuildViewModelFactory(
  */
 class BuildViewModel(private val app: Application, private var source: String) :
     AndroidViewModel(app) {
+    private val mainScope = CoroutineScope(Dispatchers.Main)
 
     companion object {
         const val TAG = "BuildViewModel"
@@ -198,13 +199,13 @@ class BuildViewModel(private val app: Application, private var source: String) :
         }
     ) {
         syncToProjectConfig()
-        CoroutineScope(Dispatchers.Main).launch {
+        mainScope.launch {
             writeProjectConfigAndRefreshView()
             onCompletion()
         }
     }
 
-    suspend fun writeProjectConfigAndRefreshView() {
+    private suspend fun writeProjectConfigAndRefreshView() {
         withContext(Dispatchers.IO) {
             saveLogo()
             saveSplashIcon()
@@ -212,6 +213,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
                 ProjectConfig.configFileOfDir(directory!!, configName),
                 projectConfig.toJson()
             )
+            println(projectConfig.toJson())
         }
         withContext(Dispatchers.Main) {
             oldProjectConfig = projectConfig.copy()
@@ -220,13 +222,13 @@ class BuildViewModel(private val app: Application, private var source: String) :
         }
     }
 
-    val configName: String
+    private val configName: String
         get() = if (isSingleFile) {
             //test.js对应test_config.json
             PFiles.getNameWithoutExtension(source) + "_config.json"
         } else ProjectConfig.CONFIG_FILE_NAME
 
-    fun getConfigName1(isSingleFile: Boolean = this.isSingleFile): String {
+    private fun getConfigName1(isSingleFile: Boolean = this.isSingleFile): String {
         return if (isSingleFile) {
             //test.js对应test_config.json
             PFiles.getNameWithoutExtension(source) + "_config.json"
@@ -236,7 +238,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
     /**
      * 从viewModel保存配置
      */
-    fun syncToProjectConfig() {
+    private fun syncToProjectConfig() {
         if (
             projectConfig.mainScript.isNullOrEmpty()
             && source.isNotEmpty()
@@ -279,7 +281,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
         }
     }
 
-    fun syncViewModelByConfig(projectConfig: ProjectConfig) {
+    private fun syncViewModelByConfig(projectConfig: ProjectConfig) {
 
         projectConfig.sourcePath?.takeIf { it.isNotBlank() }?.let { sourcePath = it }
         projectConfig.outputPath?.takeIf { it.isNotBlank() }?.let { outputPath = it }
@@ -409,7 +411,9 @@ class BuildViewModel(private val app: Application, private var source: String) :
         var isRequiredMlKitOCRModels = false
         projectConfig.libs.let {
             when {
-                it.containsAll(Constant.Libraries.GOOGLE_ML_KIT_OCR) -> isRequiredMlKitOCRLibs = true
+                it.containsAll(Constant.Libraries.GOOGLE_ML_KIT_OCR) -> isRequiredMlKitOCRLibs =
+                    true
+
                 it.containsAll(Constant.Libraries.PADDLE_OCR) -> isRequiredPaddleOCR = true
                 it.containsAll(Constant.Libraries.TESSERACT_OCR) -> isRequiredTesseractOCR = true
                 it.containsAll(Constant.Libraries.P7ZIP) -> isRequired7Zip = true
@@ -433,6 +437,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
             when (it) {
                 Constant.Permissions.ACCESSIBILITY_SERVICES -> isRequiredAccessibilityServices =
                     true
+
                 Constant.Permissions.BACKGROUND_START -> isRequiredBackgroundStart = true
                 Constant.Permissions.DRAW_OVERLAY -> isRequiredDrawOverlay = true
             }
@@ -493,19 +498,15 @@ class BuildViewModel(private val app: Application, private var source: String) :
         }
     }
 
-    private suspend fun setSource(file: File) {
-        if (file.isFile) {
-            //如果是文件
+    private fun setSource(file: File) {
+        if (file.isFile) { //如果是文件
             directory = file.parent
             sourcePath = file.path
-            //尝试获取配置文件
-            oldProjectConfig =
-                ProjectConfig.fromProjectDirAsync(directory!!, configName)
-        } else {
-            //如果是目录
+        } else { //如果是目录
             directory = source
-            oldProjectConfig = ProjectConfig.fromProjectDirAsync(file.path)
         }
+        oldProjectConfig = ProjectConfig.fromProject(file)
+
         oldProjectConfig?.let {
             isOldProjectConfigExist = true
             projectConfig = it.copy()
@@ -564,11 +565,9 @@ class BuildViewModel(private val app: Application, private var source: String) :
     }
 
 
-    fun buildApk() {
-        CoroutineScope(Dispatchers.Main).launch {
-            syncToProjectConfig()
-            doBuildingApk()
-        }
+    fun buildApk() = mainScope.launch {
+        syncToProjectConfig()
+        doBuildingApk()
     }
 
     fun checkInputs(viewModel: BuildViewModel = this): Boolean {
@@ -628,15 +627,19 @@ class BuildViewModel(private val app: Application, private var source: String) :
             ApkBuilder.BuildState.PREPARE -> {
                 buildDialogText = app.getString(R.string.apk_builder_prepare)
             }
+
             ApkBuilder.BuildState.BUILD -> {
                 buildDialogText = app.getString(R.string.apk_builder_build)
             }
+
             ApkBuilder.BuildState.SIGN -> {
                 buildDialogText = app.getString(R.string.apk_builder_sign)
             }
+
             ApkBuilder.BuildState.CLEAN -> {
                 buildDialogText = app.getString(R.string.apk_builder_clean)
             }
+
             ApkBuilder.BuildState.FINISH -> {
                 isShowBuildDialog = false
             }

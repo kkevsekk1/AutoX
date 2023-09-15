@@ -10,12 +10,13 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
 import com.stardust.autojs.project.ProjectConfig
-import com.stardust.autojs.project.ProjectConfig.Companion.fromProjectDirAsync
+import com.stardust.autojs.project.ProjectConfig.Companion.fromProject
 import com.stardust.autojs.project.ProjectLauncher
 import com.stardust.pio.PFile
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.autojs.autojs.autojs.AutoJs
 import org.autojs.autojs.model.explorer.ExplorerChangeEvent
 import org.autojs.autojs.model.explorer.Explorers
@@ -24,6 +25,7 @@ import org.autojs.autojs.ui.build.ProjectConfigActivity
 import org.autojs.autojs.ui.build.ProjectConfigActivity_
 import org.autojs.autoxjs.R
 import org.greenrobot.eventbus.Subscribe
+import java.io.File
 
 class ExplorerProjectToolbar : CardView {
     private var mProjectConfig: ProjectConfig? = null
@@ -57,7 +59,10 @@ class ExplorerProjectToolbar : CardView {
 
     fun setProject(dir: PFile) {
         CoroutineScope(Dispatchers.Main).launch {
-            mProjectConfig = fromProjectDirAsync(dir.path)
+            withContext(Dispatchers.IO){
+                mProjectConfig = fromProject(File(dir.path))
+            }
+
             if (mProjectConfig == null) {
                 visibility = GONE
                 return@launch
