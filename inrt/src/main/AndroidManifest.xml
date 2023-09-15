@@ -292,6 +292,7 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:label, android:allowBackup"
+        android:largeHeap="true"
         tools:targetApi="m">
         <activity
             android:name="com.stardust.auojs.inrt.LoginActivity"
