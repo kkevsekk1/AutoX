@@ -111,7 +111,7 @@ open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Co
         }
     }
 
-    internal fun initRequireBuilder(context: Context, scope: Scriptable) {
+    private fun initRequireBuilder(context: Context, scope: Scriptable) {
         val provider = AssetAndUrlModuleSourceProvider(
             mAndroidContext,
             listOf(
@@ -126,7 +126,7 @@ open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Co
         require.install(scope)
     }
 
-    protected fun createScope(context: Context): TopLevelScope {
+    private fun createScope(context: Context): TopLevelScope {
         val topLevelScope = TopLevelScope()
         topLevelScope.initStandardObjects(context, false)
         return topLevelScope
@@ -139,7 +139,7 @@ open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Co
         return context
     }
 
-    private fun setupContext(context: Context) {
+    fun setupContext(context: Context) {
         context.wrapFactory = WrapFactory()
     }
 
