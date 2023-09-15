@@ -154,6 +154,7 @@ fun BuildPage(model: BuildViewModel = viewModel()) {
             ConfigCard(model)
             PackagingOptionCard(model)
             RunConfigCard(model)
+            EncryptCard(model)
             SignatureCard(model)
         }
     }
@@ -325,7 +326,19 @@ private fun SignatureCard(
         }
     }
 }
-
+@Composable
+fun EncryptCard(model: BuildViewModel){
+    Card {
+        Column(
+            Modifier
+                .fillMaxSize()
+                .padding(24.dp)
+        ){
+            Text(text = stringResource(R.string.text_encrypt_options))
+            CheckboxOption(model::isEncrypt, stringResource(id = R.string.text_is_encrypt))
+        }
+    }
+}
 @Composable
 private fun RunConfigCard(model: BuildViewModel) {
     val context = LocalContext.current

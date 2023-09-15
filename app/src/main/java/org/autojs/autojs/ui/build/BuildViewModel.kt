@@ -133,6 +133,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
     var appSignKeyPath by mutableStateOf<String?>(null)
     var keyStore by mutableStateOf<ApkKeyStore?>(null)
 
+    var isEncrypt by mutableStateOf(false)
 
     val isConfigurationHasChanged: Boolean
         get() {
@@ -253,6 +254,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
             projectDirectory = directory!!
             outputPath = viewModel.outputPath
             assets = updateAssets(assets)
+            isEncrypt = viewModel.isEncrypt
             updateLibs(libs)
             updateAbiList(abis)
             if (ignoredDirs.isEmpty()) ignoredDirs = listOf(buildDir)
@@ -292,6 +294,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
         icon = projectConfig.icon?.let {
             getUri(it)
         }
+        isEncrypt = projectConfig.isEncrypt
         mainScriptFile = projectConfig.mainScript ?: getMainScriptName()
         isStableMode = projectConfig.launchConfig.isStableMode
         displaySplash = projectConfig.launchConfig.displaySplash

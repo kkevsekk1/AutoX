@@ -15,23 +15,16 @@ import java.util.zip.CRC32
  */
 @Keep
 data class ProjectConfig(
-    @SerializedName("name")
     var name: String? = null,
-    @SerializedName("packageName")
     var packageName: String? = null,
-    @SerializedName("versionCode")
     var versionCode: Int = 1,
-    @SerializedName("versionName")
     var versionName: String = "1.0.0",
-    @SerializedName("icon")
     var icon: String? = null,
     @SerializedName("main")
     var mainScript: String? = null,
-    @SerializedName("scripts")
     var scripts: Map<String, ScriptConfig> = HashMap(),
     @SerializedName("build")
     var buildInfo: BuildInfo = BuildInfo(),
-    @SerializedName("launchConfig")
     var launchConfig: LaunchConfig = LaunchConfig(),
     @SerializedName("useFeatures")
     var features: ArrayList<String> = arrayListOf(),
@@ -44,6 +37,8 @@ data class ProjectConfig(
     var abis: MutableList<String> = arrayListOf<String>().apply { addAll(Constant.Abi.abis) },
     var assets: List<Asset> = emptyList(),
     var signingConfig: SigningConfig = SigningConfig(),
+    @SerializedName("encrypt-code")
+    var isEncrypt:Boolean = false
 ) {
 
     fun getAbsolutePath(name: String): String {

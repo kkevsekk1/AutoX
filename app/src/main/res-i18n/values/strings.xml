@@ -266,6 +266,8 @@
     <string name="text_required_tesseract_ocr" translatable="false">TesseractOCR</string>
     <string name="text_required_7zip" translatable="false">7zip</string>
     <string name="text_required_terminal_emulator">终端模拟器</string>
+    <string name="text_is_encrypt">简单加密js文件</string>
+    <string name="text_encrypt_options">加密选项</string>
     <string name="text_required_background_start">需要后台弹出界面权限</string>
     <string name="text_required_draw_overlay">需要悬浮窗权限</string>
     <string name="text_volumeUpcontrol">音量上键结束任务</string>

@@ -96,7 +96,7 @@ open class AssetsProjectLauncher(
 
     private fun prepare() {
         val projectConfigPath = PFiles.join(mProjectDir, ProjectConfig.CONFIG_FILE_NAME)
-        val projectConfig = ProjectConfig.fromFile(projectConfigPath)
+        val projectConfig = ProjectConfig.fromProject(File(projectConfigPath))
         if (!BuildConfig.DEBUG && projectConfig != null &&
             TextUtils.equals(projectConfig.buildInfo.buildId, mProjectConfig.buildInfo.buildId)
         ) {
