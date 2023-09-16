@@ -21,8 +21,12 @@ class ScriptBridges {
 
     private fun <T> useJsContext(f: (context: Context) -> T): T {
         val context = Context.getCurrentContext()
+        val cx: Context = context ?: with(Context.enter()) {
+            engine?.setupContext(this)
+            this
+        }
         try {
-            return f(context ?: engine?.enterContext() ?: Context.enter())
+            return f(cx)
         } finally {
             context ?: Context.exit()
         }
