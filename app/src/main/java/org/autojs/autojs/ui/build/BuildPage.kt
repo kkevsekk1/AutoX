@@ -11,19 +11,52 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.shape.ZeroCornerSize
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.*
+import androidx.compose.material.AlertDialog
+import androidx.compose.material.Card
+import androidx.compose.material.Checkbox
+import androidx.compose.material.ContentAlpha
+import androidx.compose.material.Divider
+import androidx.compose.material.FabPosition
+import androidx.compose.material.FloatingActionButton
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.LocalContentAlpha
+import androidx.compose.material.LocalTextStyle
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.material.TextButton
+import androidx.compose.material.TextField
+import androidx.compose.material.TextFieldColors
+import androidx.compose.material.TextFieldDefaults
+import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Done
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
@@ -47,7 +80,6 @@ import com.stardust.pio.PFile
 import com.stardust.pio.PFiles
 import com.stardust.util.IntentUtil
 import org.autojs.autojs.Pref
-import org.autojs.autoxjs.R
 import org.autojs.autojs.build.ApkKeyStore
 import org.autojs.autojs.build.ApkSigner
 import org.autojs.autojs.external.fileprovider.AppFileProvider
@@ -55,7 +87,9 @@ import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder
 import org.autojs.autojs.ui.compose.widget.ProgressDialog
 import org.autojs.autojs.ui.filechooser.FileChooserDialogBuilder
 import org.autojs.autojs.ui.shortcut.ShortcutIconSelectResult
+import org.autojs.autoxjs.R
 import java.io.File
+import kotlin.reflect.KMutableProperty0
 
 /**
  * @author wilinz
@@ -120,6 +154,7 @@ fun BuildPage(model: BuildViewModel = viewModel()) {
             ConfigCard(model)
             PackagingOptionCard(model)
             RunConfigCard(model)
+            EncryptCard(model)
             SignatureCard(model)
         }
     }
@@ -226,42 +261,18 @@ private fun PackagingOptionCard(
                 onValueChange = { model.abiList = it },
                 label = { Text(text = stringResource(id = R.string.text_abi)) }
             )
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Checkbox(
-                    checked = model.isRequiredOpenCv,
-                    onCheckedChange = { model.isRequiredOpenCv = it })
-                Text(text = stringResource(id = R.string.text_required_opencv))
+            val map = mapOf(
+                stringResource(id = R.string.text_required_opencv) to model::isRequiredOpenCv,
+                stringResource(id = R.string.text_required_google_mlkit_ocr) to model::isRequiredMlKitOCR,
+                stringResource(id = R.string.text_required_paddle_ocr) to model::isRequiredPaddleOCR,
+                stringResource(id = R.string.text_required_tesseract_ocr) to model::isRequiredTesseractOCR,
+                stringResource(id = R.string.text_required_7zip) to model::isRequired7Zip,
+                stringResource(id = R.string.text_required_default_paddle_ocr_model) to model::isRequiredDefaultOcrModelData,
+            )
+            for ((t, v) in map) {
+                CheckboxOption(v, t)
             }
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Checkbox(
-                    checked = model.isRequiredMlKitOCR,
-                    onCheckedChange = { model.isRequiredMlKitOCR = it })
-                Text(text = stringResource(id = R.string.text_required_google_mlkit_ocr))
-            }
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Checkbox(
-                    checked = model.isRequiredPaddleOCR,
-                    onCheckedChange = { model.isRequiredPaddleOCR = it })
-                Text(text = stringResource(id = R.string.text_required_paddle_ocr))
-            }
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Checkbox(
-                    checked = model.isRequiredTesseractOCR,
-                    onCheckedChange = { model.isRequiredTesseractOCR = it })
-                Text(text = stringResource(id = R.string.text_required_tesseract_ocr))
-            }
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Checkbox(
-                    checked = model.isRequired7Zip,
-                    onCheckedChange = { model.isRequired7Zip = it })
-                Text(text = stringResource(id = R.string.text_required_7zip))
-            }
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Checkbox(
-                    checked = model.isRequiredDefaultOcrModelData,
-                    onCheckedChange = { model.isRequiredDefaultOcrModelData = it })
-                Text(text = stringResource(id = R.string.text_required_default_paddle_ocr_model))
-            }
+
             //目前必须为true
             /*Row(verticalAlignment = Alignment.CenterVertically) {
                 Checkbox(
@@ -270,6 +281,21 @@ private fun PackagingOptionCard(
                 Text(text = stringResource(id = R.string.text_required_terminal_emulator))
             }*/
         }
+    }
+}
+
+@Composable
+fun CheckboxOption(value: KMutableProperty0<Boolean>, name: String) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { value.set(!value.get()) },
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Checkbox(
+            checked = value.get(),
+            onCheckedChange = { value.set(it) })
+        Text(text = name)
     }
 }
 
@@ -300,7 +326,19 @@ private fun SignatureCard(
         }
     }
 }
-
+@Composable
+fun EncryptCard(model: BuildViewModel){
+    Card {
+        Column(
+            Modifier
+                .fillMaxSize()
+                .padding(24.dp)
+        ){
+            Text(text = stringResource(R.string.text_encrypt_options))
+            CheckboxOption(model::isEncrypt, stringResource(id = R.string.text_is_encrypt))
+        }
+    }
+}
 @Composable
 private fun RunConfigCard(model: BuildViewModel) {
     val context = LocalContext.current
@@ -311,7 +349,7 @@ private fun RunConfigCard(model: BuildViewModel) {
         }
     )
 
-    Card() {
+    Card {
         Column(
             Modifier
                 .fillMaxSize()
@@ -324,60 +362,21 @@ private fun RunConfigCard(model: BuildViewModel) {
                 label = { Text(text = stringResource(id = R.string.text_main_file_name)) },
             )
             Spacer(modifier = Modifier.height(8.dp))
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Checkbox(
-                    checked = model.isHideLauncher,
-                    onCheckedChange = { model.isHideLauncher = it })
-                Text(text = stringResource(id = R.string.text_hideLaucher))
+            val map = mapOf(
+                stringResource(id = R.string.text_hideLaucher) to model::isHideLauncher,
+                stringResource(id = R.string.text_stable_mode) to model::isStableMode,
+                stringResource(id = R.string.text_hideLogs) to model::isHideLogs,
+                stringResource(id = R.string.text_volumeUpcontrol) to model::isVolumeUpControl,
+                stringResource(id = R.string.text_required_accessibility_service) to model::isRequiredAccessibilityServices,
+                stringResource(id = R.string.text_hide_accessibility_services) to model::isHideAccessibilityServices,
+                stringResource(id = R.string.text_required_background_start) to model::isRequiredBackgroundStart,
+                stringResource(id = R.string.text_required_draw_overlay) to model::isRequiredDrawOverlay,
+                stringResource(id = R.string.text_display_splash) to model::displaySplash
+            )
+            for ((t, v) in map) {
+                CheckboxOption(v, t)
             }
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Checkbox(
-                    checked = model.isStableMode,
-                    onCheckedChange = { model.isStableMode = it })
-                Text(text = stringResource(id = R.string.text_stable_mode))
-            }
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Checkbox(
-                    checked = model.isHideLogs,
-                    onCheckedChange = { model.isHideLogs = it })
-                Text(text = stringResource(id = R.string.text_hideLogs))
-            }
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Checkbox(
-                    checked = model.isVolumeUpControl,
-                    onCheckedChange = { model.isVolumeUpControl = it })
-                Text(text = stringResource(id = R.string.text_volumeUpcontrol))
-            }
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Checkbox(
-                    checked = model.isRequiredAccessibilityServices,
-                    onCheckedChange = { model.isRequiredAccessibilityServices = it })
-                Text(text = stringResource(id = R.string.text_required_accessibility_service))
-            }
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Checkbox(
-                    checked = model.isHideAccessibilityServices,
-                    onCheckedChange = { model.isHideAccessibilityServices = it })
-                Text(text = stringResource(id = R.string.text_hide_accessibility_services))
-            }
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Checkbox(
-                    checked = model.isRequiredBackgroundStart,
-                    onCheckedChange = { model.isRequiredBackgroundStart = it })
-                Text(text = stringResource(id = R.string.text_required_background_start))
-            }
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Checkbox(
-                    checked = model.isRequiredDrawOverlay,
-                    onCheckedChange = { model.isRequiredDrawOverlay = it })
-                Text(text = stringResource(id = R.string.text_required_draw_overlay))
-            }
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Checkbox(
-                    checked = model.displaySplash,
-                    onCheckedChange = { model.displaySplash = it })
-                Text(text = stringResource(id = R.string.text_display_splash))
-            }
+
             MyTextField(
                 value = model.splashText,
                 onValueChange = { model.splashText = it },

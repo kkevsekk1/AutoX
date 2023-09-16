@@ -26,7 +26,6 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.autojs.autojs.Pref
-import org.autojs.autoxjs.R
 import org.autojs.autojs.build.ApkBuilder
 import org.autojs.autojs.build.ApkBuilderPluginHelper
 import org.autojs.autojs.build.ApkKeyStore
@@ -35,6 +34,7 @@ import org.autojs.autojs.model.explorer.ExplorerFileItem
 import org.autojs.autojs.model.explorer.Explorers
 import org.autojs.autojs.model.script.ScriptFile
 import org.autojs.autojs.tool.*
+import org.autojs.autoxjs.R
 import java.io.File
 import java.net.URLDecoder
 
@@ -57,6 +57,7 @@ class BuildViewModelFactory(
  */
 class BuildViewModel(private val app: Application, private var source: String) :
     AndroidViewModel(app) {
+    private val mainScope = CoroutineScope(Dispatchers.Main)
 
     companion object {
         const val TAG = "BuildViewModel"
@@ -132,6 +133,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
     var appSignKeyPath by mutableStateOf<String?>(null)
     var keyStore by mutableStateOf<ApkKeyStore?>(null)
 
+    var isEncrypt by mutableStateOf(false)
 
     val isConfigurationHasChanged: Boolean
         get() {
@@ -198,13 +200,13 @@ class BuildViewModel(private val app: Application, private var source: String) :
         }
     ) {
         syncToProjectConfig()
-        CoroutineScope(Dispatchers.Main).launch {
+        mainScope.launch {
             writeProjectConfigAndRefreshView()
             onCompletion()
         }
     }
 
-    suspend fun writeProjectConfigAndRefreshView() {
+    private suspend fun writeProjectConfigAndRefreshView() {
         withContext(Dispatchers.IO) {
             saveLogo()
             saveSplashIcon()
@@ -212,6 +214,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
                 ProjectConfig.configFileOfDir(directory!!, configName),
                 projectConfig.toJson()
             )
+            println(projectConfig.toJson())
         }
         withContext(Dispatchers.Main) {
             oldProjectConfig = projectConfig.copy()
@@ -220,13 +223,13 @@ class BuildViewModel(private val app: Application, private var source: String) :
         }
     }
 
-    val configName: String
+    private val configName: String
         get() = if (isSingleFile) {
             //test.js对应test_config.json
             PFiles.getNameWithoutExtension(source) + "_config.json"
         } else ProjectConfig.CONFIG_FILE_NAME
 
-    fun getConfigName1(isSingleFile: Boolean = this.isSingleFile): String {
+    private fun getConfigName1(isSingleFile: Boolean = this.isSingleFile): String {
         return if (isSingleFile) {
             //test.js对应test_config.json
             PFiles.getNameWithoutExtension(source) + "_config.json"
@@ -236,7 +239,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
     /**
      * 从viewModel保存配置
      */
-    fun syncToProjectConfig() {
+    private fun syncToProjectConfig() {
         if (
             projectConfig.mainScript.isNullOrEmpty()
             && source.isNotEmpty()
@@ -251,8 +254,9 @@ class BuildViewModel(private val app: Application, private var source: String) :
             projectDirectory = directory!!
             outputPath = viewModel.outputPath
             assets = updateAssets(assets)
-            libs = updateLibs(libs).toMutableList()
-            abis = updateAbiList(abis).toMutableList()
+            isEncrypt = viewModel.isEncrypt
+            updateLibs(libs)
+            updateAbiList(abis)
             if (ignoredDirs.isEmpty()) ignoredDirs = listOf(buildDir)
             name = viewModel.appName
             versionCode = viewModel.versionCode.toInt()
@@ -269,7 +273,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
                 splashText = viewModel.splashText
                 splashIcon = viewModel.splashIcon?.toRelativePathOrString()
                 serviceDesc = viewModel.serviceDesc
-                permissions = updatePermissions(permissions)
+                permissions = updatePermissions()
                 isHideAccessibilityServices = viewModel.isHideAccessibilityServices
             }
             signingConfig.apply {
@@ -279,7 +283,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
         }
     }
 
-    fun syncViewModelByConfig(projectConfig: ProjectConfig) {
+    private fun syncViewModelByConfig(projectConfig: ProjectConfig) {
 
         projectConfig.sourcePath?.takeIf { it.isNotBlank() }?.let { sourcePath = it }
         projectConfig.outputPath?.takeIf { it.isNotBlank() }?.let { outputPath = it }
@@ -290,6 +294,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
         icon = projectConfig.icon?.let {
             getUri(it)
         }
+        isEncrypt = projectConfig.isEncrypt
         mainScriptFile = projectConfig.mainScript ?: getMainScriptName()
         isStableMode = projectConfig.launchConfig.isStableMode
         displaySplash = projectConfig.launchConfig.displaySplash
@@ -343,15 +348,6 @@ class BuildViewModel(private val app: Application, private var source: String) :
                 )
             )
         }
-//        if (customOcrModelPath.isNotBlank()) {
-//            val dirName = File(customOcrModelPath).name
-//            assetsList.add(
-//                Asset(
-//                    form = customOcrModelPath,
-//                    to = "/${Constant.Assets.OCR_MODELS}/$dirName"
-//                )
-//            )
-//        }
         if (!isSingleFile) {
             assetsList.addIfNotExist(
                 Asset(
@@ -363,28 +359,29 @@ class BuildViewModel(private val app: Application, private var source: String) :
         return assetsList.distinct()
     }
 
-    private fun updateAbiList(oldAbis: List<String>): List<String> {
-        val newAbis = abiList.split(",").map { it.trim() }
-        return oldAbis.toMutableList().apply { addAllIfNotExist(newAbis) }.distinct()
+    private fun updateAbiList(aLibs: MutableList<String>) {
+        aLibs.clear()
+        abiList.split(",").forEach {
+            aLibs.add(it.trim())
+        }
     }
 
-    private fun updateLibs(oldLibs: List<String>): List<String> {
-        val libList = oldLibs.toMutableList()
-        if (isRequiredOpenCv) libList.addAllIfNotExist(Constant.Libraries.OPEN_CV)
-        if (isRequiredPaddleOCR) libList.addAllIfNotExist(Constant.Libraries.PADDLE_OCR)
-        if (isRequiredMlKitOCR) libList.addAllIfNotExist(Constant.Libraries.GOOGLE_ML_KIT_OCR)
-        if (isRequiredTesseractOCR) libList.addAllIfNotExist(Constant.Libraries.TESSERACT_OCR)
-        if (isRequired7Zip) libList.addAllIfNotExist(Constant.Libraries.P7ZIP)
-        if (isRequiredTerminalEmulator) libList.addAllIfNotExist(Constant.Libraries.TERMINAL_EMULATOR)
-        return libList.distinct()
+    private fun updateLibs(libs: MutableList<String>) {
+        libs.clear()
+        if (isRequiredOpenCv) libs.addAll(Constant.Libraries.OPEN_CV)
+        if (isRequiredPaddleOCR) libs.addAll(Constant.Libraries.PADDLE_OCR)
+        if (isRequiredMlKitOCR) libs.addAll(Constant.Libraries.GOOGLE_ML_KIT_OCR)
+        if (isRequiredTesseractOCR) libs.addAll(Constant.Libraries.TESSERACT_OCR)
+        if (isRequired7Zip) libs.addAll(Constant.Libraries.P7ZIP)
+        if (isRequiredTerminalEmulator) libs.addAll(Constant.Libraries.TERMINAL_EMULATOR)
     }
 
-    private fun updatePermissions(oldPermissions: List<String>): List<String> {
-        val permissionList = oldPermissions.toMutableList()
-        if (isRequiredAccessibilityServices) permissionList.addIfNotExist(Constant.Permissions.ACCESSIBILITY_SERVICES)
-        if (isRequiredBackgroundStart) permissionList.addIfNotExist(Constant.Permissions.BACKGROUND_START)
-        if (isRequiredDrawOverlay) permissionList.addIfNotExist(Constant.Permissions.DRAW_OVERLAY)
-        return permissionList.distinct()
+    private fun updatePermissions(): List<String> {
+        val permissionList = ArrayList<String>()
+        if (isRequiredAccessibilityServices) permissionList.add(Constant.Permissions.ACCESSIBILITY_SERVICES)
+        if (isRequiredBackgroundStart) permissionList.add(Constant.Permissions.BACKGROUND_START)
+        if (isRequiredDrawOverlay) permissionList.add(Constant.Permissions.DRAW_OVERLAY)
+        return permissionList
     }
 
 
@@ -408,13 +405,11 @@ class BuildViewModel(private val app: Application, private var source: String) :
         var isRequiredMlKitOCRLibs = false
         var isRequiredMlKitOCRModels = false
         projectConfig.libs.let {
-            when {
-                it.containsAll(Constant.Libraries.GOOGLE_ML_KIT_OCR) -> isRequiredMlKitOCRLibs = true
-                it.containsAll(Constant.Libraries.PADDLE_OCR) -> isRequiredPaddleOCR = true
-                it.containsAll(Constant.Libraries.TESSERACT_OCR) -> isRequiredTesseractOCR = true
-                it.containsAll(Constant.Libraries.P7ZIP) -> isRequired7Zip = true
-                it.containsAll(Constant.Libraries.OPEN_CV) -> isRequiredOpenCv = true
-            }
+            isRequiredMlKitOCRLibs = it.containsAll(Constant.Libraries.GOOGLE_ML_KIT_OCR)
+            isRequiredPaddleOCR = it.containsAll(Constant.Libraries.PADDLE_OCR)
+            isRequiredTesseractOCR = it.containsAll(Constant.Libraries.TESSERACT_OCR)
+            isRequired7Zip = it.containsAll(Constant.Libraries.P7ZIP)
+            isRequiredOpenCv = it.containsAll(Constant.Libraries.OPEN_CV)
         }
         projectConfig.assets.forEach {
             if (it.form == "${Constant.Protocol.ASSETS}${Constant.Assets.GOOGLE_ML_KIT_OCR}") {
@@ -424,17 +419,23 @@ class BuildViewModel(private val app: Application, private var source: String) :
                 isRequiredDefaultOcrModelData = true
             }
         }
-
         isRequiredMlKitOCR = isRequiredMlKitOCRLibs && isRequiredMlKitOCRModels
     }
 
     private fun setPermissions(projectConfig: ProjectConfig) {
         projectConfig.launchConfig.permissions.forEach {
             when (it) {
-                Constant.Permissions.ACCESSIBILITY_SERVICES -> isRequiredAccessibilityServices =
-                    true
-                Constant.Permissions.BACKGROUND_START -> isRequiredBackgroundStart = true
-                Constant.Permissions.DRAW_OVERLAY -> isRequiredDrawOverlay = true
+                Constant.Permissions.ACCESSIBILITY_SERVICES -> {
+                    isRequiredAccessibilityServices = true
+                }
+
+                Constant.Permissions.BACKGROUND_START -> {
+                    isRequiredBackgroundStart = true
+                }
+
+                Constant.Permissions.DRAW_OVERLAY -> {
+                    isRequiredDrawOverlay = true
+                }
             }
         }
     }
@@ -493,19 +494,15 @@ class BuildViewModel(private val app: Application, private var source: String) :
         }
     }
 
-    private suspend fun setSource(file: File) {
-        if (file.isFile) {
-            //如果是文件
+    private fun setSource(file: File) {
+        if (file.isFile) { //如果是文件
             directory = file.parent
             sourcePath = file.path
-            //尝试获取配置文件
-            oldProjectConfig =
-                ProjectConfig.fromProjectDirAsync(directory!!, configName)
-        } else {
-            //如果是目录
+        } else { //如果是目录
             directory = source
-            oldProjectConfig = ProjectConfig.fromProjectDirAsync(file.path)
         }
+        oldProjectConfig = ProjectConfig.fromProject(file)
+
         oldProjectConfig?.let {
             isOldProjectConfigExist = true
             projectConfig = it.copy()
@@ -564,11 +561,9 @@ class BuildViewModel(private val app: Application, private var source: String) :
     }
 
 
-    fun buildApk() {
-        CoroutineScope(Dispatchers.Main).launch {
-            syncToProjectConfig()
-            doBuildingApk()
-        }
+    fun buildApk() = mainScope.launch {
+        syncToProjectConfig()
+        doBuildingApk()
     }
 
     fun checkInputs(viewModel: BuildViewModel = this): Boolean {
@@ -628,15 +623,19 @@ class BuildViewModel(private val app: Application, private var source: String) :
             ApkBuilder.BuildState.PREPARE -> {
                 buildDialogText = app.getString(R.string.apk_builder_prepare)
             }
+
             ApkBuilder.BuildState.BUILD -> {
                 buildDialogText = app.getString(R.string.apk_builder_build)
             }
+
             ApkBuilder.BuildState.SIGN -> {
                 buildDialogText = app.getString(R.string.apk_builder_sign)
             }
+
             ApkBuilder.BuildState.CLEAN -> {
                 buildDialogText = app.getString(R.string.apk_builder_clean)
             }
+
             ApkBuilder.BuildState.FINISH -> {
                 isShowBuildDialog = false
             }

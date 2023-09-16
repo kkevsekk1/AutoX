@@ -1,5 +1,6 @@
 package com.stardust.autojs.runtime
 
+import com.stardust.autojs.engine.RhinoJavaScriptEngine
 import com.stardust.automator.UiObjectCollection
 import org.mozilla.javascript.BaseFunction
 import org.mozilla.javascript.BoundFunction
@@ -13,14 +14,17 @@ import org.mozilla.javascript.annotations.JSFunction
  * Created by Stardust on 2017/7/21.
  */
 class ScriptBridges {
-    companion object {
-        fun <T> useJsContext(f: (context: Context) -> T): T {
-            val context = Context.getCurrentContext()
-            try {
-                return f(context ?: Context.enter())
-            } finally {
-                context ?: Context.exit()
-            }
+    var engine: RhinoJavaScriptEngine? = null
+    fun setup(engine: RhinoJavaScriptEngine) {
+        this.engine = engine
+    }
+
+    private fun <T> useJsContext(f: (context: Context) -> T): T {
+        val context = Context.getCurrentContext()
+        try {
+            return f(context ?: engine?.enterContext() ?: Context.enter())
+        } finally {
+            context ?: Context.exit()
         }
     }
 

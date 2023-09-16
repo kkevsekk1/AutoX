@@ -6,6 +6,7 @@ import com.stardust.app.GlobalAppContext
 import com.stardust.autojs.apkbuilder.ApkPackager
 import com.stardust.autojs.apkbuilder.ManifestEditor
 import com.stardust.autojs.project.BuildInfo
+import com.stardust.autojs.project.Constant
 import com.stardust.autojs.project.ProjectConfig
 import com.stardust.autojs.script.EncryptedScriptFileHeader
 import com.stardust.autojs.script.JavaScriptFileSource
@@ -16,11 +17,10 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import org.apache.commons.io.FileUtils
 import org.apache.commons.io.IOUtils
+import org.autojs.autojs.tool.addAllIfNotExist
 import org.autojs.autojs.tool.copyTo
 import org.autojs.autojs.tool.parseUriOrNull
 import org.autojs.autojs.tool.unzip
-import com.stardust.autojs.project.Constant
-import org.autojs.autojs.tool.addAllIfNotExist
 import pxb.android.StringItem
 import pxb.android.axml.AxmlWriter
 import zhao.arsceditor.ArscUtil
@@ -141,6 +141,11 @@ class ApkBuilder(
     }
 
     private fun encrypt(file: File, newFile: File) {
+        if (!projectConfig!!.isEncrypt){
+            newFile.delete()
+            file.copyTo(newFile)
+            return
+        }
         val out = newFile.outputStream()
         EncryptedScriptFileHeader.writeHeader(
             out,

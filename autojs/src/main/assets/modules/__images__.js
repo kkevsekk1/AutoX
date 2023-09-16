@@ -13,7 +13,7 @@ module.exports = function (runtime, scope) {
             if (Array.isArray(list)) {
                 this.matches = list;
             } else {
-                this.matches = runtime.bridges.bridges.toArray(list);
+                this.matches = runtime.bridges.toArray(list);
             }
             this.__defineGetter__("points", () => {
                 if (typeof (this.__points__) == 'undefined') {

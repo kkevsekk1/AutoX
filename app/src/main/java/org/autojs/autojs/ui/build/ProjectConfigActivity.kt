@@ -17,7 +17,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.textfield.TextInputLayout
 import com.stardust.autojs.project.ProjectConfig
 import com.stardust.autojs.project.ProjectConfig.Companion.configFileOfDir
-import com.stardust.autojs.project.ProjectConfig.Companion.fromProjectDirAsync
+import com.stardust.autojs.project.ProjectConfig.Companion.fromProject
 import com.stardust.pio.PFiles.ensureDir
 import com.stardust.pio.PFiles.write
 import io.reactivex.Observable
@@ -98,7 +98,7 @@ open class ProjectConfigActivity : BaseActivity() {
             }
             mDirectory = File(dir)
             lifecycleScope.launch {
-                mProjectConfig = fromProjectDirAsync(dir)
+                mProjectConfig = fromProject(mDirectory!!)
                 if (mProjectConfig == null) {
                     ThemeColorMaterialDialogBuilder(this@ProjectConfigActivity)
                         .title(R.string.text_invalid_project)
