@@ -28,11 +28,9 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.stardust.app.permission.DrawOverlaysPermission
-import com.stardust.util.IntentUtil
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.autojs.autojs.Pref
-import org.autojs.autoxjs.R
 import org.autojs.autojs.autojs.AutoJs
 import org.autojs.autojs.external.foreground.ForegroundService
 import org.autojs.autojs.timing.TimedTaskScheduler
@@ -44,12 +42,14 @@ import org.autojs.autojs.ui.compose.widget.MyIcon
 import org.autojs.autojs.ui.compose.widget.SearchBox2
 import org.autojs.autojs.ui.explorer.ExplorerViewKt
 import org.autojs.autojs.ui.floating.FloatyWindowManger
-import org.autojs.autojs.ui.log.LogActivityKt
+import org.autojs.autojs.ui.main.components.DocumentPageMenuButton
+import org.autojs.autojs.ui.main.components.LogButton
 import org.autojs.autojs.ui.main.drawer.DrawerPage
 import org.autojs.autojs.ui.main.scripts.ScriptListFragment
 import org.autojs.autojs.ui.main.task.TaskManagerFragmentKt
 import org.autojs.autojs.ui.main.web.WebViewFragment
 import org.autojs.autojs.ui.widget.fillMaxSize
+import org.autojs.autoxjs.R
 
 data class BottomNavigationItem(val icon: Int, val label: String)
 
@@ -370,12 +370,7 @@ private fun TopBar(
                     })
                 )
             }
-            IconButton(onClick = { LogActivityKt.start(context) }) {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_logcat),
-                    contentDescription = stringResource(id = R.string.text_logcat)
-                )
-            }
+            LogButton()
             when (currentPage) {
                 0 -> {
                     var expanded by remember {
@@ -395,6 +390,7 @@ private fun TopBar(
                         )
                     }
                 }
+
                 1 -> {
                     IconButton(onClick = { AutoJs.getInstance().scriptEngineService.stopAll() }) {
                         Icon(
@@ -403,17 +399,9 @@ private fun TopBar(
                         )
                     }
                 }
+
                 2 -> {
-                    IconButton(onClick = {
-                        webViewFragment.swipeRefreshWebView.webView.url?.let {
-                            IntentUtil.browse(context, it)
-                        }
-                    }) {
-                        Icon(
-                            painterResource(id = R.drawable.ic_external_link),
-                            contentDescription = stringResource(id = R.string.text_browser_open)
-                        )
-                    }
+                    DocumentPageMenuButton { webViewFragment.swipeRefreshWebView.webView }
                 }
             }
 
