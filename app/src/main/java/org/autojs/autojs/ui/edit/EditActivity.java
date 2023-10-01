@@ -130,14 +130,14 @@ public class EditActivity extends BaseActivity implements OnActivityResultDelega
     }
 
     private void setUpToolbar() {
-        BaseActivity.setToolbarAsBack(this, R.id.toolbar, "" );
+//        BaseActivity.setToolbarAsBack(this, R.id.toolbar, "" );
         TextView filePath= findViewById(R.id.file_path);
         filePath.setText(mEditorView.getUri().getPath());
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_editor, menu);
+//        getMenuInflater().inflate(R.menu.menu_editor, menu);
         return true;
     }
 
