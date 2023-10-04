@@ -96,34 +96,24 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
     public static final String EXTRA_READ_ONLY = "readOnly";
     public static final String EXTRA_SAVE_ENABLED = "saveEnabled";
     public static final String EXTRA_RUN_ENABLED = "runEnabled";
-
     @ViewById(R.id.editor)
     CodeEditor mEditor;
-
     @ViewById(R.id.code_completion_bar)
     CodeCompletionBar mCodeCompletionBar;
-
     @ViewById(R.id.input_method_enhance_bar)
     View mInputMethodEnhanceBar;
-
     @ViewById(R.id.symbol_bar)
     CodeCompletionBar mSymbolBar;
-
     @ViewById(R.id.functions)
     ImageView mShowFunctionsButton;
-
     @ViewById(R.id.functions_keyboard)
     FunctionsKeyboardView mFunctionsKeyboard;
-
     @ViewById(R.id.debug_bar)
     DebugBar mDebugBar;
-
     @ViewById(R.id.docs)
     EWebView mDocsWebView;
-
     @ViewById(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
-
     private String mName;
     private Uri mUri;
     private boolean mReadOnly = false;
@@ -152,7 +142,6 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
             }
         }
     };
-
     private SparseBooleanArray mMenuItemStatus = new SparseBooleanArray();
     private String mRestoredText;
     private NormalToolbarFragment mNormalToolbar = new NormalToolbarFragment_();
@@ -240,7 +229,6 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
         }
     }
 
-
     @SuppressLint("CheckResult")
     private Observable<String> loadUri(final Uri uri) {
         mEditor.setProgress(true);
@@ -261,7 +249,6 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
         }
         mEditor.setInitialText(text);
     }
-
 
     private void setMenuItemStatus(int id, boolean enabled) {
         mMenuItemStatus.put(id, enabled);
@@ -330,7 +317,6 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
         mAutoCompletion = new AutoCompletion(getContext(), mEditor.getCodeEditText());
         mAutoCompletion.setAutoCompleteCallback(mCodeCompletionBar::setCodeCompletions);
     }
-
 
     private void setUpEditor() {
         mEditor.getCodeEditText().addTextChangedListener(new SimpleTextWatcher(s -> {
@@ -413,25 +399,24 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
                 LogActivityKt.start(getContext());
                 break;
             case R.id.debug:
-                showOptionMenu(view,R.menu.menu_editor_debug);
+                showOptionMenu(view, R.menu.menu_editor_debug);
                 break;
             case R.id.jump:
-                showOptionMenu(view,R.menu.menu_editor_jump);
+                showOptionMenu(view, R.menu.menu_editor_jump);
                 break;
             case R.id.edit:
-                showOptionMenu(view,R.menu.menu_editor_edit);
+                showOptionMenu(view, R.menu.menu_editor_edit);
+                break;
+            case R.id.others:
+                showOptionMenu(view, R.menu.menu_editor);
                 break;
         }
     }
-    void showOptionMenu( View view,int menuId) {
+
+    void showOptionMenu(View view, int menuId) {
         PopupMenu popupMenu = new PopupMenu(getContext(), view);
         popupMenu.inflate(menuId);
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                return mEditorMenu.onOptionsItemSelected(item);
-            }
-        });
+        popupMenu.setOnMenuItemClickListener(mEditorMenu::onOptionsItemSelected);
         popupMenu.show();
     }
 
@@ -454,7 +439,6 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
         setMenuItemStatus(R.id.run, false);
         return execution;
     }
-
 
     public void undo() {
         mEditor.undo();
@@ -634,7 +618,6 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
         mEditor.replaceAll(keywords, replacement, usingRegex);
     }
 
-
     public void debug() {
         DebugToolbarFragment debugToolbarFragment = DebugToolbarFragment_.builder()
                 .build();
@@ -661,7 +644,7 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
 
     private void showErrorMessage(String msg) {
         Snackbar.make(EditorView.this, getResources().getString(R.string.text_error) + ": " + msg, Snackbar.LENGTH_LONG)
-                .setAction(R.string.text_detail, v -> LogActivityKt.start(getContext()) )
+                .setAction(R.string.text_detail, v -> LogActivityKt.start(getContext()))
                 .show();
     }
 
