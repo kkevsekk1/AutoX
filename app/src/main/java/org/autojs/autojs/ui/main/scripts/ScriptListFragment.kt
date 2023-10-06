@@ -37,12 +37,12 @@ import org.autojs.autojs.external.fileprovider.AppFileProvider
 import org.autojs.autojs.model.explorer.ExplorerDirPage
 import org.autojs.autojs.model.explorer.Explorers
 import org.autojs.autojs.model.script.Scripts.edit
+import org.autojs.autojs.ui.build.ProjectConfigActivity
+import org.autojs.autojs.ui.build.ProjectConfigActivity_
 import org.autojs.autojs.ui.common.ScriptOperations
 import org.autojs.autojs.ui.explorer.ExplorerViewKt
 import org.autojs.autojs.ui.main.rememberExternalStoragePermissionsState
 import org.autojs.autojs.ui.main.showExternalStoragePermissionToast
-import org.autojs.autojs.ui.build.ProjectConfigActivity
-import org.autojs.autojs.ui.build.ProjectConfigActivity_
 import org.autojs.autojs.ui.viewmodel.ExplorerItemList.SortConfig
 import org.autojs.autojs.ui.widget.fillMaxSize
 import org.autojs.autoxjs.R
@@ -60,6 +60,7 @@ class ScriptListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        explorerView.setUpViews()
         return ComposeView(requireContext()).apply {
             setContent {
                 Scaffold(
@@ -70,7 +71,7 @@ class ScriptListFragment : Fragment() {
                 ) {
                     AndroidView(
                         modifier = Modifier.padding(it),
-                        factory = { explorerView.apply { setUpViews() } }
+                        factory = { explorerView }
                     )
                 }
             }
