@@ -27,25 +27,26 @@ class Timers(private val mRuntime: ScriptRuntime) {
         } else timer ?: mainTimer
     }
 
-    fun setTimeout(callback: Any, delay: Long, vararg args: Any?): Int {
-        return timerForCurrentThread.setTimeout(callback, delay, *args)
-    }
-
-    fun setTimeout(callback: Any): Int {
-        return setTimeout(callback, 1)
-    }
-
-    fun setImmediate(listener: Any, vararg args: Any?): Int {
-        return timerForCurrentThread.setImmediate(listener, *args)
+    fun setTimeout(vararg args: Any?): Int {
+        val listener = args.elementAtOrNull(0)
+        check(listener != null) { "callback cannot be null" }
+        val delay = args.elementAtOrNull(1)?.let { (it as Double).toLong() } ?: 1
+        return timerForCurrentThread.setTimeout(listener, delay, *args.drop(2).toTypedArray())
     }
 
 
-    fun setInterval(listener: Any, interval: Long, vararg args: Any?): Int {
-        return timerForCurrentThread.setInterval(listener, interval, *args)
+    fun setImmediate(vararg args: Any?): Int {
+        val listener = args.elementAtOrNull(0)
+        check(listener != null) { "callback cannot be null" }
+        return timerForCurrentThread.setImmediate(listener, *args.drop(1).toTypedArray())
     }
 
-    fun setInterval(listener: Any): Int {
-        return setInterval(listener, 1)
+
+    fun setInterval(vararg args: Any?): Int {
+        val listener = args.elementAtOrNull(0)
+        check(listener != null) { "callback cannot be null" }
+        val interval = args.elementAtOrNull(1)?.let { (it as Double).toLong() } ?: 1
+        return timerForCurrentThread.setInterval(listener, interval, *args.drop(2).toTypedArray())
     }
 
     fun clearTimeout(id: Int): Boolean {

@@ -29,6 +29,7 @@ import java.util.concurrent.ConcurrentHashMap
 open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Context) :
     JavaScriptEngine() {
 
+    private val wrapFactory = WrapFactory()
     val context: Context = enterContext()
     private val mScriptable: TopLevelScope = createScope(this.context)
     lateinit var thread: Thread
@@ -140,7 +141,7 @@ open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Co
     }
 
     fun setupContext(context: Context) {
-        context.wrapFactory = WrapFactory()
+        context.wrapFactory = wrapFactory
     }
 
 
