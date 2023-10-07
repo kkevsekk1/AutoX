@@ -5,6 +5,7 @@ import java.io.File
 lateinit var versions: Versions
     private set
 
+val kotlin_version = "1.6.21"
 val compose_version = "1.2.0-rc01"
 
 fun initVersions(file: File) {

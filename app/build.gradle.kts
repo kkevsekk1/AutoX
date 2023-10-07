@@ -192,7 +192,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.1.1-alpha01") {
         exclude(group = "com.android.support", module = "support-annotations")
     }
-    testImplementation("junit:junit:4.13.2")
+    testImplementation(libs.junit)
     // Kotlin携程
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2")
     // Android Annotations
@@ -299,14 +299,7 @@ dependencies {
     implementation("androidx.savedstate:savedstate-ktx:1.2.0")
     implementation("androidx.savedstate:savedstate:1.2.0")
 
-    val ktor_version = "2.0.3"
-    implementation("io.ktor:ktor-server-core:$ktor_version")
-    implementation("io.ktor:ktor-server-netty:$ktor_version")
-    implementation("io.ktor:ktor-server-websockets:$ktor_version")
-    implementation("io.ktor:ktor-client-websockets:$ktor_version")
-    implementation("io.ktor:ktor-client-okhttp:$ktor_version")
-    implementation("io.ktor:ktor-client-core:$ktor_version")
-
+    implementation(libs.bundles.ktor)
     //qr scan
     implementation("io.github.g00fy2.quickie:quickie-bundled:1.5.0")
     //Fab button with menu, please do not upgrade, download dependencies will be error after upgrade

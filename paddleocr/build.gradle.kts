@@ -31,7 +31,7 @@ android {
 
 dependencies {
     implementation(libs.okhttp)
-    implementation("androidx.core:core-ktx:1.8.0")
+    implementation(libs.core.ktx)
 }
 dependencies {
     testImplementation( "junit:junit:4.13.2")

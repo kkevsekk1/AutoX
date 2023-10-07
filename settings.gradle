@@ -1,6 +1,4 @@
-apply {
-    from(file("dependencies.gradle.kts"))
-}
+
 include ':app', ':automator', ':common', ':autojs', ':inrt', ':apkbuilder'
 include ':LocalRepo:libtermexec'
 include ':LocalRepo:emulatorview'
