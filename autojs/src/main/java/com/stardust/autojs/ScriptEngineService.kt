@@ -28,10 +28,10 @@ import org.greenrobot.eventbus.Subscribe
  * Created by Stardust on 2017/1/23.
  */
 class ScriptEngineService internal constructor(builder: ScriptEngineServiceBuilder) {
-    private val mContext: Context
-    private val mUiHandler: UiHandler
-    val globalConsole: Console
-    private val mScriptEngineManager: ScriptEngineManager
+    private val mUiHandler: UiHandler = builder.mUiHandler
+    private val mContext: Context = mUiHandler.context
+    val globalConsole: Console = builder.mGlobalConsole
+    private val mScriptEngineManager: ScriptEngineManager = builder.mScriptEngineManager
     private val mEngineLifecycleObserver: EngineLifecycleObserver =
         object : EngineLifecycleObserver() {
             override fun onEngineRemove(engine: ScriptEngine<*>?) {
@@ -43,10 +43,6 @@ class ScriptEngineService internal constructor(builder: ScriptEngineServiceBuild
     private val mScriptExecutions = LinkedHashMap<Int, ScriptExecution>()
 
     init {
-        mUiHandler = builder.mUiHandler
-        mContext = mUiHandler.context
-        mScriptEngineManager = builder.mScriptEngineManager
-        globalConsole = builder.mGlobalConsole
         mScriptEngineManager.setEngineLifecycleCallback(mEngineLifecycleObserver)
         mScriptExecutionObserver.registerScriptExecutionListener(GLOBAL_LISTENER)
         EVENT_BUS.register(this)
@@ -62,11 +58,11 @@ class ScriptEngineService internal constructor(builder: ScriptEngineServiceBuild
         mEngineLifecycleObserver.unregisterCallback(engineLifecycleCallback)
     }
 
-    fun registerGlobalScriptExecutionListener(listener: ScriptExecutionListener?): Boolean {
+    fun registerGlobalScriptExecutionListener(listener: ScriptExecutionListener): Boolean {
         return mScriptExecutionObserver.registerScriptExecutionListener(listener)
     }
 
-    fun unregisterGlobalScriptExecutionListener(listener: ScriptExecutionListener?): Boolean {
+    fun unregisterGlobalScriptExecutionListener(listener: ScriptExecutionListener): Boolean {
         return mScriptExecutionObserver.removeScriptExecutionListener(listener)
     }
 
@@ -76,6 +72,7 @@ class ScriptEngineService internal constructor(builder: ScriptEngineServiceBuild
         return execution
     }
 
+    //脚本启动入口
     private fun executeInternal(task: ScriptExecutionTask): ScriptExecution {
         if (task.listener != null) {
             task.setExecutionListener(
@@ -206,23 +203,23 @@ class ScriptEngineService internal constructor(builder: ScriptEngineServiceBuild
                     )
                 }
 
-                override fun onSuccess(execution: ScriptExecution, result: Any?) {
+                override fun onSuccess(execution: ScriptExecution?, result: Any?) {
                     onFinish(execution)
                 }
 
-                private fun onFinish(execution: ScriptExecution) {}
+                private fun onFinish(execution: ScriptExecution?) {}
                 override fun onException(execution: ScriptExecution, e: Throwable) {
                     e.printStackTrace()
                     onFinish(execution)
                     var message: String? = null
+                    val engine = execution.engine
                     if (!ScriptInterruptedException.causedByInterrupted(e)) {
                         message = e.message
-                        if (execution.engine is JavaScriptEngine) {
-                            (execution.engine as JavaScriptEngine).runtime.console.error(e)
+                        if (engine is JavaScriptEngine) {
+                            engine.runtime.console.error(e)
                         }
                     }
-                    if (execution.engine is JavaScriptEngine) {
-                        val engine = execution.engine as JavaScriptEngine
+                    if (engine is JavaScriptEngine) {
                         val uncaughtException = engine.uncaughtException
                         if (uncaughtException != null) {
                             engine.runtime.console.error(uncaughtException)
@@ -240,6 +237,7 @@ class ScriptEngineService internal constructor(builder: ScriptEngineServiceBuild
                 }
             }
         private var sInstance: ScriptEngineService? = null
+
         @JvmStatic
         var instance: ScriptEngineService?
             get() = sInstance
