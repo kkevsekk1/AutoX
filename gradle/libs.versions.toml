@@ -1,12 +1,20 @@
 [versions]
 core-ktx = "1.8.0"
+google-gson = "2.9.1"
 junit = "4.13.2"
 okhttp = "4.10.0"
 ktor-version = "2.0.3"
+androidx-test-ext-junit = "1.1.5"
+espresso-core = "3.5.1"
+appcompat = "1.6.1"
+material = "1.9.0"
 
 [libraries]
+nanohttpd-webserver = "org.nanohttpd:nanohttpd-webserver:2.3.1"
+androidx-webkit = "androidx.webkit:webkit:1.7.0"
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
 documentfile = "androidx.documentfile:documentfile:1.0.1"
+google-gson = { module = "com.google.code.gson:gson", version.ref = "google-gson" }
 junit = { module = "junit:junit", version.ref = "junit" }
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 # ktor
@@ -16,6 +24,11 @@ ktor-server-websockets = { module = "io.ktor:ktor-server-websockets", version.re
 ktor-client-websockets = { module = "io.ktor:ktor-client-websockets", version.ref = "ktor-version" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor-version" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor-version" }
+
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
 
