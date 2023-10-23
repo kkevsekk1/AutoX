@@ -1,5 +1,6 @@
 package com.stardust.autojs.runtime
 
+import android.os.Looper
 import com.stardust.autojs.engine.RhinoJavaScriptEngine
 import com.stardust.automator.UiObjectCollection
 import org.mozilla.javascript.BaseFunction
@@ -32,16 +33,21 @@ class ScriptBridges {
         }
     }
 
-    fun callFunction(func: Any?, target: Any?, args: Array<*>): Any = useJsContext<Any> { context ->
+    fun callFunction(func: Any?, target: Any?, args: Array<*>) = useJsContext<Any?> { context ->
         val jsFn = func as BaseFunction
         val scope = jsFn.parentScope
         val arg = args.map { Context.javaToJS(it, scope) }.toTypedArray()
-
-        return@useJsContext jsFn.call(
-            context, scope,
-            (Context.javaToJS(target, scope) as? Scriptable) ?: Undefined.SCRIPTABLE_UNDEFINED,
-            arg
-        )
+        return@useJsContext try {
+            jsFn.call(
+                context, scope,
+                (Context.javaToJS(target, scope) as? Scriptable) ?: Undefined.SCRIPTABLE_UNDEFINED,
+                arg
+            )
+        } catch (e: Exception) {
+            if (Looper.getMainLooper() == Looper.myLooper()) {
+                engine?.runtime?.exit(e) ?: throw e
+            }else throw e
+        }
     }
 
     @JSFunction

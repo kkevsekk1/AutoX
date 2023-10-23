@@ -10,6 +10,7 @@ import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.multidex.MultiDexApplication
+import androidx.work.Configuration
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
@@ -36,7 +37,7 @@ import java.lang.ref.WeakReference
  * Created by Stardust on 2017/1/27.
  */
 
-class App : MultiDexApplication() {
+class App : MultiDexApplication(), Configuration.Provider {
     lateinit var dynamicBroadcastReceivers: DynamicBroadcastReceivers
         private set
 
@@ -192,5 +193,10 @@ class App : MultiDexApplication() {
             get() = instance.get()!!
     }
 
+    override fun getWorkManagerConfiguration(): Configuration {
+        return Configuration.Builder()
+            .setMinimumLoggingLevel(android.util.Log.INFO)
+            .build()
+    }
 
 }

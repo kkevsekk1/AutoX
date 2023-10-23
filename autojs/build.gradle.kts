@@ -33,8 +33,8 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.1.1-alpha01"){
         exclude(group = "com.android.support",module = "support-annotations")
     }
-    testImplementation("junit:junit:4.13.2")
-    implementation("androidx.documentfile:documentfile:1.0.1")
+    testImplementation(libs.junit)
+    implementation(libs.documentfile)
     implementation("androidx.preference:preference-ktx:1.2.0")
     api("org.greenrobot:eventbus:3.3.1")
     api("net.lingala.zip4j:zip4j:1.3.2")
@@ -45,7 +45,7 @@ dependencies {
     api("com.github.hyb1996:EnhancedFloaty:0.31")
     api("com.makeramen:roundedimageview:2.3.0")
     // OkHttp
-    api("com.squareup.okhttp3:okhttp:4.10.0")
+    api(libs.okhttp)
     // JDeferred
     api("org.jdeferred:jdeferred-android-aar:1.2.6")
     // RootShell

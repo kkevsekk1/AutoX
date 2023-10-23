@@ -8,6 +8,7 @@ import com.stardust.autojs.engine.module.ScopeRequire
 import com.stardust.autojs.execution.ExecutionConfig
 import com.stardust.autojs.project.ScriptConfig
 import com.stardust.autojs.rhino.AndroidContextFactory
+import com.stardust.autojs.rhino.AutoJsContext
 import com.stardust.autojs.rhino.RhinoAndroidHelper
 import com.stardust.autojs.rhino.TopLevelScope
 import com.stardust.autojs.runtime.ScriptRuntime
@@ -20,7 +21,6 @@ import org.mozilla.javascript.ScriptableObject
 import org.mozilla.javascript.commonjs.module.provider.SoftCachingModuleScriptProvider
 import java.io.IOException
 import java.io.InputStreamReader
-import java.util.concurrent.ConcurrentHashMap
 
 /**
  * Created by Stardust on 2017/4/2.
@@ -29,6 +29,7 @@ import java.util.concurrent.ConcurrentHashMap
 open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Context) :
     JavaScriptEngine() {
 
+    private val wrapFactory = WrapFactory()
     val context: Context = enterContext()
     private val mScriptable: TopLevelScope = createScope(this.context)
     lateinit var thread: Thread
@@ -92,7 +93,6 @@ open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Co
     override fun destroy() {
         super.destroy()
         Log.d(LOG_TAG, "on destroy")
-        sContextEngineMap.remove(context)
         Context.exit()
     }
 
@@ -135,12 +135,14 @@ open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Co
     fun enterContext(): Context {
         val context = RhinoAndroidHelper(mAndroidContext).enterContext()
         setupContext(context)
-        sContextEngineMap[context] = this
         return context
     }
 
     fun setupContext(context: Context) {
-        context.wrapFactory = WrapFactory()
+        context.wrapFactory = wrapFactory
+        (context as? AutoJsContext)?.let {
+            it.rhinoJavaScriptEngine = this
+        }
     }
 
 
@@ -165,10 +167,6 @@ open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Co
         const val SOURCE_NAME_INIT = "<init>"
         private const val LOG_TAG = "RhinoJavaScriptEngine"
 
-        private val sContextEngineMap = ConcurrentHashMap<Context, RhinoJavaScriptEngine>()
-        fun getEngineOfContext(context: Context): RhinoJavaScriptEngine? {
-            return sContextEngineMap[context]
-        }
     }
 
 

@@ -4,10 +4,7 @@ import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
 import com.stardust.autojs.runtime.ScriptRuntime
-import org.mozilla.javascript.BaseFunction
 import org.mozilla.javascript.Context
-import org.mozilla.javascript.Scriptable
-import org.mozilla.javascript.Undefined
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.random.Random
 
@@ -38,22 +35,13 @@ class Timer(
         return id
     }
 
-    private fun callFunction(callback: Any, thiz: Any?, args: Any?) {
-        val func = callback as BaseFunction
-        val map: Array<Any> =
-            (args as? Array<*>)?.map { Context.javaToJS(it, callback.parentScope) }
-                ?.toTypedArray() ?: emptyArray()
+    private fun callFunction(callback: Any, thiz: Any?, args: Array<*>) {
         try {
-            func.call(
-                context ?: Context.enter(), func.parentScope,
-                thiz as? Scriptable ?: Undefined.SCRIPTABLE_UNDEFINED, map
-            )
+            mRuntime.bridges.callFunction(callback, thiz, args)
         } catch (e: Exception) {
             if (isUiLoop) {
                 mRuntime.exit(e)
             } else throw e
-        }finally {
-            context ?: Context.exit()
         }
     }
 

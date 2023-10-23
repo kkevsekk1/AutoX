@@ -1,28 +1,31 @@
 package com.stardust.autojs.engine.module
 
-import org.mozilla.javascript.*
+import org.mozilla.javascript.BaseFunction
+import org.mozilla.javascript.Context
+import org.mozilla.javascript.Script
+import org.mozilla.javascript.ScriptRuntime
+import org.mozilla.javascript.Scriptable
+import org.mozilla.javascript.ScriptableObject
 import org.mozilla.javascript.commonjs.module.ModuleScope
 import org.mozilla.javascript.commonjs.module.ModuleScript
 import org.mozilla.javascript.commonjs.module.ModuleScriptProvider
-
 import java.io.File
 import java.net.URI
-import java.net.URISyntaxException
-import java.util.concurrent.ConcurrentHashMap
 
 
-open class ScopeRequire(
+class ScopeRequire(
     cx: Context, private val nativeScope: Scriptable,
-    private val moduleScriptProvider: ModuleScriptProvider, private val preExec: Script?,
+    private val moduleScriptProvider: ModuleScriptProvider,
+    private val preExec: Script?,
     private val postExec: Script?, private val sandboxed: Boolean = true
 ) : BaseFunction() {
     private var paths: Scriptable? = null
-    private var mainModuleId: String? = null
-    private var mainExports: Scriptable? = null
 
-    // Modules that completed loading; visible to all threads
-    private val exportedModuleInterfaces: MutableMap<String, Scriptable?> = ConcurrentHashMap()
-    private val loadLock = Any()
+    private val moduleCache = mutableMapOf<String, Any?>()
+    private val loadingModules: MutableMap<String, Any?> = mutableMapOf()
+
+    private var mainExports: Any? = null
+    var mainModuleId: String? = null
 
     constructor(cx: Context, nativeScope: Scriptable, moduleScriptProvider: ModuleScriptProvider)
             : this(cx, nativeScope, moduleScriptProvider, null, null, false)
@@ -35,92 +38,78 @@ open class ScopeRequire(
         } else paths = null
     }
 
-
-    fun requireMain(cx: Context, mainModuleId: String): Scriptable? {
-        if (this.mainModuleId != null) {
-            if (this.mainModuleId != mainModuleId) {
-                throw IllegalStateException("Main module already set to " + this.mainModuleId)
-            }
-            return mainExports
+    @Synchronized
+    private fun loadModule(
+        cx: Context,
+        require: String,
+        currentModule: ModuleScope?
+    ): ModuleScript? {
+        val uri: URI? = currentModule?.uri
+        val base: URI? = currentModule?.base
+        if (require.startsWith("./") || require.startsWith("../")) {
+            val resDir = uri ?: (mainModuleId?.let { URI.create(it) }) ?: return null
+            val newUri = resDir.resolve(require)
+            return getModule(cx, newUri.toString(), newUri, base)
+        } else {
+            return getModule(cx, require, null, null)
         }
+    }
+
+    fun requireMain(cx: Context, mainModuleId: String): Any? {
+        if (mainExports != null) {
+            throw IllegalStateException("Main module already set to " + this.mainModuleId)
+        }
+
         val moduleScript: ModuleScript? = try {
             moduleScriptProvider.getModuleScript(cx, mainModuleId, null, null, paths)
-        } catch (x: RuntimeException) {
-            throw x
         } catch (x: Exception) {
-            throw RuntimeException(x)
+            throw if (x is RuntimeException) x else RuntimeException(x)
         }
-        if (moduleScript != null) {
-            mainExports = getExportedModuleInterface(
-                cx, mainModuleId,
-                null, null, true
-            )
-        } else if (!sandboxed) {
-            var mainUri: URI? = try {
-                URI(mainModuleId)
-            } catch (_: URISyntaxException) {
-                null
-            }
-            if (mainUri == null || !mainUri.isAbsolute) {
-                val file = File(mainModuleId)
-                if (!file.isFile) {
-                    throw ScriptRuntime.throwError(
-                        cx, nativeScope,
-                        "Module \"$mainModuleId\" not found."
-                    )
-                }
-                mainUri = file.toURI()
-            }
-            mainExports = getExportedModuleInterface(
-                cx, mainUri.toString(),
-                mainUri, null, true
-            )
-        }
-        this.mainModuleId = mainModuleId
+        moduleScript ?: throw ScriptRuntime.throwError(
+            cx, nativeScope,
+            "Module \"$mainModuleId\" not found."
+        )
+
+        mainExports = getExportedModuleInterface(
+            cx, mainModuleId,
+            moduleScript, true
+        )
+        this.mainModuleId = uriToId(moduleScript.uri)
         return mainExports
+    }
+
+    private fun uriToId(uri: URI): String {
+        return if (uri.scheme == "file") {
+            uri.path
+        } else uri.toString()
     }
 
     fun install(scope: Scriptable?) {
         putProperty(scope, "require", this)
     }
 
-    override fun call(cx: Context, scope: Scriptable, thisObj: Scriptable, args: Array<Any>?): Any {
-        if (args == null || args.isEmpty()) {
+    override fun call(
+        cx: Context,
+        scope: Scriptable,
+        thisObj: Scriptable,
+        args: Array<Any>?
+    ): Any? {
+        if (args.isNullOrEmpty()) {
             throw ScriptRuntime.throwError(
-                cx, scope,
-                "require() needs one argument"
+                cx, scope, "require() needs one argument"
             )
         }
-        var id = Context.jsToJava(args[0], String::class.java) as String
-        var uri: URI? = null
-        var base: URI? = null
-        if (id.startsWith("./") || id.startsWith("../")) {
-            if (thisObj !is ModuleScope) {
-                throw ScriptRuntime.throwError(
-                    cx, scope,
-                    "Can't resolve relative module ID \"" + id +
-                            "\" when require() is used outside of a module"
-                )
-            }
-            base = thisObj.base
-            val current = thisObj.uri
-            uri = current.resolve(id)
-            if (base == null) {
-                id = uri.toString()
-            } else {
-                id = base.relativize(current).resolve(id).toString()
-                if (id[0] == '.') {
-                    if (sandboxed) {
-                        throw ScriptRuntime.throwError(
-                            cx, scope,
-                            "Module \"$id\" is not contained in sandbox."
-                        )
-                    }
-                    id = uri.toString()
-                }
-            }
-        }
-        return (getExportedModuleInterface(cx, id, uri, base, false))!!
+        val require = Context.toString(args[0])
+        val moduleRef = thisObj as? ModuleScope
+        val moduleScript = loadModule(cx, require, moduleRef) ?: throw ScriptRuntime.throwError(
+            cx, scope, "Can't resolve relative module ID \"" + require +
+                    "\" when require() is used outside of a module"
+        )
+        val id = uriToId(moduleScript.uri)
+//        println("加载模块：$require id: $id")
+        val e = getExportedModuleInterface(cx, id, moduleScript, false)
+//        println("加载结束：$require, exports = ${e?.javaClass}")
+        return e
     }
 
     override fun construct(cx: Context, scope: Scriptable, args: Array<Any>): Scriptable {
@@ -130,66 +119,42 @@ open class ScopeRequire(
         )
     }
 
+    @Synchronized
     private fun getExportedModuleInterface(
-        cx: Context, id: String, uri: URI?, base: URI?, isMain: Boolean
-    ): Scriptable? {
+        cx: Context, id: String, moduleScript: ModuleScript, isMain: Boolean
+    ): Any? {
         // Check if the requested module is already completely loaded
-        var exports = exportedModuleInterfaces[id]
+        val exports = moduleCache[id] ?: loadingModules[id]
         if (exports != null) {
-            if (isMain) {
+//            println("导出缓存：$id")
+            return if (isMain) {
                 throw IllegalStateException("Attempt to set main module after it was loaded")
-            } else
-                return exports
+            } else exports
         }
-        var threadLoadingModules: MutableMap<String, Scriptable>? =
-            loadingModuleInterfaces.get() as? MutableMap<String, Scriptable>
-        exports = threadLoadingModules?.get(id)
-        if (exports != null) return exports
-
-        synchronized(loadLock) {
-            exports = exportedModuleInterfaces[id]
-            if (exports != null) return exports
-
-            val moduleScript: ModuleScript = getModule(cx, id, uri, base)
-            if (sandboxed && !moduleScript.isSandboxed) {
-                throw ScriptRuntime.throwError(
-                    cx, nativeScope, ("Module \"$id\" is not contained in sandbox.")
-                )
-            }
-            exports = cx.newObject(nativeScope)
-            val outermostLocked: Boolean = threadLoadingModules == null
-            if (outermostLocked) {
-                threadLoadingModules = HashMap()
-                loadingModuleInterfaces.set(threadLoadingModules)
-            }
-
-            threadLoadingModules?.set(id, exports!!)
-            try {
-                val newExports: Scriptable = executeModuleScript(
-                    cx, id, exports,
-                    moduleScript, isMain
-                )
-                if (exports !== newExports) {
-                    threadLoadingModules?.put(id, newExports)
-                    exports = newExports
-                }
-            } catch (e: RuntimeException) {
-                threadLoadingModules?.remove(id)
-                throw e
-            } finally {
-                if (outermostLocked) {
-                    exportedModuleInterfaces.putAll((threadLoadingModules!!))
-                    loadingModuleInterfaces.set(null)
-                }
-            }
+        if (sandboxed && !moduleScript.isSandboxed) {
+            throw ScriptRuntime.throwError(
+                cx, nativeScope, ("Module \"$id\" is not contained in sandbox.")
+            )
         }
-        return exports
+        val pExports = cx.newObject(nativeScope)
+        loadingModules[id] = pExports
+        try {
+            val newExports: Any? = executeModuleScript(
+                cx, id, pExports, moduleScript, isMain
+            )
+            moduleCache[id] = newExports
+            return newExports
+        } catch (e: RuntimeException) {
+            throw e
+        } finally {
+            loadingModules.remove(id)
+        }
     }
 
     private fun executeModuleScript(
         cx: Context, id: String,
         exports: Scriptable?, moduleScript: ModuleScript, isMain: Boolean
-    ): Scriptable {
+    ): Any? {
         val moduleObject = cx.newObject(nativeScope) as ScriptableObject
         val uri = moduleScript.uri
         val base = moduleScript.base
@@ -214,12 +179,10 @@ open class ScopeRequire(
         executeOptionalScript(preExec, cx, funScope)
         moduleScript.script.exec(cx, funScope)
         executeOptionalScript(postExec, cx, funScope)
-        return ScriptRuntime.toObject(
-            cx, nativeScope,
-            getProperty(moduleObject, "exports")
-        )
+        return getProperty(moduleObject, "exports")
     }
 
+    @Synchronized
     private fun getModule(cx: Context, id: String, uri: URI?, base: URI?): ModuleScript {
         try {
             return moduleScriptProvider.getModuleScript(cx, id, uri, base, paths)
@@ -238,9 +201,8 @@ open class ScopeRequire(
     override fun getLength() = 1
 
     companion object {
-        private const val serialVersionUID = 1L
+//        private const val serialVersionUID = 1L
 
-        private val loadingModuleInterfaces = ThreadLocal<Map<String, Scriptable>>()
         private fun executeOptionalScript(
             script: Script?, cx: Context,
             executionScope: Scriptable

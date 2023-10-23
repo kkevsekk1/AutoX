@@ -9,6 +9,7 @@ import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.stardust.autojs.ScriptEngineService
 import com.stardust.autojs.core.eventloop.EventEmitter
@@ -29,12 +30,12 @@ import org.mozilla.javascript.ContinuationPending
  */
 class ScriptExecuteActivity : AppCompatActivity() {
     private var mResult: Any? = null
-    private var mScriptEngine: ScriptEngine<*>? = null
+    private lateinit var mScriptEngine: ScriptEngine<*>
     private var mExecutionListener: ScriptExecutionListener? = null
     private var mScriptSource: ScriptSource? = null
-    private var mScriptExecution: ActivityScriptExecution? = null
-    private var mRuntime: ScriptRuntime? = null
-    var eventEmitter: EventEmitter? = null
+    private lateinit var mScriptExecution: ActivityScriptExecution
+    private lateinit var mRuntime: ScriptRuntime
+    lateinit var eventEmitter: EventEmitter
         private set
 
     // FIXME: 2018/3/16 如果Activity被回收则得不到改进
@@ -45,17 +46,18 @@ class ScriptExecuteActivity : AppCompatActivity() {
             super.finish()
             return
         }
-        val execution = ScriptEngineService.getInstance().getScriptExecution(executionId)
+        val execution = ScriptEngineService.instance?.getScriptExecution(executionId)
         if (execution == null || execution !is ActivityScriptExecution) {
+            Toast.makeText(this, "脚本环境异常", Toast.LENGTH_SHORT).show()
             super.finish()
             return
         }
         mScriptExecution = execution
-        mScriptSource = mScriptExecution!!.source
-        mScriptEngine = mScriptExecution!!.createEngine(this)
-        mExecutionListener = mScriptExecution!!.listener
-        mRuntime = (mScriptEngine as JavaScriptEngine?)!!.runtime
-        eventEmitter = EventEmitter(mRuntime!!.bridges)
+        mScriptSource = mScriptExecution.source
+        mScriptEngine = mScriptExecution.createEngine(this)
+        mExecutionListener = mScriptExecution.listener
+        mRuntime = (mScriptEngine as JavaScriptEngine).runtime
+        eventEmitter = EventEmitter(mRuntime.bridges)
         runScript()
         emit("create", savedInstanceState)
     }
@@ -77,7 +79,7 @@ class ScriptExecuteActivity : AppCompatActivity() {
     }
 
     private fun doExecution() {
-        mScriptEngine!!.setTag(ScriptEngine.TAG_SOURCE, mScriptSource)
+        mScriptEngine.setTag(ScriptEngine.TAG_SOURCE, mScriptSource)
         mExecutionListener!!.onStart(mScriptExecution)
         (mScriptEngine as LoopBasedJavaScriptEngine?)!!.execute(
             mScriptSource,
@@ -93,22 +95,22 @@ class ScriptExecuteActivity : AppCompatActivity() {
     }
 
     private fun prepare() {
-        mScriptEngine!!.put("activity", this)
-        mScriptEngine!!.setTag("activity", this)
-        mScriptEngine!!.setTag(ScriptEngine.TAG_ENV_PATH, mScriptExecution!!.config.path)
-        mScriptEngine!!.setTag(
+        mScriptEngine.put("activity", this)
+        mScriptEngine.setTag("activity", this)
+        mScriptEngine.setTag(ScriptEngine.TAG_ENV_PATH, mScriptExecution!!.config.path)
+        mScriptEngine.setTag(
             ScriptEngine.TAG_WORKING_DIRECTORY,
-            mScriptExecution!!.config.workingDirectory
+            mScriptExecution.config.workingDirectory
         )
-        mScriptEngine!!.init()
+        mScriptEngine.init()
     }
 
     override fun finish() {
-        if (mScriptExecution == null || mExecutionListener == null) {
+        if (mExecutionListener == null) {
             super.finish()
             return
         }
-        val exception = mScriptEngine!!.uncaughtException
+        val exception = mScriptEngine.uncaughtException
         if (exception != null) {
             onException(exception)
         } else {
@@ -120,20 +122,18 @@ class ScriptExecuteActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d(LOG_TAG, "onDestroy")
-        if (mScriptEngine != null) {
-            mScriptEngine!!.put("activity", null)
-            mScriptEngine!!.setTag("activity", null)
-            mScriptEngine!!.destroy()
-        }
-        mScriptExecution = null
+        mScriptEngine.put("activity", null)
+        mScriptEngine.setTag("activity", null)
+        mScriptEngine.destroy()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        if (mScriptExecution != null) outState.putInt(EXTRA_EXECUTION_ID, mScriptExecution!!.id)
+        outState.putInt(EXTRA_EXECUTION_ID, mScriptExecution.id)
         emit("save_instance_state", outState)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         val event = SimpleEvent()
         emit("back_pressed", event)
@@ -191,9 +191,9 @@ class ScriptExecuteActivity : AppCompatActivity() {
 
     fun emit(event: String?, vararg args: Any?) {
         try {
-            eventEmitter!!.emit(event, *args as Array<Any?>)
+            eventEmitter.emit(event, *args)
         } catch (e: Exception) {
-            mRuntime!!.exit(e)
+            mRuntime.exit(e)
         }
     }
 

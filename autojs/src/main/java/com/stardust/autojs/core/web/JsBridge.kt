@@ -2,6 +2,7 @@ package com.stardust.autojs.core.web
 
 import android.os.Build
 import android.os.Looper
+import android.util.Log
 import android.webkit.*
 import androidx.annotation.RequiresApi
 import com.google.gson.Gson
@@ -20,6 +21,7 @@ class JsBridge(private val webView: WebView) {
         const val WEBOBJECTNAME = "\$autox"
         const val JAVABRIDGE = "AutoxJavaBridge"
         const val sdkPath = "web/autox.sdk.v1.js"
+        const val LOG_TAG = "JsBridge"
 
         fun evaluateJavascript(js: String, webView: WebView) {
             Looper.getMainLooper().queue.addIdleHandler {
@@ -112,10 +114,11 @@ class JsBridge(private val webView: WebView) {
             jsFn?.let {
                 val cx = Context.getCurrentContext()
                 try {
+                    val context = cx ?: Context.enter()
                     val scope = it.parentScope
                     val args =
                         arrayListOf(p1, p2).map { v -> Context.javaToJS(v, scope) }.toTypedArray()
-                    it.call(cx ?: Context.enter(), scope, Undefined.SCRIPTABLE_UNDEFINED, args)
+                    it.call(context, scope, Undefined.SCRIPTABLE_UNDEFINED, args)
                 } finally {
                     cx ?: Context.exit()
                 }
@@ -154,7 +157,7 @@ class JsBridge(private val webView: WebView) {
         //web调用安卓
         fun callHandle(reqData: String) {
             val pos = gson.fromJson(reqData, Pos::class.java)
-            println("onHandle: ${pos.event}")
+            Log.i(LOG_TAG,"onHandle: ${pos.event}")
             val handler = handles[pos.event]
             val callBack: Handle? = if (pos.callBackId != null) {
                 Handle { data, _ ->

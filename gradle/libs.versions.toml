@@ -1,0 +1,23 @@
+[versions]
+core-ktx = "1.8.0"
+junit = "4.13.2"
+okhttp = "4.10.0"
+ktor-version = "2.0.3"
+
+[libraries]
+core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
+documentfile = "androidx.documentfile:documentfile:1.0.1"
+junit = { module = "junit:junit", version.ref = "junit" }
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+# ktor
+ktor-server-core = { module = "io.ktor:ktor-server-core", version.ref = "ktor-version" }
+ktor-server-netty = { module = "io.ktor:ktor-server-netty", version.ref = "ktor-version" }
+ktor-server-websockets = { module = "io.ktor:ktor-server-websockets", version.ref = "ktor-version" }
+ktor-client-websockets = { module = "io.ktor:ktor-client-websockets", version.ref = "ktor-version" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor-version" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor-version" }
+
+[plugins]
+
+[bundles]
+ktor = ["ktor-server-core", "ktor-server-netty", "ktor-server-websockets", "ktor-client-websockets", "ktor-client-okhttp", "ktor-client-core"]

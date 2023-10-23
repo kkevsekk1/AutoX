@@ -19,9 +19,11 @@ open class TimerThread(private val mRuntime: ScriptRuntime, private val mTarget:
     private val mRunningLock = java.lang.Object()
     private val mAsyncTask = Loopers.AsyncTask("TimerThread")
     var loopers: Loopers? = null
+
     init {
         mRuntime.loopers.addAsyncTask(mAsyncTask)
     }
+
     override fun run() {
         loopers = Loopers(mRuntime)
         mTimer = loopers!!.mTimer
@@ -62,12 +64,24 @@ open class TimerThread(private val mRuntime: ScriptRuntime, private val mTarget:
         mRuntime.loopers.notifyThreadExit(this)
     }
 
-    fun setTimeout(callback: Any, delay: Long, vararg args: Any?): Int {
-        return timer.setTimeout(callback, delay, *args as Array<out Any>)
+    fun setTimeout(vararg args: Any?): Int {
+        val listener = args.elementAtOrNull(0)
+        check(listener != null) { "callback cannot be null" }
+        val delay = args.elementAtOrNull(1)?.let { (it as Double).toLong() } ?: 1
+        return timer.setTimeout(listener, delay, *args.drop(2).toTypedArray())
     }
 
-    fun setTimeout(callback: Any): Int {
-        return setTimeout(callback, 1)
+    fun setImmediate(vararg args: Any?): Int {
+        val listener = args.elementAtOrNull(0)
+        check(listener != null) { "callback cannot be null" }
+        return timer.setImmediate(listener, *args.drop(1).toTypedArray())
+    }
+
+    fun setInterval(vararg args: Any?): Int {
+        val listener = args.elementAtOrNull(0)
+        check(listener != null) { "callback cannot be null" }
+        val interval = args.elementAtOrNull(1)?.let { (it as Double).toLong() } ?: 1
+        return timer.setInterval(listener, interval, *args.drop(2).toTypedArray())
     }
 
     val timer: Timer
@@ -80,20 +94,8 @@ open class TimerThread(private val mRuntime: ScriptRuntime, private val mTarget:
         return timer.clearTimeout(id)
     }
 
-    fun setInterval(listener: Any?, interval: Long, vararg args: Any?): Int {
-        return timer.setInterval(listener!!, interval, *args as Array<out Any>)
-    }
-
-    fun setInterval(listener: Any?): Int {
-        return setInterval(listener, 1)
-    }
-
     fun clearInterval(id: Int): Boolean {
         return timer.clearInterval(id)
-    }
-
-    fun setImmediate(listener: Any, vararg args: Any?): Int {
-        return timer.setImmediate(listener, *args as Array<out Any>)
     }
 
     fun clearImmediate(id: Int): Boolean {

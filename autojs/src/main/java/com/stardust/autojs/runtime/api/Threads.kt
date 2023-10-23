@@ -8,10 +8,13 @@ import com.stardust.autojs.core.looper.TimerThread
 import com.stardust.autojs.runtime.ScriptRuntime
 import com.stardust.autojs.runtime.exception.ScriptInterruptedException
 import com.stardust.concurrent.VolatileDispose
+import kotlinx.coroutines.CoroutineName
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.mozilla.javascript.BaseFunction
-import org.mozilla.javascript.Context
-import java.util.concurrent.Executors
-import java.util.concurrent.ThreadFactory
 import java.util.concurrent.atomic.AtomicLong
 import java.util.concurrent.locks.ReentrantLock
 
@@ -26,18 +29,7 @@ class Threads(private val mRuntime: ScriptRuntime) {
     private var mTaskCount = AtomicLong(0)
     private var mExit = false
     private val looperTask = Loopers.AsyncTask("AsyncTaskThreadPool")
-    private val threadPool = Executors.newFixedThreadPool(20, ThreadFactory {
-        val thread = Thread(fun() {
-            Context.enter()
-            try {
-                it.run()
-            } finally {
-                Context.exit()
-            }
-        })
-        thread.name = mainThread.name + " (AsyncThread)"
-        thread
-    })
+    private val coroutineScope = CoroutineScope(Dispatchers.Default + CoroutineName("AsyncThread"))
 
     fun currentThread(): Any {
         val thread = Thread.currentThread()
@@ -45,24 +37,21 @@ class Threads(private val mRuntime: ScriptRuntime) {
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
-    fun runTaskForThreadPool(runnable: BaseFunction) {
+    fun runTaskForThreadPool(runnable: BaseFunction) = coroutineScope.launch {
         if (mTaskCount.addAndGet(1) == 1L) mRuntime.loopers.addAsyncTask(looperTask)
-        threadPool.execute {
-            try {
-                runnable.call(
-                    Context.getCurrentContext(), runnable.parentScope, runnable,
-                    emptyArray()
-                )
-            } catch (e: Throwable) {
-                if (!ScriptInterruptedException.causedByInterrupted(e)) {
-                    mRuntime.console.error("$this: ", e)
-                }
-            } finally {
-                if (mTaskCount.addAndGet(-1) == 0L) {
-                    mRuntime.loopers.removeAsyncTask(looperTask)
-                }
+        try {
+            mRuntime.bridges.callFunction(runnable, null, emptyArray<Any>())
+        } catch (e: Throwable) {
+            if (!ScriptInterruptedException.causedByInterrupted(e)) {
+                mRuntime.console.error("$this: ", e)
+            }
+        } finally {
+            delay(10)
+            if (mTaskCount.addAndGet(-1) == 0L) {
+                mRuntime.loopers.removeAsyncTask(looperTask)
             }
         }
+
     }
 
     fun start(runnable: Runnable): TimerThread {
@@ -99,7 +88,7 @@ class Threads(private val mRuntime: ScriptRuntime) {
     fun lock() = ReentrantLock()
 
     fun shutDownAll() {
-        threadPool.shutdownNow()
+        coroutineScope.cancel("script exiting")
         synchronized(mThreads) {
             for (thread in mThreads) {
                 thread.interrupt()
