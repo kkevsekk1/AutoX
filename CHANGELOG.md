@@ -1,7 +1,23 @@
 # Change Log
 autoxjs 整个项目的一些更新日志,双版本号为稳定版（内容以修复的bug为主），单版本号为激进版本、发布新内容。
 
-## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.5.2...HEAD) 未发布
+## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.5.3...HEAD) 未发布
+
+## [6.5.3] - 2023-10-24
+@aiselp
+* 修复 Tasker插件功能
+* 修复一处可能的内存泄露
+* 优化底部导航切换时，已打开的文件目录保持不变，添加文档页面‘回到主页’按钮
+* 修复模块exports导出null和undefined时报错，修复require('xxx')!==require('xxx.js')
+* 修复JsBridge在非ui模式工作异常
+* 修复setTimeout等函数传入仅一个额外参数且该参数为null时报错
+  @xiao-maomi
+ * 修复部分设备编辑界面顶栏按钮重叠
+  @drgnchan
+* 修改错别字
+
+[6.5.3]:https://github.com/kkevsekk1/AutoX/compare/6.5.2...6.5.3
+
 
 ## [6.5.2] - 2023-9-30
 
