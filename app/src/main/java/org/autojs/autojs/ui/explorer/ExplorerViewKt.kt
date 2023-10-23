@@ -22,7 +22,6 @@ import com.stardust.pio.PFiles
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import org.autojs.autoxjs.R
 import org.autojs.autojs.model.explorer.*
 import org.autojs.autojs.model.script.ScriptFile
 import org.autojs.autojs.model.script.Scripts.edit
@@ -38,6 +37,7 @@ import org.autojs.autojs.ui.viewmodel.ExplorerItemList
 import org.autojs.autojs.ui.viewmodel.ExplorerItemList.SortConfig
 import org.autojs.autojs.ui.widget.BindableViewHolder
 import org.autojs.autojs.workground.WrapContentGridLayoutManger
+import org.autojs.autoxjs.R
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import java.util.*
