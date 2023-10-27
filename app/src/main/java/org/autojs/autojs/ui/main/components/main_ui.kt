@@ -8,6 +8,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.runtime.Composable
@@ -20,6 +21,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.stardust.util.IntentUtil
 import org.autojs.autojs.ui.log.LogActivityKt
+import org.autojs.autojs.ui.widget.WebDataKt
 import org.autojs.autoxjs.R
 
 //主界面日志按钮
@@ -51,6 +53,13 @@ fun DocumentPageMenuButton(getWebView:()-> WebView) {
             onDismissRequest = { expanded = false }) {
             DropdownMenuItem(onClick = {
                 dismissMenu()
+                getWebView().loadUrl(WebDataKt.homepage)
+            }) {
+                Icon(Icons.Default.Home, contentDescription = null)
+                Text(text = "回到主页")
+            }
+            DropdownMenuItem(onClick = {
+                dismissMenu()
                 getWebView().url?.let {
                     IntentUtil.browse(context, it)
                 }
@@ -63,6 +72,7 @@ fun DocumentPageMenuButton(getWebView:()-> WebView) {
             }
             DropdownMenuItem(onClick = {
                 dismissMenu()
+                getWebView().clearCache(false)
                 getWebView().reload()
             }) {
                 Icon(Icons.Default.Refresh, contentDescription = null)
