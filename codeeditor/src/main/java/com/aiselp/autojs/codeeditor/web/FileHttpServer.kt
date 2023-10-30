@@ -5,8 +5,8 @@ import android.util.Log
 import fi.iki.elonen.SimpleWebServer
 import java.io.File
 
-class FileHttpServer(context: Context) :
-    SimpleWebServer("127.0.0.1", SPort, File(context.filesDir, "public"), false) {
+class FileHttpServer(context: Context,path:File) :
+    SimpleWebServer("127.0.0.1", SPort, path, false) {
     companion object {
         var SPort = 42201
     }

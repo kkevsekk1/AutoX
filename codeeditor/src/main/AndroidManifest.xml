@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <application>
-        <activity android:name=".EditActivity" >
+        <activity
+            android:name=".EditActivity"
+            android:configChanges="orientation|screenSize|uiMode"
+            android:launchMode="singleInstance"
+            android:taskAffinity="task.editor">
 
         </activity>
     </application>

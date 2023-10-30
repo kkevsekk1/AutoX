@@ -15,9 +15,9 @@ class FileSystem() {
     companion object {
         const val TAG = "FileSystem"
         const val MaxFileSize = 1024 * 1024 * 5
+        val basePath: File = Environment.getExternalStorageDirectory()
     }
 
-    private val basePath: File = Environment.getExternalStorageDirectory()
     private val gson = Gson()
 
     private fun parsePath(path: String?): File {
