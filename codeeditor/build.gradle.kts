@@ -35,6 +35,8 @@ android {
 
 dependencies {
 
+    implementation(libs.eventbus)
+    implementation(libs.kotlinx.coroutines.android)
     api(libs.nanohttpd.webserver)
     api(libs.androidx.webkit)
     implementation(libs.google.gson)

@@ -36,7 +36,7 @@ dependencies {
     testImplementation(libs.junit)
     implementation(libs.documentfile)
     implementation("androidx.preference:preference-ktx:1.2.0")
-    api("org.greenrobot:eventbus:3.3.1")
+    api(libs.eventbus)
     api("net.lingala.zip4j:zip4j:1.3.2")
     api("com.afollestad.material-dialogs:core:0.9.2.3"){
         exclude(group = "com.android.support")

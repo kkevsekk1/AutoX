@@ -2,6 +2,7 @@
 core-ktx = "1.8.0"
 google-gson = "2.9.1"
 junit = "4.13.2"
+kotlinx-coroutines-android = "1.6.2"
 okhttp = "4.10.0"
 ktor-version = "2.0.3"
 androidx-test-ext-junit = "1.1.5"
@@ -10,6 +11,9 @@ appcompat = "1.6.1"
 material = "1.9.0"
 
 [libraries]
+
+eventbus = "org.greenrobot:eventbus:3.3.1"
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines-android" }
 nanohttpd-webserver = "org.nanohttpd:nanohttpd-webserver:2.3.1"
 androidx-webkit = "androidx.webkit:webkit:1.7.0"
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
