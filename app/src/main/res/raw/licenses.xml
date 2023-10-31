@@ -149,4 +149,16 @@
         <url>https://github.com/paddlepaddle/paddle</url>
         <license>Apache Software License 2.0</license>
     </notice>
+    <notice>
+        <name>nanohttpd</name>
+        <copyright>Copyright (c) 2012-2013 by Paul S. Hawke, 2001,2005-2013 by Jarno Elonen, 2010 by Konstantinos Togias All rights reserved.</copyright>
+        <url>https://github.com/NanoHttpd/nanohttpd</url>
+        <license>BSD 3-Clause License</license>
+    </notice>
+    <notice>
+        <name>vscode-mobile</name>
+        <copyright/>
+        <url>https://github.com/aiselp/vscode-mobile</url>
+        <license>Apache Software License 2.0</license>
+    </notice>
 </notices>
