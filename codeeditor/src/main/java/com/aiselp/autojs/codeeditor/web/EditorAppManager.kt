@@ -90,7 +90,9 @@ class EditorAppManager(val context: Activity) {
                     if (zipEntry.isDirectory) {
                         file.mkdirs()
                     } else {
-                        zip.copyTo(file.outputStream())
+                        file.outputStream().use {
+                            zip.copyTo(it)
+                        }
                     }
                     zip.closeEntry()
                 }

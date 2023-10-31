@@ -1,7 +1,7 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
+import java.net.URL
 plugins {
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    id("kotlin-android")
 }
 
 android {
@@ -35,7 +35,6 @@ android {
 
 dependencies {
 
-    implementation(libs.eventbus)
     implementation(libs.kotlinx.coroutines.android)
     api(libs.nanohttpd.webserver)
     api(libs.androidx.webkit)
@@ -46,4 +45,33 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
+}
+
+tasks.register("downloadEditor") {
+    val tag = "dev-0.3.0"
+    val version = 3
+    val uri = "https://github.com/aiselp/vscode-mobile/releases/download/${tag}/dist.zip"
+    val assetsDir = File(projectDir, "/src/main/assets/codeeditor")
+    val versionFile = File(assetsDir, "version.txt")
+    doFirst {
+        logger.log(org.gradle.api.logging.LogLevel.LIFECYCLE,"start downloadEditor")
+        if (versionFile.isFile){
+            val dowversion = versionFile.readText().toInt()
+            if (dowversion == version) {
+                logger.log(org.gradle.api.logging.LogLevel.LIFECYCLE,"skip download")
+                return@doFirst
+            }
+        }
+        URL(uri).openStream().use {
+            File(assetsDir, "dist.zip").outputStream().use { out->
+                it.copyTo(out)
+            }
+        }
+        versionFile.writeText(version.toString())
+    }
+}
+tasks.findByName("preBuild")?.dependsOn("downloadEditor")
+tasks.findByName("preDebugBuild")?.dependsOn("downloadEditor")
+tasks.names.forEach {
+//    logger.error(it)
 }

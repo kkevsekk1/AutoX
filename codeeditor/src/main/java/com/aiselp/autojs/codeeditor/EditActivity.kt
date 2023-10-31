@@ -54,7 +54,8 @@ class EditActivity : AppCompatActivity() {
     }
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
-        editorAppManager.onBackButton()
+//        editorAppManager.onBackButton()
+        moveTaskToBack(false)
     }
 
     companion object {
