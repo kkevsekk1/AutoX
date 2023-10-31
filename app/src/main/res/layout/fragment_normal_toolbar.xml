@@ -9,7 +9,7 @@
     
     <org.autojs.autojs.ui.widget.ToolbarMenuItem
         android:id="@+id/edit"
-        android:layout_width="37dp"
+        android:layout_width="38dp"
         android:layout_height="match_parent"
         app:icon="@drawable/ic_edit_black_48dp"
         app:icon_color="@color/toolbar"
@@ -19,7 +19,7 @@
     
     <org.autojs.autojs.ui.widget.ToolbarMenuItem
         android:id="@+id/jump"
-        android:layout_width="37dp"
+        android:layout_width="38dp"
         android:layout_height="match_parent"
         app:icon="@drawable/ic_low_priority_black_48dp"
         app:icon_color="@color/toolbar"
@@ -29,7 +29,7 @@
     
     <org.autojs.autojs.ui.widget.ToolbarMenuItem
         android:id="@+id/debug"
-        android:layout_width="37dp"
+        android:layout_width="38dp"
         android:layout_height="match_parent"
         app:icon="@drawable/ic_bug_report_black_48dp"
         app:icon_color="@color/toolbar"
@@ -38,8 +38,18 @@
         app:text="@string/text_debug" />
     
     <org.autojs.autojs.ui.widget.ToolbarMenuItem
+        android:id="@+id/others"
+        android:layout_width="38dp"
+        android:layout_height="match_parent"
+        app:icon="@drawable/ic_more_horiz_black_48dp"
+        app:icon_color="@color/toolbar"
+        app:layout_constraintStart_toEndOf="@id/debug"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text="@string/text_others" />
+    
+    <org.autojs.autojs.ui.widget.ToolbarMenuItem
         android:id="@id/action_log"
-        android:layout_width="37dp"
+        android:layout_width="38dp"
         android:layout_height="match_parent"
         app:icon="@drawable/ic_ali_log"
         app:icon_color="@color/toolbar"
@@ -49,7 +59,7 @@
     
     <org.autojs.autojs.ui.widget.ToolbarMenuItem
         android:id="@+id/run"
-        android:layout_width="37dp"
+        android:layout_width="38dp"
         android:layout_height="match_parent"
         app:icon="@drawable/ic_play_arrow_black_48dp"
         app:icon_color="@color/toolbar"
@@ -59,7 +69,7 @@
     
     <org.autojs.autojs.ui.widget.ToolbarMenuItem
         android:id="@+id/undo"
-        android:layout_width="37dp"
+        android:layout_width="38dp"
         android:layout_height="match_parent"
         app:icon="@drawable/ic_undo_black_48dp"
         app:icon_color="@color/toolbar"
@@ -69,7 +79,7 @@
     
     <org.autojs.autojs.ui.widget.ToolbarMenuItem
         android:id="@+id/redo"
-        android:layout_width="37dp"
+        android:layout_width="38dp"
         android:layout_height="match_parent"
         app:icon="@drawable/ic_redo_black_48dp"
         app:icon_color="@color/toolbar"
@@ -79,7 +89,7 @@
     
     <org.autojs.autojs.ui.widget.ToolbarMenuItem
         android:id="@+id/save"
-        android:layout_width="37dp"
+        android:layout_width="38dp"
         android:layout_height="match_parent"
         android:enabled="false"
         android:gravity="center"
