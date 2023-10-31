@@ -1,4 +1,5 @@
 [versions]
+andserver = "2.1.12"
 core-ktx = "1.8.0"
 google-gson = "2.9.1"
 junit = "4.13.2"
@@ -12,6 +13,7 @@ material = "1.9.0"
 
 [libraries]
 
+commons-io = "commons-io:commons-io:2.6"
 eventbus = "org.greenrobot:eventbus:3.3.1"
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines-android" }
 nanohttpd-webserver = "org.nanohttpd:nanohttpd-webserver:2.3.1"
@@ -33,7 +35,8 @@ androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-
+andserver-processor = { module = "com.yanzhenjie.andserver:processor", version.ref = "andserver" }
+andserver-api = { module = "com.yanzhenjie.andserver:api", version.ref = "andserver" }
 [plugins]
 
 [bundles]

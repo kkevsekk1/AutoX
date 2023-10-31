@@ -2,6 +2,8 @@ import java.net.URL
 plugins {
     id("com.android.library")
     id("kotlin-android")
+    id("com.yanzhenjie.andserver")
+    id("kotlin-kapt")
 }
 
 android {
@@ -35,6 +37,8 @@ android {
 
 dependencies {
 
+    implementation(libs.andserver.api)
+    kapt(libs.andserver.processor)
     implementation(libs.kotlinx.coroutines.android)
     api(libs.nanohttpd.webserver)
     api(libs.androidx.webkit)

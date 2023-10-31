@@ -36,8 +36,7 @@ class EditorAppManager(val context: Activity) {
     private val jsBridge = JsBridge(webView)
     private val fileHttpServer = FileHttpServer(
         context, File(
-            context.filesDir,
-            "$WEB_PUBLIC_PATH/dist"
+            context.filesDir, "$WEB_PUBLIC_PATH/dist"
         )
     )
     private val pluginManager = PluginManager(jsBridge, coroutineScope)
@@ -51,7 +50,7 @@ class EditorAppManager(val context: Activity) {
             async { initWebResources() }.await()
             delay(300)
             withContext(Dispatchers.Main) {
-                webView.loadUrl("http://${fileHttpServer.hostname}:${fileHttpServer.port}")
+                webView.loadUrl(fileHttpServer.getAddress())
 //                webView.loadUrl("http://192.168.10.10:8009")
             }
         }
