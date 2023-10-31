@@ -55,6 +55,7 @@ tasks.register("downloadEditor") {
     val versionFile = File(assetsDir, "version.txt")
     doFirst {
         logger.log(org.gradle.api.logging.LogLevel.LIFECYCLE,"start downloadEditor")
+        assetsDir.mkdirs()
         if (versionFile.isFile){
             val dowversion = versionFile.readText().toInt()
             if (dowversion == version) {
