@@ -9,7 +9,7 @@ import org.autojs.autojs.ui.widget.SwipeRefreshWebView
 import org.autojs.autojs.ui.widget.WebDataKt
 import org.autojs.autojs.ui.widget.fillMaxSize
 
-class WebViewFragment : Fragment() {
+class EditorAppManager : Fragment() {
 
     val swipeRefreshWebView by lazy { SwipeRefreshWebView(requireContext()) }
 

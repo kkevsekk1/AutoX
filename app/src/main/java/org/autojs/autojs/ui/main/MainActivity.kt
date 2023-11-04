@@ -3,6 +3,7 @@ package org.autojs.autojs.ui.main
 import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.compose.setContent
@@ -24,6 +25,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.aiselp.autojs.codeeditor.EditActivity
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -47,10 +49,9 @@ import org.autojs.autojs.ui.main.components.LogButton
 import org.autojs.autojs.ui.main.drawer.DrawerPage
 import org.autojs.autojs.ui.main.scripts.ScriptListFragment
 import org.autojs.autojs.ui.main.task.TaskManagerFragmentKt
-import org.autojs.autojs.ui.main.web.WebViewFragment
+import org.autojs.autojs.ui.main.web.EditorAppManager
 import org.autojs.autojs.ui.widget.fillMaxSize
 import org.autojs.autoxjs.R
-
 data class BottomNavigationItem(val icon: Int, val label: String)
 
 class MainActivity : FragmentActivity() {
@@ -62,7 +63,7 @@ class MainActivity : FragmentActivity() {
 
     private val scriptListFragment by lazy { ScriptListFragment() }
     private val taskManagerFragment by lazy { TaskManagerFragmentKt() }
-    private val webViewFragment by lazy { WebViewFragment() }
+    private val webViewFragment by lazy { EditorAppManager() }
     private var lastBackPressedTime = 0L
     private var drawerState: DrawerState? = null
     private val viewPager: ViewPager2 by lazy { ViewPager2(this) }
@@ -142,7 +143,7 @@ fun MainPage(
     activity: FragmentActivity,
     scriptListFragment: ScriptListFragment,
     taskManagerFragment: TaskManagerFragmentKt,
-    webViewFragment: WebViewFragment,
+    webViewFragment: EditorAppManager,
     onDrawerState: (DrawerState) -> Unit,
     viewPager: ViewPager2
 ) {
@@ -318,7 +319,7 @@ private fun TopBar(
     requestOpenDrawer: () -> Unit,
     onSearch: (String) -> Unit,
     scriptListFragment: ScriptListFragment,
-    webViewFragment: WebViewFragment,
+    webViewFragment: EditorAppManager,
 ) {
     var isSearch by remember {
         mutableStateOf(false)
@@ -422,6 +423,13 @@ fun TopAppBarMenu(
         NewFile(context, scriptListFragment, onDismissRequest)
         ImportFile(context, scriptListFragment, onDismissRequest)
         NewProject(context, scriptListFragment, onDismissRequest)
+        DropdownMenuItem(onClick = {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                context.startActivity(Intent(context,EditActivity::class.java))
+            }
+        }) {
+            Text(text = "打开新编辑器")
+        }
 //        DropdownMenuItem(onClick = { /*TODO*/ }) {
 //            MyIcon(
 //                painter = painterResource(id = R.drawable.ic_timed_task),

@@ -24,6 +24,7 @@ buildscript {
         classpath(kotlin("gradle-plugin", version = "$kotlin_version"))
         classpath("com.jakewharton:butterknife-gradle-plugin:10.2.3")
         classpath("org.codehaus.groovy:groovy-json:3.0.8")
+        classpath("com.yanzhenjie.andserver:plugin:2.1.12")
     }
 }
 

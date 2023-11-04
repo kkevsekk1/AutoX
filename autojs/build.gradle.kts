@@ -36,12 +36,12 @@ dependencies {
     testImplementation(libs.junit)
     implementation(libs.documentfile)
     implementation("androidx.preference:preference-ktx:1.2.0")
-    api("org.greenrobot:eventbus:3.3.1")
+    api(libs.eventbus)
     api("net.lingala.zip4j:zip4j:1.3.2")
     api("com.afollestad.material-dialogs:core:0.9.2.3"){
         exclude(group = "com.android.support")
     }
-    api("com.google.android.material:material:1.7.0-beta01")
+    api(libs.material)
     api("com.github.hyb1996:EnhancedFloaty:0.31")
     api("com.makeramen:roundedimageview:2.3.0")
     // OkHttp
@@ -51,7 +51,7 @@ dependencies {
     // RootShell
     api("com.github.Stericson:RootShell:1.6")
     // Gson
-    api("com.google.code.gson:gson:2.9.1")
+    api(libs.google.gson)
     // log4j
     api(group = "de.mindpipe.android", name = "android-logging-log4j", version = "1.0.3")
     api(group = "log4j", name = "log4j", version = "1.2.17")

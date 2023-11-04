@@ -36,6 +36,9 @@ import de.psdev.licensesdialog.licenses.License;
 @EActivity(R.layout.activity_settings)
 public class SettingsActivity extends BaseActivity {
 
+    static {
+        LicenseInfo.INSTANCE.install();
+    }
     private static final List<Pair<Integer, Integer>> COLOR_ITEMS = new ListBuilder<Pair<Integer, Integer>>()
             .add(new Pair<>(R.color.theme_color_red, R.string.theme_color_red))
             .add(new Pair<>(R.color.theme_color_pink, R.string.theme_color_pink))
@@ -140,7 +143,6 @@ public class SettingsActivity extends BaseActivity {
         }
 
         private void showLicenseDialog() {
-            LicenseResolver.registerLicense(MozillaPublicLicense20.instance);
             new LicensesDialog.Builder(getActivity())
                     .setNotices(R.raw.licenses)
                     .setIncludeOwnLicense(true)
@@ -156,36 +158,6 @@ public class SettingsActivity extends BaseActivity {
                     .positiveText(R.string.ok)
                     .canceledOnTouchOutside(false)
                     .show();
-        }
-
-        public static class MozillaPublicLicense20 extends License {
-
-            public static MozillaPublicLicense20 instance = new MozillaPublicLicense20();
-
-            @Override
-            public String getName() {
-                return "Mozilla Public License 2.0";
-            }
-
-            @Override
-            public String readSummaryTextFromResources(Context context) {
-                return getContent(context, R.raw.mpl_20_summary);
-            }
-
-            @Override
-            public String readFullTextFromResources(Context context) {
-                return getContent(context, R.raw.mpl_20_full);
-            }
-
-            @Override
-            public String getVersion() {
-                return "2.0";
-            }
-
-            @Override
-            public String getUrl() {
-                return "https://www.mozilla.org/en-US/MPL/2.0/";
-            }
         }
 
     }

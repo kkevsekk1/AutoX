@@ -149,4 +149,16 @@
         <url>https://github.com/paddlepaddle/paddle</url>
         <license>Apache Software License 2.0</license>
     </notice>
+    <notice>
+        <name>AndServer</name>
+        <copyright />
+        <url>https://github.com/yanzhenjie/AndServer/</url>
+        <license>Apache Software License 2.0</license>
+    </notice>
+    <notice>
+        <name>vscode-mobile</name>
+        <copyright/>
+        <url>https://github.com/aiselp/vscode-mobile</url>
+        <license>Apache Software License 2.0</license>
+    </notice>
 </notices>
