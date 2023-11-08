@@ -40,7 +40,6 @@ dependencies {
     implementation(libs.andserver.api)
     kapt(libs.andserver.processor)
     implementation(libs.kotlinx.coroutines.android)
-    api(libs.nanohttpd.webserver)
     api(libs.androidx.webkit)
     implementation(libs.google.gson)
     implementation(libs.core.ktx)
@@ -58,12 +57,12 @@ tasks.register("downloadEditor") {
     val assetsDir = File(projectDir, "/src/main/assets/codeeditor")
     val versionFile = File(assetsDir, "version.txt")
     doFirst {
-        logger.log(org.gradle.api.logging.LogLevel.LIFECYCLE,"start downloadEditor")
+        logger.log(LogLevel.LIFECYCLE,"start downloadEditor")
         assetsDir.mkdirs()
         if (versionFile.isFile){
             val dowversion = versionFile.readText().toInt()
             if (dowversion == version) {
-                logger.log(org.gradle.api.logging.LogLevel.LIFECYCLE,"skip download")
+                logger.log(LogLevel.LIFECYCLE,"skip download")
                 return@doFirst
             }
         }

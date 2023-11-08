@@ -1,4 +1,6 @@
 [versions]
+activity-compose = "1.3.1"
+compose-version = "1.2.0-rc01"
 andserver = "2.1.12"
 core-ktx = "1.8.0"
 google-gson = "2.9.1"
@@ -10,8 +12,30 @@ androidx-test-ext-junit = "1.1.5"
 espresso-core = "3.5.1"
 appcompat = "1.6.1"
 material = "1.9.0"
+accompanist-version = "0.24.13-rc"
 
 [libraries]
+
+androidx-annotation = "androidx.annotation:annotation:1.4.0"
+activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
+# androidx compose
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-version" }
+compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose-version" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-version" }
+compose-material = { module = "androidx.compose.material:material", version.ref = "compose-version" }
+compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose-version" }
+# accompanist
+accompanist-webview = { module = "com.google.accompanist:accompanist-webview", version.ref = "accompanist-version" }
+accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist-version" }
+accompanist-insets-ui = { module = "com.google.accompanist:accompanist-insets-ui", version.ref = "accompanist-version" }
+accompanist-insets = { module = "com.google.accompanist:accompanist-insets", version.ref = "accompanist-version" }
+accompanist-appcompat-theme = { module = "com.google.accompanist:accompanist-appcompat-theme", version.ref = "accompanist-version" }
+accompanist-swiperefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "accompanist-version" }
+accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanist-version" }
+accompanist-pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanist-version" }
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist-version" }
+##########################
+androidx-activity-ktx = "androidx.activity:activity-ktx:1.5.1"
 
 commons-io = "commons-io:commons-io:2.6"
 eventbus = "org.greenrobot:eventbus:3.3.1"
@@ -41,3 +65,4 @@ andserver-api = { module = "com.yanzhenjie.andserver:api", version.ref = "andser
 
 [bundles]
 ktor = ["ktor-server-core", "ktor-server-netty", "ktor-server-websockets", "ktor-client-websockets", "ktor-client-okhttp", "ktor-client-core"]
+accompanist = ["accompanist-webview", "accompanist-systemuicontroller", "accompanist-insets-ui", "accompanist-insets", "accompanist-appcompat-theme", "accompanist-swiperefresh", "accompanist-pager", "accompanist-pager-indicators", "accompanist-permissions"]
