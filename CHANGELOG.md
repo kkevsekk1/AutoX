@@ -1,7 +1,13 @@
 # Change Log
 autoxjs 整个项目的一些更新日志,双版本号为稳定版（内容以修复的bug为主），单版本号为激进版本、发布新内容。
 
-## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.5.3...HEAD) 未发布
+## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.5.4...HEAD) 未发布
+
+## [6.5.3] - 2023-11-10
+@aiselp
+* 换新编辑器
+
+[6.5.4]:https://github.com/kkevsekk1/AutoX/compare/6.5.3...6.5.4
 
 ## [6.5.3] - 2023-10-24
 @aiselp
