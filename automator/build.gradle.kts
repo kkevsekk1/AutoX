@@ -34,6 +34,9 @@ dependencies {
         exclude(group = "com.android.support",module = "support-annotations")
     }
     testImplementation(libs.junit)
-    api(libs.appcompat)
+    implementation("androidx.core:core"){
+        version { strictly("1.8.0") }
+    }
+    api("androidx.appcompat:appcompat:1.4.2")
     api(project(":common"))
 }

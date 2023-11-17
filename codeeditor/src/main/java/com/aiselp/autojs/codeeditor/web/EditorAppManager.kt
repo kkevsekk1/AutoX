@@ -66,7 +66,9 @@ class EditorAppManager(val context: Activity) {
     private fun installPlugin() {
         pluginManager.registerPlugin("FileSystem", FileSystem())
         jsBridge.registerHandler("app.exitApp", JsBridge.Handle { _, _ ->
-            context.moveTaskToBack(false)
+            coroutineScope.launch(Dispatchers.Main) {
+                context.moveTaskToBack(false)
+            }
         })
     }
 

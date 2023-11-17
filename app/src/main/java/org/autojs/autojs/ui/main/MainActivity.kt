@@ -52,6 +52,7 @@ import org.autojs.autojs.ui.main.task.TaskManagerFragmentKt
 import org.autojs.autojs.ui.main.web.EditorAppManager
 import org.autojs.autojs.ui.widget.fillMaxSize
 import org.autojs.autoxjs.R
+
 data class BottomNavigationItem(val icon: Int, val label: String)
 
 class MainActivity : FragmentActivity() {
@@ -343,7 +344,16 @@ private fun TopBar(
                         text = stringResource(id = R.string.app_name)
                     )
                 }
-
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    IconButton(onClick = {
+                        context.startActivity(Intent(context, EditActivity::class.java))
+                    }) {
+                        Icon(
+                            imageVector = Icons.Default.Edit,
+                            contentDescription = "editor"
+                        )
+                    }
+                }
                 IconButton(onClick = { isSearch = true }) {
                     Icon(
                         imageVector = Icons.Default.Search,
@@ -423,13 +433,6 @@ fun TopAppBarMenu(
         NewFile(context, scriptListFragment, onDismissRequest)
         ImportFile(context, scriptListFragment, onDismissRequest)
         NewProject(context, scriptListFragment, onDismissRequest)
-        DropdownMenuItem(onClick = {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                context.startActivity(Intent(context,EditActivity::class.java))
-            }
-        }) {
-            Text(text = "打开新编辑器")
-        }
 //        DropdownMenuItem(onClick = { /*TODO*/ }) {
 //            MyIcon(
 //                painter = painterResource(id = R.drawable.ic_timed_task),

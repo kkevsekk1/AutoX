@@ -10,7 +10,7 @@ okhttp = "4.10.0"
 ktor-version = "2.0.3"
 androidx-test-ext-junit = "1.1.5"
 espresso-core = "3.5.1"
-appcompat = "1.6.1"
+appcompat = "1.4.2"
 material = "1.9.0"
 accompanist-version = "0.24.13-rc"
 

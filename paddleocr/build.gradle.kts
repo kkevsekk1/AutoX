@@ -39,7 +39,9 @@ dependencies {
     implementation(libs.core.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs.espresso.core){
+        exclude(group = "com.android.support",module = "support-annotations")
+    }
 }
 repositories {
     mavenCentral()

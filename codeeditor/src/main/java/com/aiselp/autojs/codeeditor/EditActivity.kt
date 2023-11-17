@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.widget.FrameLayout
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +27,7 @@ class EditActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
+        Log.i(TAG, "EditActivity onDestroy")
         super.onDestroy()
         editorAppManager.destroy()
     }
@@ -36,7 +38,7 @@ class EditActivity : AppCompatActivity() {
             val r = Rect()
             rootView.getWindowVisibleDisplayFrame(r)
             val currentHeight = rootView.height
-            var resultBottom = r.bottom
+            val resultBottom = r.bottom
             if (currentHeight - resultBottom > 200) {
                 editorAppManager.onKeyboardDidShow()
             } else {
@@ -52,7 +54,7 @@ class EditActivity : AppCompatActivity() {
             editorAppManager.openFile(path)
         }
     }
-    @Deprecated("Deprecated in Java")
+    @Deprecated("Deprecated in Java", ReplaceWith("moveTaskToBack(false)"))
     override fun onBackPressed() {
 //        editorAppManager.onBackButton()
         moveTaskToBack(false)
@@ -60,6 +62,7 @@ class EditActivity : AppCompatActivity() {
 
     companion object {
         private const val EXTRA_PATH = "path";
+        const val TAG = "EditActivity"
         fun editFile(context: Context, path: File) {
             val intent = Intent(context, EditActivity::class.java)
                 .putExtra(EXTRA_PATH, path.path)

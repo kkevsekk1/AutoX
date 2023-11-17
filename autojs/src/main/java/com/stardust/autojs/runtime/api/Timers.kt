@@ -30,7 +30,7 @@ class Timers(private val mRuntime: ScriptRuntime) {
     fun setTimeout(vararg args: Any?): Int {
         val listener = args.elementAtOrNull(0)
         check(listener != null) { "callback cannot be null" }
-        val delay = args.elementAtOrNull(1)?.let { (it as Double).toLong() } ?: 1
+        val delay = (args.elementAtOrNull(1) as? Double)?.toLong() ?: 1
         return timerForCurrentThread.setTimeout(listener, delay, *args.drop(2).toTypedArray())
     }
 
@@ -45,8 +45,8 @@ class Timers(private val mRuntime: ScriptRuntime) {
     fun setInterval(vararg args: Any?): Int {
         val listener = args.elementAtOrNull(0)
         check(listener != null) { "callback cannot be null" }
-        val interval = args.elementAtOrNull(1)?.let { (it as Double).toLong() } ?: 1
-        return timerForCurrentThread.setInterval(listener, interval, *args.drop(2).toTypedArray())
+        val delay = (args.elementAtOrNull(1) as? Double)?.toLong() ?: 1
+        return timerForCurrentThread.setInterval(listener, delay, *args.drop(2).toTypedArray())
     }
 
     fun clearTimeout(id: Int): Boolean {

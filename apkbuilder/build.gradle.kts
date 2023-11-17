@@ -30,7 +30,9 @@ dependencies {
 
     implementation(libs.okhttp)
     androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs.espresso.core){
+        exclude(group = "com.android.support",module = "support-annotations")
+    }
     testImplementation(libs.junit)
     api(files("libs/tiny-sign-0.9.jar"))
     api(libs.commons.io)

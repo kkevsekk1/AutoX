@@ -10,7 +10,6 @@ android {
 
     defaultConfig {
         minSdk = versions.mini
-        targetSdk = versions.target
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -44,5 +43,7 @@ dependencies {
     api(libs.androidx.annotation)
     api("com.github.hyb1996:settingscompat:1.1.5")
     implementation(libs.androidx.activity.ktx)
+    implementation(libs.appcompat)
+    implementation(libs.material)
     api(kotlin("reflect", version = "1.7.10"))
 }

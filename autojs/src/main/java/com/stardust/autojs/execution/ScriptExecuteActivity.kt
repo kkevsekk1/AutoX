@@ -122,9 +122,11 @@ class ScriptExecuteActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d(LOG_TAG, "onDestroy")
-        mScriptEngine.put("activity", null)
-        mScriptEngine.setTag("activity", null)
-        mScriptEngine.destroy()
+        if (::mScriptEngine.isInitialized) {
+            mScriptEngine.put("activity", null)
+            mScriptEngine.setTag("activity", null)
+            mScriptEngine.destroy()
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

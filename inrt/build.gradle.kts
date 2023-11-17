@@ -156,7 +156,7 @@ tasks.register("cp2APPDebug") {
 dependencies {
     implementation(libs.androidx.activity.ktx)
     implementation(libs.appcompat)
-    implementation("com.google.android.material:material:1.6.1")
+    implementation(libs.material)
     implementation(libs.androidx.annotation)
     implementation("androidx.preference:preference-ktx:1.2.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
@@ -168,7 +168,6 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.2.0") {
         exclude(group = "com.android.support")
     }
-    implementation("com.google.android.material:material:1.6.1")
     // RxJava
 //    implementation("io.reactivex.rxjava2:rxjava:2.2.21")
 //    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")

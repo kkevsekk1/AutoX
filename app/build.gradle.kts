@@ -201,7 +201,7 @@ dependencies {
     implementation("androidx.preference:preference-ktx:1.2.0")
     implementation(libs.appcompat) //
     implementation("androidx.cardview:cardview:1.0.0")
-    implementation("com.google.android.material:material:1.7.0-alpha03")
+    implementation(libs.material)
     // Personal libraries
     implementation("com.github.hyb1996:MutableTheme:1.0.0")
     // Material Dialogs
