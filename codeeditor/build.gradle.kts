@@ -43,10 +43,11 @@ dependencies {
     api(libs.androidx.webkit)
     implementation(libs.google.gson)
     implementation(libs.core.ktx)
-    implementation("androidx.activity:activity-ktx:1.5.0")
-    implementation("androidx.appcompat:appcompat:1.4.2")
+    implementation(libs.androidx.activity.ktx)
+    implementation(libs.appcompat)
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0")
+    implementation(libs.material)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
