@@ -30,10 +30,13 @@ android {
 }
 
 dependencies {
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.1.1-alpha01"){
+    androidTestImplementation(libs.espresso.core){
         exclude(group = "com.android.support",module = "support-annotations")
     }
-    testImplementation("junit:junit:4.13.2")
+    testImplementation(libs.junit)
+    implementation("androidx.core:core"){
+        version { strictly("1.8.0") }
+    }
     api("androidx.appcompat:appcompat:1.4.2")
     api(project(":common"))
 }

@@ -67,7 +67,7 @@ open class TimerThread(private val mRuntime: ScriptRuntime, private val mTarget:
     fun setTimeout(vararg args: Any?): Int {
         val listener = args.elementAtOrNull(0)
         check(listener != null) { "callback cannot be null" }
-        val delay = args.elementAtOrNull(1)?.let { (it as Double).toLong() } ?: 1
+        val delay = (args.elementAtOrNull(1) as? Double)?.toLong() ?: 1
         return timer.setTimeout(listener, delay, *args.drop(2).toTypedArray())
     }
 
@@ -80,8 +80,8 @@ open class TimerThread(private val mRuntime: ScriptRuntime, private val mTarget:
     fun setInterval(vararg args: Any?): Int {
         val listener = args.elementAtOrNull(0)
         check(listener != null) { "callback cannot be null" }
-        val interval = args.elementAtOrNull(1)?.let { (it as Double).toLong() } ?: 1
-        return timer.setInterval(listener, interval, *args.drop(2).toTypedArray())
+        val delay = (args.elementAtOrNull(1) as? Double)?.toLong() ?: 1
+        return timer.setInterval(listener, delay, *args.drop(2).toTypedArray())
     }
 
     val timer: Timer

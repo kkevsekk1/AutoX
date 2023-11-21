@@ -17,7 +17,12 @@ android {
     buildTypes {
         named("release") {
             isMinifyEnabled = false
-            setProguardFiles(listOf(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"))
+            setProguardFiles(
+                listOf(
+                    getDefaultProguardFile("proguard-android.txt"),
+                    "proguard-rules.pro"
+                )
+            )
         }
     }
 
@@ -32,11 +37,11 @@ android {
 dependencies {
     implementation(libs.okhttp)
     implementation(libs.core.ktx)
-}
-dependencies {
-    testImplementation( "junit:junit:4.13.2")
-    androidTestImplementation( "androidx.test.ext:junit:1.1.3")
-    androidTestImplementation( "androidx.test.espresso:espresso-core:3.4.0")
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.espresso.core){
+        exclude(group = "com.android.support",module = "support-annotations")
+    }
 }
 repositories {
     mavenCentral()

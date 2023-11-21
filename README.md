@@ -128,17 +128,17 @@
 
 ##### 本地安装调试版本到设备：
 ```shell
-./gradlew inrt:assembleTemplateDebug && ./gradlew inrt:cp2APPDebug && ./gradlew app:assembleV6Debug && ./gradlew app:installV6Debug
+./gradlew app:buildDebugTemplateApp && ./gradlew app:assembleV6Debug && ./gradlew app:installV6Debug
 #或
-./gradlew inrt:assembleTemplateDebug ; ./gradlew inrt:cp2APPDebug ; ./gradlew app:assembleV6Debug ; ./gradlew app:installV6Debug
+./gradlew app:buildDebugTemplateApp ; ./gradlew app:assembleV6Debug ; ./gradlew app:installV6Debug
 ```
 生成的调试版本APK文件在 app/build/outputs/apk/v6/debug 下，使用默认签名
 
 ##### 本地编译发布版本：
 ```shell
-./gradlew inrt:assembleTemplate && ./gradlew inrt:cp2APP && ./gradlew app:assembleV6
+./gradlew app:buildTemplateApp && ./gradlew inrt:cp2APP && ./gradlew app:assembleV6
 #或
-./gradlew inrt:assembleTemplate ; ./gradlew inrt:cp2APP ; ./gradlew app:assembleV6
+./gradlew app:buildTemplateApp ; ./gradlew inrt:cp2APP ; ./gradlew app:assembleV6
 ```
 生成的是未签名的APK文件，在 app/build/outputs/apk/v6/release 下，需要签名后才能安装
 
@@ -146,9 +146,7 @@
 先运行以下命令：
 
 ```shell
-./gradlew inrt:assembleTemplate && ./gradlew inrt:cp2APP
-#或
-./gradlew inrt:assembleTemplate ; ./gradlew inrt:cp2APP
+./gradlew app:buildDebugTemplateApp
 ```
 
 再点击 Android Studio 运行按钮
@@ -157,9 +155,7 @@
 先运行以下命令：
 
 ```shell
-./gradlew inrt:assembleTemplate && ./gradlew inrt:cp2APP
-#或
-./gradlew inrt:assembleTemplate ; ./gradlew inrt:cp2APP
+./gradlew app:buildTemplateApp
 ```
 
 再点击 Android Studio 菜单 "Build" -> "Generate Signed Bundle /APK..." -> 勾选"APK" -> "Next" -> 选择或新建证书 -> "Next" -> 选择"v6Release" -> "Finish"

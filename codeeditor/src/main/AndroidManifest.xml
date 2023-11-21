@@ -7,7 +7,7 @@
             android:name=".EditActivity"
             android:configChanges="orientation|screenSize|uiMode"
             android:launchMode="singleInstance"
-            android:taskAffinity="task.editor">
+            >
 
         </activity>
     </application>

@@ -1,3 +1,4 @@
+import com.android.build.gradle.internal.tasks.factory.dependsOn
 import java.util.Properties
 
 plugins {
@@ -7,7 +8,6 @@ plugins {
     id("kotlin-kapt")
 }
 
-val AAVersion = "4.5.2"
 //val SupportLibVersion = "28.0.0"
 
 val propFile: File = File("E:/资料/jks/autojs-app/sign.properties");
@@ -166,35 +166,26 @@ android {
 }
 
 dependencies {
+    val AAVersion = "4.5.2"
 
     implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.1.0")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-    val accompanist_version = "0.24.13-rc"
-    implementation("com.google.accompanist:accompanist-permissions:0.24.13-rc")
-    implementation("com.google.accompanist:accompanist-pager-indicators:$accompanist_version")
-    implementation("com.google.accompanist:accompanist-pager:$accompanist_version")
-    implementation("com.google.accompanist:accompanist-swiperefresh:$accompanist_version")
-    implementation("com.google.accompanist:accompanist-appcompat-theme:$accompanist_version")
-    implementation("com.google.accompanist:accompanist-insets:$accompanist_version")
-    implementation("com.google.accompanist:accompanist-insets-ui:$accompanist_version")
-    implementation("com.google.accompanist:accompanist-systemuicontroller:$accompanist_version")
-    implementation("com.google.accompanist:accompanist-webview:$accompanist_version")
 
-    implementation("androidx.compose.ui:ui:$compose_version")
-    implementation("androidx.compose.material:material:$compose_version")
-    implementation("androidx.compose.ui:ui-tooling-preview:$compose_version")
-    implementation("androidx.activity:activity-compose:1.3.1")
-//    implementation("org.chromium.net:cronet-embedded:76.3809.111")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
-    debugImplementation("androidx.compose.ui:ui-tooling:$compose_version")
+    implementation(libs.bundles.accompanist)
 
+    implementation(libs.compose.ui)
+    implementation(libs.compose.material)
+    implementation(libs.compose.ui.tooling.preview)
+    androidTestImplementation(libs.compose.ui.test.junit4)
+    debugImplementation(libs.compose.ui.tooling)
+    implementation(libs.activity.compose)
 
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.1.1-alpha01") {
+    androidTestImplementation(libs.espresso.core) {
         exclude(group = "com.android.support", module = "support-annotations")
     }
     testImplementation(libs.junit)
     // Kotlin携程
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2")
+    implementation(libs.kotlinx.coroutines.android)
     // Android Annotations
     annotationProcessor("org.androidannotations:androidannotations:$AAVersion")
     kapt("org.androidannotations:androidannotations:$AAVersion")
@@ -208,9 +199,9 @@ dependencies {
     kapt("com.jakewharton:butterknife-compiler:10.2.3")
     // Android supports
     implementation("androidx.preference:preference-ktx:1.2.0")
-    implementation("androidx.appcompat:appcompat:1.4.2") //
+    implementation(libs.appcompat) //
     implementation("androidx.cardview:cardview:1.0.0")
-    implementation("com.google.android.material:material:1.7.0-alpha03")
+    implementation(libs.material)
     // Personal libraries
     implementation("com.github.hyb1996:MutableTheme:1.0.0")
     // Material Dialogs
@@ -246,7 +237,6 @@ dependencies {
     implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     debugImplementation("com.squareup.leakcanary:leakcanary-android:2.8.1")
     releaseImplementation("com.squareup.leakcanary:leakcanary-android-no-op:1.6.3")
@@ -310,4 +300,34 @@ dependencies {
     implementation("io.noties.markwon:core:4.6.2")
     implementation("androidx.viewpager2:viewpager2:1.1.0-beta01")
     implementation("io.coil-kt:coil-compose:2.0.0-rc03")
+}
+
+fun copyTemplateToAPP(isDebug: Boolean, to: File) {
+    val outName = if (isDebug) "template-debug" else "template-release"
+    val outFile = project(":inrt").buildOutputs.named(outName).get().outputFile
+    copy {
+        from(outFile)
+        into(to)
+        delete(File(to, "template.apk"))
+        rename(outFile.name, "template.apk")
+    }
+    logger.lifecycle("buildTemplate success, debugMode: $isDebug")
+}
+
+val assetsDir = File(projectDir, "src/main/assets")
+if (!File(assetsDir, "template.apk").isFile) {
+    tasks.named("preBuild").dependsOn("buildTemplateApp")
+}
+
+tasks.register("buildTemplateApp") {
+    dependsOn(":inrt:assembleTemplateRelease")
+    doFirst {
+        copyTemplateToAPP(false, assetsDir)
+    }
+}
+tasks.register("buildDebugTemplateApp") {
+    dependsOn(":inrt:assembleTemplateDebug")
+    doFirst {
+        copyTemplateToAPP(true, assetsDir)
+    }
 }

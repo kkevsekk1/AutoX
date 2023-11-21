@@ -99,7 +99,7 @@ android {
             res.srcDirs("src/main/res", "src/main/res-i18n")
         }
     }
-    packagingOptions {
+    packaging {
         jniLibs {
             useLegacyPackaging = true
         }
@@ -119,7 +119,6 @@ android {
                 "lib/armeabi-v7a/libpaddle_light_api(_shared.so"
             )
         )
-
     }
     namespace = "org.autojs.autoxjs.inrt"
 
@@ -128,9 +127,9 @@ android {
 
 android.applicationVariants.all {
     val variant = this
-    variant.mergeAssetsProvider.configure {
-        doLast {
-            if (variant.flavorName == "template") {
+    if (variant.flavorName == "template") {
+        mergeAssetsProvider.configure {
+            doLast {
                 delete(
                     fileTree(outputDir) {
                         include(
@@ -146,72 +145,38 @@ android.applicationVariants.all {
 
 }
 
-fun buildApkPlugin(pluginProjectDir: File, isDebug: Boolean) {
-    copy {
-        var form = "build\\outputs\\apk\\template\\"
-        form += if (isDebug) "debug\\"
-        else "release\\"
-        from(file(form))
-        into(File(pluginProjectDir, "src\\main\\assets"))
-        var fileName = "inrt-template-release-unsigned.apk"
-        if (isDebug) fileName = "inrt-template-debug.apk"
-        include(fileName)
-        rename(fileName, "template.apk")
-    }
-    println("app cp ok")
-}
 
 tasks.register("cp2APP") {
-    doLast {
-        copyTemplateToAPP(false)
-    }
 }
 
 tasks.register("cp2APPDebug") {
-    doLast {
-        copyTemplateToAPP(true)
-    }
 }
 
-fun copyTemplateToAPP(isDebug: Boolean) {
-    val pluginProjectDirPath = "..\\app"
-    println(pluginProjectDirPath)
-    val pluginProjectDir = file(pluginProjectDirPath)
-    if (!pluginProjectDir.exists() || !pluginProjectDir.isDirectory) {
-        println("app 目录 not exists")
-        return
-    }
-    println(pluginProjectDir)
-    // buildApkPluginForAbi(pluginProjectDir, "armeabi-v7a")
-    buildApkPlugin(pluginProjectDir, isDebug)
-}
 
 dependencies {
-    implementation("androidx.activity:activity-ktx:1.5.0")
-    implementation("androidx.appcompat:appcompat:1.4.2")
-    implementation("com.google.android.material:material:1.6.1")
-    implementation("androidx.annotation:annotation:1.4.0")
+    implementation(libs.androidx.activity.ktx)
+    implementation(libs.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.annotation)
     implementation("androidx.preference:preference-ktx:1.2.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.1.1-alpha01") {
+    androidTestImplementation(libs.espresso.core) {
         exclude(group = "com.android.support", "support-annotations")
     }
     implementation("com.github.bumptech.glide:glide:4.2.0") {
         exclude(group = "com.android.support")
     }
-    implementation("com.google.android.material:material:1.6.1")
     // RxJava
-    implementation("io.reactivex.rxjava2:rxjava:2.2.21")
-    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
+//    implementation("io.reactivex.rxjava2:rxjava:2.2.21")
+//    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
     implementation("com.fanjun:keeplive:1.1.22")
     implementation("com.dhh:websocket2:2.1.4")
     implementation("com.github.SenhLinsh:Utils-Everywhere:3.0.0")
-    testImplementation("junit:junit:4.13.2")
+    testImplementation(libs.junit)
     implementation(project(":automator"))
     implementation(project(":common"))
     implementation(project(":autojs"))
     implementation("androidx.multidex:multidex:2.0.1")
-    api(fileTree("../app/libs") { include("dx.jar", "rhino-1.7.14-jdk7.jar") })
 }

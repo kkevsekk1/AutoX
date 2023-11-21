@@ -10,7 +10,6 @@ android {
 
     defaultConfig {
         minSdk = versions.mini
-        targetSdk = versions.target
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -36,13 +35,15 @@ android {
 }
 
 dependencies {
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.1.1-alpha01") {
+    androidTestImplementation(libs.espresso.core) {
         exclude(group = "com.android.support", module = "support-annotations")
     }
-    testImplementation("junit:junit:4.13.2")
+    testImplementation(libs.junit)
 //    api(kotlin("stdlib", KotlinCompilerVersion.VERSION))
-    api("androidx.annotation:annotation:1.4.0")
+    api(libs.androidx.annotation)
     api("com.github.hyb1996:settingscompat:1.1.5")
-    implementation("androidx.activity:activity-ktx:1.5.1")
+    implementation(libs.androidx.activity.ktx)
+    implementation(libs.appcompat)
+    implementation(libs.material)
     api(kotlin("reflect", version = "1.7.10"))
 }

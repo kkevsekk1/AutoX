@@ -40,15 +40,20 @@ dependencies {
     implementation(libs.andserver.api)
     kapt(libs.andserver.processor)
     implementation(libs.kotlinx.coroutines.android)
-    api(libs.nanohttpd.webserver)
     api(libs.androidx.webkit)
     implementation(libs.google.gson)
     implementation(libs.core.ktx)
+    implementation(libs.androidx.activity.ktx)
     implementation(libs.appcompat)
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0")
     implementation(libs.material)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs.espresso.core){
+        exclude(group = "com.android.support",module = "support-annotations")
+    }
 }
 
 tasks.register("downloadEditor") {
@@ -58,12 +63,12 @@ tasks.register("downloadEditor") {
     val assetsDir = File(projectDir, "/src/main/assets/codeeditor")
     val versionFile = File(assetsDir, "version.txt")
     doFirst {
-        logger.log(org.gradle.api.logging.LogLevel.LIFECYCLE,"start downloadEditor")
+        logger.log(LogLevel.LIFECYCLE,"start downloadEditor")
         assetsDir.mkdirs()
         if (versionFile.isFile){
             val dowversion = versionFile.readText().toInt()
             if (dowversion == version) {
-                logger.log(org.gradle.api.logging.LogLevel.LIFECYCLE,"skip download")
+                logger.log(LogLevel.LIFECYCLE,"skip download")
                 return@doFirst
             }
         }

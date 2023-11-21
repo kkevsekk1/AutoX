@@ -109,17 +109,17 @@ Command description: Run the command in the project root directory, if using Win
 
 ##### Install the debug build locally to the device：
 ```shell
-./gradlew inrt:assembleTemplateDebug && ./gradlew inrt:cp2APPDebug && ./gradlew app:assembleV6Debug && ./gradlew app:installV6Debug
+./gradlew app:buildDebugTemplateApp && ./gradlew app:assembleV6Debug && ./gradlew app:installV6Debug
 #or
-./gradlew inrt:assembleTemplateDebug ; ./gradlew inrt:cp2APPDebug ; ./gradlew app:assembleV6Debug ; ./gradlew app:installV6Debug
+./gradlew app:buildDebugTemplateApp ; ./gradlew app:assembleV6Debug ; ./gradlew app:installV6Debug
 ```
 The generated debug version APK file is under app/build/outputs/apk/v6/debug with the default signature
 
 ##### Compile the release version locally：
 ```shell
-./gradlew inrt:assembleTemplate && ./gradlew inrt:cp2APP && ./gradlew app:assembleV6
+./gradlew app:buildTemplateApp && ./gradlew inrt:cp2APP && ./gradlew app:assembleV6
 #or
-./gradlew inrt:assembleTemplate ; ./gradlew inrt:cp2APP ; ./gradlew app:assembleV6
+./gradlew app:buildTemplateApp ; ./gradlew inrt:cp2APP ; ./gradlew app:assembleV6
 ```
 The generated APK file is an unsigned APK file. Under app/build/outputs/apk/v6/release, it needs to be signed before it can be installed.
 
@@ -127,9 +127,7 @@ The generated APK file is an unsigned APK file. Under app/build/outputs/apk/v6/r
 First run the following command:
 
 ```shell
-./gradlew inrt:assembleTemplate && ./gradlew inrt:cp2APP
-#or
-./gradlew inrt:assembleTemplate ; ./gradlew inrt:cp2APP
+./gradlew app:buildDebugTemplateApp
 ```
 
 Then click the Android Studio Run button
@@ -138,9 +136,7 @@ Then click the Android Studio Run button
 First run the following command:
 
 ```shell
-./gradlew inrt:assembleTemplate && ./gradlew inrt:cp2APP
-#or
-./gradlew inrt:assembleTemplate ; ./gradlew inrt:cp2APP
+./gradlew app:buildTemplateApp
 ```
 
 Then click Android Studio menu "Build" -> "Generate Signed Bundle APK..." -> check "APK" 
