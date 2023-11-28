@@ -5,23 +5,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-
-import org.autojs.autojs.tool.IntentTool;
-import org.autojs.autojs.ui.BaseActivity;
-import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
-
 import com.stardust.util.ClipboardUtil;
 import com.stardust.util.IntentUtil;
 import com.stardust.util.IntentUtilKt;
 import com.tencent.bugly.crashreport.CrashReport;
 
-import org.autojs.autoxjs.BuildConfig;
-import org.autojs.autoxjs.R;
-
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
+import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
+import org.autojs.autojs.tool.IntentTool;
+import org.autojs.autojs.ui.BaseActivity;
+import org.autojs.autoxjs.BuildConfig;
+import org.autojs.autoxjs.R;
 
 /**
  * Created by Stardust on 2017/2/2.
@@ -76,32 +73,23 @@ public class AboutActivity extends BaseActivity {
     @Click(R.id.icon)
     void lol() {
         mLolClickCount++;
-//        Toast.makeText(this, R.string.text_lll, Toast.LENGTH_LONG).show();
         if (mLolClickCount >= 5) {
+            mLolClickCount = 0;
             crashTest();
-            showEasterEgg();
         }
     }
 
     private void showEasterEgg() {
-        new MaterialDialog.Builder(this)
-                .customView(R.layout.paint_layout, false)
-                .show();
+        new MaterialDialog.Builder(this).customView(R.layout.paint_layout, false).show();
     }
 
     private void crashTest() {
-        new ThemeColorMaterialDialogBuilder(this)
-                .title("Crash Test")
-                .positiveText("Crash")
-                .onPositive((dialog, which) -> {
-                    CrashReport.testJavaCrash();
-                }).show();
+        new ThemeColorMaterialDialogBuilder(this).title("Crash Test").positiveText("Crash").onPositive((dialog, which) -> CrashReport.testJavaCrash()).show();
     }
 
     @Click(R.id.developer)
     void hhh() {
         Toast.makeText(this, R.string.text_it_is_the_developer_of_app, Toast.LENGTH_LONG).show();
     }
-
 
 }
