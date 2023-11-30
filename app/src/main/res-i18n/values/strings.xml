@@ -1,4 +1,9 @@
 <resources>
+    <string name="text_error_copy">复制信息</string>
+    <string name="text_error_restart">重启软件</string>
+    <string name="text_error_exit">退出软件</string>
+    <string name="text_error_save">已保存到路径:%1$s</string>
+
     <string name="app_name" translatable="false">Autox.js</string>
     <string name="text_broadcast_action_prefix" translatable="false">android.intent.action.</string>
     <string name="text_en_import" translatable="false">import</string>
