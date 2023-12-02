@@ -7,18 +7,17 @@ import android.util.Log
 import android.view.ViewGroup
 import android.webkit.WebView
 import androidx.annotation.RequiresApi
+import com.aiselp.autojs.codeeditor.dialogs.LoadDialog
+import com.aiselp.autojs.codeeditor.plugins.AppController
 import com.aiselp.autojs.codeeditor.plugins.FileSystem
+import com.stardust.pio.PFiles
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.asCoroutineDispatcher
 import kotlinx.coroutines.async
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
 import java.util.zip.ZipEntry
 import java.util.zip.ZipInputStream
 
@@ -27,11 +26,11 @@ class EditorAppManager(val context: Activity) {
     companion object {
         const val TAG = "EditorAppManager"
         const val WEB_DIST_PATH = "codeeditor/dist.zip"
+        const val VERSION_FILE = "codeeditor/version.txt"
         const val WEB_PUBLIC_PATH = "editorWeb/"
     }
 
     private val coroutineScope = CoroutineScope(Dispatchers.Default)
-    private val executors: ExecutorService = Executors.newSingleThreadExecutor()
     val webView = createWebView(context)
     private val jsBridge = JsBridge(webView)
     private val fileHttpServer = FileHttpServer(
@@ -41,21 +40,26 @@ class EditorAppManager(val context: Activity) {
     )
     private val pluginManager = PluginManager(jsBridge, coroutineScope)
     var opendeFile: String? = null
+    private val loadDialog = LoadDialog(context)
 
     init {
         webView.webViewClient = JsBridge.SuperWebViewClient()
         installPlugin()
+        loadDialog.show()
         coroutineScope.launch {
-            launch(executors.asCoroutineDispatcher()) { fileHttpServer.start() }
+            fileHttpServer.start()
             async { initWebResources() }.await()
-            delay(300)
+            loadDialog.setContent("启动中")
+            fileHttpServer.await()
             withContext(Dispatchers.Main) {
                 webView.loadUrl(fileHttpServer.getAddress())
-//                webView.loadUrl("http://192.168.10.10:8009")
+//                webView.loadUrl("http://192.168.10.10:8010")
+                loadDialog.dialog.dismiss()
             }
         }
 //        webView.loadUrl("http://appassets.androidplatform.net/index.html")
         jsBridge.registerHandler("app.init", JsBridge.Handle { _, _ ->
+            pluginManager.onWebInit()
             val file = opendeFile
             if (file != null) {
                 openFile(file)
@@ -64,21 +68,20 @@ class EditorAppManager(val context: Activity) {
     }
 
     private fun installPlugin() {
-        pluginManager.registerPlugin("FileSystem", FileSystem())
-        jsBridge.registerHandler("app.exitApp", JsBridge.Handle { _, _ ->
-            coroutineScope.launch(Dispatchers.Main) {
-                context.moveTaskToBack(false)
-            }
-        })
+        pluginManager.registerPlugin(FileSystem.TAG, FileSystem(context))
+        pluginManager.registerPlugin(AppController.TAG, AppController(context))
     }
 
-    private fun initWebResources() {
+    private suspend fun initWebResources() {
         val webDir = File(context.filesDir, WEB_PUBLIC_PATH)
         val versionFile = File(webDir, "version.txt")
         if (isUpdate(versionFile)) {
             Log.i(TAG, "skip initWebResources")
             return
         }
+        if (PFiles.deleteRecursively(webDir)) {
+            loadDialog.setContent("正在更新")
+        } else loadDialog.setContent("正在安装")
         Log.i(TAG, "initWebResources")
         webDir.mkdirs()
         context.assets.open(WEB_DIST_PATH).use { it ->
@@ -99,17 +102,16 @@ class EditorAppManager(val context: Activity) {
                 }
             }
         }
-        val versionCode = context.packageManager.getPackageInfo(context.packageName, 0).versionCode
-        versionFile.writeText(versionCode.toString())
+        val versionCode = String(context.assets.open(VERSION_FILE).use { it.readBytes() })
+        versionFile.writeText(versionCode)
     }
 
     private fun isUpdate(file: File): Boolean {
         if (!file.isFile) return false
         return try {
             val text = file.readText().toLong()
-            val versionCode =
-                context.packageManager.getPackageInfo(context.packageName, 0).versionCode
-            versionCode.toLong() == text
+            val versionCode = context.assets.open(VERSION_FILE).use { it.readBytes() }
+            String(versionCode).toLong() == text
         } catch (e: Exception) {
             false
         }
@@ -119,11 +121,10 @@ class EditorAppManager(val context: Activity) {
         webView.destroy()
         fileHttpServer.stop()
         coroutineScope.cancel()
-        executors.shutdownNow()
     }
 
     fun openFile(path: String) {
-        jsBridge.callHandler("app.openFile", path.replace(FileSystem.basePath.path, ""), null)
+        jsBridge.callHandler("app.openFile", FileSystem.toWebPath(File(path)), null)
     }
 
     fun onKeyboardDidShow() {

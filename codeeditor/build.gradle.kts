@@ -1,4 +1,6 @@
-import java.net.URL
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okio.use
 plugins {
     id("com.android.library")
     id("kotlin-android")
@@ -38,6 +40,7 @@ android {
 dependencies {
 
     implementation(libs.andserver.api)
+    implementation(libs.androidx.constraintlayout)
     kapt(libs.andserver.processor)
     implementation(libs.kotlinx.coroutines.android)
     api(libs.androidx.webkit)
@@ -45,20 +48,17 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.androidx.activity.ktx)
     implementation(libs.appcompat)
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0")
     implementation(libs.material)
+    implementation(project(":autojs"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core){
-        exclude(group = "com.android.support",module = "support-annotations")
-    }
+    androidTestImplementation(libs.espresso.core)
 }
 
 tasks.register("downloadEditor") {
-    val tag = "dev-0.3.0"
-    val version = 3
+    val tag = "v0.4.0"
+    val version = 4
     val uri = "https://github.com/aiselp/vscode-mobile/releases/download/${tag}/dist.zip"
     val assetsDir = File(projectDir, "/src/main/assets/codeeditor")
     val versionFile = File(assetsDir, "version.txt")
@@ -72,7 +72,11 @@ tasks.register("downloadEditor") {
                 return@doFirst
             }
         }
-        URL(uri).openStream().use {
+        val response = OkHttpClient.Builder().build().newCall(
+            Request.Builder().url(uri).build()
+        ).execute()
+        check(response.isSuccessful){"download error response code:${response.code}"}
+        response.body!!.byteStream().use {
             File(assetsDir, "dist.zip").outputStream().use { out->
                 it.copyTo(out)
             }

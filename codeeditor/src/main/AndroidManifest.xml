@@ -5,8 +5,10 @@
     <application>
         <activity
             android:name=".EditActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:configChanges="orientation|screenSize|uiMode"
-            android:launchMode="singleInstance"
+            android:launchMode="singleTask"
+            android:taskAffinity="task.editor"
             >
 
         </activity>
