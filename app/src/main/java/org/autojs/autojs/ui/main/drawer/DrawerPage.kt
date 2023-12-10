@@ -7,7 +7,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.provider.Settings
-import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -17,6 +16,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Settings
@@ -787,7 +787,21 @@ private fun AccessibilityServiceSwitch() {
                 ).show()
             }
         }
-
+    var editor by remember { mutableStateOf(Pref.getEditor()) }
+    SwitchItem(
+        icon = {
+            MyIcon(
+                Icons.Default.Edit,
+                contentDescription = null,
+            )
+        },
+        text = { Text(text = "启用新编辑器") },
+        checked = editor,
+        onCheckedChange = { isChecked ->
+            editor = isChecked
+            Pref.setEditor(isChecked)
+        }
+    )
     SwitchItem(
         icon = {
             MyIcon(
