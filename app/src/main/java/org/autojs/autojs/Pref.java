@@ -10,6 +10,7 @@ import com.stardust.autojs.runtime.accessibility.AccessibilityConfig;
 
 import org.autojs.autojs.autojs.key.GlobalKeyObserver;
 import org.autojs.autoxjs.R;
+
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
@@ -24,6 +25,15 @@ public class Pref {
     private static final String KEY_FLOATING_MENU_SHOWN = "KEY_FLOATING_MENU_SHOWN";
     private static final String KEY_EDITOR_THEME = "editor.theme";
     private static final String KEY_EDITOR_TEXT_SIZE = "editor.textSize";
+    private static final String KEY_EDITOR_NEW = "KEY_EDITOR_NEW";
+
+    public static boolean getEditor() {
+        return def().getBoolean(KEY_EDITOR_NEW, true);
+    }
+
+    public static void setEditor(boolean shouldOpen) {
+        def().edit().putBoolean(KEY_EDITOR_NEW, shouldOpen).apply();
+    }
 
     private static SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
         @Override
