@@ -268,8 +268,6 @@ dependencies {
     // Android job
     implementation("com.evernote:android-job:1.4.2")
     // Optional, if you use support library fragments:
-    implementation(project(":automator"))
-    implementation(project(":common"))
     implementation(project(":autojs"))
     implementation(project(":apkbuilder"))
     implementation(project(":codeeditor"))
@@ -329,5 +327,10 @@ tasks.register("buildDebugTemplateApp") {
     dependsOn(":inrt:assembleTemplateDebug")
     doFirst {
         copyTemplateToAPP(true, assetsDir)
+    }
+}
+tasks.named("clean").configure {
+    doFirst {
+        delete(File(assetsDir, "template.apk"))
     }
 }

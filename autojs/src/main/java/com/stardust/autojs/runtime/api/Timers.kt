@@ -10,7 +10,7 @@ import com.stardust.autojs.runtime.ScriptRuntime
  */
 class Timers(private val mRuntime: ScriptRuntime) {
     private val mThreads: Threads = mRuntime.threads
-    private val mUiTimer: Timer = Timer(mRuntime, Looper.getMainLooper())
+    val uiTimer: Timer = Timer(mRuntime, Looper.getMainLooper())
     val mainTimer
         get() = mRuntime.loopers.mTimer
 
@@ -23,7 +23,7 @@ class Timers(private val mRuntime: ScriptRuntime) {
         }
         val timer = TimerThread.getTimerForThread(thread)
         return if (timer == null && Looper.myLooper() == Looper.getMainLooper()) {
-            mUiTimer
+            uiTimer
         } else timer ?: mainTimer
     }
 

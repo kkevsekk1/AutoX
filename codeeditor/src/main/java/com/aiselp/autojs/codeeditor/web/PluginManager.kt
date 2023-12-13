@@ -54,12 +54,16 @@ class PluginManager(private val jsBridge: JsBridge, private val coroutineScope: 
         coroutineScope.launch {
             try {
                 method.invoke(plugin.plugin, webCall)
-            }catch (e: Exception) {
+            } catch (e: Exception) {
                 Log.e(TAG, "web call method:${call.method} error")
-                Log.e(TAG, e.toString())
+                e.printStackTrace()
                 webCall.onError(e)
             }
         }
+    }
+
+    fun onWebInit() = coroutineScope.launch {
+
     }
 
     fun registerPlugin(id: String, plugin: Any) {

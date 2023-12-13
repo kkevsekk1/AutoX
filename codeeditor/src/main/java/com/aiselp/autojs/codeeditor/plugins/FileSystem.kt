@@ -1,5 +1,6 @@
 package com.aiselp.autojs.codeeditor.plugins
 
+import android.content.Context
 import android.os.Build
 import android.os.Environment
 import android.util.Base64
@@ -11,18 +12,36 @@ import com.google.gson.Gson
 import java.io.File
 
 @RequiresApi(Build.VERSION_CODES.M)
-class FileSystem() {
+class FileSystem(context: Context) {
     companion object {
         const val TAG = "FileSystem"
         const val MaxFileSize = 1024 * 1024 * 5
-        val basePath: File = Environment.getExternalStorageDirectory()
+        private val basePath: File = Environment.getExternalStorageDirectory()
+        private var sampleDir: File? = null
+        private const val sampleBase = "/_-__sample__-_"
+        fun parsePath(path: String): File {
+            if (path.startsWith(sampleBase)) {
+                return File(sampleDir, path.replace(sampleBase, ""))
+            }
+            return File(basePath, path)
+        }
+
+        fun toWebPath(path: File): String {
+            if (path.path.startsWith(basePath.path)) {
+                return path.path.replace(basePath.path, "")
+            }
+            val samplePath = sampleDir?.path
+            if (samplePath != null && path.path.startsWith(samplePath)) {
+                return sampleBase + path.path.replace(samplePath, "")
+            }
+            return path.path
+        }
     }
 
     private val gson = Gson()
 
-    private fun parsePath(path: String?): File {
-        check(path != null) { "path is null" }
-        return File(basePath, path)
+    init {
+        sampleDir = File(context.filesDir, "sample")
     }
 
     @WebFunction
