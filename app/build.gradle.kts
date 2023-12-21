@@ -240,7 +240,6 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     debugImplementation(libs.leakcanary.android)
     // Optional, if you use support library fragments:
-    debugImplementation("com.squareup.leakcanary:leakcanary-support-fragment:1.6.3")
     implementation("com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0")
     implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
     //Glide

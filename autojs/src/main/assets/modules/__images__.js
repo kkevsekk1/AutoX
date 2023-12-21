@@ -162,7 +162,7 @@ module.exports = function (runtime, scope) {
             if (landscape === false) {
                 orientation = ScreenCapturer.ORIENTATION_PORTRAIT;
             }
-            return ResultAdapter.wait(javaImages.requestScreenCapture(orientation));
+            return javaImages.requestScreenCapture(orientation);
         }
 
         images.save = function (img, path, format, quality) {
