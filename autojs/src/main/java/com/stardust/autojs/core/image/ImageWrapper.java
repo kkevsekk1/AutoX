@@ -52,7 +52,6 @@ public class ImageWrapper {
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static ImageWrapper ofImage(Image image) {
         if (image == null) {
             return null;
@@ -75,7 +74,6 @@ public class ImageWrapper {
         return new ImageWrapper(bitmap);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static Bitmap toBitmap(Image image) {
         Image.Plane plane = image.getPlanes()[0];
         ByteBuffer buffer = plane.getBuffer();
