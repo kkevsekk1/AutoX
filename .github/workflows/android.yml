@@ -23,7 +23,7 @@ jobs:
           java-version: 17
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
-        
+
       - name: Build inrt template
         run: |
           chmod 777 ./gradlew
@@ -69,5 +69,6 @@ jobs:
           access-key-secret: ${{ secrets.OSS_KEY_SECRET }}
       - name: update apk to aliyun
         if: github.repository == 'kkevsekk1/AutoX'
-        run: ossutil mkdir oss://autoxjsoss/autoxjs/${{ steps.vars.outputs.short_ref }}
-             ossutil cp -rf build/app/signed oss://autoxjsoss/autoxjs/${{ steps.vars.outputs.short_ref }}
+        run: |
+          ossutil mkdir oss://autoxjsoss/autoxjs/${{ steps.vars.outputs.short_ref }}
+          ossutil cp -rf build/app/signed oss://autoxjsoss/autoxjs/${{ steps.vars.outputs.short_ref }}
