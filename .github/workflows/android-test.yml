@@ -14,14 +14,24 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: set up JDK
-        uses: actions/setup-java@v1
+      - uses: actions/checkout@v4
+      - name: set up JDK 17
+        uses: actions/setup-java@v3
         with:
+          distribution: temurin
           java-version: 17
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
       - name: set up kotlin
         uses: fwilhe2/setup-kotlin@main
         with:
           version: 1.6.20
       - name: Build with Gradle
-        run: chmod 777 ./gradlew && ./gradlew :inrt:assemble &&  ./gradlew inrt:cp2APP && ./gradlew :app:assembleRelease
+        run: |
+          chmod 777 ./gradlew 
+          ./gradlew :inrt:assemble 
+          ./gradlew :app:assembleRelease
+      - uses: actions/upload-artifact@v3
+        with:
+          name: apks
+          path: app/build/outputs/apk/v6/release/*
