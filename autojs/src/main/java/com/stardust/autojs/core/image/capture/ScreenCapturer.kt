@@ -56,7 +56,7 @@ class ScreenCapturer(
     }
 
     private fun createImageReader(width: Int, height: Int): ImageReader {
-        return ImageReader.newInstance(width, height, PixelFormat.RGBA_8888, 2)
+        return ImageReader.newInstance(width, height, PixelFormat.RGBA_8888, 3)
     }
 
     private fun createVirtualDisplay(width: Int, height: Int, screenDensity: Int): VirtualDisplay {
@@ -99,15 +99,19 @@ class ScreenCapturer(
             return@coroutineScope imageWrapper
         }
         //在缓存图像均不可用的情况下等待2秒取得截图，否则抛出错误
-        val newImage = image
-            ?: withTimeout(2000) {
-                while (image == null) {
-                    delay(100)
-                    image = capture()
+        val newImage = runCatching {
+            image ?: withTimeout(2000) {
+                    while (image == null) {
+                        delay(200)
+                        image = capture()
+                    }
+                    yield()
+                    return@withTimeout image!!
                 }
-                yield()
-                return@withTimeout image!!
-            }
+        }.getOrElse {
+            available = false
+            throw it
+        }
         val newImageWrapper = ImageWrapper.ofImage(newImage)
         mCachedImageWrapper.set(newImageWrapper)
         return@coroutineScope newImageWrapper ?: throw Exception("Not available yet ImageWrapper")

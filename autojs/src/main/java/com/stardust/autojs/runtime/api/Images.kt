@@ -50,21 +50,13 @@ class Images(
     @ScriptVariable
     val colorFinder: ColorFinder = ColorFinder(mScreenMetrics)
 
-    fun requestScreenCapture(orientation: Int): Boolean {
-        return runBlocking {
-            try {
-                launch {
-                    mScreenCaptureRequester.requestScreenCapture(
-                        mContext, orientation
-                    )
-                }.join()
-                mScreenCaptureRequester.screenCapture?.setOrientation(orientation, mContext)
-                return@runBlocking true
-            } catch (e: Exception) {
-                e.printStackTrace()
-                return@runBlocking false
-            }
-        }
+    fun requestScreenCapture(orientation: Int): Boolean = runBlocking {
+        return@runBlocking runCatching {
+            mScreenCaptureRequester.requestScreenCapture(
+                mContext, orientation
+            )
+            mScreenCaptureRequester.screenCapture?.setOrientation(orientation, mContext)
+        }.isSuccess
     }
 
     @Synchronized
