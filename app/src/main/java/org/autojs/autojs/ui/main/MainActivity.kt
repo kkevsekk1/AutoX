@@ -354,14 +354,19 @@ private fun TopBar(
                         )
                     }
                 }
-                IconButton(onClick = { isSearch = true }) {
-                    Icon(
-                        imageVector = Icons.Default.Search,
-                        contentDescription = stringResource(id = R.string.text_search)
-                    )
+                if (currentPage == 0) {
+                    IconButton(onClick = { isSearch = true }) {
+                        Icon(
+                            imageVector = Icons.Default.Search,
+                            contentDescription = stringResource(id = R.string.text_search)
+                        )
+                    }
                 }
             } else {
-                IconButton(onClick = { isSearch = false }) {
+                IconButton(onClick = {
+                    isSearch = false
+                    onSearch("")
+                }) {
                     Icon(
                         imageVector = Icons.Default.ArrowBack,
                         contentDescription = stringResource(id = R.string.text_exit_search)
@@ -380,6 +385,14 @@ private fun TopBar(
                         onSearch(keyword)
                     })
                 )
+                if (keyword.isNotEmpty()) {
+                    IconButton(onClick = { keyword = "" }) {
+                        Icon(
+                            imageVector = Icons.Default.Clear,
+                            contentDescription = null
+                        )
+                    }
+                }
             }
             LogButton()
             when (currentPage) {

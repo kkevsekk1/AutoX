@@ -1,7 +1,32 @@
 # Change Log
 autoxjs 整个项目的一些更新日志,双版本号为稳定版（内容以修复的bug为主），单版本号为激进版本、发布新内容。
 
-## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.5.4...HEAD) 未发布
+## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.5.6...HEAD) 未发布
+
+
+## [6.5.6] - 2023-12-16
+@aiselp
+* 优化编辑器
+@Lin
+* 增加编辑器选择
+* 编辑器优化
+* 主页搜索优化
+
+
+[6.5.6]:https://github.com/kkevsekk1/AutoX/compare/6.5.5...6.5.6
+
+## [6.5.5] - 2023-11-10
+@aiselp
+* 移除了ci构建中模板签名，打包时会重新签名
+* 锁定androidx.core版本为1.8.0，高的版本会引起 6.5.4版本运行脚本会出错 修复bug #723
+* 修复打包时只勾选opencv缺少依赖的问题
+* 编辑器优化
+* 添加rxjs库
+* 最后，由于最近几个版本有加大升级，有bug很正常，大家积极提bug、有能力的可以适当修复
+* 每个人都共享力量，软件bug才能修复，少抱怨！
+
+[6.5.5]:https://github.com/kkevsekk1/AutoX/compare/6.5.4...6.5.5
+
 
 ## [6.5.4] - 2023-11-10
 @aiselp
