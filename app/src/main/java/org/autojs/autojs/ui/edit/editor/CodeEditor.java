@@ -157,10 +157,15 @@ public class CodeEditor extends HVScrollView {
 
     public void jumpToStart() {
         mCodeEditText.setSelection(0);
+        smoothScrollTo(0, 0);
     }
 
     public void jumpToEnd() {
         mCodeEditText.setSelection(mCodeEditText.getText().length());
+
+        int lastLine = mCodeEditText.getLayout().getLineCount() - 1;
+        int lineTop = mCodeEditText.getLayout().getLineTop(lastLine);
+        smoothScrollTo(0, lineTop);
     }
 
     public void jumpToLineStart() {
@@ -220,6 +225,9 @@ public class CodeEditor extends HVScrollView {
             return;
         }
         mCodeEditText.setSelection(mCodeEditText.getLayout().getLineStart(line) + col);
+
+        int lineTop = mCodeEditText.getLayout().getLineTop(line);
+        smoothScrollTo(0, lineTop);
     }
 
     public void setReadOnly(boolean readOnly) {
