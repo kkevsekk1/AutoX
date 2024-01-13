@@ -2,6 +2,7 @@ package org.autojs.autojs.ui.main.components
 
 import android.webkit.WebView
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.DropdownMenu
 import androidx.compose.material.DropdownMenuItem
 import androidx.compose.material.Icon
@@ -16,12 +17,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.stardust.util.IntentUtil
 import org.autojs.autojs.ui.log.LogActivityKt
-import org.autojs.autojs.ui.widget.WebDataKt
+import org.autojs.autojs.ui.main.web.DocumentSource
+import org.autojs.autojs.ui.main.web.DocumentSourceSelectDialog
 import org.autojs.autoxjs.R
 
 //主界面日志按钮
@@ -38,7 +42,7 @@ fun LogButton() {
 
 //文档界面菜单按钮
 @Composable
-fun DocumentPageMenuButton(getWebView:()-> WebView) {
+fun DocumentPageMenuButton(getWebView: () -> WebView) {
     val context = LocalContext.current
     Box {
         var expanded by remember { mutableStateOf(false) }
@@ -53,7 +57,7 @@ fun DocumentPageMenuButton(getWebView:()-> WebView) {
             onDismissRequest = { expanded = false }) {
             DropdownMenuItem(onClick = {
                 dismissMenu()
-                getWebView().loadUrl(WebDataKt.homepage)
+                getWebView().loadUrl(DocumentSource.DOC_V1.uri)
             }) {
                 Icon(Icons.Default.Home, contentDescription = null)
                 Text(text = "回到主页")
@@ -77,6 +81,19 @@ fun DocumentPageMenuButton(getWebView:()-> WebView) {
             }) {
                 Icon(Icons.Default.Refresh, contentDescription = null)
                 Text(text = "刷新")
+            }
+            DropdownMenuItem(onClick = {
+                dismissMenu()
+                DocumentSourceSelectDialog(getWebView()).show()
+            }) {
+                Box(Modifier.width(20.dp)) {
+                    Icon(
+                        painterResource(id = R.drawable.community_list),
+                        contentDescription = null
+                    )
+                }
+
+                Text(text = "选择文档源")
             }
         }
     }
