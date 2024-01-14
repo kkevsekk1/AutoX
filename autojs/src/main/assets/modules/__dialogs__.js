@@ -157,7 +157,7 @@ module.exports = function(__runtime__, scope){
                     input = input.toString();
                     builder.dialog.emit("input_change", builder.dialog, input);
                 })
-                   .alwaysCallInputCallback();
+//                   .alwaysCallInputCallback();
         }
         if(properties.items != undefined){
             var itemsSelectMode = properties.itemsSelectMode;

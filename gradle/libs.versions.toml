@@ -13,6 +13,8 @@ espresso-core = "3.5.1"
 appcompat = "1.4.2"
 material = "1.9.0"
 accompanist-version = "0.24.13-rc"
+text-recognition = "16.0.0-beta6"
+text-recognition-chinese = "16.0.0"
 
 [libraries]
 
@@ -75,6 +77,11 @@ material = { group = "com.google.android.material", name = "material", version.r
 andserver-processor = { module = "com.yanzhenjie.andserver:processor", version.ref = "andserver" }
 andserver-api = { module = "com.yanzhenjie.andserver:api", version.ref = "andserver" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version = "2.1.4" }
+text-recognition = { module = "com.google.mlkit:text-recognition", version.ref = "text-recognition" }
+text-recognition-chinese = { module = "com.google.mlkit:text-recognition-chinese", version.ref = "text-recognition-chinese" }
+text-recognition-korean = { module = "com.google.mlkit:text-recognition-korean", version.ref = "text-recognition" }
+text-recognition-japanese = { module = "com.google.mlkit:text-recognition-japanese", version.ref = "text-recognition" }
+text-recognition-devanagari = { module = "com.google.mlkit:text-recognition-devanagari", version.ref = "text-recognition" }
 [plugins]
 
 [bundles]

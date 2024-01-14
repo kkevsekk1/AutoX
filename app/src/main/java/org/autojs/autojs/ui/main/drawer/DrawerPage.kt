@@ -179,7 +179,6 @@ private fun ProjectAddress(context: Context) {
 
 @Composable
 private fun CheckForUpdate(model: DrawerViewModel = viewModel()) {
-    val context = LocalContext.current
     var showDialog by rememberSaveable {
         mutableStateOf(false)
     }
@@ -250,10 +249,9 @@ private fun CheckForUpdate(model: DrawerViewModel = viewModel()) {
                 }
             },
             confirmButton = {
-                val url = DOWNLOAD_ADDRESS
                 TextButton(onClick = {
                     showDialog = false
-                    IntentUtil.browse(context, url)
+                    model.downloadApk()
                 }) {
                     Text(text = stringResource(id = R.string.text_download))
                 }
