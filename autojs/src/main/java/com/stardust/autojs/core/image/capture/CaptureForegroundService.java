@@ -27,6 +27,7 @@ public class CaptureForegroundService extends Service {
 
     private static final int NOTIFICATION_ID = 2;
     private static final String CHANNEL_ID = CaptureForegroundService.class.getName() + ".foreground";
+    private static final String NOTIFICATION_TITLE = "前台截图服务运行中";
 
     @Nullable
     @Override
@@ -50,10 +51,11 @@ public class CaptureForegroundService extends Service {
             createNotificationChannel();
         }
         int flags = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? FLAG_IMMUTABLE : 0;
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, ScreenCaptureRequestActivity.class), flags);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
+                new Intent(this, ScreenCaptureRequestActivity.class), flags);
 
         return new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle("Recording")
+                .setContentTitle(NOTIFICATION_TITLE)
                 .setSmallIcon(R.drawable.autojs_logo)
                 .setWhen(System.currentTimeMillis())
                 .setContentIntent(contentIntent)
@@ -66,10 +68,8 @@ public class CaptureForegroundService extends Service {
     private void createNotificationChannel() {
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         assert manager != null;
-        CharSequence name = "Recoding";
-        String description = "Recoding";
-        NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, NotificationManager.IMPORTANCE_DEFAULT);
-        channel.setDescription(description);
+        NotificationChannel channel = new NotificationChannel(CHANNEL_ID, NOTIFICATION_TITLE, NotificationManager.IMPORTANCE_DEFAULT);
+        channel.setDescription(NOTIFICATION_TITLE);
         channel.enableLights(false);
         manager.createNotificationChannel(channel);
     }

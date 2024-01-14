@@ -2,6 +2,7 @@ package com.stardust.autojs.core.image.capture
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.media.projection.MediaProjection
 import com.stardust.app.OnActivityResultDelegate
 import kotlinx.coroutines.CompletableDeferred
@@ -35,6 +36,7 @@ class ScreenCaptureManager : ScreenCaptureRequester {
                 result.await()
             }
         }
+        context.startService(Intent(context, CaptureForegroundService::class.java))
         mediaProjection = result
         screenCapture = ScreenCapturer(result)
     }

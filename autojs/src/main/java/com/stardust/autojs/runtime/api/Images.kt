@@ -56,6 +56,7 @@ class Images(
                 mContext, orientation
             )
             mScreenCaptureRequester.screenCapture?.setOrientation(orientation, mContext)
+            captureScreen()
         }.isSuccess
     }
 

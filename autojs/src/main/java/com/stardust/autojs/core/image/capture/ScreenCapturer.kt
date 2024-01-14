@@ -10,11 +10,11 @@ import android.media.ImageReader
 import android.media.projection.MediaProjection
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import com.stardust.autojs.core.image.ImageWrapper
 import com.stardust.util.ScreenMetrics
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withTimeout
 import kotlinx.coroutines.yield
 import java.util.concurrent.atomic.AtomicReference
@@ -96,21 +96,23 @@ class ScreenCapturer(
         var image = capture()
         val imageWrapper = mCachedImageWrapper.get()
         if (image == null && imageWrapper != null) {
+            Log.i(LOG_TAG, "Using cached image")
             return@coroutineScope imageWrapper
         }
         //在缓存图像均不可用的情况下等待2秒取得截图，否则抛出错误
-        val newImage = runCatching {
-            image ?: withTimeout(2000) {
-                    while (image == null) {
-                        delay(200)
-                        image = capture()
-                    }
-                    yield()
-                    return@withTimeout image!!
+        val newImage = image ?: runCatching {
+            withTimeout(2000) {
+                while (image == null) {
+                    delay(200)
+                    image = capture()
                 }
+                yield()
+                return@withTimeout image!!
+            }
         }.getOrElse {
+            it.printStackTrace()
             available = false
-            throw it
+            throw Exception("ScreenCapturer timeout")
         }
         val newImageWrapper = ImageWrapper.ofImage(newImage)
         mCachedImageWrapper.set(newImageWrapper)
