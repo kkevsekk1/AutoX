@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -440,7 +447,7 @@
             android:theme="@style/EditorTheme" />
         <activity android:name="org.autojs.autojs.ui.settings.AboutActivity_" />
         <activity
-            android:name="org.autojs.autojs.ui.settings.SettingsActivity_"
+            android:name="org.autojs.autojs.ui.settings.SettingsActivity"
             android:theme="@style/AppTheme.Settings" />
         <activity android:name="org.autojs.autojs.ui.error.ErrorReportActivity" />
         <activity
