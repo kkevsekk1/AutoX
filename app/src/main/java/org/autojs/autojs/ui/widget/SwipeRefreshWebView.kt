@@ -7,7 +7,6 @@ import android.util.AttributeSet
 import android.view.KeyEvent
 import android.webkit.WebSettings
 import android.webkit.WebView
-import android.webkit.WebViewClient
 import org.autojs.autojs.theme.widget.ThemeColorSwipeRefreshLayout
 
 class SwipeRefreshWebView : ThemeColorSwipeRefreshLayout {
@@ -57,8 +56,6 @@ class SwipeRefreshWebView : ThemeColorSwipeRefreshLayout {
             blockNetworkLoads = false;
             setNeedInitialFocus(true);
             saveFormData = true;
-            cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK //使用缓存
-//            setAppCacheEnabled(false);
             domStorageEnabled = true
             databaseEnabled = true   //开启 database storage API 功能
             pluginState = WebSettings.PluginState.ON
@@ -69,12 +66,6 @@ class SwipeRefreshWebView : ThemeColorSwipeRefreshLayout {
             // 5.0以上允许加载http和https混合的页面(5.0以下默认允许，5.0+默认禁止)
             mixedContentMode =
                 WebSettings.MIXED_CONTENT_ALWAYS_ALLOW;
-        }
-        webViewClient = object : WebViewClient() {
-            override fun onPageFinished(view: WebView?, url: String?) {
-                super.onPageFinished(view, url)
-                isRefreshing = false
-            }
         }
     }
 

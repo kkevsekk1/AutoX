@@ -31,11 +31,6 @@ class Loopers(val runtime: ScriptRuntime) {
         var isEnd: Boolean = false
             private set
 
-        //线程即将退出时调用，返回true阻止线程退出，只要有一个task返回true线程就不会退出
-        open fun onFinish(loopers: Loopers): Boolean {
-            return true
-        }
-
         fun end() {
             isEnd = true
         }
@@ -84,10 +79,7 @@ class Loopers(val runtime: ScriptRuntime) {
 
     private fun checkTask(): Boolean {
         allTasks.removeAll(allTasks.filter { it.isEnd }.toSet())
-        for (task in allTasks) {
-            if (task.onFinish(this)) return true
-        }
-        return false
+        return allTasks.isEmpty()
     }
 
     private fun shouldQuitLooper(): Boolean {
@@ -134,7 +126,7 @@ class Loopers(val runtime: ScriptRuntime) {
     fun waitWhenIdle(b: Boolean) {
         (Thread.currentThread() as? TimerThread)?.let {
             it.loopers?.createAndAddAsyncTask("events")
-        }?: createAndAddAsyncTask("events")
+        } ?: createAndAddAsyncTask("events")
     }
 
     fun recycle() {
@@ -155,6 +147,7 @@ class Loopers(val runtime: ScriptRuntime) {
     }
 
     private fun prepare() {
+        if (Looper.myLooper() == Looper.getMainLooper()) return
         if (Looper.myLooper() == null) LooperHelper.prepare()
         Looper.myQueue().addIdleHandler(MessageQueue.IdleHandler {
             if (this == runtime.loopers) {
@@ -166,7 +159,7 @@ class Loopers(val runtime: ScriptRuntime) {
                     Log.d(LOG_TAG, "main looper quit")
                     Looper.myLooper()!!.quitSafely()
                 }
-            }else {
+            } else {
                 Log.d(LOG_TAG, "looper queueIdle $this")
                 if (shouldQuitLooper()) {
                     Log.d(LOG_TAG, "looper quit $this")

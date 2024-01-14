@@ -25,11 +25,7 @@ runtime.init();
             if (!func) {
                 continue;
             }
-            (function (obj, funcName, func) {
-                global[funcName] = function () {
-                    return func.apply(obj, arguments);
-                };
-            })(obj, funcName, func);
+            global[funcName] = func.bind(obj);
         }
     }
 

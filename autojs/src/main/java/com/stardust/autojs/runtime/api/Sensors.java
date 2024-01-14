@@ -83,12 +83,7 @@ public class Sensors extends EventEmitter {
     private final ScriptBridges mScriptBridges;
     private final SensorEventEmitter mNoOpSensorEventEmitter;
     private final ScriptRuntime mScriptRuntime;
-    private final Loopers.AsyncTask mAsyncTask = new Loopers.AsyncTask("Sensors"){
-        @Override
-        public boolean onFinish(@NonNull Loopers loopers) {
-            return !mSensorEventEmitters.isEmpty();
-        }
-    };
+    private final Loopers.AsyncTask mAsyncTask = new Loopers.AsyncTask("Sensors");
 
 
     public Sensors(Context context, ScriptRuntime runtime) {
@@ -152,6 +147,8 @@ public class Sensors extends EventEmitter {
             return;
         synchronized (mSensorEventEmitters) {
             mSensorEventEmitters.remove(emitter);
+            if (mSensorEventEmitters.isEmpty())
+                mScriptRuntime.loopers.removeAsyncTask(mAsyncTask);
         }
         mSensorManager.unregisterListener(emitter);
     }

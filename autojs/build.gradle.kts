@@ -30,10 +30,11 @@ android {
 }
 
 dependencies {
-    androidTestImplementation(libs.espresso.core){
-        exclude(group = "com.android.support",module = "support-annotations")
-    }
+    androidTestImplementation(libs.espresso.core)
+    debugImplementation(libs.leakcanary.android)
+    implementation(libs.leakcanary.`object`.watcher.android)
     testImplementation(libs.junit)
+
     implementation(libs.documentfile)
     implementation("androidx.preference:preference-ktx:1.2.0")
     api(libs.eventbus)

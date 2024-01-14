@@ -1,5 +1,8 @@
 import com.android.build.gradle.internal.tasks.factory.dependsOn
+import okhttp3.Request
 import java.util.Properties
+import java.util.zip.ZipEntry
+import java.util.zip.ZipInputStream
 
 plugins {
     id("com.android.application")
@@ -170,6 +173,7 @@ dependencies {
 
     implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.1.0")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation(libs.androidx.webkit)
 
     implementation(libs.bundles.accompanist)
 
@@ -233,21 +237,17 @@ dependencies {
     implementation("com.thoughtbot:expandablerecyclerview:1.3")
 //    implementation("org.signal.autox:apkbuilder:1.0.3")
     // RxJava
-    implementation("io.reactivex.rxjava2:rxjava:2.2.21")
-    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
+    implementation(libs.rxjava2)
+    implementation(libs.rxjava2.rxandroid)
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    debugImplementation("com.squareup.leakcanary:leakcanary-android:2.8.1")
-    releaseImplementation("com.squareup.leakcanary:leakcanary-android-no-op:1.6.3")
+    debugImplementation(libs.leakcanary.android)
     // Optional, if you use support library fragments:
-    debugImplementation("com.squareup.leakcanary:leakcanary-support-fragment:1.6.3")
     implementation("com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0")
     implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
     //Glide
-    implementation("com.github.bumptech.glide:glide:4.8.0") {
-        exclude(group = "com.android.support")
-    }
+    implementation("com.github.bumptech.glide:glide:4.8.0")
     kapt("com.github.bumptech.glide:compiler:4.12.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
     //joda time
@@ -260,9 +260,7 @@ dependencies {
     implementation("com.tencent.bugly:crashreport:4.0.0")
     api("com.tencent.tbs:tbssdk:44181")
     // MaterialDialogCommon
-    implementation("com.afollestad.material-dialogs:commons:0.9.2.3") {
-        exclude(group = "com.android.support")
-    }
+    implementation("com.afollestad.material-dialogs:commons:0.9.2.3")
     // WorkManager
     implementation("androidx.work:work-runtime:2.7.1")
     // Android job
@@ -333,4 +331,39 @@ tasks.named("clean").configure {
     doFirst {
         delete(File(assetsDir, "template.apk"))
     }
+}
+//离线文档下载安装
+val docsDir = File(projectDir, "src/main/assets/docs")
+tasks.named("preBuild").dependsOn("installationDocumentation")
+tasks.register("installationDocumentation") {
+    val docV1Uri = "https://codeload.github.com/kkevsekk1/kkevsekk1.github.io/zip/refs/heads/main"
+    val docV1Dir = File(docsDir, "v1")
+    doFirst {
+        if (File(docV1Dir, "index.html").isFile) {
+            return@doFirst
+        }
+        okhttp3.OkHttpClient().newCall(Request.Builder().url(docV1Uri).build()).execute()
+            .use { response ->
+                check(response.isSuccessful) { "installationDocumentation failed" }
+                val body = response.body!!
+                ZipInputStream(body.byteStream()).use { zip ->
+                    var zipEntry: ZipEntry?;
+                    while (true) {
+                        zipEntry = zip.nextEntry ?: break
+                        val file = File(docV1Dir, zipEntry.name.replaceFirst(Regex(".+?/"), ""))
+                        if (zipEntry.isDirectory) {
+                            file.mkdirs()
+                        } else {
+                            file.outputStream().use {
+                                zip.copyTo(it)
+                            }
+                        }
+                        zip.closeEntry()
+                    }
+                }
+            }
+    }
+}
+tasks.named("clean").configure {
+    doFirst { delete(docsDir) }
 }

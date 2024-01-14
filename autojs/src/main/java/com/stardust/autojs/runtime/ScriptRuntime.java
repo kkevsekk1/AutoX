@@ -10,8 +10,14 @@ import com.stardust.autojs.R;
 import com.stardust.autojs.ScriptEngineService;
 import com.stardust.autojs.annotation.ScriptVariable;
 import com.stardust.autojs.core.accessibility.AccessibilityBridge;
+import com.stardust.autojs.core.accessibility.SimpleActionAutomator;
+import com.stardust.autojs.core.accessibility.UiSelector;
+import com.stardust.autojs.core.activity.ActivityInfoProvider;
 import com.stardust.autojs.core.image.Colors;
+import com.stardust.autojs.core.image.capture.ScreenCaptureRequester;
+import com.stardust.autojs.core.looper.Loopers;
 import com.stardust.autojs.core.permission.Permissions;
+import com.stardust.autojs.core.util.ProcessShell;
 import com.stardust.autojs.rhino.AndroidClassLoader;
 import com.stardust.autojs.rhino.TopLevelScope;
 import com.stardust.autojs.rhino.continuation.Continuation;
@@ -19,37 +25,31 @@ import com.stardust.autojs.runtime.api.AbstractShell;
 import com.stardust.autojs.runtime.api.AppUtils;
 import com.stardust.autojs.runtime.api.Console;
 import com.stardust.autojs.runtime.api.Device;
+import com.stardust.autojs.runtime.api.Dialogs;
 import com.stardust.autojs.runtime.api.Engines;
 import com.stardust.autojs.runtime.api.Events;
 import com.stardust.autojs.runtime.api.Files;
 import com.stardust.autojs.runtime.api.Floaty;
-import com.stardust.autojs.core.looper.Loopers;
-import com.stardust.autojs.runtime.api.Media;
 import com.stardust.autojs.runtime.api.GoogleMLKit;
+import com.stardust.autojs.runtime.api.Images;
+import com.stardust.autojs.runtime.api.Media;
 import com.stardust.autojs.runtime.api.Plugins;
 import com.stardust.autojs.runtime.api.Sensors;
 import com.stardust.autojs.runtime.api.SevenZip;
 import com.stardust.autojs.runtime.api.Threads;
 import com.stardust.autojs.runtime.api.Timers;
-import com.stardust.autojs.core.accessibility.UiSelector;
-import com.stardust.autojs.runtime.api.Images;
-import com.stardust.autojs.core.image.capture.ScreenCaptureRequester;
-import com.stardust.autojs.runtime.api.Dialogs;
+import com.stardust.autojs.runtime.api.UI;
 import com.stardust.autojs.runtime.exception.ScriptEnvironmentException;
 import com.stardust.autojs.runtime.exception.ScriptException;
 import com.stardust.autojs.runtime.exception.ScriptInterruptedException;
-import com.stardust.autojs.core.accessibility.SimpleActionAutomator;
-import com.stardust.autojs.runtime.api.UI;
 import com.stardust.concurrent.VolatileDispose;
 import com.stardust.lang.ThreadCompat;
 import com.stardust.pio.UncheckedIOException;
 import com.stardust.util.ClipboardUtil;
-import com.stardust.autojs.core.util.ProcessShell;
 import com.stardust.util.ScreenMetrics;
 import com.stardust.util.SdkVersionUtil;
 import com.stardust.util.Supplier;
 import com.stardust.util.UiHandler;
-import com.stardust.autojs.core.activity.ActivityInfoProvider;
 
 import org.mozilla.javascript.ContextFactory;
 import org.mozilla.javascript.RhinoException;
@@ -65,6 +65,8 @@ import java.io.StringWriter;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
+import leakcanary.AppWatcher;
 
 
 /**
@@ -414,9 +416,9 @@ public class ScriptRuntime {
         try {
 
             events.emit("exit");
-            if(console.isAutoHide()){
+            if (console.isAutoHide()) {
                 console.log("系统消息：任务结束,3秒后该窗口关闭");
-                uiHandler.postDelayed( console::hide,4000);
+                uiHandler.postDelayed(console::hide, 4000);
             }
         } catch (Throwable e) {
             console.error("exception on exit: ", e);
@@ -435,6 +437,10 @@ public class ScriptRuntime {
         ignoresException(timers::recycle);
         ignoresException(ui::recycle);
 //        ignoresException(paddle::release);
+
+        //引用检查
+        AppWatcher.INSTANCE.getObjectWatcher().expectWeaklyReachable(this,
+                engines.myEngine().toString() + "::" + TAG);
     }
 
     private void ignoresException(Runnable r) {
