@@ -1,8 +1,20 @@
 # Change Log
 autoxjs 整个项目的一些更新日志,双版本号为稳定版（内容以修复的bug为主），单版本号为激进版本、发布新内容。
 
-## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.5.6...HEAD) 未发布
+## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.5.7...HEAD) 未发布
 
+
+## [6.5.7] - 2024-1-14
+@aiselp
+* 修复运行ui脚本存在的内存泄露
+* 截图逻辑优化，使截图权限在所有脚本共享
+* 添加离线文档选项
+@Lin
+* 浏览器打开改为直接下载安装
+* 修复"emit"报错 
+* 每次打开都是新任务，不受上一次打开文件内容的影响
+
+[6.5.7]:https://github.com/kkevsekk1/AutoX/compare/6.5.6...6.5.7
 
 ## [6.5.6] - 2023-12-16
 @aiselp

@@ -78,6 +78,7 @@ import org.autojs.autojs.ui.widget.SimpleTextWatcher;
 
 import java.io.File;
 import java.util.List;
+import java.util.Objects;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -657,8 +658,11 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
     @Override
     public void onHintLongClick(CodeCompletions completions, int pos) {
         CodeCompletion completion = completions.get(pos);
-        if (completion.getUrl() == null)
+        if (Objects.equals(completion.getHint(), "/")) {
+            getEditor().toggleComment();
             return;
+        }
+        if (completion.getUrl() == null) return;
         showManual(completion.getUrl(), completion.getHint());
     }
 
