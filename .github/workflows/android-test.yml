@@ -22,10 +22,8 @@ jobs:
           java-version: 17
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
-      - name: set up kotlin
-        uses: fwilhe2/setup-kotlin@main
-        with:
-          version: 1.6.20
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
       - name: Build with Gradle
         run: |
           chmod 777 ./gradlew 
@@ -33,5 +31,5 @@ jobs:
           ./gradlew :app:assembleRelease
       - uses: actions/upload-artifact@v3
         with:
-          name: apks
+          name: apks(no signing)
           path: app/build/outputs/apk/v6/release/*
