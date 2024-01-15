@@ -42,6 +42,7 @@ import com.stardust.autojs.runtime.api.UI;
 import com.stardust.autojs.runtime.exception.ScriptEnvironmentException;
 import com.stardust.autojs.runtime.exception.ScriptException;
 import com.stardust.autojs.runtime.exception.ScriptInterruptedException;
+import com.stardust.autojs.util.ObjectWatcher;
 import com.stardust.concurrent.VolatileDispose;
 import com.stardust.lang.ThreadCompat;
 import com.stardust.pio.UncheckedIOException;
@@ -65,8 +66,6 @@ import java.io.StringWriter;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
-import leakcanary.AppWatcher;
 
 
 /**
@@ -439,8 +438,7 @@ public class ScriptRuntime {
 //        ignoresException(paddle::release);
 
         //引用检查
-        AppWatcher.INSTANCE.getObjectWatcher().expectWeaklyReachable(this,
-                engines.myEngine().toString() + "::" + TAG);
+        ObjectWatcher.Companion.getDefault().watch(this, engines.myEngine().toString() + "::" + TAG);
     }
 
     private void ignoresException(Runnable r) {

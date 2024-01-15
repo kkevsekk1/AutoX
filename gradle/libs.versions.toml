@@ -47,7 +47,6 @@ androidx-activity-ktx = "androidx.activity:activity-ktx:1.5.1"
 commons-io = "commons-io:commons-io:2.6"
 eventbus = "org.greenrobot:eventbus:3.3.1"
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines-android" }
-nanohttpd-webserver = "org.nanohttpd:nanohttpd-webserver:2.3.1"
 androidx-webkit = "androidx.webkit:webkit:1.7.0"
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
 documentfile = "androidx.documentfile:documentfile:1.0.1"

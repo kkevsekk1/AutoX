@@ -16,6 +16,7 @@ class ScreenCaptureManager : ScreenCaptureRequester {
 
     override suspend fun requestScreenCapture(context: Context, orientation: Int) {
         if (screenCapture?.available == true) {
+            screenCapture?.setOrientation(orientation, context)
             return
         }
         val result = if (context is OnActivityResultDelegate.DelegateHost && context is Activity) {
@@ -36,9 +37,10 @@ class ScreenCaptureManager : ScreenCaptureRequester {
                 result.await()
             }
         }
+        CaptureForegroundService.mediaProjection = result
         context.startService(Intent(context, CaptureForegroundService::class.java))
         mediaProjection = result
-        screenCapture = ScreenCapturer(result)
+        screenCapture = ScreenCapturer(result, orientation)
     }
 
     override fun recycle() {

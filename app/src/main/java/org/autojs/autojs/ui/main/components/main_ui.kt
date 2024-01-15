@@ -24,8 +24,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.stardust.util.IntentUtil
 import org.autojs.autojs.ui.log.LogActivityKt
-import org.autojs.autojs.ui.main.web.DocumentSource
 import org.autojs.autojs.ui.main.web.DocumentSourceSelectDialog
+import org.autojs.autojs.ui.main.web.EditorAppManager.Companion.loadHomeDocument
 import org.autojs.autoxjs.R
 
 //主界面日志按钮
@@ -57,7 +57,7 @@ fun DocumentPageMenuButton(getWebView: () -> WebView) {
             onDismissRequest = { expanded = false }) {
             DropdownMenuItem(onClick = {
                 dismissMenu()
-                getWebView().loadUrl(DocumentSource.DOC_V1.uri)
+                loadHomeDocument(getWebView())
             }) {
                 Icon(Icons.Default.Home, contentDescription = null)
                 Text(text = "回到主页")

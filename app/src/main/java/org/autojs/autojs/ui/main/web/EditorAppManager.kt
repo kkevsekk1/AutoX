@@ -23,16 +23,8 @@ class EditorAppManager : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val saveStatus = getSaveStatus(requireContext())
-        val name = saveStatus.getString(DocumentSourceKEY, DocumentSource.DOC_V1_LOCAL.name)
         return swipeRefreshWebView.apply {
-            switchDocument(
-                webView, try {
-                    DocumentSource.valueOf(name!!)
-                } catch (e: Exception) {
-                    DocumentSource.DOC_V1_LOCAL
-                }
-            )
+            loadHomeDocument(this.webView)
             fillMaxSize()
         }
     }
@@ -49,6 +41,18 @@ class EditorAppManager : Fragment() {
                 saveStatus = context.getSharedPreferences(TAG, Context.MODE_PRIVATE)
             }
             return saveStatus!!
+        }
+
+        fun loadHomeDocument(webView: WebView) {
+            val saveStatus = getSaveStatus(webView.context)
+            val name = saveStatus.getString(DocumentSourceKEY, DocumentSource.DOC_V1_LOCAL.name)
+            switchDocument(
+                webView, try {
+                    DocumentSource.valueOf(name!!)
+                } catch (e: Exception) {
+                    DocumentSource.DOC_V1_LOCAL
+                }
+            )
         }
 
         fun switchDocument(webView: WebView, documentSource: DocumentSource) {
