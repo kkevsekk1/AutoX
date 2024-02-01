@@ -7,7 +7,6 @@ import com.stardust.autojs.runtime.ScriptRuntime
 import com.stardust.autojs.runtime.exception.ScriptInterruptedException
 import com.stardust.lang.ThreadCompat
 import org.mozilla.javascript.Context
-import java.util.concurrent.ConcurrentHashMap
 
 /**
  * Created by Stardust on 2017/12/27.
@@ -27,7 +26,6 @@ open class TimerThread(private val mRuntime: ScriptRuntime, private val mTarget:
     override fun run() {
         loopers = Loopers(mRuntime)
         mTimer = loopers!!.mTimer
-        sTimerMap[currentThread()] = mTimer!!
         (mRuntime.engines.myEngine() as RhinoJavaScriptEngine).enterContext()
         notifyRunning()
         mTimer!!.post(mTarget)
@@ -42,14 +40,9 @@ open class TimerThread(private val mRuntime: ScriptRuntime, private val mTarget:
             onExit()
             mTimer = null
             Context.exit()
-            sTimerMap.remove(currentThread(), mTimer)
         }
     }
 
-    override fun interrupt() {
-        LooperHelper.quitForThread(this)
-        super.interrupt()
-    }
 
     private fun notifyRunning() {
         synchronized(mRunningLock) {
@@ -112,17 +105,5 @@ open class TimerThread(private val mRuntime: ScriptRuntime, private val mTarget:
 
     override fun toString(): String {
         return "Thread[$name,$priority]"
-    }
-
-    companion object {
-        private val sTimerMap = ConcurrentHashMap<Thread, Timer?>()
-
-        @JvmStatic
-        fun getTimerForThread(thread: Thread): Timer? {
-            return sTimerMap[thread]
-        }
-
-        val timerForCurrentThread: Timer?
-            get() = getTimerForThread(currentThread())
     }
 }

@@ -3,7 +3,6 @@ package com.stardust.autojs.core.image.capture
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.media.projection.MediaProjection
 import android.os.Bundle
 import com.stardust.app.OnActivityResultDelegate
 import com.stardust.autojs.core.image.capture.ScreenCaptureRequester.ActivityScreenCaptureRequester
@@ -16,7 +15,7 @@ import kotlinx.coroutines.launch
  */
 class ScreenCaptureRequestActivity : Activity() {
     interface Callback {
-        fun onResult(data: MediaProjection?)
+        fun onResult(data: Intent?)
     }
 
     private val mOnActivityResultDelegateMediator = OnActivityResultDelegate.Mediator()

@@ -4,6 +4,6 @@ import leakcanary.AppWatcher.objectWatcher
 
 class ObjectWatcher : com.stardust.autojs.util.ObjectWatcher {
     override fun watch(watchedObject: Any, description: String) {
-        objectWatcher.expectWeaklyReachable(this, description)
+        objectWatcher.expectWeaklyReachable(watchedObject, description)
     }
 }

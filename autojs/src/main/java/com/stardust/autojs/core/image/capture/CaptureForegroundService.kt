@@ -21,6 +21,12 @@ import com.stardust.autojs.core.image.capture.ScreenCaptureRequestActivity
  * From [TonyJiangWJ/Auto.js](https://github.com/TonyJiangWJ/Auto.js)
  */
 class CaptureForegroundService : Service() {
+    val callback = object : MediaProjection.Callback() {
+        override fun onStop() {
+            stopSelf()
+        }
+    }
+
     override fun onBind(intent: Intent): IBinder? {
         return null
     }
@@ -31,11 +37,7 @@ class CaptureForegroundService : Service() {
             Log.i(TAG, "stopSelf")
             stopSelf()
         }
-        mediaProjection?.registerCallback(object : MediaProjection.Callback() {
-            override fun onStop() {
-                stopSelf()
-            }
-        }, Handler(mainLooper))
+        mediaProjection?.registerCallback(callback, Handler(mainLooper))
         return START_NOT_STICKY
     }
 
@@ -99,6 +101,7 @@ class CaptureForegroundService : Service() {
 
     override fun onDestroy() {
         super.onDestroy()
+        mediaProjection?.unregisterCallback(callback)
         mediaProjection?.stop()
         removeNotification()
         stopForeground(true)

@@ -20,11 +20,12 @@ class Timers(private val mRuntime: ScriptRuntime) {
     fun getTimerForThread(thread: Thread): Timer {
         if (thread === mThreads.mainThread) {
             return mRuntime.loopers.mTimer
-        }
-        val timer = TimerThread.getTimerForThread(thread)
-        return if (timer == null && Looper.myLooper() == Looper.getMainLooper()) {
+        } else if (thread is TimerThread) {
+            return thread.timer
+        } else if (thread === Looper.getMainLooper().thread) {
             uiTimer
-        } else timer ?: mainTimer
+        }
+        return mainTimer
     }
 
     fun setTimeout(vararg args: Any?): Int {

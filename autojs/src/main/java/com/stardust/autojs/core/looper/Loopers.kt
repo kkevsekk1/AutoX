@@ -134,7 +134,7 @@ class Loopers(val runtime: ScriptRuntime) {
 
     private fun prepare() {
         if (isUiLooper) return
-        if (Looper.myLooper() == null) LooperHelper.prepare()
+        if (Looper.myLooper() == null) Looper.prepare()
         Looper.myQueue().addIdleHandler(MessageQueue.IdleHandler {
             if (this == runtime.loopers) {
                 Log.d(LOG_TAG, "main looper queueIdle")
