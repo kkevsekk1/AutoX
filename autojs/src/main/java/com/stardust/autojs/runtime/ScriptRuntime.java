@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.stardust.app.GlobalAppContext;
 import com.stardust.autojs.R;
+import com.stardust.autojs.BuildConfig;
 import com.stardust.autojs.ScriptEngineService;
 import com.stardust.autojs.annotation.ScriptVariable;
 import com.stardust.autojs.core.accessibility.AccessibilityBridge;
@@ -437,8 +438,12 @@ public class ScriptRuntime {
         ignoresException(ui::recycle);
 //        ignoresException(paddle::release);
 
-        //引用检查
-        ObjectWatcher.Companion.getDefault().watch(this, engines.myEngine().toString() + "::" + TAG);
+        if(BuildConfig.DEBUG){
+            //引用检查
+            // release 状态不启用监听
+            AppWatcher.INSTANCE.getObjectWatcher().expectWeaklyReachable(this,
+                    engines.myEngine().toString() + "::" + TAG);
+        }
     }
 
     private void ignoresException(Runnable r) {
