@@ -21,6 +21,8 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
@@ -41,8 +43,8 @@ jobs:
           alias: ${{ secrets.AALIAS }}
           keyStorePassword: ${{ secrets.AKEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.AKEY_PASSWORD }}
-        env:
-          BUILD_TOOLS_VERSION: "33.0.0"
+        env: 
+          BUILD_TOOLS_VERSION: "34.0.0"
       - name: rename apk
         run: |
           cd build/app/signed

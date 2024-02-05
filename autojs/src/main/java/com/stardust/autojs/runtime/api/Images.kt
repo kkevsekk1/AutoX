@@ -55,9 +55,11 @@ class Images(
             mScreenCaptureRequester.requestScreenCapture(
                 mContext, orientation
             )
-            mScreenCaptureRequester.screenCapture?.setOrientation(orientation, mContext)
             captureScreen()
         }.isSuccess
+    }
+    fun stopScreenCapturer(){
+        mScreenCaptureRequester.recycle()
     }
 
     @Synchronized

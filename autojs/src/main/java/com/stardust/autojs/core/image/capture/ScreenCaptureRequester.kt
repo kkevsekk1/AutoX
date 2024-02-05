@@ -3,7 +3,6 @@ package com.stardust.autojs.core.image.capture
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.media.projection.MediaProjection
 import android.media.projection.MediaProjectionManager
 import com.stardust.app.OnActivityResultDelegate
 import kotlinx.coroutines.CompletableDeferred
@@ -43,16 +42,14 @@ interface ScreenCaptureRequester {
             result.cancel()
         }
 
-        suspend fun request(): MediaProjection {
+        suspend fun request(): Intent {
             mActivity.startActivityForResult(
                 (mActivity.getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager).createScreenCaptureIntent(),
                 REQUEST_CODE_MEDIA_PROJECTION
             )
             val intent = result.await()
             recycle()
-            val mProjectionManager: MediaProjectionManager =
-                mActivity.getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
-            return mProjectionManager.getMediaProjection(Activity.RESULT_OK, intent)
+            return intent
         }
 
         fun recycle() {

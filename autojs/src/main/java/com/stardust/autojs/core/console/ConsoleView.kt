@@ -60,11 +60,10 @@ class ConsoleView : FrameLayout, LogListener {
         inflate(context, R.layout.console_view, this)
         if (attrs != null) {
             val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ConsoleView)
-            typedArray.use {
-                for ((styleable, logLevel) in ATTRS) {
-                    colors.put(logLevel, it.getColor(styleable, colors[logLevel]))
-                }
+            for ((styleable, logLevel) in ATTRS) {
+                colors.put(logLevel, typedArray.getColor(styleable, colors[logLevel]))
             }
+            typedArray.recycle()
         }
         mLogListRecyclerView = findViewById(R.id.log_list)
         val manager = LinearLayoutManager(context)
@@ -118,10 +117,10 @@ class ConsoleView : FrameLayout, LogListener {
             override fun run() {
                 refreshLog()
                 if (!mShouldStopRefresh) {
-                    postDelayed(this, REFRESH_INTERVAL.toLong())
+                    postDelayed(this, REFRESH_INTERVAL)
                 }
             }
-        }, REFRESH_INTERVAL.toLong())
+        }, REFRESH_INTERVAL)
     }
 
     override fun onDetachedFromWindow() {
@@ -241,6 +240,6 @@ class ConsoleView : FrameLayout, LogListener {
             .entry(Log.ERROR, -0x2b0000)
             .entry(Log.ASSERT, -0xacb2)
             .sparseArray()
-        private const val REFRESH_INTERVAL = 100
+        private const val REFRESH_INTERVAL = 100L
     }
 }
