@@ -1,7 +1,7 @@
 # Change Log
 autoxjs 整个项目的一些更新日志,双版本号为稳定版（内容以修复的bug为主），单版本号为激进版本、发布新内容。
 
-## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.5.7...HEAD) 未发布
+## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.5.8...HEAD) 未发布
 
 ## [6.5.8] - 2024-2-6
 @aiselp
@@ -11,7 +11,7 @@ autoxjs 整个项目的一些更新日志,双版本号为稳定版（内容以�
   @zwc456baby
 * 修复打出的包崩溃问题，release下不启用内存泄漏检测
 
-[6.5.7]:https://github.com/kkevsekk1/AutoX/compare/6.5.6...6.5.7
+[6.5.8]:https://github.com/kkevsekk1/AutoX/compare/6.5.7...6.5.8
 
 ## [6.5.7] - 2024-1-14
 @aiselp
