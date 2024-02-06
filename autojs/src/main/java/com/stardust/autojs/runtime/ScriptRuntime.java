@@ -441,8 +441,8 @@ public class ScriptRuntime {
         if(BuildConfig.DEBUG){
             //引用检查
             // release 状态不启用监听
-            AppWatcher.INSTANCE.getObjectWatcher().expectWeaklyReachable(this,
-                    engines.myEngine().toString() + "::" + TAG);
+            // AppWatcher.INSTANCE.getObjectWatcher().expectWeaklyReachable(this,
+            //         engines.myEngine().toString() + "::" + TAG);
         }
     }
 
