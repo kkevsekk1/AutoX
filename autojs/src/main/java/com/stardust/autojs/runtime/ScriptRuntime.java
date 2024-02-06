@@ -437,7 +437,7 @@ public class ScriptRuntime {
         ignoresException(timers::recycle);
         ignoresException(ui::recycle);
 //        ignoresException(paddle::release);
-
+         ObjectWatcher.Companion.getDefault().watch(this, engines.myEngine().toString() + "::" + TAG);
         if(BuildConfig.DEBUG){
             //引用检查
             // release 状态不启用监听
