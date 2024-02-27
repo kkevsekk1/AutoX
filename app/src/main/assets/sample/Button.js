@@ -1,11 +1,12 @@
-var path = "/sdcard/脚本/test.js";
+var path = "/sdcard/脚本/RedPacketReader.js";
 if(!files.exists(path)){
-    toast("脚本文件不存在: " + path);
+    toast("待执行的脚本不存在");
     exit();
 }
+
 var window = floaty.window(
     <frame>
-        <button id="action" text="开始运行" w="90" h="40" bg="#77ffffff"/>
+        <button id="action" style="Widget.AppCompat.Button.Colored" width="30" height="30"  bg="#778899"/>
     </frame>
 );
 
@@ -49,15 +50,7 @@ window.action.setOnTouchListener(function(view, event){
 });
 
 function onClick(){
-    if(window.action.getText() == '开始运行'){
-        execution = engines.execScriptFile(path);
-        window.action.setText('停止运行');
-    }else{
-        if(execution){
-            execution.getEngine().forceStop();
-        }
-        window.action.setText('开始运行');
-    }
+    execution = engines.execScriptFile(path);
 }
 
 
