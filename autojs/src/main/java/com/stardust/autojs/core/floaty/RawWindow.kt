@@ -88,4 +88,13 @@ class RawWindow(rawFloaty: RawFloaty, context: Context) : FloatyWindow() {
         }
         updateWindowLayoutParams(windowLayoutParams)
     }
+
+    override fun attachToWindow(view: View?, manager: WindowManager?) {
+        super.attachToWindow(view, manager)
+        val windowLayoutParams: WindowManager.LayoutParams = windowLayoutParams
+        windowLayoutParams.flags = windowLayoutParams.flags or
+                WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        updateWindowLayoutParams(windowLayoutParams)
+    }
 }
