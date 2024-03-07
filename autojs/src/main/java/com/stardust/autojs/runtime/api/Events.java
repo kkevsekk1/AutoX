@@ -7,21 +7,24 @@ import android.graphics.Point;
 import android.os.Build;
 import android.os.Handler;
 import android.provider.Settings;
+
+import androidx.annotation.RequiresApi;
+
 import android.view.KeyEvent;
 
 import com.stardust.autojs.R;
 import com.stardust.autojs.core.accessibility.AccessibilityBridge;
 import com.stardust.autojs.core.boardcast.BroadcastEmitter;
 import com.stardust.autojs.core.eventloop.EventEmitter;
-import com.stardust.autojs.core.inputevent.InputEventObserver;
-import com.stardust.autojs.core.inputevent.TouchObserver;
 import com.stardust.autojs.core.looper.Loopers;
 import com.stardust.autojs.core.looper.MainThreadProxy;
 import com.stardust.autojs.core.looper.Timer;
 import com.stardust.autojs.runtime.ScriptRuntime;
-import com.stardust.autojs.runtime.exception.ScriptException;
 import com.stardust.notification.Notification;
 import com.stardust.notification.NotificationListenerService;
+import com.stardust.autojs.runtime.exception.ScriptException;
+import com.stardust.autojs.core.inputevent.InputEventObserver;
+import com.stardust.autojs.core.inputevent.TouchObserver;
 import com.stardust.util.MapBuilder;
 import com.stardust.view.accessibility.AccessibilityNotificationObserver;
 import com.stardust.view.accessibility.AccessibilityService;
@@ -71,13 +74,12 @@ public class Events extends EventEmitter implements OnKeyListener, TouchObserver
     private boolean mListeningNotification = false;
     private boolean mListeningGesture = false;
     private boolean mListeningToast = false;
-    private final ScriptRuntime mScriptRuntime;
+    private ScriptRuntime mScriptRuntime;
     private volatile boolean mInterceptsAllKey = false;
     private KeyInterceptor mKeyInterceptor;
     private Set<String> mInterceptedKeys = new HashSet<>();
 
     public final BroadcastEmitter broadcast;
-    private final Loopers.AsyncTask task = new Loopers.AsyncTask("events");
 
     public Events(Context context, AccessibilityBridge accessibilityBridge, ScriptRuntime runtime) {
         super(runtime.bridges);
@@ -109,7 +111,7 @@ public class Events extends EventEmitter implements OnKeyListener, TouchObserver
             throw new ScriptException(mContext.getString(R.string.text_should_enable_key_observing));
         }
         ensureHandler();
-        mLoopers.addAsyncTask(task);
+        mLoopers.waitWhenIdle(true);
         mListeningKey = true;
         mAccessibilityBridge.ensureServiceEnabled();
         service.getOnKeyObserver().addListener(this);
@@ -125,7 +127,7 @@ public class Events extends EventEmitter implements OnKeyListener, TouchObserver
         if (mTouchObserver != null)
             return;
         ensureHandler();
-        mLoopers.addAsyncTask(task);
+        mLoopers.waitWhenIdle(true);
         mTouchObserver = new TouchObserver(InputEventObserver.getGlobal(mContext));
         mTouchObserver.setOnTouchEventListener(this);
         mTouchObserver.observe();
@@ -216,17 +218,17 @@ public class Events extends EventEmitter implements OnKeyListener, TouchObserver
         mTouchEventTimeout = touchEventTimeout;
     }
 
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     public void observeNotification() {
         ScriptRuntime.requiresApi(18);
         if (mListeningNotification)
             return;
         mListeningNotification = true;
         ensureHandler();
-        mLoopers.addAsyncTask(task);
+        mLoopers.waitWhenIdle(true);
         if (NotificationListenerService.Companion.getInstance() == null) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
-                mContext.startActivity(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS)
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                mContext.startActivity(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS));
             }
             throw new ScriptException(mContext.getString(R.string.exception_notification_service_disabled));
         }
@@ -239,7 +241,7 @@ public class Events extends EventEmitter implements OnKeyListener, TouchObserver
         mAccessibilityBridge.ensureServiceEnabled();
         mListeningToast = true;
         ensureHandler();
-        mLoopers.addAsyncTask(task);
+        mLoopers.waitWhenIdle(true);
         mAccessibilityBridge.getNotificationObserver().addToastListener(this);
     }
 
@@ -254,7 +256,7 @@ public class Events extends EventEmitter implements OnKeyListener, TouchObserver
         }
         service.getGestureEventDispatcher().addListener(this);
         ensureHandler();
-        mLoopers.addAsyncTask(task);
+        mLoopers.waitWhenIdle(true);
         mListeningGesture = true;
     }
 
