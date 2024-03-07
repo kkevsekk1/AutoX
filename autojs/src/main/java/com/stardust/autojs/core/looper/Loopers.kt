@@ -90,6 +90,7 @@ class Loopers(val runtime: ScriptRuntime) {
             if (mTimer.hasPendingCallbacks()) return false
             //检查是否有运行中的线程
             if (checkTask()) return false
+            if (isUiLooper) return false
             return !(Context.getCurrentContext() as AutoJsContext).hasPendingContinuation()
         }
     }

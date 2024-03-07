@@ -7,24 +7,21 @@ import android.graphics.Point;
 import android.os.Build;
 import android.os.Handler;
 import android.provider.Settings;
-
-import androidx.annotation.RequiresApi;
-
 import android.view.KeyEvent;
 
 import com.stardust.autojs.R;
 import com.stardust.autojs.core.accessibility.AccessibilityBridge;
 import com.stardust.autojs.core.boardcast.BroadcastEmitter;
 import com.stardust.autojs.core.eventloop.EventEmitter;
+import com.stardust.autojs.core.inputevent.InputEventObserver;
+import com.stardust.autojs.core.inputevent.TouchObserver;
 import com.stardust.autojs.core.looper.Loopers;
 import com.stardust.autojs.core.looper.MainThreadProxy;
 import com.stardust.autojs.core.looper.Timer;
 import com.stardust.autojs.runtime.ScriptRuntime;
+import com.stardust.autojs.runtime.exception.ScriptException;
 import com.stardust.notification.Notification;
 import com.stardust.notification.NotificationListenerService;
-import com.stardust.autojs.runtime.exception.ScriptException;
-import com.stardust.autojs.core.inputevent.InputEventObserver;
-import com.stardust.autojs.core.inputevent.TouchObserver;
 import com.stardust.util.MapBuilder;
 import com.stardust.view.accessibility.AccessibilityNotificationObserver;
 import com.stardust.view.accessibility.AccessibilityService;
@@ -228,7 +225,8 @@ public class Events extends EventEmitter implements OnKeyListener, TouchObserver
         mLoopers.addAsyncTask(task);
         if (NotificationListenerService.Companion.getInstance() == null) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
-                mContext.startActivity(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS));
+                mContext.startActivity(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             }
             throw new ScriptException(mContext.getString(R.string.exception_notification_service_disabled));
         }
