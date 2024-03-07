@@ -140,6 +140,16 @@ android {
 //            buildConfigField("String", "APPID", "\"?id=23\"")
             manifestPlaceholders.putAll(mapOf("appName" to "Autox.js v6"))
         }
+
+        create("github") {
+            applicationIdSuffix = ".github"
+            versionCode = versions.devVersionCode
+            versionName = versions.devVersionName
+            applicationId = "org.autojs.autoxjs.git"
+            buildConfigField("String", "CHANNEL", "\"github\"")
+//            buildConfigField("String", "APPID", "\"?id=23\"")
+            manifestPlaceholders.putAll(mapOf("appName" to "Autox.js github"))
+        }
     }
 
     sourceSets {

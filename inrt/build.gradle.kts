@@ -6,7 +6,7 @@ plugins {
     id("kotlin-android")
 }
 
-var propFile: File = File("E:/资料/jks/autojs-app/sign.properties");
+var propFile: File = File("E:/资料/jks/autojs-inrt/sign.properties");
 val properties = Properties()
 if (!propFile.exists()) {
     propFile = file("../cert/sign.properties");
