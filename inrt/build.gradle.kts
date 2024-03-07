@@ -6,12 +6,13 @@ plugins {
     id("kotlin-android")
 }
 
-val propFile: File = File("E:/资料/jks/autojs-inrt/sign.properties");
+var propFile: File = File("E:/资料/jks/autojs-app/sign.properties");
 val properties = Properties()
-if (propFile.exists()) {
-    propFile.reader().use {
-        properties.load(it)
-    }
+if (!propFile.exists()) {
+    propFile = file("../cert/sign.properties");
+}
+propFile.inputStream().reader().use {
+    properties.load(it)
 }
 
 android {
@@ -41,7 +42,7 @@ android {
 
     signingConfigs {
         if (propFile.exists()) {
-            getByName("release") {
+            create("release") {
                 storeFile = file(properties.getProperty("storeFile"))
                 storePassword = properties.getProperty("storePassword")
                 keyAlias = properties.getProperty("keyAlias")
