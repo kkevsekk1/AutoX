@@ -54,7 +54,7 @@ class ScriptExecuteActivity : AppCompatActivity() {
         }
         mScriptExecution = execution
         mScriptSource = mScriptExecution.source
-        mScriptEngine = mScriptExecution.createEngine(this)
+        mScriptEngine = mScriptExecution.createEngine()
         mExecutionListener = mScriptExecution.listener
         mRuntime = (mScriptEngine as JavaScriptEngine).runtime
         eventEmitter = EventEmitter(mRuntime.bridges)
@@ -204,7 +204,7 @@ class ScriptExecuteActivity : AppCompatActivity() {
         task: ScriptExecutionTask?
     ) : AbstractScriptExecution(task) {
         private var mScriptEngine: ScriptEngine<*>? = null
-        fun createEngine(activity: Activity?): ScriptEngine<*> {
+        fun createEngine(): ScriptEngine<*> {
             if (mScriptEngine != null) {
                 mScriptEngine!!.forceStop()
             }
