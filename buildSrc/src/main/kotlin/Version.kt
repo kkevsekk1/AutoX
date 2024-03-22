@@ -35,9 +35,9 @@ data class Versions(
     @SerializedName("JDK")
     val jdk: String = "17",
     @SerializedName("mini")
-    val mini: Int = 21,
+    val mini: Int = 27,
     @SerializedName("target")
-    val target: Int = 26,
+    val target: Int = 34,
 ){
     val javaVersion: JavaVersion = JavaVersion.VERSION_17
 }

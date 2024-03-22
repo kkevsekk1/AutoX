@@ -95,7 +95,7 @@ abstract class AutoJs protected constructor(protected val application: Applicati
     }
 
     abstract fun ensureAccessibilityServiceEnabled()
-    protected fun buildScriptEngineService(): ScriptEngineService {
+    private fun buildScriptEngineService(): ScriptEngineService {
         initScriptEngineManager()
         return ScriptEngineServiceBuilder()
             .uiHandler(uiHandler)
@@ -114,7 +114,7 @@ abstract class AutoJs protected constructor(protected val application: Applicati
         scriptEngineManager.registerEngine(AutoFileSource.ENGINE) { RootAutomatorEngine(mContext) }
     }
 
-    protected fun initContextFactory() {
+    private fun initContextFactory() {
         ContextFactory.initGlobal(AndroidContextFactory(File(mContext.cacheDir, "classes")))
     }
 
@@ -130,7 +130,7 @@ abstract class AutoJs protected constructor(protected val application: Applicati
         }.build()
     }
 
-    protected fun registerActivityLifecycleCallbacks() {
+    private fun registerActivityLifecycleCallbacks() {
         application.registerActivityLifecycleCallbacks(object : SimpleActivityLifecycleCallbacks() {
             override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
                 ScreenMetrics.initIfNeeded(activity)

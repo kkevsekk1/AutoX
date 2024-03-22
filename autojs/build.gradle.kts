@@ -41,6 +41,7 @@ dependencies {
     implementation(libs.leakcanary.`object`.watcher.android)
     testImplementation(libs.junit)
 
+    implementation(libs.glide)
     implementation(libs.documentfile)
     implementation(libs.preference.ktx)
     api(libs.eventbus)

@@ -2,22 +2,16 @@ package org.autojs.autojs
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.drawable.Drawable
-import android.net.Uri
-import android.view.View
-import android.widget.ImageView
+import android.os.Process
+import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.multidex.MultiDexApplication
 import androidx.work.Configuration
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.SimpleTarget
-import com.bumptech.glide.request.transition.Transition
 import com.flurry.android.FlurryAgent
 import com.stardust.app.GlobalAppContext
-import com.stardust.autojs.core.ui.inflater.ImageLoader
-import com.stardust.autojs.core.ui.inflater.util.Drawables
+import com.stardust.autojs.IndependentScriptService
+import com.stardust.autojs.util.ProcessUtils
 import com.stardust.theme.ThemeColor
 import com.tencent.bugly.Bugly
 import com.tencent.bugly.crashreport.CrashReport
@@ -82,13 +76,16 @@ class App : MultiDexApplication(), Configuration.Provider {
                 ContextCompat.getColor(this, R.color.colorAccent)
             )
         )
-        AutoJs.initInstance(this)
-        if (Pref.isRunningVolumeControlEnabled()) {
-            GlobalKeyObserver.init()
+        if (ProcessUtils.isScriptProcess(this)) {
+            AutoJs.initInstance(this)
+            if (Pref.isRunningVolumeControlEnabled()) {
+                GlobalKeyObserver.init()
+            }
+            TimedTaskScheduler.init(this)
+            initDynamicBroadcastReceivers()
         }
-        setupDrawableImageLoader()
-        TimedTaskScheduler.init(this)
-        initDynamicBroadcastReceivers()
+        Log.i(TAG, "Pid: ${Process.myPid()}, isScriptProcess: ${ProcessUtils.isScriptProcess(this)}")
+        startService(Intent(this, IndependentScriptService::class.java))
     }
 
 
@@ -122,64 +119,6 @@ class App : MultiDexApplication(), Configuration.Provider {
             }, { it.printStackTrace() })
 
 
-    }
-
-    private fun setupDrawableImageLoader() {
-        Drawables.setDefaultImageLoader(object : ImageLoader {
-            override fun loadInto(imageView: ImageView, uri: Uri) {
-                Glide.with(imageView)
-                    .load(uri)
-                    .into(imageView)
-            }
-
-            override fun loadIntoBackground(view: View, uri: Uri) {
-                Glide.with(view)
-                    .load(uri)
-                    .into(object : SimpleTarget<Drawable>() {
-                        override fun onResourceReady(
-                            resource: Drawable,
-                            transition: Transition<in Drawable>?
-                        ) {
-                            view.background = resource
-                        }
-                    })
-            }
-
-            override fun load(view: View, uri: Uri): Drawable {
-                throw UnsupportedOperationException()
-            }
-
-            override fun load(
-                view: View,
-                uri: Uri,
-                drawableCallback: ImageLoader.DrawableCallback
-            ) {
-                Glide.with(view)
-                    .load(uri)
-                    .into(object : SimpleTarget<Drawable>() {
-                        override fun onResourceReady(
-                            resource: Drawable,
-                            transition: Transition<in Drawable>?
-                        ) {
-                            drawableCallback.onLoaded(resource)
-                        }
-                    })
-            }
-
-            override fun load(view: View, uri: Uri, bitmapCallback: ImageLoader.BitmapCallback) {
-                Glide.with(view)
-                    .asBitmap()
-                    .load(uri)
-                    .into(object : SimpleTarget<Bitmap>() {
-                        override fun onResourceReady(
-                            resource: Bitmap,
-                            transition: Transition<in Bitmap>?
-                        ) {
-                            bitmapCallback.onLoaded(resource)
-                        }
-                    })
-            }
-        })
     }
 
     companion object {
