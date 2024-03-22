@@ -17,7 +17,8 @@ text-recognition = "16.0.0-beta6"
 text-recognition-chinese = "16.0.0"
 
 [libraries]
-
+# androidx
+preference-ktx = "androidx.preference:preference-ktx:1.2.0"
 androidx-annotation = "androidx.annotation:annotation:1.4.0"
 activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
 # androidx compose
@@ -73,6 +74,7 @@ androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+material3 = "androidx.compose.material3:material3:1.2.1"
 andserver-processor = { module = "com.yanzhenjie.andserver:processor", version.ref = "andserver" }
 andserver-api = { module = "com.yanzhenjie.andserver:api", version.ref = "andserver" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version = "2.1.4" }

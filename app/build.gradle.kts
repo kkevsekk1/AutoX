@@ -184,9 +184,7 @@ dependencies {
     debugImplementation(libs.compose.ui.tooling)
     implementation(libs.activity.compose)
 
-    androidTestImplementation(libs.espresso.core) {
-        exclude(group = "com.android.support", module = "support-annotations")
-    }
+    androidTestImplementation(libs.espresso.core)
     testImplementation(libs.junit)
     // Kotlin携程
     implementation(libs.kotlinx.coroutines.android)
@@ -202,16 +200,14 @@ dependencies {
     annotationProcessor("com.jakewharton:butterknife-compiler:10.2.3")
     kapt("com.jakewharton:butterknife-compiler:10.2.3")
     // Android supports
-    implementation("androidx.preference:preference-ktx:1.2.0")
+    implementation(libs.preference.ktx)
     implementation(libs.appcompat) //
     implementation("androidx.cardview:cardview:1.0.0")
     implementation(libs.material)
     // Personal libraries
     implementation("com.github.hyb1996:MutableTheme:1.0.0")
     // Material Dialogs
-    implementation("com.afollestad.material-dialogs:core:0.9.2.3") {
-        exclude(group = "com.android.support")
-    }
+    implementation("com.afollestad.material-dialogs:core:0.9.2.3")
     // Common Markdown
     implementation("com.github.atlassian:commonmark-java:commonmark-parent-0.9.0")
     // Android issue reporter (a github issue reporter)

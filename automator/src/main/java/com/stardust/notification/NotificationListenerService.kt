@@ -1,11 +1,6 @@
 package com.stardust.notification
 
-import android.app.Notification
-import android.os.Build
-import android.os.Parcel
 import android.service.notification.StatusBarNotification
-import androidx.annotation.RequiresApi
-
 import com.stardust.view.accessibility.NotificationListener
 import java.util.concurrent.CopyOnWriteArrayList
 
@@ -13,7 +8,6 @@ import java.util.concurrent.CopyOnWriteArrayList
  * Created by Stardust on 2017/10/30.
  */
 
-@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
 class NotificationListenerService : android.service.notification.NotificationListenerService() {
 
     private val mNotificationListeners = CopyOnWriteArrayList<NotificationListener>()
