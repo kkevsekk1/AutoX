@@ -18,7 +18,8 @@ class FileSystem(context: Context) {
         const val MaxFileSize = 1024 * 1024 * 5
         private val basePath: File = Environment.getExternalStorageDirectory()
         private var sampleDir: File? = null
-        private const val sampleBase = "/_-__sample__-_"
+        private val uriFiles = mutableSetOf<String>()
+        private const val sampleBase = "/@Autox-sample"
         fun parsePath(path: String): File {
             if (path.startsWith(sampleBase)) {
                 return File(sampleDir, path.replace(sampleBase, ""))

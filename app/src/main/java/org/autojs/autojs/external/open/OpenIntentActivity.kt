@@ -65,7 +65,7 @@ class OpenIntentActivity : BaseActivity() {
         if (file.scheme == "file" && File(path).isFile()) {
             EditActivity.editFile(this, path, false)
         } else {
-            showToast(R.string.edit_and_run_handle_intent_error)
+            EditActivity.editFile(this, file, false)
         }
         return job
     }

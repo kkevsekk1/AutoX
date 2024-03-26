@@ -9,7 +9,10 @@ import androidx.savedstate.SavedStateRegistryOwner
 
 internal class MyLifecycleOwner : SavedStateRegistryOwner {
     private var mLifecycleRegistry: LifecycleRegistry = LifecycleRegistry(this)
-    private var mSavedStateRegistryController: SavedStateRegistryController = SavedStateRegistryController.create(this)
+    private var mSavedStateRegistryController: SavedStateRegistryController =
+        SavedStateRegistryController.create(this)
+    override val lifecycle: Lifecycle
+        get() = mLifecycleRegistry
 
     /**
      * @return True if the Lifecycle has been initialized.
@@ -19,9 +22,6 @@ internal class MyLifecycleOwner : SavedStateRegistryOwner {
     override val savedStateRegistry: SavedStateRegistry
         get() = mSavedStateRegistryController.savedStateRegistry
 
-    override fun getLifecycle(): Lifecycle {
-        return mLifecycleRegistry
-    }
 
     fun setCurrentState(state: Lifecycle.State) {
         mLifecycleRegistry.currentState = state

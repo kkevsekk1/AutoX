@@ -18,7 +18,7 @@ abstract class JavaScriptSource(name: String) : ScriptSource(name) {
         get() = scriptReader ?: StringReader(script)
 
     override fun toString(): String {
-        return "$name.js"
+        return name
     }
 
     val executionMode: Int
