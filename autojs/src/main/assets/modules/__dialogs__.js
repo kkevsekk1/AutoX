@@ -154,10 +154,11 @@ module.exports = function(__runtime__, scope){
         if(properties.inputHint != undefined || properties.inputPrefill != undefined){
             builder.input(wrapNonNullString(properties.inputHint), wrapNonNullString(properties.inputPrefill), 
                 function(dialog, input){
+                if (!builder.dialog) { return; }
                     input = input.toString();
                     builder.dialog.emit("input_change", builder.dialog, input);
                 })
-//                   .alwaysCallInputCallback();
+                   .alwaysCallInputCallback();
         }
         if(properties.items != undefined){
             var itemsSelectMode = properties.itemsSelectMode;
@@ -168,15 +169,14 @@ module.exports = function(__runtime__, scope){
             }else if(itemsSelectMode == 'single'){
                 builder.itemsCallbackSingleChoice(properties.itemsSelectedIndex == undefined ? -1 : properties.itemsSelectedIndex, 
                     function(dialog, view, which, text){
-                        builder.dialog.emit("single_choice", which, text.toString(), builder.dialog);
+                        builder.dialog.emit("single_choice", which, text && text.toString(), builder.dialog);
                         return true;
                     });
             }else if(itemsSelectMode == 'multi'){
                 builder.itemsCallbackMultiChoice(properties.itemsSelectedIndex == undefined ? null : properties.itemsSelectedIndex, 
                     function(dialog, view, indices, texts){
-                        builder.dialog.emit("multi_choice", toJsArray(indices, (l, i)=> parseInt(l.get(i)),
-                            toJsArray(texts, (l, i)=> l.get(i).toString())), builder.dialog);
-                            return true;                        
+                        builder.dialog.emit("multi_choice", toJsArray(view, (l, i) => parseInt(l[i])), toJsArray(indices, (l, i) => l[i]), builder.dialog);
+                        return true;
                     });
             }else{
                 throw new Error("unknown itemsSelectMode " + itemsSelectMode);
@@ -222,9 +222,11 @@ module.exports = function(__runtime__, scope){
 
     function toJsArray(object, adapter){
         var jsArray = [];
-        var len = javaArray.length;
-        for (var i = 0;i < len;i++){
-            jsArray.push(adapter(object, i));
+        if (object != undefined) {
+            var len = object.length;
+            for (var i = 0; i < len; i++) {
+                jsArray.push(adapter(object, i));
+            }
         }
         return jsArray;
     }
