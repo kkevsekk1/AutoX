@@ -2,7 +2,9 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
 }
-
+kotlin {
+    jvmToolchain(17)
+}
 android {
     compileSdk = versions.compile
 
@@ -26,6 +28,10 @@ android {
             res.srcDirs("src/main/res","src/main/res-i18n")
         }
     }
+    compileOptions {
+        sourceCompatibility = versions.javaVersion
+        targetCompatibility = versions.javaVersion
+    }
     namespace = "com.stardust.autojs"
 }
 
@@ -36,12 +42,10 @@ dependencies {
     testImplementation(libs.junit)
 
     implementation(libs.documentfile)
-    implementation("androidx.preference:preference-ktx:1.2.0")
+    implementation(libs.preference.ktx)
     api(libs.eventbus)
     api("net.lingala.zip4j:zip4j:1.3.2")
-    api("com.afollestad.material-dialogs:core:0.9.2.3"){
-        exclude(group = "com.android.support")
-    }
+    api("com.afollestad.material-dialogs:core:0.9.2.3")
     api(libs.material)
     api("com.github.hyb1996:EnhancedFloaty:0.31")
     api("com.makeramen:roundedimageview:2.3.0")

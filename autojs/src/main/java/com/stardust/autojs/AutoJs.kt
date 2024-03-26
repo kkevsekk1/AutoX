@@ -18,7 +18,9 @@ import com.stardust.autojs.engine.RootAutomatorEngine
 import com.stardust.autojs.engine.ScriptEngineManager
 import com.stardust.autojs.rhino.AndroidContextFactory
 import com.stardust.autojs.runtime.ScriptRuntime
+import com.stardust.autojs.runtime.ScriptRuntimeV2
 import com.stardust.autojs.runtime.accessibility.AccessibilityConfig
+import com.stardust.autojs.runtime.api.AbstractShell
 import com.stardust.autojs.runtime.api.AppUtils
 import com.stardust.autojs.script.AutoFileSource
 import com.stardust.autojs.script.JavaScriptSource
@@ -26,6 +28,7 @@ import com.stardust.util.ResourceMonitor
 import com.stardust.util.ResourceMonitor.UnclosedResourceDetectedException
 import com.stardust.util.ResourceMonitor.UnclosedResourceException
 import com.stardust.util.ScreenMetrics
+import com.stardust.util.Supplier
 import com.stardust.util.UiHandler
 import com.stardust.view.accessibility.AccessibilityNotificationObserver
 import com.stardust.view.accessibility.AccessibilityService
@@ -116,14 +119,15 @@ abstract class AutoJs protected constructor(protected val application: Applicati
     }
 
     protected open fun createRuntime(): ScriptRuntime {
-        return ScriptRuntime.Builder()
-            .setConsole(ConsoleImpl(uiHandler, globalConsole))
-            .setScreenCaptureRequester(mScreenCaptureRequester)
-            .setAccessibilityBridge(AccessibilityBridgeImpl(uiHandler))
-            .setUiHandler(uiHandler)
-            .setAppUtils(appUtils)
-            .setEngineService(scriptEngineService)
-            .setShellSupplier { Shell(mContext, true) }.build()
+        return ScriptRuntimeV2.Builder().also {
+            it.console = ConsoleImpl(uiHandler, globalConsole)
+            it.screenCaptureRequester = mScreenCaptureRequester
+            it.accessibilityBridge = AccessibilityBridgeImpl(uiHandler)
+            it.uiHandler = uiHandler
+            it.appUtils = appUtils
+            it.engineService = scriptEngineService
+            it.shellSupplier = Supplier<AbstractShell> { Shell(mContext, true) }
+        }.build()
     }
 
     protected fun registerActivityLifecycleCallbacks() {

@@ -2,7 +2,6 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
 }
-
 android {
     compileSdk = versions.compile
 
@@ -22,7 +21,10 @@ android {
         }
     }
     namespace = "com.stardust.autojs.apkbuilder"
-
+    compileOptions {
+        sourceCompatibility = versions.javaVersion
+        targetCompatibility = versions.javaVersion
+    }
 
 }
 
@@ -30,9 +32,7 @@ dependencies {
 
     implementation(libs.okhttp)
     androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core){
-        exclude(group = "com.android.support",module = "support-annotations")
-    }
+    androidTestImplementation(libs.espresso.core)
     testImplementation(libs.junit)
     api(files("libs/tiny-sign-0.9.jar"))
     api(libs.commons.io)

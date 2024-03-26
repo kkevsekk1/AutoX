@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.os.Looper;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.stardust.app.GlobalAppContext;
@@ -178,6 +179,7 @@ public class AutoJs extends com.stardust.autojs.AutoJs {
         return config;
     }
 
+    @NonNull
     @Override
     protected ScriptRuntime createRuntime() {
         ScriptRuntime runtime = super.createRuntime();

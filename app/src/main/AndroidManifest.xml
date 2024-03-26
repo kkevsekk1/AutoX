@@ -455,13 +455,6 @@
             android:configChanges="orientation|screenSize" />
         <activity android:name="org.autojs.autojs.ui.edit.ViewSampleActivity" />
         <activity
-            android:name="org.autojs.autojs.ui.user.LoginActivity_"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name="org.autojs.autojs.ui.user.RegisterActivity_"
-            android:windowSoftInputMode="adjustResize" />
-        <activity android:name="org.autojs.autojs.ui.user.WebActivity_" />
-        <activity
             android:name="org.autojs.autojs.ui.build.BuildActivity"
             android:configChanges="orientation|screenSize" />
         <activity android:name="org.autojs.autojs.ui.build.SignManageActivityKt" />
@@ -473,12 +466,10 @@
             android:name="org.autojs.autojs.ui.shortcut.ShortcutCreateActivity"
             android:theme="@style/AppTheme.Transparent" />
         <activity
-            android:name="org.autojs.autojs.external.widget.ScriptWidgetSettingsActivity_"
+            android:name="org.autojs.autojs.external.widget.ScriptWidgetSettingsActivity"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
-            </intent-filter>
-            <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -489,10 +480,9 @@
             android:theme="@style/IssueReporterTheme" />
 
         <service android:name="org.autojs.autojs.external.foreground.ForegroundService" />
-        <service android:name="org.autojs.autojs.external.ScriptExecutionIntentService" />
 
         <activity android:name="org.autojs.autojs.external.tasker.TaskPrefEditActivity_" />
-        <activity android:name="org.autojs.autojs.ui.log.LogActivity_"/>
+        <activity android:name="org.autojs.autojs.ui.log.LogActivity_" />
         <activity-alias
             android:name=".external.tasker.PluginActivity"
             android:exported="true"
@@ -585,49 +575,18 @@
         </receiver>
 
         <activity
-            android:name="org.autojs.autojs.external.open.EditIntentActivity"
-            android:exported="true"
-            android:icon="@drawable/autojs_logo"
-            android:label="@string/text_edit_script">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <action android:name="android.intent.action.EDIT" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="file" />
-                <data android:scheme="content" />
-                <data android:mimeType="application/x-javascript" />
-                <data android:mimeType="text/plain" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name="org.autojs.autojs.external.open.RunIntentActivity"
-            android:exported="true"
             android:icon="@drawable/autojs_logo"
             android:label="@string/text_run_script"
             android:taskAffinity=".external.open.RunIntentActivity"
-            android:theme="@android:style/Theme.NoDisplay">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <action android:name="android.intent.action.EDIT" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="file" />
-                <data android:scheme="content" />
-                <data android:mimeType="application/x-javascript" />
-                <data android:mimeType="text/plain" />
-            </intent-filter>
-        </activity>
+            android:theme="@android:style/Theme.NoDisplay" />
         <activity
-            android:name="org.autojs.autojs.external.open.ImportIntentActivity"
+            android:name="org.autojs.autojs.external.open.OpenIntentActivity"
             android:exported="true"
+            android:excludeFromRecents="true"
             android:icon="@drawable/autojs_logo"
-            android:label="@string/text_import_script"
-            android:theme="@style/AppTheme.Transparent">
+            android:label="@string/app_name"
+            android:theme="@style/M3AppTheme.Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.EDIT" />
@@ -686,6 +645,7 @@
                 <action android:name="com.android.deskclock.ALARM_ALERT" />
             </intent-filter>
         </receiver>
+
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"

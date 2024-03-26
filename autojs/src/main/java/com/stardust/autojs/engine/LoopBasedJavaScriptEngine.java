@@ -72,6 +72,7 @@ public class LoopBasedJavaScriptEngine extends RhinoJavaScriptEngine {
 
     @Override
     public void forceStop() {
+        getRuntime().loopers.forceStop();
         Activity activity = (Activity) getTag("activity");
         if (activity != null) {
             activity.finish();
@@ -81,6 +82,7 @@ public class LoopBasedJavaScriptEngine extends RhinoJavaScriptEngine {
 
     @Override
     public synchronized void destroy() {
+        getRuntime().loopers.forceStop();
         super.destroy();
     }
 

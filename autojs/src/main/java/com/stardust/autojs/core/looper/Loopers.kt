@@ -127,6 +127,12 @@ class Loopers(val runtime: ScriptRuntime) {
         mServantLooper?.quit()
     }
 
+    fun forceStop() {
+        if (!isUiLooper) {
+            myLooper.quit()
+        }
+    }
+
     @Deprecated("使用AsyncTask代替")
     fun setMainLooperQuitHandler(mainLooperQuitHandler: LooperQuitHandler?) {
         mMainLooperQuitHandler = mainLooperQuitHandler
@@ -166,5 +172,10 @@ class Loopers(val runtime: ScriptRuntime) {
     companion object {
         private const val LOG_TAG = "Loopers"
         private val EMPTY_RUNNABLE = Runnable {}
+        fun addAsyncTaskToCurrentThreadLooper(task: AsyncTask): Boolean {
+            return (Thread.currentThread() as? TimerThread)?.loopers?.apply {
+                addAsyncTask(task)
+            } != null
+        }
     }
 }

@@ -49,6 +49,10 @@ android {
             }
         }
     }
+    compileOptions {
+        sourceCompatibility = versions.javaVersion
+        targetCompatibility = versions.javaVersion
+    }
     buildTypes {
         named("debug") {
             isMinifyEnabled = false
@@ -158,13 +162,11 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.annotation)
-    implementation("androidx.preference:preference-ktx:1.2.0")
+    implementation(libs.preference.ktx)
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0")
-    androidTestImplementation(libs.espresso.core) {
-        exclude(group = "com.android.support", "support-annotations")
-    }
+    androidTestImplementation(libs.espresso.core)
     implementation("com.github.bumptech.glide:glide:4.2.0") {
         exclude(group = "com.android.support")
     }

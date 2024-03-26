@@ -1,6 +1,7 @@
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okio.use
+
 plugins {
     id("com.android.library")
     id("kotlin-android")
@@ -10,15 +11,15 @@ plugins {
 
 android {
     namespace = "com.aiselp.autojs.codeeditor"
-    compileSdk = 33
+    compileSdk = versions.compile
 
     defaultConfig {
-        minSdk = 21
+        minSdk = versions.mini
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
 
@@ -32,16 +33,13 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
+        sourceCompatibility = versions.javaVersion
+        targetCompatibility = versions.javaVersion
     }
 }
 
 dependencies {
-
+    implementation(platform(libs.compose.bom))
     implementation(libs.andserver.api)
     implementation(libs.androidx.constraintlayout)
     kapt(libs.andserver.processor)
@@ -66,21 +64,21 @@ tasks.register("downloadEditor") {
     val assetsDir = File(projectDir, "/src/main/assets/codeeditor")
     val versionFile = File(assetsDir, "version.txt")
     doFirst {
-        logger.log(LogLevel.LIFECYCLE,"start downloadEditor")
+        logger.log(LogLevel.LIFECYCLE, "start downloadEditor")
         assetsDir.mkdirs()
-        if (versionFile.isFile){
+        if (versionFile.isFile) {
             val dowversion = versionFile.readText().toInt()
             if (dowversion == version) {
-                logger.log(LogLevel.LIFECYCLE,"skip download")
+                logger.log(LogLevel.LIFECYCLE, "skip download")
                 return@doFirst
             }
         }
         val response = OkHttpClient.Builder().build().newCall(
             Request.Builder().url(uri).build()
         ).execute()
-        check(response.isSuccessful){"download error response code:${response.code}"}
+        check(response.isSuccessful) { "download error response code:${response.code}" }
         response.body!!.byteStream().use {
-            File(assetsDir, "dist.zip").outputStream().use { out->
+            File(assetsDir, "dist.zip").outputStream().use { out ->
                 it.copyTo(out)
             }
         }

@@ -4,7 +4,9 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
 }
-
+kotlin {
+    jvmToolchain(17)
+}
 android {
     compileSdk = versions.compile
 
@@ -25,11 +27,14 @@ android {
         }
     }
     lint.abortOnError = false
-
     sourceSets {
         getByName("main") {
             res.srcDirs("src/main/res","src/main/res-i18n")
         }
+    }
+    compileOptions {
+        sourceCompatibility = versions.javaVersion
+        targetCompatibility = versions.javaVersion
     }
     namespace = "com.stardust"
 }
