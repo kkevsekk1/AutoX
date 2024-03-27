@@ -11,8 +11,8 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = versions.javaVersion
+        targetCompatibility = versions.javaVersion
     }
     lint.abortOnError = false
     buildTypes {
@@ -32,9 +32,6 @@ android {
 dependencies {
     androidTestImplementation(libs.espresso.core)
     testImplementation(libs.junit)
-    implementation("androidx.core:core"){
-        version { strictly("1.8.0") }
-    }
     api(libs.appcompat)
     api(project(":common"))
 }

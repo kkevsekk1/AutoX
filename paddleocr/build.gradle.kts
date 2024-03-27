@@ -11,8 +11,8 @@ android {
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = versions.javaVersion
+        targetCompatibility = versions.javaVersion
     }
     buildTypes {
         named("release") {
@@ -39,9 +39,7 @@ dependencies {
     implementation(libs.core.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core){
-        exclude(group = "com.android.support",module = "support-annotations")
-    }
+    androidTestImplementation(libs.espresso.core)
 }
 repositories {
     mavenCentral()

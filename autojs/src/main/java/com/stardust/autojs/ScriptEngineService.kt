@@ -8,7 +8,7 @@ import com.stardust.autojs.engine.ScriptEngineManager.EngineLifecycleCallback
 import com.stardust.autojs.execution.ExecutionConfig
 import com.stardust.autojs.execution.LoopedBasedJavaScriptExecution
 import com.stardust.autojs.execution.RunnableScriptExecution
-import com.stardust.autojs.execution.ScriptExecuteActivity.Companion.execute
+import com.stardust.autojs.execution.ScriptExecuteActivity
 import com.stardust.autojs.execution.ScriptExecution
 import com.stardust.autojs.execution.ScriptExecutionListener
 import com.stardust.autojs.execution.ScriptExecutionObserver
@@ -88,7 +88,7 @@ class ScriptEngineService internal constructor(builder: ScriptEngineServiceBuild
         if (source is JavaScriptSource) {
             val mode = source.executionMode
             if (mode and JavaScriptSource.EXECUTION_MODE_UI != 0) {
-                return execute(mContext, mScriptEngineManager, task)
+                return ScriptExecuteActivity.Companion.execute(mContext, mScriptEngineManager, task)
             }
         }
         val r: RunnableScriptExecution = if (source is JavaScriptSource) {

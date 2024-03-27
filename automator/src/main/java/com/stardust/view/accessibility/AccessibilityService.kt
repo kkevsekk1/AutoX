@@ -6,8 +6,6 @@ import android.view.KeyEvent
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import com.stardust.event.EventDispatcher
-
-import java.util.HashSet
 import java.util.TreeMap
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -103,7 +101,7 @@ open class AccessibilityService : android.accessibilityservice.AccessibilityServ
 
 
     override fun onServiceConnected() {
-        Log.v(TAG, "onServiceConnected: " + serviceInfo.toString())
+        Log.v(TAG, "onServiceConnected: $serviceInfo")
         instance = this
         super.onServiceConnected()
         LOCK.lock()
@@ -119,7 +117,7 @@ open class AccessibilityService : android.accessibilityservice.AccessibilityServ
 
     companion object {
 
-        private val TAG = "AccessibilityService"
+        private const val TAG = "AccessibilityService"
 
         private val mDelegates = TreeMap<Int, AccessibilityDelegate>()
         private val LOCK = ReentrantLock()

@@ -1,7 +1,6 @@
 package com.stardust.autojs.runtime.api
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import com.stardust.autojs.core.graphics.ScriptCanvasView
 import com.stardust.autojs.core.ui.inflater.DynamicLayoutInflater
 import com.stardust.autojs.core.ui.inflater.ResourceParser
@@ -75,9 +74,5 @@ class UI(private val mContext: Context, private val mRuntime: ScriptRuntime) : P
         layoutInflater.context = null
     }
 
-    private inner class Drawables : com.stardust.autojs.core.ui.inflater.util.Drawables() {
-        override fun decodeImage(path: String): Drawable {
-            return super.decodeImage(mRuntime.files.path(path))
-        }
-    }
+    private inner class Drawables : com.stardust.autojs.core.ui.inflater.util.Drawables()
 }

@@ -39,7 +39,7 @@ class EditorAppManager(val context: Activity) {
         )
     )
     private val pluginManager = PluginManager(jsBridge, coroutineScope)
-    var opendeFile: String? = null
+    var openedFile: String? = null
     private val loadDialog = LoadDialog(context)
 
     init {
@@ -60,7 +60,7 @@ class EditorAppManager(val context: Activity) {
 //        webView.loadUrl("http://appassets.androidplatform.net/index.html")
         jsBridge.registerHandler("app.init", JsBridge.Handle { _, _ ->
             pluginManager.onWebInit()
-            val file = opendeFile
+            val file = openedFile
             if (file != null) {
                 openFile(file)
             }

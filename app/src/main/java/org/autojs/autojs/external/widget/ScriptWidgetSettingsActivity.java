@@ -21,7 +21,7 @@ import org.autojs.autojs.ui.explorer.ExplorerViewKt;
 /**
  * Created by Stardust on 2017/7/11.
  */
-@EActivity(R.layout.activity_script_widget_settings)
+
 public class ScriptWidgetSettingsActivity extends BaseActivity {
 
     private String mSelectedScriptFilePath;
@@ -32,9 +32,10 @@ public class ScriptWidgetSettingsActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAppWidgetId = getIntent().getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
+        setContentView(R.layout.activity_script_widget_settings);
+        setUpViews();
     }
 
-    @AfterViews
     void setUpViews() {
         BaseActivity.setToolbarAsBack(this, R.id.toolbar, getString(R.string.text_please_choose_a_script));
         initScriptListRecyclerView();

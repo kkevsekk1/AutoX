@@ -16,22 +16,18 @@ import java.io.File
 class EditActivity : AppCompatActivity() {
     private lateinit var editorAppManager: EditorAppManager
     private lateinit var contextFrameLayout: FrameLayout
-    private lateinit var savedState: Bundle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        savedState = savedInstanceState ?: Bundle()
         editorAppManager = EditorAppManager(this)
-        editorAppManager.webView.restoreState(savedState)
         contextFrameLayout = FrameLayout(this)
         contextFrameLayout.addView(editorAppManager.webView)
         setContentView(contextFrameLayout)
         setKeyboardEvent()
-        editorAppManager.opendeFile = intent.getStringExtra(EXTRA_PATH)
+        editorAppManager.openedFile = intent.getStringExtra(EXTRA_PATH)
     }
 
     override fun onDestroy() {
         Log.i(TAG, "EditActivity onDestroy")
-        editorAppManager.webView.saveState(savedState)
         super.onDestroy()
         editorAppManager.destroy()
     }

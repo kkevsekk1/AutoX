@@ -4,7 +4,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.os.Build;
+
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
 import android.util.Log;
 
 import org.autojs.autojs.timing.IntentTask;
@@ -32,10 +34,13 @@ public class DynamicBroadcastReceivers {
 
     public DynamicBroadcastReceivers(Context context) {
         mContext = context;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        IntentFilter filter = createIntentFilter(StaticBroadcastReceiver.PACKAGE_ACTIONS);
+        filter.addDataScheme("package");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            mContext.registerReceiver(mDefaultActionReceiver, createIntentFilter(StaticBroadcastReceiver.ACTIONS), Context.RECEIVER_EXPORTED);
+            mContext.registerReceiver(mPackageActionReceiver, filter, Context.RECEIVER_EXPORTED);
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             mContext.registerReceiver(mDefaultActionReceiver, createIntentFilter(StaticBroadcastReceiver.ACTIONS));
-            IntentFilter filter = createIntentFilter(StaticBroadcastReceiver.PACKAGE_ACTIONS);
-            filter.addDataScheme("package");
             mContext.registerReceiver(mPackageActionReceiver, filter);
         }
     }
