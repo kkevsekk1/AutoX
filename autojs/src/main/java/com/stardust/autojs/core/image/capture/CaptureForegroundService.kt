@@ -27,13 +27,13 @@ class CaptureForegroundService : Service() {
         }
     }
 
-    override fun onBind(intent: Intent): IBinder? {
+    override fun onBind(intent: Intent?): IBinder? {
         return null
     }
 
-    override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
-        if (intent.action == (STOP)) {
+        if (intent?.action == (STOP)) {
             Log.i(TAG, "stopSelf")
             stopSelf()
         }

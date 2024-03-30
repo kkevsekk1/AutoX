@@ -4,6 +4,7 @@ import android.os.Looper
 import android.util.Log
 import com.stardust.autojs.runtime.ScriptBridges
 import com.stardust.autojs.runtime.exception.ScriptInterruptedException
+import com.stardust.automator.UiObject
 import com.stardust.automator.UiObjectCollection
 import org.mozilla.javascript.Context
 import org.mozilla.javascript.ContextFactory
@@ -72,9 +73,10 @@ open class AndroidContextFactory(private val cacheDirectory: File) : ContextFact
 
     open class WrapFactory : org.mozilla.javascript.WrapFactory() {
         override fun wrap(cx: Context, scope: Scriptable, obj: Any?, staticType: Class<*>?): Any? {
-            return when {
-                obj is String -> bridges.toString(obj.toString())
-                staticType == UiObjectCollection::class.java -> bridges.asArray(obj as UiObjectCollection)
+            return when (obj) {
+                is UiObject -> UiObjectProxy(obj)
+                is String -> bridges.toString(obj)
+                is UiObjectCollection -> bridges.asArray(obj)
                 else -> super.wrap(cx, scope, obj, staticType)
             }
         }

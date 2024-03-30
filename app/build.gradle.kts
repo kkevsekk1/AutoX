@@ -51,17 +51,18 @@ android {
     buildFeatures {
         compose = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = compose_version
+    }
     lint {
         abortOnError = false
         disable.addAll(listOf("MissingTranslation", "ExtraTranslation"))
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = versions.javaVersion
+        targetCompatibility = versions.javaVersion
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = compose_version
-    }
+
     signingConfigs {
         if (propFile.exists()) {
             getByName("release") {
@@ -171,6 +172,7 @@ android {
 dependencies {
     val AAVersion = "4.5.2"
 
+    implementation(platform(libs.compose.bom))
     implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.1.0")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation(libs.androidx.webkit)
@@ -184,9 +186,7 @@ dependencies {
     debugImplementation(libs.compose.ui.tooling)
     implementation(libs.activity.compose)
 
-    androidTestImplementation(libs.espresso.core) {
-        exclude(group = "com.android.support", module = "support-annotations")
-    }
+    androidTestImplementation(libs.espresso.core)
     testImplementation(libs.junit)
     // Kotlin携程
     implementation(libs.kotlinx.coroutines.android)
@@ -196,22 +196,18 @@ dependencies {
     //noinspection GradleDependency
     implementation("org.androidannotations:androidannotations-api:$AAVersion")
     // ButterKnife
-    implementation("com.jakewharton:butterknife:10.2.1") {
-        exclude(group = "com.android.support")
-    }
+    implementation("com.jakewharton:butterknife:10.2.1")
     annotationProcessor("com.jakewharton:butterknife-compiler:10.2.3")
     kapt("com.jakewharton:butterknife-compiler:10.2.3")
     // Android supports
-    implementation("androidx.preference:preference-ktx:1.2.0")
+    implementation(libs.preference.ktx)
     implementation(libs.appcompat) //
     implementation("androidx.cardview:cardview:1.0.0")
     implementation(libs.material)
     // Personal libraries
     implementation("com.github.hyb1996:MutableTheme:1.0.0")
     // Material Dialogs
-    implementation("com.afollestad.material-dialogs:core:0.9.2.3") {
-        exclude(group = "com.android.support")
-    }
+    implementation("com.afollestad.material-dialogs:core:0.9.2.3")
     // Common Markdown
     implementation("com.github.atlassian:commonmark-java:commonmark-parent-0.9.0")
     // Android issue reporter (a github issue reporter)
@@ -271,20 +267,20 @@ dependencies {
     implementation(project(":codeeditor"))
     implementation("androidx.multidex:multidex:2.0.1")
 
-    val lifecycle_version = "2.5.1"
     // ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    implementation(libs.lifecycle.viewmodel.ktx)
     // ViewModel utilities for Compose
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
+    implementation(libs.lifecycle.viewmodel.compose)
     // Lifecycles only (without ViewModel or LiveData)
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
+    implementation(libs.lifecycle.runtime.ktx)
     // Saved state module for ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
+    implementation(libs.lifecycle.viewmodel.savedstate)
+    implementation(libs.lifecycle.service)
     // Annotation processor
-    kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
-    implementation("androidx.lifecycle:lifecycle-service:$lifecycle_version")
-    implementation("androidx.savedstate:savedstate-ktx:1.2.0")
-    implementation("androidx.savedstate:savedstate:1.2.0")
+    kapt(libs.lifecycle.compiler)
+
+    implementation(libs.androidx.savedstate.ktx)
+    implementation(libs.androidx.savedstate)
 
     implementation(libs.bundles.ktor)
     //qr scan

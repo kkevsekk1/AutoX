@@ -5,7 +5,6 @@ buildscript {
 
     extra.apply {
         set("kotlin_version", kotlin_version)
-        set("compose_version", compose_version)
     }
 
     repositories {
@@ -21,7 +20,7 @@ buildscript {
     }
     dependencies {
         classpath("com.android.tools.build:gradle:8.0.2")
-        classpath(kotlin("gradle-plugin", version = "$kotlin_version"))
+        classpath(kotlin("gradle-plugin", version = kotlin_version))
         classpath("com.jakewharton:butterknife-gradle-plugin:10.2.3")
         classpath("org.codehaus.groovy:groovy-json:3.0.8")
         classpath("com.yanzhenjie.andserver:plugin:2.1.12")

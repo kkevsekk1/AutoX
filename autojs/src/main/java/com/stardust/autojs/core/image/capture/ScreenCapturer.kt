@@ -7,6 +7,7 @@ import android.hardware.display.DisplayManager
 import android.hardware.display.VirtualDisplay
 import android.media.Image
 import android.media.ImageReader
+import android.media.MediaRecorder
 import android.media.projection.MediaProjection
 import android.os.Handler
 import android.os.Looper
@@ -97,7 +98,7 @@ class ScreenCapturer(
         val imageWrapper = mCachedImageWrapper.get()
         if (image == null && imageWrapper != null) {
             Log.i(LOG_TAG, "Using cached image")
-            return@coroutineScope imageWrapper
+            return@coroutineScope imageWrapper.clone()
         }
         //在缓存图像均不可用的情况下等待2秒取得截图，否则抛出错误
         val newImage = image ?: runCatching {
@@ -116,7 +117,7 @@ class ScreenCapturer(
         }
         val newImageWrapper = ImageWrapper.ofImage(newImage)
         mCachedImageWrapper.set(newImageWrapper)
-        return@coroutineScope newImageWrapper ?: throw Exception("Not available yet ImageWrapper")
+        return@coroutineScope newImageWrapper.clone() ?: throw Exception("Not available yet ImageWrapper")
     }
 
     fun release() = synchronized(this) {

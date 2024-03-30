@@ -73,65 +73,9 @@ import java.util.concurrent.ConcurrentHashMap;
  * Created by Stardust on 2017/1/27.
  */
 
-public class ScriptRuntime {
+public abstract class ScriptRuntime {
 
     private static final String TAG = "ScriptRuntime";
-
-
-    public static class Builder {
-        private UiHandler mUiHandler;
-        private Console mConsole;
-        private AccessibilityBridge mAccessibilityBridge;
-        private Supplier<AbstractShell> mShellSupplier;
-        private ScreenCaptureRequester mScreenCaptureRequester;
-        private AppUtils mAppUtils;
-        private ScriptEngineService mEngineService;
-
-        public Builder() {
-
-        }
-
-        public Builder setUiHandler(UiHandler uiHandler) {
-            mUiHandler = uiHandler;
-            return this;
-        }
-
-        public Builder setConsole(Console console) {
-            mConsole = console;
-            return this;
-        }
-
-        public Builder setAccessibilityBridge(AccessibilityBridge accessibilityBridge) {
-            mAccessibilityBridge = accessibilityBridge;
-            return this;
-        }
-
-        public Builder setShellSupplier(Supplier<AbstractShell> shellSupplier) {
-            mShellSupplier = shellSupplier;
-            return this;
-        }
-
-        public Builder setScreenCaptureRequester(ScreenCaptureRequester requester) {
-            mScreenCaptureRequester = requester;
-            return this;
-        }
-
-        public Builder setAppUtils(AppUtils appUtils) {
-            mAppUtils = appUtils;
-            return this;
-        }
-
-        public Builder setEngineService(ScriptEngineService service) {
-            mEngineService = service;
-            return this;
-        }
-
-
-        public ScriptRuntime build() {
-            return new ScriptRuntime(this);
-        }
-
-    }
 
 
     @ScriptVariable
@@ -212,23 +156,22 @@ public class ScriptRuntime {
     private AbstractShell mRootShell;
     private Supplier<AbstractShell> mShellSupplier;
     private ScreenMetrics mScreenMetrics = new ScreenMetrics();
-    private Thread mThread;
-    private TopLevelScope mTopLevelScope;
+    protected Thread mThread;
+    protected TopLevelScope mTopLevelScope;
 
-
-    protected ScriptRuntime(Builder builder) {
-        uiHandler = builder.mUiHandler;
+    protected ScriptRuntime(ScriptRuntimeV2.Builder builder) {
+        uiHandler = builder.getUiHandler();
         Context context = uiHandler.getContext();
-        app = builder.mAppUtils;
-        console = builder.mConsole;
-        accessibilityBridge = builder.mAccessibilityBridge;
-        mShellSupplier = builder.mShellSupplier;
+        app = builder.getAppUtils();
+        console = builder.getConsole();
+        accessibilityBridge = builder.getAccessibilityBridge();
+        mShellSupplier = builder.getShellSupplier();
         ui = new UI(context, this);
         this.automator = new SimpleActionAutomator(accessibilityBridge, this);
         automator.setScreenMetrics(mScreenMetrics);
         this.info = accessibilityBridge.getInfoProvider();
-        images = new Images(context, this, builder.mScreenCaptureRequester);
-        engines = new Engines(builder.mEngineService, this);
+        images = new Images(context, this, builder.getScreenCaptureRequester());
+        engines = new Engines(builder.getEngineService(), this);
         dialogs = new Dialogs(this);
         device = new Device(context);
         floaty = new Floaty(uiHandler, ui, this);
@@ -240,27 +183,11 @@ public class ScriptRuntime {
 //        paddle = new Paddle();
     }
 
-    public void init() {
-        if (loopers != null)
-            throw new IllegalStateException("already initialized");
-        threads = new Threads(this);
-        timers = new Timers(this);
-        loopers = new Loopers(this);
-        events = new Events(uiHandler.getContext(), accessibilityBridge, this);
-        mThread = Thread.currentThread();
-        sensors = new Sensors(uiHandler.getContext(), this);
-    }
+    public abstract void init();
 
-    public TopLevelScope getTopLevelScope() {
-        return mTopLevelScope;
-    }
+    public abstract TopLevelScope getTopLevelScope();
 
-    public void setTopLevelScope(TopLevelScope topLevelScope) {
-        if (mTopLevelScope != null) {
-            throw new IllegalStateException("top level has already exists");
-        }
-        mTopLevelScope = topLevelScope;
-    }
+    public abstract void setTopLevelScope(TopLevelScope topLevelScope);
 
     public static void setApplicationContext(Context context) {
         applicationContext = new WeakReference<>(context);
@@ -437,13 +364,6 @@ public class ScriptRuntime {
         ignoresException(timers::recycle);
         ignoresException(ui::recycle);
 //        ignoresException(paddle::release);
-         ObjectWatcher.Companion.getDefault().watch(this, engines.myEngine().toString() + "::" + TAG);
-        if(BuildConfig.DEBUG){
-            //引用检查
-            // release 状态不启用监听
-            // AppWatcher.INSTANCE.getObjectWatcher().expectWeaklyReachable(this,
-            //         engines.myEngine().toString() + "::" + TAG);
-        }
     }
 
     private void ignoresException(Runnable r) {
