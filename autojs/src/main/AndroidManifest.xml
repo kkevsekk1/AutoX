@@ -27,6 +27,7 @@
     <application>
         <activity
             android:name=".execution.ScriptExecuteActivity"
+            android:process="@string/text_script_process_name"
             android:configChanges="fontScale|keyboard|keyboardHidden|locale|navigation|orientation|screenLayout|screenSize|uiMode"
             android:theme="@style/ScriptTheme" />
 

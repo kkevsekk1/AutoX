@@ -443,7 +443,6 @@
             android:configChanges="orientation|screenSize|uiMode"
             android:launchMode="standard"
             android:process="@string/text_script_process_name"
-            android:multiprocess="true"
             android:taskAffinity="org.autojs.autojs.edit"
             android:theme="@style/EditorTheme" />
         <activity android:name="org.autojs.autojs.ui.settings.AboutActivity_" />

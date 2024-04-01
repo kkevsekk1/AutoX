@@ -1,9 +1,7 @@
 package com.aiselp.autojs.codeeditor.plugins
 
 import android.app.Activity
-import android.os.Build
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import com.aiselp.autojs.codeeditor.web.PluginManager
 import com.aiselp.autojs.codeeditor.web.annotation.WebFunction
 import com.stardust.app.GlobalAppContext
@@ -19,20 +17,15 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-@RequiresApi(Build.VERSION_CODES.M)
 
 class AppController(val activity: Activity) {
     companion object {
         const val TAG = "AppController"
     }
 
-    private val autojs: AutoJs? = try {
-        val cz = Class.forName("org.autojs.autojs.autojs.AutoJs")
-        val obj = cz.getMethod("getInstance").invoke(null)
-        obj as? AutoJs
-    } catch (e: Exception) {
-        null
-    }
+    private val autojs: AutoJs?
+        get() = AutoJs.instance
+
 
     @WebFunction
     fun exit(call: PluginManager.WebCall) {

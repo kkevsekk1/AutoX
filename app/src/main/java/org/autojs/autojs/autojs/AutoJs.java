@@ -42,10 +42,9 @@ import org.autojs.autojs.ui.settings.SettingsActivity;
 
 public class AutoJs extends com.stardust.autojs.AutoJs {
 
-    private static AutoJs instance;
 
-    public static AutoJs getInstance() {
-        return instance;
+    public static com.stardust.autojs.AutoJs getInstance() {
+        return com.stardust.autojs.AutoJs.Companion.getInstance();
     }
 
     private boolean enableDebugLog = false;
@@ -188,15 +187,5 @@ public class AutoJs extends com.stardust.autojs.AutoJs {
         runtime.putProperty("broadcast.inspect_layout_bounds", LayoutBoundsFloatyWindow.class.getName());
         runtime.putProperty("broadcast.inspect_layout_hierarchy", LayoutHierarchyFloatyWindow.class.getName());
         return runtime;
-    }
-
-    public void debugInfo(String content) {
-        if (this.enableDebugLog) {
-            AutoJs.getInstance().getGlobalConsole().println(Log.VERBOSE, content);
-        }
-    }
-
-    public void setDebugEnabled(boolean enableDebugLog) {
-        this.enableDebugLog = enableDebugLog;
     }
 }

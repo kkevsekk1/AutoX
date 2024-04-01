@@ -1,9 +1,11 @@
 package com.stardust.autojs
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import com.stardust.app.SimpleActivityLifecycleCallbacks
 import com.stardust.autojs.core.accessibility.AccessibilityBridge
 import com.stardust.autojs.core.activity.ActivityInfoProvider
@@ -69,6 +71,14 @@ abstract class AutoJs protected constructor(protected val application: Applicati
     protected open fun createGlobalConsole(): GlobalConsole {
         return GlobalConsole(uiHandler)
     }
+
+    fun debugInfo(content: String?) {
+        if (debugEnabled) {
+            globalConsole.println(Log.VERBOSE, content)
+        }
+    }
+
+    var debugEnabled = false
 
     protected fun init() {
         addAccessibilityServiceDelegates()
@@ -180,5 +190,10 @@ abstract class AutoJs protected constructor(protected val application: Applicati
         override fun getNotificationObserver(): AccessibilityNotificationObserver {
             return mNotificationObserver
         }
+    }
+
+    companion object {
+        @SuppressLint("StaticFieldLeak")
+        lateinit var instance: AutoJs
     }
 }

@@ -2,18 +2,20 @@ package com.stardust.autojs
 
 import android.app.Service
 import android.content.Intent
-import android.os.Binder
 import android.os.IBinder
 import android.os.Process
 import android.util.Log
-import org.mozilla.javascript.ContextFactory
+import com.stardust.autojs.servicecomponents.ScriptBinder
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancel
 
 class IndependentScriptService : Service() {
+    val scope: CoroutineScope = CoroutineScope(Dispatchers.Default)
     override fun onCreate() {
         super.onCreate()
         Log.i(TAG, "onCreate")
         Log.i(TAG, "Pid: ${Process.myPid()}")
-        Log.i(TAG, ContextFactory.getGlobal().toString())
     }
 
     override fun onLowMemory() {
@@ -26,6 +28,7 @@ class IndependentScriptService : Service() {
 
     override fun onDestroy() {
         super.onDestroy()
+        scope.cancel()
     }
 
     override fun onUnbind(intent: Intent?): Boolean {
@@ -37,17 +40,13 @@ class IndependentScriptService : Service() {
     }
 
     override fun onBind(intent: Intent?): IBinder? {
-        Rs()
-        return null
+        return ScriptBinder(this, scope)
     }
 
     fun initAutojs() {
 
     }
 
-    class Rs : Binder() {
-
-    }
 
     companion object {
         private const val TAG = "ScriptService"

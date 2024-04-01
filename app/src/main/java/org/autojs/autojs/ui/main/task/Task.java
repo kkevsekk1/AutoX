@@ -5,6 +5,7 @@ import com.stardust.autojs.engine.ScriptEngine;
 import com.stardust.autojs.execution.ScriptExecution;
 import com.stardust.autojs.script.AutoFileSource;
 import com.stardust.autojs.script.JavaScriptSource;
+import com.stardust.autojs.servicecomponents.TaskInfo;
 import com.stardust.pio.PFiles;
 
 import org.autojs.autoxjs.R;
@@ -16,22 +17,17 @@ import org.joda.time.format.DateTimeFormat;
 
 import static org.autojs.autojs.ui.timing.TimedTaskSettingActivity.ACTION_DESC_MAP;
 
+import androidx.annotation.NonNull;
+
+import java.io.File;
+
 /**
  * Created by Stardust on 2017/11/28.
  */
 
-public abstract class Task {
-
-
-    public abstract String getName();
-
-    public abstract String getDesc();
-
-    public abstract void cancel();
-
-    public abstract String getEngineName();
-
-    public static class PendingTask extends Task {
+public interface Task extends TaskInfo {
+    void cancel();
+    class PendingTask implements Task {
 
 
         private TimedTask mTimedTask;
@@ -99,6 +95,7 @@ public abstract class Task {
             }
         }
 
+        @NonNull
         @Override
         public String getEngineName() {
             if (getScriptPath().endsWith(".js")) {
@@ -121,40 +118,22 @@ public abstract class Task {
                 return mTimedTask.getId();
             return mIntentTask.getId();
         }
-    }
 
-    public static class RunningTask extends Task {
-        private final ScriptExecution mScriptExecution;
-
-        public RunningTask(ScriptExecution scriptExecution) {
-            mScriptExecution = scriptExecution;
+        @NonNull
+        @Override
+        public String getWorkerDirectory() {
+            return new File(getScriptPath()).getParent();
         }
 
-        public ScriptExecution getScriptExecution() {
-            return mScriptExecution;
+        @NonNull
+        @Override
+        public String getSourcePath() {
+            return getScriptPath();
         }
 
         @Override
-        public String getName() {
-            return mScriptExecution.getSource().getName();
-        }
-
-        @Override
-        public String getDesc() {
-            return mScriptExecution.getSource().toString();
-        }
-
-        @Override
-        public void cancel() {
-            ScriptEngine engine = mScriptExecution.getEngine();
-            if (engine != null) {
-                engine.forceStop();
-            }
-        }
-
-        @Override
-        public String getEngineName() {
-            return mScriptExecution.getSource().getEngineName();
+        public boolean isRunning() {
+            return false;
         }
     }
 }
