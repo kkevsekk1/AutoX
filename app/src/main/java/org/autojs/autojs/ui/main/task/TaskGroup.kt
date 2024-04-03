@@ -2,7 +2,6 @@ package org.autojs.autojs.ui.main.task
 
 import android.content.Context
 import com.bignerdranch.expandablerecyclerview.model.Parent
-import com.stardust.autojs.execution.ScriptExecution
 import com.stardust.autojs.servicecomponents.EngineController
 import com.stardust.autojs.servicecomponents.TaskInfo
 import kotlinx.coroutines.DelicateCoroutinesApi
@@ -108,23 +107,23 @@ abstract class TaskGroup protected constructor(val title: String) : Parent<TaskI
             mTasks.addAll(executions)
         }
 
-        fun addTask(engine: ScriptExecution): Int {
+        fun addTask(taskInfo: TaskInfo): Int {
             val pos = mTasks.size
-            mTasks.add(TaskInfo.BundleTaskInfo.fromException(engine))
+            mTasks.add(taskInfo)
             return pos
         }
 
-        fun removeTask(engine: ScriptExecution): Int {
-            val i = indexOf(engine)
+        fun removeTask(taskInfo: TaskInfo): Int {
+            val i = indexOf(taskInfo)
             if (i >= 0) {
                 mTasks.removeAt(i)
             }
             return i
         }
 
-        fun indexOf(engine: ScriptExecution): Int {
+        fun indexOf(taskInfo: TaskInfo): Int {
             for (i in mTasks.indices) {
-                if (engine.source.toString() == mTasks[i].sourcePath) {
+                if (taskInfo.id == mTasks[i].id) {
                     return i
                 }
             }

@@ -13,7 +13,6 @@ import com.stardust.autojs.execution.ScriptExecution
 import com.stardust.autojs.execution.ScriptExecutionListener
 import com.stardust.autojs.execution.ScriptExecutionObserver
 import com.stardust.autojs.execution.ScriptExecutionTask
-import com.stardust.autojs.execution.SimpleScriptExecutionListener
 import com.stardust.autojs.runtime.ScriptRuntime
 import com.stardust.autojs.runtime.api.Console
 import com.stardust.autojs.runtime.exception.ScriptInterruptedException
@@ -45,7 +44,16 @@ class ScriptEngineService internal constructor(builder: ScriptEngineServiceBuild
     init {
         mScriptEngineManager.setEngineLifecycleCallback(mEngineLifecycleObserver)
         mScriptExecutionObserver.registerScriptExecutionListener(GLOBAL_LISTENER)
-        EVENT_BUS.register(this)
+        EVENT_BUS.register(object {
+            @Subscribe
+            fun onScriptExecution(event: ScriptExecutionEvent) {
+                if (event.code == ScriptExecutionEvent.ON_START) {
+                    globalConsole.verbose(mContext.getString(R.string.text_start_running) + "[" + event.message + "]")
+                } else if (event.code == ScriptExecutionEvent.ON_EXCEPTION) {
+                    mUiHandler.toast(mContext.getString(R.string.text_error) + ": " + event.message)
+                }
+            }
+        })
         mScriptEngineManager.putGlobal("context", mUiHandler.context)
         ScriptRuntime.setApplicationContext(builder.mUiHandler.context.applicationContext)
     }
@@ -110,15 +118,6 @@ class ScriptEngineService internal constructor(builder: ScriptEngineServiceBuild
 
     fun execute(source: ScriptSource?, config: ExecutionConfig?): ScriptExecution {
         return execute(ScriptExecutionTask(source, null, config))
-    }
-
-    @Subscribe
-    fun onScriptExecution(event: ScriptExecutionEvent) {
-        if (event.code == ScriptExecutionEvent.ON_START) {
-            globalConsole.verbose(mContext.getString(R.string.text_start_running) + "[" + event.message + "]")
-        } else if (event.code == ScriptExecutionEvent.ON_EXCEPTION) {
-            mUiHandler.toast(mContext.getString(R.string.text_error) + ": " + event.message)
-        }
     }
 
     fun stopAll(): Int {
@@ -186,7 +185,7 @@ class ScriptEngineService internal constructor(builder: ScriptEngineServiceBuild
         private const val LOG_TAG = "ScriptEngineService"
         private val EVENT_BUS = EventBus()
         private val GLOBAL_LISTENER: ScriptExecutionListener =
-            object : SimpleScriptExecutionListener() {
+            object : ScriptExecutionListener {
                 override fun onStart(execution: ScriptExecution) {
                     if (execution.engine is JavaScriptEngine) {
                         (execution.engine as JavaScriptEngine).runtime.console.setTitle(

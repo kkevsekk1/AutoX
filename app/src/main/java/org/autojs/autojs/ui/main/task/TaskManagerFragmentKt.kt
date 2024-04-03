@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.*
-import androidx.compose.runtime.*
+import androidx.compose.material.Scaffold
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.viewinterop.AndroidView
@@ -95,6 +95,7 @@ class TaskManagerFragmentKt : Fragment() {
         }
     }
 
+    fun refresh() = taskListRecyclerView.refresh()
     private fun init() {
         swipeRefreshLayout.setOnRefreshListener {
             taskListRecyclerView.refresh()

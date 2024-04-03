@@ -8,32 +8,72 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import java.io.File
+import java.util.concurrent.CopyOnWriteArraySet
 
 object EngineController {
     val scope = CoroutineScope(Dispatchers.Default)
     private val serviceConnection: ScriptServiceConnection
         get() = GlobalConnection
 
-    fun runScript(taskInfo: TaskInfo) = scope.launch {
-        serviceConnection.runScript(taskInfo)
+    private val globalScriptListener: CopyOnWriteArraySet<BinderScriptListener> by lazy {
+        val listeners = CopyOnWriteArraySet<BinderScriptListener>()
+        scope.launch {
+            serviceConnection.registerGlobalScriptListener(
+                object : BinderScriptListener {
+                    override fun onStart(taskInfo: TaskInfo) {
+                        for (l in listeners) {
+                            l.onStart(taskInfo)
+                        }
+                    }
+
+                    override fun onSuccess(taskInfo: TaskInfo) {
+                        for (l in listeners) {
+                            l.onSuccess(taskInfo)
+                        }
+                    }
+
+                    override fun onException(taskInfo: TaskInfo, e: Throwable) {
+                        for (l in listeners) {
+                            l.onException(taskInfo, e)
+                        }
+                    }
+
+                })
+        }
+        return@lazy listeners
     }
 
-    fun runScript(file: File) = scope.launch {
-        serviceConnection.runScript(object : TaskInfo {
+    fun runScript(taskInfo: TaskInfo, listener: BinderScriptListener? = null) = scope.launch {
+        serviceConnection.runScript(taskInfo, listener)
+    }
+
+    fun runScript(file: File, listener: BinderScriptListener? = null) = scope.launch {
+        runScript(object : TaskInfo {
+            override val id: Int = 0
             override val name: String = file.name
             override val desc: String = file.path
             override val engineName: String = JavaScriptSource.ENGINE
             override val workerDirectory: String = file.parent ?: "/"
             override val sourcePath: String = file.path
             override val isRunning: Boolean = false
-        })
+        }, listener)
     }
 
-    fun getAllScriptTasks(): Deferred<MutableList<TaskInfo.BundleTaskInfo>> = scope.async {
+    fun getAllScriptTasks(): Deferred<MutableList<TaskInfo>> = scope.async {
         return@async serviceConnection.getAllScriptTasks()
     }
 
-    fun stopScript(taskInfo: TaskInfo) {
-
+    fun stopScript(id: Int) = scope.launch {
+        serviceConnection.stopScript(id)
     }
+
+    fun stopAllScript() = scope.launch {
+        serviceConnection.stopAllScript()
+    }
+
+    fun registerGlobalScriptExecutionListener(listener: BinderScriptListener) =
+        globalScriptListener.add(listener)
+
+    fun unregisterGlobalScriptExecutionListener(listener: BinderScriptListener) =
+        globalScriptListener.remove(listener)
 }

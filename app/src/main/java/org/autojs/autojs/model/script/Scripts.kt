@@ -9,7 +9,7 @@ import androidx.annotation.Nullable
 import com.stardust.app.GlobalAppContext
 import com.stardust.autojs.execution.ExecutionConfig
 import com.stardust.autojs.execution.ScriptExecution
-import com.stardust.autojs.execution.SimpleScriptExecutionListener
+import com.stardust.autojs.execution.ScriptExecutionListener
 import com.stardust.autojs.runtime.exception.ScriptInterruptedException
 import com.stardust.autojs.script.ScriptSource
 import com.stardust.util.IntentUtil
@@ -43,7 +43,8 @@ object Scripts {
     }
 
     private val BROADCAST_SENDER_SCRIPT_EXECUTION_LISTENER =
-        object : SimpleScriptExecutionListener() {
+        object : ScriptExecutionListener {
+            override fun onStart(execution: ScriptExecution?) {}
 
             override fun onSuccess(execution: ScriptExecution, result: Any?) {
                 GlobalAppContext.get().sendBroadcast(Intent(ACTION_ON_EXECUTION_FINISHED))

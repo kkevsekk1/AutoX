@@ -7,6 +7,7 @@ import org.mozilla.javascript.BaseFunction
 import org.mozilla.javascript.BoundFunction
 import org.mozilla.javascript.Context
 import org.mozilla.javascript.NativeJavaMethod
+import org.mozilla.javascript.NativeJavaObject
 import org.mozilla.javascript.Scriptable
 import org.mozilla.javascript.Undefined
 import org.mozilla.javascript.annotations.JSFunction
@@ -46,7 +47,7 @@ class ScriptBridges {
         } catch (e: Exception) {
             if (Looper.getMainLooper() == Looper.myLooper()) {
                 engine?.runtime?.exit(e) ?: throw e
-            }else throw e
+            } else throw e
         }
     }
 
@@ -62,9 +63,9 @@ class ScriptBridges {
         return Context.toString(obj)
     }
 
-    fun asArray(obj: UiObjectCollection): Any = useJsContext { context ->
+    fun asArray(obj: UiObjectCollection): Scriptable = useJsContext { context ->
         val arr = toArray(obj.mNodes)
-        val thzs = Context.javaToJS(obj, arr) as Scriptable
+        val thzs = NativeJavaObject(arr, obj, obj.javaClass)
         obj::class.java.methods.forEach {
             val name = it.name
             val method = NativeJavaMethod(it, name)

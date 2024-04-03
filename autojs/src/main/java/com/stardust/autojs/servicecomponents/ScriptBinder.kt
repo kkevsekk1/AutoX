@@ -21,9 +21,12 @@ class ScriptBinder(service: IndependentScriptService, val scope: CoroutineScope)
             Log.d(TAG, "action id = $code")
             when (code) {
                 Action.GET_ALL_TASKS.id -> getAllScriptTasks(data, reply!!)
-                Action.RUN_SCRIPT.id -> runScript(data, reply!!)
+                Action.RUN_SCRIPT.id -> runScript(data)
+                Action.STOP_SCRIPT.id -> stopScript(data)
+                Action.STOP_ALL_SCRIPT.id -> stopAllScript()
+                Action.REGISTER_GLOBAL_SCRIPT_LISTENER.id -> registerGlobalScriptListener(data)
             }
-            Log.d(TAG, "action id = $code, end")
+            Log.d(TAG, "action id = $code, complete")
             return@runBlocking true
         }
 
@@ -33,20 +36,52 @@ class ScriptBinder(service: IndependentScriptService, val scope: CoroutineScope)
         for ((i: Int, scriptExecution) in scriptExecutions.withIndex()) {
             bundle.putBundle(
                 i.toString(),
-                TaskInfo.BundleTaskInfo.fromException(scriptExecution).bundle
+                TaskInfo.ExecutionTaskInfo(scriptExecution).toBundle()
             )
         }
         reply.writeNoException()
         reply.writeBundle(bundle)
     }
 
-    private fun runScript(data: Parcel, reply: Parcel) {
+    private fun runScript(data: Parcel) {
         val bundle = data.readBundle(ClassLoader.getSystemClassLoader())
-        val taskInfo = TaskInfo.BundleTaskInfo.formBundle(bundle!!)
-        AutoJs.instance.scriptEngineService.execute(
-            JavaScriptFileSource(taskInfo.sourcePath),
-            ExecutionConfig(workingDirectory = taskInfo.workerDirectory)
-        )
+        check(bundle != null) { "bundle is null" }
+        val taskInfo = bundle.getBundle(TaskInfo.TAG)!!.let {
+            TaskInfo.fromBundle(it)
+        }
+        val listener = bundle.getBinder(BinderScriptListener.TAG)
+        if (listener == null) {
+            AutoJs.instance.scriptEngineService.execute(
+                JavaScriptFileSource(taskInfo.sourcePath),
+                ExecutionConfig(workingDirectory = taskInfo.workerDirectory)
+            )
+        } else {
+            val l = BinderScriptListener.ServerInterface(listener)
+            AutoJs.instance.scriptEngineService.execute(
+                JavaScriptFileSource(taskInfo.sourcePath), l,
+                ExecutionConfig(workingDirectory = taskInfo.workerDirectory)
+            )
+        }
+    }
+
+    private fun stopScript(data: Parcel) {
+        val id = data.readInt()
+        check(id >= 0) { "invalid id" }
+        val scriptExecutions = AutoJs.instance.scriptEngineService.scriptExecutions
+        for (scriptExecution in scriptExecutions) {
+            if (scriptExecution.id == id) {
+                scriptExecution.engine.forceStop()
+                break
+            }
+        }
+    }
+
+    private fun stopAllScript() = AutoJs.instance.scriptEngineService.stopAll()
+
+    private fun registerGlobalScriptListener(data: Parcel) {
+        val binder = data.readStrongBinder()
+        val listener = BinderScriptListener.ServerInterface(binder)
+        AutoJs.instance.scriptEngineService.registerGlobalScriptExecutionListener(listener)
     }
 
     enum class Action(val id: Int) {
@@ -54,7 +89,9 @@ class ScriptBinder(service: IndependentScriptService, val scope: CoroutineScope)
         STOP(2),
         GET_ALL_TASKS(3),
         RUN_SCRIPT(4),
-        STOP_SCRIPT(5)
+        STOP_SCRIPT(5),
+        STOP_ALL_SCRIPT(6),
+        REGISTER_GLOBAL_SCRIPT_LISTENER(7)
     }
 
     companion object {

@@ -17,10 +17,9 @@ import butterknife.OnClick
 import com.bignerdranch.expandablerecyclerview.ChildViewHolder
 import com.bignerdranch.expandablerecyclerview.ExpandableRecyclerAdapter
 import com.bignerdranch.expandablerecyclerview.ParentViewHolder
-import com.stardust.autojs.execution.ScriptExecution
-import com.stardust.autojs.execution.ScriptExecutionListener
-import com.stardust.autojs.execution.SimpleScriptExecutionListener
 import com.stardust.autojs.script.AutoFileSource
+import com.stardust.autojs.servicecomponents.BinderScriptListener
+import com.stardust.autojs.servicecomponents.EngineController
 import com.stardust.autojs.servicecomponents.TaskInfo
 import com.stardust.autojs.workground.WrapContentLinearLayoutManager
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration
@@ -54,23 +53,19 @@ class TaskListRecyclerView : ThemeColorRecyclerView {
     private var mAdapter: Adapter? = null
     private var mTimedTaskChangeDisposable: Disposable? = null
     private var mIntentTaskChangeDisposable: Disposable? = null
-    private val mScriptExecutionListener: ScriptExecutionListener =
-        object : SimpleScriptExecutionListener() {
-            override fun onStart(execution: ScriptExecution) {
-                post { mAdapter!!.notifyChildInserted(0, mRunningTaskGroup!!.addTask(execution)) }
+    private val mScriptExecutionListener: BinderScriptListener =
+        object : BinderScriptListener {
+            override fun onStart(task: TaskInfo) {
+                post { mAdapter!!.notifyChildInserted(0, mRunningTaskGroup!!.addTask(task)) }
             }
 
-            override fun onSuccess(execution: ScriptExecution, result: Any) {
-                onFinish(execution)
-            }
+            override fun onSuccess(task: TaskInfo) = onFinish(task)
+            override fun onException(taskInfo: TaskInfo, e: Throwable) = onFinish(taskInfo)
 
-            override fun onException(execution: ScriptExecution, e: Throwable) {
-                onFinish(execution)
-            }
 
-            private fun onFinish(execution: ScriptExecution) {
+            private fun onFinish(task: TaskInfo) {
                 post {
-                    val i = mRunningTaskGroup!!.removeTask(execution)
+                    val i = mRunningTaskGroup!!.removeTask(task)
                     if (i >= 0) {
                         mAdapter!!.notifyChildRemoved(0, i)
                     } else {
@@ -80,21 +75,12 @@ class TaskListRecyclerView : ThemeColorRecyclerView {
             }
         }
 
-    constructor(context: Context?) : super(context) {
-        init()
-    }
+    constructor(context: Context?) : super(context)
+    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) :
+            super(context, attrs, defStyle)
 
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
-        init()
-    }
-
-    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(
-        context, attrs, defStyle
-    ) {
-        init()
-    }
-
-    private fun init() {
+    init {
         setLayoutManager(WrapContentLinearLayoutManager(context))
         addItemDecoration(
             HorizontalDividerItemDecoration.Builder(context)
@@ -122,7 +108,7 @@ class TaskListRecyclerView : ThemeColorRecyclerView {
                 group.refresh()
             }
             mAdapter = Adapter(mTaskGroups)
-            withContext(Dispatchers.Main){
+            withContext(Dispatchers.Main) {
                 setAdapter(mAdapter)
             }
         }
@@ -131,9 +117,7 @@ class TaskListRecyclerView : ThemeColorRecyclerView {
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
-//        AutoJs.getInstance().scriptEngineService.registerGlobalScriptExecutionListener(
-//            mScriptExecutionListener
-//        )
+        EngineController.registerGlobalScriptExecutionListener(mScriptExecutionListener)
         mTimedTaskChangeDisposable = timeTaskChanges
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(Consumer { taskChange: ModelChange<TimedTask> -> onTaskChange(taskChange) })
@@ -151,9 +135,7 @@ class TaskListRecyclerView : ThemeColorRecyclerView {
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
-//        AutoJs.getInstance().scriptEngineService.unregisterGlobalScriptExecutionListener(
-//            mScriptExecutionListener
-//        )
+        EngineController.unregisterGlobalScriptExecutionListener(mScriptExecutionListener)
         mTimedTaskChangeDisposable!!.dispose()
         mIntentTaskChangeDisposable!!.dispose()
     }
@@ -255,7 +237,7 @@ class TaskListRecyclerView : ThemeColorRecyclerView {
         @OnClick(R.id.stop)
         fun stop() {
             if (mTask != null) {
-                //mTask!!.cancel()
+                EngineController.stopScript(mTask!!.id)
             }
         }
 
@@ -265,7 +247,7 @@ class TaskListRecyclerView : ThemeColorRecyclerView {
                 val extra =
                     if (task.timedTask == null) TimedTaskSettingActivity.EXTRA_INTENT_TASK_ID else TimedTaskSettingActivity.EXTRA_TASK_ID
                 TimedTaskSettingActivity_.intent(context)
-                    .extra(extra, task.getId())
+                    .extra(extra, task.id)
                     .start()
             }
         }

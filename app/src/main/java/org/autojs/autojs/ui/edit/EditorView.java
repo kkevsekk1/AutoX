@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -123,7 +125,7 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
     private AutoCompletion mAutoCompletion;
     private Theme mEditorTheme;
     private FunctionsKeyboardHelper mFunctionsKeyboardHelper;
-    private BroadcastReceiver mOnRunFinishedReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver mOnRunFinishedReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (ACTION_ON_EXECUTION_FINISHED.equals(intent.getAction())) {
@@ -165,11 +167,8 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            getContext().registerReceiver(mOnRunFinishedReceiver, new IntentFilter(ACTION_ON_EXECUTION_FINISHED), Context.RECEIVER_NOT_EXPORTED);
-        }else {
-            getContext().registerReceiver(mOnRunFinishedReceiver, new IntentFilter(ACTION_ON_EXECUTION_FINISHED));
-        }
+        ContextCompat.registerReceiver(getContext(), mOnRunFinishedReceiver, new IntentFilter(ACTION_ON_EXECUTION_FINISHED),
+                ContextCompat.RECEIVER_EXPORTED);
         if (getContext() instanceof BackPressedHandler.HostActivity) {
             ((BackPressedHandler.HostActivity) getContext()).getBackPressedObserver().registerHandler(mFunctionsKeyboardHelper);
         }

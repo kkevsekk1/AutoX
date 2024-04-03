@@ -149,7 +149,7 @@ open class RhinoJavaScriptEngine(private val mAndroidContext: android.content.Co
     private inner class WrapFactory : AndroidContextFactory.WrapFactory() {
         override fun wrapAsJavaObject(
             cx: Context?,
-            scope: Scriptable,
+            scope: Scriptable?,
             javaObject: Any?,
             staticType: Class<*>?
         ): Scriptable? {

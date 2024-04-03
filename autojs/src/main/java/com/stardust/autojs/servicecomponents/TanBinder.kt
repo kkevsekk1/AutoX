@@ -8,7 +8,7 @@ data class TanBinder(
     val binder: IBinder,
     var action: Int = LAST_CALL_TRANSACTION,
     val data: Parcel,
-    val reply: Parcel,
+    val reply: Parcel?,
     var flags: Int = 0
 ) {
     fun send() {
