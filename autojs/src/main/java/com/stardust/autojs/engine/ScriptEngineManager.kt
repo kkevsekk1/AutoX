@@ -20,7 +20,10 @@ class ScriptEngineManager(val androidContext: Context) {
     private var mEngineLifecycleCallback: EngineLifecycleCallback? = null
     private val mEngineSuppliers: MutableMap<String, Supplier<ScriptEngine<*>>> = HashMap()
     private val mGlobalVariableMap: MutableMap<String, Any> = HashMap()
-    private val mOnEngineDestroyListener = OnDestroyListener { engine -> removeEngine(engine) }
+    private val mOnEngineDestroyListener = object : OnDestroyListener {
+        override fun onDestroy(engine: ScriptEngine<*>) = removeEngine(engine)
+    }
+
     private fun addEngine(engine: ScriptEngine<*>) {
         engine.setOnDestroyListener(mOnEngineDestroyListener)
         synchronized(mEngines) {
@@ -60,7 +63,7 @@ class ScriptEngineManager(val androidContext: Context) {
         mGlobalVariableMap[varName] = value
     }
 
-     private fun putProperties(engine: ScriptEngine<*>) {
+    private fun putProperties(engine: ScriptEngine<*>) {
         for ((key, value) in mGlobalVariableMap) {
             engine.put(key, value)
         }
@@ -69,7 +72,7 @@ class ScriptEngineManager(val androidContext: Context) {
     fun createEngine(name: String, id: Int): ScriptEngine<*>? {
         val s = mEngineSuppliers[name] ?: return null
         val engine = s.get()
-        engine.setId(id)
+        engine.id = id
         putProperties(engine)
         addEngine(engine)
         return engine

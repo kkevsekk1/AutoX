@@ -96,16 +96,15 @@ class ScriptEngineService internal constructor(builder: ScriptEngineServiceBuild
         if (source is JavaScriptSource) {
             val mode = source.executionMode
             if (mode and JavaScriptSource.EXECUTION_MODE_UI != 0) {
-                return ScriptExecuteActivity.Companion.execute(mContext, mScriptEngineManager, task)
+                return ScriptExecuteActivity.execute(mContext, mScriptEngineManager, task)
             }
         }
-        val r: RunnableScriptExecution = if (source is JavaScriptSource) {
-            LoopedBasedJavaScriptExecution(mScriptEngineManager, task)
-        } else {
-            RunnableScriptExecution(mScriptEngineManager, task)
+        val scriptExecution: RunnableScriptExecution = when (source) {
+            is JavaScriptSource -> LoopedBasedJavaScriptExecution(mScriptEngineManager, task)
+            else -> RunnableScriptExecution(mScriptEngineManager, task)
         }
-        ThreadCompat(r).start()
-        return r
+        ThreadCompat(scriptExecution).start()
+        return scriptExecution
     }
 
     fun execute(

@@ -8,7 +8,7 @@ import com.stardust.auojs.inrt.Pref
 import com.stardust.auojs.inrt.SettingsActivity
 import com.stardust.auojs.inrt.pluginclient.DevPluginService
 import com.stardust.autojs.core.console.GlobalConsole
-import com.stardust.autojs.runtime.ScriptRuntime
+import com.stardust.autojs.runtime.ScriptRuntimeV2
 import com.stardust.autojs.runtime.api.AppUtils
 import com.stardust.autojs.runtime.exception.ScriptException
 import com.stardust.autojs.runtime.exception.ScriptInterruptedException
@@ -119,7 +119,7 @@ class AutoJs private constructor(application: Application) :
         }
     }
 
-    override fun createRuntime(): ScriptRuntime {
+    override fun createRuntime(): ScriptRuntimeV2 {
         val runtime = super.createRuntime()
         runtime.putProperty("class.settings", SettingsActivity::class.java)
         runtime.putProperty("class.console", LogActivity::class.java)

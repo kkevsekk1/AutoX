@@ -437,9 +437,6 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
         }
         // TODO: 2018/10/24
         ScriptExecution execution = Scripts.INSTANCE.runWithBroadcastSender(new File(mUri.getPath()));
-        if (execution == null) {
-            return null;
-        }
         mScriptExecutionId = execution.getId();
         setMenuItemStatus(R.id.run, false);
         return execution;

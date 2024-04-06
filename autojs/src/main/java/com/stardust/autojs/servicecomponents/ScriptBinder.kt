@@ -5,10 +5,13 @@ import android.os.Bundle
 import android.os.IBinder
 import android.os.Parcel
 import android.util.Log
+import com.aiselp.autox.engine.NodeScriptEngine
+import com.aiselp.autox.engine.NodeScriptSource
 import com.stardust.autojs.AutoJs
 import com.stardust.autojs.IndependentScriptService
 import com.stardust.autojs.execution.ExecutionConfig
 import com.stardust.autojs.script.JavaScriptFileSource
+import com.stardust.autojs.script.ScriptSource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.runBlocking
 import java.lang.ref.WeakReference
@@ -49,19 +52,18 @@ class ScriptBinder(service: IndependentScriptService, val scope: CoroutineScope)
         val taskInfo = bundle.getBundle(TaskInfo.TAG)!!.let {
             TaskInfo.fromBundle(it)
         }
-        val listener = bundle.getBinder(BinderScriptListener.TAG)
-        if (listener == null) {
-            AutoJs.instance.scriptEngineService.execute(
-                JavaScriptFileSource(taskInfo.sourcePath),
-                ExecutionConfig(workingDirectory = taskInfo.workerDirectory)
-            )
-        } else {
-            val l = BinderScriptListener.ServerInterface(listener)
-            AutoJs.instance.scriptEngineService.execute(
-                JavaScriptFileSource(taskInfo.sourcePath), l,
-                ExecutionConfig(workingDirectory = taskInfo.workerDirectory)
-            )
+        val listener = bundle.getBinder(BinderScriptListener.TAG)?.let {
+            BinderScriptListener.ServerInterface(it)
         }
+        Log.d(TAG,"engineName = ${taskInfo.engineName}")
+        val source: ScriptSource = when (taskInfo.engineName) {
+            NodeScriptEngine.ID -> NodeScriptSource(taskInfo.sourcePath)
+            else -> JavaScriptFileSource(taskInfo.sourcePath)
+        }
+        AutoJs.instance.scriptEngineService.execute(
+            source, listener,
+            ExecutionConfig(workingDirectory = taskInfo.workerDirectory)
+        )
     }
 
     private fun stopScript(data: Parcel) {

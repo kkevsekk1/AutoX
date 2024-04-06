@@ -6,6 +6,7 @@ import android.app.Application
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import com.aiselp.autox.engine.NodeScriptEngine
 import com.stardust.app.SimpleActivityLifecycleCallbacks
 import com.stardust.autojs.core.accessibility.AccessibilityBridge
 import com.stardust.autojs.core.activity.ActivityInfoProvider
@@ -19,7 +20,6 @@ import com.stardust.autojs.engine.LoopBasedJavaScriptEngine
 import com.stardust.autojs.engine.RootAutomatorEngine
 import com.stardust.autojs.engine.ScriptEngineManager
 import com.stardust.autojs.rhino.AndroidContextFactory
-import com.stardust.autojs.runtime.ScriptRuntime
 import com.stardust.autojs.runtime.ScriptRuntimeV2
 import com.stardust.autojs.runtime.accessibility.AccessibilityConfig
 import com.stardust.autojs.runtime.api.AbstractShell
@@ -61,7 +61,21 @@ abstract class AutoJs protected constructor(protected val application: Applicati
     init {
         scriptEngineService = buildScriptEngineService()
         ScriptEngineService.instance = scriptEngineService
-        init()
+        addAccessibilityServiceDelegates()
+        registerActivityLifecycleCallbacks()
+        ResourceMonitor.setExceptionCreator { resource: ResourceMonitor.Resource? ->
+            val exception: Exception =
+                if (org.mozilla.javascript.Context.getCurrentContext() != null) {
+                    WrappedException(UnclosedResourceException(resource))
+                } else {
+                    UnclosedResourceException(resource)
+                }
+            exception.fillInStackTrace()
+            exception
+        }
+        ResourceMonitor.setUnclosedResourceDetectedHandler { data: UnclosedResourceDetectedException? ->
+            globalConsole.error(data)
+        }
     }
 
     protected open fun createAppUtils(context: Context): AppUtils {
@@ -80,30 +94,6 @@ abstract class AutoJs protected constructor(protected val application: Applicati
 
     var debugEnabled = false
 
-    protected fun init() {
-        addAccessibilityServiceDelegates()
-        registerActivityLifecycleCallbacks()
-        ResourceMonitor.setExceptionCreator { resource: ResourceMonitor.Resource? ->
-            val exception: Exception =
-                if (org.mozilla.javascript.Context.getCurrentContext() != null) {
-                    WrappedException(UnclosedResourceException(resource))
-                } else {
-                    UnclosedResourceException(resource)
-                }
-            exception.fillInStackTrace()
-            exception
-        }
-        //        ResourceMonitor.setUnclosedResourceDetectedHandler(detectedException -> mGlobalConsole.error(detectedException));
-        ResourceMonitor.setUnclosedResourceDetectedHandler { data: UnclosedResourceDetectedException? ->
-            globalConsole.error(
-                data
-            )
-        }
-        /*      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            mContext.startForegroundService(new Intent(mContext, CaptureForegroundService.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-        }*/
-    }
-
     abstract fun ensureAccessibilityServiceEnabled()
     private fun buildScriptEngineService(): ScriptEngineService {
         initScriptEngineManager()
@@ -116,19 +106,22 @@ abstract class AutoJs protected constructor(protected val application: Applicati
 
     protected open fun initScriptEngineManager() {
         scriptEngineManager.registerEngine(JavaScriptSource.ENGINE) {
-            val engine = LoopBasedJavaScriptEngine(mContext)
-            engine.runtime = createRuntime()
-            engine
+            LoopBasedJavaScriptEngine(mContext).apply {
+                runtime = createRuntime()
+            }
         }
         initContextFactory()
         scriptEngineManager.registerEngine(AutoFileSource.ENGINE) { RootAutomatorEngine(mContext) }
+        scriptEngineManager.registerEngine(NodeScriptEngine.ID) {
+            NodeScriptEngine(mContext,uiHandler)
+        }
     }
 
     private fun initContextFactory() {
         ContextFactory.initGlobal(AndroidContextFactory(File(mContext.cacheDir, "classes")))
     }
 
-    protected open fun createRuntime(): ScriptRuntime {
+    protected open fun createRuntime(): ScriptRuntimeV2 {
         return ScriptRuntimeV2.Builder().also {
             it.console = ConsoleImpl(uiHandler, globalConsole)
             it.screenCaptureRequester = mScreenCaptureRequester

@@ -44,6 +44,7 @@ dependencies {
     implementation(libs.glide)
     implementation(libs.documentfile)
     implementation(libs.preference.ktx)
+    implementation("com.caoccao.javet:javet-android-node:3.1.0")
     api(libs.eventbus)
     api("net.lingala.zip4j:zip4j:1.3.2")
     api("com.afollestad.material-dialogs:core:0.9.2.3")

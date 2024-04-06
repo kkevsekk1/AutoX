@@ -1,5 +1,6 @@
 package com.stardust.autojs.servicecomponents
 
+import com.aiselp.autox.engine.NodeScriptEngine
 import com.stardust.autojs.script.JavaScriptSource
 import com.stardust.autojs.servicecomponents.ScriptServiceConnection.Companion.GlobalConnection
 import kotlinx.coroutines.CoroutineScope
@@ -48,11 +49,15 @@ object EngineController {
     }
 
     fun runScript(file: File, listener: BinderScriptListener? = null) = scope.launch {
+        val engineName = when (file.extension) {
+            "mjs" -> NodeScriptEngine.ID
+            else -> JavaScriptSource.ENGINE
+        }
         runScript(object : TaskInfo {
             override val id: Int = 0
             override val name: String = file.name
             override val desc: String = file.path
-            override val engineName: String = JavaScriptSource.ENGINE
+            override val engineName: String = engineName
             override val workerDirectory: String = file.parent ?: "/"
             override val sourcePath: String = file.path
             override val isRunning: Boolean = false

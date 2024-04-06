@@ -1,5 +1,7 @@
 package org.autojs.autojs.model.explorer;
 
+import androidx.annotation.NonNull;
+
 import com.stardust.pio.PFile;
 import com.stardust.util.ObjectHelper;
 import com.stardust.util.Objects;
@@ -15,7 +17,10 @@ import java.util.Set;
 public class ExplorerFileItem implements ExplorerItem {
 
     private static final Set<String> sEditableFileExts = new HashSet<>(Arrays.asList(
-            "js", "java", "xml", "json", "txt", "log", "ts"
+            "js", "java", "xml", "json", "txt", "log", "ts", "mjs"
+    ));
+    private static final Set<String> executables = new HashSet<>(Arrays.asList(
+            "js", "auto", "ts", "mjs"
     ));
 
     private PFile mFile;
@@ -101,9 +106,10 @@ public class ExplorerFileItem implements ExplorerItem {
     @Override
     public boolean isExecutable() {
         String type = getType();
-        return type.equals("js") || type.equals("auto");
+        return executables.contains(type);
     }
 
+    @NonNull
     @Override
     public String toString() {
         return getClass().getSimpleName() + "{" +
