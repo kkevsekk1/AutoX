@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="key_auto_backup" translatable="false">key_auto_back</string>
+    <string name="key_night_mode" translatable="false">key_night_mode</string>
+    <string name="key_foreground_servie" translatable="false">key_foreground_service</string>
+    <string name="key_script_dir_path" translatable="false">key_script_dir_path</string>
+    <string name="key_documentation_source" translatable="false">key_documentation_source</string>
+    <string name="key_enable_observe_key" translatable="false">key_enable_observe_key</string>
+    <string name="key_single_build_clean_mode" translatable="false">key_single_build_clean_mode</string>
+    <string name="key_stable_mode" translatable="false">key_stable_mode</string>
+    <string name="key_record_toast" translatable="false">key_record_toast</string>
+    <string name="key_root_record_out_file_type" translatable="false">key_root_record_out_file_type</string>
+    <string name="key_use_volume_control_running" translatable="false">key_use_volume_control_running</string>
+    <string name="key_enable_accessibility_service_by_root" translatable="false">key_enable_accessibility_service_by_root</string>
+    <string name="key_max_length_for_code_completion" translatable="false">key_max_length_for_code_completion</string>
+    <string name="key_use_volume_control_record" translatable="false">key_use_volume_control_record</string>
+    <string name="key_guard_mode" translatable="false">key_guard_mode</string>
+    <string name="key_intent_run_script" translatable="false" >key_intent_run_script</string>
+</resources>
