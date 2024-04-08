@@ -12,6 +12,10 @@ data class TanBinder(
     var flags: Int = 0
 ) {
     fun send() {
-        binder.transact(action, data, reply, flags)
+        try {
+            binder.transact(action, data, reply, flags)
+        } catch (e: Throwable) {
+            e.printStackTrace()
+        }
     }
 }

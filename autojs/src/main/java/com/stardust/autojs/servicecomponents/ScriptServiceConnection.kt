@@ -1,12 +1,18 @@
 package com.stardust.autojs.servicecomponents
 
 import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
 import android.content.ServiceConnection
 import android.os.Bundle
 import android.os.IBinder
+import com.stardust.autojs.IndependentScriptService
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.withTimeout
 
 class ScriptServiceConnection : ServiceConnection {
+    var reBind: (() -> Unit)? = null
     lateinit var service: IBinder
     private val connected = Job()
 
@@ -75,12 +81,29 @@ class ScriptServiceConnection : ServiceConnection {
         send()
     }
 
-    suspend fun awaitConnected() {
-        connected.join()
-        check(isConnected) { "service is not connected" }
+    suspend fun awaitConnected() = withTimeout(3000) {
+        if (isConnected) return@withTimeout
+        check(reBind != null) { "service is not connected" }
+        reBind!!.invoke()
+        while (!isConnected) {
+            delay(100)
+        }
     }
 
     companion object {
         val GlobalConnection by lazy { ScriptServiceConnection() }
+        fun start(context: Context) {
+            val applicationContext = context.applicationContext
+            applicationContext.startService(
+                Intent(applicationContext, IndependentScriptService::class.java)
+            )
+            GlobalConnection.reBind = {
+                applicationContext.bindService(
+                    Intent(context, IndependentScriptService::class.java),
+                    GlobalConnection, Context.BIND_AUTO_CREATE
+                )
+            }
+            GlobalConnection.reBind?.invoke()
+        }
     }
 }

@@ -17,10 +17,10 @@ import java.util.Set;
 public class ExplorerFileItem implements ExplorerItem {
 
     private static final Set<String> sEditableFileExts = new HashSet<>(Arrays.asList(
-            "js", "java", "xml", "json", "txt", "log", "ts", "mjs"
+            "js", "java", "xml", "json", "txt", "log", "ts", "mjs", "cjs"
     ));
     private static final Set<String> executables = new HashSet<>(Arrays.asList(
-            "js", "auto", "ts", "mjs"
+            "js", "auto", "ts", "mjs", "cjs"
     ));
 
     private PFile mFile;

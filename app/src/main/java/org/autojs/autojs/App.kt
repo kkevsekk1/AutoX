@@ -1,7 +1,6 @@
 package org.autojs.autojs
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Process
@@ -13,7 +12,6 @@ import androidx.multidex.MultiDexApplication
 import androidx.work.Configuration
 import com.flurry.android.FlurryAgent
 import com.stardust.app.GlobalAppContext
-import com.stardust.autojs.IndependentScriptService
 import com.stardust.autojs.servicecomponents.ScriptServiceConnection
 import com.stardust.autojs.util.ProcessUtils
 import com.stardust.theme.ThemeColor
@@ -91,16 +89,10 @@ class App : MultiDexApplication(), Configuration.Provider {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                 WebView.setDataDirectorySuffix(getString(R.string.text_script_process_name))
             };
-            startService(Intent(this, IndependentScriptService::class.java))
-            bindService(
-                Intent(this, IndependentScriptService::class.java),
-                ScriptServiceConnection.GlobalConnection,
-                Context.BIND_AUTO_CREATE
-            )
+            ScriptServiceConnection.start(this)
         }
         Log.i(
-            TAG,
-            "Pid: ${Process.myPid()}, isScriptProcess: ${ProcessUtils.isScriptProcess(this)}"
+            TAG, "Pid: ${Process.myPid()}, isScriptProcess: ${ProcessUtils.isScriptProcess(this)}"
         )
 
     }

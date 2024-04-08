@@ -48,20 +48,23 @@ object EngineController {
         serviceConnection.runScript(taskInfo, listener)
     }
 
-    fun runScript(file: File, listener: BinderScriptListener? = null) = scope.launch {
-        val engineName = when (file.extension) {
-            "mjs" -> NodeScriptEngine.ID
-            else -> JavaScriptSource.ENGINE
+
+    fun runScript(file: File, listener: BinderScriptListener? = null) {
+        scope.launch {
+            val engineName = when (file.extension) {
+                "mjs" -> NodeScriptEngine.ID
+                else -> JavaScriptSource.ENGINE
+            }
+            runScript(object : TaskInfo {
+                override val id: Int = 0
+                override val name: String = file.name
+                override val desc: String = file.path
+                override val engineName: String = engineName
+                override val workerDirectory: String = file.parent ?: "/"
+                override val sourcePath: String = file.path
+                override val isRunning: Boolean = false
+            }, listener)
         }
-        runScript(object : TaskInfo {
-            override val id: Int = 0
-            override val name: String = file.name
-            override val desc: String = file.path
-            override val engineName: String = engineName
-            override val workerDirectory: String = file.parent ?: "/"
-            override val sourcePath: String = file.path
-            override val isRunning: Boolean = false
-        }, listener)
     }
 
     fun getAllScriptTasks(): Deferred<MutableList<TaskInfo>> = scope.async {
@@ -81,4 +84,6 @@ object EngineController {
 
     fun unregisterGlobalScriptExecutionListener(listener: BinderScriptListener) =
         globalScriptListener.remove(listener)
+
+    private val TAG = "EngineController"
 }

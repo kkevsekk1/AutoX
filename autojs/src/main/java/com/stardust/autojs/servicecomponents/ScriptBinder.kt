@@ -5,12 +5,10 @@ import android.os.Bundle
 import android.os.IBinder
 import android.os.Parcel
 import android.util.Log
-import com.aiselp.autox.engine.NodeScriptEngine
-import com.aiselp.autox.engine.NodeScriptSource
 import com.stardust.autojs.AutoJs
 import com.stardust.autojs.IndependentScriptService
 import com.stardust.autojs.execution.ExecutionConfig
-import com.stardust.autojs.script.JavaScriptFileSource
+import com.stardust.autojs.script.ScriptFile
 import com.stardust.autojs.script.ScriptSource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.runBlocking
@@ -56,10 +54,7 @@ class ScriptBinder(service: IndependentScriptService, val scope: CoroutineScope)
             BinderScriptListener.ServerInterface(it)
         }
         Log.d(TAG,"engineName = ${taskInfo.engineName}")
-        val source: ScriptSource = when (taskInfo.engineName) {
-            NodeScriptEngine.ID -> NodeScriptSource(taskInfo.sourcePath)
-            else -> JavaScriptFileSource(taskInfo.sourcePath)
-        }
+        val source: ScriptSource = ScriptFile(taskInfo.sourcePath).toSource()
         AutoJs.instance.scriptEngineService.execute(
             source, listener,
             ExecutionConfig(workingDirectory = taskInfo.workerDirectory)
