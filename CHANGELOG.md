@@ -1,7 +1,20 @@
 # Change Log
 autoxjs 整个项目的一些更新日志,双版本号为稳定版（内容以修复的bug为主），单版本号为激进版本、发布新内容。
 
-## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.5.8...HEAD) 未发布
+## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.5.9...HEAD) 未发布
+
+## [6.5.9] - 2024-4-8
+@plus1998
+* 实现mqtt demo
+@aiselp
+* 依赖更新，kotlin升级到1.8.0
+* 删除部分未使用Activity，bug修复
+@Lin
+修复dialogs.build报错
+
+
+
+[6.5.9]:https://github.com/kkevsekk1/AutoX/compare/6.5.8...6.5.9
 
 ## [6.5.8] - 2024-2-6
 @aiselp
