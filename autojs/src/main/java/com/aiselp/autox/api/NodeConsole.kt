@@ -3,9 +3,26 @@ package com.aiselp.autox.api
 import com.caoccao.javet.annotations.V8Function
 import com.caoccao.javet.interop.V8Runtime
 import com.caoccao.javet.values.V8Value
+import com.caoccao.javet.values.reference.V8ValueObject
 import com.stardust.autojs.runtime.api.Console
 
-class NodeConsole(val console: Console) {
+class NodeConsole(val console: Console) : V8Api {
+    override val moduleId: String = "console"
+    override val globalModule: Boolean = true
+    private var v8ValueObject: V8ValueObject? = null
+    override fun install(v8Runtime: V8Runtime, global: V8ValueObject): V8Api.BindingMode {
+        v8Runtime.getExecutor(SCRIPT).execute<V8ValueObject>().let {
+            v8ValueObject = it
+            it.bind(this)
+        }
+        return V8Api.BindingMode.NOT_AUTO_BIND
+    }
+
+    override fun recycle(v8Runtime: V8Runtime, global: V8ValueObject) {
+        v8ValueObject?.use { it.unbind(this) }
+        v8ValueObject = null
+    }
+
     @V8Function
     fun error(vararg v8Value: V8Value?) = concat(*v8Value) {
         console.error(it)
@@ -27,13 +44,6 @@ class NodeConsole(val console: Console) {
 
     fun log(vararg obj: Any?) = concat(*obj) {
         console.log(it)
-    }
-
-
-    fun register(v8Runtime: V8Runtime) = v8Runtime.globalObject.use {
-        it.getObject<V8Value>("process").use { process ->
-
-        }
     }
 
     companion object {

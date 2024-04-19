@@ -2,15 +2,17 @@ package com.aiselp.autox.engine
 
 import android.content.Context
 import android.util.Log
+import com.aiselp.autox.api.JavaInteractor
 import com.aiselp.autox.api.NodeConsole
 import com.aiselp.autox.module.NodeModuleResolver
+import com.caoccao.javet.enums.V8AwaitMode
 import com.caoccao.javet.exceptions.JavetExecutionException
 import com.caoccao.javet.interop.NodeRuntime
 import com.caoccao.javet.interop.V8Host
+import com.caoccao.javet.interop.converters.JavetProxyConverter
 import com.caoccao.javet.node.modules.NodeModuleModule
 import com.caoccao.javet.node.modules.NodeModuleProcess
 import com.caoccao.javet.values.V8Value
-import com.caoccao.javet.values.reference.V8ValueObject
 import com.caoccao.javet.values.reference.V8ValuePromise
 import com.stardust.autojs.AutoJs
 import com.stardust.autojs.engine.ScriptEngine
@@ -18,6 +20,10 @@ import com.stardust.autojs.execution.ExecutionConfig
 import com.stardust.autojs.runtime.exception.ScriptException
 import com.stardust.autojs.script.ScriptSource
 import com.stardust.util.UiHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.runBlocking
 import java.io.File
 
@@ -32,6 +38,9 @@ class NodeScriptEngine(context: Context, val uiHandler: UiHandler) :
     private val moduleDirectory = File(context.filesDir, "node_module")
     private val resultListener = PromiseListener()
     private val console = NodeConsole(AutoJs.instance.globalConsole)
+    private val v8ApiManager = V8ApiManager()
+    private val converter = JavetProxyConverter()
+    private val scope = CoroutineScope(Dispatchers.Default)
 
     init {
         Log.i(TAG, "node version: ${runtime.version}")
@@ -52,14 +61,15 @@ class NodeScriptEngine(context: Context, val uiHandler: UiHandler) :
     }
 
     override fun init() {
+        runtime.converter = converter
         runtime.isPurgeEventLoopBeforeClose = true
         initializeApi()
     }
 
     private fun initializeApi() = runtime.globalObject.use { global ->
-        runtime.getExecutor(NodeConsole.SCRIPT).execute<V8ValueObject>().use {
-            it.bind(console)
-        }
+        v8ApiManager.register(console)
+        v8ApiManager.register(JavaInteractor(scope, converter))
+        v8ApiManager.initialize(runtime, global)
     }
 
     override fun execute(scriptSource: ScriptSource): Any? = runBlocking {
@@ -71,20 +81,18 @@ class NodeScriptEngine(context: Context, val uiHandler: UiHandler) :
                 if (it is V8ValuePromise)
                     it.register(resultListener)
                 else resultListener.onFulfilled(it)
-                runtime.await()
+                while (scope.isActive and runtime.await(V8AwaitMode.RunOnce)) {
+                    Thread.sleep(1)
+                }
             }
             return@runBlocking resultListener.await().let {
                 if (resultListener.stack != null) console.error(resultListener.stack)
                 if (resultListener.isRejectedCalled) throw ScriptException(it)
             }
         } catch (e: JavetExecutionException) {
-            throw e.apply {
-                console.error(e.scriptingError.stack)
-            }
+            throw e.apply { console.error(scriptingError.stack) }
         } catch (e: Throwable) {
-            throw e.apply {
-                console.error(e.toString())
-            }
+            throw e.apply { console.error(toString()) }
         }
     }
 
@@ -109,10 +117,12 @@ class NodeScriptEngine(context: Context, val uiHandler: UiHandler) :
     }
 
     override fun destroy() {
-        super.destroy()
+        v8ApiManager.recycle(runtime, runtime.globalObject)
+        scope.cancel()
         if (runtime.isClosed) return
         runtime.lowMemoryNotification()
         runtime.close()
+        super.destroy()
     }
 
     companion object {
