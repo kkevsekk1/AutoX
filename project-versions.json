@@ -1,11 +1,11 @@
 {
-  "appVersionCode": 659,
-  "appVersionName": "6.5.9",
-  "devVersionCode": 659,
-  "devVersionName": "6.5.9",
-  "target": 34,
-  "mini": 27,  
+  "appVersionCode": 660,
+  "appVersionName": "6.6.0",
+  "devVersionCode": 660,
+  "devVersionName": "6.6.0",
   "compile": 34,
+  "target": 34,
+  "mini": 27,
   "buildTool": "34.0.0",
   "IDE": "Android Studio Bumblebee | 2021.1.1",
   "JDK": "17"
