@@ -205,9 +205,7 @@ class ScriptExecuteActivity : AppCompatActivity() {
     ) : AbstractScriptExecution(task) {
         private var mScriptEngine: ScriptEngine<*>? = null
         fun createEngine(activity: Activity?): ScriptEngine<*> {
-            if (mScriptEngine != null) {
-                mScriptEngine!!.forceStop()
-            }
+            mScriptEngine?.forceStop()
             mScriptEngine = mScriptEngineManager.createEngineOfSourceOrThrow(source, id)
             mScriptEngine!!.setTag(tag, config)
             return mScriptEngine!!
@@ -221,6 +219,7 @@ class ScriptExecuteActivity : AppCompatActivity() {
     companion object {
         private const val LOG_TAG = "ScriptExecuteActivity"
         private val EXTRA_EXECUTION_ID = ScriptExecuteActivity::class.java.name + ".execution_id"
+
         @JvmStatic
         fun execute(
             context: Context,

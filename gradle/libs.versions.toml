@@ -25,6 +25,7 @@ androidx-annotation = "androidx.annotation:annotation:1.7.1"
 activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
 #lifecycle
 lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
+lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycle" }
 lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime", version.ref = "lifecycle" }
 lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
@@ -90,6 +91,9 @@ material3-compose = "androidx.compose.material3:material3:1.2.1"
 andserver-processor = { module = "com.yanzhenjie.andserver:processor", version.ref = "andserver" }
 andserver-api = { module = "com.yanzhenjie.andserver:api", version.ref = "andserver" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version = "2.1.4" }
+#Glide
+glide = "com.github.bumptech.glide:glide:4.8.0"
+glide-compiler = "com.github.bumptech.glide:compiler:4.12.0"
 [plugins]
 
 [bundles]

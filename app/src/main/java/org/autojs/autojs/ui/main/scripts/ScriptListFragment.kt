@@ -1,6 +1,7 @@
 package org.autojs.autojs.ui.main.scripts
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +9,11 @@ import android.view.ViewGroup
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.*
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Close
@@ -31,6 +36,7 @@ import com.leinardi.android.speeddial.compose.SpeedDial
 import com.leinardi.android.speeddial.compose.SpeedDialScope
 import com.leinardi.android.speeddial.compose.SpeedDialState
 import com.stardust.app.GlobalAppContext.get
+import com.stardust.autojs.util.PermissionUtil
 import com.stardust.util.IntentUtil
 import org.autojs.autojs.Pref
 import org.autojs.autojs.external.fileprovider.AppFileProvider
@@ -61,6 +67,9 @@ class ScriptListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         explorerView.setUpViews()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            PermissionUtil.showPermissionDialog(requireActivity())
+        }
         return ComposeView(requireContext()).apply {
             setContent {
                 Scaffold(

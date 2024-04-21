@@ -17,6 +17,7 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
@@ -127,6 +128,7 @@ public class AndroidClassLoader extends ClassLoader implements GeneratedClassLoa
         if (!file.exists()) {
             throw new FileNotFoundException(file.getPath());
         }
+        file.setWritable(false,false);
         DexClassLoader loader = new DexClassLoader(file.getPath(), mCacheDir.getPath(), null, parent);
         mDexClassLoaders.add(loader);
         return loader;

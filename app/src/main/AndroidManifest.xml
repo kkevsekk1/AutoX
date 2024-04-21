@@ -442,7 +442,7 @@
             android:name="org.autojs.autojs.ui.edit.EditActivity_"
             android:configChanges="orientation|screenSize|uiMode"
             android:launchMode="standard"
-            android:multiprocess="true"
+            android:process="@string/text_script_process_name"
             android:taskAffinity="org.autojs.autojs.edit"
             android:theme="@style/EditorTheme" />
         <activity android:name="org.autojs.autojs.ui.settings.AboutActivity_" />
@@ -459,7 +459,8 @@
             android:configChanges="orientation|screenSize" />
         <activity android:name="org.autojs.autojs.ui.build.SignManageActivityKt" />
         <activity android:name="org.autojs.autojs.ui.build.ProjectConfigActivity_" />
-        <activity android:name="org.autojs.autojs.ui.log.LogActivityKt" />
+        <activity android:name="org.autojs.autojs.ui.log.LogActivityKt"
+            android:process="@string/text_script_process_name" />
         <activity android:name="org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity_" />
         <activity android:name="org.autojs.autojs.ui.timing.TimedTaskSettingActivity_" />
         <activity

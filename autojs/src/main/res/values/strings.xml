@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="text_script_process_name" translatable="false">:script</string>
+    <string name="text_hint">提示</string>
+    <string name="text_request_permission">此应用需要储存权限才能正常运行，是否跳转授权？</string>
+</resources>

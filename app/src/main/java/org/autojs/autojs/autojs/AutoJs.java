@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Looper;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -14,6 +13,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.stardust.app.GlobalAppContext;
 import com.stardust.autojs.core.console.GlobalConsole;
 import com.stardust.autojs.runtime.ScriptRuntime;
+import com.stardust.autojs.runtime.ScriptRuntimeV2;
 import com.stardust.autojs.runtime.accessibility.AccessibilityConfig;
 import com.stardust.autojs.runtime.api.AppUtils;
 import com.stardust.autojs.runtime.exception.ScriptException;
@@ -42,10 +42,9 @@ import org.autojs.autojs.ui.settings.SettingsActivity;
 
 public class AutoJs extends com.stardust.autojs.AutoJs {
 
-    private static AutoJs instance;
 
-    public static AutoJs getInstance() {
-        return instance;
+    public static com.stardust.autojs.AutoJs getInstance() {
+        return com.stardust.autojs.AutoJs.Companion.getInstance();
     }
 
     private boolean enableDebugLog = false;
@@ -181,22 +180,12 @@ public class AutoJs extends com.stardust.autojs.AutoJs {
 
     @NonNull
     @Override
-    protected ScriptRuntime createRuntime() {
-        ScriptRuntime runtime = super.createRuntime();
+    protected ScriptRuntimeV2 createRuntime() {
+        ScriptRuntimeV2 runtime = super.createRuntime();
         runtime.putProperty("class.settings", SettingsActivity.class);
         runtime.putProperty("class.console", LogActivityKt.class);
         runtime.putProperty("broadcast.inspect_layout_bounds", LayoutBoundsFloatyWindow.class.getName());
         runtime.putProperty("broadcast.inspect_layout_hierarchy", LayoutHierarchyFloatyWindow.class.getName());
         return runtime;
-    }
-
-    public void debugInfo(String content) {
-        if (this.enableDebugLog) {
-            AutoJs.getInstance().getGlobalConsole().println(Log.VERBOSE, content);
-        }
-    }
-
-    public void setDebugEnabled(boolean enableDebugLog) {
-        this.enableDebugLog = enableDebugLog;
     }
 }

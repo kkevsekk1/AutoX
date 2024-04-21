@@ -1,9 +1,12 @@
 package com.stardust.autojs
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
+import com.aiselp.autox.engine.NodeScriptEngine
 import com.stardust.app.SimpleActivityLifecycleCallbacks
 import com.stardust.autojs.core.accessibility.AccessibilityBridge
 import com.stardust.autojs.core.activity.ActivityInfoProvider
@@ -17,7 +20,6 @@ import com.stardust.autojs.engine.LoopBasedJavaScriptEngine
 import com.stardust.autojs.engine.RootAutomatorEngine
 import com.stardust.autojs.engine.ScriptEngineManager
 import com.stardust.autojs.rhino.AndroidContextFactory
-import com.stardust.autojs.runtime.ScriptRuntime
 import com.stardust.autojs.runtime.ScriptRuntimeV2
 import com.stardust.autojs.runtime.accessibility.AccessibilityConfig
 import com.stardust.autojs.runtime.api.AbstractShell
@@ -59,18 +61,6 @@ abstract class AutoJs protected constructor(protected val application: Applicati
     init {
         scriptEngineService = buildScriptEngineService()
         ScriptEngineService.instance = scriptEngineService
-        init()
-    }
-
-    protected open fun createAppUtils(context: Context): AppUtils {
-        return AppUtils(mContext)
-    }
-
-    protected open fun createGlobalConsole(): GlobalConsole {
-        return GlobalConsole(uiHandler)
-    }
-
-    protected fun init() {
         addAccessibilityServiceDelegates()
         registerActivityLifecycleCallbacks()
         ResourceMonitor.setExceptionCreator { resource: ResourceMonitor.Resource? ->
@@ -83,19 +73,29 @@ abstract class AutoJs protected constructor(protected val application: Applicati
             exception.fillInStackTrace()
             exception
         }
-        //        ResourceMonitor.setUnclosedResourceDetectedHandler(detectedException -> mGlobalConsole.error(detectedException));
         ResourceMonitor.setUnclosedResourceDetectedHandler { data: UnclosedResourceDetectedException? ->
-            globalConsole.error(
-                data
-            )
+            globalConsole.error(data)
         }
-        /*      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            mContext.startForegroundService(new Intent(mContext, CaptureForegroundService.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-        }*/
     }
 
+    protected open fun createAppUtils(context: Context): AppUtils {
+        return AppUtils(mContext)
+    }
+
+    protected open fun createGlobalConsole(): GlobalConsole {
+        return GlobalConsole(uiHandler)
+    }
+
+    fun debugInfo(content: String?) {
+        if (debugEnabled) {
+            globalConsole.println(Log.VERBOSE, content)
+        }
+    }
+
+    var debugEnabled = false
+
     abstract fun ensureAccessibilityServiceEnabled()
-    protected fun buildScriptEngineService(): ScriptEngineService {
+    private fun buildScriptEngineService(): ScriptEngineService {
         initScriptEngineManager()
         return ScriptEngineServiceBuilder()
             .uiHandler(uiHandler)
@@ -106,19 +106,22 @@ abstract class AutoJs protected constructor(protected val application: Applicati
 
     protected open fun initScriptEngineManager() {
         scriptEngineManager.registerEngine(JavaScriptSource.ENGINE) {
-            val engine = LoopBasedJavaScriptEngine(mContext)
-            engine.runtime = createRuntime()
-            engine
+            LoopBasedJavaScriptEngine(mContext).apply {
+                runtime = createRuntime()
+            }
         }
         initContextFactory()
         scriptEngineManager.registerEngine(AutoFileSource.ENGINE) { RootAutomatorEngine(mContext) }
+        scriptEngineManager.registerEngine(NodeScriptEngine.ID) {
+            NodeScriptEngine(mContext,uiHandler)
+        }
     }
 
-    protected fun initContextFactory() {
+    private fun initContextFactory() {
         ContextFactory.initGlobal(AndroidContextFactory(File(mContext.cacheDir, "classes")))
     }
 
-    protected open fun createRuntime(): ScriptRuntime {
+    protected open fun createRuntime(): ScriptRuntimeV2 {
         return ScriptRuntimeV2.Builder().also {
             it.console = ConsoleImpl(uiHandler, globalConsole)
             it.screenCaptureRequester = mScreenCaptureRequester
@@ -130,7 +133,7 @@ abstract class AutoJs protected constructor(protected val application: Applicati
         }.build()
     }
 
-    protected fun registerActivityLifecycleCallbacks() {
+    private fun registerActivityLifecycleCallbacks() {
         application.registerActivityLifecycleCallbacks(object : SimpleActivityLifecycleCallbacks() {
             override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
                 ScreenMetrics.initIfNeeded(activity)
@@ -180,5 +183,10 @@ abstract class AutoJs protected constructor(protected val application: Applicati
         override fun getNotificationObserver(): AccessibilityNotificationObserver {
             return mNotificationObserver
         }
+    }
+
+    companion object {
+        @SuppressLint("StaticFieldLeak")
+        lateinit var instance: AutoJs
     }
 }

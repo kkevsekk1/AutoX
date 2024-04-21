@@ -12,7 +12,6 @@ import com.stardust.autojs.runtime.api.Events
 import com.stardust.autojs.runtime.api.Sensors
 import com.stardust.autojs.runtime.api.Threads
 import com.stardust.autojs.runtime.api.Timers
-import com.stardust.autojs.util.ObjectWatcher
 import com.stardust.util.Supplier
 import com.stardust.util.UiHandler
 
@@ -38,7 +37,7 @@ class ScriptRuntimeV2(builder: Builder) : ScriptRuntime(builder) {
     }
     override fun onExit() {
         super.onExit()
-        ObjectWatcher.default.watch(this, engines.myEngine().toString() + "::" + TAG)
+//        ObjectWatcher.default.watch(this, engines.myEngine().toString() + "::" + TAG)
     }
 
     class Builder {

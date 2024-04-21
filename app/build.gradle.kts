@@ -243,9 +243,8 @@ dependencies {
     implementation("com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0")
     implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
     //Glide
-    implementation("com.github.bumptech.glide:glide:4.8.0")
-    kapt("com.github.bumptech.glide:compiler:4.12.0")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
+    implementation(libs.glide)
+    kapt(libs.glide.compiler)
     //joda time
     implementation("net.danlew:android.joda:2.10.14")
     // Tasker Plugin

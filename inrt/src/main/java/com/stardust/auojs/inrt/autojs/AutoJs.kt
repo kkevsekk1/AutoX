@@ -1,6 +1,5 @@
 package com.stardust.auojs.inrt.autojs
 
-import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import com.stardust.app.GlobalAppContext
@@ -9,7 +8,7 @@ import com.stardust.auojs.inrt.Pref
 import com.stardust.auojs.inrt.SettingsActivity
 import com.stardust.auojs.inrt.pluginclient.DevPluginService
 import com.stardust.autojs.core.console.GlobalConsole
-import com.stardust.autojs.runtime.ScriptRuntime
+import com.stardust.autojs.runtime.ScriptRuntimeV2
 import com.stardust.autojs.runtime.api.AppUtils
 import com.stardust.autojs.runtime.exception.ScriptException
 import com.stardust.autojs.runtime.exception.ScriptInterruptedException
@@ -23,7 +22,8 @@ import org.autojs.autoxjs.inrt.R
  * Created by Stardust on 2017/4/2.
  */
 
-class AutoJs private constructor(application: Application) : com.stardust.autojs.AutoJs(application) {
+class AutoJs private constructor(application: Application) :
+    com.stardust.autojs.AutoJs(application) {
 
     init {
         scriptEngineService.registerGlobalScriptExecutionListener(ScriptExecutionGlobalListener())
@@ -39,12 +39,22 @@ class AutoJs private constructor(application: Application) : com.stardust.autojs
             return
         }
         var errorMessage: String? = null
-        if (AccessibilityServiceUtils.isAccessibilityServiceEnabled(application, AccessibilityService::class.java)) {
-            errorMessage = GlobalAppContext.getString(R.string.text_auto_operate_service_enabled_but_not_running)
+        if (AccessibilityServiceUtils.isAccessibilityServiceEnabled(
+                application,
+                AccessibilityService::class.java
+            )
+        ) {
+            errorMessage =
+                GlobalAppContext.getString(R.string.text_auto_operate_service_enabled_but_not_running)
         } else {
             if (Pref.shouldEnableAccessibilityServiceByRoot()) {
-                if (!AccessibilityServiceTool.enableAccessibilityServiceByRootAndWaitFor(application, 2000)) {
-                    errorMessage = GlobalAppContext.getString(R.string.text_enable_accessibility_service_by_root_timeout)
+                if (!AccessibilityServiceTool.enableAccessibilityServiceByRootAndWaitFor(
+                        application,
+                        2000
+                    )
+                ) {
+                    errorMessage =
+                        GlobalAppContext.getString(R.string.text_enable_accessibility_service_by_root_timeout)
                 }
             } else {
                 errorMessage = GlobalAppContext.getString(R.string.text_no_accessibility_permission)
@@ -61,12 +71,22 @@ class AutoJs private constructor(application: Application) : com.stardust.autojs
             return
         }
         var errorMessage: String? = null
-        if (AccessibilityServiceUtils.isAccessibilityServiceEnabled(application, AccessibilityService::class.java)) {
-            errorMessage = GlobalAppContext.getString(R.string.text_auto_operate_service_enabled_but_not_running)
+        if (AccessibilityServiceUtils.isAccessibilityServiceEnabled(
+                application,
+                AccessibilityService::class.java
+            )
+        ) {
+            errorMessage =
+                GlobalAppContext.getString(R.string.text_auto_operate_service_enabled_but_not_running)
         } else {
             if (Pref.shouldEnableAccessibilityServiceByRoot()) {
-                if (!AccessibilityServiceTool.enableAccessibilityServiceByRootAndWaitFor(application, 2000)) {
-                    errorMessage = GlobalAppContext.getString(R.string.text_enable_accessibility_service_by_root_timeout)
+                if (!AccessibilityServiceTool.enableAccessibilityServiceByRootAndWaitFor(
+                        application,
+                        2000
+                    )
+                ) {
+                    errorMessage =
+                        GlobalAppContext.getString(R.string.text_enable_accessibility_service_by_root_timeout)
                 }
             } else {
                 errorMessage = GlobalAppContext.getString(R.string.text_no_accessibility_permission)
@@ -99,7 +119,7 @@ class AutoJs private constructor(application: Application) : com.stardust.autojs
         }
     }
 
-    override fun createRuntime(): ScriptRuntime {
+    override fun createRuntime(): ScriptRuntimeV2 {
         val runtime = super.createRuntime()
         runtime.putProperty("class.settings", SettingsActivity::class.java)
         runtime.putProperty("class.console", LogActivity::class.java)
@@ -107,13 +127,11 @@ class AutoJs private constructor(application: Application) : com.stardust.autojs
     }
 
     companion object {
-
-        @SuppressLint("StaticFieldLeak")
-        lateinit var instance: AutoJs
-            private set
+        val instance: com.stardust.autojs.AutoJs
+            get() = com.stardust.autojs.AutoJs.instance
 
         fun initInstance(application: Application) {
-            instance = AutoJs(application)
+            com.stardust.autojs.AutoJs.instance = AutoJs(application)
         }
     }
 }

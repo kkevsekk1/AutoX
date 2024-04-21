@@ -108,7 +108,7 @@ module = (typeof module === 'undefined') ? {} : module;
     var roots = findRoots(parent);
     for (var i = 0; i < roots.length; ++i) {
       var root = roots[i];
-      var result = resolveCoreModule(id, root) ||
+      var result =
         resolveAsFile(id, root, '.js') ||
         resolveAsFile(id, root, '.json') ||
         resolveAsDirectory(id, root) ||
@@ -228,13 +228,6 @@ module = (typeof module === 'undefined') ? {} : module;
     }
   }
 
-  function resolveCoreModule(id, root) {
-    var name = normalizeName(id);
-    var classloader = java.lang.Thread.currentThread().getContextClassLoader();
-    if (classloader.getResource(name)) {
-      return { path: name, core: true };
-    }
-  }
 
   function normalizeName(fileName, ext) {
     if (fileName.endsWith('.json')) {

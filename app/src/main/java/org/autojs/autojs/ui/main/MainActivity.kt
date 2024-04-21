@@ -73,10 +73,10 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.stardust.app.permission.DrawOverlaysPermission
+import com.stardust.autojs.servicecomponents.EngineController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.autojs.autojs.Pref
-import org.autojs.autojs.autojs.AutoJs
 import org.autojs.autojs.external.foreground.ForegroundService
 import org.autojs.autojs.timing.TimedTaskScheduler
 import org.autojs.autojs.ui.build.ProjectConfigActivity
@@ -459,7 +459,7 @@ private fun TopBar(
                 }
 
                 1 -> {
-                    IconButton(onClick = { AutoJs.getInstance().scriptEngineService.stopAll() }) {
+                    IconButton(onClick = { EngineController.stopAllScript() }) {
                         Icon(
                             imageVector = Icons.Default.Clear,
                             contentDescription = stringResource(id = R.string.desc_more)

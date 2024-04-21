@@ -150,26 +150,16 @@ android.applicationVariants.all {
 }
 
 
-tasks.register("cp2APP") {
-}
-
-tasks.register("cp2APPDebug") {
-}
-
-
 dependencies {
     implementation(libs.androidx.activity.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.annotation)
     implementation(libs.preference.ktx)
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0")
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
     androidTestImplementation(libs.espresso.core)
-    implementation("com.github.bumptech.glide:glide:4.2.0") {
-        exclude(group = "com.android.support")
-    }
     // RxJava
 //    implementation("io.reactivex.rxjava2:rxjava:2.2.21")
 //    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
