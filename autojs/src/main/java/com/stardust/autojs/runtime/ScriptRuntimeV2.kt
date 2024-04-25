@@ -14,6 +14,11 @@ import com.stardust.autojs.runtime.api.Threads
 import com.stardust.autojs.runtime.api.Timers
 import com.stardust.util.Supplier
 import com.stardust.util.UiHandler
+import org.mozilla.javascript.RhinoException
+import java.io.BufferedReader
+import java.io.PrintWriter
+import java.io.StringReader
+import java.io.StringWriter
 
 class ScriptRuntimeV2(builder: Builder) : ScriptRuntime(builder) {
 
@@ -26,6 +31,7 @@ class ScriptRuntimeV2(builder: Builder) : ScriptRuntime(builder) {
         mThread = Thread.currentThread()
         sensors = Sensors(uiHandler.context, this)
     }
+
     override fun getUiHandler(): UiHandler {
         return uiHandler
     }
@@ -35,6 +41,7 @@ class ScriptRuntimeV2(builder: Builder) : ScriptRuntime(builder) {
         check(mTopLevelScope == null) { "top level has already exists" }
         mTopLevelScope = topLevelScope
     }
+
     override fun onExit() {
         super.onExit()
 //        ObjectWatcher.default.watch(this, engines.myEngine().toString() + "::" + TAG)
@@ -55,6 +62,31 @@ class ScriptRuntimeV2(builder: Builder) : ScriptRuntime(builder) {
 
     companion object {
         private const val TAG = "ScriptRuntimeV2"
+        @JvmStatic
+        fun getStackTrace(e: Throwable, printJavaStackTrace: Boolean): String? {
+            val message = e.message
+            val scriptTrace = StringBuilder(if (message == null) "" else message + "\n")
+            if (e is RhinoException) {
+                scriptTrace.append(e.details()).append("\n")
+                for (element in e.scriptStack) {
+                    element.renderV8Style(scriptTrace)
+                    scriptTrace.append("\n")
+                }
+                if (printJavaStackTrace) {
+                    scriptTrace.append("- - - - - - - - - - -\n")
+                } else {
+                    return scriptTrace.toString()
+                }
+            }
+            val stringWriter = StringWriter()
+            PrintWriter(stringWriter).use { e.printStackTrace(it) }
+            val bufferedReader = BufferedReader(StringReader(stringWriter.toString()))
+            var line: String?
+            while (bufferedReader.readLine().also { line = it } != null) {
+                scriptTrace.append("\n").append(line)
+            }
+            return scriptTrace.toString()
+        }
     }
 }
 

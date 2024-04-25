@@ -102,7 +102,7 @@ class AutoJs private constructor(application: Application) :
 
     override fun createGlobalConsole(): GlobalConsole {
         return object : GlobalConsole(uiHandler) {
-            override fun println(level: Int, charSequence: CharSequence): String {
+            override fun println(level: Int, charSequence: CharSequence?): String {
                 val log = super.println(level, charSequence)
                 DevPluginService.getInstance().log(log)
                 return log

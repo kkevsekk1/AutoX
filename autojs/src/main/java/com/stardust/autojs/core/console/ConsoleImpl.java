@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import com.stardust.autojs.R;
 import com.stardust.autojs.annotation.ScriptInterface;
 import com.stardust.autojs.runtime.ScriptRuntime;
+import com.stardust.autojs.runtime.ScriptRuntimeV2;
 import com.stardust.autojs.runtime.api.AbstractConsole;
 import com.stardust.autojs.runtime.api.Console;
 import com.stardust.autojs.runtime.exception.ScriptInterruptedException;
@@ -120,11 +121,11 @@ public class ConsoleImpl extends AbstractConsole {
     }
 
     public void printAllStackTrace(Throwable t) {
-        println(android.util.Log.ERROR, ScriptRuntime.getStackTrace(t, true));
+        println(android.util.Log.ERROR, ScriptRuntimeV2.Companion.getStackTrace(t, true));
     }
 
     public String getStackTrace(Throwable t) {
-        return ScriptRuntime.getStackTrace(t, false);
+        return ScriptRuntimeV2.Companion.getStackTrace(t, false);
     }
 
     @Override

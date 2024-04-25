@@ -58,19 +58,7 @@ module.exports = function (runtime, scope) {
     };
 
     console.setGlobalLogConfig = function (config) {
-        let logConfigurator = new Packages["de.mindpipe.android.logging.log4j"].LogConfigurator();
-        if (config.file) {
-            logConfigurator.setFileName(files.path(config.file));
-            logConfigurator.setUseFileAppender(true);
-        }
-        logConfigurator.setFilePattern(option(config.filePattern, "%m%n"))
-        logConfigurator.setMaxFileSize(option(config.maxFileSize, 512 * 1024));
-        logConfigurator.setImmediateFlush(option(config.immediateFlush, true));
-        let rootLevel = option(config.rootLevel, "ALL");
-        logConfigurator.setRootLevel(org.apache.log4j.Level[rootLevel.toUpperCase()]);
-        logConfigurator.setMaxBackupSize(option(config.maxBackupSize, 5));
-        logConfigurator.setResetConfiguration(option(config.resetConfiguration, true));
-        logConfigurator.configure();
+        throw new Error("Deprecated")
     }
 
     function option(value, def) {

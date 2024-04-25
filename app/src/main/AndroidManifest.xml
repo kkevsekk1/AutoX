@@ -107,10 +107,9 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@drawable/autojs_logo"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:label, android:allowBackup"
-        tools:targetApi="m">
+        >
 
         <meta-data
             android:name="android.max_aspect"

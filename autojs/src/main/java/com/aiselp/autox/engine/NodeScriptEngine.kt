@@ -62,7 +62,6 @@ class NodeScriptEngine(context: Context, val uiHandler: UiHandler) :
 
     override fun init() {
         runtime.converter = converter
-        runtime.isPurgeEventLoopBeforeClose = true
         initializeApi()
     }
 
