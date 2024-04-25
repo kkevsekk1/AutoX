@@ -11,7 +11,6 @@ import androidx.core.app.NotificationCompat
 import androidx.preference.PreferenceManager
 import com.fanjun.keeplive.KeepLive
 import com.fanjun.keeplive.config.ForegroundNotification
-import com.google.mlkit.common.MlKit
 import com.linsh.utilseverywhere.Utils
 import com.stardust.app.GlobalAppContext
 import com.stardust.auojs.inrt.autojs.AutoJs
@@ -34,7 +33,6 @@ class App : Application() {
         GlobalAppContext.set(
             this, com.stardust.app.BuildConfig.generate(BuildConfig::class.java)
         )
-        MlKit.initialize(this)
         Utils.init(this);
         AutoJs.initInstance(this)
         GlobalKeyObserver.init()

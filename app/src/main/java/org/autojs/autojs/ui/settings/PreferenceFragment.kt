@@ -26,7 +26,7 @@ class PreferenceFragment : PreferenceFragmentCompat() {
             // .put(getString(R.string.text_issue_report), () -> startActivity(new Intent(getActivity(), IssueReporterActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)))
             put(getString(R.string.text_about_me_and_repo)) {
                 it.startActivity(
-                    Intent(it, AboutActivity_::class.java)
+                    Intent(it, AboutActivity::class.java)
                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 )
             }

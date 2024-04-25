@@ -107,9 +107,9 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@drawable/autojs_logo"
         android:supportsRtl="true"
+        android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:replace="android:label, android:allowBackup"
-        >
+        tools:replace="android:label, android:allowBackup">
 
         <meta-data
             android:name="android.max_aspect"
@@ -159,13 +159,15 @@
             android:process="@string/text_script_process_name"
             android:taskAffinity="org.autojs.autojs.edit"
             android:theme="@style/EditorTheme" />
-        <activity android:name="org.autojs.autojs.ui.settings.AboutActivity_" />
+        <activity
+            android:name="org.autojs.autojs.ui.settings.AboutActivity"
+            android:theme="@style/M3AppTheme" />
         <activity
             android:name="org.autojs.autojs.ui.settings.SettingsActivity"
             android:theme="@style/M3AppTheme" />
         <activity android:name="org.autojs.autojs.ui.error.ErrorReportActivity" />
         <activity
-            android:name="org.autojs.autojs.external.tasker.TaskerScriptEditActivity_"
+            android:name="org.autojs.autojs.external.tasker.TaskerScriptEditActivity"
             android:configChanges="orientation|screenSize" />
         <activity android:name="org.autojs.autojs.ui.edit.ViewSampleActivity" />
         <activity
@@ -173,8 +175,10 @@
             android:configChanges="orientation|screenSize" />
         <activity android:name="org.autojs.autojs.ui.build.SignManageActivityKt" />
         <activity android:name="org.autojs.autojs.ui.build.ProjectConfigActivity_" />
-        <activity android:name="org.autojs.autojs.ui.log.LogActivityKt"
-            android:process="@string/text_script_process_name" />
+        <activity
+            android:name="org.autojs.autojs.ui.log.LogActivityKt"
+            android:process="@string/text_script_process_name"
+            android:theme="@style/M3AppTheme" />
         <activity android:name="org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity_" />
         <activity android:name="org.autojs.autojs.ui.timing.TimedTaskSettingActivity_" />
         <activity
@@ -197,7 +201,6 @@
         <service android:name="org.autojs.autojs.external.foreground.ForegroundService" />
 
         <activity android:name="org.autojs.autojs.external.tasker.TaskPrefEditActivity_" />
-        <activity android:name="org.autojs.autojs.ui.log.LogActivity_" />
 
         <activity-alias
             android:name=".external.tasker.PluginActivity"
@@ -292,8 +295,8 @@
 
         <activity
             android:name="org.autojs.autojs.external.open.RunIntentActivity"
-            android:exported="true"
             android:enabled="false"
+            android:exported="true"
             android:icon="@drawable/autojs_logo"
             android:label="@string/text_run_script"
             android:taskAffinity=".external.open.RunIntentActivity"

@@ -2,10 +2,9 @@ package org.autojs.autojs.ui.settings
 
 import android.content.Context
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.util.Pair
+import com.google.android.material.appbar.MaterialToolbar
 import com.stardust.theme.app.ColorSelectActivity
 import com.stardust.theme.app.ColorSelectActivity.ColorItem
 import com.stardust.theme.util.ListBuilder
@@ -31,11 +30,11 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun setUpToolbar() {
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
         toolbar.setTitle(R.string.text_setting)
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        toolbar.setNavigationOnClickListener { v: View? -> finish() }
+        toolbar.setNavigationOnClickListener { finish() }
     }
 
 
