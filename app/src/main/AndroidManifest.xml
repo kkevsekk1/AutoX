@@ -165,22 +165,25 @@
         <activity
             android:name="org.autojs.autojs.ui.settings.SettingsActivity"
             android:theme="@style/M3AppTheme" />
-        <activity android:name="org.autojs.autojs.ui.error.ErrorReportActivity" />
+        <activity
+            android:name="org.autojs.autojs.ui.error.ErrorReportActivity"
+            android:theme="@style/M3AppTheme" />
         <activity
             android:name="org.autojs.autojs.external.tasker.TaskerScriptEditActivity"
             android:configChanges="orientation|screenSize" />
-        <activity android:name="org.autojs.autojs.ui.edit.ViewSampleActivity" />
         <activity
             android:name="org.autojs.autojs.ui.build.BuildActivity"
+            android:theme="@style/M3AppTheme"
             android:configChanges="orientation|screenSize" />
         <activity android:name="org.autojs.autojs.ui.build.SignManageActivityKt" />
-        <activity android:name="org.autojs.autojs.ui.build.ProjectConfigActivity_" />
+        <activity android:name="org.autojs.autojs.ui.build.ProjectConfigActivity"
+            android:theme="@style/M3AppTheme"/>
         <activity
             android:name="org.autojs.autojs.ui.log.LogActivityKt"
             android:process="@string/text_script_process_name"
             android:theme="@style/M3AppTheme" />
-        <activity android:name="org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity_" />
-        <activity android:name="org.autojs.autojs.ui.timing.TimedTaskSettingActivity_" />
+        <activity android:name="org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity" />
+        <activity android:name="org.autojs.autojs.ui.timing.TimedTaskSettingActivity" />
         <activity
             android:name="org.autojs.autojs.ui.shortcut.ShortcutCreateActivity"
             android:theme="@style/AppTheme.Transparent" />

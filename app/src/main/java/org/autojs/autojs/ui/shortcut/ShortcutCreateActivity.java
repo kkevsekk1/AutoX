@@ -65,8 +65,7 @@ public class ShortcutCreateActivity extends AppCompatActivity {
     private void showDialog() {
         View view = View.inflate(this, R.layout.shortcut_create_dialog, null);
         ButterKnife.bind(this, view);
-        mUseAndroidNShortcut.setVisibility(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N ?
-                View.VISIBLE : View.GONE);
+        mUseAndroidNShortcut.setVisibility(View.VISIBLE);
         mName.setText(mScriptFile.getSimplifiedName());
         new ThemeColorMaterialDialogBuilder(this)
                 .customView(view, false)
@@ -83,32 +82,15 @@ public class ShortcutCreateActivity extends AppCompatActivity {
 
     @OnClick(R.id.icon)
     void selectIcon() {
-        ShortcutIconSelectActivity_.intent(this)
-                .startForResult(21209);
+        startActivityForResult(new Intent(this, ShortcutCreateActivity.class), 21209);
     }
 
 
     @SuppressLint("NewApi") //for fool android studio
     private void createShortcut() {
-        if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1 && mUseAndroidNShortcut.isChecked())
-                || Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            createShortcutByShortcutManager();
-            return;
-        }
-        Shortcut shortcut = new Shortcut(this);
-        if (mIsDefaultIcon) {
-            shortcut.iconRes(R.drawable.ic_node_js_black);
-        } else {
-            Bitmap bitmap = BitmapTool.drawableToBitmap(mIcon.getDrawable());
-            shortcut.icon(bitmap);
-        }
-        shortcut.name(mName.getText().toString())
-                .targetClass(ShortcutActivity.class)
-                .extras(new Intent().putExtra(ScriptIntents.EXTRA_KEY_PATH, mScriptFile.getPath()))
-                .send();
+        createShortcutByShortcutManager();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N_MR1)
     private void createShortcutByShortcutManager() {
         Icon icon;
         if (mIsDefaultIcon) {
@@ -135,6 +117,7 @@ public class ShortcutCreateActivity extends AppCompatActivity {
     @SuppressLint("CheckResult")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (resultCode != RESULT_OK) {
             return;
         }
@@ -149,7 +132,7 @@ public class ShortcutCreateActivity extends AppCompatActivity {
             return;
         }
         Uri uri = data.getData();
-        if(uri == null){
+        if (uri == null) {
             return;
         }
         Observable.fromCallable(() -> BitmapFactory.decodeStream(getContentResolver().openInputStream(uri)))

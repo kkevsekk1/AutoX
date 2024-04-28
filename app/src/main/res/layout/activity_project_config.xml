@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="wrap_content">
 
-        <com.stardust.theme.widget.ThemeColorToolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/ToolBarStyle"/>
+            app:title="@string/text_new_project" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -33,14 +32,11 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <androidx.cardview.widget.CardView
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
-                    android:layout_marginRight="6dp"
-                    app:cardCornerRadius="2dp"
-                    app:cardElevation="1dp"
-                    app:cardUseCompatPadding="true">
+                    android:layout_marginRight="6dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -54,7 +50,7 @@
                             android:layout_marginBottom="24dp"
                             android:text="@string/text_project"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                            android:textColor="?android:textColorSecondary"/>
+                            android:textColor="?android:textColorSecondary" />
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
@@ -64,7 +60,7 @@
                             <androidx.appcompat.widget.AppCompatEditText
                                 android:id="@+id/app_name"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"/>
+                                android:layout_height="wrap_content" />
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
@@ -77,12 +73,13 @@
                                 android:id="@+id/package_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_."/>
+                                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_." />
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:baselineAligned="false"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -100,9 +97,7 @@
                                     <androidx.appcompat.widget.AppCompatEditText
                                         android:id="@+id/version_name"
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-
-                                        android:text="1.0.0"/>
+                                        android:layout_height="wrap_content" />
                                 </com.google.android.material.textfield.TextInputLayout>
 
                                 <com.google.android.material.textfield.TextInputLayout
@@ -115,24 +110,24 @@
                                         android:id="@+id/version_code"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:inputType="number"
-                                        android:text="1"/>
+                                        android:inputType="number" />
                                 </com.google.android.material.textfield.TextInputLayout>
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
+                                android:gravity="center"
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="12dp"
                                     android:layout_marginBottom="12dp"
                                     android:text="@string/text_icon"
                                     android:textColor="#9e9e9e"
-                                    android:textSize="12sp"/>
+                                    android:textSize="12sp" />
 
                                 <ImageView
                                     android:id="@+id/icon"
@@ -142,8 +137,9 @@
                                     android:layout_marginLeft="16dp"
                                     android:layout_marginRight="16dp"
                                     android:background="@drawable/shortcut_create_dialog_icon_bg"
+                                    android:contentDescription="@string/text_icon"
                                     android:padding="12dp"
-                                    android:src="@drawable/ic_add_white_48dp"/>
+                                    android:src="@drawable/ic_add_white_48dp" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -157,21 +153,19 @@
                                 android:id="@+id/project_location"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="number"/>
+                                android:inputType="text" />
                         </com.google.android.material.textfield.TextInputLayout>
 
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
+                </com.google.android.material.card.MaterialCardView>
 
-                <androidx.cardview.widget.CardView
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
-                    android:layout_marginRight="6dp"
-                    app:cardCornerRadius="2dp"
-                    app:cardElevation="1dp"
-                    app:cardUseCompatPadding="true">
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="6dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -185,7 +179,7 @@
                             android:layout_marginBottom="24dp"
                             android:text="@string/text_launch_config"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                            android:textColor="?android:textColorSecondary"/>
+                            android:textColor="?android:textColorSecondary" />
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
@@ -196,23 +190,24 @@
                                 android:id="@+id/main_file_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/default_main_file_name"/>
+                                android:text="@string/default_main_file_name" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
+                </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
         </ScrollView>
 
-        <com.stardust.theme.widget.ThemeColorFloatingActionButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|right|bottom"
             android:layout_margin="16dp"
-            android:src="@drawable/ic_done_white_48dp"/>
+            android:contentDescription="@string/ok"
+            android:src="@drawable/ic_done_white_48dp" />
     </FrameLayout>
 
 

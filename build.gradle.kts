@@ -1,5 +1,7 @@
 initVersions(file("project-versions.json"))
-
+plugins {
+    id("com.google.devtools.ksp") version "$kotlin_version-1.0.9" apply false
+}
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
 
@@ -19,7 +21,7 @@ buildscript {
         mavenCentral { url = uri("https://maven.aliyun.com/repository/public") }
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:8.0.2")
+        classpath("com.android.tools.build:gradle:8.2.1")
         classpath(kotlin("gradle-plugin", version = kotlin_version))
         classpath("com.jakewharton:butterknife-gradle-plugin:10.2.3")
         classpath("org.codehaus.groovy:groovy-json:3.0.8")

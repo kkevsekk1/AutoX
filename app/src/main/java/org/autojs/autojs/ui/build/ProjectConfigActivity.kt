@@ -1,15 +1,17 @@
 package org.autojs.autojs.ui.build
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.text.Editable
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -17,98 +19,105 @@ import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.textfield.TextInputLayout
 import com.stardust.autojs.project.ProjectConfig
 import com.stardust.autojs.project.ProjectConfig.Companion.configFileOfDir
-import com.stardust.autojs.project.ProjectConfig.Companion.fromProject
 import com.stardust.pio.PFiles.ensureDir
 import com.stardust.pio.PFiles.write
-import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.androidannotations.annotations.AfterViews
-import org.androidannotations.annotations.Click
-import org.androidannotations.annotations.EActivity
-import org.androidannotations.annotations.ViewById
 import org.autojs.autojs.model.explorer.ExplorerDirPage
 import org.autojs.autojs.model.explorer.ExplorerFileItem
 import org.autojs.autojs.model.explorer.Explorers
 import org.autojs.autojs.model.project.ProjectTemplate
-import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder
 import org.autojs.autojs.tool.getRandomString
-import org.autojs.autojs.ui.BaseActivity
+import org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity
 import org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity.Companion.getBitmapFromIntent
-import org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity_
-import org.autojs.autojs.ui.widget.SimpleTextWatcher
 import org.autojs.autoxjs.R
+import org.autojs.autoxjs.databinding.ActivityProjectConfigBinding
 import java.io.File
 import java.io.FileOutputStream
 
-@SuppressLint("NonConstantResourceId")
-@EActivity(R.layout.activity_project_config)
-open class ProjectConfigActivity : BaseActivity() {
-    @JvmField
-    @ViewById(R.id.project_location)
-    var mProjectLocation: EditText? = null
 
-    @JvmField
-    @ViewById(R.id.app_name)
-    var mAppName: EditText? = null
-
-    @JvmField
-    @ViewById(R.id.package_name)
-    var mPackageName: EditText? = null
-
-    @JvmField
-    @ViewById(R.id.version_name)
-    var mVersionName: EditText? = null
-
-    @JvmField
-    @ViewById(R.id.version_code)
-    var mVersionCode: EditText? = null
-
-    @JvmField
-    @ViewById(R.id.main_file_name)
-    var mMainFileName: EditText? = null
-
-    @JvmField
-    @ViewById(R.id.icon)
-    var mIcon: ImageView? = null
+open class ProjectConfigActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityProjectConfigBinding
     private var mDirectory: File? = null
+
     private var mParentDirectory: File? = null
     private var mProjectConfig: ProjectConfig? = null
     private var mNewProject = false
     private var mIconBitmap: Bitmap? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityProjectConfigBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setupViews()
+        initProject()
+    }
+
+    private fun initProject() = lifecycleScope.launch(Dispatchers.Default) {
         mNewProject = intent.getBooleanExtra(EXTRA_NEW_PROJECT, false)
         val parentDirectory = intent.getStringExtra(EXTRA_PARENT_DIRECTORY)
         if (mNewProject) {
-            if (parentDirectory == null) {
-                finish()
-                return
-            }
+            if (parentDirectory == null) return@launch finish()
             mParentDirectory = File(parentDirectory)
             mProjectConfig = ProjectConfig()
         } else {
-            val dir = intent.getStringExtra(EXTRA_DIRECTORY)
-            if (dir == null) {
-                finish()
-                return
-            }
+            val dir = intent.getStringExtra(EXTRA_DIRECTORY) ?: return@launch finish()
             mDirectory = File(dir)
-            lifecycleScope.launch {
-                mProjectConfig = fromProject(mDirectory!!)
-                if (mProjectConfig == null) {
-                    ThemeColorMaterialDialogBuilder(this@ProjectConfigActivity)
-                        .title(R.string.text_invalid_project)
-                        .positiveText(R.string.ok)
-                        .dismissListener { finish() }
-                        .show()
+            mProjectConfig = ProjectConfig.fromProject(mDirectory!!)
+            if (mProjectConfig == null) {
+                launch(Dispatchers.Main) {
+                    Toast.makeText(
+                        this@ProjectConfigActivity,
+                        R.string.text_invalid_project,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    finish()
                 }
             }
         }
+        Log.i(TAG, "project config: $mProjectConfig")
+        if (mProjectConfig == null) return@launch
+        bindProjectConfig(mProjectConfig!!)
     }
+
+    private suspend fun bindProjectConfig(projectConfig: ProjectConfig): Unit =
+        withContext(Dispatchers.Main) {
+            if (mNewProject) {
+                setRandomPackageName()
+                binding.appName.addTextChangedListener {
+                    binding.projectLocation.setText(
+                        File(mParentDirectory, it.toString()).path
+                    )
+                    binding.packageName.setText(
+                        binding.packageName.text.toString().replacePackageName(it.toString())
+                    )
+                }
+            } else {
+                binding.toolbar.title = projectConfig.name
+                binding.appName.setText(projectConfig.name)
+                binding.versionCode.setText(projectConfig.versionCode.toString())
+                binding.versionName.setText(projectConfig.versionName)
+                binding.mainFileName.setText(projectConfig.mainScript)
+                binding.projectLocation.visibility = View.GONE
+                projectConfig.packageName
+                    .takeIf { !it.isNullOrBlank() && !REGEX_PACKAGE_NAME.matches(it) }
+                    ?.let { binding.packageName.setText(it) }
+                    ?: kotlin.run { setRandomPackageName() }
+                val icon = projectConfig.icon
+                if (icon != null) {
+                    Glide.with(this@ProjectConfigActivity)
+                        .setDefaultRequestOptions(
+                            RequestOptions.skipMemoryCacheOf(true).diskCacheStrategy(
+                                DiskCacheStrategy.NONE
+                            )
+                        )
+                        .load(File(mDirectory, icon))
+                        .into(binding.icon)
+                }
+            }
+        }
 
     private fun String.replacePackageName(newValue: String): String {
         val split = this.split(".").toMutableList()
@@ -118,51 +127,17 @@ open class ProjectConfigActivity : BaseActivity() {
         else this
     }
 
-    @AfterViews
     fun setupViews() {
-        if (mProjectConfig == null) {
-            return
-        }
-        setToolbarAsBack(if (mNewProject) getString(R.string.text_new_project) else mProjectConfig!!.name)
+        binding.fab.setOnClickListener { commit() }
+        binding.icon.setOnClickListener { selectIcon() }
+        setSupportActionBar(binding.toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        binding.toolbar.setNavigationOnClickListener { finish() }
 
-        if (mNewProject) {
-            setRandomPackageName()
-            mAppName!!.addTextChangedListener(
-                SimpleTextWatcher { s: Editable ->
-                    mProjectLocation!!.setText(
-                        File(mParentDirectory, s.toString()).path
-                    )
-                    mPackageName!!.setText(
-                        mPackageName!!.text.toString().replacePackageName(s.toString())
-                    )
-                }
-            )
-        } else {
-            mAppName!!.setText(mProjectConfig!!.name)
-            mVersionCode!!.setText(mProjectConfig!!.versionCode.toString())
-            mVersionName!!.setText(mProjectConfig!!.versionName)
-            mMainFileName!!.setText(mProjectConfig!!.mainScript)
-            mProjectLocation!!.visibility = View.GONE
-            mProjectConfig!!.packageName
-                .takeIf { !it.isNullOrBlank() && !REGEX_PACKAGE_NAME.matches(it) }
-                ?.let { mPackageName!!.setText(it) }
-                ?: kotlin.run { setRandomPackageName() }
-            val icon = mProjectConfig!!.icon
-            if (icon != null) {
-                Glide.with(this)
-                    .setDefaultRequestOptions(
-                        RequestOptions.skipMemoryCacheOf(true).diskCacheStrategy(
-                            DiskCacheStrategy.NONE
-                        )
-                    )
-                    .load(File(mDirectory, icon))
-                    .into(mIcon!!)
-            }
-        }
     }
 
     private fun setRandomPackageName() {
-        mPackageName!!.setText(
+        binding.packageName.setText(
             getString(
                 R.string.format_default_package_name,
                 getRandomString(6)
@@ -170,44 +145,30 @@ open class ProjectConfigActivity : BaseActivity() {
         )
     }
 
-    @SuppressLint("CheckResult")
-    @Click(R.id.fab)
-    fun commit() {
-        if (!checkInputs()) {
-            return
-        }
-        syncProjectConfig()
-        if (mIconBitmap != null) {
-            saveIcon(mIconBitmap!!)
-                .subscribe({ saveProjectConfig() }) { e: Throwable ->
-                    e.printStackTrace()
-                    Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
-                }
-        } else {
+    private fun commit() = lifecycleScope.launch(Dispatchers.IO) {
+        if (!checkInputs()) return@launch
+        try {
+            syncProjectConfig()
+            mIconBitmap?.let { saveIcon(it) }
             saveProjectConfig()
-        }
-    }
-
-    @SuppressLint("CheckResult")
-    private fun saveProjectConfig() {
-        lifecycleScope.launch {
-
-            try {
-                if (mNewProject) {
-                    ProjectTemplate(mProjectConfig!!, mDirectory!!).newProject()
-                    Explorers.workspace()
-                        .notifyChildrenChanged(ExplorerDirPage(mParentDirectory, null))
-                } else {
-                    asyncWriteProjectConfig()
-                    val item = ExplorerFileItem(mDirectory, null)
-                    Explorers.workspace().notifyItemChanged(item, item)
-                }
-                finish()
-            } catch (e: Exception) {
-                e.printStackTrace()
+        } catch (e: Throwable) {
+            e.printStackTrace()
+            withContext(Dispatchers.Main) {
                 Toast.makeText(this@ProjectConfigActivity, e.message, Toast.LENGTH_SHORT).show()
             }
+        }
+        finish()
+    }
 
+    private suspend fun saveProjectConfig() {
+        if (mNewProject) {
+            ProjectTemplate(mProjectConfig!!, mDirectory!!).newProject()
+            Explorers.workspace()
+                .notifyChildrenChanged(ExplorerDirPage(mParentDirectory, null))
+        } else {
+            asyncWriteProjectConfig()
+            val item = ExplorerFileItem(mDirectory, null)
+            Explorers.workspace().notifyItemChanged(item, item)
         }
     }
 
@@ -218,30 +179,28 @@ open class ProjectConfigActivity : BaseActivity() {
         )
     }
 
-    @Click(R.id.icon)
-    fun selectIcon() {
-        ShortcutIconSelectActivity_.intent(this)
-            .startForResult(REQUEST_CODE)
+    private fun selectIcon() {
+        startActivityForResult(Intent(this, ShortcutIconSelectActivity::class.java), REQUEST_CODE)
     }
 
     private fun syncProjectConfig() {
-        mProjectConfig!!.name = mAppName!!.text.toString()
-        mProjectConfig!!.versionCode = mVersionCode!!.text.toString().toInt()
-        mProjectConfig!!.versionName = mVersionName!!.text.toString()
-        mProjectConfig!!.mainScript = mMainFileName!!.text.toString()
-        mProjectConfig!!.packageName = mPackageName!!.text.toString()
+        mProjectConfig!!.name = binding.appName.text.toString()
+        mProjectConfig!!.versionCode = binding.versionCode.text.toString().toInt()
+        mProjectConfig!!.versionName = binding.versionName.text.toString()
+        mProjectConfig!!.mainScript = binding.mainFileName.text.toString()
+        mProjectConfig!!.packageName = binding.packageName.text.toString()
         if (mNewProject) {
-            val location = mProjectLocation!!.text.toString()
+            val location = binding.projectLocation.text.toString()
             mDirectory = File(location)
         }
     }
 
     private fun checkInputs(): Boolean {
         var inputValid = true
-        inputValid = inputValid and checkNotEmpty(mAppName)
-        inputValid = inputValid and checkNotEmpty(mVersionCode)
-        inputValid = inputValid and checkNotEmpty(mVersionName)
-        inputValid = inputValid and checkPackageNameValid(mPackageName)
+        inputValid = inputValid and checkNotEmpty(binding.appName)
+        inputValid = inputValid and checkNotEmpty(binding.versionCode)
+        inputValid = inputValid and checkNotEmpty(binding.versionName)
+        inputValid = inputValid and checkPackageNameValid(binding.packageName)
         return inputValid
     }
 
@@ -267,6 +226,7 @@ open class ProjectConfigActivity : BaseActivity() {
         return false
     }
 
+    @Deprecated("Deprecated in Java")
     @SuppressLint("CheckResult")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -277,32 +237,44 @@ open class ProjectConfigActivity : BaseActivity() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ bitmap: Bitmap? ->
-                mIcon!!.setImageBitmap(bitmap)
+                binding.icon.setImageBitmap(bitmap)
                 mIconBitmap = bitmap
             }) { obj: Throwable -> obj.printStackTrace() }
     }
 
-    @SuppressLint("CheckResult")
-    private fun saveIcon(b: Bitmap): Observable<String> {
-        return Observable.just(b)
-            .map { bitmap: Bitmap ->
-                var iconPath = mProjectConfig!!.icon
-                if (iconPath == null) {
-                    iconPath = "res/logo.png"
-                }
-                val iconFile = File(mDirectory, iconPath)
-                ensureDir(iconFile.path)
-                val fos = FileOutputStream(iconFile)
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos)
-                fos.close()
-                iconPath
-            }
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .doOnNext { iconPath: String? -> mProjectConfig!!.icon = iconPath }
+    private fun saveIcon(bitmap: Bitmap) {
+        val projectConfig = mProjectConfig!!
+        var iconPath = projectConfig.icon
+        if (iconPath == null) {
+            iconPath = "res/logo.png"
+        }
+        val iconFile = File(mDirectory, iconPath)
+        ensureDir(iconFile.path)
+        FileOutputStream(iconFile).use {
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, it)
+        }
+        mProjectConfig!!.icon = iconPath
     }
 
     companion object {
+        fun editProjectConfig(context: Context, directory: File) {
+            context.startActivity(
+                Intent(context, ProjectConfigActivity::class.java).putExtra(
+                    EXTRA_DIRECTORY, directory.path
+                )
+            )
+        }
+
+        fun newProject(context: Context, parentDirectory: File) {
+            context.startActivity(Intent(context, ProjectConfigActivity::class.java).apply {
+                putExtra(
+                    EXTRA_PARENT_DIRECTORY, parentDirectory.path
+                )
+                putExtra(EXTRA_NEW_PROJECT, true)
+            })
+        }
+
+        private const val TAG = "ProjectConfigActivity"
         const val EXTRA_PARENT_DIRECTORY = "parent_directory"
         const val EXTRA_NEW_PROJECT = "new_project"
         const val EXTRA_DIRECTORY = "directory"

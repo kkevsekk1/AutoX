@@ -22,7 +22,6 @@ import org.autojs.autojs.model.explorer.ExplorerChangeEvent
 import org.autojs.autojs.model.explorer.Explorers
 import org.autojs.autojs.ui.build.BuildActivity.Companion.start
 import org.autojs.autojs.ui.build.ProjectConfigActivity
-import org.autojs.autojs.ui.build.ProjectConfigActivity_
 import org.autojs.autoxjs.R
 import org.greenrobot.eventbus.Subscribe
 import java.io.File
@@ -59,7 +58,7 @@ class ExplorerProjectToolbar : CardView {
 
     fun setProject(dir: PFile) {
         CoroutineScope(Dispatchers.Main).launch {
-            withContext(Dispatchers.IO){
+            withContext(Dispatchers.IO) {
                 mProjectConfig = fromProject(File(dir.path))
             }
 
@@ -121,9 +120,5 @@ class ExplorerProjectToolbar : CardView {
         }
     }
 
-    fun edit() {
-        ProjectConfigActivity_.intent(context)
-            .extra(ProjectConfigActivity.EXTRA_DIRECTORY, mDirectory!!.path)
-            .start()
-    }
+    fun edit() = ProjectConfigActivity.editProjectConfig(context, mDirectory!!)
 }

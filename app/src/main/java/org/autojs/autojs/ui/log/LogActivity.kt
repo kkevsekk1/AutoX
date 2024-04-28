@@ -10,16 +10,17 @@ import com.stardust.autojs.core.console.ConsoleImpl
 import com.stardust.autojs.core.console.ConsoleView
 import org.autojs.autojs.autojs.AutoJs
 import org.autojs.autoxjs.R
+import org.autojs.autoxjs.databinding.ActivityLogBinding
 
 
 open class LogActivity : AppCompatActivity() {
-    private lateinit var mConsoleView: ConsoleView
-    private lateinit var mConsoleImpl: ConsoleImpl
+    private val consoleView: ConsoleView by lazy { binding.console }
+    private val consoleImpl: ConsoleImpl by lazy { AutoJs.getInstance().globalConsole }
+    private lateinit var binding: ActivityLogBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_log)
-        mConsoleView = findViewById(R.id.console)
-        mConsoleImpl = AutoJs.getInstance().globalConsole
+        binding = ActivityLogBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         setUpToolbar()
         setupViews()
     }
@@ -34,12 +35,12 @@ open class LogActivity : AppCompatActivity() {
     fun setupViews() {
         findViewById<AppBarLayout>(R.id.app_bar).statusBarForeground =
             MaterialShapeDrawable.createWithElevationOverlay(this)
-        mConsoleView.setConsole(mConsoleImpl)
-        mConsoleView.findViewById<View>(R.id.input_container).apply {
+        consoleView.setConsole(consoleImpl)
+        consoleView.findViewById<View>(R.id.input_container).apply {
             visibility = View.GONE
         }
         findViewById<View>(R.id.fab).setOnClickListener {
-            mConsoleImpl.clear()
+            consoleImpl.clear()
         }
     }
 }

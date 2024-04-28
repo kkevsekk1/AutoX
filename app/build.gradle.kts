@@ -8,7 +8,8 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("com.jakewharton.butterknife")
-    id("kotlin-kapt")
+    id("kotlin-kapt")//Deprecated!!
+    id("com.google.devtools.ksp")
 }
 
 //val SupportLibVersion = "28.0.0"
@@ -16,7 +17,7 @@ plugins {
 val propFile: File = File("E:/资料/jks/autojs-app/sign.properties");
 val properties = Properties()
 if (propFile.exists()) {
-    propFile.inputStream().reader().use {
+    propFile.reader().use {
         properties.load(it)
     }
 }
@@ -50,6 +51,7 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = compose_version
@@ -173,8 +175,9 @@ dependencies {
     val AAVersion = "4.5.2"
 
     implementation(platform(libs.compose.bom))
+    // Deprecated!!
     implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.1.0")
-    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.androidx.webkit)
 
     implementation(libs.bundles.accompanist)
@@ -190,34 +193,32 @@ dependencies {
     testImplementation(libs.junit)
     // Kotlin携程
     implementation(libs.kotlinx.coroutines.android)
-    // Android Annotations
-    annotationProcessor("org.androidannotations:androidannotations:$AAVersion")
+    // Android Annotations Deprecated!!
     kapt("org.androidannotations:androidannotations:$AAVersion")
     //noinspection GradleDependency
     implementation("org.androidannotations:androidannotations-api:$AAVersion")
-    // ButterKnife
+    // ButterKnife Deprecated!!
     implementation("com.jakewharton:butterknife:10.2.1")
-    annotationProcessor("com.jakewharton:butterknife-compiler:10.2.3")
-    kapt("com.jakewharton:butterknife-compiler:10.2.3")
+    ksp("com.jakewharton:butterknife-compiler:10.2.3")
     // Android supports
     implementation(libs.preference.ktx)
     implementation(libs.appcompat) //
-    implementation("androidx.cardview:cardview:1.0.0")
+
     implementation(libs.material)
-    // Personal libraries
+    implementation(libs.compose.material3)
+    implementation(libs.compose.material3.window.size)
+    implementation(libs.compose.material3.adaptive.navigation.suite)
+    // Personal libraries  Deprecated!!
     implementation("com.github.hyb1996:MutableTheme:1.0.0")
-    // Material Dialogs
+    // Material Dialogs  Deprecated!!
     implementation("com.afollestad.material-dialogs:core:0.9.2.3")
     // Common Markdown
     implementation("com.github.atlassian:commonmark-java:commonmark-parent-0.9.0")
     // Android issue reporter (a github issue reporter)
-    implementation("com.heinrichreimersoftware:android-issue-reporter:1.3.1") {
-        exclude(group = "com.afollestad.material-dialogs")
-        exclude(group = "com.android.support")
-    }
+    implementation("com.heinrichreimersoftware:android-issue-reporter:1.3.1")
     //MultiLevelListView
     implementation("com.github.hyb1996:android-multi-level-listview:1.1")
-    //Licenses Dialog
+    //Licenses Dialog  Deprecated!!
     implementation("de.psdev.licensesdialog:licensesdialog:2.2.0")
     //Expandable RecyclerView
     implementation("com.bignerdranch.android:expandablerecyclerview:3.0.0-RC1")
@@ -232,7 +233,7 @@ dependencies {
     //Expandable RecyclerView
     implementation("com.thoughtbot:expandablerecyclerview:1.3")
 //    implementation("org.signal.autox:apkbuilder:1.0.3")
-    // RxJava
+    // RxJava  Deprecated!!
     implementation(libs.rxjava2)
     implementation(libs.rxjava2.rxandroid)
     // Retrofit
@@ -244,7 +245,7 @@ dependencies {
     implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
     //Glide
     implementation(libs.glide)
-    kapt(libs.glide.compiler)
+    ksp(libs.glide.ksp)
     //joda time
     implementation("net.danlew:android.joda:2.10.14")
     // Tasker Plugin
@@ -253,7 +254,7 @@ dependencies {
     implementation("com.flurry.android:analytics:13.1.0@aar")
     // tencent
     implementation("com.tencent.bugly:crashreport:4.0.0")
-    api("com.tencent.tbs:tbssdk:44181")
+    implementation("com.tencent.tbs:tbssdk:44181")
     // MaterialDialogCommon
     implementation("com.afollestad.material-dialogs:commons:0.9.2.3")
     // WorkManager
@@ -276,7 +277,7 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.savedstate)
     implementation(libs.lifecycle.service)
     // Annotation processor
-    kapt(libs.lifecycle.compiler)
+    ksp(libs.lifecycle.compiler)
 
     implementation(libs.androidx.savedstate.ktx)
     implementation(libs.androidx.savedstate)

@@ -3,33 +3,50 @@ package org.autojs.autojs.ui.build
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.ui.Modifier
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.afollestad.materialdialogs.MaterialDialog
-import org.autojs.autojs.ui.compose.theme.AutoXJsTheme
-import org.autojs.autojs.ui.compose.util.SetSystemUI
+import org.autojs.autojs.ui.util.setupToolbar
+import org.autojs.autoxjs.databinding.ActivityBuildBinding
 
 /**
  * Modified by wilinz on 2022/5/23
  */
-open class BuildActivity : ComponentActivity() {
-
-    private var progressDialog: MaterialDialog? = null
+open class BuildActivity : AppCompatActivity() {
 
     // 单文件打包清爽模式
     private lateinit var viewModel: BuildViewModel
+    private lateinit var binding: ActivityBuildBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val source = intent.getStringExtra(EXTRA_SOURCE) ?: run {
+            finish()
+            return
+        }
+        binding = ActivityBuildBinding.inflate(layoutInflater)
+        viewModel = ViewModelProvider(
+            this, BuildViewModelFactory(application, source)
+        )[BuildViewModel::class.java]
+        setContentView(binding.root)
+        setupToolbar(binding.toolbar)
+//        setContent {
+//            AutoXJsTheme {
+//                Surface(
+//                    modifier = Modifier.fillMaxSize(),
+//                    color = MaterialTheme.colors.background
+//                ) {
+//                    SetSystemUI()
+//                    BuildPage(viewModel)
+//                }
+//            }
+//        }
+    }
 
     companion object {
-        @JvmField
-        val EXTRA_SOURCE = BuildActivity::class.java.name + ".extra_source_file"
+        private val EXTRA_SOURCE = BuildActivity::class.java.name + ".extra_source_file"
         const val TAG = "BuildActivity"
 
-        fun getIntent(context: Context, sourcePath: String?): Intent {
+        private fun getIntent(context: Context, sourcePath: String?): Intent {
             return Intent(context, BuildActivity::class.java).putExtra(EXTRA_SOURCE, sourcePath)
         }
 
@@ -41,29 +58,4 @@ open class BuildActivity : ComponentActivity() {
         }
 
     }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val source = intent.getStringExtra(EXTRA_SOURCE) ?: kotlin.run {
-            finish()
-            return
-        }
-        viewModel = ViewModelProvider(
-            this,
-            BuildViewModelFactory(application, source)
-        )[BuildViewModel::class.java]
-
-        setContent {
-            AutoXJsTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    SetSystemUI()
-                    BuildPage(viewModel)
-                }
-            }
-        }
-    }
-
 }

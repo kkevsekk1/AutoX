@@ -1,5 +1,5 @@
 [versions]
-activity-compose = "1.3.1"
+activity-compose = "1.8.2"
 andserver = "2.1.12"
 core-ktx = "1.8.0"
 google-gson = "2.9.1"
@@ -11,18 +11,31 @@ ktor-version = "2.0.3"
 androidx-test-ext-junit = "1.1.5"
 espresso-core = "3.5.1"
 appcompat = "1.6.1"
-material = "1.9.0"
+material = "1.11.0"
 accompanist-version = "0.24.13-rc"
 savedstate = "1.2.1"
 
 [libraries]
 # androidx
+core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
 
+androidx-swiperefreshlayout= "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version = "2.1.4" }
+androidx-activity-ktx = "androidx.activity:activity-ktx:1.9.0"
+androidx-webkit = "androidx.webkit:webkit:1.10.0"
+documentfile = "androidx.documentfile:documentfile:1.0.1"
 androidx-savedstate = { module = "androidx.savedstate:savedstate", version.ref = "savedstate" }
 androidx-savedstate-ktx = { module = "androidx.savedstate:savedstate-ktx", version.ref = "savedstate" }
 preference-ktx = "androidx.preference:preference-ktx:1.2.1"
 androidx-annotation = "androidx.annotation:annotation:1.7.1"
 activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+# material ======================================
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+compose-material3 = "androidx.compose.material3:material3:1.2.1"
+compose-material3-window-size = "androidx.compose.material3:material3-window-size-class:1.2.1"
+compose-material3-adaptive-navigation-suite = "androidx.compose.material3:material3-adaptive-navigation-suite:1.0.0-alpha06"
+
 #lifecycle
 lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
 lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycle" }
@@ -34,7 +47,7 @@ lifecycle-compiler = { module = "androidx.lifecycle:lifecycle-compiler", version
 lifecycle-service = { module = "androidx.lifecycle:lifecycle-service", version.ref = "lifecycle" }
 
 # androidx compose
-compose-bom = "androidx.compose:compose-bom:2023.03.00"
+compose-bom = "androidx.compose:compose-bom:2024.04.01"
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
@@ -56,16 +69,10 @@ accompanist-pager = { module = "com.google.accompanist:accompanist-pager", versi
 accompanist-pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanist-version" }
 accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist-version" }
 ##########################
-androidx-activity-ktx = "androidx.activity:activity-ktx:1.5.1"
-
 commons-io = "commons-io:commons-io:2.6"
 eventbus = "org.greenrobot:eventbus:3.3.1"
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines-android" }
-androidx-webkit = "androidx.webkit:webkit:1.7.0"
-core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
-documentfile = "androidx.documentfile:documentfile:1.0.1"
 google-gson = { module = "com.google.code.gson:gson", version.ref = "google-gson" }
-junit = { module = "junit:junit", version.ref = "junit" }
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 # ktor
 ktor-server-core = { module = "io.ktor:ktor-server-core", version.ref = "ktor-version" }
@@ -82,6 +89,7 @@ rxjava3-rxandroid = "io.reactivex.rxjava3:rxandroid:3.0.2"
 javet-android-node = "com.caoccao.javet:javet-android-node:3.1.1"
 
 #test libraries ===================================
+junit = { module = "junit:junit", version.ref = "junit" }
 #leakcanary
 leakcanary-android = "com.squareup.leakcanary:leakcanary-android:2.13"
 leakcanary-object-watcher-android = "com.squareup.leakcanary:leakcanary-object-watcher-android:2.13"
@@ -90,14 +98,12 @@ test-rules = "androidx.test:rules:1.5.0"
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 
-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-material3-compose = "androidx.compose.material3:material3:1.2.1"
 andserver-processor = { module = "com.yanzhenjie.andserver:processor", version.ref = "andserver" }
 andserver-api = { module = "com.yanzhenjie.andserver:api", version.ref = "andserver" }
-androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version = "2.1.4" }
+#Deprecated ========================================
 #Glide
 glide = "com.github.bumptech.glide:glide:4.8.0"
+glide-ksp = "com.github.bumptech.glide:ksp:4.14.2"
 glide-compiler = "com.github.bumptech.glide:compiler:4.12.0"
 [plugins]
 

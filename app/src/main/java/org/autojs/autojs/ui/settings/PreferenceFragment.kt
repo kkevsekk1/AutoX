@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import androidx.preference.EditTextPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreference
@@ -43,14 +44,18 @@ class PreferenceFragment : PreferenceFragmentCompat() {
     override fun onDisplayPreferenceDialog(preference: Preference) {
         if (preference is ScriptDirPathPreference) {
             ScriptDirPathPreferenceFragmentCompat.newInstance(preference.getKey())?.let {
-                it.setTargetFragment(this, 1234)
-                it.show(
-                    this.parentFragmentManager,
-                    "androidx.preference.PreferenceFragment.DIALOG1"
-                )
+                it.setTargetFragment(this, 0)
+                it.show(parentFragmentManager, DIALOG_FRAGMENT_TAG)
                 return
             }
         }
+        if (preference is EditTextPreference) {
+            M3EditTextPreferenceDialogFragment(preference).show(
+                parentFragmentManager, DIALOG_FRAGMENT_TAG
+            )
+            return
+        }
+
         super.onDisplayPreferenceDialog(preference)
     }
 
@@ -77,6 +82,8 @@ class PreferenceFragment : PreferenceFragmentCompat() {
     }
 
     companion object {
+        const val DIALOG_FRAGMENT_TAG = "org.autojs.autojs.ui.settings.PreferenceFragment.DIALOG";
+
         private fun showLicenseDialog(context: Context) {
             LicensesDialog.Builder(context)
                 .setNotices(R.raw.licenses)

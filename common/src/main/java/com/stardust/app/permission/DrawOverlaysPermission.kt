@@ -3,8 +3,6 @@ package com.stardust.app.permission
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
-import android.os.Build.VERSION
 import android.provider.Settings
 import androidx.activity.result.ActivityResultLauncher
 import com.stardust.app.permission.PermissionsSettingsUtil.launchAppPermissionsSettings
@@ -15,10 +13,7 @@ import com.stardust.app.permission.PermissionsSettingsUtil.launchAppPermissionsS
  */
 object DrawOverlaysPermission {
     fun isCanDrawOverlays(context: Context): Boolean {
-        if (VERSION.SDK_INT >= 23) {
-            return Settings.canDrawOverlays(context)
-        }
-        return true
+        return Settings.canDrawOverlays(context)
     }
 
     fun ActivityResultLauncher<Intent>.launchCanDrawOverlaysSettings(packageName: String) {
@@ -30,14 +25,11 @@ object DrawOverlaysPermission {
         }
     }
 
-    fun getCanDrawOverlaysIntent(packageName: String): Intent? {
-        val intent = if (VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+    private fun getCanDrawOverlaysIntent(packageName: String): Intent {
+        val intent =
             Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION).apply {
                 data = Uri.parse("package:$packageName")
             }
-        } else {
-            null
-        }
         return intent
     }
 }

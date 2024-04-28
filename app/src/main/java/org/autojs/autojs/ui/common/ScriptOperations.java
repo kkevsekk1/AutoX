@@ -37,7 +37,7 @@ import org.autojs.autojs.model.script.Scripts;
 import org.autojs.autojs.network.download.DownloadManager;
 import org.autojs.autojs.ui.filechooser.FileChooserDialogBuilder;
 import org.autojs.autojs.ui.shortcut.ShortcutCreateActivity;
-import org.autojs.autojs.ui.timing.TimedTaskSettingActivity_;
+import org.autojs.autojs.ui.timing.TimedTaskSettingActivity;
 import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
 
 import org.reactivestreams.Publisher;
@@ -368,9 +368,9 @@ public class ScriptOperations {
     }
 
     public void timedTask(ScriptFile scriptFile) {
-        TimedTaskSettingActivity_.intent(mContext)
-                .extra(ScriptIntents.EXTRA_KEY_PATH, scriptFile.getPath())
-                .start();
+        Intent intent = new Intent(mContext, TimedTaskSettingActivity.class);
+        intent.putExtra(ScriptIntents.EXTRA_KEY_PATH, scriptFile.getPath());
+        mContext.startActivity(intent);
     }
 
 

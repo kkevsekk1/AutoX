@@ -3,16 +3,13 @@ package com.aiselp.autojs.codeeditor
 import android.content.Context
 import android.content.Intent
 import android.graphics.Rect
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.FrameLayout
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.aiselp.autojs.codeeditor.web.EditorAppManager
 import java.io.File
 
-@RequiresApi(Build.VERSION_CODES.M)
 class EditActivity : AppCompatActivity() {
     private lateinit var editorAppManager: EditorAppManager
     private lateinit var contextFrameLayout: FrameLayout
@@ -47,19 +44,15 @@ class EditActivity : AppCompatActivity() {
         }
     }
 
-    override fun onNewIntent(intent: Intent?) {
+
+    override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        val path = intent?.getStringExtra(EXTRA_PATH)
+        val path = intent.getStringExtra(EXTRA_PATH)
         if (path != null) {
             editorAppManager.openFile(path)
         }
     }
 
-    @Deprecated("Deprecated in Java", ReplaceWith("moveTaskToBack(false)"))
-    override fun onBackPressed() {
-//        editorAppManager.onBackButton()
-        moveTaskToBack(false)
-    }
 
     companion object {
         private const val EXTRA_PATH = "path";
