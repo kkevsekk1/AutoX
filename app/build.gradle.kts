@@ -199,7 +199,7 @@ dependencies {
     implementation("org.androidannotations:androidannotations-api:$AAVersion")
     // ButterKnife Deprecated!!
     implementation("com.jakewharton:butterknife:10.2.1")
-    ksp("com.jakewharton:butterknife-compiler:10.2.3")
+    kapt("com.jakewharton:butterknife-compiler:10.2.3")
     // Android supports
     implementation(libs.preference.ktx)
     implementation(libs.appcompat) //

@@ -239,6 +239,7 @@
     <string name="text_select_file_to_upload">选择要上传的文件</string>
     <string name="text_select_file_to_import">选择要导入的文件</string>
     <string name="text_build_apk">打包应用</string>
+    <string name="text_build_confirm">点击确认开始打包应用</string>
     <string name="text_select">选择</string>
     <string name="text_output_apk_path">打包应用保存位置</string>
     <string name="text_config">配置</string>

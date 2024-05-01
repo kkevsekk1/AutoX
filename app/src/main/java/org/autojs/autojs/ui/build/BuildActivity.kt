@@ -3,19 +3,18 @@ package org.autojs.autojs.ui.build
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import org.autojs.autojs.ui.util.setupToolbar
-import org.autojs.autoxjs.databinding.ActivityBuildBinding
+import com.aiselp.autox.ui.material3.theme.AppTheme
 
 /**
  * Modified by wilinz on 2022/5/23
  */
-open class BuildActivity : AppCompatActivity() {
+class BuildActivity : AppCompatActivity() {
 
     // 单文件打包清爽模式
     private lateinit var viewModel: BuildViewModel
-    private lateinit var binding: ActivityBuildBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,23 +22,14 @@ open class BuildActivity : AppCompatActivity() {
             finish()
             return
         }
-        binding = ActivityBuildBinding.inflate(layoutInflater)
         viewModel = ViewModelProvider(
             this, BuildViewModelFactory(application, source)
         )[BuildViewModel::class.java]
-        setContentView(binding.root)
-        setupToolbar(binding.toolbar)
-//        setContent {
-//            AutoXJsTheme {
-//                Surface(
-//                    modifier = Modifier.fillMaxSize(),
-//                    color = MaterialTheme.colors.background
-//                ) {
-//                    SetSystemUI()
-//                    BuildPage(viewModel)
-//                }
-//            }
-//        }
+        setContent {
+            AppTheme {
+                com.aiselp.autox.ui.material3.BuildPage(viewModel)
+            }
+        }
     }
 
     companion object {
