@@ -13,7 +13,7 @@ fun Context.isOpPermissionGranted(permission: String): Boolean {
     val mode =  if (Build.VERSION.SDK_INT>=  Build.VERSION_CODES.Q)
         appOps.unsafeCheckOpNoThrow(permission, android.os.Process.myUid(), packageName)
     else {
-        @Suppress("Deprecated")
+        @Suppress("DEPRECATION")
         appOps.checkOpNoThrow(permission, android.os.Process.myUid(), packageName)
     }
 
