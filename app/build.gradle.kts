@@ -5,8 +5,8 @@ import java.util.zip.ZipEntry
 import java.util.zip.ZipInputStream
 
 plugins {
-    id("com.android.application")
-    id("kotlin-android")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin)
     id("com.jakewharton.butterknife")
     id("kotlin-kapt")
 }

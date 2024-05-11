@@ -1,8 +1,8 @@
 //import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
 plugins {
-    id("com.android.library")
-    id("kotlin-android")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin)
 }
 kotlin {
     jvmToolchain(17)

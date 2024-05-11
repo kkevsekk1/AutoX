@@ -2,8 +2,8 @@ import java.util.Properties
 import kotlin.collections.*
 
 plugins {
-    id("com.android.application")
-    id("kotlin-android")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin)
 }
 
 val propFile: File = File("E:/资料/jks/autojs-inrt/sign.properties");

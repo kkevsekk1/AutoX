@@ -1,6 +1,6 @@
 plugins {
-    id("com.android.library")
-    id("kotlin-android")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin)
 }
 android {
     compileSdk = versions.compile
@@ -29,15 +29,15 @@ android {
 }
 
 dependencies {
+    implementation(libs.core.ktx)
 
     implementation(libs.okhttp)
+
+    api(files("libs/tiny-sign-0.9.jar"))
+
+    api(libs.commons.io)
+
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
     testImplementation(libs.junit)
-    api(files("libs/tiny-sign-0.9.jar"))
-    api(libs.commons.io)
-    implementation(libs.core.ktx)
-}
-repositories {
-    mavenCentral()
 }
