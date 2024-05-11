@@ -1,20 +1,8 @@
-//import org.jetbrains.kotlin.config.KotlinCompilerVersion
-
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin)
+    alias(libs.plugins.autojs.android.library)
 }
-kotlin {
-    jvmToolchain(17)
-}
+
 android {
-    compileSdk = versions.compile
-
-    defaultConfig {
-        minSdk = versions.mini
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
     buildTypes {
         named("release") {
             isMinifyEnabled = false
@@ -26,15 +14,13 @@ android {
             )
         }
     }
-    lint.abortOnError = false
+    lint{
+        abortOnError = false
+    }
     sourceSets {
         getByName("main") {
             res.srcDirs("src/main/res","src/main/res-i18n")
         }
-    }
-    compileOptions {
-        sourceCompatibility = versions.javaVersion
-        targetCompatibility = versions.javaVersion
     }
     namespace = "com.stardust"
 }

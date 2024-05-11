@@ -5,10 +5,10 @@ import java.util.zip.ZipEntry
 import java.util.zip.ZipInputStream
 
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin)
+    alias(libs.plugins.autojs.android.application)
+    alias(libs.plugins.autojs.android.application.compose)
     id("com.jakewharton.butterknife")
-    id("kotlin-kapt")
+    kotlin("kapt")
 }
 
 val propFile: File = File("E:/资料/jks/autojs-app/sign.properties");
@@ -19,20 +19,11 @@ if (propFile.exists()) {
     }
 }
 
-//configurations.all {
-//    resolutionStrategy {
-//        force("com.android.support:appcompat-v7:${SupportLibVersion}")
-//        force("com.android.support:support-v4:${SupportLibVersion}")
-//    }
-//}
 android {
-    compileSdk = versions.compile
     defaultConfig {
         applicationId = "org.autojs.autoxjs"
-        minSdk = versions.mini
-        targetSdk = versions.target
-        versionCode = versions.appVersionCode
-        versionName = versions.appVersionName
+        versionCode = AndroidConfigConventions.VERSION_CODE
+        versionName = AndroidConfigConventions.VERSION_NAME
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 //        multiDexEnabled = true
         buildConfigField("boolean", "isMarket", "false")
@@ -43,24 +34,13 @@ android {
             }
         }
         ndk {
-            abiFilters.addAll(listOf("arm64-v8a", "armeabi-v7a"))
+            abiFilters+=listOf("arm64-v8a", "armeabi-v7a")
         }
-    }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = compose_version
     }
     lint {
         abortOnError = false
-        disable.addAll(listOf("MissingTranslation", "ExtraTranslation"))
+        disable += listOf("MissingTranslation", "ExtraTranslation")
     }
-    compileOptions {
-        sourceCompatibility = versions.javaVersion
-        targetCompatibility = versions.javaVersion
-    }
-
     signingConfigs {
         if (propFile.exists()) {
             getByName("release") {
@@ -72,16 +52,13 @@ android {
         }
     }
     splits {
-
         // Configures multiple APKs based on ABI.
         abi {
-
             // Enables building multiple APKs per ABI.
             isEnable = true
 
             // By default all ABIs are included, so use reset() and include to specify that we only
             // want APKs for x86 and x86_64.
-
             // Resets the list of ABIs that Gradle should create APKs for to none.
             reset()
 
@@ -124,16 +101,16 @@ android {
     flavorDimensions.add("channel")
     productFlavors {
         create("common") {
-            versionCode = versions.appVersionCode
-            versionName = versions.appVersionName
+            versionCode = AndroidConfigConventions.VERSION_CODE
+            versionName = AndroidConfigConventions.VERSION_NAME
             buildConfigField("String", "CHANNEL", "\"common\"")
 //            buildConfigField("String", "APPID", "\"?id=21\"")
             manifestPlaceholders.putAll(mapOf("appName" to "@string/app_name"))
         }
         create("v6") {
             applicationIdSuffix = ".v6"
-            versionCode = versions.devVersionCode
-            versionName = versions.devVersionName
+            versionCode = AndroidConfigConventions.VERSION_CODE
+            versionName = AndroidConfigConventions.VERSION_NAME
             buildConfigField("String", "CHANNEL", "\"v6\"")
 //            buildConfigField("String", "APPID", "\"?id=23\"")
             manifestPlaceholders.putAll(mapOf("appName" to "Autox.js v6"))
@@ -153,18 +130,13 @@ android {
 //        exclude(group = "com.atlassian.commonmark",) module = "commonmark"
         exclude(group = "com.github.atlassian.commonmark-java", module = "commonmark")
     }
-
-    packagingOptions {
-        //ktor netty implementation("io.ktor:ktor-server-netty:2.0.1")
-        resources.pickFirsts.addAll(
-            listOf(
-                "META-INF/io.netty.versions.properties",
-                "META-INF/INDEX.LIST"
-            )
-        )
+    packaging {
+        resources {
+            pickFirsts += "META-INF/io.netty.versions.properties"
+            pickFirsts += "META-INF/INDEX.LIST"
+        }
     }
     namespace = "org.autojs.autoxjs"
-
 }
 
 dependencies {
@@ -197,7 +169,7 @@ dependencies {
     kapt(libs.butterknife.compiler)
     // Android supports
     implementation(libs.androidx.preference.ktx)
-    implementation(libs.appcompat) //
+    implementation(libs.appcompat)
     implementation(libs.androidx.cardview)
     implementation(libs.material)
     // Personal libraries
@@ -255,7 +227,6 @@ dependencies {
     implementation(libs.androidx.work.runtime)
     // Android job
     implementation(libs.android.job)
-    // Optional, if you use support library fragments:
     implementation(project(":autojs"))
     implementation(project(":apkbuilder"))
     implementation(project(":codeeditor"))
@@ -271,7 +242,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.savedstate)
     implementation(libs.androidx.lifecycle.service)
     // Annotation processor
-    kapt(libs.androidx.lifecycle.compiler)
+//    kapt(libs.androidx.lifecycle.compiler)
 
     implementation(libs.androidx.savedstate.ktx)
     implementation(libs.androidx.savedstate)

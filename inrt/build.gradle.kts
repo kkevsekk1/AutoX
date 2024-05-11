@@ -2,8 +2,7 @@ import java.util.Properties
 import kotlin.collections.*
 
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin)
+    alias(libs.plugins.autojs.android.application)
 }
 
 val propFile: File = File("E:/资料/jks/autojs-inrt/sign.properties");
@@ -15,14 +14,10 @@ if (propFile.exists()) {
 }
 
 android {
-    compileSdk = versions.compile
     defaultConfig {
         applicationId = "org.autojs.autoxjs.inrt"
-        minSdk = versions.mini
-        targetSdk = versions.target
-        versionCode = versions.appVersionCode
-        versionName = versions.appVersionName
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        versionCode = AndroidConfigConventions.VERSION_CODE
+        versionName = AndroidConfigConventions.VERSION_NAME
 //        multiDexEnabled = true
 //        buildConfigField("boolean","isMarket","true") // 这是有注册码的版本
         buildConfigField("boolean", "isMarket", "false")
@@ -33,10 +28,10 @@ android {
             }
         }
     }
-    lint.abortOnError = false
-    lint.disable.apply {
-        add("MissingTranslation")
-        add("ExtraTranslation")
+    lint {
+        abortOnError = false
+        disable += "MissingTranslation"
+        disable += "ExtraTranslation"
     }
 
     signingConfigs {
@@ -48,10 +43,6 @@ android {
                 keyPassword = properties.getProperty("keyPassword")
             }
         }
-    }
-    compileOptions {
-        sourceCompatibility = versions.javaVersion
-        targetCompatibility = versions.javaVersion
     }
     buildTypes {
         named("debug") {
@@ -125,8 +116,6 @@ android {
         )
     }
     namespace = "org.autojs.autoxjs.inrt"
-
-
 }
 
 android.applicationVariants.all {

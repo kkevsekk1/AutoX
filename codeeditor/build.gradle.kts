@@ -3,22 +3,13 @@ import okhttp3.Request
 import okio.use
 
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin)
+    alias(libs.plugins.autojs.android.library)
     id("com.yanzhenjie.andserver")
     id("kotlin-kapt")
 }
 
 android {
     namespace = "com.aiselp.autojs.codeeditor"
-    compileSdk = versions.compile
-
-    defaultConfig {
-        minSdk = versions.mini
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
-    }
     buildFeatures {
         viewBinding = true
     }
@@ -31,10 +22,6 @@ android {
                 "proguard-rules.pro"
             )
         }
-    }
-    compileOptions {
-        sourceCompatibility = versions.javaVersion
-        targetCompatibility = versions.javaVersion
     }
 }
 
