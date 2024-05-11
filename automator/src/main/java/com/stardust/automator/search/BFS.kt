@@ -12,7 +12,7 @@ object BFS : SearchAlgorithm {
         val queue = ArrayDeque<UiObject>()
         queue.add(root)
         while (!queue.isEmpty()) {
-            val top = queue.poll()
+            val top = queue.poll() ?: continue
             val isTarget = filter.filter(top)
             if (isTarget) {
                 result.add(top)
