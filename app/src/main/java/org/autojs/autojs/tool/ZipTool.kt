@@ -8,12 +8,13 @@ fun unzip(fromFile: File, newDir: File, unzipPath: String) {
     var unzipPath1 = unzipPath
     if (!unzipPath1.endsWith("/")) unzipPath1 += "/"
     if (!newDir.exists()) newDir.mkdirs()
-    var z: ZipEntry?
+    val regex = Regex("^$unzipPath1")
     ZipInputStream(fromFile.inputStream()).use { input ->
-        while (input.nextEntry.also { z = it } != null) {
-            val zipEntry = z ?: continue
-            if (!zipEntry.isDirectory && zipEntry.name.startsWith(unzipPath1)) {
-                val f = File(newDir, zipEntry.name.replace(Regex("^$unzipPath1"), ""))
+        generateSequence { input.nextEntry }
+            .filterNotNull()
+            .filter { !it.isDirectory && it.name.startsWith(unzipPath1) }
+            .map {
+                val f = File(newDir, it.name.replace(regex, ""))
                 f.parentFile?.let {
                     if (!it.exists()) it.mkdirs()
                 }
@@ -21,6 +22,5 @@ fun unzip(fromFile: File, newDir: File, unzipPath: String) {
                     input.copyTo(out)
                 }
             }
-        }
     }
 }

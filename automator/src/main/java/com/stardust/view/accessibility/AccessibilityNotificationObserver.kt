@@ -15,7 +15,8 @@ import java.util.concurrent.CopyOnWriteArrayList
  * Created by Stardust on 2017/11/3.
  */
 
-class AccessibilityNotificationObserver(private val mContext: Context) : NotificationListener, AccessibilityDelegate {
+class AccessibilityNotificationObserver(private val mContext: Context) : NotificationListener,
+    AccessibilityDelegate {
     private val mNotificationListeners = CopyOnWriteArrayList<NotificationListener>()
     private val mToastListeners = CopyOnWriteArrayList<ToastListener>()
 
@@ -69,7 +70,10 @@ class AccessibilityNotificationObserver(private val mContext: Context) : Notific
         return mToastListeners.remove(listener)
     }
 
-    override fun onAccessibilityEvent(service: android.accessibilityservice.AccessibilityService, event: AccessibilityEvent): Boolean {
+    override fun onAccessibilityEvent(
+        service: android.accessibilityservice.AccessibilityService,
+        event: AccessibilityEvent
+    ): Boolean {
         if (event.parcelableData is Notification) {
             val notification = event.parcelableData as android.app.Notification
             Log.d(TAG, "onNotification: $notification; $event")
@@ -80,9 +84,7 @@ class AccessibilityNotificationObserver(private val mContext: Context) : Notific
             if (event.packageName == mContext.packageName) {
                 return false
             }
-            if (list != null) {
-                onToast(event, Toast(event.packageName.toString(), list))
-            }
+            onToast(event, Toast(event.packageName.toString(), list))
         }
 
         return false

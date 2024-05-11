@@ -32,7 +32,7 @@ class SearchUpTargetAction(action: Int, filter: FilterAction.Filter) : SearchTar
 
     companion object {
 
-        private val TAG = SearchUpTargetAction::class.java!!.getSimpleName()
+        private val TAG = SearchUpTargetAction::class.java.getSimpleName()
         private val LOOP_MAX = 20
     }
 }
