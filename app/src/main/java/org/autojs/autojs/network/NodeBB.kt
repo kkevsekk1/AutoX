@@ -3,15 +3,14 @@ package org.autojs.autojs.network
 import android.content.Context
 import android.util.Log
 import com.google.gson.GsonBuilder
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.jakewharton.retrofit2.adapter.rxjava2.HttpException
-import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
 import org.autojs.autoxjs.R
 import org.autojs.autojs.network.api.ConfigApi
 import org.autojs.autojs.network.util.WebkitCookieManagerProxy
+import retrofit2.HttpException
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 
@@ -30,7 +29,6 @@ class NodeBB internal constructor() {
             )
         )
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-        .addCallAdapterFactory(CoroutineCallAdapterFactory.invoke())
         .client(
             OkHttpClient.Builder()
                 .cookieJar(WebkitCookieManagerProxy())
@@ -65,7 +63,7 @@ class NodeBB internal constructor() {
                 return defaultMsg
             }
             val httpException = e
-            val body = httpException.response().errorBody() ?: return defaultMsg
+            val body = httpException.response()?.errorBody() ?: return defaultMsg
             return try {
                 val errorMessage = getErrorMessage(context, httpException, body.string())
                 errorMessage ?: defaultMsg
