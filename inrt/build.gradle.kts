@@ -162,23 +162,23 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.annotation)
-    implementation(libs.preference.ktx)
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0")
+    implementation(libs.androidx.preference.ktx)
+    implementation(libs.androidx.constraintlayout)
+
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
     androidTestImplementation(libs.espresso.core)
-    implementation("com.github.bumptech.glide:glide:4.2.0") {
+    implementation(libs.glide) {
         exclude(group = "com.android.support")
     }
-    // RxJava
-//    implementation("io.reactivex.rxjava2:rxjava:2.2.21")
-//    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
-    implementation("com.fanjun:keeplive:1.1.22")
-    implementation("com.dhh:websocket2:2.1.4")
-    implementation("com.github.SenhLinsh:Utils-Everywhere:3.0.0")
+
+    implementation(libs.keeplive)
+    implementation(libs.websocket2)
+    implementation(libs.utils.everywhere)
     testImplementation(libs.junit)
     implementation(project(":automator"))
     implementation(project(":common"))
     implementation(project(":autojs"))
-    implementation("androidx.multidex:multidex:2.0.1")
+    implementation(libs.androidx.multidex)
 }
