@@ -182,6 +182,10 @@ class App : MultiDexApplication(), Configuration.Provider {
         })
     }
 
+    override val workManagerConfiguration = Configuration.Builder()
+        .setMinimumLoggingLevel(android.util.Log.INFO)
+        .build()
+
     companion object {
 
         private const val TAG = "App"
@@ -192,11 +196,4 @@ class App : MultiDexApplication(), Configuration.Provider {
         val app: App
             get() = instance.get()!!
     }
-
-    override fun getWorkManagerConfiguration(): Configuration {
-        return Configuration.Builder()
-            .setMinimumLoggingLevel(android.util.Log.INFO)
-            .build()
-    }
-
 }

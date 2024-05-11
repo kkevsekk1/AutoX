@@ -61,7 +61,7 @@ class App : Application() {
                     .into(object : SimpleTarget<Drawable>() {
                         override fun onResourceReady(
                             resource: Drawable,
-                            transition: Transition<in Drawable>
+                            transition: Transition<in Drawable>?
                         ) {
                             view.background = resource
                         }
@@ -82,7 +82,7 @@ class App : Application() {
                     .into(object : SimpleTarget<Drawable>() {
                         override fun onResourceReady(
                             resource: Drawable,
-                            transition: Transition<in Drawable>
+                            transition: Transition<in Drawable>?
                         ) {
                             drawableCallback.onLoaded(resource)
                         }
@@ -96,7 +96,7 @@ class App : Application() {
                     .into(object : SimpleTarget<Bitmap>() {
                         override fun onResourceReady(
                             resource: Bitmap,
-                            transition: Transition<in Bitmap>
+                            transition: Transition<in Bitmap>?
                         ) {
                             bitmapCallback.onLoaded(resource)
                         }
