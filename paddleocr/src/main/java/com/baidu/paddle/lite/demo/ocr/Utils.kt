@@ -16,8 +16,8 @@ object Utils {
         if (srcPath.isEmpty() || dstPath.isEmpty()) {
             return
         }
-        appCtx.assets.open(srcPath).use {input->
-            File(dstPath).outputStream().use { out->
+        appCtx.assets.open(srcPath).use { input ->
+            File(dstPath).outputStream().use { out ->
                 input.copyTo(out)
             }
         }
@@ -91,11 +91,10 @@ object Utils {
         val width = bitmap.width
         val height = bitmap.height
         val maxWH = Math.max(width, height)
-        var ratio = 1f
         var newWidth = width
         var newHeight = height
         if (maxWH > maxLength) {
-            ratio = maxLength * 1.0f / maxWH
+            val ratio = maxLength * 1.0f / maxWH
             newWidth = floor((ratio * width).toDouble()).toInt()
             newHeight = floor((ratio * height).toDouble()).toInt()
         }
@@ -120,15 +119,18 @@ object Utils {
                 matrix.setRotate(180f)
                 matrix.postScale(-1f, 1f)
             }
+
             ExifInterface.ORIENTATION_TRANSPOSE -> {
                 matrix.setRotate(90f)
                 matrix.postScale(-1f, 1f)
             }
+
             ExifInterface.ORIENTATION_ROTATE_90 -> matrix.setRotate(90f)
             ExifInterface.ORIENTATION_TRANSVERSE -> {
                 matrix.setRotate(-90f)
                 matrix.postScale(-1f, 1f)
             }
+
             ExifInterface.ORIENTATION_ROTATE_270 -> matrix.setRotate(-90f)
             else -> return bitmap
         }
