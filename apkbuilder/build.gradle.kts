@@ -1,14 +1,7 @@
 plugins {
-    id("com.android.library")
-    id("kotlin-android")
+    alias(libs.plugins.autojs.android.library)
 }
 android {
-    compileSdk = versions.compile
-
-    defaultConfig {
-        minSdk = versions.mini
-        testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
-    }
     buildTypes {
         named("release") {
             isMinifyEnabled = false
@@ -21,23 +14,18 @@ android {
         }
     }
     namespace = "com.stardust.autojs.apkbuilder"
-    compileOptions {
-        sourceCompatibility = versions.javaVersion
-        targetCompatibility = versions.javaVersion
-    }
-
 }
 
 dependencies {
+    implementation(libs.core.ktx)
 
     implementation(libs.okhttp)
+
+    api(files("libs/tiny-sign-0.9.jar"))
+
+    api(libs.commons.io)
+
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
     testImplementation(libs.junit)
-    api(files("libs/tiny-sign-0.9.jar"))
-    api(libs.commons.io)
-    implementation(libs.core.ktx)
-}
-repositories {
-    mavenCentral()
 }

@@ -1,20 +1,11 @@
 plugins {
-    id("com.android.library")
-    id("kotlin-android")
+    alias(libs.plugins.autojs.android.library)
 }
 
 android {
-    compileSdk = versions.compile
-
-    defaultConfig {
-        minSdk = versions.mini
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    lint{
+        abortOnError = false
     }
-    compileOptions {
-        sourceCompatibility = versions.javaVersion
-        targetCompatibility = versions.javaVersion
-    }
-    lint.abortOnError = false
     buildTypes {
         named("release") {
             isMinifyEnabled = false

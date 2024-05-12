@@ -47,9 +47,9 @@ class EditActivity : AppCompatActivity() {
         }
     }
 
-    override fun onNewIntent(intent: Intent?) {
+    override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        val path = intent?.getStringExtra(EXTRA_PATH)
+        val path = intent.getStringExtra(EXTRA_PATH)
         if (path != null) {
             editorAppManager.openFile(path)
         }
@@ -59,6 +59,7 @@ class EditActivity : AppCompatActivity() {
     override fun onBackPressed() {
 //        editorAppManager.onBackButton()
         moveTaskToBack(false)
+        super.onBackPressed()
     }
 
     companion object {

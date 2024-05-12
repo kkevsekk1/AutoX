@@ -1,6 +1,5 @@
 package org.autojs.autojs.network;
 
-import com.jakewharton.retrofit2.adapter.rxjava2.HttpException;
 import org.autojs.autojs.network.api.UserApi;
 import org.autojs.autojs.network.entity.notification.Notification;
 import org.autojs.autojs.network.entity.notification.NotificationResponse;
@@ -16,6 +15,7 @@ import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.PublishSubject;
 import okhttp3.ResponseBody;
+import retrofit2.HttpException;
 import retrofit2.Retrofit;
 
 /**

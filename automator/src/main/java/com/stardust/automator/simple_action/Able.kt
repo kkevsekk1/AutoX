@@ -16,28 +16,28 @@ interface Able {
 
         val ABLE_MAP = SparseArrayEntries<Able>()
                 .entry(AccessibilityNodeInfo.ACTION_CLICK, object : Able {
-                    override fun isAble(nodeInfo: UiObject): Boolean {
-                        return nodeInfo.isClickable
+                    override fun isAble(node: UiObject): Boolean {
+                        return node.isClickable
                     }
                 })
                 .entry(AccessibilityNodeInfo.ACTION_LONG_CLICK, object : Able {
-                    override fun isAble(nodeInfo: UiObject): Boolean {
-                        return nodeInfo.isLongClickable
+                    override fun isAble(node: UiObject): Boolean {
+                        return node.isLongClickable
                     }
                 })
                 .entry(AccessibilityNodeInfo.ACTION_FOCUS, object : Able {
-                    override fun isAble(nodeInfo: UiObject): Boolean {
-                        return nodeInfo.isFocusable
+                    override fun isAble(node: UiObject): Boolean {
+                        return node.isFocusable
                     }
                 })
                 .entry(AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD, object : Able {
-                    override fun isAble(nodeInfo: UiObject): Boolean {
-                        return nodeInfo.isScrollable
+                    override fun isAble(node: UiObject): Boolean {
+                        return node.isScrollable
                     }
                 })
                 .entry(AccessibilityNodeInfo.ACTION_SCROLL_FORWARD, object : Able {
-                    override fun isAble(nodeInfo: UiObject): Boolean {
-                        return nodeInfo.isScrollable
+                    override fun isAble(node: UiObject): Boolean {
+                        return node.isScrollable
                     }
                 })
                 .sparseArray()

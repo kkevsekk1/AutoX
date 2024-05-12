@@ -2,8 +2,7 @@ import java.util.Properties
 import kotlin.collections.*
 
 plugins {
-    id("com.android.application")
-    id("kotlin-android")
+    alias(libs.plugins.autojs.android.application)
 }
 
 val propFile: File = File("E:/资料/jks/autojs-inrt/sign.properties");
@@ -15,14 +14,10 @@ if (propFile.exists()) {
 }
 
 android {
-    compileSdk = versions.compile
     defaultConfig {
         applicationId = "org.autojs.autoxjs.inrt"
-        minSdk = versions.mini
-        targetSdk = versions.target
-        versionCode = versions.appVersionCode
-        versionName = versions.appVersionName
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        versionCode = AndroidConfigConventions.VERSION_CODE
+        versionName = AndroidConfigConventions.VERSION_NAME
 //        multiDexEnabled = true
 //        buildConfigField("boolean","isMarket","true") // 这是有注册码的版本
         buildConfigField("boolean", "isMarket", "false")
@@ -33,10 +28,10 @@ android {
             }
         }
     }
-    lint.abortOnError = false
-    lint.disable.apply {
-        add("MissingTranslation")
-        add("ExtraTranslation")
+    lint {
+        abortOnError = false
+        disable += "MissingTranslation"
+        disable += "ExtraTranslation"
     }
 
     signingConfigs {
@@ -48,10 +43,6 @@ android {
                 keyPassword = properties.getProperty("keyPassword")
             }
         }
-    }
-    compileOptions {
-        sourceCompatibility = versions.javaVersion
-        targetCompatibility = versions.javaVersion
     }
     buildTypes {
         named("debug") {
@@ -125,8 +116,6 @@ android {
         )
     }
     namespace = "org.autojs.autoxjs.inrt"
-
-
 }
 
 android.applicationVariants.all {
@@ -162,23 +151,23 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.annotation)
-    implementation(libs.preference.ktx)
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0")
+    implementation(libs.androidx.preference.ktx)
+    implementation(libs.androidx.constraintlayout)
+
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
     androidTestImplementation(libs.espresso.core)
-    implementation("com.github.bumptech.glide:glide:4.2.0") {
+    implementation(libs.glide) {
         exclude(group = "com.android.support")
     }
-    // RxJava
-//    implementation("io.reactivex.rxjava2:rxjava:2.2.21")
-//    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
-    implementation("com.fanjun:keeplive:1.1.22")
-    implementation("com.dhh:websocket2:2.1.4")
-    implementation("com.github.SenhLinsh:Utils-Everywhere:3.0.0")
+
+    implementation(libs.keeplive)
+    implementation(libs.websocket2)
+    implementation(libs.utils.everywhere)
     testImplementation(libs.junit)
     implementation(project(":automator"))
     implementation(project(":common"))
     implementation(project(":autojs"))
-    implementation("androidx.multidex:multidex:2.0.1")
+    implementation(libs.androidx.multidex)
 }
