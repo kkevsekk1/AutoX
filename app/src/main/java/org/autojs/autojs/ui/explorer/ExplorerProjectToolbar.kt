@@ -2,6 +2,7 @@ package org.autojs.autojs.ui.explorer
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
@@ -47,6 +48,15 @@ class ExplorerProjectToolbar : CardView {
     private fun init() {
         val view = inflate(context, R.layout.explorer_project_toolbar, this)
         mProjectName = view.findViewById(R.id.project_name)
+        view.findViewById<View>(R.id.run).setOnClickListener {
+            run()
+        }
+        view.findViewById<View>(R.id.build).setOnClickListener {
+            build()
+        }
+        view.findViewById<View>(R.id.sync).setOnClickListener {
+            sync()
+        }
         setOnClickListener { edit() }
     }
 
@@ -71,7 +81,6 @@ class ExplorerProjectToolbar : CardView {
         }
     }
 
-    @OnClick(R.id.run)
     fun run() {
         try {
             ProjectLauncher(mDirectory!!.path)
@@ -82,12 +91,10 @@ class ExplorerProjectToolbar : CardView {
         }
     }
 
-    @OnClick(R.id.build)
     fun build() {
         start(context, mDirectory!!.path)
     }
 
-    @OnClick(R.id.sync)
     fun sync() {
     }
 
