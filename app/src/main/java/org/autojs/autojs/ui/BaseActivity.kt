@@ -69,7 +69,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected fun checkPermission(vararg permissions: String): Boolean {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            val requestPermissions = getRequestPermissions(permissions)
+            val requestPermissions = getRequestPermissions(arrayOf(*permissions) )
             if (requestPermissions.size > 0) {
                 requestPermissions(requestPermissions, PERMISSION_REQUEST_CODE)
                 return false
