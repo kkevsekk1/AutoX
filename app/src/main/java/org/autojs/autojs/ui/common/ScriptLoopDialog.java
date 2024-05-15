@@ -5,16 +5,15 @@ import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
+
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.stardust.app.DialogUtils;
 import com.stardust.app.GlobalAppContext;
 
-import org.autojs.autoxjs.R;
 import org.autojs.autojs.model.script.ScriptFile;
 import org.autojs.autojs.model.script.Scripts;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import org.autojs.autoxjs.R;
 
 /**
  * Created by Stardust on 2017/7/8.
@@ -22,17 +21,14 @@ import butterknife.ButterKnife;
 
 public class ScriptLoopDialog {
 
-    private ScriptFile mScriptFile;
-    private MaterialDialog mDialog;
+    private final ScriptFile mScriptFile;
+    private final MaterialDialog mDialog;
 
-    @BindView(R.id.loop_times)
-    EditText mLoopTimes;
+    private EditText mLoopTimes;
 
-    @BindView(R.id.loop_interval)
-    EditText mLoopInterval;
+    private EditText mLoopInterval;
 
-    @BindView(R.id.loop_delay)
-    EditText mLoopDelay;
+    private EditText mLoopDelay;
 
 
     public ScriptLoopDialog(Context context, ScriptFile file) {
@@ -44,7 +40,7 @@ public class ScriptLoopDialog {
                 .positiveText(R.string.ok)
                 .onPositive((dialog, which) -> startScriptRunningLoop())
                 .build();
-        ButterKnife.bind(this, view);
+        bindView(view);
     }
 
     private void startScriptRunningLoop() {
@@ -70,4 +66,9 @@ public class ScriptLoopDialog {
         DialogUtils.showDialog(mDialog);
     }
 
+    private void bindView(@NonNull View bindSource) {
+        mLoopTimes = bindSource.findViewById(R.id.loop_times);
+        mLoopInterval = bindSource.findViewById(R.id.loop_interval);
+        mLoopDelay = bindSource.findViewById(R.id.loop_delay);
+    }
 }
