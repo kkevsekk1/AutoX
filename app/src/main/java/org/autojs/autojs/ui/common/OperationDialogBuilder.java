@@ -20,20 +20,16 @@ import org.autojs.autoxjs.R;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 /**
  * Created by Stardust on 2017/6/26.
  */
 
 public class OperationDialogBuilder extends MaterialDialog.Builder {
 
-    private RecyclerView mOperations;
-    private ArrayList<Integer> mIds = new ArrayList<>();
-    private ArrayList<Integer> mIcons = new ArrayList<>();
-    private ArrayList<String> mTexts = new ArrayList<>();
-    private Object mOnItemClickTarget;
+    private final RecyclerView mOperations;
+    private final ArrayList<Integer> mIds = new ArrayList<>();
+    private final ArrayList<Integer> mIcons = new ArrayList<>();
+    private final ArrayList<String> mTexts = new ArrayList<>();
 
     public OperationDialogBuilder(@NonNull Context context) {
         super(context);
@@ -51,10 +47,6 @@ public class OperationDialogBuilder extends MaterialDialog.Builder {
                 holder.text.setText(mTexts.get(position));
                 holder.icon.setImageResource(mIcons.get(position));
                 holder.icon.setThemeColor(new ThemeColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.on_surface)));
-                if (mOnItemClickTarget != null) {
-                    //// TODO: 2017/6/26   效率
-                    ButterKnife.bind(mOnItemClickTarget, holder.itemView);
-                }
             }
 
             @Override
@@ -77,22 +69,18 @@ public class OperationDialogBuilder extends MaterialDialog.Builder {
     }
 
     public OperationDialogBuilder bindItemClick(Object target) {
-        mOnItemClickTarget = target;
         return this;
     }
 
     @SuppressLint("NonConstantResourceId")
     class ViewHolder extends RecyclerView.ViewHolder {
-
-        @BindView(R.id.icon)
         ThemeColorImageView icon;
-        @BindView(R.id.text)
         TextView text;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
-
+            icon = itemView.findViewById(R.id.icon);
+            text = itemView.findViewById(R.id.text);
         }
 
     }
