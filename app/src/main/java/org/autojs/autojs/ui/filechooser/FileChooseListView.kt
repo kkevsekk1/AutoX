@@ -10,10 +10,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.SimpleItemAnimator
-import butterknife.BindView
-import butterknife.ButterKnife
-import butterknife.OnCheckedChanged
-import butterknife.OnClick
 import com.stardust.pio.PFile
 import com.stardust.pio.PFiles
 import org.autojs.autoxjs.R
@@ -105,47 +101,33 @@ class FileChooseListView : ExplorerViewKt {
     }
 
     @SuppressLint("NonConstantResourceId")
-    internal inner class ExplorerItemViewHolder(itemView: View?) :
+    internal inner class ExplorerItemViewHolder(itemView: View) :
         BindableViewHolder<Any>(itemView) {
-
-        @JvmField
-        @BindView(R.id.name)
-        var mName: TextView? = null
-
-        @JvmField
-        @BindView(R.id.first_char)
-        var mFirstChar: TextView? = null
-
-        @JvmField
-        @BindView(R.id.checkbox)
-        var mCheckBox: CheckBoxCompat? = null
-
-        @JvmField
-        @BindView(R.id.desc)
-        var mDesc: TextView? = null
-        var mFirstCharBackground: GradientDrawable
+        val mName: TextView
+        val mFirstChar: TextView
+        val mCheckBox: CheckBoxCompat
+        val mDesc: TextView
+        val mFirstCharBackground: GradientDrawable
         private var mExplorerItem: ExplorerItem? = null
         override fun bind(item: Any, position: Int) {
             if (item !is ExplorerItem) return
             mExplorerItem = item
-            mName!!.text = ExplorerViewHelper.getDisplayName(item)
-            mDesc!!.text = PFiles.getHumanReadableSize(item.size)
-            mFirstChar!!.text = ExplorerViewHelper.getIconText(item)
+            mName.text = ExplorerViewHelper.getDisplayName(item)
+            mDesc.text = PFiles.getHumanReadableSize(item.size)
+            mFirstChar.text = ExplorerViewHelper.getIconText(item)
             mFirstCharBackground.setColor(ExplorerViewHelper.getIconColor(item))
-            mCheckBox!!.setChecked(
+            mCheckBox.setChecked(
                 mSelectedFiles.containsKey(mExplorerItem!!.toScriptFile()),
                 false
             )
         }
 
-        @OnClick(R.id.item)
         fun onItemClick() {
-            mCheckBox!!.toggle()
+            mCheckBox.toggle()
         }
 
-        @OnCheckedChanged(R.id.checkbox)
         fun onCheckedChanged() {
-            if (mCheckBox!!.isChecked) {
+            if (mCheckBox.isChecked) {
                 check(mExplorerItem!!.toScriptFile(), absoluteAdapterPosition)
             } else {
                 mSelectedFiles.remove(mExplorerItem!!.toScriptFile())
@@ -153,8 +135,16 @@ class FileChooseListView : ExplorerViewKt {
         }
 
         init {
-            ButterKnife.bind(this, itemView!!)
-            mFirstCharBackground = mFirstChar!!.background as GradientDrawable
+            mName = itemView.findViewById(R.id.name)
+            mFirstChar = itemView.findViewById(R.id.first_char)
+            mCheckBox = itemView.findViewById(R.id.checkbox)
+            mDesc = itemView.findViewById(R.id.desc)
+            itemView.findViewById<View>(R.id.item).setOnClickListener { onItemClick() }
+            mCheckBox.setOnCheckedChangeListener { _, isChecked ->
+                mCheckBox.setChecked(isChecked)
+                onCheckedChanged()
+            }
+            mFirstCharBackground = mFirstChar.background as GradientDrawable
         }
     }
 
