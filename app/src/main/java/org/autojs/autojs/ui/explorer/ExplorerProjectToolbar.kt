@@ -1,6 +1,7 @@
 package org.autojs.autojs.ui.explorer
 
 import android.content.Context
+import android.content.Intent
 import android.util.AttributeSet
 import android.view.View
 import android.widget.TextView
@@ -19,7 +20,7 @@ import org.autojs.autojs.model.explorer.ExplorerChangeEvent
 import org.autojs.autojs.model.explorer.Explorers
 import org.autojs.autojs.ui.build.BuildActivity.Companion.start
 import org.autojs.autojs.ui.build.ProjectConfigActivity
-import org.autojs.autojs.ui.build.ProjectConfigActivity_
+import org.autojs.autojs.ui.util.launchActivity
 import org.autojs.autoxjs.R
 import org.greenrobot.eventbus.Subscribe
 import java.io.File
@@ -122,8 +123,8 @@ class ExplorerProjectToolbar : CardView {
     }
 
     fun edit() {
-        ProjectConfigActivity_.intent(context)
-            .extra(ProjectConfigActivity.EXTRA_DIRECTORY, mDirectory!!.path)
-            .start()
+        context.launchActivity<ProjectConfigActivity> {
+            putExtra(ProjectConfigActivity.EXTRA_DIRECTORY, mDirectory!!.path)
+        }
     }
 }

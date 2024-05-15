@@ -88,7 +88,7 @@ android-issue-reporter = { module = "com.heinrichreimersoftware:android-issue-re
 android-job = { module = "com.evernote:android-job", version.ref = "android-job-version" }
 android-joda = { module = "net.danlew:android.joda", version.ref = "android-joda-version" }
 android-logging-log4j = { module = "de.mindpipe.android:android-logging-log4j", version.ref = "androidLoggingLog4jVersion" }
-android-multi-level-listview = { module = "com.github.hyb1996:android-multi-level-listview", version.ref = "android-multi-level-listview-version" }
+
 android-plugin-client-sdk-for-locale = { module = "com.twofortyfouram:android-plugin-client-sdk-for-locale", version.ref = "android-plugin-client-sdk-for-locale-version" }
 androidx-cardview = { module = "androidx.cardview:cardview", version.ref = "cardview-version" }
 
@@ -106,7 +106,7 @@ commons-lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "co
 
 core = { module = "com.afollestad.material-dialogs:core", version.ref = "core-version" }
 crashreport = { module = "com.tencent.bugly:crashreport", version.ref = "crashreport-version" }
-enhancedfloaty = { module = "com.github.hyb1996:EnhancedFloaty", version.ref = "enhancedfloaty-version" }
+
 expandablerecyclerview = { module = "com.thoughtbot:expandablerecyclerview", version.ref = "expandablerecyclerview-version" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 
@@ -117,7 +117,6 @@ licensesdialog = { module = "de.psdev.licensesdialog:licensesdialog", version.re
 log4j = { module = "log4j:log4j", version.ref = "log4jVersion" }
 markwon-core = { module = "io.noties.markwon:core", version.ref = "core" }
 material-dialogs-commons = { module = "com.afollestad.material-dialogs:commons", version.ref = "commons-version" }
-mutabletheme = { module = "com.github.hyb1996:MutableTheme", version.ref = "mutabletheme-version" }
 
 org-eclipse-paho-android-service = { module = "org.eclipse.paho:org.eclipse.paho.android.service", version.ref = "org-eclipse-paho-android-service-version" }
 org-eclipse-paho-client-mqttv3 = { module = "org.eclipse.paho:org.eclipse.paho.client.mqttv3", version.ref = "org-eclipse-paho-client-mqttv3-version" }
@@ -202,8 +201,14 @@ material = { group = "com.google.android.material", name = "material", version.r
 andserver-processor = { module = "com.yanzhenjie.andserver:processor", version.ref = "andserver" }
 andserver-api = { module = "com.yanzhenjie.andserver:api", version.ref = "andserver" }
 andserver = { module = "com.yanzhenjie.andserver:plugin", version.ref = "plugin-version" }
+
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version = "2.1.4" }
+
+enhancedfloaty = { module = "com.github.hyb1996:EnhancedFloaty", version.ref = "enhancedfloaty-version" }
+android-multi-level-listview = { module = "com.github.hyb1996:android-multi-level-listview", version.ref = "android-multi-level-listview-version" }
+mutabletheme = { module = "com.github.hyb1996:MutableTheme", version.ref = "mutabletheme-version" }
 settingscompat = { module = "com.github.hyb1996:settingscompat", version.ref = "settingscompat-version" }
+
 speed-dial-compose = { module = "com.leinardi.android:speed-dial.compose", version.ref = "speed-dial-compose-version" }
 tbssdk = { module = "com.tencent.tbs:tbssdk", version.ref = "tbssdk-version" }
 

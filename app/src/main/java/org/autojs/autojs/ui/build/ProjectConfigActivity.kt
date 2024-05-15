@@ -33,8 +33,9 @@ import org.autojs.autojs.model.project.ProjectTemplate
 import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder
 import org.autojs.autojs.tool.getRandomString
 import org.autojs.autojs.ui.BaseActivity
+import org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity
 import org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity.Companion.getBitmapFromIntent
-import org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity_
+import org.autojs.autojs.ui.util.launchActivity
 import org.autojs.autojs.ui.widget.SimpleTextWatcher
 import org.autojs.autoxjs.R
 import java.io.File
@@ -210,8 +211,7 @@ open class ProjectConfigActivity : BaseActivity() {
     }
 
     fun selectIcon() {
-        ShortcutIconSelectActivity_.intent(this)
-            .startForResult(REQUEST_CODE)
+        launchActivity<ShortcutIconSelectActivity>(REQUEST_CODE)
     }
 
     private fun syncProjectConfig() {
