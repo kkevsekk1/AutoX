@@ -21,8 +21,9 @@ android {
 }
 
 dependencies {
+    api(projects.common)
+
     androidTestImplementation(libs.espresso.core)
     testImplementation(libs.junit)
     api(libs.appcompat)
-    api(project(":common"))
 }

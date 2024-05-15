@@ -26,6 +26,17 @@ android {
 }
 
 dependencies {
+    api(projects.common)
+    api(projects.automator)
+    api(projects.localRepo.libtermexec)
+    api(projects.localRepo.emulatorview)
+    api(projects.localRepo.term)
+    api(projects.localRepo.p7zip)
+    api(projects.localRepo.openCV)
+    api(projects.paddleocr)
+    // libs
+    api(fileTree("../app/libs") { include("dx.jar", "rhino-1.7.14-jdk7.jar") })
+
     androidTestImplementation(libs.espresso.core)
     debugImplementation(libs.leakcanary.android)
     implementation(libs.leakcanary.`object`.watcher.android)
@@ -50,16 +61,6 @@ dependencies {
     // log4j
     api(libs.android.logging.log4j)
     api(libs.log4j)
-    api(project(":common"))
-    api(project(":automator"))
-    api(project(":LocalRepo:libtermexec"))
-    api(project(":LocalRepo:emulatorview"))
-    api(project(":LocalRepo:term"))
-    api(project(":LocalRepo:p7zip"))
-    api(project(":LocalRepo:OpenCV"))
-    api(project(":paddleocr"))
-    // libs
-    api(fileTree("../app/libs") { include("dx.jar", "rhino-1.7.14-jdk7.jar") })
     api(libs.tesseract4android)
     api(libs.text.recognition)
     api(libs.text.recognition.chinese)

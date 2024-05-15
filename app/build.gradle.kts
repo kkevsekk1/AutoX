@@ -138,7 +138,6 @@ android {
 }
 
 dependencies {
-    implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.localbroadcastmanager)
     implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.androidx.webkit)
@@ -147,9 +146,7 @@ dependencies {
 
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.material)
-    implementation(libs.androidx.compose.ui.tooling.preview)
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
-    debugImplementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.activity.compose)
 
     androidTestImplementation(libs.espresso.core)

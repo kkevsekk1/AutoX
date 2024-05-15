@@ -26,6 +26,8 @@ android {
 }
 
 dependencies {
+    implementation(projects.autojs)
+
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.andserver.api)
     implementation(libs.androidx.constraintlayout)
@@ -37,7 +39,6 @@ dependencies {
     implementation(libs.androidx.activity.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
-    implementation(project(":autojs"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
