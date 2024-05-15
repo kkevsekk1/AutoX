@@ -99,10 +99,6 @@ public class AboutActivity extends BaseActivity {
         }
     }
 
-    private void showEasterEgg() {
-        new MaterialDialog.Builder(this).customView(R.layout.paint_layout, false).show();
-    }
-
     private void crashTest() {
         new ThemeColorMaterialDialogBuilder(this).title("Crash Test").positiveText("Crash").onPositive((dialog, which) -> CrashReport.testJavaCrash()).show();
     }
