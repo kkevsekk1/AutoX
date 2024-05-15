@@ -2,13 +2,9 @@ package org.autojs.autojs.ui.explorer
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
-import butterknife.BindView
-import butterknife.ButterKnife
-import butterknife.OnClick
 import com.stardust.autojs.project.ProjectConfig
 import com.stardust.autojs.project.ProjectConfig.Companion.fromProject
 import com.stardust.autojs.project.ProjectLauncher
@@ -30,9 +26,6 @@ import java.io.File
 class ExplorerProjectToolbar : CardView {
     private var mProjectConfig: ProjectConfig? = null
     private var mDirectory: PFile? = null
-
-    @JvmField
-    @BindView(R.id.project_name)
     var mProjectName: TextView? = null
 
     constructor(context: Context?) : super(context!!) {
@@ -52,14 +45,14 @@ class ExplorerProjectToolbar : CardView {
     }
 
     private fun init() {
-        inflate(context, R.layout.explorer_project_toolbar, this)
-        ButterKnife.bind(this)
-        setOnClickListener { view: View? -> edit() }
+        val view = inflate(context, R.layout.explorer_project_toolbar, this)
+        mProjectName = view.findViewById(R.id.project_name)
+        setOnClickListener { edit() }
     }
 
     fun setProject(dir: PFile) {
         CoroutineScope(Dispatchers.Main).launch {
-            withContext(Dispatchers.IO){
+            withContext(Dispatchers.IO) {
                 mProjectConfig = fromProject(File(dir.path))
             }
 
