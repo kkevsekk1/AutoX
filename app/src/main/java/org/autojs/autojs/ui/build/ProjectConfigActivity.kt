@@ -42,6 +42,7 @@ import java.io.FileOutputStream
 
 @SuppressLint("NonConstantResourceId")
 open class ProjectConfigActivity : BaseActivity() {
+    override val layoutId = R.layout.activity_project_config
     var mProjectLocation: EditText? = null
     var mAppName: EditText? = null
     var mPackageName: EditText? = null
@@ -56,7 +57,6 @@ open class ProjectConfigActivity : BaseActivity() {
     private var mIconBitmap: Bitmap? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_project_config)
         mNewProject = intent.getBooleanExtra(EXTRA_NEW_PROJECT, false)
         val parentDirectory = intent.getStringExtra(EXTRA_PARENT_DIRECTORY)
         if (mNewProject) {
@@ -208,6 +208,7 @@ open class ProjectConfigActivity : BaseActivity() {
             mProjectConfig!!.toJson()
         )
     }
+
     fun selectIcon() {
         ShortcutIconSelectActivity_.intent(this)
             .startForResult(REQUEST_CODE)

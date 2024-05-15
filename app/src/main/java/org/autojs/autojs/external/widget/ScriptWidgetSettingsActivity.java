@@ -30,7 +30,10 @@ public class ScriptWidgetSettingsActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAppWidgetId = getIntent().getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
-        setContentView(R.layout.activity_script_widget_settings);
+    }
+
+    @Override
+    protected void initView() {
         setUpViews();
     }
 
@@ -83,4 +86,8 @@ public class ScriptWidgetSettingsActivity extends BaseActivity {
     }
 
 
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_script_widget_settings;
+    }
 }

@@ -37,12 +37,6 @@ public class TaskerScriptEditActivity extends BaseActivity {
     }
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tasker_script_edit);
-    }
-
-    @Override
     protected void initView() {
         mEditorView = findViewById(R.id.editor_view);
     }
@@ -74,5 +68,10 @@ public class TaskerScriptEditActivity extends BaseActivity {
     protected void onDestroy() {
         mEditorView.destroy();
         super.onDestroy();
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_tasker_script_edit;
     }
 }

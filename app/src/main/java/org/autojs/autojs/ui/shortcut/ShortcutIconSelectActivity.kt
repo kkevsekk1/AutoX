@@ -33,14 +33,11 @@ import java.io.File
  * Created by Stardust on 2017/10/25.
  * Modified by wilinz on 2022/5/23
  */
-open class ShortcutIconSelectActivity : BaseActivity() {
+open class ShortcutIconSelectActivity() : BaseActivity() {
+    override val layoutId = R.layout.activity_shortcut_icon_select
     var mApps: RecyclerView? = null
     private var mPackageManager: PackageManager? = null
     private val mAppList: MutableList<AppItem> = ArrayList()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_shortcut_icon_select)
-    }
 
     fun setupViews() {
         mPackageManager = packageManager
@@ -163,6 +160,5 @@ open class ShortcutIconSelectActivity : BaseActivity() {
                 )
             }
         }
-
     }
 }

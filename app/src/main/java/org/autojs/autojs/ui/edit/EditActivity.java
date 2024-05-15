@@ -89,7 +89,6 @@ public class EditActivity extends BaseActivity implements OnActivityResultDelega
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit);
         mNewTask = (getIntent().getFlags() & Intent.FLAG_ACTIVITY_NEW_TASK) != 0;
     }
 
@@ -314,4 +313,8 @@ public class EditActivity extends BaseActivity implements OnActivityResultDelega
         mRequestPermissionCallbacks.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_edit;
+    }
 }

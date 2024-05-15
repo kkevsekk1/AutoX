@@ -30,12 +30,6 @@ public class AboutActivity extends BaseActivity {
     private int mLolClickCount = 0;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
-    }
-
-    @Override
     protected void initView() {
         mVersion = findViewById(R.id.version);
 
@@ -117,4 +111,8 @@ public class AboutActivity extends BaseActivity {
         Toast.makeText(this, R.string.text_it_is_the_developer_of_app, Toast.LENGTH_LONG).show();
     }
 
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_about;
+    }
 }
