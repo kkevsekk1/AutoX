@@ -8,7 +8,6 @@ import androidx.annotation.Nullable;
 import com.stardust.autojs.core.console.ConsoleImpl;
 import com.stardust.autojs.core.console.ConsoleView;
 
-import org.androidannotations.annotations.Click;
 import org.autojs.autojs.autojs.AutoJs;
 import org.autojs.autojs.ui.BaseActivity;
 import org.autojs.autoxjs.R;

@@ -13,7 +13,6 @@ import com.stardust.util.IntentUtil;
 import com.stardust.util.IntentUtilKt;
 import com.tencent.bugly.crashreport.CrashReport;
 
-import org.androidannotations.annotations.Click;
 import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
 import org.autojs.autojs.tool.IntentTool;
 import org.autojs.autojs.ui.BaseActivity;
