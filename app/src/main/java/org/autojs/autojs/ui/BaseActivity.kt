@@ -1,150 +1,133 @@
-package org.autojs.autojs.ui;
+package org.autojs.autojs.ui
 
-import static android.content.pm.PackageManager.PERMISSION_DENIED;
-import static android.content.pm.PackageManager.PERMISSION_GRANTED;
-
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.View;
-
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
-
-import com.stardust.app.GlobalAppContext;
-import com.stardust.theme.ThemeColorManager;
-
-import org.autojs.autojs.Pref;
-import org.autojs.autoxjs.R;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import android.content.pm.PackageManager
+import android.graphics.PorterDuff
+import android.os.Build
+import android.os.Bundle
+import android.view.Menu
+import android.view.View
+import androidx.annotation.CallSuper
+import androidx.annotation.LayoutRes
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
+import com.stardust.app.GlobalAppContext.post
+import com.stardust.theme.ThemeColorManager
+import org.autojs.autojs.Pref
+import org.autojs.autoxjs.R
+import java.util.Arrays
 
 /**
  * Created by Stardust on 2017/1/23.
  */
+abstract class BaseActivity : AppCompatActivity() {
+    @get:LayoutRes
+    abstract val layoutId: Int
 
-public abstract class BaseActivity extends AppCompatActivity {
+    private var mShouldApplyDayNightModeForOptionsMenu = true
 
-    protected static final int PERMISSION_REQUEST_CODE = 11186;
-    private boolean mShouldApplyDayNightModeForOptionsMenu = true;
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        initView();
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(layoutId)
+        initView()
     }
 
-    protected void initView() {
-    }
+    protected open fun initView() = Unit
 
-    protected void applyDayNightMode() {
-        GlobalAppContext.post(() -> {
+    protected fun applyDayNightMode() {
+        post {
             if (Pref.isNightModeEnabled()) {
-                setNightModeEnabled(Pref.isNightModeEnabled());
+                setNightModeEnabled(Pref.isNightModeEnabled())
             }
-        });
+        }
     }
 
-    public void setNightModeEnabled(boolean enabled) {
+    fun setNightModeEnabled(enabled: Boolean) {
         if (enabled) {
-            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_YES
         } else {
-            getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_NO
         }
-        if (getDelegate().applyDayNight()) {
-            recreate();
+        if (delegate.applyDayNight()) {
+            recreate()
         }
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if ((getWindow().getDecorView().getSystemUiVisibility() & View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN) == 0) {
-            ThemeColorManager.addActivityStatusBar(this);
+    override fun onStart() {
+        super.onStart()
+        if ((window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN) == 0) {
+            ThemeColorManager.addActivityStatusBar(this)
         }
-
     }
 
-    @SuppressWarnings("unchecked")
-    public <T extends View> T $(int resId) {
-        return (T) findViewById(resId);
+    @Suppress("UNCHECKED_CAST")
+    fun <T : View?> `$`(resId: Int): T {
+        return findViewById<View>(resId) as T
     }
 
-    protected boolean checkPermission(String... permissions) {
+    protected fun checkPermission(vararg permissions: String): Boolean {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            String[] requestPermissions = getRequestPermissions(permissions);
-            if (requestPermissions.length > 0) {
-                requestPermissions(requestPermissions, PERMISSION_REQUEST_CODE);
-                return false;
+            val requestPermissions = getRequestPermissions(permissions)
+            if (requestPermissions.size > 0) {
+                requestPermissions(requestPermissions, PERMISSION_REQUEST_CODE)
+                return false
             }
-            return true;
+            return true
         } else {
-            int[] grantResults = new int[permissions.length];
-            Arrays.fill(grantResults, PERMISSION_GRANTED);
-            onRequestPermissionsResult(PERMISSION_REQUEST_CODE, permissions, grantResults);
-            return false;
+            val grantResults = IntArray(permissions.size)
+            Arrays.fill(grantResults, PackageManager.PERMISSION_GRANTED)
+            onRequestPermissionsResult(PERMISSION_REQUEST_CODE, permissions, grantResults)
+            return false
         }
     }
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
-    private String[] getRequestPermissions(String[] permissions) {
-        List<String> list = new ArrayList<>();
-        for (String permission : permissions) {
-            if (checkSelfPermission(permission) == PERMISSION_DENIED) {
-                list.add(permission);
+    private fun getRequestPermissions(permissions: Array<String>): Array<String> {
+        val list: MutableList<String> = ArrayList()
+        for (permission in permissions) {
+            if (checkSelfPermission(permission) == PackageManager.PERMISSION_DENIED) {
+                list.add(permission)
             }
         }
-        return list.toArray(new String[list.size()]);
+        return list.toTypedArray<String>()
     }
 
-    public void setToolbarAsBack(String title) {
-        setToolbarAsBack(this, R.id.toolbar, title);
+    fun setToolbarAsBack(title: String?) {
+        setToolbarAsBack(this, R.id.toolbar, title)
     }
 
-    public static void setToolbarAsBack(final AppCompatActivity activity, int id, String title) {
-        Toolbar toolbar = activity.findViewById(id);
-        toolbar.setTitle(title);
-        activity.setSupportActionBar(toolbar);
-        if (activity.getSupportActionBar() != null) {
-            toolbar.setNavigationOnClickListener(v -> activity.finish());
-            activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
-    }
-
-    @CallSuper
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
         if (mShouldApplyDayNightModeForOptionsMenu && Pref.isNightModeEnabled()) {
-            for (int i = 0; i < menu.size(); i++) {
-                Drawable drawable = menu.getItem(i).getIcon();
+            for (i in 0 until menu.size()) {
+                val drawable = menu.getItem(i).icon
                 if (drawable != null) {
-                    drawable.mutate();
-                    drawable.setColorFilter(ContextCompat.getColor(this, R.color.toolbar), PorterDuff.Mode.SRC_ATOP);
+                    drawable.mutate()
+                    drawable.setColorFilter(
+                        ContextCompat.getColor(this, R.color.toolbar),
+                        PorterDuff.Mode.SRC_ATOP
+                    )
                 }
             }
-            mShouldApplyDayNightModeForOptionsMenu = false;
+            mShouldApplyDayNightModeForOptionsMenu = false
         }
-        return super.onPrepareOptionsMenu(menu);
+        return super.onPrepareOptionsMenu(menu)
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
+    companion object {
+        protected const val PERMISSION_REQUEST_CODE: Int = 11186
+
+        @JvmStatic
+        fun setToolbarAsBack(activity: AppCompatActivity, id: Int, title: String?) {
+            val toolbar = activity.findViewById<Toolbar>(id)
+            toolbar.title = title
+            activity.setSupportActionBar(toolbar)
+            if (activity.supportActionBar != null) {
+                toolbar.setNavigationOnClickListener { v: View? -> activity.finish() }
+                activity.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+            }
+        }
     }
 }
