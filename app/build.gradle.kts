@@ -157,12 +157,6 @@ dependencies {
     testImplementation(libs.junit)
     // Kotlin携程
     implementation(libs.kotlinx.coroutines.android)
-    // Android Annotations
-    annotationProcessor(libs.androidannotations)
-    kapt(libs.androidannotations.androidannotations)
-    //noinspection GradleDependency
-    implementation(libs.androidannotations.api)
-    // Android supports
     implementation(libs.androidx.preference.ktx)
     implementation(libs.appcompat)
     implementation(libs.androidx.cardview)
@@ -194,7 +188,6 @@ dependencies {
     implementation(libs.bcpkix.jdk15on)
     //Expandable RecyclerView
     implementation(libs.expandablerecyclerview)
-//    implementation("org.signal.autox:apkbuilder:1.0.3")
     // RxJava
     implementation(libs.rxjava2)
     implementation(libs.rxjava2.rxandroid)

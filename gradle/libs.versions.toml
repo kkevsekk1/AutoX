@@ -12,7 +12,6 @@ androidxActivity = "1.9.0"
 androidxAnnotation = "1.7.1"
 androidxDocumentfile = "1.0.1"
 android-plugin-client-sdk-for-locale-version = "4.0.3"
-androidannotations = "4.5.2"
 activity-compose = "1.9.0"
 analytics-version = "13.1.0"
 android-joda-version = "2.10.14"
@@ -91,9 +90,6 @@ android-joda = { module = "net.danlew:android.joda", version.ref = "android-joda
 android-logging-log4j = { module = "de.mindpipe.android:android-logging-log4j", version.ref = "androidLoggingLog4jVersion" }
 android-multi-level-listview = { module = "com.github.hyb1996:android-multi-level-listview", version.ref = "android-multi-level-listview-version" }
 android-plugin-client-sdk-for-locale = { module = "com.twofortyfouram:android-plugin-client-sdk-for-locale", version.ref = "android-plugin-client-sdk-for-locale-version" }
-androidannotations-api = { module = "org.androidannotations:androidannotations-api", version.ref = "androidannotations" }
-androidannotations-androidannotations = { module = "org.androidannotations:androidannotations", version.ref = "androidannotations" }
-androidannotations = { module = "org.androidannotations:androidannotations", version.ref = "androidannotations" }
 androidx-cardview = { module = "androidx.cardview:cardview", version.ref = "cardview-version" }
 
 androidx-localbroadcastmanager = { module = "androidx.localbroadcastmanager:localbroadcastmanager", version.ref = "localbroadcastmanager-version" }
