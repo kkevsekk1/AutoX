@@ -180,8 +180,6 @@ dependencies {
     implementation(libs.android.expandablerecyclerview)
     //FlexibleDivider
     implementation(libs.recyclerview.flexibledivider)
-    //???
-    implementation(libs.library)
     //Commons-lang
     implementation(libs.commons.lang3)
     // 证书签名相关
@@ -220,17 +218,11 @@ dependencies {
     implementation(project(":codeeditor"))
     implementation(libs.androidx.multidex)
 
-    // ViewModel
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    // ViewModel utilities for Compose
     implementation(libs.androidx.lifecycle.viewmodel.compose)
-    // Lifecycles only (without ViewModel or LiveData)
     implementation(libs.androidx.lifecycle.runtime.ktx)
-    // Saved state module for ViewModel
     implementation(libs.androidx.lifecycle.viewmodel.savedstate)
     implementation(libs.androidx.lifecycle.service)
-    // Annotation processor
-//    kapt(libs.androidx.lifecycle.compiler)
 
     implementation(libs.androidx.savedstate.ktx)
     implementation(libs.androidx.savedstate)

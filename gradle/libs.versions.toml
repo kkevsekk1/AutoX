@@ -114,7 +114,6 @@ glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = 
 groovy-json = { module = "org.codehaus.groovy:groovy-json", version.ref = "groovy-json-version" }
 jdeferred-android-aar = { module = "org.jdeferred:jdeferred-android-aar", version.ref = "jdeferred-android-aar-version" }
 keeplive = { module = "com.fanjun:keeplive", version.ref = "keeplive-version" }
-library = { module = "com.wang.avi:library", version.ref = "library-version" }
 licensesdialog = { module = "de.psdev.licensesdialog:licensesdialog", version.ref = "licensesdialog-version" }
 log4j = { module = "log4j:log4j", version.ref = "log4jVersion" }
 markwon-core = { module = "io.noties.markwon:core", version.ref = "core" }
