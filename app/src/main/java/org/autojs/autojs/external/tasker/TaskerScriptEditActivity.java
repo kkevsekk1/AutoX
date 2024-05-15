@@ -44,7 +44,7 @@ public class TaskerScriptEditActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        mEditorView = findViewById(R.id.editor_view)
+        mEditorView = findViewById(R.id.editor_view);
     }
 
     EditorView mEditorView;
