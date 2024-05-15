@@ -148,9 +148,6 @@ public class User {
     @SerializedName("disableSignatures")
     private boolean disableSignatures;
 
-    @SerializedName("groups")
-    private List<GroupsItem> groups;
-
     @SerializedName("username:disableEdit")
     private boolean usernameDisableEdit;
 
@@ -566,14 +563,6 @@ public class User {
         return disableSignatures;
     }
 
-    public void setGroups(List<GroupsItem> groups) {
-        this.groups = groups;
-    }
-
-    public List<GroupsItem> getGroups() {
-        return groups;
-    }
-
     public void setUsernameDisableEdit(boolean usernameDisableEdit) {
         this.usernameDisableEdit = usernameDisableEdit;
     }
@@ -729,7 +718,6 @@ public class User {
                         ",canBan = '" + canBan + '\'' +
                         ",lastonline = '" + lastonline + '\'' +
                         ",disableSignatures = '" + disableSignatures + '\'' +
-                        ",groups = '" + groups + '\'' +
                         ",username:disableEdit = '" + usernameDisableEdit + '\'' +
                         ",picture = '" + picture + '\'' +
                         ",joindateISO = '" + joindateISO + '\'' +

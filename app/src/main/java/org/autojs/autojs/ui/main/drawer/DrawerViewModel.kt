@@ -27,7 +27,6 @@ class DrawerViewModel(private val context: Application) : AndroidViewModel(conte
         private set
 
     fun checkUpdate(onUpdate: () -> Unit = {}, onComplete: () -> Unit = {}) {
-        kotlin.runCatching { }
         showToast(context.getString(R.string.text_checking_for_updates))
         viewModelScope.launch {
             try {

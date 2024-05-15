@@ -109,12 +109,6 @@ public class Config{
 	@SerializedName("theme:src")
 	private String themeSrc;
 
-	@SerializedName("cookies")
-	private Cookies cookies;
-
-	@SerializedName("markdown")
-	private Markdown markdown;
-
 	@SerializedName("minimumTagLength")
 	private String minimumTagLength;
 
@@ -430,22 +424,6 @@ public class Config{
 		return themeSrc;
 	}
 
-	public void setCookies(Cookies cookies){
-		this.cookies = cookies;
-	}
-
-	public Cookies getCookies(){
-		return cookies;
-	}
-
-	public void setMarkdown(Markdown markdown){
-		this.markdown = markdown;
-	}
-
-	public Markdown getMarkdown(){
-		return markdown;
-	}
-
 	public void setMinimumTagLength(String minimumTagLength){
 		this.minimumTagLength = minimumTagLength;
 	}
@@ -595,9 +573,7 @@ public class Config{
 			",csrf_token = '" + csrfToken + '\'' + 
 			",categoryTopicSort = '" + categoryTopicSort + '\'' + 
 			",disableMasonry = '" + disableMasonry + '\'' + 
-			",theme:src = '" + themeSrc + '\'' + 
-			",cookies = '" + cookies + '\'' + 
-			",markdown = '" + markdown + '\'' + 
+			",theme:src = '" + themeSrc + '\'' +
 			",minimumTagLength = '" + minimumTagLength + '\'' + 
 			",maximumTagLength = '" + maximumTagLength + '\'' + 
 			",maximumTitleLength = '" + maximumTitleLength + '\'' + 
