@@ -78,6 +78,7 @@ class FileChooseListView : ExplorerViewKt {
                     )
                 )
             }
+
             VIEW_TYPE_PAGE -> {
                 ExplorerPageViewHolder(
                     inflater.inflate(
@@ -87,6 +88,7 @@ class FileChooseListView : ExplorerViewKt {
                     )
                 )
             }
+
             else -> {
                 super.onCreateViewHolder(inflater, parent, viewType)
             }
@@ -157,39 +159,28 @@ class FileChooseListView : ExplorerViewKt {
     }
 
     @SuppressLint("NonConstantResourceId")
-    internal inner class ExplorerPageViewHolder(itemView: View?) :
+    internal inner class ExplorerPageViewHolder(itemView: View) :
         BindableViewHolder<Any>(itemView) {
-
-        @JvmField
-        @BindView(R.id.name)
-        var mName: TextView? = null
-
-        @JvmField
-        @BindView(R.id.checkbox)
-        var mCheckBox: CheckBoxCompat? = null
-
-        @JvmField
-        @BindView(R.id.icon)
-        var mIcon: ImageView? = null
+        val mName: TextView
+        val mCheckBox: CheckBoxCompat
+        val mIcon: ImageView
         private var mExplorerPage: ExplorerPage? = null
         override fun bind(data0: Any, position: Int) {
             if (data0 !is ExplorerPage) return
             mExplorerPage = data0
-            mName!!.text = ExplorerViewHelper.getDisplayName(data0)
-            mIcon!!.setImageResource(ExplorerViewHelper.getIcon(data0))
+            mName.text = ExplorerViewHelper.getDisplayName(data0)
+            mIcon.setImageResource(ExplorerViewHelper.getIcon(data0))
             if (mCanChooseDir) {
-                mCheckBox!!.setChecked(mSelectedFiles.containsKey(data0.toScriptFile()), false)
+                mCheckBox.setChecked(mSelectedFiles.containsKey(data0.toScriptFile()), false)
             }
         }
 
-        @OnClick(R.id.item)
         fun onItemClick() {
             enterDirectChildPage(mExplorerPage)
         }
 
-        @OnCheckedChanged(R.id.checkbox)
-        fun onCheckedChanged() {
-            if (mCheckBox!!.isChecked) {
+        fun onCheckedChanged(isChecked: Boolean) {
+            if (isChecked) {
                 check(mExplorerPage!!.toScriptFile(), absoluteAdapterPosition)
             } else {
                 mSelectedFiles.remove(mExplorerPage!!.toScriptFile())
@@ -197,8 +188,16 @@ class FileChooseListView : ExplorerViewKt {
         }
 
         init {
-            ButterKnife.bind(this, itemView!!)
-            mCheckBox!!.visibility = if (mCanChooseDir) VISIBLE else GONE
+            mName = itemView.findViewById(R.id.name)
+            mCheckBox = itemView.findViewById(R.id.checkbox)
+            mIcon = itemView.findViewById(R.id.icon)
+            itemView.findViewById<View>(R.id.item).setOnClickListener {
+                onItemClick()
+            }
+            mCheckBox.setOnCheckedChangeListener { _, isChecked ->
+                onCheckedChanged(isChecked)
+            }
+            mCheckBox.visibility = if (mCanChooseDir) VISIBLE else GONE
         }
     }
 }

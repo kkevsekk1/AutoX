@@ -135,12 +135,14 @@ public class FindOrReplaceDialogBuilder extends ThemeColorMaterialDialogBuilder 
 
             @Override
             public void afterTextChanged(Editable s) {
+                mReplacementEditText.setText(s.toString());
                 FindOrReplaceDialogBuilder.this.onTextChanged();
             }
         });
         mReplaceAllCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                mReplaceAllCheckBox.setChecked(isChecked);
                 syncWithReplaceCheckBox();
             }
         });
