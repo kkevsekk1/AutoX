@@ -1,24 +1,19 @@
 package org.autojs.autojs.ui.log;
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
 import android.view.View;
 
-import com.stardust.autojs.core.console.ConsoleView;
-import com.stardust.autojs.core.console.ConsoleImpl;
+import androidx.annotation.Nullable;
 
-import org.androidannotations.annotations.AfterViews;
+import com.stardust.autojs.core.console.ConsoleImpl;
+import com.stardust.autojs.core.console.ConsoleView;
+
 import org.androidannotations.annotations.Click;
-import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.ViewById;
-import org.autojs.autoxjs.R;
 import org.autojs.autojs.autojs.AutoJs;
 import org.autojs.autojs.ui.BaseActivity;
+import org.autojs.autoxjs.R;
 
-@EActivity(R.layout.activity_log)
 public class LogActivity extends BaseActivity {
-
-    @ViewById(R.id.console)
     ConsoleView mConsoleView;
 
     private ConsoleImpl mConsoleImpl;
@@ -26,10 +21,19 @@ public class LogActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_log);
         applyDayNightMode();
     }
 
-    @AfterViews
+    @Override
+    protected void initView() {
+        mConsoleView = findViewById(R.id.console);
+        findViewById(R.id.fab).setOnClickListener(view -> {
+            clearConsole();
+        });
+        setupViews();
+    }
+
     void setupViews() {
         setToolbarAsBack(getString(R.string.text_log));
         mConsoleImpl = AutoJs.getInstance().getGlobalConsole();
@@ -37,7 +41,6 @@ public class LogActivity extends BaseActivity {
         mConsoleView.findViewById(R.id.input_container).setVisibility(View.GONE);
     }
 
-    @Click(R.id.fab)
     void clearConsole() {
         mConsoleImpl.clear();
     }
