@@ -41,6 +41,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initView();
+    }
+
+    protected void initView() {
     }
 
     protected void applyDayNightMode() {
@@ -141,7 +145,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         return super.onCreateOptionsMenu(menu);
     }
 }
