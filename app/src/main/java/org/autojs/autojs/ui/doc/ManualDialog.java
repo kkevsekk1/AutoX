@@ -12,12 +12,8 @@ import androidx.annotation.NonNull;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.stardust.util.IntentUtil;
 
-import org.autojs.autoxjs.R;
 import org.autojs.autojs.ui.widget.EWebView;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import org.autojs.autoxjs.R;
 
 /**
  * Created by Stardust on 2017/10/24.
