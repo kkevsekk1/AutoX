@@ -21,8 +21,6 @@ androidLoggingLog4jVersion = "1.0.3"
 andserver = "2.1.12"
 bcpkix-jdk15on-version = "1.56.0.0"
 bignerdranch-expandablerecyclerview = "3.0.0-RC1"
-butterknife-version = "10.2.1"
-butterknife-compiler-version = "10.2.3"
 cardview-version = "1.0.0"
 coil = "2.6.0"
 commonmark-java-version = "commonmark-parent-0.9.0"
@@ -106,9 +104,6 @@ androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefre
 androidx-viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2-version" }
 androidx-work-runtime = { module = "androidx.work:work-runtime", version.ref = "work-runtime-version" }
 bcpkix-jdk15on = { module = "com.madgag.spongycastle:bcpkix-jdk15on", version.ref = "bcpkix-jdk15on-version" }
-butterknife-compiler = { module = "com.jakewharton:butterknife-compiler", version.ref = "butterknife-compiler-version" }
-butterknife = { module = "com.jakewharton:butterknife", version.ref = "butterknife-version" }
-butterknife-gradle-plugin = { module = "com.jakewharton:butterknife-gradle-plugin", version.ref = "butterknife-compiler-version" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 commonmark-java = { module = "com.github.atlassian:commonmark-java", version.ref = "commonmark-java-version" }
 commons-lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "commons-lang3-version" }

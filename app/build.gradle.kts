@@ -7,7 +7,6 @@ import java.util.zip.ZipInputStream
 plugins {
     alias(libs.plugins.autojs.android.application)
     alias(libs.plugins.autojs.android.application.compose)
-    id("com.jakewharton.butterknife")
     kotlin("kapt")
 }
 
@@ -163,10 +162,6 @@ dependencies {
     kapt(libs.androidannotations.androidannotations)
     //noinspection GradleDependency
     implementation(libs.androidannotations.api)
-    // ButterKnife
-    implementation(libs.butterknife)
-    annotationProcessor(libs.butterknife.compiler)
-    kapt(libs.butterknife.compiler)
     // Android supports
     implementation(libs.androidx.preference.ktx)
     implementation(libs.appcompat)
