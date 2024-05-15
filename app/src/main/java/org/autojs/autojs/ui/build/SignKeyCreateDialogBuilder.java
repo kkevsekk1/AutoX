@@ -20,9 +20,6 @@ import org.autojs.autojs.build.ApkSigner;
 
 import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 import static com.stardust.app.GlobalAppContext.getString;
 
 public class SignKeyCreateDialogBuilder extends ThemeColorMaterialDialogBuilder {
@@ -31,27 +28,16 @@ public class SignKeyCreateDialogBuilder extends ThemeColorMaterialDialogBuilder 
         void onCreated(String path);
     }
 
-    @BindView(R.id.til_sign_key_pat)
     TextInputLayout mPathTip;
-    @BindView(R.id.ed_sign_key_path)
     AppCompatEditText mPath;
-    @BindView(R.id.ed_sign_key_alias)
     AppCompatEditText mAlias;
-    @BindView(R.id.ed_sign_key_password)
     AppCompatEditText mPassword;
-    @BindView(R.id.ed_sign_key_year)
     AppCompatEditText mYear;
-    @BindView(R.id.ed_sign_key_country)
     AppCompatEditText mCountry;
-    @BindView(R.id.ed_sign_key_name)
     AppCompatEditText mName;
-    @BindView(R.id.ed_sign_key_org)
     AppCompatEditText mOrg;
-    @BindView(R.id.ed_sign_key_unit)
     AppCompatEditText mUnit;
-    @BindView(R.id.ed_sign_key_province)
     AppCompatEditText mProvince;
-    @BindView(R.id.ed_sign_key_city)
     AppCompatEditText mCity;
 
     private String mKeySavePath;
@@ -68,7 +54,18 @@ public class SignKeyCreateDialogBuilder extends ThemeColorMaterialDialogBuilder 
 
     private void setupViews() {
         View view = View.inflate(context, R.layout.dialog_sign_key_create, null);
-        ButterKnife.bind(this, view);
+        mPathTip = view.findViewById(R.id.til_sign_key_pat);
+        mPath = view.findViewById(R.id.ed_sign_key_path);
+        mAlias = view.findViewById(R.id.ed_sign_key_alias);
+        mPassword = view.findViewById(R.id.ed_sign_key_password);
+        mYear = view.findViewById(R.id.ed_sign_key_year);
+        mCountry = view.findViewById(R.id.ed_sign_key_country);
+        mName = view.findViewById(R.id.ed_sign_key_name);
+        mOrg = view.findViewById(R.id.ed_sign_key_org);
+        mUnit = view.findViewById(R.id.ed_sign_key_unit);
+        mProvince = view.findViewById(R.id.ed_sign_key_province);
+        mCity = view.findViewById(R.id.ed_sign_key_city);
+
         customView(view, true);
         title(R.string.text_sign_key_add);
         negativeText(R.string.cancel);
@@ -76,7 +73,7 @@ public class SignKeyCreateDialogBuilder extends ThemeColorMaterialDialogBuilder 
         positiveText(R.string.ok);
         onNegative((dialog, which) -> dialog.dismiss());
         onPositive((dialog, which) -> {
-            if (createSignKey()){
+            if (createSignKey()) {
                 dialog.dismiss();
             }
         });
