@@ -4,24 +4,22 @@ import android.appwidget.AppWidgetManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
-import androidx.annotation.Nullable;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.EActivity;
-import org.autojs.autoxjs.R;
+import androidx.annotation.Nullable;
+
 import org.autojs.autojs.model.explorer.Explorer;
 import org.autojs.autojs.model.explorer.ExplorerDirPage;
 import org.autojs.autojs.model.explorer.ExplorerFileProvider;
 import org.autojs.autojs.model.script.Scripts;
 import org.autojs.autojs.ui.BaseActivity;
 import org.autojs.autojs.ui.explorer.ExplorerViewKt;
+import org.autojs.autoxjs.R;
 
 /**
  * Created by Stardust on 2017/7/11.
  */
-
 public class ScriptWidgetSettingsActivity extends BaseActivity {
 
     private String mSelectedScriptFilePath;
