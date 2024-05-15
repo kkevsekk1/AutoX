@@ -7,7 +7,6 @@ import java.util.zip.ZipInputStream
 plugins {
     alias(libs.plugins.autojs.android.application)
     alias(libs.plugins.autojs.android.application.compose)
-    kotlin("kapt")
 }
 
 val propFile: File = File("E:/资料/jks/autojs-app/sign.properties");
@@ -196,8 +195,6 @@ dependencies {
 
     //Glide
     implementation(libs.glide)
-    kapt(libs.glide.compiler)
-    annotationProcessor(libs.glide.compiler)
     //joda time
     implementation(libs.android.joda)
     // Tasker Plugin

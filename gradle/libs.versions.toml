@@ -109,7 +109,6 @@ crashreport = { module = "com.tencent.bugly:crashreport", version.ref = "crashre
 enhancedfloaty = { module = "com.github.hyb1996:EnhancedFloaty", version.ref = "enhancedfloaty-version" }
 expandablerecyclerview = { module = "com.thoughtbot:expandablerecyclerview", version.ref = "expandablerecyclerview-version" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
-glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
 
 groovy-json = { module = "org.codehaus.groovy:groovy-json", version.ref = "groovy-json-version" }
 jdeferred-android-aar = { module = "org.jdeferred:jdeferred-android-aar", version.ref = "jdeferred-android-aar-version" }
