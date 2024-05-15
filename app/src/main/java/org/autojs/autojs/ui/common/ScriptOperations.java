@@ -5,9 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Environment;
 import android.os.Looper;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import com.google.android.material.snackbar.Snackbar;
+
 import android.text.Editable;
 import android.text.InputType;
 import android.view.View;
@@ -23,6 +26,7 @@ import com.stardust.pio.UncheckedIOException;
 import com.tencent.bugly.crashreport.BuglyLog;
 
 import org.autojs.autojs.Pref;
+import org.autojs.autojs.ui.timing.TimedTaskSettingActivity;
 import org.autojs.autoxjs.R;
 import org.autojs.autojs.external.ScriptIntents;
 import org.autojs.autojs.model.explorer.Explorer;
@@ -37,7 +41,6 @@ import org.autojs.autojs.model.script.Scripts;
 import org.autojs.autojs.network.download.DownloadManager;
 import org.autojs.autojs.ui.filechooser.FileChooserDialogBuilder;
 import org.autojs.autojs.ui.shortcut.ShortcutCreateActivity;
-import org.autojs.autojs.ui.timing.TimedTaskSettingActivity_;
 import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
 
 import org.reactivestreams.Publisher;
@@ -368,9 +371,9 @@ public class ScriptOperations {
     }
 
     public void timedTask(ScriptFile scriptFile) {
-        TimedTaskSettingActivity_.intent(mContext)
-                .extra(ScriptIntents.EXTRA_KEY_PATH, scriptFile.getPath())
-                .start();
+        Intent intent = new Intent(mContext, TimedTaskSettingActivity.class);
+        intent.putExtra(ScriptIntents.EXTRA_KEY_PATH, scriptFile.getPath());
+        mContext.startActivity(intent);
     }
 
 

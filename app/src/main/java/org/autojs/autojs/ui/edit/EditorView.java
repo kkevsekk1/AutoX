@@ -60,11 +60,8 @@ import org.autojs.autojs.ui.edit.keyboard.FunctionsKeyboardView;
 import org.autojs.autojs.ui.edit.theme.Theme;
 import org.autojs.autojs.ui.edit.theme.Themes;
 import org.autojs.autojs.ui.edit.toolbar.DebugToolbarFragment;
-import org.autojs.autojs.ui.edit.toolbar.DebugToolbarFragment_;
 import org.autojs.autojs.ui.edit.toolbar.NormalToolbarFragment;
-import org.autojs.autojs.ui.edit.toolbar.NormalToolbarFragment_;
 import org.autojs.autojs.ui.edit.toolbar.SearchToolbarFragment;
-import org.autojs.autojs.ui.edit.toolbar.SearchToolbarFragment_;
 import org.autojs.autojs.ui.edit.toolbar.ToolbarFragment;
 import org.autojs.autojs.ui.log.LogActivityKt;
 import org.autojs.autojs.ui.widget.EWebView;
@@ -130,7 +127,7 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
     };
     private final SparseBooleanArray mMenuItemStatus = new SparseBooleanArray();
     private String mRestoredText;
-    private NormalToolbarFragment mNormalToolbar = new NormalToolbarFragment_();
+    private NormalToolbarFragment mNormalToolbar = new NormalToolbarFragment();
     private boolean mDebugging = false;
     private EditorMenu mEditorMenu;
 
@@ -372,46 +369,33 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
 
     @Override
     public void onToolbarMenuItemClick(View view) {
-        switch (view.getId()) {
-            case R.id.run:
-                runAndSaveFileIfNeeded();
-                break;
-            case R.id.save:
-                saveFile();
-                break;
-            case R.id.undo:
-                undo();
-                break;
-            case R.id.redo:
-                redo();
-                break;
-            case R.id.replace:
-                replace();
-                break;
-            case R.id.find_next:
-                findNext();
-                break;
-            case R.id.find_prev:
-                findPrev();
-                break;
-            case R.id.cancel_search:
-                cancelSearch();
-                break;
-            case R.id.action_log:
-                LogActivityKt.start(getContext());
-                break;
-            case R.id.debug:
-                showOptionMenu(view, R.menu.menu_editor_debug);
-                break;
-            case R.id.jump:
-                showOptionMenu(view, R.menu.menu_editor_jump);
-                break;
-            case R.id.edit:
-                showOptionMenu(view, R.menu.menu_editor_edit);
-                break;
-            case R.id.others:
-                showOptionMenu(view, R.menu.menu_editor);
-                break;
+        int id = view.getId();
+        if (id == R.id.run) {
+            runAndSaveFileIfNeeded();
+        } else if (id == R.id.save) {
+            saveFile();
+        } else if (id == R.id.undo) {
+            undo();
+        } else if (id == R.id.redo) {
+            redo();
+        } else if (id == R.id.replace) {
+            replace();
+        } else if (id == R.id.find_next) {
+            findNext();
+        } else if (id == R.id.find_prev) {
+            findPrev();
+        } else if (id == R.id.cancel_search) {
+            cancelSearch();
+        } else if (id == R.id.action_log) {
+            LogActivityKt.start(getContext());
+        } else if (id == R.id.debug) {
+            showOptionMenu(view, R.menu.menu_editor_debug);
+        } else if (id == R.id.jump) {
+            showOptionMenu(view, R.menu.menu_editor_jump);
+        } else if (id == R.id.edit) {
+            showOptionMenu(view, R.menu.menu_editor_edit);
+        } else if (id == R.id.others) {
+            showOptionMenu(view, R.menu.menu_editor);
         }
     }
 
@@ -602,9 +586,10 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
     }
 
     private void showSearchToolbar(boolean showReplaceItem) {
-        SearchToolbarFragment searchToolbarFragment = SearchToolbarFragment_.builder()
-                .arg(SearchToolbarFragment.ARGUMENT_SHOW_REPLACE_ITEM, showReplaceItem)
-                .build();
+        SearchToolbarFragment searchToolbarFragment = new SearchToolbarFragment();
+        Bundle bundle = new Bundle();
+        bundle.putBoolean(SearchToolbarFragment.ARGUMENT_SHOW_REPLACE_ITEM, showReplaceItem);
+        searchToolbarFragment.setArguments(bundle);
         searchToolbarFragment.setOnMenuItemClickListener(this);
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.toolbar_menu, searchToolbarFragment)
@@ -621,8 +606,7 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
     }
 
     public void debug() {
-        DebugToolbarFragment debugToolbarFragment = DebugToolbarFragment_.builder()
-                .build();
+        DebugToolbarFragment debugToolbarFragment = new DebugToolbarFragment();
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.toolbar_menu, debugToolbarFragment)
                 .commit();

@@ -78,8 +78,8 @@ public class ShortcutCreateActivity extends AppCompatActivity {
 
 
     private void selectIcon() {
-        ShortcutIconSelectActivity_.intent(this)
-                .startForResult(21209);
+        Intent intent = new Intent(this, ShortcutIconSelectActivity.class);
+        startActivityForResult(intent, 21209);
     }
 
 

@@ -30,7 +30,7 @@ public class TaskerScriptEditActivity extends BaseActivity {
     public static final String EXTRA_TASK_ID = TaskReceiver.EXTRA_TASK_ID;
 
     public static void edit(Activity activity, String title, String summary, String content) {
-        activity.startActivityForResult(new Intent(activity, TaskerScriptEditActivity_.class)
+        activity.startActivityForResult(new Intent(activity, TaskerScriptEditActivity.class)
                 .putExtra(EXTRA_CONTENT, content)
                 .putExtra("summary", summary)
                 .putExtra(EXTRA_NAME, title), REQUEST_CODE);
