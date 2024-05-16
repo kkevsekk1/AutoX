@@ -7,6 +7,7 @@ import java.util.zip.ZipInputStream
 plugins {
     alias(libs.plugins.autojs.android.application)
     alias(libs.plugins.autojs.android.application.compose)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 val propFile: File = File("E:/资料/jks/autojs-app/sign.properties");
@@ -32,7 +33,7 @@ android {
             }
         }
         ndk {
-            abiFilters+=listOf("arm64-v8a", "armeabi-v7a")
+            abiFilters += listOf("arm64-v8a", "armeabi-v7a")
         }
     }
     lint {

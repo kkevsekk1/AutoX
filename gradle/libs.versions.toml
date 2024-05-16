@@ -58,7 +58,6 @@ org-eclipse-paho-client-mqttv3-version = "1.2.5"
 plugin-version = "2.1.12"
 quickie-bundled-version = "1.5.0"
 recyclerview-flexibledivider-version = "1.4.0"
-retrofit2 = "2.11.0"
 rootshell-version = "1.6"
 roundedimageview-version = "2.3.0"
 savedstate = "1.2.1"
@@ -179,10 +178,6 @@ ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx
 
 quickie-bundled = { module = "io.github.g00fy2.quickie:quickie-bundled", version.ref = "quickie-bundled-version" }
 recyclerview-flexibledivider = { module = "com.yqritc:recyclerview-flexibledivider", version.ref = "recyclerview-flexibledivider-version" }
-
-retrofit2-bom = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit2" }
-retrofit2-rxjava2-adapter = { module = "com.squareup.retrofit2:adapter-rxjava2", version.ref = "retrofit2" }
-retrofit2-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit2" }
 
 rootshell = { module = "com.github.Stericson:RootShell", version.ref = "rootshell-version" }
 roundedimageview = { module = "com.makeramen:roundedimageview", version.ref = "roundedimageview-version" }

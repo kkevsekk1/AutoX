@@ -1,48 +1,48 @@
 package org.autojs.autojs.network.entity
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.SerialName
 import org.autojs.autoxjs.BuildConfig
 
-class GithubReleaseInfoList : ArrayList<GithubReleaseInfo>()
-
+@Serializable
 data class GithubReleaseInfo(
-    @SerializedName("assets")
+    @SerialName("assets")
     val assets: List<Asset>,
-    @SerializedName("assets_url")
+    @SerialName("assets_url")
     val assetsUrl: String,
-    @SerializedName("author")
+    @SerialName("author")
     val author: Author,
-    @SerializedName("body")
+    @SerialName("body")
     val body: String,
-    @SerializedName("created_at")
+    @SerialName("created_at")
     val createdAt: String,
-    @SerializedName("draft")
+    @SerialName("draft")
     val draft: Boolean,
-    @SerializedName("html_url")
+    @SerialName("html_url")
     val htmlUrl: String,
-    @SerializedName("id")
+    @SerialName("id")
     val id: Int,
-    @SerializedName("mentions_count")
+    @SerialName("mentions_count")
     val mentionsCount: Int,
-    @SerializedName("name")
+    @SerialName("name")
     val name: String,
-    @SerializedName("node_id")
+    @SerialName("node_id")
     val nodeId: String,
-    @SerializedName("prerelease")
+    @SerialName("prerelease")
     val prerelease: Boolean,
-    @SerializedName("published_at")
+    @SerialName("published_at")
     val publishedAt: String,
-    @SerializedName("tag_name")
+    @SerialName("tag_name")
     val tagName: String,
-    @SerializedName("tarball_url")
+    @SerialName("tarball_url")
     val tarballUrl: String,
-    @SerializedName("target_commitish")
+    @SerialName("target_commitish")
     val targetCommitish: String,
-    @SerializedName("upload_url")
+    @SerialName("upload_url")
     val uploadUrl: String,
-    @SerializedName("url")
+    @SerialName("url")
     val url: String,
-    @SerializedName("zipball_url")
+    @SerialName("zipball_url")
     val zipballUrl: String
 )
 
@@ -59,109 +59,112 @@ private fun String.getVersionByName(): Long {
     return this.replace(".", "").toLongOrNull() ?: -1
 }
 
+@Serializable
 data class Asset(
-    @SerializedName("browser_download_url")
+    @SerialName("browser_download_url")
     val browserDownloadUrl: String,
-    @SerializedName("content_type")
+    @SerialName("content_type")
     val contentType: String,
-    @SerializedName("created_at")
+    @SerialName("created_at")
     val createdAt: String,
-    @SerializedName("download_count")
+    @SerialName("download_count")
     val downloadCount: Int,
-    @SerializedName("id")
+    @SerialName("id")
     val id: Int,
-    @SerializedName("label")
+    @SerialName("label")
     val label: String,
-    @SerializedName("name")
+    @SerialName("name")
     val name: String,
-    @SerializedName("node_id")
+    @SerialName("node_id")
     val nodeId: String,
-    @SerializedName("size")
+    @SerialName("size")
     val size: Int,
-    @SerializedName("state")
+    @SerialName("state")
     val state: String,
-    @SerializedName("updated_at")
+    @SerialName("updated_at")
     val updatedAt: String,
-    @SerializedName("uploader")
+    @SerialName("uploader")
     val uploader: Uploader,
-    @SerializedName("url")
+    @SerialName("url")
     val url: String
 )
 
+@Serializable
 data class Author(
-    @SerializedName("avatar_url")
+    @SerialName("avatar_url")
     val avatarUrl: String,
-    @SerializedName("events_url")
+    @SerialName("events_url")
     val eventsUrl: String,
-    @SerializedName("followers_url")
+    @SerialName("followers_url")
     val followersUrl: String,
-    @SerializedName("following_url")
+    @SerialName("following_url")
     val followingUrl: String,
-    @SerializedName("gists_url")
+    @SerialName("gists_url")
     val gistsUrl: String,
-    @SerializedName("gravatar_id")
+    @SerialName("gravatar_id")
     val gravatarId: String,
-    @SerializedName("html_url")
+    @SerialName("html_url")
     val htmlUrl: String,
-    @SerializedName("id")
+    @SerialName("id")
     val id: Int,
-    @SerializedName("login")
+    @SerialName("login")
     val login: String,
-    @SerializedName("node_id")
+    @SerialName("node_id")
     val nodeId: String,
-    @SerializedName("organizations_url")
+    @SerialName("organizations_url")
     val organizationsUrl: String,
-    @SerializedName("received_events_url")
+    @SerialName("received_events_url")
     val receivedEventsUrl: String,
-    @SerializedName("repos_url")
+    @SerialName("repos_url")
     val reposUrl: String,
-    @SerializedName("site_admin")
+    @SerialName("site_admin")
     val siteAdmin: Boolean,
-    @SerializedName("starred_url")
+    @SerialName("starred_url")
     val starredUrl: String,
-    @SerializedName("subscriptions_url")
+    @SerialName("subscriptions_url")
     val subscriptionsUrl: String,
-    @SerializedName("type")
+    @SerialName("type")
     val type: String,
-    @SerializedName("url")
+    @SerialName("url")
     val url: String
 )
 
+@Serializable
 data class Uploader(
-    @SerializedName("avatar_url")
+    @SerialName("avatar_url")
     val avatarUrl: String,
-    @SerializedName("events_url")
+    @SerialName("events_url")
     val eventsUrl: String,
-    @SerializedName("followers_url")
+    @SerialName("followers_url")
     val followersUrl: String,
-    @SerializedName("following_url")
+    @SerialName("following_url")
     val followingUrl: String,
-    @SerializedName("gists_url")
+    @SerialName("gists_url")
     val gistsUrl: String,
-    @SerializedName("gravatar_id")
+    @SerialName("gravatar_id")
     val gravatarId: String,
-    @SerializedName("html_url")
+    @SerialName("html_url")
     val htmlUrl: String,
-    @SerializedName("id")
+    @SerialName("id")
     val id: Int,
-    @SerializedName("login")
+    @SerialName("login")
     val login: String,
-    @SerializedName("node_id")
+    @SerialName("node_id")
     val nodeId: String,
-    @SerializedName("organizations_url")
+    @SerialName("organizations_url")
     val organizationsUrl: String,
-    @SerializedName("received_events_url")
+    @SerialName("received_events_url")
     val receivedEventsUrl: String,
-    @SerializedName("repos_url")
+    @SerialName("repos_url")
     val reposUrl: String,
-    @SerializedName("site_admin")
+    @SerialName("site_admin")
     val siteAdmin: Boolean,
-    @SerializedName("starred_url")
+    @SerialName("starred_url")
     val starredUrl: String,
-    @SerializedName("subscriptions_url")
+    @SerialName("subscriptions_url")
     val subscriptionsUrl: String,
-    @SerializedName("type")
+    @SerialName("type")
     val type: String,
-    @SerializedName("url")
+    @SerialName("url")
     val url: String
 )

@@ -30,12 +30,12 @@ class DrawerViewModel(private val context: Application) : AndroidViewModel(conte
         showToast(context.getString(R.string.text_checking_for_updates))
         viewModelScope.launch {
             try {
-                var releaseInfo = VersionService2.gitUpdateCheckApi.getGithubLastReleaseInfo()
+                var releaseInfo = VersionService2.getGithubLastReleaseInfo()
 
                 var isLatestVersion = releaseInfo.isLatestVersion()
                 if (isLatestVersion == null) {
                     //Get release list
-                    VersionService2.gitUpdateCheckApi.getGithubReleaseInfoList()
+                    VersionService2.getGithubReleaseInfoList()
                         .firstOrNull { it.targetCommitish == "dev-test" && !it.prerelease }?.let {
                             releaseInfo = it
                             isLatestVersion = releaseInfo.isLatestVersion()
@@ -114,7 +114,7 @@ class DrawerViewModel(private val context: Application) : AndroidViewModel(conte
             .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
             .setDestinationUri(Uri.fromFile(file))
 
-        viewModelScope.launch {
+        viewModelScope.launch() {
             try {
                 withContext(Dispatchers.IO) {
                     downloadManager.enqueue(request)

@@ -4,8 +4,19 @@ import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.HttpRequestRetry
 import io.ktor.client.plugins.HttpTimeout
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.serialization.kotlinx.json.json
+import kotlinx.serialization.json.Json
 
-val axClient = HttpClient(OkHttp) {
+internal val axJson = Json{
+    ignoreUnknownKeys = true
+    prettyPrint = true
+    coerceInputValues = true
+}
+internal val axClient = HttpClient(OkHttp) {
+    install(ContentNegotiation) {
+        json(axJson)
+    }
     install(HttpTimeout){
         requestTimeoutMillis
     }
