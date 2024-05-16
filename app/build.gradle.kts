@@ -191,10 +191,6 @@ dependencies {
     // RxJava
     implementation(libs.rxjava2)
     implementation(libs.rxjava2.rxandroid)
-    // Retrofit
-    implementation(libs.retrofit2.bom)
-    implementation(libs.retrofit2.converter.gson)
-    implementation(libs.retrofit2.rxjava2.adapter)
 
     //Glide
     implementation(libs.glide)
