@@ -110,7 +110,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:label, android:allowBackup">
-        <profileable android:shell="true" tools:targetApi="UPSIDE_DOWN_CAKE" />
+        <profileable
+            android:shell="true"
+            tools:targetApi="R" />
         <meta-data
             android:name="android.max_aspect"
             android:value="2.1" />
@@ -203,7 +205,7 @@
             android:exported="true"
             android:icon="@drawable/ic_android_eat_js"
             android:label="${appName}"
-            android:targetActivity="org.autojs.autojs.external.tasker.TaskPrefEditActivity_"
+            android:targetActivity="org.autojs.autojs.external.tasker.TaskPrefEditActivity"
             tools:ignore="ExportedActivity">
             <intent-filter>
                 <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
@@ -291,8 +293,8 @@
 
         <activity
             android:name="org.autojs.autojs.external.open.RunIntentActivity"
-            android:exported="true"
             android:enabled="false"
+            android:exported="true"
             android:icon="@drawable/autojs_logo"
             android:label="@string/text_run_script"
             android:taskAffinity=".external.open.RunIntentActivity"
