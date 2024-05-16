@@ -46,7 +46,7 @@ import org.autojs.autojs.autojs.AutoJs;
 import org.autojs.autojs.model.autocomplete.AutoCompletion;
 import org.autojs.autojs.model.autocomplete.CodeCompletion;
 import org.autojs.autojs.model.autocomplete.CodeCompletions;
-import org.autojs.autojs.model.autocomplete.Symbols;
+import org.autojs.autojs.model.autocomplete.Symbol;
 import org.autojs.autojs.model.indices.Module;
 import org.autojs.autojs.model.indices.Property;
 import org.autojs.autojs.model.script.Scripts;
@@ -310,7 +310,7 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
     }
 
     private void setUpInputMethodEnhancedBar() {
-        mSymbolBar.setCodeCompletions(Symbols.getSymbols());
+        mSymbolBar.setCodeCompletions(Symbol.getSymbols());
         mCodeCompletionBar.setOnHintClickListener(this);
         mSymbolBar.setOnHintClickListener(this);
         mAutoCompletion = new AutoCompletion(getContext(), mEditor.getCodeEditText());

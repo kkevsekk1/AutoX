@@ -1,18 +1,14 @@
-package org.autojs.autojs.model.autocomplete;
-
-import java.util.Arrays;
+package org.autojs.autojs.model.autocomplete
 
 /**
  * Created by Stardust on 2017/9/28.
  */
-
-public class Symbols {
-
-    private static CodeCompletions sSymbols = CodeCompletions.just(Arrays.asList(
+object Symbol {
+    @JvmStatic
+    val symbols: CodeCompletions = CodeCompletions.just(
+        listOf(
             "\"", "(", ")", "=", ";", "/", "{", "}", "!", "|", "&", "-",
-            "[", "]", "+", "-", "<", ">", "\\", "*", "?"));
-
-    public static CodeCompletions getSymbols() {
-        return sSymbols;
-    }
+            "[", "]", "+", "-", "<", ">", "\\", "*", "?"
+        )
+    )
 }
