@@ -109,9 +109,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:replace="android:label, android:allowBackup"
-        tools:targetApi="m">
-
+        tools:replace="android:label, android:allowBackup">
+        <profileable android:shell="true" tools:targetApi="UPSIDE_DOWN_CAKE" />
         <meta-data
             android:name="android.max_aspect"
             android:value="2.1" />
@@ -154,29 +153,29 @@
         </provider>
 
         <activity
-            android:name="org.autojs.autojs.ui.edit.EditActivity_"
+            android:name="org.autojs.autojs.ui.edit.EditActivity"
             android:configChanges="orientation|screenSize|uiMode"
             android:launchMode="standard"
             android:multiprocess="true"
             android:taskAffinity="org.autojs.autojs.edit"
             android:theme="@style/EditorTheme" />
-        <activity android:name="org.autojs.autojs.ui.settings.AboutActivity_" />
+        <activity android:name="org.autojs.autojs.ui.settings.AboutActivity" />
         <activity
             android:name="org.autojs.autojs.ui.settings.SettingsActivity"
             android:theme="@style/M3AppTheme" />
         <activity android:name="org.autojs.autojs.ui.error.ErrorReportActivity" />
         <activity
-            android:name="org.autojs.autojs.external.tasker.TaskerScriptEditActivity_"
+            android:name="org.autojs.autojs.external.tasker.TaskerScriptEditActivity"
             android:configChanges="orientation|screenSize" />
         <activity android:name="org.autojs.autojs.ui.edit.ViewSampleActivity" />
         <activity
             android:name="org.autojs.autojs.ui.build.BuildActivity"
             android:configChanges="orientation|screenSize" />
         <activity android:name="org.autojs.autojs.ui.build.SignManageActivityKt" />
-        <activity android:name="org.autojs.autojs.ui.build.ProjectConfigActivity_" />
+        <activity android:name="org.autojs.autojs.ui.build.ProjectConfigActivity" />
         <activity android:name="org.autojs.autojs.ui.log.LogActivityKt" />
-        <activity android:name="org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity_" />
-        <activity android:name="org.autojs.autojs.ui.timing.TimedTaskSettingActivity_" />
+        <activity android:name="org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity" />
+        <activity android:name="org.autojs.autojs.ui.timing.TimedTaskSettingActivity" />
         <activity
             android:name="org.autojs.autojs.ui.shortcut.ShortcutCreateActivity"
             android:theme="@style/AppTheme.Transparent" />
@@ -196,8 +195,8 @@
 
         <service android:name="org.autojs.autojs.external.foreground.ForegroundService" />
 
-        <activity android:name="org.autojs.autojs.external.tasker.TaskPrefEditActivity_" />
-        <activity android:name="org.autojs.autojs.ui.log.LogActivity_" />
+        <activity android:name="org.autojs.autojs.external.tasker.TaskPrefEditActivity" />
+        <activity android:name="org.autojs.autojs.ui.log.LogActivity" />
 
         <activity-alias
             android:name=".external.tasker.PluginActivity"
