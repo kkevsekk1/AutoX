@@ -174,6 +174,8 @@ ktor-server-websockets = { module = "io.ktor:ktor-server-websockets", version.re
 ktor-client-websockets = { module = "io.ktor:ktor-client-websockets", version.ref = "ktor" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 
 quickie-bundled = { module = "io.github.g00fy2.quickie:quickie-bundled", version.ref = "quickie-bundled-version" }
 recyclerview-flexibledivider = { module = "com.yqritc:recyclerview-flexibledivider", version.ref = "recyclerview-flexibledivider-version" }
@@ -246,7 +248,9 @@ ktor = [
     "ktor-server-websockets",
     "ktor-client-websockets",
     "ktor-client-okhttp",
-    "ktor-client-core"
+    "ktor-client-core",
+    "ktor-client-content-negotiation",
+    "ktor-serialization-kotlinx-json",
 ]
 accompanist = [
     "accompanist-webview",
