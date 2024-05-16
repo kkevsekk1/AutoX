@@ -1,220 +1,224 @@
-package org.autojs.autojs.network.download;
+package org.autojs.autojs.network.download
 
-import android.content.Context;
-import android.util.Log;
-
-import com.afollestad.materialdialogs.MaterialDialog;
-import com.stardust.concurrent.VolatileBox;
-import com.stardust.pio.PFiles;
-
-import org.autojs.autoxjs.R;
-import org.autojs.autojs.network.NodeBB;
-import org.autojs.autojs.network.api.DownloadApi;
-import org.autojs.autojs.tool.SimpleObserver;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URLDecoder;
-import java.util.concurrent.ConcurrentHashMap;
-
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
-import io.reactivex.subjects.PublishSubject;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import android.content.Context
+import android.util.Log
+import com.afollestad.materialdialogs.DialogAction
+import com.afollestad.materialdialogs.MaterialDialog
+import com.stardust.concurrent.VolatileBox
+import com.stardust.pio.PFiles.ensureDir
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+import io.reactivex.subjects.PublishSubject
+import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import okhttp3.ResponseBody
+import org.autojs.autojs.network.NodeBB
+import org.autojs.autojs.network.api.DownloadApi
+import org.autojs.autojs.tool.SimpleObserver
+import org.autojs.autoxjs.R
+import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.InputStream
+import java.net.URLDecoder
+import java.util.concurrent.ConcurrentHashMap
 
 /**
  * Created by Stardust on 2017/10/20.
  */
+class DownloadManager {
+    private val mRetrofit: Retrofit
+    private val mDownloadApi: DownloadApi
+    private val mDownloadStatuses = ConcurrentHashMap<String, VolatileBox<Boolean>>()
 
-public class DownloadManager {
-
-    private static final String LOG_TAG = "DownloadManager";
-    private static DownloadManager sInstance;
-
-    private static final int RETRY_COUNT = 3;
-    private Retrofit mRetrofit;
-    private DownloadApi mDownloadApi;
-    private ConcurrentHashMap<String, VolatileBox<Boolean>> mDownloadStatuses = new ConcurrentHashMap<>();
-
-    public DownloadManager() {
-        mRetrofit = new Retrofit.Builder()
-                .baseUrl(NodeBB.BASE_URL)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .client(new OkHttpClient.Builder()
-                        .addInterceptor(chain -> {
-                            Request request = chain.request();
-                            Response response = chain.proceed(request);
-                            int tryCount = 0;
-                            while (!response.isSuccessful() && tryCount < RETRY_COUNT) {
-                                tryCount++;
-                                response = chain.proceed(request);
-                            }
-                            return response;
-                        })
-                        .build()
-                )
-                .build();
-        mDownloadApi = mRetrofit.create(DownloadApi.class);
+    init {
+        mRetrofit = Retrofit.Builder()
+            .baseUrl(NodeBB.BASE_URL)
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .client(
+                OkHttpClient.Builder()
+                    .addInterceptor(Interceptor { chain: Interceptor.Chain ->
+                        val request = chain.request()
+                        var response = chain.proceed(request)
+                        var tryCount = 0
+                        while (!response.isSuccessful && tryCount < RETRY_COUNT) {
+                            tryCount++
+                            response = chain.proceed(request)
+                        }
+                        response
+                    })
+                    .build()
+            )
+            .build()
+        mDownloadApi = mRetrofit.create(DownloadApi::class.java)
     }
 
 
-    public static DownloadManager getInstance() {
-        if (sInstance == null) {
-            sInstance = new DownloadManager();
-        }
-        return sInstance;
-    }
-
-
-    public static String parseFileNameLocally(String url) {
-        int i = url.lastIndexOf('-');
-        if (i < 0) {
-            i = url.lastIndexOf('/');
-        }
-        return URLDecoder.decode(url.substring(i + 1));
-    }
-
-    public Observable<Integer> download(String url, String path) {
-        DownloadTask task = new DownloadTask(url, path);
+    fun download(url: String, path: String?): Observable<Int> {
+        val task = DownloadTask(url, path)
         mDownloadApi.download(url)
-                .subscribeOn(Schedulers.io())
-                .subscribe(task::start, error -> task.progress().onError(error));
-        return task.progress();
+            .subscribeOn(Schedulers.io())
+            .subscribe({ body: ResponseBody -> task.start(body) }, { error: Throwable? ->
+                task.progress().onError(
+                    error!!
+                )
+            })
+        return task.progress()
     }
 
-    public Observable<File> downloadWithProgress(Context context, String url, String path) {
-        String fileName = DownloadManager.parseFileNameLocally(url);
-        return download(url, path, createDownloadProgressDialog(context, url, fileName));
+    fun downloadWithProgress(context: Context, url: String, path: String): Observable<File> {
+        val fileName = parseFileNameLocally(url)
+        return download(url, path, createDownloadProgressDialog(context, url, fileName))
     }
 
-    private MaterialDialog createDownloadProgressDialog(Context context, String url, String fileName) {
-        return new MaterialDialog.Builder(context)
-                .progress(false, 100)
-                .title(fileName)
-                .cancelable(false)
-                .positiveText(R.string.text_cancel_download)
-                .onPositive((dialog, which) -> DownloadManager.getInstance().cancelDownload(url))
-                .show();
+    private fun createDownloadProgressDialog(
+        context: Context,
+        url: String,
+        fileName: String
+    ): MaterialDialog {
+        return MaterialDialog.Builder(context)
+            .progress(false, 100)
+            .title(fileName)
+            .cancelable(false)
+            .positiveText(R.string.text_cancel_download)
+            .onPositive { dialog: MaterialDialog?, which: DialogAction? ->
+                instance.cancelDownload(
+                    url
+                )
+            }
+            .show()
     }
 
-    private Observable<File> download(String url, String path, MaterialDialog progressDialog) {
-        PublishSubject<File> subject = PublishSubject.create();
-        DownloadManager.getInstance().download(url, path)
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnNext(progressDialog::setProgress)
-                .subscribe(new SimpleObserver<Integer>() {
-                    @Override
-                    public void onComplete() {
-                        progressDialog.dismiss();
-                        subject.onNext(new File(path));
-                        subject.onComplete();
-                    }
+    private fun download(
+        url: String,
+        path: String,
+        progressDialog: MaterialDialog
+    ): Observable<File> {
+        val subject = PublishSubject.create<File>()
+        instance.download(url, path)
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnNext { progress: Int? ->
+                progressDialog.setProgress(
+                    progress!!
+                )
+            }
+            .subscribe(object : SimpleObserver<Int?>() {
+                override fun onComplete() {
+                    progressDialog.dismiss()
+                    subject.onNext(File(path))
+                    subject.onComplete()
+                }
 
-                    @Override
-                    public void onError(Throwable error) {
-                        Log.e(LOG_TAG, "Download failed", error);
-                        progressDialog.dismiss();
-                        subject.onError(error);
-                    }
-                });
-        return subject;
+                override fun onError(error: Throwable) {
+                    Log.e(LOG_TAG, "Download failed", error)
+                    progressDialog.dismiss()
+                    subject.onError(error)
+                }
+            })
+        return subject
     }
 
-    public void cancelDownload(String url) {
-        VolatileBox<Boolean> status = mDownloadStatuses.get(url);
-        if (status != null) {
-            status.set(false);
+    fun cancelDownload(url: String) {
+        val status = mDownloadStatuses[url]
+        status?.set(false)
+    }
+
+    private inner class DownloadTask(private val mUrl: String, private val mPath: String?) {
+        private val mStatus = VolatileBox(true)
+        private var mInputStream: InputStream? = null
+        private var mFileOutputStream: FileOutputStream? = null
+        private val mProgress: PublishSubject<Int>
+
+        init {
+            val previous = mDownloadStatuses.put(mUrl, mStatus)
+            previous?.set(false)
+            mProgress = PublishSubject.create()
         }
-    }
 
-    private class DownloadTask {
-
-        private String mUrl;
-        private String mPath;
-        private VolatileBox<Boolean> mStatus;
-        private InputStream mInputStream;
-        private FileOutputStream mFileOutputStream;
-        private PublishSubject<Integer> mProgress;
-
-        public DownloadTask(String url, String path) {
-            mUrl = url;
-            mPath = path;
-            mStatus = new VolatileBox<>(true);
-            VolatileBox<Boolean> previous = mDownloadStatuses.put(mUrl, mStatus);
-            if (previous != null)
-                previous.set(false);
-            mProgress = PublishSubject.create();
-        }
-
-        private void startImpl(ResponseBody body) throws IOException {
-            byte[] buffer = new byte[4096];
-            mFileOutputStream = new FileOutputStream(mPath);
-            mInputStream = body.byteStream();
-            long total = body.contentLength();
-            long read = 0;
+        @Throws(IOException::class)
+        private fun startImpl(body: ResponseBody) {
+            val buffer = ByteArray(4096)
+            mFileOutputStream = FileOutputStream(mPath)
+            mInputStream = body.byteStream()
+            val total = body.contentLength()
+            var read: Long = 0
             while (true) {
                 if (!mStatus.get()) {
-                    onCancel();
-                    return;
+                    onCancel()
+                    return
                 }
-                int len = mInputStream.read(buffer);
+                val len = mInputStream!!.read(buffer)
                 if (len == -1) {
-                    break;
+                    break
                 }
-                read += len;
-                mFileOutputStream.write(buffer, 0, len);
+                read += len.toLong()
+                mFileOutputStream!!.write(buffer, 0, len)
                 if (total > 0) {
-                    mProgress.onNext((int) (100 * read / total));
+                    mProgress.onNext((100 * read / total).toInt())
                 }
             }
-            mProgress.onComplete();
-            recycle();
+            mProgress.onComplete()
+            recycle()
         }
 
-        public void start(ResponseBody body) {
+        fun start(body: ResponseBody) {
             try {
-                PFiles.ensureDir(mPath);
-                startImpl(body);
-            } catch (Exception e) {
-                mProgress.onError(e);
+                ensureDir(mPath!!)
+                startImpl(body)
+            } catch (e: Exception) {
+                mProgress.onError(e)
             }
         }
 
-        private void onCancel() throws IOException {
-            recycle();
-            // TODO: 2017/12/6 notify?
+        @Throws(IOException::class)
+        private fun onCancel() {
+            recycle()
         }
 
-        public void recycle() {
-            mDownloadStatuses.remove(mUrl);
+        fun recycle() {
+            mDownloadStatuses.remove(mUrl)
             if (mInputStream != null) {
                 try {
-                    mInputStream.close();
-                } catch (IOException ignored) {
-
+                    mInputStream!!.close()
+                } catch (ignored: IOException) {
                 }
             }
             if (mFileOutputStream != null) {
                 try {
-                    mFileOutputStream.close();
-                } catch (IOException ignored) {
+                    mFileOutputStream!!.close()
+                } catch (ignored: IOException) {
                 }
             }
-
         }
 
-        public PublishSubject<Integer> progress() {
-            return mProgress;
+        fun progress(): PublishSubject<Int> {
+            return mProgress
         }
+    }
+
+    companion object {
+        private const val LOG_TAG = "DownloadManager"
+        private var sInstance: DownloadManager? = null
+
+        private const val RETRY_COUNT = 3
+        val instance: DownloadManager
+            get() {
+                if (sInstance == null) {
+                    sInstance = DownloadManager()
+                }
+                return sInstance!!
+            }
 
 
+        fun parseFileNameLocally(url: String): String {
+            var i = url.lastIndexOf('-')
+            if (i < 0) {
+                i = url.lastIndexOf('/')
+            }
+            return URLDecoder.decode(url.substring(i + 1))
+        }
     }
 }
