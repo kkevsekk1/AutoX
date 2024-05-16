@@ -138,6 +138,10 @@ android {
 }
 
 dependencies {
+    implementation(projects.autojs)
+    implementation(projects.apkbuilder)
+    implementation(projects.codeeditor)
+
     implementation(libs.androidx.localbroadcastmanager)
     implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.androidx.webkit)
@@ -146,6 +150,7 @@ dependencies {
 
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.material)
+    implementation(libs.androidx.compose.material3)
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     implementation(libs.androidx.activity.compose)
 
@@ -207,9 +212,6 @@ dependencies {
     implementation(libs.androidx.work.runtime)
     // Android job
     implementation(libs.android.job)
-    implementation(project(":autojs"))
-    implementation(project(":apkbuilder"))
-    implementation(project(":codeeditor"))
     implementation(libs.androidx.multidex)
 
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
