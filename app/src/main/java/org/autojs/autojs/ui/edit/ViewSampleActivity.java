@@ -1,41 +1,35 @@
 package org.autojs.autojs.ui.edit;
 
+import static org.autojs.autojs.model.script.Scripts.ACTION_ON_EXECUTION_FINISHED;
+import static org.autojs.autojs.model.script.Scripts.EXTRA_EXCEPTION_MESSAGE;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.snackbar.Snackbar;
 import com.stardust.app.OnActivityResultDelegate;
 import com.stardust.autojs.engine.JavaScriptEngine;
 import com.stardust.autojs.execution.ScriptExecution;
+import com.stardust.theme.ThemeColorManager;
+import com.stardust.util.SparseArrayEntries;
 
-import org.autojs.autoxjs.R;
 import org.autojs.autojs.autojs.AutoJs;
 import org.autojs.autojs.model.sample.SampleFile;
 import org.autojs.autojs.ui.BaseActivity;
 import org.autojs.autojs.ui.common.ScriptOperations;
-
-import com.stardust.theme.ThemeColorManager;
-import com.stardust.util.SparseArrayEntries;
-
 import org.autojs.autojs.ui.widget.ToolbarMenuItem;
+import org.autojs.autoxjs.R;
 
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-
-import static org.autojs.autojs.model.script.Scripts.ACTION_ON_EXECUTION_FINISHED;
-import static org.autojs.autojs.model.script.Scripts.EXTRA_EXCEPTION_MESSAGE;
 
 
 /**
@@ -85,20 +79,22 @@ public class ViewSampleActivity extends AppCompatActivity implements OnActivityR
         ThemeColorManager.addActivityStatusBar(this);
         setUpToolbar();
         initMenuItem();
-        ButterKnife.bind(this);
+        mView.findViewById(R.id.run).setOnClickListener(view -> {
+            run();
+        });
+        mView.findViewById(R.id.edit).setOnClickListener(view -> {
+            edit();
+        });
     }
 
     private void setUpToolbar() {
         BaseActivity.setToolbarAsBack(this, R.id.toolbar, mSample.getSimplifiedName());
     }
 
-    @OnClick(R.id.run)
     void run() {
         Snackbar.make(mView, R.string.text_start_running, Snackbar.LENGTH_SHORT).show();
-        //mScriptExecution = Scripts.runWithBroadcastSender(new StringScriptSource(mSample.name, mEditorDelegate.getText()));
     }
 
-    @OnClick(R.id.edit)
     void edit() {
         new ScriptOperations(this, mView)
                 .importSample(mSample)
@@ -183,6 +179,7 @@ public class ViewSampleActivity extends AppCompatActivity implements OnActivityR
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         mMediator.onActivityResult(requestCode, resultCode, data);
     }
 }

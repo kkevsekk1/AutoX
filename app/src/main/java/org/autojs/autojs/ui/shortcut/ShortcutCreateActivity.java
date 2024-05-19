@@ -10,27 +10,26 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.autojs.autoxjs.R;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
 import org.autojs.autojs.external.ScriptIntents;
 import org.autojs.autojs.external.shortcut.Shortcut;
 import org.autojs.autojs.external.shortcut.ShortcutActivity;
 import org.autojs.autojs.external.shortcut.ShortcutManager;
 import org.autojs.autojs.model.script.ScriptFile;
-import org.autojs.autojs.tool.BitmapTool;
 import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
+import org.autojs.autojs.tool.BitmapTool;
+import org.autojs.autoxjs.R;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -46,14 +45,11 @@ public class ShortcutCreateActivity extends AppCompatActivity {
     private ScriptFile mScriptFile;
     private boolean mIsDefaultIcon = true;
 
-    @BindView(R.id.name)
-    TextView mName;
+    private TextView mName;
 
-    @BindView(R.id.icon)
-    ImageView mIcon;
+    private ImageView mIcon;
 
-    @BindView(R.id.use_android_n_shortcut)
-    CheckBox mUseAndroidNShortcut;
+    private CheckBox mUseAndroidNShortcut;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -64,7 +60,7 @@ public class ShortcutCreateActivity extends AppCompatActivity {
 
     private void showDialog() {
         View view = View.inflate(this, R.layout.shortcut_create_dialog, null);
-        ButterKnife.bind(this, view);
+        bindView(view);
         mUseAndroidNShortcut.setVisibility(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N ?
                 View.VISIBLE : View.GONE);
         mName.setText(mScriptFile.getSimplifiedName());
@@ -81,10 +77,9 @@ public class ShortcutCreateActivity extends AppCompatActivity {
     }
 
 
-    @OnClick(R.id.icon)
-    void selectIcon() {
-        ShortcutIconSelectActivity_.intent(this)
-                .startForResult(21209);
+    private void selectIcon() {
+        Intent intent = new Intent(this, ShortcutIconSelectActivity.class);
+        startActivityForResult(intent, 21209);
     }
 
 
@@ -135,6 +130,7 @@ public class ShortcutCreateActivity extends AppCompatActivity {
     @SuppressLint("CheckResult")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (resultCode != RESULT_OK) {
             return;
         }
@@ -149,7 +145,7 @@ public class ShortcutCreateActivity extends AppCompatActivity {
             return;
         }
         Uri uri = data.getData();
-        if(uri == null){
+        if (uri == null) {
             return;
         }
         Observable.fromCallable(() -> BitmapFactory.decodeStream(getContentResolver().openInputStream(uri)))
@@ -162,5 +158,14 @@ public class ShortcutCreateActivity extends AppCompatActivity {
                     Log.e(LOG_TAG, "decode stream", error);
                 });
 
+    }
+
+    private void bindView(@NonNull View bindSource) {
+        mName = bindSource.findViewById(R.id.name);
+        mIcon = bindSource.findViewById(R.id.icon);
+        mUseAndroidNShortcut = bindSource.findViewById(R.id.use_android_n_shortcut);
+        mIcon.setOnClickListener(v -> {
+            selectIcon();
+        });
     }
 }

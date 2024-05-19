@@ -80,7 +80,6 @@ import org.autojs.autojs.autojs.AutoJs
 import org.autojs.autojs.external.foreground.ForegroundService
 import org.autojs.autojs.timing.TimedTaskScheduler
 import org.autojs.autojs.ui.build.ProjectConfigActivity
-import org.autojs.autojs.ui.build.ProjectConfigActivity_
 import org.autojs.autojs.ui.common.ScriptOperations
 import org.autojs.autojs.ui.compose.theme.AutoXJsTheme
 import org.autojs.autojs.ui.compose.widget.MyIcon
@@ -93,6 +92,7 @@ import org.autojs.autojs.ui.main.drawer.DrawerPage
 import org.autojs.autojs.ui.main.scripts.ScriptListFragment
 import org.autojs.autojs.ui.main.task.TaskManagerFragmentKt
 import org.autojs.autojs.ui.main.web.EditorAppManager
+import org.autojs.autojs.ui.util.launchActivity
 import org.autojs.autojs.ui.widget.fillMaxSize
 import org.autojs.autoxjs.R
 
@@ -589,13 +589,13 @@ private fun NewProject(
 ) {
     DropdownMenuItem(onClick = {
         onDismissRequest()
-        ProjectConfigActivity_.intent(context)
-            .extra(
+        context.launchActivity<ProjectConfigActivity> {
+            putExtra(
                 ProjectConfigActivity.EXTRA_PARENT_DIRECTORY,
                 scriptListFragment.explorerView.currentPage?.path
             )
-            .extra(ProjectConfigActivity.EXTRA_NEW_PROJECT, true)
-            .start()
+            putExtra(ProjectConfigActivity.EXTRA_NEW_PROJECT, true)
+        }
     }) {
         MyIcon(
             painter = painterResource(id = R.drawable.ic_project2),

@@ -1,18 +1,17 @@
 [versions]
 androidGradlePlugin = "8.3.2"
-androidxComposeCompiler = "1.5.13"
+androidxComposeCompiler = "1.5.14"
 androidTools = "31.4.0"
 androidIssueReporterVersion = "1.3.1"
-kotlin = "1.9.23"
-ksp = "1.9.23-1.0.20"
+kotlin = "1.9.24"
+ksp = "1.9.24-1.0.20"
 android-job-version = "1.4.2"
 androidxWebkit = "1.11.0"
 androidxPreference = "1.2.1"
 androidxActivity = "1.9.0"
-androidxAnnotation = "1.7.1"
+androidxAnnotation = "1.8.0"
 androidxDocumentfile = "1.0.1"
 android-plugin-client-sdk-for-locale-version = "4.0.3"
-androidannotations = "4.5.2"
 activity-compose = "1.9.0"
 analytics-version = "13.1.0"
 android-joda-version = "2.10.14"
@@ -21,8 +20,6 @@ androidLoggingLog4jVersion = "1.0.3"
 andserver = "2.1.12"
 bcpkix-jdk15on-version = "1.56.0.0"
 bignerdranch-expandablerecyclerview = "3.0.0-RC1"
-butterknife-version = "10.2.1"
-butterknife-compiler-version = "10.2.3"
 cardview-version = "1.0.0"
 coil = "2.6.0"
 commonmark-java-version = "commonmark-parent-0.9.0"
@@ -43,7 +40,7 @@ keeplive-version = "1.1.22"
 kotlinx-coroutines-android = "1.8.1"
 library-version = "2.1.3"
 licensesdialog-version = "2.2.0"
-androidxLifecycle = "2.7.0"
+androidxLifecycle = "2.8.0"
 localbroadcastmanager-version = "1.1.0"
 leakcanary = "2.14"
 log4jVersion = "1.2.17"
@@ -57,11 +54,10 @@ appcompat = "1.6.1"
 material = "1.12.0"
 accompanist-version = "0.35.0-alpha"
 org-eclipse-paho-android-service-version = "1.1.1"
-org-eclipse-paho-client-mqttv3-version = "1.1.1"
+org-eclipse-paho-client-mqttv3-version = "1.2.5"
 plugin-version = "2.1.12"
 quickie-bundled-version = "1.5.0"
 recyclerview-flexibledivider-version = "1.4.0"
-retrofit2 = "2.11.0"
 rootshell-version = "1.6"
 roundedimageview-version = "2.3.0"
 savedstate = "1.2.1"
@@ -73,7 +69,7 @@ tbssdk-version = "44181"
 tesseract4android-version = "4.1.1"
 mlkitTextRecognition = "16.0.0"
 utils-everywhere-version = "3.0.0"
-viewpager2-version = "1.1.0-rc01"
+viewpager2-version = "1.1.0"
 websocket2-version = "2.1.4"
 work-runtime-version = "2.9.0"
 zip4j-version = "1.3.2"
@@ -91,11 +87,8 @@ android-issue-reporter = { module = "com.heinrichreimersoftware:android-issue-re
 android-job = { module = "com.evernote:android-job", version.ref = "android-job-version" }
 android-joda = { module = "net.danlew:android.joda", version.ref = "android-joda-version" }
 android-logging-log4j = { module = "de.mindpipe.android:android-logging-log4j", version.ref = "androidLoggingLog4jVersion" }
-android-multi-level-listview = { module = "com.github.hyb1996:android-multi-level-listview", version.ref = "android-multi-level-listview-version" }
+
 android-plugin-client-sdk-for-locale = { module = "com.twofortyfouram:android-plugin-client-sdk-for-locale", version.ref = "android-plugin-client-sdk-for-locale-version" }
-androidannotations-api = { module = "org.androidannotations:androidannotations-api", version.ref = "androidannotations" }
-androidannotations-androidannotations = { module = "org.androidannotations:androidannotations", version.ref = "androidannotations" }
-androidannotations = { module = "org.androidannotations:androidannotations", version.ref = "androidannotations" }
 androidx-cardview = { module = "androidx.cardview:cardview", version.ref = "cardview-version" }
 
 androidx-localbroadcastmanager = { module = "androidx.localbroadcastmanager:localbroadcastmanager", version.ref = "localbroadcastmanager-version" }
@@ -106,29 +99,23 @@ androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefre
 androidx-viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2-version" }
 androidx-work-runtime = { module = "androidx.work:work-runtime", version.ref = "work-runtime-version" }
 bcpkix-jdk15on = { module = "com.madgag.spongycastle:bcpkix-jdk15on", version.ref = "bcpkix-jdk15on-version" }
-butterknife-compiler = { module = "com.jakewharton:butterknife-compiler", version.ref = "butterknife-compiler-version" }
-butterknife = { module = "com.jakewharton:butterknife", version.ref = "butterknife-version" }
-butterknife-gradle-plugin = { module = "com.jakewharton:butterknife-gradle-plugin", version.ref = "butterknife-compiler-version" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 commonmark-java = { module = "com.github.atlassian:commonmark-java", version.ref = "commonmark-java-version" }
 commons-lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "commons-lang3-version" }
 
 core = { module = "com.afollestad.material-dialogs:core", version.ref = "core-version" }
 crashreport = { module = "com.tencent.bugly:crashreport", version.ref = "crashreport-version" }
-enhancedfloaty = { module = "com.github.hyb1996:EnhancedFloaty", version.ref = "enhancedfloaty-version" }
+
 expandablerecyclerview = { module = "com.thoughtbot:expandablerecyclerview", version.ref = "expandablerecyclerview-version" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
-glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
 
 groovy-json = { module = "org.codehaus.groovy:groovy-json", version.ref = "groovy-json-version" }
 jdeferred-android-aar = { module = "org.jdeferred:jdeferred-android-aar", version.ref = "jdeferred-android-aar-version" }
 keeplive = { module = "com.fanjun:keeplive", version.ref = "keeplive-version" }
-library = { module = "com.wang.avi:library", version.ref = "library-version" }
 licensesdialog = { module = "de.psdev.licensesdialog:licensesdialog", version.ref = "licensesdialog-version" }
 log4j = { module = "log4j:log4j", version.ref = "log4jVersion" }
 markwon-core = { module = "io.noties.markwon:core", version.ref = "core" }
 material-dialogs-commons = { module = "com.afollestad.material-dialogs:commons", version.ref = "commons-version" }
-mutabletheme = { module = "com.github.hyb1996:MutableTheme", version.ref = "mutabletheme-version" }
 
 org-eclipse-paho-android-service = { module = "org.eclipse.paho:org.eclipse.paho.android.service", version.ref = "org-eclipse-paho-android-service-version" }
 org-eclipse-paho-client-mqttv3 = { module = "org.eclipse.paho:org.eclipse.paho.client.mqttv3", version.ref = "org-eclipse-paho-client-mqttv3-version" }
@@ -150,7 +137,7 @@ androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = 
 androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 androidx-compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version = "1.7.0-alpha08" }
 androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
-androidx-compose-material = { module = "androidx.compose.material:material" }
+androidx-compose-material = { module = "androidx.compose.material:material", version = "1.7.0-alpha08" }
 androidx-compose-ui = { module = "androidx.compose.ui:ui" }
 androidx-compose-foundation = { module = "androidx.compose.foundation:foundation" }
 androidx-compose-foundation-layout = { module = "androidx.compose.foundation:foundation-layout" }
@@ -186,13 +173,11 @@ ktor-server-websockets = { module = "io.ktor:ktor-server-websockets", version.re
 ktor-client-websockets = { module = "io.ktor:ktor-client-websockets", version.ref = "ktor" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 
 quickie-bundled = { module = "io.github.g00fy2.quickie:quickie-bundled", version.ref = "quickie-bundled-version" }
 recyclerview-flexibledivider = { module = "com.yqritc:recyclerview-flexibledivider", version.ref = "recyclerview-flexibledivider-version" }
-
-retrofit2-bom = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit2" }
-retrofit2-rxjava2-adapter = { module = "com.squareup.retrofit2:adapter-rxjava2", version.ref = "retrofit2" }
-retrofit2-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit2" }
 
 rootshell = { module = "com.github.Stericson:RootShell", version.ref = "rootshell-version" }
 roundedimageview = { module = "com.makeramen:roundedimageview", version.ref = "roundedimageview-version" }
@@ -213,8 +198,14 @@ material = { group = "com.google.android.material", name = "material", version.r
 andserver-processor = { module = "com.yanzhenjie.andserver:processor", version.ref = "andserver" }
 andserver-api = { module = "com.yanzhenjie.andserver:api", version.ref = "andserver" }
 andserver = { module = "com.yanzhenjie.andserver:plugin", version.ref = "plugin-version" }
+
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version = "2.1.4" }
+
+enhancedfloaty = { module = "com.github.hyb1996:EnhancedFloaty", version.ref = "enhancedfloaty-version" }
+android-multi-level-listview = { module = "com.github.hyb1996:android-multi-level-listview", version.ref = "android-multi-level-listview-version" }
+mutabletheme = { module = "com.github.hyb1996:MutableTheme", version.ref = "mutabletheme-version" }
 settingscompat = { module = "com.github.hyb1996:settingscompat", version.ref = "settingscompat-version" }
+
 speed-dial-compose = { module = "com.leinardi.android:speed-dial.compose", version.ref = "speed-dial-compose-version" }
 tbssdk = { module = "com.tencent.tbs:tbssdk", version.ref = "tbssdk-version" }
 
@@ -252,7 +243,9 @@ ktor = [
     "ktor-server-websockets",
     "ktor-client-websockets",
     "ktor-client-okhttp",
-    "ktor-client-core"
+    "ktor-client-core",
+    "ktor-client-content-negotiation",
+    "ktor-serialization-kotlinx-json",
 ]
 accompanist = [
     "accompanist-webview",

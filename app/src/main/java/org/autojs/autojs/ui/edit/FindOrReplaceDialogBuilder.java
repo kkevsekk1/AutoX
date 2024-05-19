@@ -2,22 +2,21 @@ package org.autojs.autojs.ui.edit;
 
 import android.content.Context;
 import android.preference.PreferenceManager;
-import androidx.annotation.NonNull;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 
-import org.autojs.autoxjs.R;
 import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
 import org.autojs.autojs.ui.edit.editor.CodeEditor;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnCheckedChanged;
-import butterknife.OnTextChanged;
+import org.autojs.autoxjs.R;
 
 /**
  * Created by Stardust on 2017/9/28.
@@ -27,22 +26,17 @@ public class FindOrReplaceDialogBuilder extends ThemeColorMaterialDialogBuilder 
 
     private static final String KEY_KEYWORDS = "...";
 
-    @BindView(R.id.checkbox_regex)
-    CheckBox mRegexCheckBox;
+    private CheckBox mRegexCheckBox;
 
-    @BindView(R.id.checkbox_replace)
-    CheckBox mReplaceCheckBox;
+    private CheckBox mReplaceCheckBox;
 
-    @BindView(R.id.checkbox_replace_all)
-    CheckBox mReplaceAllCheckBox;
+    private CheckBox mReplaceAllCheckBox;
 
-    @BindView(R.id.keywords)
-    EditText mKeywordsEditText;
+    private EditText mKeywordsEditText;
 
-    @BindView(R.id.replacement)
-    EditText mReplacementEditText;
+    private EditText mReplacementEditText;
 
-    private EditorView mEditorView;
+    private final EditorView mEditorView;
 
     public FindOrReplaceDialogBuilder(@NonNull Context context, EditorView editorView) {
         super(context);
@@ -59,7 +53,7 @@ public class FindOrReplaceDialogBuilder extends ThemeColorMaterialDialogBuilder 
 
     private void setupViews() {
         View view = View.inflate(context, R.layout.dialog_find_or_replace, null);
-        ButterKnife.bind(this, view);
+        bindView(view);
         customView(view, true);
         positiveText(R.string.ok);
         negativeText(R.string.cancel);
@@ -79,14 +73,12 @@ public class FindOrReplaceDialogBuilder extends ThemeColorMaterialDialogBuilder 
                 .getString(KEY_KEYWORDS, ""));
     }
 
-    @OnCheckedChanged(R.id.checkbox_replace_all)
     void syncWithReplaceCheckBox() {
         if (mReplaceAllCheckBox.isChecked() && !mReplaceCheckBox.isChecked()) {
             mReplaceCheckBox.setChecked(true);
         }
     }
 
-    @OnTextChanged(R.id.replacement)
     void onTextChanged() {
         if (mReplacementEditText.getText().length() > 0) {
             mReplaceCheckBox.setChecked(true);
@@ -122,5 +114,37 @@ public class FindOrReplaceDialogBuilder extends ThemeColorMaterialDialogBuilder 
         if (!TextUtils.isEmpty(s))
             mKeywordsEditText.setText(s);
         return this;
+    }
+
+    private void bindView(@NonNull View bindSource) {
+        mRegexCheckBox = bindSource.findViewById(R.id.checkbox_regex);
+        mReplaceCheckBox = bindSource.findViewById(R.id.checkbox_replace);
+        mReplaceAllCheckBox = bindSource.findViewById(R.id.checkbox_replace_all);
+        mKeywordsEditText = bindSource.findViewById(R.id.keywords);
+        mReplacementEditText = bindSource.findViewById(R.id.replacement);
+        mReplacementEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                mReplacementEditText.setText(s.toString());
+                FindOrReplaceDialogBuilder.this.onTextChanged();
+            }
+        });
+        mReplaceAllCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                mReplaceAllCheckBox.setChecked(isChecked);
+                syncWithReplaceCheckBox();
+            }
+        });
     }
 }

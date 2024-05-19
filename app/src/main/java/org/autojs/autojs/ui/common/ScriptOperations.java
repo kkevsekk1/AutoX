@@ -5,41 +5,38 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Environment;
 import android.os.Looper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.google.android.material.snackbar.Snackbar;
 import android.text.Editable;
 import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.android.material.snackbar.Snackbar;
 import com.stardust.app.DialogUtils;
 import com.stardust.app.GlobalAppContext;
 import com.stardust.pio.PFiles;
 import com.stardust.pio.UncheckedIOException;
-import com.tencent.bugly.crashreport.BuglyLog;
 
 import org.autojs.autojs.Pref;
-import org.autojs.autoxjs.R;
 import org.autojs.autojs.external.ScriptIntents;
 import org.autojs.autojs.model.explorer.Explorer;
 import org.autojs.autojs.model.explorer.ExplorerDirPage;
 import org.autojs.autojs.model.explorer.ExplorerFileItem;
 import org.autojs.autojs.model.explorer.ExplorerPage;
 import org.autojs.autojs.model.explorer.Explorers;
-import org.autojs.autojs.storage.file.TmpScriptFiles;
 import org.autojs.autojs.model.sample.SampleFile;
 import org.autojs.autojs.model.script.ScriptFile;
 import org.autojs.autojs.model.script.Scripts;
-import org.autojs.autojs.network.download.DownloadManager;
+import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
 import org.autojs.autojs.ui.filechooser.FileChooserDialogBuilder;
 import org.autojs.autojs.ui.shortcut.ShortcutCreateActivity;
-import org.autojs.autojs.ui.timing.TimedTaskSettingActivity_;
-import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
-
+import org.autojs.autojs.ui.timing.TimedTaskSettingActivity;
+import org.autojs.autoxjs.R;
 import org.reactivestreams.Publisher;
 
 import java.io.File;
@@ -112,7 +109,7 @@ public class ScriptOperations {
                     return;
                 }
             }
-            notifyFileCreated(mCurrentDirectory, new ScriptFile(path));
+            notifyFileCreated(new ScriptFile(path));
             if (edit)
                 Scripts.INSTANCE.edit(mContext, path);
         } else {
@@ -120,7 +117,7 @@ public class ScriptOperations {
         }
     }
 
-    private void notifyFileCreated(ScriptFile directory, ScriptFile scriptFile) {
+    private void notifyFileCreated(ScriptFile scriptFile) {
         if (scriptFile.isDirectory()) {
             mExplorer.notifyItemCreated(new ExplorerDirPage(scriptFile, mExplorerPage));
         } else {
@@ -183,7 +180,7 @@ public class ScriptOperations {
                     return pathTo;
                 })
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnNext(path -> notifyFileCreated(mCurrentDirectory, new ScriptFile(path)));
+                .doOnNext(path -> notifyFileCreated(new ScriptFile(path)));
     }
 
     public Observable<String> importFile(String prefix, final InputStream inputStream, final String ext) {
@@ -196,7 +193,7 @@ public class ScriptOperations {
                     } else {
                         showMessage(R.string.text_import_fail);
                     }
-                    notifyFileCreated(mCurrentDirectory, new ScriptFile(pathTo));
+                    notifyFileCreated(new ScriptFile(pathTo));
                     return pathTo;
                 });
     }
@@ -208,7 +205,7 @@ public class ScriptOperations {
                     ScriptFile newDir = new ScriptFile(getCurrentDirectory(), path);
                     if (newDir.mkdirs()) {
                         showMessage(R.string.text_already_create);
-                        notifyFileCreated(mCurrentDirectory, new ScriptFile(newDir));
+                        notifyFileCreated(new ScriptFile(newDir));
                     } else {
                         showMessage(R.string.text_create_fail);
                     }
@@ -274,12 +271,12 @@ public class ScriptOperations {
                         showMessage(R.string.error_cannot_rename);
                         throw new IOException();
                     }
-                    notifyFileChanged(mCurrentDirectory, item, newItem);
+                    notifyFileChanged(item, newItem);
                     return newItem;
                 });
     }
 
-    private void notifyFileChanged(ScriptFile directory, ExplorerFileItem oldItem, ExplorerFileItem newItem) {
+    private void notifyFileChanged(ExplorerFileItem oldItem, ExplorerFileItem newItem) {
         mExplorer.notifyItemChanged(oldItem, newItem);
     }
 
@@ -323,40 +320,6 @@ public class ScriptOperations {
     }
 
 
-    public Observable<ScriptFile> download(String url) {
-        BuglyLog.i(LOG_TAG, "dir = " + Pref.getScriptDirPath() + ", sdcard = " + Environment.getExternalStorageDirectory() + ", url = " + url);
-        String fileName = DownloadManager.parseFileNameLocally(url);
-        return new FileChooserDialogBuilder(mContext)
-                .title(R.string.text_select_save_path)
-                .dir(Pref.getScriptDirPath())
-                .chooseDir()
-                .singleChoice()
-                .map(saveDir -> new File(saveDir, fileName).getPath())
-                .flatMap(savePath -> {
-                    if (!new File(savePath).exists()) {
-                        return Observable.just(savePath);
-                    }
-                    return RxDialogs.confirm(mContext, R.string.confirm_overwrite_file)
-                            .flatMap(yes -> {
-                                if (yes) {
-                                    new File(savePath).delete();
-                                    return Observable.just(savePath);
-                                } else {
-                                    return Observable.empty();
-                                }
-                            });
-                })
-                .flatMap(savePath -> DownloadManager.getInstance().downloadWithProgress(mContext, url, savePath))
-                .map(ScriptFile::new);
-    }
-
-    public Observable<ScriptFile> temporarilyDownload(String url) {
-        return Observable.fromCallable(() -> TmpScriptFiles.create(mContext))
-                .flatMap(tmpFile ->
-                        DownloadManager.getInstance().downloadWithProgress(mContext, url, tmpFile.getPath()))
-                .map(ScriptFile::new);
-    }
-
     public void importFile() {
         new FileChooserDialogBuilder(mContext)
                 .dir(Environment.getExternalStorageDirectory().getPath())
@@ -368,9 +331,9 @@ public class ScriptOperations {
     }
 
     public void timedTask(ScriptFile scriptFile) {
-        TimedTaskSettingActivity_.intent(mContext)
-                .extra(ScriptIntents.EXTRA_KEY_PATH, scriptFile.getPath())
-                .start();
+        Intent intent = new Intent(mContext, TimedTaskSettingActivity.class);
+        intent.putExtra(ScriptIntents.EXTRA_KEY_PATH, scriptFile.getPath());
+        mContext.startActivity(intent);
     }
 
 

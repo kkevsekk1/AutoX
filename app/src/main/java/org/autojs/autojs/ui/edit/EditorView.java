@@ -18,12 +18,10 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.SparseBooleanArray;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -43,16 +41,12 @@ import com.stardust.util.BackPressedHandler;
 import com.stardust.util.Callback;
 import com.stardust.util.ViewUtils;
 
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.EViewGroup;
-import org.androidannotations.annotations.ViewById;
 import org.autojs.autojs.Pref;
-import org.autojs.autoxjs.R;
 import org.autojs.autojs.autojs.AutoJs;
 import org.autojs.autojs.model.autocomplete.AutoCompletion;
 import org.autojs.autojs.model.autocomplete.CodeCompletion;
 import org.autojs.autojs.model.autocomplete.CodeCompletions;
-import org.autojs.autojs.model.autocomplete.Symbols;
+import org.autojs.autojs.model.autocomplete.Symbol;
 import org.autojs.autojs.model.indices.Module;
 import org.autojs.autojs.model.indices.Property;
 import org.autojs.autojs.model.script.Scripts;
@@ -66,15 +60,13 @@ import org.autojs.autojs.ui.edit.keyboard.FunctionsKeyboardView;
 import org.autojs.autojs.ui.edit.theme.Theme;
 import org.autojs.autojs.ui.edit.theme.Themes;
 import org.autojs.autojs.ui.edit.toolbar.DebugToolbarFragment;
-import org.autojs.autojs.ui.edit.toolbar.DebugToolbarFragment_;
 import org.autojs.autojs.ui.edit.toolbar.NormalToolbarFragment;
-import org.autojs.autojs.ui.edit.toolbar.NormalToolbarFragment_;
 import org.autojs.autojs.ui.edit.toolbar.SearchToolbarFragment;
-import org.autojs.autojs.ui.edit.toolbar.SearchToolbarFragment_;
 import org.autojs.autojs.ui.edit.toolbar.ToolbarFragment;
 import org.autojs.autojs.ui.log.LogActivityKt;
 import org.autojs.autojs.ui.widget.EWebView;
 import org.autojs.autojs.ui.widget.SimpleTextWatcher;
+import org.autojs.autoxjs.R;
 
 import java.io.File;
 import java.util.List;
@@ -88,7 +80,6 @@ import io.reactivex.schedulers.Schedulers;
  * Created by Stardust on 2017/9/28.
  */
 @SuppressLint("NonConstantResourceId")
-@EViewGroup(R.layout.editor_view)
 public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintClickListener, FunctionsKeyboardView.ClickCallback, ToolbarFragment.OnMenuItemClickListener {
 
     public static final String EXTRA_PATH = "path";
@@ -97,23 +88,14 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
     public static final String EXTRA_READ_ONLY = "readOnly";
     public static final String EXTRA_SAVE_ENABLED = "saveEnabled";
     public static final String EXTRA_RUN_ENABLED = "runEnabled";
-    @ViewById(R.id.editor)
     CodeEditor mEditor;
-    @ViewById(R.id.code_completion_bar)
     CodeCompletionBar mCodeCompletionBar;
-    @ViewById(R.id.input_method_enhance_bar)
     View mInputMethodEnhanceBar;
-    @ViewById(R.id.symbol_bar)
     CodeCompletionBar mSymbolBar;
-    @ViewById(R.id.functions)
     ImageView mShowFunctionsButton;
-    @ViewById(R.id.functions_keyboard)
     FunctionsKeyboardView mFunctionsKeyboard;
-    @ViewById(R.id.debug_bar)
     DebugBar mDebugBar;
-    @ViewById(R.id.docs)
     EWebView mDocsWebView;
-    @ViewById(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
     private String mName;
     private Uri mUri;
@@ -143,22 +125,39 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
             }
         }
     };
-    private SparseBooleanArray mMenuItemStatus = new SparseBooleanArray();
+    private final SparseBooleanArray mMenuItemStatus = new SparseBooleanArray();
     private String mRestoredText;
-    private NormalToolbarFragment mNormalToolbar = new NormalToolbarFragment_();
+    private NormalToolbarFragment mNormalToolbar = new NormalToolbarFragment();
     private boolean mDebugging = false;
     private EditorMenu mEditorMenu;
 
     public EditorView(Context context) {
         super(context);
+        initView(context);
     }
 
     public EditorView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        initView(context);
     }
 
     public EditorView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        initView(context);
+    }
+
+    private void initView(Context context) {
+        View view = inflate(context, R.layout.editor_view, this);
+        mEditor = view.findViewById(R.id.editor);
+        mCodeCompletionBar = view.findViewById(R.id.code_completion_bar);
+        mInputMethodEnhanceBar = view.findViewById(R.id.input_method_enhance_bar);
+        mSymbolBar = view.findViewById(R.id.symbol_bar);
+        mShowFunctionsButton = view.findViewById(R.id.functions);
+        mFunctionsKeyboard = view.findViewById(R.id.functions_keyboard);
+        mDebugBar = view.findViewById(R.id.debug_bar);
+        mDocsWebView = view.findViewById(R.id.docs);
+        mDrawerLayout = view.findViewById(R.id.drawer_layout);
+        init();
     }
 
     @Override
@@ -266,7 +265,6 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
         return mMenuItemStatus.get(id, defValue);
     }
 
-    @AfterViews
     void init() {
         //setTheme(Theme.getDefault(getContext()));
         setUpEditor();
@@ -312,7 +310,7 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
     }
 
     private void setUpInputMethodEnhancedBar() {
-        mSymbolBar.setCodeCompletions(Symbols.getSymbols());
+        mSymbolBar.setCodeCompletions(Symbol.getSymbols());
         mCodeCompletionBar.setOnHintClickListener(this);
         mSymbolBar.setOnHintClickListener(this);
         mAutoCompletion = new AutoCompletion(getContext(), mEditor.getCodeEditText());
@@ -371,46 +369,33 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
 
     @Override
     public void onToolbarMenuItemClick(View view) {
-        switch (view.getId()) {
-            case R.id.run:
-                runAndSaveFileIfNeeded();
-                break;
-            case R.id.save:
-                saveFile();
-                break;
-            case R.id.undo:
-                undo();
-                break;
-            case R.id.redo:
-                redo();
-                break;
-            case R.id.replace:
-                replace();
-                break;
-            case R.id.find_next:
-                findNext();
-                break;
-            case R.id.find_prev:
-                findPrev();
-                break;
-            case R.id.cancel_search:
-                cancelSearch();
-                break;
-            case R.id.action_log:
-                LogActivityKt.start(getContext());
-                break;
-            case R.id.debug:
-                showOptionMenu(view, R.menu.menu_editor_debug);
-                break;
-            case R.id.jump:
-                showOptionMenu(view, R.menu.menu_editor_jump);
-                break;
-            case R.id.edit:
-                showOptionMenu(view, R.menu.menu_editor_edit);
-                break;
-            case R.id.others:
-                showOptionMenu(view, R.menu.menu_editor);
-                break;
+        int id = view.getId();
+        if (id == R.id.run) {
+            runAndSaveFileIfNeeded();
+        } else if (id == R.id.save) {
+            saveFile();
+        } else if (id == R.id.undo) {
+            undo();
+        } else if (id == R.id.redo) {
+            redo();
+        } else if (id == R.id.replace) {
+            replace();
+        } else if (id == R.id.find_next) {
+            findNext();
+        } else if (id == R.id.find_prev) {
+            findPrev();
+        } else if (id == R.id.cancel_search) {
+            cancelSearch();
+        } else if (id == R.id.action_log) {
+            LogActivityKt.start(getContext());
+        } else if (id == R.id.debug) {
+            showOptionMenu(view, R.menu.menu_editor_debug);
+        } else if (id == R.id.jump) {
+            showOptionMenu(view, R.menu.menu_editor_jump);
+        } else if (id == R.id.edit) {
+            showOptionMenu(view, R.menu.menu_editor_edit);
+        } else if (id == R.id.others) {
+            showOptionMenu(view, R.menu.menu_editor);
         }
     }
 
@@ -601,9 +586,10 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
     }
 
     private void showSearchToolbar(boolean showReplaceItem) {
-        SearchToolbarFragment searchToolbarFragment = SearchToolbarFragment_.builder()
-                .arg(SearchToolbarFragment.ARGUMENT_SHOW_REPLACE_ITEM, showReplaceItem)
-                .build();
+        SearchToolbarFragment searchToolbarFragment = new SearchToolbarFragment();
+        Bundle bundle = new Bundle();
+        bundle.putBoolean(SearchToolbarFragment.ARGUMENT_SHOW_REPLACE_ITEM, showReplaceItem);
+        searchToolbarFragment.setArguments(bundle);
         searchToolbarFragment.setOnMenuItemClickListener(this);
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.toolbar_menu, searchToolbarFragment)
@@ -620,8 +606,7 @@ public class EditorView extends FrameLayout implements CodeCompletionBar.OnHintC
     }
 
     public void debug() {
-        DebugToolbarFragment debugToolbarFragment = DebugToolbarFragment_.builder()
-                .build();
+        DebugToolbarFragment debugToolbarFragment = new DebugToolbarFragment();
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.toolbar_menu, debugToolbarFragment)
                 .commit();

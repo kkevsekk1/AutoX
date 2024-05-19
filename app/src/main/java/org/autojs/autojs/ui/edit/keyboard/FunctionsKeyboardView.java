@@ -5,13 +5,6 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -21,20 +14,26 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.autojs.autoxjs.R;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import org.autojs.autojs.model.indices.Module;
 import org.autojs.autojs.model.indices.Modules;
 import org.autojs.autojs.model.indices.Property;
 import org.autojs.autojs.ui.widget.GridDividerDecoration;
 import org.autojs.autojs.workground.WrapContentGridLayoutManger;
+import org.autojs.autoxjs.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
 /**
@@ -52,11 +51,9 @@ public class FunctionsKeyboardView extends FrameLayout {
     }
 
     private static final int SPAN_COUNT = 4;
-    @BindView(R.id.module_list)
-    RecyclerView mModulesView;
+    private RecyclerView mModulesView;
 
-    @BindView(R.id.properties)
-    RecyclerView mPropertiesView;
+    private RecyclerView mPropertiesView;
 
     private List<Module> mModules;
     private Map<Module, List<Integer>> mSpanSizes = new HashMap<>();
@@ -91,8 +88,8 @@ public class FunctionsKeyboardView extends FrameLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.functions_keyboard_view, this);
-        ButterKnife.bind(this);
+        View view = inflate(getContext(), R.layout.functions_keyboard_view, this);
+        bindView(view);
         initModulesView();
         initPropertiesView();
     }
@@ -165,7 +162,7 @@ public class FunctionsKeyboardView extends FrameLayout {
     }
 
     private void initModulesView() {
-        mModulesView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayout.HORIZONTAL, false));
+        mModulesView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
         mModulesView.setAdapter(new ModulesAdapter());
     }
 
@@ -303,5 +300,9 @@ public class FunctionsKeyboardView extends FrameLayout {
         }
     }
 
+    private void bindView(View bindSource) {
+        mModulesView = bindSource.findViewById(R.id.module_list);
+        mPropertiesView = bindSource.findViewById(R.id.properties);
+    }
 
 }

@@ -29,8 +29,12 @@ import java.io.File
  * Created by Stardust on 2017/2/2.
  */
 class OpenIntentActivity : BaseActivity() {
+    override val layoutId = R.layout.empty_layout
+
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
+
     private lateinit var menus: Map<String, (file: Uri) -> Job?>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         menus = mapOf(

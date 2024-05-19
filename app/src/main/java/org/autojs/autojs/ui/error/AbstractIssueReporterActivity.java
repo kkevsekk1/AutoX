@@ -103,8 +103,6 @@ public abstract class AbstractIssueReporterActivity extends BaseActivity {
 
         if (TextUtils.isEmpty(getTitle()))
             setTitle(R.string.air_title_report_issue);
-
-        setContentView(R.layout.air_activity_issue_reporter);
         findViews();
 
         //noinspection deprecation
@@ -587,5 +585,10 @@ public abstract class AbstractIssueReporterActivity extends BaseActivity {
         }
 
         protected abstract Dialog createDialog(@NonNull Context context);
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.air_activity_issue_reporter;
     }
 }

@@ -5,9 +5,9 @@ import android.content.Intent
 import android.net.Uri
 import androidx.activity.result.contract.ActivityResultContract
 
-class ShortcutIconSelectResult: ActivityResultContract<Void?, Uri?>() {
+class ShortcutIconSelectResult : ActivityResultContract<Void?, Uri?>() {
     override fun createIntent(context: Context, input: Void?): Intent {
-        return Intent(context,ShortcutIconSelectActivity_::class.java)
+        return Intent(context, ShortcutIconSelectActivity::class.java)
     }
 
     override fun parseResult(resultCode: Int, intent: Intent?): Uri? {

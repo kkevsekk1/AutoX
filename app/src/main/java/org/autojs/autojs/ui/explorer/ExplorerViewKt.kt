@@ -14,9 +14,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
-import butterknife.BindView
-import butterknife.ButterKnife
-import butterknife.OnClick
 import com.google.android.material.snackbar.Snackbar
 import com.stardust.pio.PFiles
 import io.reactivex.Observable
@@ -266,10 +263,12 @@ open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
                         explorerAdapter.notifyItemChanged(item, i)
                     }
                 }
+
                 ExplorerChangeEvent.CREATE -> {
                     explorerItemList.insertAtFront(event.newItem)
                     explorerAdapter.notifyItemInserted(event.newItem, 0)
                 }
+
                 ExplorerChangeEvent.REMOVE -> {
                     i = explorerItemList.remove(item)
                     if (i >= 0) {
@@ -294,32 +293,40 @@ open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
             R.id.rename -> ScriptOperations(context, this, currentPage)
                 .rename(selectedItem as ExplorerFileItem?)
                 .subscribe(Observers.emptyObserver())
+
             R.id.delete -> ScriptOperations(context, this, currentPage)
                 .delete(selectedItem!!.toScriptFile())
+
             R.id.run_repeatedly -> {
                 ScriptLoopDialog(context, selectedItem!!.toScriptFile())
                     .show()
                 notifyOperated()
             }
+
             R.id.create_shortcut -> ScriptOperations(context, this, currentPage)
                 .createShortcut(selectedItem!!.toScriptFile())
+
             R.id.open_by_other_apps -> {
                 openByOtherApps(selectedItem!!.toScriptFile())
                 notifyOperated()
             }
+
             R.id.send -> {
                 send(selectedItem!!.toScriptFile())
                 notifyOperated()
             }
+
             R.id.timed_task -> {
                 ScriptOperations(context, this, currentPage)
                     .timedTask(selectedItem!!.toScriptFile())
                 notifyOperated()
             }
+
             R.id.action_build_apk -> {
                 BuildActivity.start(context, selectedItem!!.path)
                 notifyOperated()
             }
+
             R.id.action_sort_by_date -> sort(ExplorerItemList.SORT_TYPE_DATE, dirSortMenuShowing)
             R.id.action_sort_by_type -> sort(ExplorerItemList.SORT_TYPE_TYPE, dirSortMenuShowing)
             R.id.action_sort_by_name -> sort(ExplorerItemList.SORT_TYPE_NAME, dirSortMenuShowing)
@@ -336,6 +343,7 @@ open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
                         ).show()
                     }, Observers.toastMessage())
             }
+
             else -> return false
         }
         return true
@@ -389,6 +397,7 @@ open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
                     )
                 )
             }
+
             VIEW_TYPE_PAGE -> {
                 ExplorerPageViewHolder(
                     inflater.inflate(
@@ -398,6 +407,7 @@ open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
                     )
                 )
             }
+
             else -> {
                 CategoryViewHolder(
                     inflater.inflate(
@@ -477,61 +487,40 @@ open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
     @SuppressLint("NonConstantResourceId")
     inner class ExplorerItemViewHolder internal constructor(itemView: View) :
         BindableViewHolder<Any>(itemView) {
-        @JvmField
-        @BindView(R.id.name)
-        var name: TextView? = null
-
-        @JvmField
-        @BindView(R.id.first_char)
-        var firstChar: TextView? = null
-
-        @JvmField
-        @BindView(R.id.desc)
-        var desc: TextView? = null
-
-        @JvmField
-        @BindView(R.id.more)
-        var options: View? = null
-
-        @JvmField
-        @BindView(R.id.edit)
-        var edit: View? = null
-
-        @JvmField
-        @BindView(R.id.run)
-        var run: View? = null
-        var firstCharBackground: GradientDrawable
+        val name: TextView
+        val firstChar: TextView
+        val desc: TextView
+        val options: View
+        val edit: View
+        val run: View
+        val firstCharBackground: GradientDrawable
         private var explorerItem: ExplorerItem? = null
         override fun bind(item: Any, position: Int) {
             if (item !is ExplorerItem) return
             explorerItem = item
-            name!!.text = ExplorerViewHelper.getDisplayName(item)
-            desc!!.text = PFiles.getHumanReadableSize(item.size)
-            firstChar!!.text = ExplorerViewHelper.getIconText(item)
+            name.text = ExplorerViewHelper.getDisplayName(item)
+            desc.text = PFiles.getHumanReadableSize(item.size)
+            firstChar.text = ExplorerViewHelper.getIconText(item)
             firstCharBackground.setColor(ExplorerViewHelper.getIconColor(item))
-            edit!!.visibility = if (item.isEditable) VISIBLE else GONE
-            run!!.visibility = if (item.isExecutable) VISIBLE else GONE
+            edit.visibility = if (item.isEditable) VISIBLE else GONE
+            run.visibility = if (item.isExecutable) VISIBLE else GONE
         }
 
-        @OnClick(R.id.item)
         fun onItemClick() {
             onItemClickListener?.invoke(itemView, explorerItem)
             notifyOperated()
         }
 
-        @OnClick(R.id.run)
         fun run() {
             run(ScriptFile(explorerItem!!.path))
             notifyOperated()
         }
 
-        @OnClick(R.id.edit)
         fun edit() {
             edit(context, ScriptFile(explorerItem!!.path))
             notifyOperated()
         }
 
-        @OnClick(R.id.more)
         fun showOptionMenu() {
             selectedItem = explorerItem
             val popupMenu = PopupMenu(context, options)
@@ -555,41 +544,41 @@ open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
         }
 
         init {
-            ButterKnife.bind(this, itemView)
-            firstCharBackground = firstChar!!.background as GradientDrawable
+            name = itemView.findViewById(R.id.name)
+            firstChar = itemView.findViewById(R.id.first_char)
+            desc = itemView.findViewById(R.id.desc)
+            options = itemView.findViewById(R.id.more)
+            options.setOnClickListener { showOptionMenu() }
+            edit = itemView.findViewById(R.id.edit)
+            edit.setOnClickListener { edit() }
+            run = itemView.findViewById(R.id.run)
+            run.setOnClickListener { run() }
+            itemView.findViewById<View>(R.id.item).setOnClickListener { onItemClick() }
+            firstCharBackground = firstChar.background as GradientDrawable
         }
     }
 
     @SuppressLint("NonConstantResourceId")
     inner class ExplorerPageViewHolder internal constructor(itemView: View) :
         BindableViewHolder<Any>(itemView) {
-        @JvmField
-        @BindView(R.id.name)
-        var name: TextView? = null
-
-        @JvmField
-        @BindView(R.id.more)
-        var options: View? = null
-
-        @JvmField
-        @BindView(R.id.icon)
-        var icon: ImageView? = null
+        val name: TextView
+        val options: View
+        val icon: ImageView
         private var explorerPage: ExplorerPage? = null
         override fun bind(data: Any, position: Int) {
             if (data !is ExplorerPage) return
-            name!!.text = ExplorerViewHelper.getDisplayName(data)
-            icon!!.setImageResource(ExplorerViewHelper.getIcon(data))
-            options!!.visibility =
+            name.text = ExplorerViewHelper.getDisplayName(data)
+            icon.setImageResource(ExplorerViewHelper.getIcon(data))
+            options.visibility =
                 if (data is ExplorerSamplePage) GONE else VISIBLE
             explorerPage = data
         }
 
-        @OnClick(R.id.item)
+
         fun onItemClick() {
             enterDirectChildPage(explorerPage)
         }
 
-        @OnClick(R.id.more)
         fun showOptionMenu() {
             selectedItem = explorerPage
             val popupMenu = PopupMenu(context, options)
@@ -599,66 +588,53 @@ open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
         }
 
         init {
-            ButterKnife.bind(this, itemView)
+            name = itemView.findViewById(R.id.name)
+            options = itemView.findViewById(R.id.more)
+            icon = itemView.findViewById(R.id.icon)
+            options.setOnClickListener { showOptionMenu() }
+            itemView.findViewById<View>(R.id.item).setOnClickListener { onItemClick() }
         }
     }
 
     @SuppressLint("NonConstantResourceId")
     internal inner class CategoryViewHolder(itemView: View) :
         BindableViewHolder<Any>(itemView) {
-
-        @JvmField
-        @BindView(R.id.title)
-        var title: TextView? = null
-
-        @JvmField
-        @BindView(R.id.sort)
-        var sort: ImageView? = null
-
-        @JvmField
-        @BindView(R.id.order)
-        var sortOrder: ImageView? = null
-
-        @JvmField
-        @BindView(R.id.back)
-        var goBack: ImageView? = null
-
-        @JvmField
-        @BindView(R.id.collapse)
-        var arrow: ImageView? = null
+        val title: TextView
+        val sort: ImageView
+        val sortOrder: ImageView
+        val goBack: ImageView
+        val arrow: ImageView
         private var isDir = false
         override fun bind(isDirCategory: Any, position: Int) {
             if (isDirCategory !is Boolean) return
-            title!!.setText(if (isDirCategory) R.string.text_directory else R.string.text_file)
+            title.setText(if (isDirCategory) R.string.text_directory else R.string.text_file)
             isDir = isDirCategory
             if (isDirCategory && canGoBack()) {
-                goBack!!.visibility = VISIBLE
+                goBack.visibility = VISIBLE
             } else {
-                goBack!!.visibility = GONE
+                goBack.visibility = GONE
             }
             if (isDirCategory) {
-                arrow!!.rotation = if (currentPageState.dirsCollapsed) -90f else 0.toFloat()
-                sortOrder!!.setImageResource(if (explorerItemList.isDirSortedAscending) R.drawable.ic_ascending_order else R.drawable.ic_descending_order)
+                arrow.rotation = if (currentPageState.dirsCollapsed) -90f else 0.toFloat()
+                sortOrder.setImageResource(if (explorerItemList.isDirSortedAscending) R.drawable.ic_ascending_order else R.drawable.ic_descending_order)
             } else {
-                arrow!!.rotation = if (currentPageState.filesCollapsed) -90f else 0.toFloat()
-                sortOrder!!.setImageResource(if (explorerItemList.isFileSortedAscending) R.drawable.ic_ascending_order else R.drawable.ic_descending_order)
+                arrow.rotation = if (currentPageState.filesCollapsed) -90f else 0.toFloat()
+                sortOrder.setImageResource(if (explorerItemList.isFileSortedAscending) R.drawable.ic_ascending_order else R.drawable.ic_descending_order)
             }
         }
 
-        @OnClick(R.id.order)
         fun changeSortOrder() {
             if (isDir) {
-                sortOrder!!.setImageResource(if (explorerItemList.isDirSortedAscending) R.drawable.ic_ascending_order else R.drawable.ic_descending_order)
+                sortOrder.setImageResource(if (explorerItemList.isDirSortedAscending) R.drawable.ic_ascending_order else R.drawable.ic_descending_order)
                 explorerItemList.isDirSortedAscending = !explorerItemList.isDirSortedAscending
                 sort(explorerItemList.dirSortType, isDir)
             } else {
-                sortOrder!!.setImageResource(if (explorerItemList.isFileSortedAscending) R.drawable.ic_ascending_order else R.drawable.ic_descending_order)
+                sortOrder.setImageResource(if (explorerItemList.isFileSortedAscending) R.drawable.ic_ascending_order else R.drawable.ic_descending_order)
                 explorerItemList.isFileSortedAscending = !explorerItemList.isFileSortedAscending
                 sort(explorerItemList.fileSortType, isDir)
             }
         }
 
-        @OnClick(R.id.sort)
         fun showSortOptions() {
             val popupMenu = PopupMenu(context, sort)
             popupMenu.inflate(R.menu.menu_sort_options)
@@ -667,7 +643,6 @@ open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
             popupMenu.show()
         }
 
-        @OnClick(R.id.back)
         fun back() {
             if (canGoBack()) {
                 goBack()
@@ -675,7 +650,6 @@ open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
         }
 
         @SuppressLint("NotifyDataSetChanged")
-        @OnClick(R.id.title_container)
         fun collapseOrExpand() {
             if (isDir) {
                 currentPageState.dirsCollapsed = !currentPageState.dirsCollapsed
@@ -686,7 +660,24 @@ open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
         }
 
         init {
-            ButterKnife.bind(this, itemView)
+            title = itemView.findViewById(R.id.title)
+            sort = itemView.findViewById(R.id.sort)
+            sortOrder = itemView.findViewById(R.id.order)
+            goBack = itemView.findViewById(R.id.back)
+            arrow = itemView.findViewById(R.id.collapse)
+            sortOrder.setOnClickListener {
+                changeSortOrder()
+            }
+            sort.setOnClickListener {
+                showSortOptions()
+            }
+            goBack.setOnClickListener {
+                back()
+            }
+            itemView.findViewById<View>(R.id.title_container).setOnClickListener {
+                collapseOrExpand()
+            }
+
         }
     }
 

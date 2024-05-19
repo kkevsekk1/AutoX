@@ -7,8 +7,7 @@ import java.util.zip.ZipInputStream
 plugins {
     alias(libs.plugins.autojs.android.application)
     alias(libs.plugins.autojs.android.application.compose)
-    id("com.jakewharton.butterknife")
-    kotlin("kapt")
+    alias(libs.plugins.kotlin.serialization)
 }
 
 val propFile: File = File("E:/资料/jks/autojs-app/sign.properties");
@@ -34,7 +33,7 @@ android {
             }
         }
         ndk {
-            abiFilters+=listOf("arm64-v8a", "armeabi-v7a")
+            abiFilters += listOf("arm64-v8a", "armeabi-v7a")
         }
     }
     lint {
@@ -140,7 +139,10 @@ android {
 }
 
 dependencies {
-    implementation(platform(libs.androidx.compose.bom))
+    implementation(projects.autojs)
+    implementation(projects.apkbuilder)
+    implementation(projects.codeeditor)
+
     implementation(libs.androidx.localbroadcastmanager)
     implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.androidx.webkit)
@@ -149,25 +151,14 @@ dependencies {
 
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.material)
-    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.compose.material3)
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
-    debugImplementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.activity.compose)
 
     androidTestImplementation(libs.espresso.core)
     testImplementation(libs.junit)
     // Kotlin携程
     implementation(libs.kotlinx.coroutines.android)
-    // Android Annotations
-    annotationProcessor(libs.androidannotations)
-    kapt(libs.androidannotations.androidannotations)
-    //noinspection GradleDependency
-    implementation(libs.androidannotations.api)
-    // ButterKnife
-    implementation(libs.butterknife)
-    annotationProcessor(libs.butterknife.compiler)
-    kapt(libs.butterknife.compiler)
-    // Android supports
     implementation(libs.androidx.preference.ktx)
     implementation(libs.appcompat)
     implementation(libs.androidx.cardview)
@@ -191,27 +182,18 @@ dependencies {
     implementation(libs.android.expandablerecyclerview)
     //FlexibleDivider
     implementation(libs.recyclerview.flexibledivider)
-    //???
-    implementation(libs.library)
     //Commons-lang
     implementation(libs.commons.lang3)
     // 证书签名相关
     implementation(libs.bcpkix.jdk15on)
     //Expandable RecyclerView
     implementation(libs.expandablerecyclerview)
-//    implementation("org.signal.autox:apkbuilder:1.0.3")
     // RxJava
     implementation(libs.rxjava2)
     implementation(libs.rxjava2.rxandroid)
-    // Retrofit
-    implementation(libs.retrofit2.bom)
-    implementation(libs.retrofit2.converter.gson)
-    implementation(libs.retrofit2.rxjava2.adapter)
 
     //Glide
     implementation(libs.glide)
-    kapt(libs.glide.compiler)
-    annotationProcessor(libs.glide.compiler)
     //joda time
     implementation(libs.android.joda)
     // Tasker Plugin
@@ -227,22 +209,13 @@ dependencies {
     implementation(libs.androidx.work.runtime)
     // Android job
     implementation(libs.android.job)
-    implementation(project(":autojs"))
-    implementation(project(":apkbuilder"))
-    implementation(project(":codeeditor"))
     implementation(libs.androidx.multidex)
 
-    // ViewModel
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    // ViewModel utilities for Compose
     implementation(libs.androidx.lifecycle.viewmodel.compose)
-    // Lifecycles only (without ViewModel or LiveData)
     implementation(libs.androidx.lifecycle.runtime.ktx)
-    // Saved state module for ViewModel
     implementation(libs.androidx.lifecycle.viewmodel.savedstate)
     implementation(libs.androidx.lifecycle.service)
-    // Annotation processor
-//    kapt(libs.androidx.lifecycle.compiler)
 
     implementation(libs.androidx.savedstate.ktx)
     implementation(libs.androidx.savedstate)

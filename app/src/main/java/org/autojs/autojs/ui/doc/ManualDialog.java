@@ -7,15 +7,13 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.stardust.util.IntentUtil;
 
-import org.autojs.autoxjs.R;
 import org.autojs.autojs.ui.widget.EWebView;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import org.autojs.autoxjs.R;
 
 /**
  * Created by Stardust on 2017/10/24.
@@ -23,22 +21,21 @@ import butterknife.OnClick;
 
 public class ManualDialog {
 
-    @BindView(R.id.title)
-    TextView mTitle;
+    private TextView mTitle;
 
-    @BindView(R.id.eweb_view)
-    EWebView mEWebView;
+    private EWebView mEWebView;
 
-    @BindView(R.id.pin_to_left)
-    View mPinToLeft;
+    private View mPinToLeft;
 
     Dialog mDialog;
-    private Context mContext;
+    private final Context mContext;
+    private View mClose;
+    private View mFullscreen;
 
     public ManualDialog(Context context) {
         mContext = context;
         View view = View.inflate(context, R.layout.floating_manual_dialog, null);
-        ButterKnife.bind(this, view);
+        bindView(view);
         mDialog = new MaterialDialog.Builder(context)
                 .customView(view, false)
                 .build();
@@ -69,15 +66,26 @@ public class ManualDialog {
         return this;
     }
 
-    @OnClick(R.id.close)
-    void close() {
+    private void close() {
         mDialog.dismiss();
     }
 
-    @OnClick(R.id.fullscreen)
-    void viewInNewActivity() {
+    private void viewInNewActivity() {
         mDialog.dismiss();
         IntentUtil.browse(mContext,mEWebView.getWebView().getUrl());
     }
 
+    private void bindView(@NonNull View bindSource) {
+        mTitle = bindSource.findViewById(R.id.title);
+        mEWebView = bindSource.findViewById(R.id.eweb_view);
+        mPinToLeft = bindSource.findViewById(R.id.pin_to_left);
+        mClose = bindSource.findViewById(R.id.close);
+        mFullscreen = bindSource.findViewById(R.id.fullscreen);
+        mClose.setOnClickListener(v -> {
+            close();
+        });
+        mFullscreen.setOnClickListener(v -> {
+            viewInNewActivity();
+        });
+    }
 }

@@ -7,7 +7,6 @@ buildscript {
         maven("https://maven.aliyun.com/repository/central")
     }
     dependencies {
-        classpath(libs.butterknife.gradle.plugin)
         classpath(libs.groovy.json)
         classpath(libs.andserver)
         classpath(libs.okhttp)

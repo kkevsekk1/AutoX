@@ -147,6 +147,10 @@ tasks.register("cp2APPDebug") {
 
 
 dependencies {
+    implementation(projects.automator)
+    implementation(projects.common)
+    implementation(projects.autojs)
+
     implementation(libs.androidx.activity.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -166,8 +170,5 @@ dependencies {
     implementation(libs.websocket2)
     implementation(libs.utils.everywhere)
     testImplementation(libs.junit)
-    implementation(project(":automator"))
-    implementation(project(":common"))
-    implementation(project(":autojs"))
     implementation(libs.androidx.multidex)
 }

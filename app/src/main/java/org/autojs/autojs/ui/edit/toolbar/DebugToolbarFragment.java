@@ -2,12 +2,16 @@ package org.autojs.autojs.ui.edit.toolbar;
 
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.stardust.autojs.execution.ScriptExecution;
 import com.stardust.autojs.rhino.debug.DebugCallback;
@@ -16,21 +20,18 @@ import com.stardust.autojs.rhino.debug.Dim;
 import com.stardust.autojs.runtime.exception.ScriptInterruptedException;
 import com.stardust.pio.PFiles;
 
-import org.androidannotations.annotations.Click;
-import org.androidannotations.annotations.EFragment;
-import org.autojs.autoxjs.R;
 import org.autojs.autojs.ui.edit.EditorView;
 import org.autojs.autojs.ui.edit.debug.CodeEvaluator;
 import org.autojs.autojs.ui.edit.debug.DebugBar;
 import org.autojs.autojs.ui.edit.debug.DebuggerSingleton;
 import org.autojs.autojs.ui.edit.debug.WatchingVariable;
 import org.autojs.autojs.ui.edit.editor.CodeEditor;
+import org.autojs.autoxjs.R;
 
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.List;
 
-@EFragment(R.layout.fragment_debug_toolbar)
 public class DebugToolbarFragment extends ToolbarFragment implements DebugCallback, CodeEditor.CursorChangeCallback, CodeEvaluator {
 
     private static final String LOG_TAG = "DebugToolbarFragment";
@@ -61,6 +62,32 @@ public class DebugToolbarFragment extends ToolbarFragment implements DebugCallba
             mDebugger.clearAllBreakpoints();
         }
     };
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_debug_toolbar, container, false);
+        view.findViewById(R.id.step_over).setOnClickListener(View -> {
+            stepOver();
+        });
+
+        view.findViewById(R.id.step_into).setOnClickListener(View -> {
+            stepInto();
+        });
+
+        view.findViewById(R.id.step_out).setOnClickListener(View -> {
+            stepOut();
+        });
+
+        view.findViewById(R.id.stop_script).setOnClickListener(View -> {
+            stopScript();
+        });
+
+        view.findViewById(R.id.resume_script).setOnClickListener(View -> {
+            resumeScript();
+        });
+        return view;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -126,30 +153,25 @@ public class DebugToolbarFragment extends ToolbarFragment implements DebugCallba
         debugBar.setCodeEvaluator(null);
     }
 
-    @Click(R.id.step_over)
     void stepOver() {
         setInterrupted(false);
         mDebugger.stepOver();
     }
 
-    @Click(R.id.step_into)
     void stepInto() {
         setInterrupted(false);
         mDebugger.stepInto();
     }
 
-    @Click(R.id.step_out)
     void stepOut() {
         setInterrupted(false);
         mDebugger.stepOut();
     }
 
-    @Click(R.id.stop_script)
     void stopScript() {
         mEditorView.forceStop();
     }
 
-    @Click(R.id.resume_script)
     void resumeScript() {
         setInterrupted(false);
         mDebugger.resume();

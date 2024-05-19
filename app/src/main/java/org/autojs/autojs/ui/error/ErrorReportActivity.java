@@ -47,7 +47,6 @@ public class ErrorReportActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         try {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_error_report);
         } catch (Throwable throwable) {
             Log.e(TAG, "", throwable);
             exit();
@@ -154,5 +153,10 @@ public class ErrorReportActivity extends BaseActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_error_report;
     }
 }

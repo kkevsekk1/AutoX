@@ -7,9 +7,6 @@ import android.text.TextUtils
 import android.view.ContextThemeWrapper
 import android.view.View
 import android.widget.Toast
-import butterknife.ButterKnife
-import butterknife.OnClick
-import butterknife.Optional
 import com.afollestad.materialdialogs.MaterialDialog
 import com.makeramen.roundedimageview.RoundedImageView
 import com.stardust.app.DialogUtils
@@ -91,7 +88,30 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
                     R.layout.circular_action_menu,
                     null
                 ) as CircularActionMenu
-                ButterKnife.bind(this@CircularMenu, menu)
+                menu.findViewById<View>(R.id.script_list)?.setOnClickListener { showScriptList() }
+                menu.findViewById<View>(R.id.record)?.setOnClickListener { startRecord() }
+
+                menu.findViewById<View>(R.id.layout_inspect)?.setOnClickListener { inspectLayout() }
+                menu.findViewById<View>(R.id.layout_bounds)
+                    ?.setOnClickListener { showLayoutBounds() }
+
+                menu.findViewById<View>(R.id.layout_hierarchy)
+                    ?.setOnClickListener { showLayoutHierarchy() }
+                menu.findViewById<View>(R.id.stop_all_scripts)
+                    ?.setOnClickListener { stopAllScripts() }
+
+                menu.findViewById<View>(R.id.settings)?.setOnClickListener { settings() }
+                menu.findViewById<View>(R.id.accessibility_service)
+                    ?.setOnClickListener { enableAccessibilityService() }
+
+                menu.findViewById<View>(R.id.package_name)?.setOnClickListener { copyPackageName() }
+                menu.findViewById<View>(R.id.class_name)?.setOnClickListener { copyActivityName() }
+
+                menu.findViewById<View>(R.id.open_launcher)?.setOnClickListener { openLauncher() }
+                menu.findViewById<View>(R.id.pointer_location)
+                    ?.setOnClickListener { togglePointerLocation() }
+
+                menu.findViewById<View>(R.id.exit)?.setOnClickListener { close() }
                 return menu
             }
         })
@@ -99,8 +119,6 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
         FloatyService.addWindow(mWindow)
     }
 
-    @Optional
-    @OnClick(R.id.script_list)
     fun showScriptList() {
         mWindow?.collapse()
         val explorerView = ExplorerViewKt(mContext)
@@ -123,8 +141,6 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
         DialogUtils.showDialog(dialog)
     }
 
-    @Optional
-    @OnClick(R.id.record)
     fun startRecord() {
         mWindow?.collapse()
         if (!RootTool.isRootAvailable()) {
@@ -158,8 +174,6 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
         mRecorder.stop()
     }
 
-    @Optional
-    @OnClick(R.id.layout_inspect)
     fun inspectLayout() {
         mWindow?.collapse()
         mLayoutInspectDialog = OperationDialogBuilder(mContext)
@@ -178,14 +192,10 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
         DialogUtils.showDialog(mLayoutInspectDialog)
     }
 
-    @Optional
-    @OnClick(R.id.layout_bounds)
     fun showLayoutBounds() {
         inspectLayout { rootNode -> rootNode?.let { LayoutBoundsFloatyWindow(it) } }
     }
 
-    @Optional
-    @OnClick(R.id.layout_hierarchy)
     fun showLayoutHierarchy() {
         inspectLayout { mRootNode -> mRootNode?.let { LayoutHierarchyFloatyWindow(it) } }
     }
@@ -220,8 +230,6 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
             }) { mActionViewIcon?.post { progress.dismiss() } }
     }
 
-    @Optional
-    @OnClick(R.id.stop_all_scripts)
     fun stopAllScripts() {
         mWindow?.collapse()
         AutoJs.getInstance().scriptEngineService.stopAllAndToast()
@@ -233,8 +241,6 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
         )
     }
 
-    @Optional
-    @OnClick(R.id.settings)
     fun settings() {
         mWindow?.collapse()
         mRunningPackage = AutoJs.getInstance().infoProvider.getLatestPackageByUsageStatsIfGranted()
@@ -270,8 +276,6 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
         DialogUtils.showDialog(mSettingsDialog)
     }
 
-    @Optional
-    @OnClick(R.id.accessibility_service)
     fun enableAccessibilityService() {
         dismissSettingsDialog()
         AccessibilityServiceTool.enableAccessibilityService()
@@ -282,8 +286,6 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
         mSettingsDialog = null
     }
 
-    @Optional
-    @OnClick(R.id.package_name)
     fun copyPackageName() {
         dismissSettingsDialog()
         if (TextUtils.isEmpty(mRunningPackage)) return
@@ -291,8 +293,6 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
         Toast.makeText(mContext, R.string.text_already_copy_to_clip, Toast.LENGTH_SHORT).show()
     }
 
-    @Optional
-    @OnClick(R.id.class_name)
     fun copyActivityName() {
         dismissSettingsDialog()
         if (TextUtils.isEmpty(mRunningActivity)) return
@@ -300,8 +300,6 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
         Toast.makeText(mContext, R.string.text_already_copy_to_clip, Toast.LENGTH_SHORT).show()
     }
 
-    @Optional
-    @OnClick(R.id.open_launcher)
     fun openLauncher() {
         dismissSettingsDialog()
         val intent = Intent(mContext, MainActivity::class.java)
@@ -309,15 +307,11 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
         mContext.startActivity(intent)
     }
 
-    @Optional
-    @OnClick(R.id.pointer_location)
     fun togglePointerLocation() {
         dismissSettingsDialog()
         RootTool.togglePointerLocation()
     }
 
-    @Optional
-    @OnClick(R.id.exit)
     fun close() {
         dismissSettingsDialog()
         try {

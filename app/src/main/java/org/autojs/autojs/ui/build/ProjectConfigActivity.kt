@@ -26,10 +26,6 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.androidannotations.annotations.AfterViews
-import org.androidannotations.annotations.Click
-import org.androidannotations.annotations.EActivity
-import org.androidannotations.annotations.ViewById
 import org.autojs.autojs.model.explorer.ExplorerDirPage
 import org.autojs.autojs.model.explorer.ExplorerFileItem
 import org.autojs.autojs.model.explorer.Explorers
@@ -37,42 +33,23 @@ import org.autojs.autojs.model.project.ProjectTemplate
 import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder
 import org.autojs.autojs.tool.getRandomString
 import org.autojs.autojs.ui.BaseActivity
+import org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity
 import org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity.Companion.getBitmapFromIntent
-import org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity_
+import org.autojs.autojs.ui.util.launchActivity
 import org.autojs.autojs.ui.widget.SimpleTextWatcher
 import org.autojs.autoxjs.R
 import java.io.File
 import java.io.FileOutputStream
 
 @SuppressLint("NonConstantResourceId")
-@EActivity(R.layout.activity_project_config)
 open class ProjectConfigActivity : BaseActivity() {
-    @JvmField
-    @ViewById(R.id.project_location)
+    override val layoutId = R.layout.activity_project_config
     var mProjectLocation: EditText? = null
-
-    @JvmField
-    @ViewById(R.id.app_name)
     var mAppName: EditText? = null
-
-    @JvmField
-    @ViewById(R.id.package_name)
     var mPackageName: EditText? = null
-
-    @JvmField
-    @ViewById(R.id.version_name)
     var mVersionName: EditText? = null
-
-    @JvmField
-    @ViewById(R.id.version_code)
     var mVersionCode: EditText? = null
-
-    @JvmField
-    @ViewById(R.id.main_file_name)
     var mMainFileName: EditText? = null
-
-    @JvmField
-    @ViewById(R.id.icon)
     var mIcon: ImageView? = null
     private var mDirectory: File? = null
     private var mParentDirectory: File? = null
@@ -118,7 +95,23 @@ open class ProjectConfigActivity : BaseActivity() {
         else this
     }
 
-    @AfterViews
+    override fun initView() {
+        mProjectLocation = findViewById(R.id.project_location)
+        mAppName = findViewById(R.id.app_name)
+        mPackageName = findViewById(R.id.package_name)
+        mVersionName = findViewById(R.id.version_name)
+        mVersionCode = findViewById(R.id.version_code)
+        mMainFileName = findViewById(R.id.main_file_name)
+        mIcon = findViewById(R.id.icon)
+        mIcon?.setOnClickListener {
+            selectIcon()
+        }
+        findViewById<View>(R.id.fab).setOnClickListener {
+            commit()
+        }
+        setupViews()
+    }
+
     fun setupViews() {
         if (mProjectConfig == null) {
             return
@@ -171,7 +164,6 @@ open class ProjectConfigActivity : BaseActivity() {
     }
 
     @SuppressLint("CheckResult")
-    @Click(R.id.fab)
     fun commit() {
         if (!checkInputs()) {
             return
@@ -218,10 +210,8 @@ open class ProjectConfigActivity : BaseActivity() {
         )
     }
 
-    @Click(R.id.icon)
     fun selectIcon() {
-        ShortcutIconSelectActivity_.intent(this)
-            .startForResult(REQUEST_CODE)
+        launchActivity<ShortcutIconSelectActivity>(REQUEST_CODE)
     }
 
     private fun syncProjectConfig() {

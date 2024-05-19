@@ -1,15 +1,24 @@
 package org.autojs.autojs.network
 
-import org.autojs.autojs.network.api.GithubUpdateCheckApi
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
+import io.ktor.client.call.body
+import io.ktor.client.request.get
+import io.ktor.client.request.header
+import io.ktor.client.utils.CacheControl
+import io.ktor.http.HttpHeaders
+import org.autojs.autojs.network.entity.GithubReleaseInfo
 
 object VersionService2 {
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("https://api.github.com/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
 
-    val gitUpdateCheckApi = retrofit.create<GithubUpdateCheckApi>()
+    suspend fun getGithubLastReleaseInfo(): GithubReleaseInfo {
+        return axClient.get("https://api.github.com/repos/kkevsekk1/AutoX/releases/latest") {
+            header(HttpHeaders.CacheControl, CacheControl.NO_CACHE)
+        }.body()
+    }
+
+    suspend fun getGithubReleaseInfoList(): List<GithubReleaseInfo> {
+        return axClient.get("https://api.github.com/repos/kkevsekk1/AutoX/releases") {
+            header(HttpHeaders.CacheControl, CacheControl.NO_CACHE)
+        }.body()
+    }
+
 }

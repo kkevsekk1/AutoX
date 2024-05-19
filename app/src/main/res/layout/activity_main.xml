@@ -84,15 +84,6 @@
 
     </RelativeLayout>
 
-<!--    <androidx.fragment.app.FragmentContainerView-->
-<!--        android:id="@+id/fragment_drawer"-->
-<!--        android:name="org.autojs.autojs.ui.main.drawer.DrawerFragment_"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_gravity="start"-->
-<!--        android:fitsSystemWindows="false"-->
-<!--        />-->
-
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view_right"
         android:layout_width="wrap_content"

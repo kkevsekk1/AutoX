@@ -1,40 +1,46 @@
 package org.autojs.autojs.external.tasker;
 
+import static org.autojs.autojs.ui.edit.EditorView.EXTRA_CONTENT;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.twofortyfouram.locale.sdk.client.ui.activity.AbstractAppCompatPluginActivity;
 
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Click;
-import org.androidannotations.annotations.EActivity;
-import org.autojs.autoxjs.R;
 import org.autojs.autojs.external.ScriptIntents;
 import org.autojs.autojs.model.explorer.ExplorerDirPage;
 import org.autojs.autojs.model.explorer.Explorers;
 import org.autojs.autojs.ui.BaseActivity;
 import org.autojs.autojs.ui.explorer.ExplorerViewKt;
-
-import static org.autojs.autojs.ui.edit.EditorView.EXTRA_CONTENT;
+import org.autojs.autoxjs.R;
 
 
 /**
  * Created by Stardust on 2017/3/27.
  */
-@EActivity(R.layout.activity_tasker_edit)
 public class TaskPrefEditActivity extends AbstractAppCompatPluginActivity {
 
     private String mSelectedScriptFilePath;
     private String mPreExecuteScript;
 
-    @AfterViews
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_tasker_edit);
+        setUpViews();
+    }
+
     void setUpViews() {
+        findViewById(R.id.edit_script).setOnClickListener(view -> {
+            editPreExecuteScript();
+        });
         BaseActivity.setToolbarAsBack(this, R.id.toolbar, getString(R.string.text_please_choose_a_script));
         initScriptListRecyclerView();
     }
@@ -50,8 +56,6 @@ public class TaskPrefEditActivity extends AbstractAppCompatPluginActivity {
         });
     }
 
-
-    @Click(R.id.edit_script)
     void editPreExecuteScript() {
         TaskerScriptEditActivity.edit(this, getString(R.string.text_pre_execute_script), getString(R.string.summary_pre_execute_script), mPreExecuteScript == null ? "" : mPreExecuteScript);
     }
