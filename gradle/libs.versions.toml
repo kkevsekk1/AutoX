@@ -225,13 +225,14 @@ android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", ver
 android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
-
+compose-gradlePlugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
 autojs-android-application = { id = "autojs.android.application", version = "unspecified" }
 autojs-android-application-compose = { id = "autojs.android.application.compose", version = "unspecified" }

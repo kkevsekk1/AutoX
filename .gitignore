@@ -25,3 +25,7 @@ autojs/.cxx/ndk_locator_record_68547592.json
 autojs/.cxx/ndk_locator_record_68547592_key.json
 *.aab
 output-metadata.json
+
+
+# Kotlin
+.kotlin
