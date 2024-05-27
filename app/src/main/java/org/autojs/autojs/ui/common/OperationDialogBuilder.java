@@ -1,6 +1,5 @@
 package org.autojs.autojs.ui.common;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,34 +18,39 @@ import com.stardust.theme.widget.ThemeColorImageView;
 import org.autojs.autoxjs.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+
+import kotlin.Unit;
+import kotlin.reflect.KFunction;
 
 /**
  * Created by Stardust on 2017/6/26.
  */
-
 public class OperationDialogBuilder extends MaterialDialog.Builder {
 
-    private final RecyclerView mOperations;
     private final ArrayList<Integer> mIds = new ArrayList<>();
     private final ArrayList<Integer> mIcons = new ArrayList<>();
     private final ArrayList<String> mTexts = new ArrayList<>();
+    private final ArrayList<KFunction<Unit>> click = new ArrayList<>();
 
     public OperationDialogBuilder(@NonNull Context context) {
         super(context);
-        mOperations = new RecyclerView(context);
+        RecyclerView mOperations = new RecyclerView(context);
         mOperations.setLayoutManager(new LinearLayoutManager(context));
         mOperations.setAdapter(new RecyclerView.Adapter<ViewHolder>() {
+            @NonNull
             @Override
-            public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.operation_dialog_item, parent, false));
             }
 
             @Override
-            public void onBindViewHolder(ViewHolder holder, int position) {
+            public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
                 holder.itemView.setId(mIds.get(position));
                 holder.text.setText(mTexts.get(position));
                 holder.icon.setImageResource(mIcons.get(position));
                 holder.icon.setThemeColor(new ThemeColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.on_surface)));
+                holder.itemView.setOnClickListener(view -> click.get(position).call());
             }
 
             @Override
@@ -68,12 +72,14 @@ public class OperationDialogBuilder extends MaterialDialog.Builder {
         return this;
     }
 
-    public OperationDialogBuilder bindItemClick(Object target) {
+    @SafeVarargs
+    @NonNull
+    public final OperationDialogBuilder bindItemClick(@NonNull KFunction<Unit>... kFunction0) {
+        click.addAll(Arrays.asList(kFunction0));
         return this;
     }
 
-    @SuppressLint("NonConstantResourceId")
-    class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder {
         ThemeColorImageView icon;
         TextView text;
 

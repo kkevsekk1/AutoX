@@ -40,20 +40,19 @@ import org.jdeferred.impl.DeferredObject
 /**
  * Created by Stardust on 2017/10/18.
  */
-@SuppressLint("NonConstantResourceId")
-class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, CaptureAvailableListener {
+class CircularMenu(context: Context) : Recorder.OnStateChangedListener, CaptureAvailableListener {
     class StateChangeEvent(val currentState: Int, val previousState: Int)
 
     private var mWindow: CircularMenuWindow? = null
     private var mState = 0
     private var mActionViewIcon: RoundedImageView? = null
-    private val mContext: Context
+    private val mContext: Context = ContextThemeWrapper(context, R.style.AppTheme)
     private val mRecorder: GlobalActionRecorder
     private var mSettingsDialog: MaterialDialog? = null
     private var mLayoutInspectDialog: MaterialDialog? = null
     private var mRunningPackage: String? = null
     private var mRunningActivity: String? = null
-    private var mCaptureDeferred: Deferred<NodeInfo?, Void, Void>? = null
+    private var mCaptureDeferred: Deferred<NodeInfo?, Unit, Unit>? = null
     private fun setupListeners() {
         mWindow?.setOnActionViewClickListener {
             if (mState == STATE_RECORDING) {
@@ -92,26 +91,10 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
                 menu.findViewById<View>(R.id.record)?.setOnClickListener { startRecord() }
 
                 menu.findViewById<View>(R.id.layout_inspect)?.setOnClickListener { inspectLayout() }
-                menu.findViewById<View>(R.id.layout_bounds)
-                    ?.setOnClickListener { showLayoutBounds() }
-
-                menu.findViewById<View>(R.id.layout_hierarchy)
-                    ?.setOnClickListener { showLayoutHierarchy() }
+                menu.findViewById<View>(R.id.settings)?.setOnClickListener { settings() }
                 menu.findViewById<View>(R.id.stop_all_scripts)
                     ?.setOnClickListener { stopAllScripts() }
 
-                menu.findViewById<View>(R.id.settings)?.setOnClickListener { settings() }
-                menu.findViewById<View>(R.id.accessibility_service)
-                    ?.setOnClickListener { enableAccessibilityService() }
-
-                menu.findViewById<View>(R.id.package_name)?.setOnClickListener { copyPackageName() }
-                menu.findViewById<View>(R.id.class_name)?.setOnClickListener { copyActivityName() }
-
-                menu.findViewById<View>(R.id.open_launcher)?.setOnClickListener { openLauncher() }
-                menu.findViewById<View>(R.id.pointer_location)
-                    ?.setOnClickListener { togglePointerLocation() }
-
-                menu.findViewById<View>(R.id.exit)?.setOnClickListener { close() }
                 return menu
             }
         })
@@ -183,10 +166,11 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
                 R.string.text_inspect_layout_bounds
             )
             .item(
-                R.id.layout_hierarchy, R.drawable.ic_layout_hierarchy,
+                R.id.layout_hierarchy,
+                R.drawable.ic_layout_hierarchy,
                 R.string.text_inspect_layout_hierarchy
             )
-            .bindItemClick(this)
+            .bindItemClick(::showLayoutBounds, ::showLayoutHierarchy)
             .title(R.string.text_inspect_layout)
             .build()
         DialogUtils.showDialog(mLayoutInspectDialog)
@@ -252,11 +236,13 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
                 R.string.text_accessibility_settings
             )
             .item(
-                R.id.package_name, R.drawable.ic_android_fill,
+                R.id.package_name,
+                R.drawable.ic_android_fill,
                 mContext.getString(R.string.text_current_package) + mRunningPackage
             )
             .item(
-                R.id.class_name, R.drawable.ic_window,
+                R.id.class_name,
+                R.drawable.ic_window,
                 mContext.getString(R.string.text_current_activity) + mRunningActivity
             )
             .item(
@@ -270,9 +256,18 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
                 R.string.text_pointer_location
             )
             .item(R.id.exit, R.drawable.ic_close, R.string.text_exit_floating_window)
-            .bindItemClick(this)
+            .bindItemClick(
+                ::enableAccessibilityService,
+                ::copyPackageName,
+                ::copyActivityName,
+                ::openLauncher,
+                ::togglePointerLocation,
+                ::close,
+            )
             .title(R.string.text_more)
             .build()
+
+
         DialogUtils.showDialog(mSettingsDialog)
     }
 
@@ -345,7 +340,6 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
     }
 
     init {
-        mContext = ContextThemeWrapper(context, R.style.AppTheme)
         initFloaty()
         setupListeners()
         mRecorder = GlobalActionRecorder.getSingleton(context)
