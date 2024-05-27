@@ -78,7 +78,6 @@ rxjava3 = "3.1.8"
 rxandroid3 = "3.0.2"
 eventbus = "3.3.1"
 commons-io = "2.16.1"
-kotlinVersion = "1.9.0"
 [libraries]
 # androidx
 analytics = { module = "com.flurry.android:analytics", version.ref = "analytics-version" }
@@ -186,8 +185,6 @@ roundedimageview = { module = "com.makeramen:roundedimageview", version.ref = "r
 
 rxjava2 = { module = "io.reactivex.rxjava2:rxjava", version.ref = "rxjava2" }
 rxjava2-rxandroid = { module = "io.reactivex.rxjava2:rxandroid", version.ref = "rxandroid2" }
-rxjava3 = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava3" }
-rxjava3-rxandroid = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxandroid3" }
 
 leakcanary-android = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanary" }
 leakcanary-object-watcher-android = { module = "com.squareup.leakcanary:leakcanary-object-watcher-android", version.ref = "leakcanary" }

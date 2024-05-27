@@ -1,22 +1,21 @@
-package org.autojs.autojs.network
-
+package org.autojs.autojs.core.network
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.request.header
 import io.ktor.client.utils.CacheControl
 import io.ktor.http.HttpHeaders
-import org.autojs.autojs.network.entity.GithubReleaseInfo
+import org.autojs.autojs.core.model.github.GithubReleaseInfo
 
 object VersionService2 {
 
     suspend fun getGithubLastReleaseInfo(): GithubReleaseInfo {
-        return axClient.get("https://api.github.com/repos/kkevsekk1/AutoX/releases/latest") {
+        return client.get("https://api.github.com/repos/kkevsekk1/AutoX/releases/latest") {
             header(HttpHeaders.CacheControl, CacheControl.NO_CACHE)
         }.body()
     }
 
     suspend fun getGithubReleaseInfoList(): List<GithubReleaseInfo> {
-        return axClient.get("https://api.github.com/repos/kkevsekk1/AutoX/releases") {
+        return client.get("https://api.github.com/repos/kkevsekk1/AutoX/releases") {
             header(HttpHeaders.CacheControl, CacheControl.NO_CACHE)
         }.body()
     }

@@ -143,6 +143,8 @@ dependencies {
     implementation(projects.apkbuilder)
     implementation(projects.codeeditor)
 
+    implementation(projects.core.network)
+
     implementation(libs.androidx.localbroadcastmanager)
     implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.androidx.webkit)
