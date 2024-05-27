@@ -30,7 +30,6 @@ import com.stardust.auojs.inrt.pluginclient.AutoXKeepLiveService
 import com.stardust.autojs.core.ui.inflater.ImageLoader
 import com.stardust.autojs.core.ui.inflater.util.Drawables
 import com.stardust.autojs.execution.ScriptExecuteActivity
-import com.stardust.util.SdkVersionUtil
 import org.autojs.autoxjs.inrt.BuildConfig
 import org.autojs.autoxjs.inrt.R
 
@@ -39,7 +38,7 @@ import org.autojs.autoxjs.inrt.R
  * Created by Stardust on 2017/7/1.
  */
 
-class App(view: ImageView) : Application() {
+class App : Application() {
 
     var TAG = "inrt.application";
     override fun onCreate() {
