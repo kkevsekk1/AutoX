@@ -21,8 +21,8 @@ public class ShortcutManager {
 
 
     private static ShortcutManager sInstance;
-    private Context mContext;
-    private android.content.pm.ShortcutManager mShortcutManager;
+    private final Context mContext;
+    private final android.content.pm.ShortcutManager mShortcutManager;
 
 
     public ShortcutManager(Context context) {
