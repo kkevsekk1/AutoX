@@ -57,6 +57,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        WindowInsetsController
         if ((window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN) == 0) {
             ThemeColorManager.addActivityStatusBar(this)
         }
