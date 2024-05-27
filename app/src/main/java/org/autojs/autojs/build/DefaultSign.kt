@@ -32,10 +32,10 @@ object DefaultSign {
     ) {
         zos.putNextEntry(ZipEntry(prefix))
         zos.closeEntry()
-        val `arr$` = dir.listFiles()
-        val `len$` = `arr$`.size
-        for (`i$` in 0 until `len$`) {
-            val f = `arr$`[`i$`]
+        val arrayOfFiles = dir.listFiles()!!
+        val len = arrayOfFiles.size
+        for (i in 0 until len) {
+            val f = arrayOfFiles[i]
             if (f.isFile) {
                 doFile(prefix + f.name, f, zos, dos, m)
             } else {
@@ -71,9 +71,9 @@ object DefaultSign {
     private fun generateSF(manifest: Manifest): Manifest {
         val md = MessageDigest.getInstance("SHA1")
         val print = PrintStream(DigestOutputStream(object : OutputStream() {
-            override fun write(arg0: ByteArray) {}
-            override fun write(arg0: ByteArray, arg1: Int, arg2: Int) {}
-            override fun write(arg0: Int) {}
+            override fun write(arg0: ByteArray) = Unit
+            override fun write(arg0: ByteArray, arg1: Int, arg2: Int) = Unit
+            override fun write(arg0: Int) = Unit
         }, md), true, "UTF-8")
         val sf = Manifest()
         val entries = manifest.entries
@@ -159,7 +159,7 @@ object DefaultSign {
         val out = SignatureOutputStream(zos, signature)
         out.write("Signature-Version: 1.0\r\n".toByteArray(charset("UTF-8")))
         out.write(
-            """Created-By: tiny-sign-${DefaultSign::class.java.getPackage().implementationVersion}
+            """Created-By: tiny-sign-${DefaultSign::class.java.getPackage()?.implementationVersion}
 """.toByteArray(charset("UTF-8"))
         )
         out.write("SHA1-Digest-Manifest: ".toByteArray(charset("UTF-8")))
