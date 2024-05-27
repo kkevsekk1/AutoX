@@ -124,7 +124,7 @@ android {
     }
 
     configurations.all {
-        resolutionStrategy.force("com.google.code.findbugs:jsr305:3.0.1")
+        resolutionStrategy.force("com.google.code.findbugs:jsr305:3.0.2")
         exclude(group = "org.jetbrains", module = "annotations-java5")
 //        exclude(group = "com.atlassian.commonmark",) module = "commonmark"
         exclude(group = "com.github.atlassian.commonmark-java", module = "commonmark")
