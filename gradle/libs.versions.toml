@@ -79,6 +79,7 @@ rxjava3 = "3.1.8"
 rxandroid3 = "3.0.2"
 eventbus = "3.3.1"
 commons-io = "2.16.1"
+kotlinVersion = "1.9.0"
 [libraries]
 # androidx
 analytics = { module = "com.flurry.android:analytics", version.ref = "analytics-version" }
@@ -237,6 +238,7 @@ compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 autojs-android-application = { id = "autojs.android.application", version = "unspecified" }
 autojs-android-application-compose = { id = "autojs.android.application.compose", version = "unspecified" }
 autojs-android-library = { id = "autojs.android.library", version = "unspecified" }
+autojs-jvm-library = { id = "autojs.jvm.library", version = "unspecified" }
 [bundles]
 ktor = [
     "ktor-server-core",

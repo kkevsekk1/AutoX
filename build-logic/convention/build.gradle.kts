@@ -46,5 +46,9 @@ gradlePlugin {
             id = "autojs.android.application.compose"
             implementationClass = "AndroidApplicationComposeConventionPlugin"
         }
+        register("jvmLibrary") {
+            id = "autojs.jvm.library"
+            implementationClass = "JvmLibraryConventionPlugin"
+        }
     }
 }
