@@ -5,7 +5,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.widget.Toast
-import androidx.annotation.Nullable
 import com.stardust.app.GlobalAppContext
 import com.stardust.autojs.execution.ExecutionConfig
 import com.stardust.autojs.execution.ScriptExecution
@@ -158,7 +157,6 @@ object Scripts {
         )
     }
 
-    @Nullable
     fun getRhinoException(throwable: Throwable?): RhinoException? {
         var e = throwable
         while (e != null) {
