@@ -78,7 +78,7 @@ rxandroid2 = "2.1.1"
 rxjava3 = "3.1.8"
 rxandroid3 = "3.0.2"
 eventbus = "3.3.1"
-commons-io = "2.13.0"
+commons-io = "2.16.1"
 [libraries]
 # androidx
 analytics = { module = "com.flurry.android:analytics", version.ref = "analytics-version" }
