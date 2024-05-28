@@ -9,10 +9,10 @@ import java.util.Map;
 
 public class MapBuilder<K, V> {
 
-    private Map<K, V> mMap;
+    private final Map<K, V> mMap;
 
     public MapBuilder() {
-        this(new HashMap<K, V>());
+        this(new HashMap<>());
     }
 
     public MapBuilder(Map<K, V> map) {

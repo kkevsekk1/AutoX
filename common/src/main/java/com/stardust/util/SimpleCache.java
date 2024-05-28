@@ -15,15 +15,15 @@ public class SimpleCache<T> {
         T get(String key);
     }
 
-    private long mPersistTime;
-    private LimitedHashMap<String, Item<T>> mCache;
-    private Timer mCacheCheckTimer;
-    private Supplier<T> mSupplier;
+    private final long mPersistTime;
+    private final LimitedHashMap<String, Item<T>> mCache;
+    private final Timer mCacheCheckTimer;
+    private final Supplier<T> mSupplier;
 
     public SimpleCache(long persistTime, int cacheSize, long checkInterval, Supplier<T> supplier) {
         mPersistTime = persistTime;
         mCache = new LimitedHashMap<>(cacheSize);
-        mSupplier = supplier == null ? new NullSupplier<T>() : supplier;
+        mSupplier = supplier == null ? new NullSupplier<>() : supplier;
         mCacheCheckTimer = new Timer();
         startCacheCheck(checkInterval);
     }
@@ -92,7 +92,7 @@ public class SimpleCache<T> {
     private class Item<T> {
 
         T value;
-        private long mSaveMillis;
+        private final long mSaveMillis;
 
 
         Item(T value) {
