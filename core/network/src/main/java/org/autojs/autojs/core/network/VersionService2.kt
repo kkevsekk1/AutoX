@@ -5,6 +5,7 @@ import io.ktor.client.request.header
 import io.ktor.client.utils.CacheControl
 import io.ktor.http.HttpHeaders
 import org.autojs.autojs.core.model.github.GithubReleaseInfo
+import org.autojs.autojs.core.network.client.client
 
 object VersionService2 {
 
