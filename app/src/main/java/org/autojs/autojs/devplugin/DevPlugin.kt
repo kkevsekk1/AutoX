@@ -49,7 +49,7 @@ object DevPlugin {
     private const val TYPE_PONG = "pong"
     private const val TYPE_CLOSE = "close"
     private const val TYPE_BYTES_COMMAND = "bytes_command"
-    private const val maxRetry = 3
+    private const val MAX_RETRY = 3
 
     private val _connectState = MutableSharedFlow<State>()
     private val client by lazy { WebSocketClient() }
@@ -276,7 +276,7 @@ object DevPlugin {
                 Log.i(TAG, "reconnect")
                 emitDisconnect(session)
                 var ok = false
-                for (i in 0 until maxRetry) {
+                for (i in 0 until MAX_RETRY) {
                     emitState(State(State.RECONNECTING))
                     try {
                         client.connect(url) {
@@ -284,7 +284,7 @@ object DevPlugin {
                             newConnection(this, url)
                         }
                     } catch (e: Exception) {
-                        if (i == maxRetry - 1) {
+                        if (i == MAX_RETRY - 1) {
                             emitState(State(State.CONNECTION_FAILED, e))
                         }
                         client.close()
