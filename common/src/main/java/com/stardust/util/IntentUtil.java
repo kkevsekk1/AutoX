@@ -19,28 +19,6 @@ import java.io.File;
 
 public class IntentUtil {
 
-    public static boolean chatWithQQ(Context context, String qq) {
-        try {
-            String url = "mqqwpa://im/chat?chat_type=wpa&uin=" + qq;
-            context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-            return true;
-        } catch (Exception exception) {
-            exception.printStackTrace();
-            return false;
-        }
-    }
-
-    public static boolean joinQQGroup(Context context, String key) {
-        Intent intent = new Intent().addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setData(Uri.parse("mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26k%3D" + key));
-        try {
-            context.startActivity(intent);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
 
     public static boolean sendMailTo(Context context, String sendTo, @Nullable String title, @Nullable String content) {
         try {

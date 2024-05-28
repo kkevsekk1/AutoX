@@ -19,7 +19,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.stardust.autojs.R
 import com.stardust.autojs.core.console.ConsoleImpl.LogListener
 import com.stardust.enhancedfloaty.ResizableExpandableFloatyWindow
-import com.stardust.util.MapBuilder
 import com.stardust.util.SparseArrayEntries
 import com.stardust.util.ViewUtils
 
@@ -224,14 +223,14 @@ class ConsoleView : FrameLayout, LogListener {
     }
 
     companion object {
-        private val ATTRS = MapBuilder<Int, Int>()
-            .put(R.styleable.ConsoleView_color_verbose, Log.VERBOSE)
-            .put(R.styleable.ConsoleView_color_debug, Log.DEBUG)
-            .put(R.styleable.ConsoleView_color_info, Log.INFO)
-            .put(R.styleable.ConsoleView_color_warn, Log.WARN)
-            .put(R.styleable.ConsoleView_color_error, Log.ERROR)
-            .put(R.styleable.ConsoleView_color_assert, Log.ASSERT)
-            .build()
+        private val ATTRS = mapOf(
+            R.styleable.ConsoleView_color_verbose to Log.VERBOSE,
+            R.styleable.ConsoleView_color_debug to Log.DEBUG,
+            R.styleable.ConsoleView_color_info to Log.INFO,
+            R.styleable.ConsoleView_color_warn to Log.WARN,
+            R.styleable.ConsoleView_color_error to Log.ERROR,
+            R.styleable.ConsoleView_color_assert to Log.ASSERT,
+        )
         val COLORS = SparseArrayEntries<Int>()
             .entry(Log.VERBOSE, -0x203f3f40)
             .entry(Log.DEBUG, -0x20000001)

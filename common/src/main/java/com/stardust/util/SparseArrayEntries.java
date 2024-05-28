@@ -1,12 +1,14 @@
 package com.stardust.util;
 
 import androidx.annotation.NonNull;
+
 import android.util.SparseArray;
 
 /**
  * Created by Stardust on 2017/1/26.
  */
-
+// 建议替换成 androidx
+@Deprecated
 public class SparseArrayEntries<E> {
 
     private final SparseArray<E> mSparseArray = new SparseArray<>();

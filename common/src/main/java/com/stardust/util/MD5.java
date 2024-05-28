@@ -1,5 +1,7 @@
 package com.stardust.util;
 
+import android.util.Base64;
+
 import androidx.annotation.NonNull;
 
 import java.security.MessageDigest;
@@ -30,7 +32,16 @@ public class MD5 {
             hexString.append(hex);
         }
         return hexString.toString();
-
-
+    }
+    public static String md5ToBase64(String text) {
+        MessageDigest md;
+        byte[] bytesOfMessage = text.getBytes();
+        try {
+            md = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+        byte[] thedigest = md.digest(bytesOfMessage);
+        return Base64.encodeToString(thedigest, Base64.DEFAULT);
     }
 }

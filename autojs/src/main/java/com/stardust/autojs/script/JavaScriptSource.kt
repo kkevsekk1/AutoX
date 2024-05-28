@@ -2,7 +2,6 @@ package com.stardust.autojs.script
 
 import android.util.Log
 import com.stardust.autojs.rhino.TokenStream
-import com.stardust.util.MapBuilder
 import org.mozilla.javascript.Token
 import java.io.Reader
 import java.io.StringReader
@@ -78,10 +77,10 @@ abstract class JavaScriptSource(name: String) : ScriptSource(name) {
         const val EXECUTION_MODE_UI = 0x00000001
         const val EXECUTION_MODE_AUTO = 0x00000002
         private const val LOG_TAG = "JavaScriptSource"
-        private val EXECUTION_MODES = MapBuilder<String, Int>()
-            .put("ui", EXECUTION_MODE_UI)
-            .put("auto", EXECUTION_MODE_AUTO)
-            .build()
+        private val EXECUTION_MODES = mapOf(
+            "ui" to EXECUTION_MODE_UI,
+            "auto" to EXECUTION_MODE_AUTO,
+        )
         private const val PARSING_MAX_TOKEN = 300
     }
 }
