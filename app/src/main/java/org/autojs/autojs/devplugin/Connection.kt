@@ -183,26 +183,25 @@ class Connection(
         DevPlugin.newConnection(session, serverUrl)
 
     private suspend fun reconnect() {
-        serverUrl?.let { url ->
-            Log.i(TAG, "reconnect")
-            emitDisconnect(session)
-            var ok = false
-            for (i in 0 until MAX_RETRY) {
-                emitState(State(State.RECONNECTING))
-                try {
-                    client.connect(url) {
-                        ok = true
-                        newConnection(this, url)
-                    }
-                } catch (e: Exception) {
-                    if (i == MAX_RETRY - 1) {
-                        emitState(State(State.CONNECTION_FAILED, e))
-                    }
-                    client.close()
-                    e.printStackTrace()
+        serverUrl ?: return
+        Log.i(TAG, "reconnect")
+        emitDisconnect()
+        var ok = false
+        for (i in 0 until MAX_RETRY) {
+            emitState(State(State.RECONNECTING))
+            try {
+                client.connect(serverUrl) {
+                    ok = true
+                    newConnection(this, serverUrl)
                 }
-                if (ok) break
+            } catch (e: Exception) {
+                if (i == MAX_RETRY - 1) {
+                    emitState(State(State.CONNECTION_FAILED, e))
+                }
+                client.close()
+                e.printStackTrace()
             }
+            if (ok) break
         }
     }
 
@@ -258,10 +257,10 @@ class Connection(
     ) {
         Log.i(TAG, "close: ${reason.message}")
         e?.printStackTrace()
-        emitDisconnect(session, e)
+        emitDisconnect(e)
     }
 
-    suspend fun WebSocketSession.mapToData(
+    private suspend fun WebSocketSession.mapToData(
         onJson: suspend WebSocketSession.(JsonElement) -> Unit,
         onBytes: suspend WebSocketSession.(Bytes) -> Unit,
     ) {
@@ -285,25 +284,25 @@ class Connection(
             onError = { e ->
                 Log.i(TAG, "onError: ${e.message}")
                 e.printStackTrace()
-                emitDisconnect(this, e)
+                emitDisconnect(e)
             },
             onClose = { e ->
                 Log.i(TAG, "onClose: ${e.message}")
                 e.printStackTrace()
-                emitDisconnect(this, e)
+                emitDisconnect(e)
             },
             onFinally = {
                 Log.i(TAG, "onFinally")
-                emitDisconnect(this)
+                emitDisconnect()
             }
         )
 
     }
 
-    private suspend fun emitDisconnect(session: WebSocketSession?, e: Throwable? = null) {
+    private suspend fun emitDisconnect(e: Throwable? = null) {
         emitState(State(State.DISCONNECTED, e))
-        session?.close()
-        session?.cancel()
+        session.close()
+        session.cancel()
     }
 
     private suspend fun WebSocketSession.handleSession(
@@ -326,6 +325,6 @@ class Connection(
     }
 
     suspend fun emitState(state: State) {
-       DevPlugin.emitState(state)
+        DevPlugin.emitState(state)
     }
 }
