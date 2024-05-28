@@ -28,28 +28,18 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import okio.ByteString.Companion.toByteString
-import org.autojs.autojs.devplugin.message.Hello
-import org.autojs.autojs.devplugin.message.HelloResponse
-import org.autojs.autojs.devplugin.message.LogData
-import org.autojs.autojs.devplugin.message.Message
+import org.autojs.autojs.core.model.devplugin.Bytes
+import org.autojs.autojs.core.model.devplugin.Hello
+import org.autojs.autojs.core.model.devplugin.HelloResponse
+import org.autojs.autojs.core.model.devplugin.LogData
+import org.autojs.autojs.core.model.devplugin.Message
+import org.autojs.autojs.core.network.socket.State
 import org.autojs.autoxjs.BuildConfig
 import org.autojs.autoxjs.R
 import java.io.File
 import java.net.SocketTimeoutException
 
 object DevPlugin {
-
-    data class State(val state: Int, val e: Throwable? = null) {
-        companion object {
-            const val DISCONNECTED = 0
-            const val CONNECTING = 1
-            const val CONNECTED = 2
-            const val CONNECTION_FAILED = 3
-            const val RECONNECTING = 4
-            const val HANDSHAKE_TIMEOUT = 5
-        }
-    }
-
     private val gson get() = Gson()
     const val SERVER_PORT = 9317
     private const val CLIENT_VERSION = 2
@@ -105,17 +95,19 @@ object DevPlugin {
         connection?.log(log)
     }
 
-    suspend fun collect() {
+    private suspend fun collect() {
         connectState.collect {
             when (it.state) {
                 State.CONNECTING -> {
                     Log.d(TAG, "ConnectComputerSwitch: CONNECTING")
                     GlobalAppContext.toast(R.string.text_connecting)
                 }
+
                 State.RECONNECTING -> {
                     Log.d(TAG, "ConnectComputerSwitch: RECONNECTING")
                     GlobalAppContext.toast(R.string.text_reconnecting)
                 }
+
                 State.CONNECTION_FAILED -> {
                     Log.d(TAG, "ConnectComputerSwitch: CONNECTION_FAILED")
                     GlobalAppContext.toast(
@@ -125,6 +117,7 @@ object DevPlugin {
                     )
                     it.e?.printStackTrace()
                 }
+
                 State.HANDSHAKE_TIMEOUT -> {
                     GlobalAppContext.toast(R.string.text_handshake_failed)
                 }
@@ -223,9 +216,11 @@ object DevPlugin {
                     TYPE_PONG -> {
                         lastPongId = obj["data"].asLong
                     }
+
                     TYPE_CLOSE -> {
                         this.close()
                     }
+
                     TYPE_BYTES_COMMAND -> {
                         val md5 = obj["md5"].asString
                         bytesMap.remove(md5)?.let {
@@ -234,6 +229,7 @@ object DevPlugin {
                             requiredBytesCommands[md5] = obj
                         }
                     }
+
                     else -> responseHandler.handle(obj)
                 }
             } catch (e: Exception) {
@@ -248,7 +244,6 @@ object DevPlugin {
                 bytesMap[bytes.md5] = bytes
             }
         }
-
 
         private suspend fun ping() {
             while (true) {
@@ -273,7 +268,7 @@ object DevPlugin {
             }
         }
 
-        suspend fun newConnection(session: WebSocketSession, serverUrl: String? = null) =
+        private suspend fun newConnection(session: WebSocketSession, serverUrl: String? = null) =
             DevPlugin.newConnection(session, serverUrl)
 
         private suspend fun reconnect() {
@@ -366,11 +361,13 @@ object DevPlugin {
                             val text = (frame as Frame.Text).readText()
                             JsonUtil.dispatchJson(text)?.let { onJson(it) }
                         }
+
                         FrameType.BINARY -> {
                             val bytes = frame.readBytes()
                             val md5 = bytes.toByteString(0, bytes.size).md5().hex()
                             onBytes(Bytes(md5, bytes))
                         }
+
                         else -> {}
                     }
                 },
@@ -422,11 +419,11 @@ object DevPlugin {
         }
     }
 
-    suspend fun newConnection(session: WebSocketSession, serverUrl: String? = null) {
+    private suspend fun newConnection(session: WebSocketSession, serverUrl: String? = null) {
         val connection = Connection(session, serverUrl)
         this@DevPlugin.connection = connection
         connection.init()
     }
 
-    suspend fun emitState(state: State) = _connectState.emit(state)
+    private suspend fun emitState(state: State) = _connectState.emit(state)
 }
