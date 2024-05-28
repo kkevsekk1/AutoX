@@ -7,6 +7,7 @@ import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import com.google.gson.JsonPrimitive
 import com.stardust.app.GlobalAppContext
+import io.ktor.client.plugins.websocket.DefaultClientWebSocketSession
 import io.ktor.websocket.CloseReason
 import io.ktor.websocket.Frame
 import io.ktor.websocket.FrameType
@@ -53,7 +54,7 @@ private val responseHandler: DevPluginResponseHandler by lazy {
 }
 
 class Connection(
-    private val session: WebSocketSession,
+    private val session: DefaultClientWebSocketSession,
     private val serverUrl: String? = null,
     private val client: WebSocketClient
 ) {
@@ -64,13 +65,13 @@ class Connection(
         session.shakeHandsAndHandle()
     }
 
-    private suspend fun WebSocketSession.shakeHandsAndHandle() {
+    private suspend fun DefaultClientWebSocketSession.shakeHandsAndHandle() {
         shakeHands {
             handle()
         }
     }
 
-    suspend fun WebSocketSession.handle() {
+    suspend fun DefaultClientWebSocketSession.handle() {
         emitState(State(State.CONNECTED))
         withContext(Dispatchers.IO) {
             launch {
@@ -86,7 +87,7 @@ class Connection(
         }
     }
 
-    private suspend fun WebSocketSession.shakeHands(onSuccess: suspend () -> Unit) {
+    private suspend fun DefaultClientWebSocketSession.shakeHands(onSuccess: suspend () -> Unit) {
         val message = Message(
             type = TYPE_HELLO,
             data = Hello(
@@ -179,7 +180,7 @@ class Connection(
         }
     }
 
-    private suspend fun newConnection(session: WebSocketSession, serverUrl: String? = null) =
+    private suspend fun newConnection(session: DefaultClientWebSocketSession, serverUrl: String? = null) =
         DevPlugin.newConnection(session, serverUrl)
 
     private suspend fun reconnect() {

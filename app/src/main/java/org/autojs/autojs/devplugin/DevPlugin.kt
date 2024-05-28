@@ -2,6 +2,8 @@ package org.autojs.autojs.devplugin
 
 import android.util.Log
 import com.stardust.app.GlobalAppContext
+import io.ktor.client.plugins.websocket.DefaultClientWebSocketSession
+import io.ktor.server.plugins.mutableOriginConnectionPoint
 import io.ktor.websocket.WebSocketSession
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -36,11 +38,7 @@ object DevPlugin {
         withContext(Dispatchers.IO) {
             emitState(State(State.CONNECTING))
             try {
-                client.connect(
-                    url
-                ) {
-                    newConnection(this, url)
-                }
+                client.connect(url) { newConnection(this, url) }
             } catch (e: Exception) {
                 emitState(State(State.CONNECTION_FAILED, e))
                 client.close()
@@ -86,7 +84,7 @@ object DevPlugin {
     suspend fun startUSBDebug() {
         withContext(Dispatchers.IO) {
             server.listen(SERVER_PORT, "/", host = "127.0.0.1") {
-                newConnection(this)
+//                client.connect("127.0.0.1:$SERVER_PORT") { newConnection(this) }
             }
         }
     }
@@ -99,7 +97,7 @@ object DevPlugin {
 
     suspend fun close() = connection?.close()
 
-    suspend fun newConnection(session: WebSocketSession, serverUrl: String? = null) {
+    suspend fun newConnection(session: DefaultClientWebSocketSession, serverUrl: String? = null) {
         val connection = Connection(session, serverUrl, client)
         this@DevPlugin.connection = connection
         connection.init()
