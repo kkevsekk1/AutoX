@@ -19,6 +19,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.autojs.autojs.Pref
 import org.autojs.autojs.autojs.AutoJs
+import org.autojs.autojs.core.model.devplugin.Bytes
 import org.autojs.autojs.model.script.Scripts.run
 import org.autojs.autoxjs.R
 import java.io.ByteArrayInputStream
