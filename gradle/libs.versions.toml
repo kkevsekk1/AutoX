@@ -43,6 +43,7 @@ androidxLifecycle = "2.8.0"
 localbroadcastmanager-version = "1.1.0"
 leakcanary = "2.14"
 log4jVersion = "1.2.17"
+logbackClassicVersion = "1.5.6"
 multidex-version = "2.0.1"
 mutabletheme-version = "1.0.0"
 okhttp = "4.12.0"
@@ -74,8 +75,6 @@ work-runtime-version = "2.9.0"
 zip4j-version = "1.3.2"
 rxjava2 = "2.2.21"
 rxandroid2 = "2.1.1"
-rxjava3 = "3.1.8"
-rxandroid3 = "3.0.2"
 eventbus = "3.3.1"
 commons-io = "2.16.1"
 [libraries]
@@ -113,6 +112,7 @@ jdeferred-android-aar = { module = "org.jdeferred:jdeferred-android-aar", versio
 keeplive = { module = "com.fanjun:keeplive", version.ref = "keeplive-version" }
 licensesdialog = { module = "de.psdev.licensesdialog:licensesdialog", version.ref = "licensesdialog-version" }
 log4j = { module = "log4j:log4j", version.ref = "log4jVersion" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logbackClassicVersion" }
 markwon-core = { module = "io.noties.markwon:core", version.ref = "core" }
 material-dialogs-commons = { module = "com.afollestad.material-dialogs:commons", version.ref = "commons-version" }
 
@@ -176,6 +176,7 @@ ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "kto
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 
 quickie-bundled = { module = "io.github.g00fy2.quickie:quickie-bundled", version.ref = "quickie-bundled-version" }
 recyclerview-flexibledivider = { module = "com.yqritc:recyclerview-flexibledivider", version.ref = "recyclerview-flexibledivider-version" }
