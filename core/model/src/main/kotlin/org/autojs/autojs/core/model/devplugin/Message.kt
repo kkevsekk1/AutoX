@@ -9,4 +9,8 @@ data class Message<T>(
     val type: String,
     @SerialName("data")
     val data: T,
+    @SerialName("md5")
+    val md5: String = "",
+    @SerialName("message_id")
+    val messageId: String = "",
 )
