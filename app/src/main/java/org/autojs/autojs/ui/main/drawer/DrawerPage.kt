@@ -63,6 +63,7 @@ import org.autojs.autojs.ui.settings.SettingsActivity
 import org.autojs.autoxjs.R
 import org.joda.time.DateTimeZone
 import org.joda.time.Instant
+import org.autojs.autojs.core.network.socket.State
 
 private const val TAG = "DrawerPage"
 private const val URL_DEV_PLUGIN = "https://github.com/kkevsekk1/Auto.js-VSCode-Extension"
@@ -384,6 +385,7 @@ private fun ConnectComputerSwitch() {
                         ).show()
                     }
                 }
+
                 QRResult.QRUserCanceled -> {}
                 QRResult.QRMissingPermission -> {}
                 is QRResult.QRError -> {}
@@ -393,8 +395,8 @@ private fun ConnectComputerSwitch() {
         DevPlugin.connectState.collect {
             withContext(Dispatchers.Main) {
                 when (it.state) {
-                    DevPlugin.State.CONNECTED -> enable = true
-                    DevPlugin.State.DISCONNECTED -> enable = false
+                    State.CONNECTED -> enable = true
+                    State.DISCONNECTED -> enable = false
                 }
             }
         }
