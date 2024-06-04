@@ -1,7 +1,20 @@
 # Change Log
 autoxjs 整个项目的一些更新日志,双版本号为稳定版（内容以修复的bug为主），单版本号为激进版本、发布新内容。
 
-## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.6.1...HEAD) 未发布
+## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.6.2...HEAD) 未发布
+
+## [6.6.2] - 2024-6-4
+
+@refactor
+
+*  更新配置
+*  修复类型不匹配
+*  简化初始化视图
+*  删除未使用代码
+*  修复很多bug
+
+[6.6.2]:https://github.com/kkevsekk1/AutoX/compare/6.6.1...6.6.2
+
 
 ## [6.6.1] - 2024-5-12
 
