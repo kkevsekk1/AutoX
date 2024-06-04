@@ -29,7 +29,7 @@ jobs:
           chmod 777 ./gradlew 
           ./gradlew :inrt:assemble 
           ./gradlew :app:assembleRelease
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: apks(no signing)
           path: app/build/outputs/apk/v6/release/*
