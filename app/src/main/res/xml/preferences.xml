@@ -108,7 +108,8 @@
             android:entryValues="@array/values_documentation_source"
             android:key="@string/key_script_dir_path"
             android:layout="@layout/preference_custom"
-            android:title="@string/text_change_script_dir"></org.autojs.autojs.ui.settings.ScriptDirPathPreference>
+            android:title="@string/text_change_script_dir">
+        </org.autojs.autojs.ui.settings.ScriptDirPathPreference>
     </PreferenceCategory>
 
     <PreferenceCategory
