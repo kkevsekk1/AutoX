@@ -135,6 +135,10 @@ class DrawerViewModel(private val context: Application) : AndroidViewModel(conte
             .toLongOrNull() ?: -1) <= BuildConfig.VERSION_NAME.getVersionByName()
     }
 
+    private fun String.getVersionByName(): Long {
+        return this.replace(".", "").toLongOrNull() ?: -1
+    }
+
     private fun showToast(message: String) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
