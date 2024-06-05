@@ -1,53 +1,42 @@
-package com.stardust.app;
+package com.stardust.app
 
-import android.content.Intent;
-import androidx.annotation.NonNull;
-import android.util.SparseArray;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.content.Intent
+import androidx.collection.SparseArrayCompat
 
 /**
  * Created by Stardust on 2017/3/5.
  */
-
-public interface OnActivityResultDelegate {
-
-    void onActivityResult(int requestCode, int resultCode, Intent data);
+interface OnActivityResultDelegate {
+    fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent)
 
     interface DelegateHost {
-        @NonNull
-        Mediator getOnActivityResultDelegateMediator();
+        val onActivityResultDelegateMediator: Mediator
     }
 
-    class Mediator implements OnActivityResultDelegate {
+    class Mediator : OnActivityResultDelegate {
+        private val mSpecialDelegate = SparseArrayCompat<OnActivityResultDelegate>()
+        private val mDelegates = mutableListOf<OnActivityResultDelegate>()
 
-        private SparseArray<OnActivityResultDelegate> mSpecialDelegate = new SparseArray<>();
-        private List<OnActivityResultDelegate> mDelegates = new ArrayList<>();
-
-        public void onActivityResult(int requestCode, int resultCode, Intent data) {
-            OnActivityResultDelegate delegate = mSpecialDelegate.get(requestCode);
-            if (delegate != null) {
-                delegate.onActivityResult(requestCode, resultCode, data);
-            }
-            for (OnActivityResultDelegate d : mDelegates) {
-                d.onActivityResult(requestCode, resultCode, data);
+        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+            val delegate = mSpecialDelegate[requestCode]
+            delegate?.onActivityResult(requestCode, resultCode, data)
+            for (d in mDelegates) {
+                d.onActivityResult(requestCode, resultCode, data)
             }
         }
 
-        public void addDelegate(OnActivityResultDelegate delegate) {
-            mDelegates.add(delegate);
+        fun addDelegate(delegate: OnActivityResultDelegate) {
+            mDelegates.add(delegate)
         }
 
-        public void addDelegate(int requestCode, OnActivityResultDelegate delegate) {
-            mSpecialDelegate.put(requestCode, delegate);
+        fun addDelegate(requestCode: Int, delegate: OnActivityResultDelegate) {
+            mSpecialDelegate.put(requestCode, delegate)
         }
 
-        public void removeDelegate(OnActivityResultDelegate delegate) {
+        fun removeDelegate(delegate: OnActivityResultDelegate) {
             if (mDelegates.remove(delegate)) {
-                mSpecialDelegate.removeAt(mSpecialDelegate.indexOfValue(delegate));
+                mSpecialDelegate.removeAt(mSpecialDelegate.indexOfValue(delegate))
             }
         }
     }
-
 }

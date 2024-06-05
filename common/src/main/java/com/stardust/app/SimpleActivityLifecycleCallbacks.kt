@@ -1,47 +1,24 @@
-package com.stardust.app;
+package com.stardust.app
 
-import android.app.Activity;
-import android.app.Application;
-import android.os.Bundle;
+import android.app.Activity
+import android.app.Application.ActivityLifecycleCallbacks
+import android.os.Bundle
 
 /**
  * Created by Stardust on 2017/4/2.
  */
+open class SimpleActivityLifecycleCallbacks : ActivityLifecycleCallbacks {
+    override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) = Unit
 
-public class SimpleActivityLifecycleCallbacks implements Application.ActivityLifecycleCallbacks {
+    override fun onActivityStarted(activity: Activity) = Unit
 
-    @Override
-    public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+    override fun onActivityResumed(activity: Activity) = Unit
 
-    }
+    override fun onActivityPaused(activity: Activity) = Unit
 
-    @Override
-    public void onActivityStarted(Activity activity) {
+    override fun onActivityStopped(activity: Activity) = Unit
 
-    }
+    override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) = Unit
 
-    @Override
-    public void onActivityResumed(Activity activity) {
-
-    }
-
-    @Override
-    public void onActivityPaused(Activity activity) {
-
-    }
-
-    @Override
-    public void onActivityStopped(Activity activity) {
-
-    }
-
-    @Override
-    public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-
-    }
-
-    @Override
-    public void onActivityDestroyed(Activity activity) {
-
-    }
+    override fun onActivityDestroyed(activity: Activity) = Unit
 }

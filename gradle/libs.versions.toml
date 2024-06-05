@@ -2,6 +2,7 @@
 androidGradlePlugin = "8.4.1"
 androidTools = "31.4.1"
 androidIssueReporterVersion = "1.3.1"
+androidxCollection = "1.4.0"
 kotlin = "2.0.0"
 ksp = "2.0.0-1.0.21"
 android-job-version = "1.4.2"
@@ -89,6 +90,7 @@ android-logging-log4j = { module = "de.mindpipe.android:android-logging-log4j", 
 android-plugin-client-sdk-for-locale = { module = "com.twofortyfouram:android-plugin-client-sdk-for-locale", version.ref = "android-plugin-client-sdk-for-locale-version" }
 androidx-cardview = { module = "androidx.cardview:cardview", version.ref = "cardview-version" }
 
+androidx-collection = { module = "androidx.collection:collection", version.ref = "androidxCollection" }
 androidx-localbroadcastmanager = { module = "androidx.localbroadcastmanager:localbroadcastmanager", version.ref = "localbroadcastmanager-version" }
 androidx-multidex = { module = "androidx.multidex:multidex", version.ref = "multidex-version" }
 androidx-savedstate = { module = "androidx.savedstate:savedstate", version.ref = "savedstate" }
