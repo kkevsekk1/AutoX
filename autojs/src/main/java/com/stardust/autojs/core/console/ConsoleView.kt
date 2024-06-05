@@ -14,6 +14,7 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.os.postDelayed
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.stardust.autojs.R
@@ -43,14 +44,14 @@ class ConsoleView : FrameLayout, LogListener {
         init(null)
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(
-        context, attrs
-    ) {
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
         init(attrs)
     }
 
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
-        context, attrs, defStyleAttr
+        context,
+        attrs,
+        defStyleAttr
     ) {
         init(attrs)
     }
@@ -108,18 +109,21 @@ class ConsoleView : FrameLayout, LogListener {
         console.setConsoleView(this)
     }
 
-    override fun onNewLog(logEntry: ConsoleImpl.LogEntry) {}
+    override fun onNewLog(logEntry: ConsoleImpl.LogEntry) = Unit
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         mShouldStopRefresh = false
-        postDelayed(object : Runnable {
-            override fun run() {
-                refreshLog()
-                if (!mShouldStopRefresh) {
-                    postDelayed(this, REFRESH_INTERVAL)
+        postDelayed(
+            object : Runnable {
+                override fun run() {
+                    refreshLog()
+                    if (!mShouldStopRefresh) {
+                        postDelayed(this, REFRESH_INTERVAL)
+                    }
                 }
-            }
-        }, REFRESH_INTERVAL)
+            },
+            REFRESH_INTERVAL
+        )
     }
 
     override fun onDetachedFromWindow() {
@@ -167,7 +171,7 @@ class ConsoleView : FrameLayout, LogListener {
             mEditText.visibility = VISIBLE
             submitButton.visibility = VISIBLE
             mWindow!!.requestWindowFocus()
-            //mInputContainer.setVisibility(VISIBLE);
+            // mInputContainer.setVisibility(VISIBLE);
             mEditText.requestFocus()
         }
     }
@@ -194,7 +198,9 @@ class ConsoleView : FrameLayout, LogListener {
         fun bindData(logEntry: ConsoleImpl.LogEntry) {
             val text = if (logEntry.content.length > 5000) {
                 logEntry.content.substring(0, 2000) + " ......<${logEntry.content.length - 5000}>"
-            } else logEntry.content
+            } else {
+                logEntry.content
+            }
             textView.text = text
             if (logSize != -1f) {
                 textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, logSize)

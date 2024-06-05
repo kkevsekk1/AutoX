@@ -28,7 +28,6 @@ class Loopers(val runtime: ScriptRuntime) {
     }
 
     open class AsyncTask(private val describe: String) {
-        private val allBind = ConcurrentLinkedQueue<Loopers>()
         var isEnd: Boolean = false
             private set
 
@@ -36,8 +35,8 @@ class Loopers(val runtime: ScriptRuntime) {
             isEnd = true
         }
 
-        //线程正在退出，这里应该结束任务的执行，回收资源
-        open fun onStop(loopers: Loopers) {}
+        // 线程正在退出，这里应该结束任务的执行，回收资源
+        open fun onStop(loopers: Loopers) = Unit
         override fun toString(): String {
             return "AsyncTask: $describe"
         }
@@ -72,12 +71,10 @@ class Loopers(val runtime: ScriptRuntime) {
         if (!allTasks.contains(task)) allTasks.add(task)
     }
 
-
     fun removeAsyncTask(task: AsyncTask) = synchronized(myLooper) {
         allTasks.remove(task)
         if (available) mTimer.post(EMPTY_RUNNABLE)
     }
-
 
     private fun checkTask(): Boolean {
         allTasks.removeAll(allTasks.filter { it.isEnd }.toSet())
@@ -88,7 +85,7 @@ class Loopers(val runtime: ScriptRuntime) {
         synchronized(myLooper) {
             if (Thread.currentThread().isInterrupted) return true
             if (mTimer.hasPendingCallbacks()) return false
-            //检查是否有运行中的线程
+            // 检查是否有运行中的线程
             if (checkTask()) return false
             return !(Context.getCurrentContext() as AutoJsContext).hasPendingContinuation()
         }
@@ -112,7 +109,6 @@ class Loopers(val runtime: ScriptRuntime) {
             mServantLooper = looper.await()
             looper.await()
         }
-
 
     fun recycle() {
         Log.d(LOG_TAG, "recycle")
@@ -141,36 +137,38 @@ class Loopers(val runtime: ScriptRuntime) {
     private fun prepare() {
         if (isUiLooper) return
         if (Looper.myLooper() == null) Looper.prepare()
-        Looper.myQueue().addIdleHandler(MessageQueue.IdleHandler {
-            if (this == runtime.loopers) {
-                Log.d(LOG_TAG, "main looper queueIdle")
-                if (shouldQuitLooper() &&
-                    mMainLooperQuitHandler != null &&
-                    mMainLooperQuitHandler!!.shouldQuit()
-                ) {
-                    Log.d(LOG_TAG, "main looper quit")
-                    Looper.myLooper()!!.quitSafely()
+        Looper.myQueue().addIdleHandler(
+            MessageQueue.IdleHandler {
+                if (this == runtime.loopers) {
+                    Log.d(LOG_TAG, "main looper queueIdle")
+                    if (shouldQuitLooper() &&
+                        mMainLooperQuitHandler != null &&
+                        mMainLooperQuitHandler!!.shouldQuit()
+                    ) {
+                        Log.d(LOG_TAG, "main looper quit")
+                        Looper.myLooper()!!.quitSafely()
+                    }
+                } else {
+                    Log.d(LOG_TAG, "looper queueIdle $this")
+                    if (shouldQuitLooper()) {
+                        Log.d(LOG_TAG, "looper quit $this")
+                        Looper.myLooper()!!.quitSafely()
+                    }
                 }
-            } else {
-                Log.d(LOG_TAG, "looper queueIdle $this")
-                if (shouldQuitLooper()) {
-                    Log.d(LOG_TAG, "looper quit $this")
-                    Looper.myLooper()!!.quitSafely()
-                }
+                return@IdleHandler true
             }
-            return@IdleHandler true
-        })
+        )
     }
 
     fun notifyThreadExit(thread: TimerThread) {
         Log.d(LOG_TAG, "notifyThreadExit: $thread")
-        //当子线程退成时，主线程需要检查自身是否退出（主线程在所有子线程执行完成后才能退出，如果主线程已经执行完任务仍然要等待所有子线程），
-        //此时通过向主线程发送一个空的Runnable，主线程执行完这个Runnable后会触发IdleHandler，从而检查自身是否退出
-        //mHandler.post(EMPTY_RUNNABLE)
+        // 当子线程退成时，主线程需要检查自身是否退出（主线程在所有子线程执行完成后才能退出，如果主线程已经执行完任务仍然要等待所有子线程），
+        // 此时通过向主线程发送一个空的Runnable，主线程执行完这个Runnable后会触发IdleHandler，从而检查自身是否退出
+        // mHandler.post(EMPTY_RUNNABLE)
     }
 
     fun addAsyncTaskToCurrentThreadLooper(task: AsyncTask) {
-         (Thread.currentThread() as? TimerThread)?.loopers?.addAsyncTask(task) ?: addAsyncTask(task)
+        (Thread.currentThread() as? TimerThread)?.loopers?.addAsyncTask(task) ?: addAsyncTask(task)
     }
     companion object {
         private const val LOG_TAG = "Loopers"
