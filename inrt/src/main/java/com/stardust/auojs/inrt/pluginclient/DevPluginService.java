@@ -18,6 +18,7 @@ import com.stardust.app.GlobalAppContext;
 
 import com.stardust.auojs.inrt.Pref;
 
+import org.autojs.autoxjs.inrt.BuildConfig;
 
 import java.io.File;
 import java.net.SocketTimeoutException;
