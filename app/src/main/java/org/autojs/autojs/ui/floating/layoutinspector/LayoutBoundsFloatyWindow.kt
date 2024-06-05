@@ -129,7 +129,7 @@ open class LayoutBoundsFloatyWindow(private val mRootNode: NodeInfo?) : FullScre
     companion object {
         fun capture(inspector: LayoutInspector, context: Context?) {
             val listener: CaptureAvailableListener = object : CaptureAvailableListener {
-                override fun onCaptureAvailable(capture: NodeInfo?) {
+                override fun onCaptureAvailable(capture: NodeInfo) {
                     inspector.removeCaptureAvailableListener(this)
                     val window = LayoutBoundsFloatyWindow(capture)
                     FloatyWindowManger.addWindow(context, window)
