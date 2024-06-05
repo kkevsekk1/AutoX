@@ -34,7 +34,6 @@ enhancedfloaty-version = "0.31"
 expandablerecyclerview-version = "1.3"
 google-gson = "2.11.0"
 groovy-json-version = "3.0.21"
-jdeferred-android-aar-version = "1.2.6"
 junit = "4.13.2"
 keeplive-version = "1.1.22"
 kotlinx-coroutines-android = "1.8.1"
@@ -110,7 +109,6 @@ expandablerecyclerview = { module = "com.thoughtbot:expandablerecyclerview", ver
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 
 groovy-json = { module = "org.codehaus.groovy:groovy-json", version.ref = "groovy-json-version" }
-jdeferred-android-aar = { module = "org.jdeferred:jdeferred-android-aar", version.ref = "jdeferred-android-aar-version" }
 keeplive = { module = "com.fanjun:keeplive", version.ref = "keeplive-version" }
 licensesdialog = { module = "de.psdev.licensesdialog:licensesdialog", version.ref = "licensesdialog-version" }
 log4j = { module = "log4j:log4j", version.ref = "log4jVersion" }

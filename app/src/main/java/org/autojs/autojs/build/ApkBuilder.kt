@@ -10,6 +10,7 @@ import com.stardust.autojs.project.Constant
 import com.stardust.autojs.project.ProjectConfig
 import com.stardust.autojs.script.EncryptedScriptFileHeader
 import com.stardust.autojs.script.JavaScriptFileSource
+import com.stardust.io.Zip
 import com.stardust.pio.PFiles
 import com.stardust.util.AdvancedEncryptionStandard
 import com.stardust.util.MD5
@@ -88,7 +89,8 @@ class ApkBuilder(
         val context = GlobalAppContext.get()
         val myApkFile =
             File(context.packageManager.getApplicationInfo(context.packageName, 0).sourceDir)
-        unzip(myApkFile, File(nativePath), "lib/")
+
+        Zip.unzip(myApkFile, File(nativePath), "lib/")
     }
 
     private fun setScriptFile(path: String): ApkBuilder {
@@ -141,7 +143,7 @@ class ApkBuilder(
     }
 
     private fun encrypt(file: File, newFile: File) {
-        if (!projectConfig!!.isEncrypt){
+        if (!projectConfig!!.isEncrypt) {
             newFile.delete()
             file.copyTo(newFile)
             return

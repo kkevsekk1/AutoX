@@ -25,7 +25,7 @@ class LayoutInspector(private val mContext: Context) {
     private val mCaptureAvailableListeners = CopyOnWriteArrayList<CaptureAvailableListener>()
 
     interface CaptureAvailableListener {
-        fun onCaptureAvailable(capture: NodeInfo?)
+        fun onCaptureAvailable(capture: NodeInfo)
     }
 
     fun captureCurrentWindow(): Boolean {
@@ -46,7 +46,9 @@ class LayoutInspector(private val mContext: Context) {
             capture = NodeInfo.capture(mContext, root)
             isDumping = false
             for (l in mCaptureAvailableListeners) {
-                l.onCaptureAvailable(capture)
+                capture?.let {
+                    l.onCaptureAvailable(it)
+                }
             }
         }
         return true

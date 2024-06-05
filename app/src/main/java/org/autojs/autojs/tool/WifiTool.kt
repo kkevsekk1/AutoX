@@ -1,35 +1,19 @@
-package org.autojs.autojs.tool;
+package org.autojs.autojs.tool
 
-import android.content.Context;
-import android.net.DhcpInfo;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.text.format.Formatter;
-
-import static android.content.Context.WIFI_SERVICE;
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.Network
+import android.net.wifi.WifiManager
+import android.text.format.Formatter
+import androidx.core.content.getSystemService
 
 /**
  * Created by Stardust on 2017/5/11.
  */
-
-public class WifiTool {
-
-    public static String getWifiAddress(Context context) {
-        WifiManager wifiMgr = (WifiManager) context.getApplicationContext().getSystemService(WIFI_SERVICE);
-        if(wifiMgr == null){
-            return null;
-        }
-        WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
-        int ip = wifiInfo.getIpAddress();
-        return Formatter.formatIpAddress(ip);
-    }
-
-    public static String getRouterIp(Context context){
-        WifiManager wifiService = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-        if(wifiService == null){
-            return null;
-        }
-        DhcpInfo dhcpInfo = wifiService.getDhcpInfo();
-        return Formatter.formatIpAddress(dhcpInfo.gateway);
+object WifiTool {
+    fun getRouterIp(context: Context): String? {
+        val wifiService = context.getSystemService<WifiManager>()!!
+        val dhcpInfo = wifiService.dhcpInfo
+        return dhcpInfo?.gateway?.let { Formatter.formatIpAddress(it) }
     }
 }
