@@ -13,7 +13,7 @@ androidxDocumentfile = "1.0.1"
 android-plugin-client-sdk-for-locale-version = "4.0.3"
 activity-compose = "1.9.0"
 analytics-version = "14.4.0"
-android-joda-version = "2.10.14"
+android-joda-version = "2.12.7"
 android-multi-level-listview-version = "1.1"
 androidLoggingLog4jVersion = "1.0.3"
 andserver = "2.1.12"
@@ -23,7 +23,7 @@ cardview-version = "1.0.0"
 coil = "2.6.0"
 commonmark-java-version = "commonmark-parent-0.9.0"
 commons-lang3-version = "3.14.0"
-commons-version = "0.9.2.3"
+commons-version = "0.9.6.0"
 glide = "4.16.0"
 core = "4.6.2"
 core-ktx = "1.13.1"
@@ -39,7 +39,7 @@ keeplive-version = "1.1.22"
 kotlinx-coroutines-android = "1.8.1"
 kotlinx-serialization = "1.7.0-RC"
 licensesdialog-version = "2.2.0"
-androidxLifecycle = "2.8.0"
+androidxLifecycle = "2.8.1"
 localbroadcastmanager-version = "1.1.0"
 leakcanary = "2.14"
 log4jVersion = "1.2.17"
@@ -50,7 +50,7 @@ okhttp = "4.12.0"
 ktor = "2.3.11"
 androidx-test-ext-junit = "1.1.5"
 espresso-core = "3.5.1"
-appcompat = "1.6.1"
+appcompat = "1.7.0"
 material = "1.12.0"
 accompanist-version = "0.35.0-alpha"
 org-eclipse-paho-android-service-version = "1.1.1"
@@ -68,7 +68,7 @@ swiperefreshlayout-version = "1.1.0"
 tbssdk-version = "44286"
 tesseract4android-version = "4.1.1"
 mlkitTextRecognition = "16.0.0"
-utils-everywhere-version = "3.0.0"
+utils-everywhere-version = "3.1.1"
 viewpager2-version = "1.1.0"
 websocket2-version = "2.1.4"
 work-runtime-version = "2.9.0"
@@ -134,9 +134,9 @@ androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-
 # androidx compose
 androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "androidxComposeBom" }
 androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
-androidx-compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version = "1.7.0-alpha08" }
+androidx-compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version = "1.7.0-beta02" }
 androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
-androidx-compose-material = { module = "androidx.compose.material:material", version = "1.7.0-alpha08" }
+androidx-compose-material = { module = "androidx.compose.material:material", version = "1.7.0-beta02" }
 androidx-compose-ui = { module = "androidx.compose.ui:ui" }
 androidx-compose-foundation = { module = "androidx.compose.foundation:foundation" }
 androidx-compose-foundation-layout = { module = "androidx.compose.foundation:foundation-layout" }
