@@ -22,19 +22,24 @@ class ScreenCaptureManager : ScreenCaptureRequester {
         }
         val result = if (context is OnActivityResultDelegate.DelegateHost && context is Activity) {
             ScreenCaptureRequester.ActivityScreenCaptureRequester(
-                context.onActivityResultDelegateMediator, context
+                context.onActivityResultDelegateMediator,
+                context
             ).request()
         } else {
             coroutineScope {
                 val result = CompletableDeferred<Intent>()
-                ScreenCaptureRequestActivity.request(context,
+                ScreenCaptureRequestActivity.request(
+                    context,
                     object : ScreenCaptureRequestActivity.Callback {
                         override fun onResult(data: Intent?) {
                             if (data != null) {
                                 result.complete(data)
-                            } else result.cancel(CancellationException("data is null"))
+                            } else {
+                                result.cancel(CancellationException("data is null"))
+                            }
                         }
-                    })
+                    }
+                )
                 result.await()
             }
         }
