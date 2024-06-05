@@ -1,6 +1,7 @@
 package com.stardust.autojs.runtime.api;
 
 import android.accessibilityservice.AccessibilityServiceInfo;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
@@ -228,7 +229,11 @@ public class Events extends EventEmitter implements OnKeyListener, TouchObserver
         mLoopers.addAsyncTaskToCurrentThreadLooper(task);
         if (NotificationListenerService.Companion.getInstance() == null) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
-                mContext.startActivity(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS));
+                Intent intent = new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
+                if (!(mContext instanceof Activity)) {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                }
+                mContext.startActivity(intent);
             }
             throw new ScriptException(mContext.getString(R.string.exception_notification_service_disabled));
         }
