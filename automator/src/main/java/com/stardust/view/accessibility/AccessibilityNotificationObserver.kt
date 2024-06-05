@@ -1,14 +1,9 @@
 package com.stardust.view.accessibility
 
-import android.accessibilityservice.*
 import android.content.Context
 import android.util.Log
 import android.view.accessibility.AccessibilityEvent
-
 import com.stardust.notification.Notification
-
-import java.util.ArrayList
-import java.util.Collections
 import java.util.concurrent.CopyOnWriteArrayList
 
 /**
@@ -72,11 +67,11 @@ class AccessibilityNotificationObserver(private val mContext: Context) : Notific
     override fun onAccessibilityEvent(service: android.accessibilityservice.AccessibilityService, event: AccessibilityEvent): Boolean {
         if (event.parcelableData is Notification) {
             val notification = event.parcelableData as android.app.Notification
-            Log.d(TAG, "onNotification: $notification; $event")
+//            Log.d(TAG, "onNotification: $notification; $event")
             onNotification(Notification.create(notification, event.packageName.toString()))
         } else {
             val list = event.text
-            Log.d(TAG, "onNotification: $list; $event")
+//            Log.d(TAG, "onNotification: $list; $event")
             if (event.packageName == mContext.packageName) {
                 return false
             }
