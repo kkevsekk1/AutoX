@@ -28,10 +28,10 @@ interface ScreenCaptureRequester {
         }
 
 
-        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
             mMediator.removeDelegate(this)
             if (resultCode == Activity.RESULT_OK) {
-                result.complete(data!!)
+                result.complete(data)
             } else {
                 result.cancel(CancellationException("user cancel"))
             }

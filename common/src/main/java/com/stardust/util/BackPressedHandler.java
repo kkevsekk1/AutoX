@@ -22,7 +22,7 @@ public interface BackPressedHandler {
 
     class Observer implements BackPressedHandler {
 
-        private CopyOnWriteArrayList<BackPressedHandler> mBackPressedHandlers = new CopyOnWriteArrayList<>();
+        private final CopyOnWriteArrayList<BackPressedHandler> mBackPressedHandlers = new CopyOnWriteArrayList<>();
 
         @Override
         public boolean onBackPressed(Activity activity) {

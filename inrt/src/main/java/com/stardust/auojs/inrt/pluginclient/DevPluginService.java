@@ -15,10 +15,10 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import com.stardust.app.GlobalAppContext;
-import org.autojs.autoxjs.inrt.BuildConfig;
-import com.stardust.auojs.inrt.Pref;
-import com.stardust.util.MapBuilder;
 
+import com.stardust.auojs.inrt.Pref;
+
+import org.autojs.autoxjs.inrt.BuildConfig;
 
 import java.io.File;
 import java.net.SocketTimeoutException;
@@ -80,7 +80,7 @@ public class DevPluginService {
     private final HashMap<String, JsonWebSocket.Bytes> mBytes = new HashMap<>();
     private final HashMap<String, JsonObject> mRequiredBytesCommands = new HashMap<>();
     private final Handler mHandler = new Handler(Looper.getMainLooper());
-    private volatile JsonWebSocket mSocket =new JsonWebSocket();
+    private volatile JsonWebSocket mSocket = new JsonWebSocket();
 
     public static DevPluginService getInstance() {
         if (sInstance == null) {
@@ -152,10 +152,10 @@ public class DevPluginService {
             url = "ws://" + url;
         }
         url = url + "?" + params;
-        if(null==mSocket){
+        if (null == mSocket) {
             mSocket = new JsonWebSocket();
         }
-        mSocket.createConnect(client,url);
+        mSocket.createConnect(client, url);
         subscribeMessage(mSocket);
         return Observable.just(mSocket);
     }
@@ -247,14 +247,13 @@ public class DevPluginService {
     public void sayHelloToServer(int usercode) {
         if (!isConnected())
             return;
-        writeMap(mSocket, TYPE_HELLO, new MapBuilder<String, Object>()
-                .put("device_name", Build.BRAND + " " + Build.MODEL)
-                .put("usercode", usercode)
-                .put("client_version", CLIENT_VERSION)
-                .put("app_version", BuildConfig.VERSION_NAME)
-                .put("app_version_code", BuildConfig.VERSION_CODE)
-                .build());
-
+        writeMap(mSocket, TYPE_HELLO, Map.ofEntries(
+                Map.entry("device_name", Build.BRAND + " " + Build.MODEL),
+                Map.entry("usercode", usercode),
+                Map.entry("client_version", CLIENT_VERSION),
+                Map.entry("app_version", BuildConfig.VERSION_NAME),
+                Map.entry("app_version_code", BuildConfig.VERSION_CODE)
+        ));
     }
 
     @MainThread

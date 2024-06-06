@@ -1,6 +1,6 @@
 package org.autojs.autojs.ui.shortcut
 
-import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
@@ -8,19 +8,17 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.drawable.Drawable
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.graphics.drawable.toBitmapOrNull
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import org.autojs.autojs.tool.BitmapTool
 import org.autojs.autojs.tool.writeTo
 import org.autojs.autojs.ui.BaseActivity
@@ -33,37 +31,40 @@ import java.io.File
  * Created by Stardust on 2017/10/25.
  * Modified by wilinz on 2022/5/23
  */
-open class ShortcutIconSelectActivity() : BaseActivity() {
+open class ShortcutIconSelectActivity : BaseActivity() {
     override val layoutId = R.layout.activity_shortcut_icon_select
-    var mApps: RecyclerView? = null
-    private var mPackageManager: PackageManager? = null
-    private val mAppList: MutableList<AppItem> = ArrayList()
 
-    fun setupViews() {
-        mPackageManager = packageManager
+    private lateinit var mApps: RecyclerView
+    private val mAppList = mutableListOf<AppItem>()
+
+    private val resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                setResult(Activity.RESULT_OK, result.data)
+                finish()
+            }
+        }
+
+    private fun setupViews() {
         setToolbarAsBack(getString(R.string.text_select_icon))
         setupApps()
     }
 
     private fun setupApps() {
-        mApps!!.adapter = AppsAdapter()
+        mApps.adapter = AppsAdapter()
         val manager = WrapContentGridLayoutManger(this, 5)
         manager.setDebugInfo("IconSelectView")
-        mApps!!.layoutManager = manager
+        mApps.layoutManager = manager
         loadApps()
     }
 
-    @SuppressLint("CheckResult")
     private fun loadApps() {
-        val packages = mPackageManager!!.getInstalledApplications(PackageManager.GET_META_DATA)
-        Observable.fromIterable(packages)
-            .observeOn(Schedulers.computation())
-            .filter { appInfo: ApplicationInfo -> appInfo.icon != 0 }
-            .map { info: ApplicationInfo -> AppItem(info) }
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { icon: AppItem ->
-                mAppList.add(icon)
-                mApps!!.adapter!!.notifyItemInserted(mAppList.size - 1)
+        packageManager.getInstalledApplications(PackageManager.GET_META_DATA)
+            .filter { it.icon != 0 }
+            .map { AppItem(it) }
+            .forEach {
+                mAppList.add(it)
+                mApps.adapter!!.notifyItemInserted(mAppList.size - 1)
             }
     }
 
@@ -83,35 +84,20 @@ open class ShortcutIconSelectActivity() : BaseActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        startActivityForResult(
-            Intent(Intent.ACTION_GET_CONTENT)
-                .setType("image/*"), 11234
-        )
+        val intent = Intent(Intent.ACTION_GET_CONTENT).setType("image/*")
+        resultLauncher.launch(intent)
         return true
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == RESULT_OK) {
-            setResult(RESULT_OK, data)
-            finish()
-        }
-    }
-
-    private inner class AppItem(var info: ApplicationInfo) {
-        var icon: Drawable
-
-        init {
-            icon = info.loadIcon(mPackageManager)
-        }
+    private inner class AppItem(val info: ApplicationInfo) {
+        val icon: Drawable = info.loadIcon(packageManager)
     }
 
     private inner class AppIconViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var icon: ImageView
+        val icon: ImageView = itemView.findViewById(R.id.imageView)
 
         init {
-            icon = itemView as ImageView
-            icon.setOnClickListener { v: View? -> selectApp(mAppList[adapterPosition]) }
+            itemView.setOnClickListener { selectApp(mAppList[absoluteAdapterPosition]) }
         }
     }
 

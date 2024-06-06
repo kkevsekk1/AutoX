@@ -12,7 +12,7 @@ import android.widget.Toast;
 public class UiHandler extends Handler {
 
 
-    private Context mContext;
+    private final Context mContext;
 
     public UiHandler(Context context) {
         super(Looper.getMainLooper());
@@ -24,20 +24,10 @@ public class UiHandler extends Handler {
     }
 
     public void toast(final String message) {
-        post(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
-            }
-        });
+        post(() -> Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show());
     }
 
     public void toast(final int resId) {
-        post(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(mContext, resId, Toast.LENGTH_SHORT).show();
-            }
-        });
+        post(() -> Toast.makeText(mContext, resId, Toast.LENGTH_SHORT).show());
     }
 }

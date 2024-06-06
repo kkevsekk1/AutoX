@@ -24,24 +24,20 @@ import java.util.Arrays
 open class UiObject(
     info: AccessibilityNodeInfo,
     private val allocator: AccessibilityNodeInfoAllocator?,
-    depth: Int,
+    private val mDepth: Int,
     private val mIndexInParent: Int
 ) : AccessibilityNodeInfoCompat(info) {
 
-
     private var mStackTrace = ""
-    private var mDepth = 0
 
     val isHierarchically: Boolean
         get() = collectionInfo != null && collectionInfo.isHierarchical
 
     init {
-        mDepth = depth
-        if (DEBUG)
+        if (DEBUG) {
             mStackTrace = Arrays.toString(Thread.currentThread().stackTrace)
-
+        }
     }
-
 
     constructor(
         info: AccessibilityNodeInfo,
@@ -65,7 +61,6 @@ open class UiObject(
             // FIXME: 2017/5/5
             return null
         }
-
     }
 
     open fun child(i: Int): UiObject? {
@@ -76,7 +71,6 @@ open class UiObject(
             // FIXME: 2017/5/5
             return null
         }
-
     }
 
     fun indexInParent(): Int {
@@ -127,7 +121,9 @@ open class UiObject(
     override fun getText(): CharSequence? {
         return if (isPassword) {
             ""
-        } else super.getText()
+        } else {
+            super.getText()
+        }
     }
 
     open fun desc(): String? {
@@ -161,7 +157,6 @@ open class UiObject(
             // FIXME: 2017/5/5
             false
         }
-
     }
 
     override fun performAction(action: Int): Boolean {
@@ -313,36 +308,29 @@ open class UiObject(
         return if (allocator == null) super.getParent() else allocator.getParent(this)
     }
 
-
     open fun checkable(): Boolean {
         return isCheckable
     }
-
 
     open fun checked(): Boolean {
         return isChecked
     }
 
-
     open fun focusable(): Boolean {
         return isFocusable
     }
-
 
     open fun focused(): Boolean {
         return isFocused
     }
 
-
     open fun visibleToUser(): Boolean {
         return isVisibleToUser
     }
 
-
     open fun accessibilityFocused(): Boolean {
         return isAccessibilityFocused
     }
-
 
     open fun selected(): Boolean {
         return isSelected
@@ -352,21 +340,17 @@ open class UiObject(
         return isClickable
     }
 
-
     open fun longClickable(): Boolean {
         return isLongClickable
     }
-
 
     open fun enabled(): Boolean {
         return isEnabled
     }
 
-
     fun password(): Boolean {
         return isPassword
     }
-
 
     open fun scrollable(): Boolean {
         return isScrollable
@@ -384,7 +368,6 @@ open class UiObject(
         return if (collectionItemInfo == null) -1 else collectionItemInfo.rowSpan
     }
 
-
     open fun columnSpan(): Int {
         return if (collectionItemInfo == null) -1 else collectionItemInfo.columnSpan
     }
@@ -392,7 +375,6 @@ open class UiObject(
     open fun rowCount(): Int {
         return if (collectionInfo == null) 0 else collectionInfo.rowCount
     }
-
 
     open fun columnCount(): Int {
         return if (collectionInfo == null) 0 else collectionInfo.columnCount
@@ -416,13 +398,9 @@ open class UiObject(
         return UiGlobalSelector().id(viewId).findAndReturnList(this)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun recycle() {
-        try {
-            super.recycle()
-        } catch (e: Exception) {
-            Log.w(TAG, mStackTrace, e)
-        }
-
+        Log.w(TAG, mStackTrace)
     }
 
     companion object {
@@ -431,7 +409,6 @@ open class UiObject(
 
         private const val TAG = "UiObject"
         private const val DEBUG = false
-
 
         fun createRoot(root: AccessibilityNodeInfo): UiObject {
             return UiObject(root, null, 0, -1)
@@ -452,6 +429,4 @@ open class UiObject(
             return bundle
         }
     }
-
-
 }

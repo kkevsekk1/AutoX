@@ -1,6 +1,5 @@
 package org.autojs.autojs.ui.floating
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.text.TextUtils
@@ -17,8 +16,10 @@ import com.stardust.util.ClipboardUtil
 import com.stardust.view.accessibility.AccessibilityService.Companion.instance
 import com.stardust.view.accessibility.LayoutInspector.CaptureAvailableListener
 import com.stardust.view.accessibility.NodeInfo
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.channels.onFailure
+import kotlinx.coroutines.channels.onSuccess
 import org.autojs.autojs.Pref
-import org.autojs.autoxjs.R
 import org.autojs.autojs.autojs.AutoJs
 import org.autojs.autojs.autojs.record.GlobalActionRecorder
 import org.autojs.autojs.model.explorer.ExplorerDirPage
@@ -33,27 +34,26 @@ import org.autojs.autojs.ui.explorer.ExplorerViewKt
 import org.autojs.autojs.ui.floating.layoutinspector.LayoutBoundsFloatyWindow
 import org.autojs.autojs.ui.floating.layoutinspector.LayoutHierarchyFloatyWindow
 import org.autojs.autojs.ui.main.MainActivity
+import org.autojs.autoxjs.R
 import org.greenrobot.eventbus.EventBus
-import org.jdeferred.Deferred
-import org.jdeferred.impl.DeferredObject
 
 /**
  * Created by Stardust on 2017/10/18.
  */
-@SuppressLint("NonConstantResourceId")
-class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, CaptureAvailableListener {
+class CircularMenu(context: Context) : Recorder.OnStateChangedListener, CaptureAvailableListener {
     class StateChangeEvent(val currentState: Int, val previousState: Int)
 
     private var mWindow: CircularMenuWindow? = null
     private var mState = 0
     private var mActionViewIcon: RoundedImageView? = null
-    private val mContext: Context
+    private val mContext: Context = ContextThemeWrapper(context, R.style.AppTheme)
     private val mRecorder: GlobalActionRecorder
     private var mSettingsDialog: MaterialDialog? = null
     private var mLayoutInspectDialog: MaterialDialog? = null
     private var mRunningPackage: String? = null
     private var mRunningActivity: String? = null
-    private var mCaptureDeferred: Deferred<NodeInfo?, Void, Void>? = null
+
+    private val captureChannel = Channel<NodeInfo>()
     private fun setupListeners() {
         mWindow?.setOnActionViewClickListener {
             if (mState == STATE_RECORDING) {
@@ -61,7 +61,6 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
             } else if (mWindow?.isExpanded == true) {
                 mWindow?.collapse()
             } else {
-                mCaptureDeferred = DeferredObject()
                 AutoJs.getInstance().layoutInspector.captureCurrentWindow()
                 mWindow?.expand()
             }
@@ -69,52 +68,41 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
     }
 
     private fun initFloaty() {
-        mWindow = CircularMenuWindow(mContext, object : CircularMenuFloaty {
-            override fun inflateActionView(
-                service: FloatyService,
-                window: CircularMenuWindow
-            ): View {
-                val actionView = View.inflate(service, R.layout.circular_action_view, null)
-                mActionViewIcon = actionView.findViewById(R.id.icon)
-                return actionView
+        mWindow = CircularMenuWindow(
+            mContext,
+            object : CircularMenuFloaty {
+                override fun inflateActionView(
+                    service: FloatyService,
+                    window: CircularMenuWindow
+                ): View {
+                    val actionView = View.inflate(service, R.layout.circular_action_view, null)
+                    mActionViewIcon = actionView.findViewById(R.id.icon)
+                    return actionView
+                }
+
+                override fun inflateMenuItems(
+                    service: FloatyService,
+                    window: CircularMenuWindow
+                ): CircularActionMenu {
+                    val menu = View.inflate(
+                        ContextThemeWrapper(service, R.style.AppTheme),
+                        R.layout.circular_action_menu,
+                        null
+                    ) as CircularActionMenu
+                    menu.findViewById<View>(R.id.script_list)
+                        ?.setOnClickListener { showScriptList() }
+                    menu.findViewById<View>(R.id.record)?.setOnClickListener { startRecord() }
+
+                    menu.findViewById<View>(R.id.layout_inspect)
+                        ?.setOnClickListener { inspectLayout() }
+                    menu.findViewById<View>(R.id.settings)?.setOnClickListener { settings() }
+                    menu.findViewById<View>(R.id.stop_all_scripts)
+                        ?.setOnClickListener { stopAllScripts() }
+
+                    return menu
+                }
             }
-
-            override fun inflateMenuItems(
-                service: FloatyService,
-                window: CircularMenuWindow
-            ): CircularActionMenu {
-                val menu = View.inflate(
-                    ContextThemeWrapper(service, R.style.AppTheme),
-                    R.layout.circular_action_menu,
-                    null
-                ) as CircularActionMenu
-                menu.findViewById<View>(R.id.script_list)?.setOnClickListener { showScriptList() }
-                menu.findViewById<View>(R.id.record)?.setOnClickListener { startRecord() }
-
-                menu.findViewById<View>(R.id.layout_inspect)?.setOnClickListener { inspectLayout() }
-                menu.findViewById<View>(R.id.layout_bounds)
-                    ?.setOnClickListener { showLayoutBounds() }
-
-                menu.findViewById<View>(R.id.layout_hierarchy)
-                    ?.setOnClickListener { showLayoutHierarchy() }
-                menu.findViewById<View>(R.id.stop_all_scripts)
-                    ?.setOnClickListener { stopAllScripts() }
-
-                menu.findViewById<View>(R.id.settings)?.setOnClickListener { settings() }
-                menu.findViewById<View>(R.id.accessibility_service)
-                    ?.setOnClickListener { enableAccessibilityService() }
-
-                menu.findViewById<View>(R.id.package_name)?.setOnClickListener { copyPackageName() }
-                menu.findViewById<View>(R.id.class_name)?.setOnClickListener { copyActivityName() }
-
-                menu.findViewById<View>(R.id.open_launcher)?.setOnClickListener { openLauncher() }
-                menu.findViewById<View>(R.id.pointer_location)
-                    ?.setOnClickListener { togglePointerLocation() }
-
-                menu.findViewById<View>(R.id.exit)?.setOnClickListener { close() }
-                return menu
-            }
-        })
+        )
         mWindow?.setKeepToSideHiddenWidthRadio(0.25f)
         FloatyService.addWindow(mWindow)
     }
@@ -144,13 +132,15 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
     fun startRecord() {
         mWindow?.collapse()
         if (!RootTool.isRootAvailable()) {
-            DialogUtils.showDialog(NotAskAgainDialog.Builder(mContext, "CircularMenu.root")
-                .title(R.string.text_device_not_rooted)
-                .content(R.string.prompt_device_not_rooted)
-                .neutralText(R.string.text_device_rooted)
-                .positiveText(R.string.ok)
-                .onNeutral { _, _ -> mRecorder.start() }
-                .build())
+            DialogUtils.showDialog(
+                NotAskAgainDialog.Builder(mContext, "CircularMenu.root")
+                    .title(R.string.text_device_not_rooted)
+                    .content(R.string.prompt_device_not_rooted)
+                    .neutralText(R.string.text_device_rooted)
+                    .positiveText(R.string.ok)
+                    .onNeutral { _, _ -> mRecorder.start() }
+                    .build()
+            )
         } else {
             mRecorder.start()
         }
@@ -159,12 +149,19 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
     private fun setState(state: Int) {
         val previousState = mState
         mState = state
-        mActionViewIcon?.setImageResource(if (mState == STATE_RECORDING) R.drawable.ic_ali_record else IC_ACTION_VIEW)
-        //  mActionViewIcon.setBackgroundColor(mState == STATE_RECORDING ? mContext.getResources().getColor(R.color.color_red) :
+        mActionViewIcon?.setImageResource(
+            if (mState == STATE_RECORDING) R.drawable.ic_ali_record
+            else R.drawable.ic_android_eat_js
+        )
         //        Color.WHITE);
-        mActionViewIcon?.setBackgroundResource(if (mState == STATE_RECORDING) R.drawable.circle_red else R.drawable.circle_white)
+        mActionViewIcon?.setBackgroundResource(
+            if (mState == STATE_RECORDING) R.drawable.circle_red else R.drawable.circle_white
+        )
         val padding =
-            mContext.resources.getDimension(if (mState == STATE_RECORDING) R.dimen.padding_circular_menu_recording else R.dimen.padding_circular_menu_normal)
+            mContext.resources.getDimension(
+                if (mState == STATE_RECORDING) R.dimen.padding_circular_menu_recording
+                else R.dimen.padding_circular_menu_normal
+            )
                 .toInt()
         mActionViewIcon?.setPadding(padding, padding, padding, padding)
         EventBus.getDefault().post(StateChangeEvent(mState, previousState))
@@ -183,10 +180,11 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
                 R.string.text_inspect_layout_bounds
             )
             .item(
-                R.id.layout_hierarchy, R.drawable.ic_layout_hierarchy,
+                R.id.layout_hierarchy,
+                R.drawable.ic_layout_hierarchy,
                 R.string.text_inspect_layout_hierarchy
             )
-            .bindItemClick(this)
+            .bindItemClick(::showLayoutBounds, ::showLayoutHierarchy)
             .title(R.string.text_inspect_layout)
             .build()
         DialogUtils.showDialog(mLayoutInspectDialog)
@@ -219,15 +217,12 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
                 .progress(true, 0)
                 .build()
         )
-        mCaptureDeferred?.promise()
-            ?.then({ capture ->
-                mActionViewIcon?.post {
-                    if (!progress.isCancelled) {
-                        progress.dismiss()
-                        windowCreator.invoke(capture)?.let { FloatyService.addWindow(it) }
-                    }
-                }
-            }) { mActionViewIcon?.post { progress.dismiss() } }
+        captureChannel.tryReceive().onSuccess {
+            if (!progress.isCancelled) {
+                progress.dismiss()
+                windowCreator.invoke(it)?.let { FloatyService.addWindow(it) }
+            }
+        }.onFailure { progress.dismiss() }
     }
 
     fun stopAllScripts() {
@@ -235,10 +230,8 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
         AutoJs.getInstance().scriptEngineService.stopAllAndToast()
     }
 
-    override fun onCaptureAvailable(capture: NodeInfo?) {
-        if (mCaptureDeferred != null && mCaptureDeferred!!.isPending) mCaptureDeferred!!.resolve(
-            capture
-        )
+    override fun onCaptureAvailable(capture: NodeInfo) {
+        captureChannel.trySend(capture)
     }
 
     fun settings() {
@@ -252,11 +245,13 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
                 R.string.text_accessibility_settings
             )
             .item(
-                R.id.package_name, R.drawable.ic_android_fill,
+                R.id.package_name,
+                R.drawable.ic_android_fill,
                 mContext.getString(R.string.text_current_package) + mRunningPackage
             )
             .item(
-                R.id.class_name, R.drawable.ic_window,
+                R.id.class_name,
+                R.drawable.ic_window,
                 mContext.getString(R.string.text_current_activity) + mRunningActivity
             )
             .item(
@@ -270,9 +265,17 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
                 R.string.text_pointer_location
             )
             .item(R.id.exit, R.drawable.ic_close, R.string.text_exit_floating_window)
-            .bindItemClick(this)
+            .bindItemClick(
+                ::enableAccessibilityService,
+                ::copyPackageName,
+                ::copyActivityName,
+                ::openLauncher,
+                ::togglePointerLocation,
+                ::close,
+            )
             .title(R.string.text_more)
             .build()
+
         DialogUtils.showDialog(mSettingsDialog)
     }
 
@@ -334,18 +337,16 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
         setState(STATE_NORMAL)
     }
 
-    override fun onPause() {}
-    override fun onResume() {}
+    override fun onPause() = Unit
+    override fun onResume() = Unit
 
     companion object {
         const val STATE_CLOSED = -1
         const val STATE_NORMAL = 0
         const val STATE_RECORDING = 1
-        private const val IC_ACTION_VIEW = R.drawable.ic_android_eat_js
     }
 
     init {
-        mContext = ContextThemeWrapper(context, R.style.AppTheme)
         initFloaty()
         setupListeners()
         mRecorder = GlobalActionRecorder.getSingleton(context)

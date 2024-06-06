@@ -3,6 +3,7 @@ package com.stardust.lang
 /**
  * Created by Stardust on 2017/4/30.
  */
+@Deprecated("建议使用自带的 Thread ")
 open class ThreadCompat : Thread {
     constructor()
     constructor(target: Runnable?) : super(target)
@@ -12,6 +13,9 @@ open class ThreadCompat : Thread {
     constructor(target: Runnable?, name: String) : super(target, name)
     constructor(group: ThreadGroup?, target: Runnable?, name: String) : super(group, target, name)
     constructor(group: ThreadGroup?, target: Runnable?, name: String, stackSize: Long) : super(
-        group, target, name, stackSize
+        group,
+        target,
+        name,
+        stackSize
     )
 }

@@ -153,22 +153,19 @@ public class DeveloperUtils {
     public static void verifyApk(Activity activity,final String signal,final int crcRes) {
         final WeakReference<Activity> activityWeakReference = new WeakReference<>(activity);
 
-        sExecutor.execute(new Runnable() {
-            @Override
-            public void run() {
-                Activity a = activityWeakReference.get();
-                if (a == null)
-                    return;
-                if (!checkSignature(a,signal)) {
-                    a.finish();
-                    return;
-                }
-                //long[] crc = readCrc(a.getString(crcRes));
-                //if (!checkDexFile(a, crc)) {
-                //a.finish();
-                //}
-
+        sExecutor.execute(() -> {
+            Activity a = activityWeakReference.get();
+            if (a == null)
+                return;
+            if (!checkSignature(a,signal)) {
+                a.finish();
+                return;
             }
+            //long[] crc = readCrc(a.getString(crcRes));
+            //if (!checkDexFile(a, crc)) {
+            //a.finish();
+            //}
+
         });
     }
 

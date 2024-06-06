@@ -1,14 +1,15 @@
 package org.autojs.autojs.model.explorer;
 
+import androidx.annotation.NonNull;
+
 import com.stardust.pio.PFile;
-import com.stardust.util.ObjectHelper;
-import com.stardust.util.Objects;
 
 import org.autojs.autojs.model.script.ScriptFile;
 
 import java.io.File;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 
@@ -18,11 +19,11 @@ public class ExplorerFileItem implements ExplorerItem {
             "js", "java", "xml", "json", "txt", "log", "ts"
     ));
 
-    private PFile mFile;
+    private final PFile mFile;
     private final ExplorerPage mParent;
 
     public ExplorerFileItem(PFile file, ExplorerPage parent) {
-        ObjectHelper.requireNonNull(file, "file");
+        Objects.requireNonNull(file,"file");
         mFile = file;
         mParent = parent;
     }
@@ -104,6 +105,7 @@ public class ExplorerFileItem implements ExplorerItem {
         return type.equals("js") || type.equals("auto");
     }
 
+    @NonNull
     @Override
     public String toString() {
         return getClass().getSimpleName() + "{" +
@@ -115,12 +117,12 @@ public class ExplorerFileItem implements ExplorerItem {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ExplorerFileItem that = (ExplorerFileItem) o;
-        return Objects.equals(mFile, that.mFile);
+        return java.util.Objects.equals(mFile, that.mFile);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(mFile);
+        return mFile.hashCode();
     }
 }
 

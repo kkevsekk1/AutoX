@@ -14,12 +14,12 @@ android {
             )
         }
     }
-    lint{
+    lint {
         abortOnError = false
     }
     sourceSets {
         getByName("main") {
-            res.srcDirs("src/main/res","src/main/res-i18n")
+            res.srcDirs("src/main/res", "src/main/res-i18n")
         }
     }
     namespace = "com.stardust"
@@ -37,7 +37,10 @@ dependencies {
     implementation(libs.material)
     api(kotlin("reflect"))
 
-    //MQTT
+    // MQTT
     implementation(libs.org.eclipse.paho.client.mqttv3)
     implementation(libs.org.eclipse.paho.android.service)
+
+    api(libs.androidx.collection)
+    api(libs.core.ktx)
 }

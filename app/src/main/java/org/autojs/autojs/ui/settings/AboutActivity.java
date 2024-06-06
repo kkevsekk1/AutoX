@@ -1,20 +1,15 @@
 package org.autojs.autojs.ui.settings;
 
 import android.annotation.SuppressLint;
-import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
-
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.stardust.util.ClipboardUtil;
 import com.stardust.util.IntentUtil;
 import com.stardust.util.IntentUtilKt;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
-import org.autojs.autojs.tool.IntentTool;
 import org.autojs.autojs.ui.BaseActivity;
 import org.autojs.autoxjs.BuildConfig;
 import org.autojs.autoxjs.R;
@@ -70,7 +65,9 @@ public class AboutActivity extends BaseActivity {
     }
 
     void openGitHub() {
-        IntentTool.browse(this, getString(R.string.my_github));
+        if (!IntentUtil.browse(this, getString(R.string.my_github))) {
+            Toast.makeText(this, R.string.text_no_brower, Toast.LENGTH_SHORT).show();
+        }
     }
 
     void openQQToChatWithMe() {

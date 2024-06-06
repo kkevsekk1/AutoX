@@ -1,7 +1,6 @@
 package com.stardust.util;
 
 import java.lang.reflect.Array;
-import java.util.List;
 
 /**
  * Created by Stardust on 2017/5/8.
@@ -25,15 +24,6 @@ public class ArrayUtils {
             unbox[i] = array[i];
         }
         return unbox;
-    }
-
-    public static String[] toStringArray(List<?> list) {
-        int i = 0;
-        String[] str = new String[list.size()];
-        for (Object o : list) {
-            str[i] = o == null ? null : o.toString();
-        }
-        return str;
     }
 
     @SuppressWarnings("unchecked")

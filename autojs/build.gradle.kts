@@ -52,8 +52,7 @@ dependencies {
     api(libs.roundedimageview)
     // OkHttp
     api(libs.okhttp)
-    // JDeferred
-    api(libs.jdeferred.android.aar)
+
     // RootShell
     api(libs.rootshell)
     // Gson

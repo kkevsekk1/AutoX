@@ -23,12 +23,12 @@ object PFiles {
 
     @JvmStatic
     fun open(path: String, mode: String, encoding: String, bufferSize: Int): PFileInterface? {
-        when (mode) {
-            "r" -> return PReadableTextFile(path, encoding, bufferSize)
-            "w" -> return PWritableTextFile(path, encoding, bufferSize, false)
-            "a" -> return PWritableTextFile(path, encoding, bufferSize, true)
+        return when (mode) {
+            "r" -> PReadableTextFile(path, encoding, bufferSize)
+            "w" -> PWritableTextFile(path, encoding, bufferSize, false)
+            "a" -> PWritableTextFile(path, encoding, bufferSize, true)
+            else -> null
         }
-        return null
     }
 
     @JvmStatic
@@ -385,7 +385,7 @@ object PFiles {
     @JvmStatic
     fun listDir(path: String, filter: Func1<String, Boolean>): Array<String> {
         val file = File(path)
-        return file.list { _, name -> filter.call(name) }?: arrayOf()
+        return file.list { _, name -> filter.call(name) } ?: arrayOf()
     }
 
     @JvmStatic

@@ -16,10 +16,10 @@ public class IntentExtras implements Serializable {
 
     public static final String EXTRA_ID = "com.stardust.util.IntentExtras.id";
 
-    private static AtomicInteger mMaxId = new AtomicInteger(-1);
-    private static SparseArray<Map<String, Object>> extraStore = new SparseArray<>();
+    private static final AtomicInteger mMaxId = new AtomicInteger(-1);
+    private static final SparseArray<Map<String, Object>> extraStore = new SparseArray<>();
 
-    private Map<String, Object> mMap;
+    private final Map<String, Object> mMap;
     private int mId;
 
     private IntentExtras() {

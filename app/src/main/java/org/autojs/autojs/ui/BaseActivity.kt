@@ -6,7 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
-import androidx.annotation.CallSuper
+import android.view.WindowInsetsController
 import androidx.annotation.LayoutRes
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -70,7 +70,7 @@ abstract class BaseActivity : AppCompatActivity() {
     protected fun checkPermission(vararg permissions: String): Boolean {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             val requestPermissions = getRequestPermissions(arrayOf(*permissions) )
-            if (requestPermissions.size > 0) {
+            if (requestPermissions.isNotEmpty()) {
                 requestPermissions(requestPermissions, PERMISSION_REQUEST_CODE)
                 return false
             }

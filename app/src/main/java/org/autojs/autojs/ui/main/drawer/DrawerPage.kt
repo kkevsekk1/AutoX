@@ -63,6 +63,7 @@ import org.autojs.autojs.ui.settings.SettingsActivity
 import org.autojs.autoxjs.R
 import org.joda.time.DateTimeZone
 import org.joda.time.Instant
+import org.autojs.autojs.core.network.socket.State
 
 private const val TAG = "DrawerPage"
 private const val URL_DEV_PLUGIN = "https://github.com/kkevsekk1/Auto.js-VSCode-Extension"
@@ -73,7 +74,6 @@ private const val FEEDBACK_ADDRESS = "https://github.com/kkevsekk1/AutoX/issues"
 @Composable
 fun DrawerPage() {
     val context = LocalContext.current
-    rememberCoroutineScope()
     Column(
         Modifier
             .fillMaxSize()
@@ -112,11 +112,11 @@ fun DrawerPage() {
             USBDebugSwitch()
 
             SwitchTimedTaskScheduler()
-            ProjectAddress(context)
-            DownloadLink(context)
-            Feedback(context)
+            ProjectAddress()
+            DownloadLink()
+            Feedback()
             CheckForUpdate()
-            AppDetailsSettings(context)
+            AppDetailsSettings()
         }
         Spacer(
             modifier = Modifier
@@ -133,7 +133,8 @@ fun DrawerPage() {
 }
 
 @Composable
-private fun AppDetailsSettings(context: Context) {
+private fun AppDetailsSettings() {
+    val context = LocalContext.current
     TextButton(onClick = {
         context.startActivity(PermissionsSettingsUtil.getAppDetailSettingIntent(context.packageName))
     }) {
@@ -142,50 +143,33 @@ private fun AppDetailsSettings(context: Context) {
 }
 
 @Composable
-private fun Feedback(context: Context) {
-    TextButton(onClick = {
-        IntentUtil.browse(
-            context,
-            FEEDBACK_ADDRESS
-        )
-    }) {
+private fun Feedback() {
+    val context = LocalContext.current
+    TextButton(onClick = { IntentUtil.browse(context, FEEDBACK_ADDRESS) }) {
         Text(text = stringResource(R.string.text_issue_report))
     }
 }
 
 @Composable
-private fun DownloadLink(context: Context) {
-    TextButton(onClick = {
-        IntentUtil.browse(
-            context,
-            DOWNLOAD_ADDRESS
-        )
-    }) {
+private fun DownloadLink() {
+    val context = LocalContext.current
+    TextButton(onClick = { IntentUtil.browse(context, DOWNLOAD_ADDRESS) }) {
         Text(text = stringResource(R.string.text_app_download_link))
     }
 }
 
 @Composable
-private fun ProjectAddress(context: Context) {
-    TextButton(onClick = {
-        IntentUtil.browse(
-            context,
-            PROJECT_ADDRESS
-        )
-    }) {
+private fun ProjectAddress() {
+    val context = LocalContext.current
+    TextButton(onClick = { IntentUtil.browse(context, PROJECT_ADDRESS) }) {
         Text(text = stringResource(R.string.text_project_link))
     }
 }
 
 @Composable
 private fun CheckForUpdate(model: DrawerViewModel = viewModel()) {
-    var showDialog by rememberSaveable {
-        mutableStateOf(false)
-    }
-    var enabled by rememberSaveable {
-        mutableStateOf(true)
-    }
-    model.githubReleaseInfo
+    var showDialog by rememberSaveable { mutableStateOf(false) }
+    var enabled by rememberSaveable { mutableStateOf(true) }
 
     TextButton(
         enabled = enabled,
@@ -384,6 +368,7 @@ private fun ConnectComputerSwitch() {
                         ).show()
                     }
                 }
+
                 QRResult.QRUserCanceled -> {}
                 QRResult.QRMissingPermission -> {}
                 is QRResult.QRError -> {}
@@ -393,8 +378,8 @@ private fun ConnectComputerSwitch() {
         DevPlugin.connectState.collect {
             withContext(Dispatchers.Main) {
                 when (it.state) {
-                    DevPlugin.State.CONNECTED -> enable = true
-                    DevPlugin.State.DISCONNECTED -> enable = false
+                    State.CONNECTED -> enable = true
+                    State.DISCONNECTED -> enable = false
                 }
             }
         }

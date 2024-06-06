@@ -34,7 +34,6 @@ import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
 import com.stardust.autojs.execution.ExecutionConfig;
 import com.stardust.util.BiMap;
 import com.stardust.util.BiMaps;
-import com.stardust.util.MapBuilder;
 
 import org.autojs.autojs.external.ScriptIntents;
 import org.autojs.autojs.external.receiver.DynamicBroadcastReceivers;
@@ -71,23 +70,23 @@ public class TimedTaskSettingActivity extends BaseActivity {
     private static final String LOG_TAG = "TimedTaskSettings";
 
 
-    public static final Map<String, Integer> ACTION_DESC_MAP = new MapBuilder<String, Integer>()
-            .put(DynamicBroadcastReceivers.ACTION_STARTUP, R.string.text_run_on_startup)
-            .put(Intent.ACTION_BOOT_COMPLETED, R.string.text_run_on_boot)
-            .put(Intent.ACTION_SCREEN_OFF, R.string.text_run_on_screen_off)
-            .put(Intent.ACTION_SCREEN_ON, R.string.text_run_on_screen_on)
-            .put(Intent.ACTION_USER_PRESENT, R.string.text_run_on_screen_unlock)
-            .put(Intent.ACTION_BATTERY_CHANGED, R.string.text_run_on_battery_change)
-            .put(Intent.ACTION_POWER_CONNECTED, R.string.text_run_on_power_connect)
-            .put(Intent.ACTION_POWER_DISCONNECTED, R.string.text_run_on_power_disconnect)
-            .put(ConnectivityManager.CONNECTIVITY_ACTION, R.string.text_run_on_conn_change)
-            .put(Intent.ACTION_PACKAGE_ADDED, R.string.text_run_on_package_install)
-            .put(Intent.ACTION_PACKAGE_REMOVED, R.string.text_run_on_package_uninstall)
-            .put(Intent.ACTION_PACKAGE_REPLACED, R.string.text_run_on_package_update)
-            .put(Intent.ACTION_HEADSET_PLUG, R.string.text_run_on_headset_plug)
-            .put(Intent.ACTION_CONFIGURATION_CHANGED, R.string.text_run_on_config_change)
-            .put(Intent.ACTION_TIME_TICK, R.string.text_run_on_time_tick)
-            .build();
+    public static final Map<String, Integer> ACTION_DESC_MAP = Map.ofEntries(
+            Map.entry(DynamicBroadcastReceivers.ACTION_STARTUP, R.string.text_run_on_startup),
+            Map.entry(Intent.ACTION_BOOT_COMPLETED, R.string.text_run_on_boot),
+            Map.entry(Intent.ACTION_SCREEN_OFF, R.string.text_run_on_screen_off),
+            Map.entry(Intent.ACTION_SCREEN_ON, R.string.text_run_on_screen_on),
+            Map.entry(Intent.ACTION_USER_PRESENT, R.string.text_run_on_screen_unlock),
+            Map.entry(Intent.ACTION_BATTERY_CHANGED, R.string.text_run_on_battery_change),
+            Map.entry(Intent.ACTION_POWER_CONNECTED, R.string.text_run_on_power_connect),
+            Map.entry(Intent.ACTION_POWER_DISCONNECTED, R.string.text_run_on_power_disconnect),
+            Map.entry(ConnectivityManager.CONNECTIVITY_ACTION, R.string.text_run_on_conn_change),
+            Map.entry(Intent.ACTION_PACKAGE_ADDED, R.string.text_run_on_package_install),
+            Map.entry(Intent.ACTION_PACKAGE_REMOVED, R.string.text_run_on_package_uninstall),
+            Map.entry(Intent.ACTION_PACKAGE_REPLACED, R.string.text_run_on_package_update),
+            Map.entry(Intent.ACTION_HEADSET_PLUG, R.string.text_run_on_headset_plug),
+            Map.entry(Intent.ACTION_CONFIGURATION_CHANGED, R.string.text_run_on_config_change),
+            Map.entry(Intent.ACTION_TIME_TICK, R.string.text_run_on_time_tick)
+    );
 
     private static final BiMap<Integer, String> ACTIONS = BiMaps.<Integer, String>newBuilder()
             .put(R.id.run_on_startup, DynamicBroadcastReceivers.ACTION_STARTUP)

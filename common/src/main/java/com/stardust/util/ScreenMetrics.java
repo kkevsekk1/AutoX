@@ -19,26 +19,24 @@ public class ScreenMetrics {
     private static int deviceScreenWidth;
     private static boolean initialized = false;
     private static int deviceScreenDensity;
-    private static Display display;
-    
-    
+
     public static void initIfNeeded(Activity activity) {
         if (initialized && deviceScreenHeight != 0)
             return;
         DisplayMetrics metrics = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getRealMetrics(metrics);
-        display = activity.getWindowManager().getDefaultDisplay();
+        Display display = activity.getWindowManager().getDefaultDisplay();
         DisplayMetrics metrics1 = activity.getResources().getDisplayMetrics();
         deviceScreenHeight = metrics.heightPixels;
         if(deviceScreenHeight==0){
-            deviceScreenHeight=display.getHeight();
+            deviceScreenHeight= display.getHeight();
             if(deviceScreenHeight==0){
                 deviceScreenHeight=metrics1.heightPixels;
             }
         }
         deviceScreenWidth = metrics.widthPixels;
         if(deviceScreenWidth==0){
-            deviceScreenWidth=display.getWidth();
+            deviceScreenWidth= display.getWidth();
             if(deviceScreenWidth==0){
                 deviceScreenWidth=metrics1.widthPixels;
             }

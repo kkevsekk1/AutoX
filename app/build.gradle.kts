@@ -10,7 +10,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
 }
 
-val propFile: File = File("E:/资料/jks/autojs-app/sign.properties");
+val propFile: File = File("E:/资料/jks/autojs-app/sign.properties")
 val properties = Properties()
 if (propFile.exists()) {
     propFile.inputStream().reader().use {
@@ -124,7 +124,7 @@ android {
     }
 
     configurations.all {
-        resolutionStrategy.force("com.google.code.findbugs:jsr305:3.0.1")
+        resolutionStrategy.force("com.google.code.findbugs:jsr305:3.0.2")
         exclude(group = "org.jetbrains", module = "annotations-java5")
 //        exclude(group = "com.atlassian.commonmark",) module = "commonmark"
         exclude(group = "com.github.atlassian.commonmark-java", module = "commonmark")
@@ -142,6 +142,8 @@ dependencies {
     implementation(projects.autojs)
     implementation(projects.apkbuilder)
     implementation(projects.codeeditor)
+
+    implementation(projects.core.network)
 
     implementation(libs.androidx.localbroadcastmanager)
     implementation(libs.androidx.swiperefreshlayout)
@@ -174,27 +176,27 @@ dependencies {
         exclude(group = "com.afollestad.material-dialogs")
         exclude(group = "com.android.support")
     }
-    //MultiLevelListView
+    // MultiLevelListView
     implementation(libs.android.multi.level.listview)
-    //Licenses Dialog
+    // Licenses Dialog
     implementation(libs.licensesdialog)
-    //Expandable RecyclerView
+    // Expandable RecyclerView
     implementation(libs.android.expandablerecyclerview)
-    //FlexibleDivider
+    // FlexibleDivider
     implementation(libs.recyclerview.flexibledivider)
-    //Commons-lang
+    // Commons-lang
     implementation(libs.commons.lang3)
     // 证书签名相关
     implementation(libs.bcpkix.jdk15on)
-    //Expandable RecyclerView
+    // Expandable RecyclerView
     implementation(libs.expandablerecyclerview)
     // RxJava
     implementation(libs.rxjava2)
     implementation(libs.rxjava2.rxandroid)
 
-    //Glide
+    // Glide
     implementation(libs.glide)
-    //joda time
+    // joda time
     implementation(libs.android.joda)
     // Tasker Plugin
     implementation(libs.android.plugin.client.sdk.`for`.locale)
@@ -221,17 +223,19 @@ dependencies {
     implementation(libs.androidx.savedstate)
 
     implementation(libs.bundles.ktor)
-    //qr scan
+    // qr scan
     implementation(libs.quickie.bundled)
-    //Fab button with menu, please do not upgrade, download dependencies will be error after upgrade
+    // Fab button with menu, please do not upgrade, download dependencies will be error after upgrade
     //noinspection GradleDependency
     implementation(libs.speed.dial.compose)
-    //TextView markdown
+    // TextView markdown
     implementation(libs.markwon.core)
     implementation(libs.androidx.viewpager2)
     implementation(libs.coil.compose)
 
     debugImplementation(libs.leakcanary.android)
+
+    implementation(libs.core.ktx)
 }
 
 fun copyTemplateToAPP(isDebug: Boolean, to: File) {
@@ -268,7 +272,7 @@ tasks.named("clean").configure {
         delete(File(assetsDir, "template.apk"))
     }
 }
-//离线文档下载安装
+// 离线文档下载安装
 val docsDir = File(projectDir, "src/main/assets/docs")
 tasks.named("preBuild").dependsOn("installationDocumentation")
 tasks.register("installationDocumentation") {
@@ -283,7 +287,7 @@ tasks.register("installationDocumentation") {
                 check(response.isSuccessful) { "installationDocumentation failed" }
                 val body = response.body!!
                 ZipInputStream(body.byteStream()).use { zip ->
-                    var zipEntry: ZipEntry?;
+                    var zipEntry: ZipEntry?
                     while (true) {
                         zipEntry = zip.nextEntry ?: break
                         val file = File(docV1Dir, zipEntry.name.replaceFirst(Regex(".+?/"), ""))

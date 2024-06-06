@@ -4,13 +4,15 @@ import java.io.IOException
 import java.io.InputStream
 import java.nio.ByteBuffer
 
-class ByteBufferBackedInputStream(private var buf: ByteBuffer) : InputStream() {
+class ByteBufferBackedInputStream(private val buf: ByteBuffer) : InputStream() {
 
     @Throws(IOException::class)
     override fun read(): Int {
         return if (!buf.hasRemaining()) {
             -1
-        } else buf.get().toInt() and 0xFF
+        } else {
+            buf.get().toInt() and 0xFF
+        }
     }
 
     @Throws(IOException::class)
