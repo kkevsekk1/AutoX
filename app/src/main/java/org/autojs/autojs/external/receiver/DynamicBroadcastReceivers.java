@@ -36,7 +36,7 @@ public class DynamicBroadcastReceivers {
             mContext.registerReceiver(mDefaultActionReceiver, createIntentFilter(StaticBroadcastReceiver.ACTIONS));
             IntentFilter filter = createIntentFilter(StaticBroadcastReceiver.PACKAGE_ACTIONS);
             filter.addDataScheme("package");
-            mContext.registerReceiver(mPackageActionReceiver, filter);
+            mContext.registerReceiver(mPackageActionReceiver, filter,RECEIVER_EXPORTED);
         }
     }
 
@@ -126,9 +126,9 @@ public class DynamicBroadcastReceivers {
             IntentFilter intentFilter = createIntentFilter(actions);
             if (local) {
                 LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(mContext);
-                broadcastManager.registerReceiver(receiver, intentFilter);
+                broadcastManager.registerReceiver(receiver, intentFilter,RECEIVER_EXPORTED);
             } else {
-                mContext.registerReceiver(receiver, intentFilter);
+                mContext.registerReceiver(receiver, intentFilter,RECEIVER_EXPORTED);
             }
             Log.d(LOG_TAG, "register: " + actions);
             return true;
