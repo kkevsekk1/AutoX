@@ -1,7 +1,7 @@
 [versions]
 androidGradlePlugin = "8.4.2"
 androidTools = "31.5.0"
-androidIssueReporterVersion = "1.3.1"
+androidIssueReporterVersion = "1.4.2"
 androidxCollection = "1.4.0"
 kotlin = "2.0.0"
 ksp = "2.0.0-1.0.22"
