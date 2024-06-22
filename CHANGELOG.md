@@ -1,7 +1,35 @@
 # Change Log
 autoxjs 整个项目的一些更新日志,双版本号为稳定版（内容以修复的bug为主），单版本号为激进版本、发布新内容。
 
-## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.6.2...HEAD) 未发布
+## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.6.3...HEAD) 未发布
+
+## [6.63] - 2024-6-23
+
+@SOCK-MAGIC
+
+*  增加模块 model
+*  迁移到网络模块
+*  修复点击事件
+*  修复bug无数
+*  修复版本号问题
+*  kotlin2.0 问题修复
+  
+@Lin 
+
+*  增加安卓14的适配
+*  恢复误删的权限一大批
+*  修复报错的bug无数
+
+
+@Shaun-Fong
+
+*  修复广播接收问题
+*  修复bug一批
+*  安卓14兼容问题
+
+
+[6.6.3]:https://github.com/kkevsekk1/AutoX/compare/6.6.2...6.6.4
+
 
 ## [6.6.2] - 2024-6-4
 
