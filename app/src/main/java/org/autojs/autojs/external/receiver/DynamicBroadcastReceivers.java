@@ -33,10 +33,10 @@ public class DynamicBroadcastReceivers {
     public DynamicBroadcastReceivers(Context context) {
         mContext = context;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            mContext.registerReceiver(mDefaultActionReceiver, createIntentFilter(StaticBroadcastReceiver.ACTIONS));
+            compatRegisterReceiver(mContext, mDefaultActionReceiver, createIntentFilter(StaticBroadcastReceiver.ACTIONS), false);
             IntentFilter filter = createIntentFilter(StaticBroadcastReceiver.PACKAGE_ACTIONS);
             filter.addDataScheme("package");
-            mContext.registerReceiver(mPackageActionReceiver, filter);
+            compatRegisterReceiver(mContext, mPackageActionReceiver, filter, false);
         }
     }
 
@@ -128,10 +128,23 @@ public class DynamicBroadcastReceivers {
                 LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(mContext);
                 broadcastManager.registerReceiver(receiver, intentFilter);
             } else {
-                mContext.registerReceiver(receiver, intentFilter);
+                compatRegisterReceiver(mContext, receiver, intentFilter, false);
             }
             Log.d(LOG_TAG, "register: " + actions);
             return true;
+        }
+    }
+
+    /**
+     * 参考
+     * <p>https://github.com/facebook/react-native/issues/37769
+     * <p>https://github.com/facebook/react-native/pull/38256/files
+     */
+    private void compatRegisterReceiver(Context context, BroadcastReceiver receiver, IntentFilter filter, boolean exported) {
+        if (Build.VERSION.SDK_INT >= 34 && context.getApplicationInfo().targetSdkVersion >= 34) {
+            context.registerReceiver(receiver, filter, exported ? Context.RECEIVER_EXPORTED : Context.RECEIVER_NOT_EXPORTED);
+        } else {
+            context.registerReceiver(receiver, filter);
         }
     }
 }
