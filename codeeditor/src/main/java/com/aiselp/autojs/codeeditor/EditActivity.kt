@@ -6,6 +6,7 @@ import android.graphics.Rect
 import android.os.Bundle
 import android.util.Log
 import android.widget.FrameLayout
+import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.aiselp.autojs.codeeditor.web.EditorAppManager
 import java.io.File
@@ -21,6 +22,9 @@ class EditActivity : AppCompatActivity() {
         setContentView(contextFrameLayout)
         setKeyboardEvent()
         editorAppManager.openedFile = intent.getStringExtra(EXTRA_PATH)
+        onBackPressedDispatcher.addCallback {
+            moveTaskToBack(false)
+        }
     }
 
     override fun onDestroy() {
@@ -52,7 +56,6 @@ class EditActivity : AppCompatActivity() {
             editorAppManager.openFile(path)
         }
     }
-
 
     companion object {
         private const val EXTRA_PATH = "path";

@@ -1,7 +1,9 @@
 package com.aiselp.autox.api
 
 import android.util.Log
+import com.aiselp.autox.engine.EventLoopQueue
 import com.caoccao.javet.annotations.V8Function
+import com.caoccao.javet.enums.V8AwaitMode
 import com.caoccao.javet.interop.V8Runtime
 import com.caoccao.javet.interop.converters.JavetObjectConverter
 import com.caoccao.javet.values.V8Value
@@ -11,18 +13,19 @@ import com.stardust.autojs.runtime.exception.ScriptException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
-class JavaInteractor(val scope: CoroutineScope, private val converter: JavetObjectConverter) :
-    V8Api {
+class JavaInteractor(
+    val scope: CoroutineScope, private val converter: JavetObjectConverter,
+    private val eventLoopQueue: EventLoopQueue
+) : NativeApi {
     override val globalModule: Boolean = true
     override val moduleId: String = "java"
     private lateinit var v8Runtime: V8Runtime
-    override fun install(v8Runtime: V8Runtime, global: V8ValueObject): V8Api.BindingMode {
+    override fun install(v8Runtime: V8Runtime, global: V8ValueObject): NativeApi.BindingMode {
         this.v8Runtime = v8Runtime
-        return V8Api.BindingMode.AUTO_BIND
+        return NativeApi.BindingMode.PROXY
     }
 
     override fun recycle(v8Runtime: V8Runtime, global: V8ValueObject) {
@@ -36,10 +39,12 @@ class JavaInteractor(val scope: CoroutineScope, private val converter: JavetObje
         val v8ValuePromise = v8Runtime.createV8ValuePromise()
         scope.launch(con) {
             try {
-                delay(1000)
-                v8ValuePromise.resolve(func())
+                val r = func()
+                v8ValuePromise.resolve(r)
             } catch (e: Throwable) {
                 v8ValuePromise.reject(e)
+            } finally {
+                v8Runtime.await(V8AwaitMode.RunNoWait)
             }
         }
         return v8ValuePromise.promise

@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",
+      "useDefineForClassFields": true,
+      "module": "ESNext",
+      "moduleResolution": "Node",
+      "strict": true,
+      "declaration": true,
+      "resolveJsonModule": true,
+      "isolatedModules": false,
+      "esModuleInterop": true,
+      "lib": ["ESNext"],
+      "skipLibCheck": true,
+      "paths": {
+        "@/*": ["./src/*"]
+      }
+    } ,
+    "include":["src/**/*.ts","src/**/*.d.ts","autox-native.d.ts"]
+  }
+  

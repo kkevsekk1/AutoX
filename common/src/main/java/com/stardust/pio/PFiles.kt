@@ -232,14 +232,11 @@ object PFiles {
         manager: AssetManager,
         assetsDir: String,
         toDir: String,
-        list: Array<String>?
+        list: Array<String>? = null
     ) {
-        var list1 = list
+        val list1 =
+            list ?: manager.list(assetsDir) ?: throw IOException("not a directory: $assetsDir")
         File(toDir).mkdirs()
-        if (list1 == null) {
-            list1 = manager.list(assetsDir)
-        }
-        if (list1 == null) throw IOException("not a directory: $assetsDir")
         for (file in list1) {
             if (file.isEmpty()) continue
             val fullAssetsPath = join(assetsDir, file)
@@ -257,6 +254,23 @@ object PFiles {
                 }
             } else {
                 copyAssetDir(manager, fullAssetsPath, join(toDir, file), children)
+            }
+        }
+    }
+
+    fun copyAssetDir(
+        manager: AssetManager,
+        assetsDir: String,
+        toDir: File,
+    ) {
+        val list = manager.list(assetsDir) ?: throw IOException("not a directory: $assetsDir")
+        toDir.mkdirs()
+        for (name in list) {
+            val fullAssetsPath = join(assetsDir, name)
+            if (!manager.list(fullAssetsPath).isNullOrEmpty()) {
+                copyAssetDir(manager, fullAssetsPath, File(toDir, name))
+            } else {
+                manager.open(fullAssetsPath).copyToAndClose(File(toDir, name).outputStream())
             }
         }
     }
@@ -385,7 +399,7 @@ object PFiles {
     @JvmStatic
     fun listDir(path: String, filter: Func1<String, Boolean>): Array<String> {
         val file = File(path)
-        return file.list { _, name -> filter.call(name) }?: arrayOf()
+        return file.list { _, name -> filter.call(name) } ?: arrayOf()
     }
 
     @JvmStatic

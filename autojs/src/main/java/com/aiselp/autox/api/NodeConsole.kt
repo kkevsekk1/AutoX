@@ -6,16 +6,16 @@ import com.caoccao.javet.values.V8Value
 import com.caoccao.javet.values.reference.V8ValueObject
 import com.stardust.autojs.runtime.api.Console
 
-class NodeConsole(val console: Console) : V8Api {
+class NodeConsole(val console: Console) : NativeApi {
     override val moduleId: String = "console"
     override val globalModule: Boolean = true
     private var v8ValueObject: V8ValueObject? = null
-    override fun install(v8Runtime: V8Runtime, global: V8ValueObject): V8Api.BindingMode {
+    override fun install(v8Runtime: V8Runtime, global: V8ValueObject): NativeApi.BindingMode {
         v8Runtime.getExecutor(SCRIPT).execute<V8ValueObject>().let {
             v8ValueObject = it
             it.bind(this)
         }
-        return V8Api.BindingMode.NOT_AUTO_BIND
+        return NativeApi.BindingMode.NOT_BIND
     }
 
     override fun recycle(v8Runtime: V8Runtime, global: V8ValueObject) {

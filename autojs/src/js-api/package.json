@@ -1,0 +1,25 @@
+{
+  "name": "autox-api",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "gulp build",
+    "clean": "gulp clean",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "axios": "^1.7.2",
+    "gulp": "^5.0.0",
+    "gulp-cli": "^3.0.0",
+    "rollup": "^4.18.0",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.2"
+  }
+}

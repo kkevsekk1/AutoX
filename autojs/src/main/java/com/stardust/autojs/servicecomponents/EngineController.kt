@@ -1,6 +1,7 @@
 package com.stardust.autojs.servicecomponents
 
 import com.aiselp.autox.engine.NodeScriptEngine
+import com.stardust.autojs.project.ProjectConfig
 import com.stardust.autojs.script.JavaScriptSource
 import com.stardust.autojs.servicecomponents.ScriptServiceConnection.Companion.GlobalConnection
 import kotlinx.coroutines.CoroutineScope
@@ -46,6 +47,9 @@ object EngineController {
 
     fun runScript(taskInfo: TaskInfo, listener: BinderScriptListener? = null) = scope.launch {
         serviceConnection.runScript(taskInfo, listener)
+    }
+    fun launchProject(projectConfig: ProjectConfig, listener: BinderScriptListener? = null) = scope.launch {
+        runScript(File(projectConfig.projectDirectory, projectConfig.mainScript?:"main.js"), listener)
     }
 
 

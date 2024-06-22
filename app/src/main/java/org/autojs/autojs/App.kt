@@ -7,9 +7,11 @@ import android.os.Process
 import android.util.Log
 import android.webkit.WebView
 import androidx.core.content.ContextCompat
+import androidx.core.content.edit
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.multidex.MultiDexApplication
 import androidx.work.Configuration
+import com.aiselp.autox.engine.NodeScriptEngine.Companion.initModuleResource
 import com.flurry.android.FlurryAgent
 import com.stardust.app.GlobalAppContext
 import com.stardust.autojs.servicecomponents.ScriptServiceConnection
@@ -85,18 +87,30 @@ class App : MultiDexApplication(), Configuration.Provider {
             }
             TimedTaskScheduler.init(this)
             initDynamicBroadcastReceivers()
-        } else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                 WebView.setDataDirectorySuffix(getString(R.string.text_script_process_name))
             };
+        } else {
             ScriptServiceConnection.start(this)
         }
         Log.i(
             TAG, "Pid: ${Process.myPid()}, isScriptProcess: ${ProcessUtils.isScriptProcess(this)}"
         )
-
+        initResource()
     }
 
+    private fun initResource() {
+        val appVersionChange =
+            Pref.def().getInt(getString(R.string.key_init_resource), 0) != BuildConfig.VERSION_CODE
+        Thread {
+            initModuleResource(this, appVersionChange)
+            if (appVersionChange) {
+                Pref.def().edit(commit = true) {
+                    putInt(getString(R.string.key_init_resource), BuildConfig.VERSION_CODE)
+                }
+            }
+        }.start()
+    }
 
     @SuppressLint("CheckResult")
     private fun initDynamicBroadcastReceivers() {
@@ -142,7 +156,7 @@ class App : MultiDexApplication(), Configuration.Provider {
 
     override fun getWorkManagerConfiguration(): Configuration {
         return Configuration.Builder()
-            .setMinimumLoggingLevel(android.util.Log.INFO)
+            .setMinimumLoggingLevel(Log.INFO)
             .build()
     }
 

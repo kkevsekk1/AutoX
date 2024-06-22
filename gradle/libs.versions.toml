@@ -14,12 +14,13 @@ appcompat = "1.6.1"
 material = "1.11.0"
 accompanist-version = "0.24.13-rc"
 savedstate = "1.2.1"
+mlkit-text = "16.0.0-beta5"
 
 [libraries]
 # androidx
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
 
-androidx-swiperefreshlayout= "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+androidx-swiperefreshlayout = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version = "2.1.4" }
 androidx-activity-ktx = "androidx.activity:activity-ktx:1.9.0"
 androidx-webkit = "androidx.webkit:webkit:1.10.0"
@@ -81,12 +82,18 @@ ktor-server-websockets = { module = "io.ktor:ktor-server-websockets", version.re
 ktor-client-websockets = { module = "io.ktor:ktor-client-websockets", version.ref = "ktor-version" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor-version" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor-version" }
+# mlkit
+mlkit-text-recognition = { module = "com.google.mlkit:text-recognition", version.ref = "mlkit-text" }
+mlkit-text-recognition-chinese = { module = "com.google.mlkit:text-recognition-chinese", version.ref = "mlkit-text" }
+mlkit-text-recognition-devanagari = { module = "com.google.mlkit:text-recognition-devanagari", version.ref = "mlkit-text" }
+mlkit-text-recognition-japanese = { module = "com.google.mlkit:text-recognition-japanese", version.ref = "mlkit-text" }
+mlkit-text-recognition-korean = { module = "com.google.mlkit:text-recognition-korean", version.ref = "mlkit-text" }
 #rxjava
 rxjava2 = "io.reactivex.rxjava2:rxjava:2.2.21"
 rxjava2-rxandroid = "io.reactivex.rxjava2:rxandroid:2.1.1"
 rxjava3 = "io.reactivex.rxjava3:rxjava:3.1.5"
 rxjava3-rxandroid = "io.reactivex.rxjava3:rxandroid:3.0.2"
-javet-android-node = "com.caoccao.javet:javet-android-node:3.1.1"
+javet-android-node = "com.caoccao.javet:javet-android-node:3.1.3"
 
 #test libraries ===================================
 junit = { module = "junit:junit", version.ref = "junit" }
@@ -110,3 +117,10 @@ glide-compiler = "com.github.bumptech.glide:compiler:4.12.0"
 [bundles]
 ktor = ["ktor-server-core", "ktor-server-netty", "ktor-server-websockets", "ktor-client-websockets", "ktor-client-okhttp", "ktor-client-core"]
 accompanist = ["accompanist-webview", "accompanist-systemuicontroller", "accompanist-insets-ui", "accompanist-insets", "accompanist-appcompat-theme", "accompanist-swiperefresh", "accompanist-pager", "accompanist-pager-indicators", "accompanist-permissions"]
+mlkit = [
+    "mlkit-text-recognition",
+    "mlkit-text-recognition-chinese",
+    "mlkit-text-recognition-devanagari",
+    "mlkit-text-recognition-japanese",
+    "mlkit-text-recognition-korean"
+]

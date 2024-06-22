@@ -16,7 +16,12 @@ android {
     buildTypes {
         named("release") {
             isMinifyEnabled = false
-            setProguardFiles(listOf(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"))
+            setProguardFiles(
+                listOf(
+                    getDefaultProguardFile("proguard-android.txt"),
+                    "proguard-rules.pro"
+                )
+            )
         }
     }
 
@@ -24,8 +29,7 @@ android {
     lint.abortOnError = false
     sourceSets {
         named("main") {
-//            jniLibs.srcDirs = listOf("src/main/jniLibs")
-            res.srcDirs("src/main/res","src/main/res-i18n")
+            res.srcDirs("src/main/res", "src/main/res-i18n")
         }
     }
     compileOptions {
@@ -70,12 +74,23 @@ dependencies {
     api(project(path = ":LocalRepo:OpenCV"))
     api(project(":paddleocr"))
     // libs
-    api(fileTree("./libs"){include("dx.jar", "rhino-1.7.14-jdk7.jar")})
+    api(fileTree("./libs") { include("dx.jar", "rhino-1.7.14-jdk7.jar") })
     implementation("cz.adaptech:tesseract4android:4.1.1")
-    implementation("com.google.mlkit:text-recognition:16.0.0-beta5")
-    implementation("com.google.mlkit:text-recognition-chinese:16.0.0-beta5")
-    implementation("com.google.mlkit:text-recognition-devanagari:16.0.0-beta5")
-    implementation("com.google.mlkit:text-recognition-japanese:16.0.0-beta5")
-    implementation("com.google.mlkit:text-recognition-korean:16.0.0-beta5")
+    implementation(libs.bundles.mlkit)
 }
 
+tasks.register("buildJsModule") {
+    val jsApiDir= File(projectDir, "src/js-api")
+    val jsModuleDir = File(projectDir, "src/main/assets/v7modules")
+    doFirst {
+        exec {
+            workingDir = jsApiDir
+            commandLine("node", "build.mjs")
+        }
+        delete(jsModuleDir)
+        copy {
+            from(File(jsApiDir, "dist"))
+            into(jsModuleDir)
+        }
+    }
+}

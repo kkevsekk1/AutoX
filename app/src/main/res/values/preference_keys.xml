@@ -16,4 +16,5 @@
     <string name="key_use_volume_control_record" translatable="false">key_use_volume_control_record</string>
     <string name="key_guard_mode" translatable="false">key_guard_mode</string>
     <string name="key_intent_run_script" translatable="false" >key_intent_run_script</string>
+    <string name="key_init_resource" translatable="false" >key_init_resource</string>
 </resources>

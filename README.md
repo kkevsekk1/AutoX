@@ -126,6 +126,11 @@
 
 命令说明：在项目根目录下运行命令，如果使用 Windows powerShell < 7.0，请使用包含 ";" 的命令
 
+从7.0版本开始，构建之前，需要运行以下命令编译js模块，确保你已经安装了nodejs 20+
+```shell
+./gradlew autojs:buildJsModule
+```
+
 ##### 本地安装调试版本到设备：
 ```shell
 ./gradlew app:buildDebugTemplateApp && ./gradlew app:assembleV6Debug && ./gradlew app:installV6Debug
@@ -136,9 +141,9 @@
 
 ##### 本地编译发布版本：
 ```shell
-./gradlew app:buildTemplateApp && ./gradlew inrt:cp2APP && ./gradlew app:assembleV6
+./gradlew app:buildTemplateApp && ./gradlew app:assembleV6
 #或
-./gradlew app:buildTemplateApp ; ./gradlew inrt:cp2APP ; ./gradlew app:assembleV6
+./gradlew app:buildTemplateApp ; ./gradlew app:assembleV6
 ```
 生成的是未签名的APK文件，在 app/build/outputs/apk/v6/release 下，需要签名后才能安装
 

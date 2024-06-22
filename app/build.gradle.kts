@@ -158,7 +158,7 @@ android {
         exclude(group = "com.github.atlassian.commonmark-java", module = "commonmark")
     }
 
-    packagingOptions {
+    packaging {
         //ktor netty implementation("io.ktor:ktor-server-netty:2.0.1")
         resources.pickFirsts.addAll(
             listOf(

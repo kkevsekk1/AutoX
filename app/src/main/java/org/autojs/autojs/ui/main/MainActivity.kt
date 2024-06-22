@@ -499,23 +499,15 @@ fun TopAppBarMenu(
     }
 }
 
-@OptIn(ExperimentalPermissionsApi::class)
 @Composable
 private fun NewDirectory(
     context: Context,
     scriptListFragment: ScriptListFragment,
     onDismissRequest: () -> Unit
 ) {
-    val permission = rememberExternalStoragePermissionsState {
-        if (it) getScriptOperations(
-            context,
-            scriptListFragment.explorerView
-        ).newDirectory()
-        else showExternalStoragePermissionToast(context)
-    }
     DropdownMenuItem(onClick = {
         onDismissRequest()
-        permission.launchMultiplePermissionRequest()
+        getScriptOperations(context, scriptListFragment.explorerView).newDirectory()
     }) {
         MyIcon(
             painter = painterResource(id = R.drawable.ic_floating_action_menu_dir),
@@ -533,16 +525,9 @@ private fun NewFile(
     scriptListFragment: ScriptListFragment,
     onDismissRequest: () -> Unit
 ) {
-    val permission = rememberExternalStoragePermissionsState {
-        if (it) getScriptOperations(
-            context,
-            scriptListFragment.explorerView
-        ).newFile()
-        else showExternalStoragePermissionToast(context)
-    }
     DropdownMenuItem(onClick = {
         onDismissRequest()
-        permission.launchMultiplePermissionRequest()
+        getScriptOperations(context, scriptListFragment.explorerView).newFile()
     }) {
         MyIcon(
             painter = painterResource(id = R.drawable.ic_floating_action_menu_file),
@@ -560,16 +545,9 @@ private fun ImportFile(
     scriptListFragment: ScriptListFragment,
     onDismissRequest: () -> Unit
 ) {
-    val permission = rememberExternalStoragePermissionsState {
-        if (it) getScriptOperations(
-            context,
-            scriptListFragment.explorerView
-        ).importFile()
-        else showExternalStoragePermissionToast(context)
-    }
     DropdownMenuItem(onClick = {
         onDismissRequest()
-        permission.launchMultiplePermissionRequest()
+        getScriptOperations(context, scriptListFragment.explorerView).importFile()
     }) {
         MyIcon(
             painter = painterResource(id = R.drawable.ic_floating_action_menu_open),
