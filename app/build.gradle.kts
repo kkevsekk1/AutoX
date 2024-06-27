@@ -12,8 +12,6 @@ plugins {
     id("com.google.devtools.ksp")
 }
 
-//val SupportLibVersion = "28.0.0"
-
 val propFile: File = File("E:/资料/jks/autojs-app/sign.properties");
 val properties = Properties()
 if (propFile.exists()) {
@@ -22,12 +20,6 @@ if (propFile.exists()) {
     }
 }
 
-//configurations.all {
-//    resolutionStrategy {
-//        force("com.android.support:appcompat-v7:${SupportLibVersion}")
-//        force("com.android.support:support-v4:${SupportLibVersion}")
-//    }
-//}
 android {
     compileSdk = versions.compile
     defaultConfig {
@@ -44,9 +36,6 @@ android {
                 arguments["resourcePackageName"] = applicationId.toString()
                 arguments["androidManifestFile"] = "$projectDir/src/main/AndroidManifest.xml"
             }
-        }
-        ndk {
-            abiFilters.addAll(listOf("arm64-v8a", "armeabi-v7a"))
         }
     }
     buildFeatures {
@@ -76,24 +65,18 @@ android {
         }
     }
     splits {
-
         // Configures multiple APKs based on ABI.
         abi {
-
             // Enables building multiple APKs per ABI.
             isEnable = true
-
             // By default all ABIs are included, so use reset() and include to specify that we only
             // want APKs for x86 and x86_64.
-
             // Resets the list of ABIs that Gradle should create APKs for to none.
             reset()
-
             // Specifies a list of ABIs that Gradle should create APKs for.
-            include("armeabi-v7a", "arm64-v8a")
-
+            include( "arm64-v8a")
             // Specifies that we do not want to also generate a universal APK that includes all ABIs.
-            isUniversalApk = true
+            isUniversalApk = false
         }
     }
     buildTypes {
@@ -131,23 +114,20 @@ android {
             versionCode = versions.appVersionCode
             versionName = versions.appVersionName
             buildConfigField("String", "CHANNEL", "\"common\"")
-//            buildConfigField("String", "APPID", "\"?id=21\"")
             manifestPlaceholders.putAll(mapOf("appName" to "@string/app_name"))
         }
-        create("v6") {
-            applicationIdSuffix = ".v6"
+        create("v7") {
+            applicationIdSuffix = ".v7"
             versionCode = versions.devVersionCode
             versionName = versions.devVersionName
-            buildConfigField("String", "CHANNEL", "\"v6\"")
-//            buildConfigField("String", "APPID", "\"?id=23\"")
-            manifestPlaceholders.putAll(mapOf("appName" to "Autox.js v6"))
+            buildConfigField("String", "CHANNEL", "\"v7\"")
+            manifestPlaceholders.putAll(mapOf("appName" to "Autox.js v7"))
         }
     }
 
     sourceSets {
         getByName("main") {
             res.srcDirs("src/main/res", "src/main/res-i18n")
-            jniLibs.srcDirs("/libs")
         }
     }
 
