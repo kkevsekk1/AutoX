@@ -38,12 +38,12 @@ jobs:
           ./gradlew app:buildTemplateApp
       - name: Build App
         run: |
-          ./gradlew app:assembleV6
+          ./gradlew app:assembleV7
       - uses: Tlaster/android-sign@v1.2.2
         name: Sign app APK
         with:
           releaseDirectory: |
-            app/build/outputs/apk/v6/release
+            app/build/outputs/apk/v7/release
           signingKeyBase64: ${{ secrets.ASIGNING_KEY }}
           output: build/app/signed
           alias: ${{ secrets.AALIAS }}
