@@ -1,9 +1,8 @@
 package com.aiselp.autox.api
 
 import android.util.Log
-import com.aiselp.autox.engine.EventLoopQueue
+import com.aiselp.autox.engine.V8PromiseFactory
 import com.caoccao.javet.annotations.V8Function
-import com.caoccao.javet.enums.V8AwaitMode
 import com.caoccao.javet.interop.V8Runtime
 import com.caoccao.javet.interop.converters.JavetObjectConverter
 import com.caoccao.javet.values.V8Value
@@ -13,14 +12,14 @@ import com.stardust.autojs.runtime.exception.ScriptException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
 class JavaInteractor(
     val scope: CoroutineScope, private val converter: JavetObjectConverter,
-    private val eventLoopQueue: EventLoopQueue
+    private val promiseFactory: V8PromiseFactory
 ) : NativeApi {
-    override val globalModule: Boolean = true
     override val moduleId: String = "java"
     private lateinit var v8Runtime: V8Runtime
     override fun install(v8Runtime: V8Runtime, global: V8ValueObject): NativeApi.BindingMode {
@@ -34,20 +33,22 @@ class JavaInteractor(
 
     private fun asyncInvoke(
         con: CoroutineDispatcher,
-        func: () -> Any?
+        func: () -> Any?,
     ): V8ValuePromise {
-        val v8ValuePromise = v8Runtime.createV8ValuePromise()
+        val promiseAdapter = promiseFactory.newPromiseAdapter()
+        val promise = promiseAdapter.promise
         scope.launch(con) {
+            delay(1000)
             try {
                 val r = func()
-                v8ValuePromise.resolve(r)
+                promiseAdapter.resolve(r)
             } catch (e: Throwable) {
-                v8ValuePromise.reject(e)
+                promiseAdapter.reject(e)
             } finally {
-                v8Runtime.await(V8AwaitMode.RunNoWait)
+                promiseAdapter.close()
             }
         }
-        return v8ValuePromise.promise
+        return promise
     }
 
     @V8Function
@@ -62,38 +63,50 @@ class JavaInteractor(
     }
 
     @V8Function
-    fun invokeIo(vararg args: V8Value?): Any? =
-        asyncInvoke(Dispatchers.IO, findMethod(args.toList()))
+    fun invokeIo(vararg args: V8Value?): V8ValuePromise {
+        return asyncInvoke(Dispatchers.IO, findMethod(args.toList()))
+    }
+
 
     @V8Function
-    fun invokeUi(vararg args: V8Value?): Any? =
-        asyncInvoke(Dispatchers.Main, findMethod(args.toList()))
+    fun invokeUi(vararg args: V8Value?): V8ValuePromise {
+        return asyncInvoke(Dispatchers.Main, findMethod(args.toList()))
+    }
+
 
     @V8Function
-    fun invokeDefault(vararg args: V8Value?): Any? =
-        asyncInvoke(Dispatchers.Default, findMethod(args.toList()))
+    fun invokeDefault(vararg args: V8Value?): V8ValuePromise {
+        return asyncInvoke(Dispatchers.Default, findMethod(args.toList()))
+    }
+
+
+    @V8Function
+    fun printCurrentThread() {
+        Log.d(TAG, "Current Thread: ${Thread.currentThread()}")
+    }
 
     private fun findMethod(args: List<V8Value?>): () -> Any? {
         val argList = args.map { converter.toObject<Any?>(it) }
         Log.i(TAG, "invoke  $args")
-        check(argList.size >= 2) { ScriptException("invoke args size must >= 2") }
+        check(argList.size >= 3) { ScriptException("invoke args size must >= 3") }
         val javaObj = argList[0] as Any
-        val method = argList[1] as String
-        val javaArgs = argList.drop(2).toTypedArray()
-        val argTpyes = javaArgs.map { it.javaClass }
-        val method1 = javaObj.javaClass.methods.find {
-            if (it.name == method) {
+        val methodName = argList[1] as String
+        val javaArgs = (argList[2] as List<*>)
+        val argTpyes = javaArgs.map { it?.javaClass }
+        val method = javaObj.javaClass.methods.find {
+            if (it.name == methodName) {
                 if (it.parameterCount != argTpyes.size) return@find false
                 if (it.parameterCount == 0) return@find true
                 val parameterTypes = it.parameterTypes
                 for (i: Int in parameterTypes.indices) {
-                    if (parameterTypes[i] != argTpyes[i]) return@find false
+                    if (argTpyes[i] == null) continue
+                    if (!parameterTypes[i].isAssignableFrom(argTpyes[i]!!)) return@find false
                 }
                 true
             } else false
         }
-        checkNotNull(method1) { ScriptException("method not found args: $argTpyes") }
-        return { method1.invoke(javaObj, *javaArgs) }
+        checkNotNull(method) { ScriptException("method not found ${javaObj.javaClass.name}$${methodName} args: $argTpyes") }
+        return { method.invoke(javaObj, *(javaArgs.toTypedArray())) }
     }
 
     companion object {

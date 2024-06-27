@@ -3,6 +3,8 @@ package com.aiselp.autox.engine
 import android.content.Context
 import android.util.Log
 import com.aiselp.autox.api.JavaInteractor
+import com.aiselp.autox.api.JsClipManager
+import com.aiselp.autox.api.JsMedia
 import com.aiselp.autox.api.JsToast
 import com.aiselp.autox.api.NodeConsole
 import com.aiselp.autox.module.NodeModuleResolver
@@ -41,10 +43,11 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
     private val moduleDirectory = getModuleDirectory(context)
     private val resultListener = PromiseListener()
     private val console = NodeConsole(AutoJs.instance.globalConsole)
-    private val nativeApiManager = NativeApiManager()
+    private val nativeApiManager = NativeApiManager(this)
     private val converter = JavetProxyConverter()
     private val scope = CoroutineScope(Dispatchers.Default)
     private val eventLoopQueue = EventLoopQueue()
+    private val promiseFactory = V8PromiseFactory(runtime, eventLoopQueue)
 
     init {
         Log.i(TAG, "node version: ${runtime.version}")
@@ -72,8 +75,10 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
 
     private fun initializeApi() = runtime.globalObject.use { global ->
         nativeApiManager.register(console)
-        nativeApiManager.register(JavaInteractor(scope, converter, eventLoopQueue))
+        nativeApiManager.register(JsClipManager(context, eventLoopQueue))
+        nativeApiManager.register(JavaInteractor(scope, converter, promiseFactory))
         nativeApiManager.register(JsToast(context, scope))
+        nativeApiManager.register(JsMedia(context))
         nativeApiManager.initialize(runtime, global)
     }
 
@@ -87,6 +92,7 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
                     it.register(resultListener)
                 else resultListener.onFulfilled(it)
                 while (scope.isActive) {
+//                    Log.d(TAG,"loop ing...")
                     if (runtime.await(V8AwaitMode.RunNoWait) or
                         eventLoopQueue.executeQueue()
                     ) continue else break

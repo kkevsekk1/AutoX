@@ -4,7 +4,7 @@ import fs from 'fs/promises'
 import { rollup } from 'rollup'
 import { loadConfigFile } from 'rollup/loadConfigFile'
 
-export async function clean(cb) {
+export async function clear(cb) {
     await rm('./dist', { recursive: true, force: true })
     cb()
 }
@@ -28,7 +28,7 @@ export async function createPackageFile(cb) {
 }
 
 export const build = series(
-    clean,
+    clear,
     async function rollupBuild(cb) {
         const { options, warnings } = await loadConfigFile('./rollup.config.mjs')
         warnings.flush()

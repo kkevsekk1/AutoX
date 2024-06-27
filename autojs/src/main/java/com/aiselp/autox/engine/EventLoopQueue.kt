@@ -1,7 +1,5 @@
 package com.aiselp.autox.engine
 
-import android.util.Log
-
 class EventLoopQueue {
     private val queue = ArrayDeque<Runnable>()
     private val queueX = ArrayDeque<Runnable>()
@@ -11,8 +9,7 @@ class EventLoopQueue {
 
     }
 
-    fun executeQueue(): Boolean {
-        Log.d(TAG, "executeQueue size = ${currentQueue.size}")
+    fun executeQueue(): Boolean = synchronized(this) {
         val executeQueue = currentQueue
         if (executeQueue.isEmpty()) {
             return false
@@ -25,7 +22,7 @@ class EventLoopQueue {
         return true
     }
 
-    fun addTask(task: Runnable) {
+    fun addTask(task: Runnable) = synchronized(this) {
         currentQueue.add(task)
     }
 
