@@ -23,7 +23,7 @@ dependencies {
     implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.ktor.client.logging)
 
-    implementation(libs.logback.classic)
+    compileOnly(libs.logback.classic)
 
     implementation(libs.google.gson)
 

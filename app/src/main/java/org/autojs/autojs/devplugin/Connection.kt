@@ -2,7 +2,8 @@ package org.autojs.autojs.devplugin
 
 import android.os.Build
 import android.util.Log
-import com.google.gson.Gson
+import com.google.gson.FieldNamingPolicy
+import com.google.gson.GsonBuilder
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import com.google.gson.JsonPrimitive
@@ -36,7 +37,10 @@ import org.autojs.autoxjs.BuildConfig
 import java.io.File
 import java.net.SocketTimeoutException
 
-private val gson get() = Gson()
+
+private val gson get() = GsonBuilder()
+    .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+    .create();
 private const val CLIENT_VERSION = 2
 private const val TAG = "DevPlugin"
 private const val TYPE_HELLO = "hello"
@@ -97,6 +101,7 @@ class Connection(
                 appVersionCode = BuildConfig.VERSION_CODE
             )
         )
+        Log.d(TAG, "message: $message")
         send(gson.toJson(message))
         val frame = incoming.receive()
         serveHello(
@@ -227,6 +232,7 @@ class Connection(
     ) {
         if (frame is Frame.Text) {
             val msg = frame.readText()
+            Log.d(TAG, "msg: $msg")
             val data =
                 kotlin.runCatching { gson.fromJson(msg, HelloResponse::class.java) }.getOrNull()
             Log.d(TAG, "serveHello: " + data?.toString())
