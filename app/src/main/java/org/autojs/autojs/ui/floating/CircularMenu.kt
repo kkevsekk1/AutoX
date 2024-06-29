@@ -19,6 +19,7 @@ import com.stardust.view.accessibility.NodeInfo
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.onFailure
 import kotlinx.coroutines.channels.onSuccess
+import kotlinx.coroutines.channels.trySendBlocking
 import org.autojs.autojs.Pref
 import org.autojs.autojs.autojs.AutoJs
 import org.autojs.autojs.autojs.record.GlobalActionRecorder
@@ -231,7 +232,7 @@ class CircularMenu(context: Context) : Recorder.OnStateChangedListener, CaptureA
     }
 
     override fun onCaptureAvailable(capture: NodeInfo) {
-        captureChannel.trySend(capture)
+        captureChannel.trySendBlocking(capture)
     }
 
     fun settings() {
