@@ -54,9 +54,7 @@ jobs:
       - name: rename apk
         run: |
           cd build/app/signed
-          mv app-v6-arm64-v8a-*.apk Autox-v6-arm64-v8a-release-${{steps.vars.outputs.short_ref}}.apk
-          mv app-v6-armeabi-v7a-*.apk Autox-v6-armeabi-v7a-release-${{steps.vars.outputs.short_ref}}.apk
-          mv app-v6-universal-*.apk Autox-v6-universal-release-${{steps.vars.outputs.short_ref}}.apk
+          mv app-v7-arm64-v8a-release*.apk Autox-v7-arm64-v8a-release-${{steps.vars.outputs.short_ref}}.apk
           ls
       - name: create-gh-release
         if: github.repository == 'kkevsekk1/AutoX'
@@ -66,8 +64,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: create-release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
         with:
           files: 'build/app/signed/**'
       - name: setup aliyun oss
