@@ -58,18 +58,36 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
     }
 
     override fun forceStop() {
+        forceStop(InterruptedException("force stop"))
+    }
+
+    fun forceStop(e: Throwable) {
         Log.i(TAG, "force stop")
         resultListener.cancel()
         if (runtime.isInUse) {
             runtime.terminateExecution()
         }
-        if (scope.isActive) scope.cancel("force stop")
+        if (scope.isActive) scope.cancel("force stop", e)
 //        runtime.getNodeModule(NodeModuleProcess::class.java)
 //            .moduleObject.invokeVoid("exit", runtime.createV8ValueInteger(1))
     }
 
     override fun init() {
         runtime.converter = converter
+        runtime.getExecutor(
+            """
+            (()=>{
+                let fs = require('fs')
+                let c = 0
+                process.on('uncaughtException', (err) => {
+                    c++
+                    if (c > 5) process.abort()
+                    Autox?.exit?.(err)
+                })
+            })()
+        """.trimIndent()
+        ).executeVoid()
+        runtime.logger
         initializeApi()
     }
 
@@ -134,7 +152,7 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
         if (scope.isActive) scope.cancel()
         if (!runtime.isClosed) {
             runtime.lowMemoryNotification()
-            runtime.close()
+            runtime.close(true)
         }
         super.destroy()
     }

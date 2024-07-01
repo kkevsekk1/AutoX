@@ -59,7 +59,8 @@ class NativeApiManager(engine: NodeScriptEngine) {
         val context: Context = engine.context.applicationContext
 
         @V8Function
-        fun exit() {
+        @JvmOverloads
+        fun exit(e: Throwable? = null) {
             Thread {
                 engine.forceStop()
             }.start()

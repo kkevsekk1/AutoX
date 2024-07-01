@@ -1,10 +1,7 @@
 
 type Context = {}
 type JavaClass = {}
-type PromiseCallback = {
-    onResolve: (result) => void
-    onReject: (error) => void
-}
+
 declare namespace root.java {
     function loadClass(name: string): JavaClass
     async function invokeUi<T>(
