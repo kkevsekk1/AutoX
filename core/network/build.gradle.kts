@@ -23,7 +23,9 @@ dependencies {
     implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.ktor.client.logging)
 
-    implementation(libs.logback.classic)
+    //https://github.com/tony19/logback-android
+    implementation(libs.slf4jApi)
+    implementation(libs.logbackAndroid)
 
     implementation(libs.google.gson)
 
