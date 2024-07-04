@@ -5,6 +5,7 @@
   "scripts": {
     "build": "gulp build",
     "clean": "gulp clear",
+    "docs": "typedoc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -20,6 +21,8 @@
     "rollup": "^4.18.0",
     "ts-node": "^10.9.2",
     "tslib": "^2.6.3",
+    "typedoc": "^0.26.3",
+    "typedoc-plugin-markdown": "^4.1.1",
     "typescript": "^5.5.2"
   }
 }

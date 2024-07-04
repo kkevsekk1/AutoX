@@ -136,6 +136,7 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
         return if (NodeModuleResolver.isEsModule(file)) {
             //es module
             runtime.getExecutor(file).setResourceName(file.path).compileV8Module(true).run {
+                runtime.addV8Module(this)
                 nodeModuleResolver.addCacheModule(this)
                 execute()
             }
@@ -148,11 +149,13 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
     }
 
     override fun destroy() {
+        val code = if (scope.isActive) 0 else 1
+        runtime.getExecutor("process.on('exit',$code);").executeVoid()
         nativeApiManager.recycle(runtime, runtime.globalObject)
         if (scope.isActive) scope.cancel()
         if (!runtime.isClosed) {
             runtime.lowMemoryNotification()
-            runtime.close(true)
+            runtime.close()
         }
         super.destroy()
     }
