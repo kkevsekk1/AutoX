@@ -14,7 +14,12 @@ android {
         minSdk = versions.mini
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = compose_version
+    }
     buildTypes {
         named("release") {
             isMinifyEnabled = false
@@ -40,11 +45,15 @@ android {
 }
 
 dependencies {
-    androidTestImplementation(libs.espresso.core) {
-        exclude(group = "com.android.support", module = "support-annotations")
-    }
+    androidTestImplementation(libs.espresso.core)
+    implementation(platform(libs.compose.bom))
+    api(libs.activity.compose)
+    api(libs.compose.ui)
+    api(libs.compose.ui.tooling.preview)
+    api(libs.compose.material3)
+    api(libs.compose.material3.window.size)
+    api(libs.compose.material3.adaptive.navigation.suite)
     testImplementation(libs.junit)
-//    api(kotlin("stdlib", KotlinCompilerVersion.VERSION))
     api(libs.androidx.annotation)
     api("com.github.hyb1996:settingscompat:1.1.5")
     implementation(libs.androidx.activity.ktx)

@@ -10,5 +10,5 @@
     "outputFileStrategy":"modules",
     "mergeReadme": true,
 
-    "excludeExternals": false
+    "excludeExternals": true
 }

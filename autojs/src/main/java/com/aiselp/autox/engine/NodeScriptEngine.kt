@@ -6,6 +6,7 @@ import com.aiselp.autox.api.JavaInteractor
 import com.aiselp.autox.api.JsClipManager
 import com.aiselp.autox.api.JsMedia
 import com.aiselp.autox.api.JsToast
+import com.aiselp.autox.api.JsUi
 import com.aiselp.autox.api.NodeConsole
 import com.aiselp.autox.module.NodeModuleResolver
 import com.caoccao.javet.enums.V8AwaitMode
@@ -46,7 +47,7 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
     private val nativeApiManager = NativeApiManager(this)
     private val converter = JavetProxyConverter()
     private val scope = CoroutineScope(Dispatchers.Default)
-    private val eventLoopQueue = EventLoopQueue()
+    private val eventLoopQueue = EventLoopQueue(runtime)
     private val promiseFactory = V8PromiseFactory(runtime, eventLoopQueue)
 
     init {
@@ -74,6 +75,7 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
 
     override fun init() {
         runtime.converter = converter
+        runtime.allowEval(true)
         runtime.getExecutor(
             """
             (()=>{
@@ -93,6 +95,7 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
 
     private fun initializeApi() = runtime.globalObject.use { global ->
         nativeApiManager.register(console)
+        nativeApiManager.register(JsUi(scope, context, eventLoopQueue, converter))
         nativeApiManager.register(JsClipManager(context, eventLoopQueue))
         nativeApiManager.register(JavaInteractor(scope, converter, promiseFactory))
         nativeApiManager.register(JsToast(context, scope))
@@ -136,7 +139,6 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
         return if (NodeModuleResolver.isEsModule(file)) {
             //es module
             runtime.getExecutor(file).setResourceName(file.path).compileV8Module(true).run {
-                runtime.addV8Module(this)
                 nodeModuleResolver.addCacheModule(this)
                 execute()
             }
@@ -150,7 +152,8 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
 
     override fun destroy() {
         val code = if (scope.isActive) 0 else 1
-        runtime.getExecutor("process.on('exit',$code);").executeVoid()
+        runtime.getExecutor("process.emit('exit',$code);").executeVoid()
+        eventLoopQueue.recycle()
         nativeApiManager.recycle(runtime, runtime.globalObject)
         if (scope.isActive) scope.cancel()
         if (!runtime.isClosed) {

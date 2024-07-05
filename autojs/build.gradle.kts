@@ -24,7 +24,12 @@ android {
             )
         }
     }
-
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = compose_version
+    }
 
     lint.abortOnError = false
     sourceSets {
