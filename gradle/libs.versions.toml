@@ -43,7 +43,8 @@ androidxLifecycle = "2.8.3"
 localbroadcastmanager-version = "1.1.0"
 leakcanary = "2.14"
 log4jVersion = "1.2.17"
-logbackClassicVersion = "1.5.6"
+slf4jVersion = "2.0.7"
+logbackAndroidVersion = "3.0.0"
 multidex-version = "2.0.1"
 mutabletheme-version = "1.0.0"
 okhttp = "4.12.0"
@@ -112,7 +113,8 @@ groovy-json = { module = "org.codehaus.groovy:groovy-json", version.ref = "groov
 keeplive = { module = "com.fanjun:keeplive", version.ref = "keeplive-version" }
 licensesdialog = { module = "de.psdev.licensesdialog:licensesdialog", version.ref = "licensesdialog-version" }
 log4j = { module = "log4j:log4j", version.ref = "log4jVersion" }
-logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logbackClassicVersion" }
+slf4jApi = { module = "org.slf4j:slf4j-api", version.ref = "slf4jVersion" }
+logbackAndroid = { module = "com.github.tony19:logback-android", version.ref = "logbackAndroidVersion" }
 markwon-core = { module = "io.noties.markwon:core", version.ref = "core" }
 material-dialogs-commons = { module = "com.afollestad.material-dialogs:commons", version.ref = "commons-version" }
 
