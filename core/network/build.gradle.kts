@@ -22,11 +22,10 @@ dependencies {
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.ktor.client.logging)
-
-    compileOnly(libs.logback.classic)
-
+    //https://github.com/tony19/logback-android
+    implementation(libs.slf4jApi)
+    implementation(libs.logbackAndroid)
     implementation(libs.google.gson)
-
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
