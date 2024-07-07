@@ -21,8 +21,8 @@ if (propFile.exists()) {
 android {
     defaultConfig {
         applicationId = "org.autojs.autoxjs"
-        versionCode = AndroidConfigConventions.VERSION_CODE
-        versionName = AndroidConfigConventions.VERSION_NAME
+        versionCode = versions.appVersionCode
+        versionName = versions.appVersionName
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 //        multiDexEnabled = true
         buildConfigField("boolean", "isMarket", "false")
@@ -100,16 +100,16 @@ android {
     flavorDimensions.add("channel")
     productFlavors {
         create("common") {
-            versionCode = AndroidConfigConventions.VERSION_CODE
-            versionName = AndroidConfigConventions.VERSION_NAME
+            versionCode = versions.appVersionCode
+            versionName = versions.appVersionName
             buildConfigField("String", "CHANNEL", "\"common\"")
 //            buildConfigField("String", "APPID", "\"?id=21\"")
             manifestPlaceholders.putAll(mapOf("appName" to "@string/app_name"))
         }
         create("v6") {
             applicationIdSuffix = ".v6"
-            versionCode = AndroidConfigConventions.VERSION_CODE
-            versionName = AndroidConfigConventions.VERSION_NAME
+            versionCode = versions.appVersionCode
+            versionName = versions.appVersionName
             buildConfigField("String", "CHANNEL", "\"v6\"")
 //            buildConfigField("String", "APPID", "\"?id=23\"")
             manifestPlaceholders.putAll(mapOf("appName" to "Autox.js v6"))
