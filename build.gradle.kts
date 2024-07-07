@@ -1,4 +1,4 @@
-initVersions(file("project-versions.json"))
+
 buildscript {
     repositories {
         google()
