@@ -1,4 +1,5 @@
 file("project-versions.json").readLines().forEach(::println)
+initVersions(file("project-versions.json"))
 buildscript {
     repositories {
         google()
