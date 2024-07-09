@@ -177,9 +177,6 @@ public class Pref {
     public static String getScriptDirPath() {
         String dir = def().getString(getString(R.string.key_script_dir_path),
                 getString(R.string.default_value_script_dir_path));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return new File( GlobalAppContext.get().getFilesDir(), dir).getPath();
-        }
         return new File(Environment.getExternalStorageDirectory(), dir).getPath();
     }
 

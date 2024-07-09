@@ -1,14 +1,22 @@
 package org.autojs.autojs.ui.main
 
 import android.Manifest
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.os.Process
+import android.provider.Settings
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.compose.setContent
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -73,6 +81,7 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.stardust.app.permission.DrawOverlaysPermission
+import com.stardust.toast
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.autojs.autojs.Pref
@@ -96,6 +105,7 @@ import org.autojs.autojs.ui.util.launchActivity
 import org.autojs.autojs.ui.widget.fillMaxSize
 import org.autojs.autoxjs.R
 
+
 data class BottomNavigationItem(val icon: Int, val label: String)
 
 class MainActivity : FragmentActivity() {
@@ -112,6 +122,7 @@ class MainActivity : FragmentActivity() {
     private var drawerState: DrawerState? = null
     private val viewPager: ViewPager2 by lazy { ViewPager2(this) }
     private var scope: CoroutineScope? = null
+    private var permissionResult: ActivityResultLauncher<Intent>? = null
 
     @OptIn(ExperimentalPermissionsApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -135,7 +146,36 @@ class MainActivity : FragmentActivity() {
                         }
                     }
                     LaunchedEffect(key1 = Unit, block = {
-                        permission.launchMultiplePermissionRequest()
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                            // 先判断有没有权限
+                            if (Environment.isExternalStorageManager()) {
+                                scriptListFragment.explorerView.onRefresh()
+                            } else {
+                                AlertDialog.Builder(this@MainActivity)
+                                    .setTitle("需要管理所有文件权限")
+                                    .setMessage("由于权限变更，Android 11以上版本需要管理所有文件权限才能正常使用")
+                                    .setPositiveButton(
+                                        getString(R.string.ok)
+                                    ) { _, _ ->
+                                        val permissionIntent =
+                                            Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
+                                        permissionIntent.setData(Uri.parse("package:$packageName"))
+                                        permissionResult?.launch(permissionIntent)
+                                    }
+                                    .setNegativeButton(
+                                        R.string.cancel
+                                    ) { _, _ ->
+                                        toast(
+                                            this@MainActivity,
+                                            R.string.text_no_file_rw_permission
+                                        )
+                                    }
+                                    .create().show()
+                            }
+                        } else {
+                            permission.launchMultiplePermissionRequest()
+                        }
+
                     })
                     MainPage(
                         activity = this,
@@ -150,6 +190,19 @@ class MainActivity : FragmentActivity() {
                 }
             }
         }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            permissionResult = registerForActivityResult(
+                ActivityResultContracts.StartActivityForResult()
+            ) {
+                if (it.resultCode == Activity.RESULT_OK) {
+                    if (Environment.isExternalStorageManager()) {
+                        scriptListFragment.explorerView.onRefresh()
+                    } else {
+                        toast(this@MainActivity, R.string.text_no_file_rw_permission)
+                    }
+                }
+            }
+        }
     }
 
     override fun onResume() {
@@ -157,6 +210,7 @@ class MainActivity : FragmentActivity() {
         TimedTaskScheduler.ensureCheckTaskWorks(application)
     }
 
+    @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
         if (drawerState?.isOpen == true) {
             scope?.launch { drawerState?.close() }
@@ -267,6 +321,11 @@ fun MainPage(
             }
         )
     }
+}
+
+@Composable
+fun alertStorageDialog() {
+
 }
 
 fun showExternalStoragePermissionToast(context: Context) {
