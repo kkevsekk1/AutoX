@@ -323,10 +323,6 @@ fun MainPage(
     }
 }
 
-@Composable
-fun alertStorageDialog() {
-
-}
 
 fun showExternalStoragePermissionToast(context: Context) {
     Toast.makeText(
