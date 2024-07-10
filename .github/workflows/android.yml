@@ -16,6 +16,8 @@ jobs:
       - name: checkout
         id: check
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
       - name: set up JDK 17
         uses: actions/setup-java@v3
         with:
@@ -33,6 +35,20 @@ jobs:
       - name: Build JsModule
         run: |
           ./gradlew autojs:buildJsModule
+      - name: Build Docs
+        run: |
+          pushd autojs/src/js-api
+          npm install
+          npm run docs
+          popd
+          rm -rf docs/v2/docs/nodejs/docs
+          mv autojs/src/js-api/docs docs/v2/docs/nodejs/
+          pushd docs/v2/
+          npm install
+          npm run build
+          popd
+          mkdir -p app/src/main/assets/docs/v2
+          mv docs/v2/build/* app/src/main/assets/docs/v2/
       - name: Build inrt template
         run: |
           ./gradlew app:buildTemplateApp
@@ -49,7 +65,7 @@ jobs:
           alias: ${{ secrets.AALIAS }}
           keyStorePassword: ${{ secrets.AKEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.AKEY_PASSWORD }}
-        env: 
+        env:
           BUILD_TOOLS_VERSION: "34.0.0"
       - name: rename apk
         run: |
