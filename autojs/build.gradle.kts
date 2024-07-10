@@ -52,6 +52,7 @@ dependencies {
     implementation(libs.leakcanary.`object`.watcher.android)
     testImplementation(libs.junit)
 
+    implementation(libs.coil.compose)
     implementation(libs.glide)
     implementation(libs.documentfile)
     implementation(libs.preference.ktx)

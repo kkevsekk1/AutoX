@@ -60,7 +60,12 @@ class JsUi(
 
     @V8Function
     fun patchProp(element: ComposeElement, key: String, value: V8Value?) {
-        element.props[key] = converterValue(value)
+        val value1 = converterValue(value)
+        element.props[key]?.let {
+            if (it is EventLoopQueue.V8Callback)
+                it.remove()
+        }
+        element.props[key] = value1
     }
 
     @V8Function

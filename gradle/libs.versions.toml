@@ -1,6 +1,7 @@
 [versions]
 activity-compose = "1.8.2"
 andserver = "2.1.12"
+coil-compose-version = "2.0.0-rc03"
 core-ktx = "1.8.0"
 google-gson = "2.9.1"
 junit = "4.13.2"
@@ -107,6 +108,7 @@ espresso-core = { group = "androidx.test.espresso", name = "espresso-core", vers
 
 andserver-processor = { module = "com.yanzhenjie.andserver:processor", version.ref = "andserver" }
 andserver-api = { module = "com.yanzhenjie.andserver:api", version.ref = "andserver" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil-compose-version" }
 #Deprecated ========================================
 #Glide
 glide = "com.github.bumptech.glide:glide:4.8.0"

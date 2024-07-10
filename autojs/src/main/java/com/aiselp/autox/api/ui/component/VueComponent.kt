@@ -25,5 +25,14 @@ object VueComponent {
         add(Box)
         add(Button)
         add(Scaffold)
+        add(Image)
+        add(TextField)
+        add(IconButton)
+        add(Icon)
+        add(Switch)
+        add(Checkbox)
+        add(Fab)
+        add(DropdownMenu)
+        add(DropdownMenuItem)
     }
 }

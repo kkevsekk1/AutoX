@@ -4,6 +4,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import com.aiselp.autox.engine.EventLoopQueue
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -47,6 +48,9 @@ open class ComposeElement(val tag: String) : ComposeNode {
         }
     }
 
+    override fun getEvent(name: String): EventLoopQueue.V8Callback? {
+        return super.getEvent(name)
+    }
     fun addTemplate(name: String, element: ComposeElement) {
         element.parentNode = this
         templateElements[name] = element

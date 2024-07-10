@@ -13,7 +13,7 @@ watch(r, (t) => {
 setTimeout(() => {
     r.value = 2;
 }, 2000);
-
+const img = "/storage/emulated/0/Pictures/Screenshots/Screenshot_20240710-184250_文件极客.png"
 let app = createApp({
     data() {
         return {
@@ -39,6 +39,7 @@ let app = createApp({
       <card r=${{}} modifier=${modifier} onClick=${click}>
             <text modifier=${modifier}>卡片内容</text>
     	</card>
+        <Image src=${img} />
        hhh 
        <Button onClick=${click} ><text>一个按钮tttttt</text></Button>
     </column>             

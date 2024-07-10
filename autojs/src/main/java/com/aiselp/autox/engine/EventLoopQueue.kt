@@ -20,17 +20,23 @@ class EventLoopQueue(val runtime: NodeRuntime) {
             const callbacks = new Map();
             return {
                 addCallback: function(fn){
+                    if (callbacks.has(fn)) {
+                        return callbacks.get(fn)
+                    }
                     id++;
                     callbacks.set(id, fn);
+                    callbacks.set(fn, id);
                     return id;
                 },
                 emit: function(id, ...args){
                     callbacks.get(id)(...args);
                 },
                 removeCallback: function(id){
+                    callbacks.delete(callbacks.get(id));
                     callbacks.delete(id);
                 },
                 keepRunning: function(){
+                    if (keepId)  return;
                     keepId = setInterval(()=>{}, 1000)
                 },
                 cancelKeepRunning: function(){
@@ -67,7 +73,9 @@ class EventLoopQueue(val runtime: NodeRuntime) {
     }
 
     fun removeV8Callback(callback: V8Callback) {
-        callback.remove()
+        addTask {
+            util.invokeVoid("removeCallback", callback.id)
+        }
     }
 
     fun executeQueue(): Boolean = synchronized(this) {
@@ -118,9 +126,7 @@ class EventLoopQueue(val runtime: NodeRuntime) {
 
         fun remove() {
             removerd = true
-            this@EventLoopQueue.addTask {
-                util.invokeVoid("removeCallback", id)
-            }
+            this@EventLoopQueue.removeV8Callback(this)
         }
 
         fun cancel() {
