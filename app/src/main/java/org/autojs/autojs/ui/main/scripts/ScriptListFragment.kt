@@ -1,7 +1,9 @@
 package org.autojs.autojs.ui.main.scripts
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -155,7 +157,17 @@ class ScriptListFragment : Fragment() {
         }
         FabWithLabel(
             onClick = {
-                permission.launchMultiplePermissionRequest()
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    if (Environment.isExternalStorageManager()) {
+                        getScriptOperations(
+                            this@ScriptListFragment
+                        ).importFile()
+                    } else {
+                        showExternalStoragePermissionToast(requireContext())
+                    }
+                } else {
+                    permission.launchMultiplePermissionRequest()
+                }
             },
             labelContent = { Text(text = stringResource(id = R.string.text_import)) },
         ) {
@@ -177,7 +189,17 @@ class ScriptListFragment : Fragment() {
         }
         FabWithLabel(
             onClick = {
-                permission.launchMultiplePermissionRequest()
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    if (Environment.isExternalStorageManager()) {
+                        getScriptOperations(
+                            this@ScriptListFragment
+                        ).newFile()
+                    } else {
+                        showExternalStoragePermissionToast(requireContext())
+                    }
+                } else {
+                    permission.launchMultiplePermissionRequest()
+                }
             },
             labelContent = { Text(text = stringResource(id = R.string.text_file)) },
         ) {
@@ -199,7 +221,17 @@ class ScriptListFragment : Fragment() {
         }
         FabWithLabel(
             onClick = {
-                permission.launchMultiplePermissionRequest()
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    if (Environment.isExternalStorageManager()) {
+                        getScriptOperations(
+                            this@ScriptListFragment
+                        ).newDirectory()
+                    } else {
+                        showExternalStoragePermissionToast(requireContext())
+                    }
+                } else {
+                    permission.launchMultiplePermissionRequest()
+                }
             },
             labelContent = { Text(text = stringResource(id = R.string.text_directory)) },
         ) {

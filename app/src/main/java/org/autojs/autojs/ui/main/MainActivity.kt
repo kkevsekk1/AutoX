@@ -151,26 +151,7 @@ class MainActivity : FragmentActivity() {
                             if (Environment.isExternalStorageManager()) {
                                 scriptListFragment.explorerView.onRefresh()
                             } else {
-                                AlertDialog.Builder(this@MainActivity)
-                                    .setTitle("需要管理所有文件权限")
-                                    .setMessage("由于权限变更，Android 11以上版本需要管理所有文件权限才能正常使用")
-                                    .setPositiveButton(
-                                        getString(R.string.ok)
-                                    ) { _, _ ->
-                                        val permissionIntent =
-                                            Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
-                                        permissionIntent.setData(Uri.parse("package:$packageName"))
-                                        permissionResult?.launch(permissionIntent)
-                                    }
-                                    .setNegativeButton(
-                                        R.string.cancel
-                                    ) { _, _ ->
-                                        toast(
-                                            this@MainActivity,
-                                            R.string.text_no_file_rw_permission
-                                        )
-                                    }
-                                    .create().show()
+                                requestManagePermission()
                             }
                         } else {
                             permission.launchMultiplePermissionRequest()
@@ -203,6 +184,29 @@ class MainActivity : FragmentActivity() {
                 }
             }
         }
+    }
+
+    private fun requestManagePermission() {
+        AlertDialog.Builder(this@MainActivity)
+            .setTitle("需要管理所有文件权限")
+            .setMessage("由于权限变更，Android 11以上版本需要管理所有文件权限才能正常使用")
+            .setPositiveButton(
+                getString(R.string.ok)
+            ) { _, _ ->
+                val permissionIntent =
+                    Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
+                permissionIntent.setData(Uri.parse("package:$packageName"))
+                permissionResult?.launch(permissionIntent)
+            }
+            .setNegativeButton(
+                R.string.cancel
+            ) { _, _ ->
+                toast(
+                    this@MainActivity,
+                    R.string.text_no_file_rw_permission
+                )
+            }
+            .create().show()
     }
 
     override fun onResume() {
@@ -325,11 +329,20 @@ fun MainPage(
 
 
 fun showExternalStoragePermissionToast(context: Context) {
-    Toast.makeText(
-        context,
-        context.getString(R.string.text_please_enable_external_storage),
-        Toast.LENGTH_SHORT
-    ).show()
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        Toast.makeText(
+            context,
+            "需要管理所有文件权限",
+            Toast.LENGTH_SHORT
+        ).show()
+    } else {
+        Toast.makeText(
+            context,
+            context.getString(R.string.text_please_enable_external_storage),
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
 }
 
 @OptIn(ExperimentalPermissionsApi::class)
@@ -571,7 +584,18 @@ private fun NewDirectory(
     }
     DropdownMenuItem(onClick = {
         onDismissRequest()
-        permission.launchMultiplePermissionRequest()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            if (Environment.isExternalStorageManager()) {
+                getScriptOperations(
+                    context,
+                    scriptListFragment.explorerView
+                ).newDirectory()
+            } else {
+                showExternalStoragePermissionToast(context)
+            }
+        } else {
+            permission.launchMultiplePermissionRequest()
+        }
     }) {
         MyIcon(
             painter = painterResource(id = R.drawable.ic_floating_action_menu_dir),
@@ -598,7 +622,18 @@ private fun NewFile(
     }
     DropdownMenuItem(onClick = {
         onDismissRequest()
-        permission.launchMultiplePermissionRequest()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            if (Environment.isExternalStorageManager()) {
+                getScriptOperations(
+                    context,
+                    scriptListFragment.explorerView
+                ).newFile()
+            } else {
+                showExternalStoragePermissionToast(context)
+            }
+        } else {
+            permission.launchMultiplePermissionRequest()
+        }
     }) {
         MyIcon(
             painter = painterResource(id = R.drawable.ic_floating_action_menu_file),
@@ -625,7 +660,18 @@ private fun ImportFile(
     }
     DropdownMenuItem(onClick = {
         onDismissRequest()
-        permission.launchMultiplePermissionRequest()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            if (Environment.isExternalStorageManager()) {
+                getScriptOperations(
+                    context,
+                    scriptListFragment.explorerView
+                ).importFile()
+            } else {
+                showExternalStoragePermissionToast(context)
+            }
+        } else {
+            permission.launchMultiplePermissionRequest()
+        }
     }) {
         MyIcon(
             painter = painterResource(id = R.drawable.ic_floating_action_menu_open),
