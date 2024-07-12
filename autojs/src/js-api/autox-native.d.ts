@@ -1,6 +1,9 @@
 
+type Int = number
+type Float = number
 type Context = {}
 type JavaClass = {}
+type Activity = {}
 
 declare namespace root.java {
     function loadClass(name: string): JavaClass

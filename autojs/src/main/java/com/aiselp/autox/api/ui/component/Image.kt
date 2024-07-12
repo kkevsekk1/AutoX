@@ -15,10 +15,15 @@ object Image : VueNativeComponent {
         element: ComposeElement,
         content: @Composable () -> Unit
     ) {
-        val uri = element.props["src"] as? String
+        val src = element.props["src"]
         val contentDescription = element.props["contentDescription"] as? String
+        val model = when (src) {
+            is String -> parseDrawable(src) ?: src
+            else -> src
+        }
+
         AsyncImage(
-            model = uri,
+            model = model,
             contentDescription = contentDescription,
             modifier = modifier,
             contentScale = parseContentScale(element.props["contentScale"] as? String),

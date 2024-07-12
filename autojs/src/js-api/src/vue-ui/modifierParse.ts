@@ -17,7 +17,11 @@ export interface ModifierOptions {
     height?: number
     /**组件的点击事件 */
     onClick?: () => void
-
+    fillMaxSize?: boolean
+    fillMaxWidth?: boolean
+    fillMaxHeight?: boolean
+    background?: number | string
+    padding?: number | number[]
 }
 
 const resModifierOptions: {
@@ -39,7 +43,37 @@ const resModifierOptions: {
             builder.click(value)
         }
     },
-
+    fillMaxSize: function (builder: ModifierBuilder, value?: boolean): void {
+        if (value) {
+            builder.fillMaxSize()
+        }
+    },
+    fillMaxWidth: function (builder: ModifierBuilder, value?: boolean): void {
+        if (value) {
+            builder.fillMaxWidth()
+        }
+    },
+    fillMaxHeight: function (builder: ModifierBuilder, value?: boolean): void {
+        if (value) {
+            builder.fillMaxHeight()
+        }
+    },
+    padding: function (builder: ModifierBuilder, value: number | number[] | undefined): void {
+        if (!value) return
+        if (typeof value === 'number') {
+            builder.padding(value)
+        } else {
+            if (value.length >= 4) {
+                builder.padding(value[0], value[1], value[2], value[3])
+            } else if (value.length >= 2) {
+                builder.padding(value[0], value[1])
+            }
+        }
+    },
+    background: function (builder: ModifierBuilder, value: string | number | undefined): void {
+        if (!value) return
+        builder.background(value)
+    }
 }
 
 const modifierCache = new Map<any, Modifier>()

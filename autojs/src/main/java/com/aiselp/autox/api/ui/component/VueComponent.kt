@@ -34,5 +34,10 @@ object VueComponent {
         add(Fab)
         add(DropdownMenu)
         add(DropdownMenuItem)
+        add(View)
+        add(ModalNavigationDrawer)
+        add(ModalDrawerSheet)
+        add(NavigationBar)
+        add(NavigationDrawerItem)
     }
 }

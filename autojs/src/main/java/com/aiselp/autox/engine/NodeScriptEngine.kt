@@ -35,7 +35,7 @@ import java.io.File
 
 class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
     ScriptEngine.AbstractScriptEngine<ScriptSource>() {
-    private val runtime: NodeRuntime = V8Host.getNodeInstance().createV8Runtime()
+    val runtime: NodeRuntime = V8Host.getNodeInstance().createV8Runtime()
 
     private val tags = mutableMapOf<String, Any?>()
     private val config: ExecutionConfig by lazy {
@@ -45,10 +45,10 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
     private val resultListener = PromiseListener()
     private val console = NodeConsole(AutoJs.instance.globalConsole)
     private val nativeApiManager = NativeApiManager(this)
-    private val converter = JavetProxyConverter()
-    private val scope = CoroutineScope(Dispatchers.Default)
-    private val eventLoopQueue = EventLoopQueue(runtime)
-    private val promiseFactory = V8PromiseFactory(runtime, eventLoopQueue)
+    val converter = JavetProxyConverter()
+    val scope = CoroutineScope(Dispatchers.Default)
+    val eventLoopQueue = EventLoopQueue(runtime)
+    val promiseFactory = V8PromiseFactory(runtime, eventLoopQueue)
 
     init {
         Log.i(TAG, "node version: ${runtime.version}")
@@ -62,6 +62,11 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
         forceStop(InterruptedException("force stop"))
     }
 
+    fun forceStop(message: String, stack: String) {
+        console.error(stack)
+        forceStop(ScriptException(message))
+    }
+
     fun forceStop(e: Throwable) {
         Log.i(TAG, "force stop")
         resultListener.cancel()
@@ -69,6 +74,7 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
             runtime.terminateExecution()
         }
         if (scope.isActive) scope.cancel("force stop", e)
+        console.error(e.stackTraceToString())
 //        runtime.getNodeModule(NodeModuleProcess::class.java)
 //            .moduleObject.invokeVoid("exit", runtime.createV8ValueInteger(1))
     }
@@ -79,12 +85,11 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
         runtime.getExecutor(
             """
             (()=>{
-                let fs = require('fs')
                 let c = 0
                 process.on('uncaughtException', (err) => {
                     c++
                     if (c > 5) process.abort()
-                    Autox?.exit?.(err)
+                    Autox.exit(err)
                 })
             })()
         """.trimIndent()
@@ -95,7 +100,7 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
 
     private fun initializeApi() = runtime.globalObject.use { global ->
         nativeApiManager.register(console)
-        nativeApiManager.register(JsUi(scope, context, eventLoopQueue, converter))
+        nativeApiManager.register(JsUi(this))
         nativeApiManager.register(JsClipManager(context, eventLoopQueue))
         nativeApiManager.register(JavaInteractor(scope, converter, promiseFactory))
         nativeApiManager.register(JsToast(context, scope))

@@ -40,6 +40,7 @@ export class PxElement implements PxNode {
         this.children = []
         if (text) {
             const el = new PxText(text)
+            el.parentNode = this
             this.children.push(el)
             insertElement(el, this)
         }

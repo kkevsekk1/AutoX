@@ -1,5 +1,6 @@
 package com.aiselp.autox.api.ui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.unit.dp
+import com.aiselp.autox.api.ui.component.parseColor
 import com.aiselp.autox.engine.EventLoopQueue
 import com.caoccao.javet.values.reference.V8ValueFunction
 
@@ -63,6 +65,24 @@ class ModifierBuilder(
 
     fun padding(left: Int, top: Int, right: Int, bottom: Int) {
         modifier = modifier.padding(left.dp, top.dp, right.dp, bottom.dp)
+    }
+
+    fun fillMaxSize() {
+        modifier = modifier.fillMaxSize()
+    }
+
+    fun fillMaxWidth() {
+        modifier = modifier.fillMaxWidth()
+    }
+
+    fun fillMaxHeight() {
+        modifier = modifier.fillMaxHeight()
+    }
+
+    fun background(c: Any) {
+        parseColor(c)?.let {
+            modifier = modifier.background(it)
+        }
     }
 
     fun click(callback: V8ValueFunction) {

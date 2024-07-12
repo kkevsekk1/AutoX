@@ -1,8 +1,8 @@
 
 type Modifier = {}
-type Int = number
-type Float = number
 type V8ValueFunction = (...any) => any
+type ImageVector = {}
+
 
 interface ComposeElement {
     tag: string
@@ -28,6 +28,10 @@ interface ModifierBuilder {
     padding(horizontal: Int, vertical: Int)
     padding(left: Int, top: Int, right: Int, bottom: Int)
     click(callback: V8ValueFunction)
+    fillMaxSize()
+    fillMaxWidth()
+    fillMaxHeight()
+    background(color: any)
 }
 declare namespace root.ui {
     function createModifierBuilder(modifier: Modifier | null): ModifierBuilder
@@ -38,7 +42,10 @@ declare namespace root.ui {
     function createComposeText(text: string): ComposeElement
     function startActivity(
         element: ComposeElement,
-        listener: null | ((event: string, ...args: any[]) => any)): void
+        listener: null | ((event: string, ...args: any[]) => any)): Promise<Activity>
     function patchProp(element: ComposeElement, key: String, value: any)
     function updateComposeElement(element: ComposeElement)
+    function loadIcon(
+        group: string,
+        name: String): ImageVector
 }

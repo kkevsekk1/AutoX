@@ -1,6 +1,8 @@
 package com.aiselp.autox.engine
 
+import android.util.Log
 import com.caoccao.javet.interop.NodeRuntime
+import com.caoccao.javet.values.V8Value
 import com.caoccao.javet.values.primitive.V8ValueLong
 import com.caoccao.javet.values.reference.V8ValueFunction
 import com.caoccao.javet.values.reference.V8ValueObject
@@ -106,11 +108,18 @@ class EventLoopQueue(val runtime: NodeRuntime) {
         private var removerd = false
 
         private fun call(vararg args: Any?): Any? {
-            return runtime.converter.toObject<Any?>(util.invoke("emit", id, *args))
+            val result = runtime.converter.toObject<Any?>(util.invoke("emit", id, *args))
+            if (result is V8Value) {
+                result.close()
+                return null
+            } else return result
         }
 
         fun invoke(vararg args: Any?): CompletableDeferred<Any?> {
-            check(!removerd) { "this callback has been removed" }
+            if (removerd) {
+                Log.w(TAG, "this callback[${id}] has been removed")
+                return CompletableDeferred<Any?>().also { it.complete(null) }
+            }
             val deferred = CompletableDeferred<Any?>(job)
             this@EventLoopQueue.addTask { deferred.complete(call(*args)) }
             return deferred

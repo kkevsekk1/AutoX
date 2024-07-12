@@ -13,11 +13,13 @@ import com.aiselp.autox.api.ui.render
 
 class VueUiScriptActivity : AppCompatActivity() {
     private var activityEventDelegate: ActivityEventDelegate? = null
+    private var life: Lifecycle? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         val id = intent.getIntExtra(TAG, 0)
-        val builder = builderList[id] ?: return
+        life = contextListener[id]
+        contextListener.remove(id)
+        val builder = builderList[id] ?: return this.finish()
         activityEventDelegate = builder.activityEventDelegate
         setContent {
             BackHandler {
@@ -26,6 +28,7 @@ class VueUiScriptActivity : AppCompatActivity() {
             }
             render(builder.element)
         }
+        life?.onCreate(this)
         activityEventDelegate?.emit(ActivityEvent.ON_CREATE)
     }
 
@@ -33,6 +36,7 @@ class VueUiScriptActivity : AppCompatActivity() {
         super.onNewIntent(intent)
         activityEventDelegate?.emit(ActivityEvent.ON_NEW_INTENT, intent)
     }
+
     override fun onPause() {
         super.onPause()
         activityEventDelegate?.emit(ActivityEvent.ON_PAUSE)
@@ -42,6 +46,7 @@ class VueUiScriptActivity : AppCompatActivity() {
         super.onStop()
         activityEventDelegate?.emit(ActivityEvent.ON_STOP)
     }
+
     override fun onStart() {
         super.onStart()
         activityEventDelegate?.emit(ActivityEvent.ON_START)
@@ -54,19 +59,38 @@ class VueUiScriptActivity : AppCompatActivity() {
 
     override fun onRestart() {
         super.onRestart()
+        activityEventDelegate?.emit(ActivityEvent.ON_RESTART)
     }
 
     override fun onDestroy() {
         super.onDestroy()
+        life?.onDestroy(this)
         activityEventDelegate?.emit(ActivityEvent.ON_DESTROY)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        activityEventDelegate?.emit(ActivityEvent.ON_ACTIVITY_RESULT, requestCode, resultCode, data)
+    }
+
+    interface Lifecycle {
+        fun onCreate(activity: VueUiScriptActivity)
+        fun onDestroy(activity: VueUiScriptActivity)
     }
 
     companion object {
         private const val TAG = "VueUiScriptActivity"
         private val builderList = mutableMapOf<Int, ScriptActivityBuilder>()
+        private val contextListener = mutableMapOf<Int, Lifecycle?>()
         private var id = 0
-        fun startActivity(context: Context, element: ScriptActivityBuilder) {
+        fun startActivity(
+            context: Context,
+            element: ScriptActivityBuilder,
+            listener: Lifecycle? = null
+        ) {
             builderList[id] = element
+            contextListener[id] = listener
             val intent = Intent(context, VueUiScriptActivity::class.java)
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 .putExtra(TAG, id++)

@@ -1,16 +1,23 @@
 package com.aiselp.autox.api
 
+import android.app.Activity
 import android.content.Context
 import android.util.Log
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import com.aiselp.autox.activity.VueUiScriptActivity
 import com.aiselp.autox.api.ui.ActivityEvent
 import com.aiselp.autox.api.ui.ActivityEventDelegate
 import com.aiselp.autox.api.ui.ComposeElement
 import com.aiselp.autox.api.ui.ComposeTextNode
+import com.aiselp.autox.api.ui.Default
+import com.aiselp.autox.api.ui.Filled
+import com.aiselp.autox.api.ui.Icons
 import com.aiselp.autox.api.ui.ModifierBuilder
 import com.aiselp.autox.api.ui.ScriptActivityBuilder
 import com.aiselp.autox.engine.EventLoopQueue
+import com.aiselp.autox.engine.NodeScriptEngine
+import com.aiselp.autox.engine.V8PromiseFactory
 import com.caoccao.javet.annotations.V8Function
 import com.caoccao.javet.interop.V8Runtime
 import com.caoccao.javet.interop.converters.JavetProxyConverter
@@ -18,21 +25,26 @@ import com.caoccao.javet.values.V8Value
 import com.caoccao.javet.values.primitive.V8ValueString
 import com.caoccao.javet.values.reference.V8ValueFunction
 import com.caoccao.javet.values.reference.V8ValueObject
+import com.caoccao.javet.values.reference.V8ValuePromise
 import kotlinx.coroutines.CoroutineScope
+import kotlin.reflect.full.memberProperties
 
-class JsUi(
-    private val scope: CoroutineScope,
-    private val context: Context,
-    private val eventLoopQueue: EventLoopQueue,
-    private val converter: JavetProxyConverter
-) : NativeApi {
+class JsUi(nodeScriptEngine: NodeScriptEngine) : NativeApi {
     override val moduleId: String = "ui"
+    private val scope: CoroutineScope = nodeScriptEngine.scope
+    private val context: Context = nodeScriptEngine.context
+    private val eventLoopQueue: EventLoopQueue = nodeScriptEngine.eventLoopQueue
+    private val converter: JavetProxyConverter = nodeScriptEngine.converter
+    private val promiseFactory: V8PromiseFactory = nodeScriptEngine.promiseFactory
+
+    private val activitys = mutableSetOf<Activity>()
     override fun install(v8Runtime: V8Runtime, global: V8ValueObject): NativeApi.BindingMode {
         return NativeApi.BindingMode.PROXY
     }
 
     override fun recycle(v8Runtime: V8Runtime, global: V8ValueObject) {
-
+        activitys.forEach { if (!it.isDestroyed) it.finish() }
+        activitys.clear()
     }
 
     @V8Function
@@ -59,11 +71,24 @@ class JsUi(
     }
 
     @V8Function
+    fun loadIcon(group: String, name: String): ImageVector {
+        val icon = Icons::class.memberProperties.find {
+            it.name == name
+        } ?: throw RuntimeException("not found icon: $group.$name")
+        return when (group) {
+            "Default" -> icon.get(Default) as ImageVector
+            "Filled" -> icon.get(Filled) as ImageVector
+            else -> throw RuntimeException("not found icon: $group.$name")
+        }
+    }
+
+    @V8Function
     fun patchProp(element: ComposeElement, key: String, value: V8Value?) {
         val value1 = converterValue(value)
         element.props[key]?.let {
-            if (it is EventLoopQueue.V8Callback)
+            if (it is EventLoopQueue.V8Callback) {
                 it.remove()
+            }
         }
         element.props[key] = value1
     }
@@ -74,10 +99,22 @@ class JsUi(
     }
 
     @V8Function
-    fun startActivity(element: ComposeElement, listener: V8ValueFunction?) {
+    fun startActivity(element: ComposeElement, listener: V8ValueFunction?): V8ValuePromise {
+        val promiseAdapter = promiseFactory.newPromiseAdapter()
         val activityEventDelegate = createActivityEventDelegate(listener)
         val builder = ScriptActivityBuilder(element, activityEventDelegate)
-        VueUiScriptActivity.startActivity(context, builder)
+        VueUiScriptActivity.startActivity(context, builder, object : VueUiScriptActivity.Lifecycle {
+            override fun onCreate(activity: VueUiScriptActivity) {
+                activitys.add(activity)
+                eventLoopQueue.addTask { promiseAdapter.resolve(activity) }
+            }
+
+            override fun onDestroy(activity: VueUiScriptActivity) {
+                activitys.remove(activity)
+            }
+
+        })
+        return promiseAdapter.promise
     }
 
     private fun createActivityEventDelegate(listener: V8ValueFunction? = null): ActivityEventDelegate {

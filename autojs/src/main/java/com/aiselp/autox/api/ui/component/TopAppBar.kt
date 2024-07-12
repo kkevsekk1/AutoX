@@ -1,8 +1,11 @@
 package com.aiselp.autox.api.ui.component
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.aiselp.autox.api.ui.ComposeElement
 import com.aiselp.autox.api.ui.Render
@@ -27,7 +30,9 @@ object TopAppBar : VueNativeComponent {
                 if (title is ComposeElement) {
                     title.Render()
                 } else if (titleStr is String) {
-                    androidx.compose.material3.Text(text = titleStr)
+                    Box(modifier = Modifier.fillMaxHeight(), contentAlignment = Alignment.Center) {
+                        androidx.compose.material3.Text(text = titleStr)
+                    }
                 }
             }, actions = { actions?.Render() },
             navigationIcon = { navigationIcon?.Render() }

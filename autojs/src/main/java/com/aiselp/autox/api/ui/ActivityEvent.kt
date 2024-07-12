@@ -15,6 +15,7 @@ enum class ActivityEvent(val value: String) {
     ON_RECREATE("onRecreate"),
     ON_SAVE_INSTANCE_STATE("onSaveInstanceState"),
     ON_CONFIGURATION_CHANGED("onConfigurationChanged"),
+    ON_RESTART("onRestart")
 }
 
 open class ActivityEventDelegate(private val v8Callback: EventLoopQueue.V8Callback?) {

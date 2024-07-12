@@ -28,10 +28,12 @@ export const createApp: CreateAppFunction<PxElement> = function (
     app.mount = (containerOrSelector: PxElement | string): any => {
         if (containerOrSelector === 'activit') {
             containerOrSelector = nodeOps.createElement('box')
+            const proxy = mount(containerOrSelector)
+            startUi((containerOrSelector as PxElement).__xel)
+            return proxy
+        } else {
+            return mount(containerOrSelector)
         }
-        const proxy = mount(containerOrSelector)
-        startActivity((containerOrSelector as PxElement).__xel)
-        return proxy
     }
     return app
 }
@@ -40,19 +42,30 @@ export const createApp: CreateAppFunction<PxElement> = function (
 export function renderActivity(vnode: VNode, listener?: ActivityEventListener) {
     const root = nodeOps.createElement('box')
     render(vnode, root)
-    startActivity(root.__xel, listener)
+    startUi(root.__xel, listener)
 }
 
-function startActivity(element: ComposeElement, listener?: ActivityEventListener) {
+function startUi(element: ComposeElement, listener?: ActivityEventListener) {
     let emit = null
     if (listener) {
         emit = (event: string, ...args: any[]) => {
             (listener as any)[event]?.(...args)
         }
     }
-    ui.startActivity(element, emit)
+    return ui.startActivity(element, emit)
 }
-
+/**
+ * 启动Activity并挂载app实例作为内容
+ * @param app Vue的app实例
+ * @param listener 用于监听该Activity各种事件的监听器
+ * @returns 当Activity创建完成后返回该Activity实例
+ */
+export function startActivity(app: App<PxElement>, listener?: ActivityEventListener) {
+    const root = nodeOps.createElement('box')
+    app.mount(root)
+    return startUi(root.__xel, listener)
+}
 export const xml = htm.bind(h)
 export { nodeOps, setDebug }
 export * from '@vue/runtime-core'
+export * as Icons from './icons'

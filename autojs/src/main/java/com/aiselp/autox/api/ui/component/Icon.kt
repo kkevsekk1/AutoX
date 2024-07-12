@@ -6,8 +6,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import coil.compose.rememberAsyncImagePainter
 import com.aiselp.autox.api.ui.ComposeElement
+
 
 object Icon : VueNativeComponent {
     override val tag: String = "Icon"
@@ -37,12 +39,21 @@ object Icon : VueNativeComponent {
             )
 
             is String -> run {
-                Icon(
-                    modifier = modifier,
-                    painter = rememberAsyncImagePainter(model = src),
-                    contentDescription = contentDescription,
-                    tint = tint
-                )
+                parseDrawable(src)?.let {
+                    Icon(
+                        modifier = modifier,
+                        painter = painterResource(it),
+                        contentDescription = contentDescription,
+                        tint = tint
+                    )
+                } ?: run {
+                    Icon(
+                        modifier = modifier,
+                        painter = rememberAsyncImagePainter(model = src),
+                        contentDescription = contentDescription,
+                        tint = tint
+                    )
+                }
             }
         }
 

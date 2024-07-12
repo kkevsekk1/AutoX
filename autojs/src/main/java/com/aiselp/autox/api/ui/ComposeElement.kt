@@ -30,10 +30,8 @@ open class ComposeElement(val tag: String) : ComposeNode {
         } else {
             val i = children.indexOf(ref)
             if (i != -1) {
-                removeChild(ref)
                 children.add(i, child)
-            }
-            children.add(child)
+            }else children.add(child)
         }
         child.parentNode = this
     }

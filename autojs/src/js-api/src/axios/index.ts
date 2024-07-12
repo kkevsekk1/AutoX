@@ -6,5 +6,5 @@
  * (官方中文文档)[https://axios-http.com/zh/docs/intro]
  * @packageDocumentation
  */
-
+export { default } from 'axios'
 export * from 'axios'
