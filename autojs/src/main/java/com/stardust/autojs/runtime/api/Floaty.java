@@ -117,7 +117,7 @@ public class Floaty {
         private boolean mExitOnClose;
 
         public JsRawWindow(RawWindow.RawFloaty floaty) {
-            mWindow = new RawWindow(floaty, mUiHandler.getContext());
+            mWindow = new RawWindow(floaty, mContext);
             mUiHandler.getContext().startService(new Intent(mUiHandler.getContext(), FloatyService.class));
             Runnable r=() -> {
                 FloatyService.addWindow(mWindow);
