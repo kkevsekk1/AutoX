@@ -55,7 +55,7 @@ class ScreenCaptureRequestActivity : Activity() {
         mCallback = null
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         mOnActivityResultDelegateMediator.onActivityResult(requestCode, resultCode, data)
         IntentExtras.fromIdAndRelease(extraId)
         finish()

@@ -267,7 +267,7 @@ open class EWebView : FrameLayout, SwipeRefreshLayout.OnRefreshListener,
             .subscribe { t: Long? -> mSwipeRefreshLayout.isRefreshing = false }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {}
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {}
 
     protected open inner class MyWebViewClientTbs() : com.tencent.smtt.sdk.WebViewClient() {
         override fun onLoadResource(view: com.tencent.smtt.sdk.WebView, url: String?) {
