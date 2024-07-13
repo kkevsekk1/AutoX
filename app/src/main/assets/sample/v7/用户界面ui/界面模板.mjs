@@ -1,6 +1,10 @@
 import { showToast } from "toast";
-import { createApp, xml, defineComponent, startActivity, ref, reactive, Icons } from "vue-ui";
+import {
+    createApp, xml, defineComponent, ModifierExtension,
+    startActivity, ref, reactive, Icons
+} from "vue-ui";
 const { Menu, Home } = Icons.Default
+const { background, width, height, fillMaxSize } = ModifierExtension
 
 const DrawerMeuns = [
     {
@@ -25,8 +29,8 @@ const Drawer = defineComponent({
     render() {
         return xml`
     <ModalDrawerSheet>
-        <column modifier=${{ width: 220 }}>
-            <Image modifier=${{ width: 220, height: 220 }} src="@drawable/autojs_logo" />
+        <column modifier=${[width(220)]}>
+            <Image modifier=${[width(220), height(220)]} src="@drawable/autojs_logo" />
             ${DrawerMeuns.map((meun) => {
             return xml`
                     <NavigationDrawerItem 
@@ -96,9 +100,9 @@ let app = createApp({
         return xml` 
 <ModalNavigationDrawer onRender=${(s) => { drawer = s }}>
     <template #drawerContent><${Drawer}/></template>
-    <column modifier=${{ fillMaxSize: true }}>
+    <column modifier=${[fillMaxSize()]}>
         <${TopAppBar}/>
-        <box weight=${1} modifier=${{ fillMaxSize: true }}>
+        <box weight=${1} modifier=${[background('theme'), fillMaxSize()]}>
             <text text="第 ${cu.value} 内容：" />
         </box>
         <NavigationBar>

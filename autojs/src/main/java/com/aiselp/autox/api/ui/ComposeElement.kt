@@ -15,6 +15,7 @@ open class ComposeElement(val tag: String) : ComposeNode {
     override var parentNode: ComposeElement? = null
     override val props = mutableMapOf<String, Any?>()
     private val templateElements = mutableMapOf<String, ComposeElement>()
+    val modifierExts = mutableListOf<ModifierExtBuilder.ModifierExt>()
     val children = mutableListOf<ComposeElement>()
     var status = Status.UnMounted
     var update by mutableStateOf(false)
@@ -31,7 +32,7 @@ open class ComposeElement(val tag: String) : ComposeNode {
             val i = children.indexOf(ref)
             if (i != -1) {
                 children.add(i, child)
-            }else children.add(child)
+            } else children.add(child)
         }
         child.parentNode = this
     }
@@ -49,6 +50,15 @@ open class ComposeElement(val tag: String) : ComposeNode {
     override fun getEvent(name: String): EventLoopQueue.V8Callback? {
         return super.getEvent(name)
     }
+
+    fun addModifierExt(ext: ModifierExtBuilder.ModifierExt) {
+        modifierExts.add(ext)
+    }
+
+    fun clearModifierExts() {
+        modifierExts.clear()
+    }
+
     fun addTemplate(name: String, element: ComposeElement) {
         element.parentNode = this
         templateElements[name] = element

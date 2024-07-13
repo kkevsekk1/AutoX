@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.aiselp.autox.api.ui.ComposeElement
-import com.aiselp.autox.api.ui.Render
+import com.aiselp.autox.api.ui.RenderColumn
 
 object Column : VueNativeComponent {
     override val tag: String = "column"
@@ -22,9 +22,9 @@ object Column : VueNativeComponent {
         ) {
             element.children.forEach {
                 parseFloat(it.props["weight"])?.let { weight ->
-                    it.modifier =it.modifier.weight(weight)
+                    it.modifier = it.modifier.weight(weight)
                 }
-                it.Render()
+                RenderColumn(element = it)
             }
         }
     }

@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.aiselp.autox.api.ui.ComposeElement
-import com.aiselp.autox.api.ui.Render
+import com.aiselp.autox.api.ui.RenderRow
 
 object Row : VueNativeComponent {
     override val tag: String = "row"
@@ -24,7 +24,7 @@ object Row : VueNativeComponent {
                 parseFloat(it.props["weight"])?.let { weight ->
                     it.modifier = it.modifier.weight(weight)
                 }
-                it.Render()
+                RenderRow(it)
             }
         }
     }

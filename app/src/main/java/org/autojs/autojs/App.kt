@@ -92,11 +92,11 @@ class App : MultiDexApplication(), Configuration.Provider {
             };
         } else {
             ScriptServiceConnection.start(this)
+            initResource()
         }
         Log.i(
             TAG, "Pid: ${Process.myPid()}, isScriptProcess: ${ProcessUtils.isScriptProcess(this)}"
         )
-        initResource()
     }
 
     private fun initResource() {

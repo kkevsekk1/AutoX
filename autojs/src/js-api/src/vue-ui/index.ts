@@ -12,6 +12,7 @@ import { patchProp } from './patchProp'
 import { extend } from '@vue/shared'
 import htm from 'htm'
 import { ActivityEventListener, PxElement } from './types'
+import * as ModifierExtension from './modifierExtension'
 
 const { render: baseRender, createApp: baseCreateApp } = createRenderer(
     extend({ patchProp }, nodeOps),
@@ -69,3 +70,4 @@ export const xml = htm.bind(h)
 export { nodeOps, setDebug }
 export * from '@vue/runtime-core'
 export * as Icons from './icons'
+export { ModifierExtension }

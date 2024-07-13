@@ -2,7 +2,10 @@
 type Modifier = {}
 type V8ValueFunction = (...any) => any
 type ImageVector = {}
-
+type ModifierExt = {}
+type ModifierExtBuilder = {
+    createModifierExt(args: any[]): ModifierExt
+}
 
 interface ComposeElement {
     tag: string
@@ -15,6 +18,8 @@ interface ComposeElement {
     insertChild(child: ComposeElement, ref: ComposeElement | null)
     addTemplate(name: String, element: ComposeElement)
     removeTemplate(name: String)
+    clearModifierExts()
+    addModifierExt(ext: ModifierExt)
 }
 interface ComposeTextNode extends ComposeElement {
     text: string
@@ -34,7 +39,6 @@ interface ModifierBuilder {
     background(color: any)
 }
 declare namespace root.ui {
-    function createModifierBuilder(modifier: Modifier | null): ModifierBuilder
     function createComposeElement(
         tag: string,
         props: Record<string, any>,
@@ -48,4 +52,5 @@ declare namespace root.ui {
     function loadIcon(
         group: string,
         name: String): ImageVector
+    function getModifierExtFactory(key: String): ModifierExtBuilder
 }

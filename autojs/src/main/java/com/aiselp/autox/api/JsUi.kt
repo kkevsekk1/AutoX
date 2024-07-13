@@ -3,7 +3,6 @@ package com.aiselp.autox.api
 import android.app.Activity
 import android.content.Context
 import android.util.Log
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.aiselp.autox.activity.VueUiScriptActivity
 import com.aiselp.autox.api.ui.ActivityEvent
@@ -13,7 +12,8 @@ import com.aiselp.autox.api.ui.ComposeTextNode
 import com.aiselp.autox.api.ui.Default
 import com.aiselp.autox.api.ui.Filled
 import com.aiselp.autox.api.ui.Icons
-import com.aiselp.autox.api.ui.ModifierBuilder
+import com.aiselp.autox.api.ui.ModifierExtBuilder
+import com.aiselp.autox.api.ui.ModifierExtFactory
 import com.aiselp.autox.api.ui.ScriptActivityBuilder
 import com.aiselp.autox.engine.EventLoopQueue
 import com.aiselp.autox.engine.NodeScriptEngine
@@ -37,6 +37,7 @@ class JsUi(nodeScriptEngine: NodeScriptEngine) : NativeApi {
     private val converter: JavetProxyConverter = nodeScriptEngine.converter
     private val promiseFactory: V8PromiseFactory = nodeScriptEngine.promiseFactory
 
+    private val modifierExtFactory = ModifierExtFactory(eventLoopQueue)
     private val activitys = mutableSetOf<Activity>()
     override fun install(v8Runtime: V8Runtime, global: V8ValueObject): NativeApi.BindingMode {
         return NativeApi.BindingMode.PROXY
@@ -83,6 +84,12 @@ class JsUi(nodeScriptEngine: NodeScriptEngine) : NativeApi {
     }
 
     @V8Function
+    fun getModifierExtFactory(key: String): ModifierExtBuilder {
+        return modifierExtFactory.getModifierExtBuilder(key)
+            ?: throw RuntimeException("not found modifier ext: $key")
+    }
+
+    @V8Function
     fun patchProp(element: ComposeElement, key: String, value: V8Value?) {
         val value1 = converterValue(value)
         element.props[key]?.let {
@@ -93,10 +100,6 @@ class JsUi(nodeScriptEngine: NodeScriptEngine) : NativeApi {
         element.props[key] = value1
     }
 
-    @V8Function
-    fun createModifierBuilder(modifier: Modifier?): ModifierBuilder {
-        return ModifierBuilder(modifier ?: Modifier, eventLoopQueue = eventLoopQueue)
-    }
 
     @V8Function
     fun startActivity(element: ComposeElement, listener: V8ValueFunction?): V8ValuePromise {
