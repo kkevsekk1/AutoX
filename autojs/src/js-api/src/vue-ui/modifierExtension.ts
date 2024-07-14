@@ -65,10 +65,10 @@ export function rotate(angle: number): ModifierExt {
 }
 export function padding(left: number, top?: number, right?: number, bottom?: number): ModifierExt {
     checkNumber([left, top, right, bottom])
-    if (!top) {
+    if (typeof top !== "number") {
         return loadFactory("padding").createModifierExt([left, left, left, left])
     }
-    if (!bottom) {
+    if (typeof bottom !== "number") {
         return loadFactory("padding").createModifierExt([left, top, left, top])
     }
     return loadFactory('padding').createModifierExt([left, top, right, bottom])
