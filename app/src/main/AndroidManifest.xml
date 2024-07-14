@@ -97,7 +97,10 @@
     <uses-permission android:name="android.permission.UWB_RANGING" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
-
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
 
     <application
         android:name="org.autojs.autojs.App"
@@ -198,7 +201,9 @@
             android:name="org.autojs.autojs.ui.error.IssueReporterActivity"
             android:theme="@style/IssueReporterTheme" />
 
-        <service android:name="org.autojs.autojs.external.foreground.ForegroundService" />
+        <service
+            android:name="org.autojs.autojs.external.foreground.ForegroundService"
+            android:foregroundServiceType="connectedDevice" />
 
         <activity android:name="org.autojs.autojs.external.tasker.TaskPrefEditActivity" />
         <activity android:name="org.autojs.autojs.ui.log.LogActivity" />

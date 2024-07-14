@@ -24,7 +24,7 @@ public class UiHandler extends Handler {
     }
 
     public void toast(final String message) {
-        post(() -> Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show());
+        post(() -> Toast.makeText(mContext, message == null ? "null" : message, Toast.LENGTH_SHORT).show());
     }
 
     public void toast(final int resId) {

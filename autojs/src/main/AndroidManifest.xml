@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <!--  termux  -->
-    <uses-permission android:name="com.termux.permission.RUN_COMMAND"/>
+    <uses-permission android:name="com.termux.permission.RUN_COMMAND" />
     <uses-permission
         android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
@@ -23,6 +23,7 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <!--写联系人的权限-->
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
 
     <application>
         <activity

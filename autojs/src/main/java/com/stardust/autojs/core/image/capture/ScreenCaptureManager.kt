@@ -5,9 +5,11 @@ import android.content.Context
 import android.content.Intent
 import android.media.projection.MediaProjection
 import android.media.projection.MediaProjectionManager
+import android.util.Log
 import com.stardust.app.OnActivityResultDelegate
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 import java.util.concurrent.CancellationException
 
 class ScreenCaptureManager : ScreenCaptureRequester {
@@ -43,13 +45,14 @@ class ScreenCaptureManager : ScreenCaptureRequester {
                 result.await()
             }
         }
+        context.startService(Intent(context, CaptureForegroundService::class.java))
+        delay(50)
         mediaProjection =
             (context.getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager).getMediaProjection(
                 Activity.RESULT_OK,
                 result
             )
         CaptureForegroundService.mediaProjection = mediaProjection
-        context.startService(Intent(context, CaptureForegroundService::class.java))
         screenCapture = ScreenCapturer(mediaProjection!!, orientation)
     }
 

@@ -7,7 +7,7 @@ import androidx.collection.SparseArrayCompat
  * Created by Stardust on 2017/3/5.
  */
 interface OnActivityResultDelegate {
-    fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent)
+    fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?)
 
     interface DelegateHost {
         val onActivityResultDelegateMediator: Mediator
@@ -17,7 +17,7 @@ interface OnActivityResultDelegate {
         private val mSpecialDelegate = SparseArrayCompat<OnActivityResultDelegate>()
         private val mDelegates = mutableListOf<OnActivityResultDelegate>()
 
-        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
             val delegate = mSpecialDelegate[requestCode]
             delegate?.onActivityResult(requestCode, resultCode, data)
             for (d in mDelegates) {
