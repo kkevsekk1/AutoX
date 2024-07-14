@@ -66,8 +66,11 @@ export function startActivity(app: App<PxElement>, listener?: ActivityEventListe
     app.mount(root)
     return startUi(root.__xel, listener)
 }
+/**
+ * 该函数用于创建VNode节点，详细参考[htm](https://github.com/developit/htm)
+ */
 export const xml = htm.bind(h)
-export { nodeOps, setDebug }
+export { setDebug }
 export * from '@vue/runtime-core'
 export * as Icons from './icons'
 export { ModifierExtension }

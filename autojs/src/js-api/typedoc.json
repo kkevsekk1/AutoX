@@ -1,11 +1,11 @@
 {
-    "entryPoints": ["./src/*/index.ts"],
+    "entryPoints": ["./src/*"],
     "out": "./docs",
     "plugin": ["typedoc-plugin-markdown"],
     "hidePageHeader": true,
     "hideBreadcrumbs": true,
     "useCodeBlocks": true,
-    "expandParameters": true,
+    "expandParameters": false,
     "parametersFormat":"table",
     "outputFileStrategy":"modules",
     "mergeReadme": true,

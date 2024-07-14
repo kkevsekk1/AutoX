@@ -17,11 +17,11 @@ class EditActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         editorAppManager = EditorAppManager(this)
+        editorAppManager.openedFile = intent.getStringExtra(EXTRA_PATH)
         contextFrameLayout = FrameLayout(this)
         contextFrameLayout.addView(editorAppManager.webView)
         setContentView(contextFrameLayout)
         setKeyboardEvent()
-        editorAppManager.openedFile = intent.getStringExtra(EXTRA_PATH)
         onBackPressedDispatcher.addCallback {
             moveTaskToBack(false)
         }
