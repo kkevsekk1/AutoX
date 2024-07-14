@@ -1,7 +1,28 @@
 # Change Log
 autoxjs 整个项目的一些更新日志,双版本号为稳定版（内容以修复的bug为主），单版本号为激进版本、发布新内容。
 
-## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.6.4...HEAD) 未发布
+## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.6.5...HEAD) 未发布
+
+
+## [6.6.5] - 2024-7-14
+
+@Liberations
+
+*  Android 11以上外部存储权限适配
+*  新建文件bug
+*  读取包、应用列表问题
+*  截图失败问题
+
+@happyme531
+
+* 设置帧率问题 
+
+
+
+[6.6.5]:https://github.com/kkevsekk1/AutoX/compare/6.6.4...6.6.5
+
+
+
 
 ## [6.6.4] - 2024-7-7
 
