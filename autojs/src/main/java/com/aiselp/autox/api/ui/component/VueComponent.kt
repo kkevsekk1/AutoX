@@ -39,5 +39,6 @@ object VueComponent {
         add(ModalDrawerSheet)
         add(NavigationBar)
         add(NavigationDrawerItem)
+        add(RadioButton)
     }
 }

@@ -10,67 +10,67 @@ import com.stardust.autojs.R
 
 fun parseContentScale(value: String?): ContentScale {
     return when (value) {
-        "FillWidth" -> ContentScale.FillWidth
-        "FillHeight" -> ContentScale.FillHeight
-        "FillBounds" -> ContentScale.FillBounds
-        "Crop" -> ContentScale.Crop
-        "Inside" -> ContentScale.Inside
-        "Fit" -> ContentScale.Fit
-        "None" -> ContentScale.None
+        "fill_width" -> ContentScale.FillWidth
+        "fill_height" -> ContentScale.FillHeight
+        "fill_bounds" -> ContentScale.FillBounds
+        "crop" -> ContentScale.Crop
+        "inside" -> ContentScale.Inside
+        "fit" -> ContentScale.Fit
+        "none" -> ContentScale.None
         else -> ContentScale.Fit
     }
 }
 
 fun parseAlignment(value: String?): Alignment {
     return when (value) {
-        "TopStart" -> Alignment.TopStart
-        "TopCenter" -> Alignment.TopCenter
-        "TopEnd" -> Alignment.TopEnd
-        "CenterStart" -> Alignment.CenterStart
-        "Center" -> Alignment.Center
-        "CenterEnd" -> Alignment.CenterEnd
-        "BottomStart" -> Alignment.BottomStart
-        "BottomCenter" -> Alignment.BottomCenter
-        "BottomEnd" -> Alignment.BottomEnd
+        "top_start" -> Alignment.TopStart
+        "top_center" -> Alignment.TopCenter
+        "top_end" -> Alignment.TopEnd
+        "center_start" -> Alignment.CenterStart
+        "center" -> Alignment.Center
+        "center_end" -> Alignment.CenterEnd
+        "bottom_start" -> Alignment.BottomStart
+        "bottom_center" -> Alignment.BottomCenter
+        "bottom_end" -> Alignment.BottomEnd
         else -> Alignment.Center
     }
 }
 
 fun parseVerticalAlignment(value: String?): Alignment.Vertical {
     return when (value) {
-        "Top" -> Alignment.Top
-        "Center" -> Alignment.CenterVertically
-        "Bottom" -> Alignment.Bottom
+        "top" -> Alignment.Top
+        "center" -> Alignment.CenterVertically
+        "bottom" -> Alignment.Bottom
         else -> Alignment.Top
     }
 }
 fun parseHorizontalAlignment(value: String?): Alignment.Horizontal {
     return when (value) {
-        "Start" -> Alignment.Start
-        "Center" -> Alignment.CenterHorizontally
-        "End" -> Alignment.End
+        "start" -> Alignment.Start
+        "center" -> Alignment.CenterHorizontally
+        "end" -> Alignment.End
         else -> Alignment.Start
     }
 }
 fun parseVerticalArrangement(value: String?): Arrangement.Vertical {
     return when (value) {
-        "Start" -> Arrangement.Top
-        "Center" -> Arrangement.Center
-        "End" -> Arrangement.Bottom
-        "SpaceBetween" -> Arrangement.SpaceBetween
-        "SpaceAround" -> Arrangement.SpaceAround
-        "SpaceEvenly" -> Arrangement.SpaceEvenly
+        "start" -> Arrangement.Top
+        "center" -> Arrangement.Center
+        "end" -> Arrangement.Bottom
+        "space_between" -> Arrangement.SpaceBetween
+        "space_around" -> Arrangement.SpaceAround
+        "space_evenly" -> Arrangement.SpaceEvenly
         else -> Arrangement.Top
     }
 }
 fun parseHorizontalArrangement(value: String?): Arrangement.Horizontal {
     return when (value) {
-        "Start" -> Arrangement.Start
-        "Center" -> Arrangement.Center
-        "End" -> Arrangement.End
-        "SpaceBetween" -> Arrangement.SpaceBetween
-        "SpaceAround" -> Arrangement.SpaceAround
-        "SpaceEvenly" -> Arrangement.SpaceEvenly
+        "start" -> Arrangement.Start
+        "center" -> Arrangement.Center
+        "end" -> Arrangement.End
+        "space_between" -> Arrangement.SpaceBetween
+        "space_around" -> Arrangement.SpaceAround
+        "space_evenly" -> Arrangement.SpaceEvenly
         else -> Arrangement.Start
     }
 }
