@@ -12,7 +12,7 @@ assignees: ''
 3. Android 版本：Android 10
 4. Android 机型：小米10
 5. Android 系统类别：MIUI
-6. VSCODE Autox.js 扩展版本（可选，如果是连接电脑的问题需要填）：
+6. VSCODE Auto.js-Autox.js-VSCodeExt 扩展版本（可选，如果是连接电脑的问题需要填）：
 7. 问题描述：
 8. 报错日志（可选）：
 9. 屏幕截图（可选）：
