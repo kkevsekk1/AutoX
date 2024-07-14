@@ -40,5 +40,9 @@ object VueComponent {
         add(NavigationBar)
         add(NavigationDrawerItem)
         add(RadioButton)
+        add(Divider)
+        add(ProgressIndicator)
+        add(Slider)
+        add(RangeSlider)
     }
 }

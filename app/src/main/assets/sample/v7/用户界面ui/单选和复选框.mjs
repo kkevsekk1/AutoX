@@ -37,6 +37,7 @@ const app = createApp({
             onCheckedChange=${(r) => { s[1] = r }} /></row>
         <row verticalAlignment="center">复选框3 <Checkbox checked=${s[2]} 
             onCheckedChange=${(r) => { s[2] = r }} /></row>
+        <Divider type="horizontal"/>
         <row verticalAlignment="center">
            单选框1  <RadioButton selected=${radio.value == 1} onClick=${() => { radio.value = 1 }} />
         </row>
