@@ -109,7 +109,7 @@ class JsUi(nodeScriptEngine: NodeScriptEngine) : NativeApi {
         VueUiScriptActivity.startActivity(context, builder, object : VueUiScriptActivity.Lifecycle {
             override fun onCreate(activity: VueUiScriptActivity) {
                 activitys.add(activity)
-                eventLoopQueue.addTask { promiseAdapter.resolve(activity) }
+                promiseAdapter.resolve(activity)
             }
 
             override fun onDestroy(activity: VueUiScriptActivity) {

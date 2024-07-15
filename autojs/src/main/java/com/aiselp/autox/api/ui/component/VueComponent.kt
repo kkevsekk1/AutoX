@@ -46,5 +46,6 @@ object VueComponent {
         add(RangeSlider)
         add(FlowColumn)
         add(FlowRow)
+        add(OutlinedTextField)
     }
 }

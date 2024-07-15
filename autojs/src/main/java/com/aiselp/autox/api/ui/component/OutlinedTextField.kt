@@ -2,22 +2,22 @@ package com.aiselp.autox.api.ui.component
 
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.TextField
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import com.aiselp.autox.api.ui.ComposeElement
 import com.aiselp.autox.api.ui.Render
+import com.aiselp.autox.api.ui.component.TextField.parseKeyboardOptions
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.yield
 
-object TextField : VueNativeComponent {
-    override val tag: String = "TextField"
+object OutlinedTextField:VueNativeComponent {
+    override val tag: String = "OutlinedTextField"
 
     @Composable
     override fun Render(
@@ -94,7 +94,7 @@ object TextField : VueNativeComponent {
         } else VisualTransformation.None
         val maxLines = element.props["maxLines"] as? Int
         val minLines = element.props["minLines"] as? Int
-        TextField(
+        OutlinedTextField(
             value = value.value,
             onValueChange = { value.value = it;onValueChange?.invoke(it) },
             modifier = modifier,
@@ -116,18 +116,4 @@ object TextField : VueNativeComponent {
         )
     }
 
-    fun parseKeyboardOptions(element: ComposeElement): KeyboardOptions {
-        val keyboardOptions = (element.props["keyboardType"] as? String)?.let {
-            when (it) {
-                "number" -> KeyboardOptions(keyboardType = KeyboardType.Number)
-                "email" -> KeyboardOptions(keyboardType = KeyboardType.Email)
-                "url" -> KeyboardOptions(keyboardType = KeyboardType.Uri)
-                "password" -> KeyboardOptions(keyboardType = KeyboardType.Password)
-                "phone" -> KeyboardOptions(keyboardType = KeyboardType.Phone)
-                "numberPassword" -> KeyboardOptions(keyboardType = KeyboardType.NumberPassword)
-                else -> null
-            }
-        }
-        return keyboardOptions ?: KeyboardOptions.Default
-    }
 }
