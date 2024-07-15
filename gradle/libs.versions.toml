@@ -1,5 +1,5 @@
 [versions]
-androidGradlePlugin = "8.4.2"
+androidGradlePlugin = "8.5.1"
 androidTools = "31.5.0"
 androidIssueReporterVersion = "1.3.1"
 androidxCollection = "1.4.0"
