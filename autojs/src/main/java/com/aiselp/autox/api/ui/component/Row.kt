@@ -21,9 +21,6 @@ object Row : VueNativeComponent {
             horizontalArrangement = parseHorizontalArrangement(element.props["horizontalArrangement"] as? String)
         ) {
             element.children.forEach {
-                parseFloat(it.props["weight"])?.let { weight ->
-                    it.modifier = it.modifier.weight(weight)
-                }
                 RenderRow(it)
             }
         }

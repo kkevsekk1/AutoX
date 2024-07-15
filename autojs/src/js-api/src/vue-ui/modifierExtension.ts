@@ -77,3 +77,9 @@ export function padding(left: number, top?: number, right?: number, bottom?: num
 export function clickable(clickable: () => {}) {
     return loadFactory('clickable').createModifierExt([clickable])
 }
+export function horizontalScroll() {
+    return loadFactory('horizontalScroll').createModifierExt([])
+}
+export function verticalScroll() {
+    return loadFactory("verticalScroll").createModifierExt([])
+}

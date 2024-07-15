@@ -44,5 +44,7 @@ object VueComponent {
         add(ProgressIndicator)
         add(Slider)
         add(RangeSlider)
+        add(FlowColumn)
+        add(FlowRow)
     }
 }
