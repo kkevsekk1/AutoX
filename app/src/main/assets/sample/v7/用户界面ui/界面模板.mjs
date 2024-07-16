@@ -4,7 +4,7 @@ import {
     startActivity, ref, reactive, Icons
 } from "vue-ui";
 const { Menu, Home } = Icons.Default
-const { background, width, height, fillMaxSize } = ModifierExtension
+const { background, width, height, weight, fillMaxSize } = ModifierExtension
 
 const DrawerMeuns = [
     {
@@ -102,7 +102,7 @@ let app = createApp({
     <template #drawerContent><${Drawer}/></template>
     <column modifier=${[fillMaxSize()]}>
         <${TopAppBar}/>
-        <box weight=${1} modifier=${[background('theme'), fillMaxSize()]}>
+        <box modifier=${[background('theme'), fillMaxSize(), weight(1)]}>
             <text text="第 ${cu.value} 内容：" />
         </box>
         <NavigationBar>

@@ -6,6 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
@@ -41,6 +42,7 @@ object Text : VueNativeComponent {
         if (element is ComposeTextNode) {
             if (element.text.isNotEmpty()) text = element.text
         }
+        val textAlign = parseTextAlign(element.props["textAlign"] as? String)
         Text(
             modifier = modifier,
             fontSize = fontSize?.sp ?: TextUnit.Unspecified,
@@ -50,8 +52,23 @@ object Text : VueNativeComponent {
             color = color ?: Color.Unspecified,
             maxLines = maxLines ?: Int.MAX_VALUE,
             minLines = minLines ?: 1,
+            textAlign = textAlign,
             text = text ?: ""
         )
+
+    }
+
+    fun parseTextAlign(s: String?): TextAlign? {
+        return when (s) {
+            null -> null
+            "left" -> TextAlign.Left
+            "right" -> TextAlign.Right
+            "center" -> TextAlign.Center
+            "start" -> TextAlign.Start
+            "end" -> TextAlign.End
+            "justify" -> TextAlign.Justify
+            else -> null
+        }
 
     }
 }

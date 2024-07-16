@@ -47,5 +47,8 @@ object VueComponent {
         add(FlowColumn)
         add(FlowRow)
         add(OutlinedTextField)
+        add(TimePicker)
+        add(TimeInput)
+        add(Dialog)
     }
 }
