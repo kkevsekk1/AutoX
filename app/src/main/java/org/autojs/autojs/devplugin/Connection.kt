@@ -3,7 +3,6 @@ package org.autojs.autojs.devplugin
 import android.os.Build
 import android.util.Log
 import com.google.gson.FieldNamingPolicy
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
@@ -58,7 +57,7 @@ private val responseHandler: DevPluginResponseHandler by lazy {
 }
 
 class Connection(
-    private val session: DefaultClientWebSocketSession,
+    private val session: WebSocketSession,
     private val serverUrl: String? = null,
     private val client: WebSocketClient
 ) {
@@ -69,13 +68,14 @@ class Connection(
         session.shakeHandsAndHandle()
     }
 
-    private suspend fun DefaultClientWebSocketSession.shakeHandsAndHandle() {
+    private suspend fun WebSocketSession.shakeHandsAndHandle() {
         shakeHands {
             handle()
         }
     }
 
-    suspend fun DefaultClientWebSocketSession.handle() {
+
+    suspend fun WebSocketSession.handle() {
         emitState(State(State.CONNECTED))
         withContext(Dispatchers.IO) {
             launch {
@@ -91,7 +91,7 @@ class Connection(
         }
     }
 
-    private suspend fun DefaultClientWebSocketSession.shakeHands(onSuccess: suspend () -> Unit) {
+    private suspend fun WebSocketSession.shakeHands(onSuccess: suspend () -> Unit) {
         val message = Message(
             type = TYPE_HELLO,
             data = Hello(
