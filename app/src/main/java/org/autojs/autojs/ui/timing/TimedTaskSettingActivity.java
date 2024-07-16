@@ -402,7 +402,6 @@ public class TimedTaskSettingActivity extends BaseActivity {
         mDailyTaskTimePicker = findViewById(R.id.daily_task_time_picker);
         mWeeklyTaskTimePicker = findViewById(R.id.weekly_task_time_picker);
         mWeeklyTaskContainer = findViewById(R.id.weekly_task_container);
-        setupViews();
         findViewById(R.id.disposable_task_time_container).setOnClickListener(view -> {
             showDisposableTaskTimePicker();
         });
@@ -437,6 +436,7 @@ public class TimedTaskSettingActivity extends BaseActivity {
                 TimedTaskSettingActivity.this.onCheckedChanged(buttonView);
             }
         });
+        setupViews();
     }
 
     @Override
