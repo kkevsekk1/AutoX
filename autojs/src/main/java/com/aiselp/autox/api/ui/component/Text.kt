@@ -1,5 +1,6 @@
 package com.aiselp.autox.api.ui.component
 
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -9,6 +10,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.aiselp.autox.api.ui.ComposeElement
 import com.aiselp.autox.api.ui.ComposeTextNode
@@ -44,7 +46,7 @@ object Text : VueNativeComponent {
         }
         val textAlign = parseTextAlign(element.props["textAlign"] as? String)
         Text(
-            modifier = modifier,
+            modifier = if (text.isNullOrEmpty()) modifier.size(0.dp) else modifier,
             fontSize = fontSize?.sp ?: TextUnit.Unspecified,
             fontStyle = fontStyle,
             textDecoration = textDecoration,

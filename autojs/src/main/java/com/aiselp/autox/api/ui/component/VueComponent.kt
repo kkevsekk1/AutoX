@@ -50,5 +50,7 @@ object VueComponent {
         add(TimePicker)
         add(TimeInput)
         add(Dialog)
+        add(DatePicker)
+        add(DateRangePicker)
     }
 }
