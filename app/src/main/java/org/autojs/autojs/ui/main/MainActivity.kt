@@ -6,6 +6,7 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -72,6 +73,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.fragment.app.FragmentActivity
@@ -183,6 +186,77 @@ class MainActivity : FragmentActivity() {
                     }
                 }
             }
+        }
+        checkNoticePermission()
+    }
+
+    private fun checkNoticePermission() {
+        if (!NotificationManagerCompat.from(this).areNotificationsEnabled()) {
+            AlertDialog.Builder(this@MainActivity)
+                .setTitle("需要通知权限")
+                .setMessage("高版本系统需要通知权Toast才能正常显示")
+                .setPositiveButton(
+                    getString(R.string.ok)
+                ) { _, _ ->
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && ContextCompat.checkSelfPermission(
+                            this,
+                            Manifest.permission.POST_NOTIFICATIONS
+                        ) != PackageManager.PERMISSION_GRANTED
+                    ) {
+                        requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 10086)
+                    } else {
+                        openNoticeSet()
+                    }
+                }
+                .setNegativeButton(
+                    R.string.cancel
+                ) { _, _ -> }.create().show()
+        } else {
+            Log.i("Notice", "normal")
+        }
+    }
+
+    private fun openNoticeSet() {
+        try {
+            val localIntent = Intent()
+            localIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                localIntent.action = Settings.ACTION_APP_NOTIFICATION_SETTINGS
+                localIntent.putExtra(Settings.EXTRA_APP_PACKAGE, packageName)
+                startActivity(localIntent)
+                return
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                localIntent.action = "android.settings.APP_NOTIFICATION_SETTINGS"
+                localIntent.putExtra("app_package", packageName)
+                localIntent.putExtra("app_uid", applicationInfo?.uid)
+                startActivity(localIntent)
+                return
+            }
+            if (Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT) {
+                localIntent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+                localIntent.addCategory(Intent.CATEGORY_DEFAULT)
+                localIntent.data = Uri.parse("package:" + packageName)
+                startActivity(localIntent)
+                return
+            }
+            //4.4以下没有从app跳转到应用通知设置页面的Action，可考虑跳转到应用详情页面,
+            if (Build.VERSION.SDK_INT >= 9) {
+                localIntent.action = "android.settings.APPLICATION_DETAILS_SETTINGS"
+                localIntent.data = Uri.fromParts("package", packageName, null)
+                startActivity(localIntent)
+                return
+            }
+
+            localIntent.action = Intent.ACTION_VIEW
+            localIntent.setClassName(
+                "com.android.settings",
+                "com.android.setting.InstalledAppDetails"
+            )
+            localIntent.putExtra("com.android.settings.ApplicationPkgName", packageName)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            toast(this, "跳转失败请手动为应用打开通知权限")
         }
     }
 
