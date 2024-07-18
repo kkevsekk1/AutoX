@@ -28,7 +28,7 @@ non-commercial use and GPL-V2.
 
 
 About the two protocols:
-* GPL-V2（https://opensource.org/licenses/GPL-2.0）
+* GPL-V2 (https://opensource.org/licenses/GPL-2.0)
 * MPL-2 (https://www.mozilla.org/MPL/2.0)
 
 ### Autoxjs Now：
