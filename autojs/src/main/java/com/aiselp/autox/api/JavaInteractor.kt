@@ -12,7 +12,6 @@ import com.stardust.autojs.runtime.exception.ScriptException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
@@ -38,14 +37,11 @@ class JavaInteractor(
         val promiseAdapter = promiseFactory.newPromiseAdapter()
         val promise = promiseAdapter.promise
         scope.launch(con) {
-            delay(1000)
             try {
                 val r = func()
                 promiseAdapter.resolve(r)
             } catch (e: Throwable) {
                 promiseAdapter.reject(e)
-            } finally {
-                promiseAdapter.close()
             }
         }
         return promise

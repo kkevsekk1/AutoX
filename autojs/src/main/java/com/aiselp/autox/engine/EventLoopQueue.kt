@@ -103,7 +103,7 @@ class EventLoopQueue(val runtime: NodeRuntime) {
         util.close()
     }
 
-    inner class V8Callback(val id: Long) {
+    inner class V8Callback(val id: Long):AutoCloseable {
         @Volatile
         private var removerd = false
 
@@ -133,7 +133,7 @@ class EventLoopQueue(val runtime: NodeRuntime) {
             return invoke(*args).await()
         }
 
-        fun remove() {
+        override fun close() {
             removerd = true
             this@EventLoopQueue.removeV8Callback(this)
         }
@@ -144,6 +144,6 @@ class EventLoopQueue(val runtime: NodeRuntime) {
     }
 
     companion object {
-        private val TAG = "EventLoopQueue"
+        private const val TAG = "EventLoopQueue"
     }
 }

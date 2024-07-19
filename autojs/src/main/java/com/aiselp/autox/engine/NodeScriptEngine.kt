@@ -31,6 +31,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withTimeout
 import java.io.File
 
 class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
@@ -121,12 +122,16 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
 //                    Log.d(TAG,"loop ing...")
                     if (runtime.await(V8AwaitMode.RunNoWait) or
                         eventLoopQueue.executeQueue()
-                    ) continue else break
+                    ) {
+                        Thread.sleep(1)
+                        continue
+                    } else break
                 }
             }
-            return@runBlocking resultListener.await().let {
+            return@runBlocking withTimeout(10) {
                 if (resultListener.stack != null) console.error(resultListener.stack)
-                if (resultListener.isRejectedCalled) throw ScriptException(it)
+                if (resultListener.isRejectedCalled) throw ScriptException(resultListener.await())
+                resultListener.await()
             }
         } catch (e: JavetExecutionException) {
             throw e.apply { console.error(scriptingError.stack) }

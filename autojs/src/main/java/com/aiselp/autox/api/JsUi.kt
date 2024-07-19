@@ -94,7 +94,7 @@ class JsUi(nodeScriptEngine: NodeScriptEngine) : NativeApi {
         val value1 = converterValue(value)
         element.props[key]?.let {
             if (it is EventLoopQueue.V8Callback) {
-                it.remove()
+                it.close()
             }
         }
         element.props[key] = value1

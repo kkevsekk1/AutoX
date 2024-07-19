@@ -47,6 +47,7 @@ class V8PromiseFactory(val runtime: V8Runtime, private val eventLoopQueue: Event
                 resolve.use { it.callVoid(null, arg) }
             }
             promiseStatus = FULFILLED
+            close()
         }
 
         fun reject(arg: Any?) {
@@ -58,6 +59,7 @@ class V8PromiseFactory(val runtime: V8Runtime, private val eventLoopQueue: Event
                 reject.use { it.callVoid(null, arg) }
             }
             promiseStatus = REJECTED
+            close()
         }
 
         companion object {
