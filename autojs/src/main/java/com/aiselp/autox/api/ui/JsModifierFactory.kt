@@ -9,14 +9,17 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.aiselp.autox.api.ui.component.parseColor
 import com.aiselp.autox.api.ui.component.parseFloat
@@ -116,6 +119,22 @@ class ModifierExtFactory(private val eventLoopQueue: EventLoopQueue) {
         })
         put("horizontalScroll", ModifierExtBuilder.newExt { modifier, _ ->
             modifier.horizontalScroll(rememberScrollState())
+        })
+        put("widthIn", ModifierExtBuilder.newExt { modifier, args ->
+            val min = parseFloat(args.getOrNull(0))
+            val max = parseFloat(args.getOrNull(1))
+            modifier.widthIn(
+                min?.dp ?: Dp.Unspecified,
+                max?.dp ?: Dp.Unspecified
+            )
+        })
+        put("heightIn", ModifierExtBuilder.newExt { modifier, args ->
+            val min = parseFloat(args.getOrNull(0))
+            val max = parseFloat(args.getOrNull(1))
+            modifier.heightIn(
+                min?.dp ?: Dp.Unspecified,
+                max?.dp ?: Dp.Unspecified
+            )
         })
     }
 

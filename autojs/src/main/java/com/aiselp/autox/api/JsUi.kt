@@ -106,6 +106,7 @@ class JsUi(nodeScriptEngine: NodeScriptEngine) : NativeApi {
         val promiseAdapter = promiseFactory.newPromiseAdapter()
         val activityEventDelegate = createActivityEventDelegate(listener)
         val builder = ScriptActivityBuilder(element, activityEventDelegate)
+        eventLoopQueue.keepRunning()
         VueUiScriptActivity.startActivity(context, builder, object : VueUiScriptActivity.Lifecycle {
             override fun onCreate(activity: VueUiScriptActivity) {
                 activitys.add(activity)
@@ -114,6 +115,9 @@ class JsUi(nodeScriptEngine: NodeScriptEngine) : NativeApi {
 
             override fun onDestroy(activity: VueUiScriptActivity) {
                 activitys.remove(activity)
+                if (activitys.isEmpty()) {
+                    eventLoopQueue.cancelKeepRunning()
+                }
             }
 
         })
@@ -121,15 +125,11 @@ class JsUi(nodeScriptEngine: NodeScriptEngine) : NativeApi {
     }
 
     private fun createActivityEventDelegate(listener: V8ValueFunction? = null): ActivityEventDelegate {
-        eventLoopQueue.keepRunning()
         return object :
             ActivityEventDelegate(listener?.let { eventLoopQueue.createV8Callback(it) }) {
             override fun emit(event: ActivityEvent, vararg args: Any?) {
                 super.emit(event, *args)
                 Log.d(TAG, "emit: ${event.value}")
-                if (event == ActivityEvent.ON_DESTROY) {
-                    eventLoopQueue.cancelKeepRunning()
-                }
             }
         }
     }

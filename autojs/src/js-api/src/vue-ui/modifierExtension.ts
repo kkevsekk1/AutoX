@@ -19,11 +19,12 @@ function checkNumber(numbers: any[], err?: Error) {
     })
 }
 /**
- * 设置背景色，传入'theme'表示使用当前主题的背景色
- * @param color 颜色值,如`0xffcc12`的数值或`#ffcc89`的字符串
+ * 设置背景色，传入'theme'表示使用当前主题的背景色,
+ * 使用数值表示时必须是bigint，普通数值在java会转成Int溢出范围
+ * @param color 颜色值,如`0xffffcc12n`的数值或`#ffcc89`的字符串
  * @returns 
  */
-export function background(color: string | number | 'theme'): ModifierExt {
+export function background(color: string | bigint | 'theme'): ModifierExt {
     return loadFactory("background").createModifierExt([color])
 }
 /**
@@ -49,9 +50,19 @@ export function fillMaxWidth() {
 export function fillMaxHeight() {
     return loadFactory("fillMaxHeight").createModifierExt([])
 }
+/**
+ * 设置高度，单位为dp
+ * @param width 
+ * @returns 
+ */
 export function width(width: number) {
     return loadFactory("width").createModifierExt([width])
 }
+/**
+ * 设置高度，单位为dp
+ * @param height 
+ * @returns 
+ */
 export function height(height: number) {
     return loadFactory("height").createModifierExt([height])
 }
@@ -63,6 +74,15 @@ export function height(height: number) {
 export function rotate(angle: number): ModifierExt {
     return loadFactory("rotate").createModifierExt([angle])
 }
+/**
+ * 设置padding，传递一个值时表示四边均使用此值，
+ * 传递两个值时第一个参数表示水平padding，第二个参数表示垂直padding
+ * @param left 
+ * @param top 
+ * @param right 
+ * @param bottom 
+ * @returns 
+ */
 export function padding(left: number, top?: number, right?: number, bottom?: number): ModifierExt {
     checkNumber([left, top, right, bottom])
     if (typeof top !== "number") {
@@ -73,13 +93,43 @@ export function padding(left: number, top?: number, right?: number, bottom?: num
     }
     return loadFactory('padding').createModifierExt([left, top, right, bottom])
 }
-
+/**
+ * 设置组件可点击，大部分组件会自动添加相应的点击效果
+ * @param clickable 
+ * @returns 
+ */
 export function clickable(clickable: () => {}) {
     return loadFactory('clickable').createModifierExt([clickable])
 }
+/**
+ * 设置可水平滚动
+ * @returns 
+ */
 export function horizontalScroll() {
     return loadFactory('horizontalScroll').createModifierExt([])
 }
+/**
+ * 设置可垂直滚动
+ * @returns 
+ */
 export function verticalScroll() {
     return loadFactory("verticalScroll").createModifierExt([])
+}
+/**
+ * 设置组件最小或最大宽度
+ * @param min 最小值，可以为null
+ * @param max 最大值，可以为null
+ * @returns 
+ */
+export function widthIn(min?: number, max?: number) {
+    return loadFactory('widthIn').createModifierExt([min || null, max || null])
+}
+/**
+ * 设置组件最小或最大高度
+ * @param min 最小值，可以为null
+ * @param max 最大值，可以为null
+ * @returns 
+ */
+export function heightIn(min?: number, max?: number) {
+    return loadFactory('heightIn').createModifierExt([min || null, max || null])
 }

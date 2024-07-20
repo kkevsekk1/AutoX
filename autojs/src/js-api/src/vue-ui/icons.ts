@@ -1,5 +1,5 @@
 
-interface Icons {
+export interface Icons {
     Call: ImageVector
     Add: ImageVector
     ArrowBack: ImageVector
@@ -16,6 +16,7 @@ interface Icons {
     MailOutline: ImageVector
     Refresh: ImageVector
     AccountBox: ImageVector
+    ArrowDropDown: ImageVector
 }
 
 export type IconExprot = {
@@ -44,7 +45,8 @@ const Filled: IconExprot = {
     MoreVert: createLoadFn(group, "MoreVert"),
     MailOutline: createLoadFn(group, "MailOutline"),
     Refresh: createLoadFn(group, "Refresh"),
-    AccountBox: createLoadFn(group, "AccountBox")
+    AccountBox: createLoadFn(group, "AccountBox"),
+    ArrowDropDown: createLoadFn(group, "ArrowDropDown"),
 }
 group = "Default"
 const Default: Icons = {
@@ -63,6 +65,7 @@ const Default: Icons = {
     MoreVert: createLoadFn(group, "MoreVert"),
     MailOutline: createLoadFn(group, "MailOutline"),
     Refresh: createLoadFn(group, "Refresh"),
-    AccountBox: createLoadFn(group, "AccountBox")
+    AccountBox: createLoadFn(group, "AccountBox"),
+    ArrowDropDown: createLoadFn(group, "ArrowDropDown")
 }
 export { Filled, Default }

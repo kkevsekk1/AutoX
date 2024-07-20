@@ -4,6 +4,7 @@ import androidx.compose.material3.DropdownMenu
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.aiselp.autox.api.ui.ComposeElement
+import com.aiselp.autox.api.ui.RenderColumn
 
 object DropdownMenu : VueNativeComponent {
     override val tag: String = "DropdownMenu"
@@ -21,7 +22,9 @@ object DropdownMenu : VueNativeComponent {
             expanded = expanded ?: false,
             onDismissRequest = { onDismissRequest?.invoke() }
         ) {
-            content()
+            element.children.forEach {
+                RenderColumn(element = it)
+            }
         }
     }
 

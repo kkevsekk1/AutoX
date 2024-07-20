@@ -4,6 +4,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Close
@@ -38,6 +39,7 @@ interface Icons {
     val MailOutline: ImageVector
     val Refresh: ImageVector
     val AccountBox: ImageVector
+    val ArrowDropDown : ImageVector
 }
 
 object Default : com.aiselp.autox.api.ui.Icons {
@@ -57,6 +59,7 @@ object Default : com.aiselp.autox.api.ui.Icons {
     override val MailOutline by lazy { Icons.Default.MailOutline }
     override val Refresh by lazy { Icons.Default.Refresh }
     override val AccountBox by lazy { Icons.Default.AccountBox }
+    override val ArrowDropDown: ImageVector by lazy { Icons.Default.ArrowDropDown }
 }
 
 object Filled : com.aiselp.autox.api.ui.Icons {
@@ -76,6 +79,7 @@ object Filled : com.aiselp.autox.api.ui.Icons {
     override val MailOutline by lazy { Icons.Filled.MailOutline }
     override val Refresh by lazy { Icons.Filled.Refresh }
     override val AccountBox by lazy { Icons.Filled.AccountBox }
+    override val ArrowDropDown: ImageVector by lazy { Icons.Filled.ArrowDropDown }
 }
 
 fun s() {

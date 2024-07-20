@@ -52,5 +52,9 @@ object VueComponent {
         add(Dialog)
         add(DatePicker)
         add(DateRangePicker)
+        add(FloatingActionButton)
+        add(ExtendedFloatingActionButton)
+        add(BottomAppBar)
+        add(ExposedDropdownMenuBox)
     }
 }
