@@ -2,6 +2,7 @@ package com.aiselp.autox.api.ui.component
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.aiselp.autox.api.ui.ComposeElement
 
@@ -17,7 +18,7 @@ object Box : VueNativeComponent {
         val contentAlignment = parseAlignment(element.props["contentAlignment"] as? String)
         Box(
             modifier = modifier,
-            contentAlignment = contentAlignment
+            contentAlignment = contentAlignment?: Alignment.TopStart
         ) {
             content()
         }

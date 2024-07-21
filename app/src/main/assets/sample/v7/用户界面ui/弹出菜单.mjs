@@ -74,7 +74,7 @@ const M2 = defineComponent({
                     <Icon modifier=${[rotate(this.rotate)]} src=${ArrowDropDown()} /> 
                 </template>
             </OutlinedTextField>
-            <menu>
+            <template #menu>
             ${this.meuns.map((v) => {
             return xml`
                     <DropdownMenuItem 
@@ -84,7 +84,7 @@ const M2 = defineComponent({
                     `
         })
             }
-            </menu>
+            </template>
         </ExposedDropdownMenuBox>
         `
     }

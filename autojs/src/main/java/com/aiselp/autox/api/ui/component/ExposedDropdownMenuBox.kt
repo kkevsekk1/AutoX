@@ -37,7 +37,7 @@ object ExposedDropdownMenuBox : VueNativeComponent {
                         ?: element.getEvent("onExpandedChange")?.invoke(false)
                 },
             ) {
-                element.children.find { it.tag == "menu" }?.children?.forEach {
+                element.findTemplate("menu")?.children?.forEach {
                     RenderColumn(element = it)
                 }
             }

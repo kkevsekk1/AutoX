@@ -64,7 +64,12 @@ function startUi(element: ComposeElement, listener?: ActivityEventListener) {
 export function startActivity(app: App<PxElement>, listener?: ActivityEventListener) {
     const root = nodeOps.createElement('box')
     app.mount(root)
-    return startUi(root.__xel, listener)
+    let n = Object.create(listener || {})
+    n.onDestroy = function (...args: any[]) {
+        app.unmount()
+        listener?.onDestroy?.(...args)
+    }
+    return startUi(root.__xel, n)
 }
 /**
  * 该函数用于创建VNode节点，详细参考[htm](https://github.com/developit/htm)

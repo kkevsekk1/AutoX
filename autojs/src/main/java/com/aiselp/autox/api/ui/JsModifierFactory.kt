@@ -24,6 +24,9 @@ import androidx.compose.ui.unit.dp
 import com.aiselp.autox.api.ui.component.parseColor
 import com.aiselp.autox.api.ui.component.parseFloat
 import com.aiselp.autox.engine.EventLoopQueue
+import com.caoccao.javet.annotations.V8Function
+import com.caoccao.javet.values.V8Value
+import com.caoccao.javet.values.reference.V8ValueArray
 import com.caoccao.javet.values.reference.V8ValueFunction
 
 private const val TAG = "JsModifierFactory"
@@ -32,45 +35,14 @@ private typealias ExtOwner = @Composable ((modifier: Modifier, args: List<Any?>)
 private typealias ExtRow = @Composable (RowScope.(modifier: Modifier, args: List<Any?>) -> Modifier)?
 private typealias ExtColumn = @Composable (ColumnScope.(modifier: Modifier, args: List<Any?>) -> Modifier)?
 
-open class ModifierExtBuilder {
-    open var Ext: ExtOwner = null
-    open var RowExt: ExtRow = null
-    open var ColumnExt: ExtColumn = null
-
-    fun createModifierExt(args: List<Any?>): ModifierExt {
-        return object : ModifierExt {
-            override val Ext: @Composable (modifier: Modifier) -> Modifier =
-                { this@ModifierExtBuilder.Ext?.invoke(it, args) ?: it }
-            override val RowExt: @Composable (RowScope.(modifier: Modifier) -> Modifier) =
-                { this@ModifierExtBuilder.Ext?.invoke(it, args) ?: Ext.invoke(it) }
-            override val ColumnExt: @Composable (ColumnScope.(modifier: Modifier) -> Modifier) =
-                { this@ModifierExtBuilder.ColumnExt?.invoke(this, it, args) ?: Ext.invoke(it) }
-
-        }
-    }
-
-    interface ModifierExt {
-        val Ext: @Composable (modifier: Modifier) -> Modifier
-        val RowExt: @Composable (RowScope.(modifier: Modifier) -> Modifier)
-        val ColumnExt: @Composable (ColumnScope.(modifier: Modifier) -> Modifier)
-    }
-
-
-    companion object {
-        fun newRowExt(r: ExtRow) = ModifierExtBuilder().apply { RowExt = r }
-        fun newColumnExt(r: ExtColumn) = ModifierExtBuilder().apply { ColumnExt = r }
-        fun newExt(r: ExtOwner) = ModifierExtBuilder().apply { Ext = r }
-    }
-
-}
 
 class ModifierExtFactory(private val eventLoopQueue: EventLoopQueue) {
 
     private val modifierExts = buildMap<String, ModifierExtBuilder> {
-        put("fillMaxSize", ModifierExtBuilder.newExt { modifier, _ -> modifier.fillMaxSize() })
-        put("fillMaxWidth", ModifierExtBuilder.newExt { modifier, _ -> modifier.fillMaxWidth() })
-        put("fillMaxHeight", ModifierExtBuilder.newExt { modifier, _ -> modifier.fillMaxHeight() })
-        put("background", ModifierExtBuilder.newExt { modifier, args ->
+        put("fillMaxSize", newExt { modifier, _ -> modifier.fillMaxSize() })
+        put("fillMaxWidth", newExt { modifier, _ -> modifier.fillMaxWidth() })
+        put("fillMaxHeight", newExt { modifier, _ -> modifier.fillMaxHeight() })
+        put("background", newExt { modifier, args ->
             val t = args.getOrNull(0) ?: return@newExt modifier
             if (t == "theme") {
                 return@newExt modifier.background(MaterialTheme.colorScheme.background)
@@ -90,37 +62,37 @@ class ModifierExtFactory(private val eventLoopQueue: EventLoopQueue) {
                 modifier.weight(i ?: 1f)
             }
         })
-        put("width", ModifierExtBuilder.newExt { modifier, args ->
+        put("width", newExt { modifier, args ->
             val width = parseFloat(args.getOrNull(0))
             if (width != null) modifier.width(width.dp) else modifier
         })
-        put("height", ModifierExtBuilder.newExt { modifier, args ->
+        put("height", newExt { modifier, args ->
             val height = parseFloat(args.getOrNull(0))
             if (height != null) modifier.height(height.dp) else modifier
         })
-        put("rotate", ModifierExtBuilder.newExt { modifier, args ->
+        put("rotate", newExt { modifier, args ->
             val rotate = parseFloat(args.getOrNull(0))
             if (rotate != null) modifier.rotate(rotate) else modifier
         })
-        put("padding", ModifierExtBuilder.newExt { modifier, args ->
+        put("padding", newExt { modifier, args ->
             val left = parseFloat(args.getOrNull(0)) ?: return@newExt modifier
             val top = parseFloat(args.getOrNull(1)) ?: return@newExt modifier
             val right = parseFloat(args.getOrNull(2)) ?: return@newExt modifier
             val bottom = parseFloat(args.getOrNull(3)) ?: return@newExt modifier
             modifier.padding(left.dp, top.dp, right.dp, bottom.dp)
         })
-        put("clickable", ModifierExtBuilder.newExt { modifier, args ->
-            val fn = (args.getOrNull(0) as? V8ValueFunction) ?: return@newExt modifier
-            val v8Callback = eventLoopQueue.createV8Callback(fn)
-            modifier.clickable { v8Callback.invoke() }
+        put("clickable", newExt { modifier, args ->
+            println("clickable: $args")
+            val fn = (args.getOrNull(0) as? EventLoopQueue.V8Callback) ?: return@newExt modifier
+            modifier.clickable { fn.invoke() }
         })
-        put("verticalScroll", ModifierExtBuilder.newExt { modifier, _ ->
+        put("verticalScroll", newExt { modifier, _ ->
             modifier.verticalScroll(rememberScrollState())
         })
-        put("horizontalScroll", ModifierExtBuilder.newExt { modifier, _ ->
+        put("horizontalScroll", newExt { modifier, _ ->
             modifier.horizontalScroll(rememberScrollState())
         })
-        put("widthIn", ModifierExtBuilder.newExt { modifier, args ->
+        put("widthIn", newExt { modifier, args ->
             val min = parseFloat(args.getOrNull(0))
             val max = parseFloat(args.getOrNull(1))
             modifier.widthIn(
@@ -128,7 +100,7 @@ class ModifierExtFactory(private val eventLoopQueue: EventLoopQueue) {
                 max?.dp ?: Dp.Unspecified
             )
         })
-        put("heightIn", ModifierExtBuilder.newExt { modifier, args ->
+        put("heightIn", newExt { modifier, args ->
             val min = parseFloat(args.getOrNull(0))
             val max = parseFloat(args.getOrNull(1))
             modifier.heightIn(
@@ -140,5 +112,41 @@ class ModifierExtFactory(private val eventLoopQueue: EventLoopQueue) {
 
     fun getModifierExtBuilder(key: String): ModifierExtBuilder? {
         return modifierExts[key]
+    }
+
+    fun newRowExt(r: ExtRow) = ModifierExtBuilder().apply { RowExt = r }
+    fun newColumnExt(r: ExtColumn) = ModifierExtBuilder().apply { ColumnExt = r }
+    fun newExt(r: ExtOwner) = ModifierExtBuilder().apply { Ext = r }
+
+    open inner class ModifierExtBuilder {
+        open var Ext: ExtOwner = null
+        open var RowExt: ExtRow = null
+        open var ColumnExt: ExtColumn = null
+
+        @V8Function
+        fun createModifierExt(arr: V8ValueArray): ModifierExt {
+            val converter = arr.v8Runtime.converter
+            val args = mutableListOf<Any?>()
+            arr.forEach<V8Value, V8Value, RuntimeException> { _, value ->
+                if (value is V8ValueFunction) {
+                    args.add(eventLoopQueue.createV8Callback(value))
+                } else args.add(converter.toObject(value))
+            }
+            return object : ModifierExt {
+                override val Ext: @Composable (modifier: Modifier) -> Modifier =
+                    { this@ModifierExtBuilder.Ext?.invoke(it, args) ?: it }
+                override val RowExt: @Composable (RowScope.(modifier: Modifier) -> Modifier) =
+                    { this@ModifierExtBuilder.Ext?.invoke(it, args) ?: Ext.invoke(it) }
+                override val ColumnExt: @Composable (ColumnScope.(modifier: Modifier) -> Modifier) =
+                    { this@ModifierExtBuilder.ColumnExt?.invoke(this, it, args) ?: Ext.invoke(it) }
+
+            }
+        }
+    }
+
+    interface ModifierExt {
+        val Ext: @Composable (modifier: Modifier) -> Modifier
+        val RowExt: @Composable (RowScope.(modifier: Modifier) -> Modifier)
+        val ColumnExt: @Composable (ColumnScope.(modifier: Modifier) -> Modifier)
     }
 }

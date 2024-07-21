@@ -15,7 +15,7 @@ open class ComposeElement(val tag: String) : ComposeNode {
     override var parentNode: ComposeElement? = null
     override val props = mutableMapOf<String, Any?>()
     private val templateElements = mutableMapOf<String, ComposeElement>()
-    val modifierExts = mutableListOf<ModifierExtBuilder.ModifierExt>()
+    val modifierExts = mutableListOf<ModifierExtFactory.ModifierExt>()
     val children = mutableListOf<ComposeElement>()
     var status = Status.UnMounted
     var update by mutableStateOf(false)
@@ -51,7 +51,7 @@ open class ComposeElement(val tag: String) : ComposeNode {
         return super.getEvent(name)
     }
 
-    fun addModifierExt(ext: ModifierExtBuilder.ModifierExt) {
+    fun addModifierExt(ext: ModifierExtFactory.ModifierExt) {
         modifierExts.add(ext)
     }
 

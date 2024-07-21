@@ -12,7 +12,6 @@ import com.aiselp.autox.api.ui.ComposeTextNode
 import com.aiselp.autox.api.ui.Default
 import com.aiselp.autox.api.ui.Filled
 import com.aiselp.autox.api.ui.Icons
-import com.aiselp.autox.api.ui.ModifierExtBuilder
 import com.aiselp.autox.api.ui.ModifierExtFactory
 import com.aiselp.autox.api.ui.ScriptActivityBuilder
 import com.aiselp.autox.engine.EventLoopQueue
@@ -84,7 +83,7 @@ class JsUi(nodeScriptEngine: NodeScriptEngine) : NativeApi {
     }
 
     @V8Function
-    fun getModifierExtFactory(key: String): ModifierExtBuilder {
+    fun getModifierExtFactory(key: String): ModifierExtFactory.ModifierExtBuilder {
         return modifierExtFactory.getModifierExtBuilder(key)
             ?: throw RuntimeException("not found modifier ext: $key")
     }

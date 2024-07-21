@@ -1,16 +1,15 @@
 import {
-    createApp, xml, startActivity, Icons, reactive, computed, ref, ModifierExtension
+    createApp, xml, defineComponent, startActivity, Icons, reactive, computed, ref, ModifierExtension
 } from "vue-ui";
 import { showToast } from "toast";
 const { Menu, Search, Add, Star } = Icons.Default
 const { background, width, padding, height,
     fillMaxSize, fillMaxWidth, verticalScroll } = ModifierExtension
 
-const TopAppBar = function () {
-    return createApp({
-        render() {
-            return xml`
-    <TopAppBar title=${"界面模板"} >
+const TopAppBar = defineComponent({
+    render() {
+        return xml`
+    <TopAppBar title=${"TopAppBar"} >
         <template #navigationIcon>
             <IconButton>
                 <Icon src=${Menu()} />
@@ -23,13 +22,12 @@ const TopAppBar = function () {
         </template>
     </TopAppBar>
             `
-        }
-    })
-}
-const BottomAppBar = function () {
-    return createApp({
-        render() {
-            return xml`
+    }
+})
+
+const BottomAppBar = defineComponent({
+    render() {
+        return xml`
 <column verticalArrangement=end modifier=${[fillMaxSize()]}>
     <BottomAppBar>
         <template #floatingActionButton>
@@ -49,22 +47,18 @@ const BottomAppBar = function () {
     </BottomAppBar>
 </column>
             `
-        }
-    })
-}
-function start(app) {
-    startActivity(app, {
-        onDestroy() {
-            app.unmount()
-        }
-    });
+    }
+})
+
+function start(component) {
+    startActivity(createApp(component));
 }
 const app = createApp({
     render() {
         return xml`
     <column>
-        <Button onClick=${() => { start(TopAppBar()) }}>TopAppbar</Button>
-        <Button onClick=${() => { start(BottomAppBar()) }}>BottomAppBar</Button>
+        <Button onClick=${() => { start(TopAppBar) }}>TopAppbar</Button>
+        <Button onClick=${() => { start(BottomAppBar) }}>BottomAppBar</Button>
     </column>
         `
     }

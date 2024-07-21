@@ -56,5 +56,7 @@ object VueComponent {
         add(ExtendedFloatingActionButton)
         add(BottomAppBar)
         add(ExposedDropdownMenuBox)
+        add(BottomSheetScaffold)
+        add(ModalBottomSheet)
     }
 }

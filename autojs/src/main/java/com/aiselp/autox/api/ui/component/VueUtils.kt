@@ -21,7 +21,7 @@ fun parseContentScale(value: String?): ContentScale {
     }
 }
 
-fun parseAlignment(value: String?): Alignment {
+fun parseAlignment(value: String?): Alignment? {
     return when (value) {
         "top_start" -> Alignment.TopStart
         "top_center" -> Alignment.TopCenter
@@ -32,7 +32,7 @@ fun parseAlignment(value: String?): Alignment {
         "bottom_start" -> Alignment.BottomStart
         "bottom_center" -> Alignment.BottomCenter
         "bottom_end" -> Alignment.BottomEnd
-        else -> Alignment.Center
+        else -> null
     }
 }
 

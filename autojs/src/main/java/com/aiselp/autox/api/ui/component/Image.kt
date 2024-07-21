@@ -2,6 +2,7 @@ package com.aiselp.autox.api.ui.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.DefaultAlpha
 import androidx.compose.ui.graphics.painter.Painter
@@ -21,12 +22,12 @@ object Image : VueNativeComponent {
     ) {
         val src = element.props["src"]
         val alpha = parseFloat(element.props["alpha"]) ?: DefaultAlpha
-        val alignment = parseAlignment(element.props["alignment"] as? String)
+        val alignment = parseAlignment(element.props["alignment"] as? String) ?: Alignment.Center
         val contentDescription = element.props["contentDescription"] as? String
         val model = if (src is String) {
             parseDrawable(src)?.let {
                 painterResource(it)
-            }?: src
+            } ?: src
         } else src
         when (model) {
             is ImageVector -> Image(
