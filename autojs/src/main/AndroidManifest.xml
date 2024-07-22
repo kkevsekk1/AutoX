@@ -71,10 +71,6 @@
             android:foregroundServiceType="mediaProjection"
             android:process="@string/text_script_process_name" />
 
-        <receiver
-            android:name="com.aiselp.autox.receiver.IntentCallbackReceiver"
-            android:description="@string/text_script_process_name"
-            android:exported="false" />
     </application>
 
 </manifest>

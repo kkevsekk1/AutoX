@@ -21,12 +21,11 @@ import com.stardust.view.accessibility.AccessibilityService.Companion.instance
 import com.stardust.view.accessibility.LayoutInspector.CaptureAvailableListener
 import com.stardust.view.accessibility.NodeInfo
 import org.autojs.autojs.Pref
-import org.autojs.autoxjs.R
 import org.autojs.autojs.autojs.AutoJs
 import org.autojs.autojs.autojs.record.GlobalActionRecorder
 import org.autojs.autojs.model.explorer.ExplorerDirPage
 import org.autojs.autojs.model.explorer.Explorers
-import org.autojs.autojs.model.script.Scripts.run
+import org.autojs.autojs.model.script.Scripts
 import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder
 import org.autojs.autojs.tool.AccessibilityServiceTool
 import org.autojs.autojs.tool.RootTool
@@ -36,6 +35,7 @@ import org.autojs.autojs.ui.explorer.ExplorerViewKt
 import org.autojs.autojs.ui.floating.layoutinspector.LayoutBoundsFloatyWindow
 import org.autojs.autojs.ui.floating.layoutinspector.LayoutHierarchyFloatyWindow
 import org.autojs.autojs.ui.main.MainActivity
+import org.autojs.autoxjs.R
 import org.greenrobot.eventbus.EventBus
 import org.jdeferred.Deferred
 import org.jdeferred.impl.DeferredObject
@@ -50,7 +50,7 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
     private var mWindow: CircularMenuWindow? = null
     private var mState = 0
     private var mActionViewIcon: RoundedImageView? = null
-    private val mContext: Context
+    private val mContext: Context = ContextThemeWrapper(context, R.style.AppTheme)
     private val mRecorder: GlobalActionRecorder
     private var mSettingsDialog: MaterialDialog? = null
     private var mLayoutInspectDialog: MaterialDialog? = null
@@ -118,7 +118,8 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
             dialog.dismiss()
         }
         explorerView.setOnItemClickListener { _, item ->
-            item?.let { run(item.toScriptFile()) }
+            println("onItemClick: ${item?.path}")
+            item?.let { Scripts.run(item.toScriptFile()) }
         }
         DialogUtils.showDialog(dialog)
     }
@@ -351,7 +352,6 @@ class CircularMenu(context: Context?) : Recorder.OnStateChangedListener, Capture
     }
 
     init {
-        mContext = ContextThemeWrapper(context, R.style.AppTheme)
         initFloaty()
         setupListeners()
         mRecorder = GlobalActionRecorder.getSingleton(context)

@@ -6,7 +6,6 @@ import com.stardust.app.GlobalAppContext
 import com.stardust.auojs.inrt.LogActivity
 import com.stardust.auojs.inrt.Pref
 import com.stardust.auojs.inrt.SettingsActivity
-import com.stardust.auojs.inrt.pluginclient.DevPluginService
 import com.stardust.autojs.core.console.GlobalConsole
 import com.stardust.autojs.runtime.ScriptRuntimeV2
 import com.stardust.autojs.runtime.api.AppUtils
@@ -101,13 +100,7 @@ class AutoJs private constructor(application: Application) :
     }
 
     override fun createGlobalConsole(): GlobalConsole {
-        return object : GlobalConsole(uiHandler) {
-            override fun println(level: Int, charSequence: CharSequence?): String {
-                val log = super.println(level, charSequence)
-                DevPluginService.getInstance().log(log)
-                return log
-            }
-        }
+        return GlobalConsole(uiHandler)
     }
 
     override fun initScriptEngineManager() {

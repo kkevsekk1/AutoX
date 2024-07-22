@@ -120,7 +120,7 @@ class MainActivity : FragmentActivity() {
         if (Pref.isForegroundServiceEnabled()) ForegroundService.start(this)
         else ForegroundService.stop(this)
 
-        if (Pref.isFloatingMenuShown() && !FloatyWindowManger.isCircularMenuShowing()) {
+        if (Pref.isFloatingMenuShown()) {
             if (DrawOverlaysPermission.isCanDrawOverlays(this)) FloatyWindowManger.showCircularMenu()
             else Pref.setFloatingMenuShown(false)
         }

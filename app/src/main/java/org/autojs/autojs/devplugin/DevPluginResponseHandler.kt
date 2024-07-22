@@ -3,10 +3,12 @@ package org.autojs.autojs.devplugin
 import android.annotation.SuppressLint
 import com.google.gson.JsonNull
 import com.google.gson.JsonObject
+import com.stardust.app.GlobalAppContext
 import com.stardust.app.GlobalAppContext.toast
-import com.stardust.autojs.execution.ScriptExecution
-import com.stardust.autojs.project.ProjectLauncher
-import com.stardust.autojs.script.StringScriptSource
+import com.stardust.autojs.project.ProjectConfig
+import com.stardust.autojs.servicecomponents.BinderScriptListener
+import com.stardust.autojs.servicecomponents.EngineController
+import com.stardust.autojs.servicecomponents.TaskInfo
 import com.stardust.io.Zip
 import com.stardust.pio.PFiles
 import com.stardust.util.MD5
@@ -18,8 +20,6 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.autojs.autojs.Pref
-import org.autojs.autojs.autojs.AutoJs
-import org.autojs.autojs.model.script.Scripts.run
 import org.autojs.autoxjs.R
 import java.io.ByteArrayInputStream
 import java.io.File
@@ -67,7 +67,7 @@ class DevPluginResponseHandler(private val cacheDir: File) : Handler {
                 true
             }
             .handler("stopAll") { data: JsonObject? ->
-                AutoJs.getInstance().scriptEngineService.stopAllAndToast()
+                EngineController.stopAllScript()
                 true
             })
         .handler("bytes_command", Router("command")
@@ -80,7 +80,7 @@ class DevPluginResponseHandler(private val cacheDir: File) : Handler {
                 true
             })
 
-    private val mScriptExecutions = HashMap<String, ScriptExecution?>()
+    private val mScriptExecutions = HashMap<String, Int>()
 
     override fun handle(data: JsonObject): Boolean {
         return router.handle(data)
@@ -97,13 +97,29 @@ class DevPluginResponseHandler(private val cacheDir: File) : Handler {
     private fun runScript(viewId: String, name: String, script: String) {
         val name1 = if (name.isEmpty()) "[$viewId]"
         else PFiles.getNameWithoutExtension(name)
-        mScriptExecutions[viewId] = run(StringScriptSource("[remote]$name1", script))
+        val file = File(GlobalAppContext.get().cacheDir, "remote/[remote]$name1")
+        file.parentFile!!.mkdirs()
+        file.writeText(script)
+        EngineController.runScript(file, object : BinderScriptListener {
+            override fun onStart(taskInfo: TaskInfo) {
+                mScriptExecutions[viewId] = taskInfo.id
+            }
+
+            override fun onSuccess(taskInfo: TaskInfo) {
+                mScriptExecutions.remove(viewId)
+            }
+
+            override fun onException(taskInfo: TaskInfo, e: Throwable) {
+                mScriptExecutions.remove(viewId)
+            }
+        })
+
     }
 
     private fun launchProject(dir: String) {
         try {
-            ProjectLauncher(dir)
-                .launch(AutoJs.getInstance().scriptEngineService)
+            val project = ProjectConfig.fromProject(File(dir))
+            EngineController.launchProject(project!!)
         } catch (e: Exception) {
             e.printStackTrace()
             toast(R.string.text_invalid_project)
@@ -111,9 +127,10 @@ class DevPluginResponseHandler(private val cacheDir: File) : Handler {
     }
 
     private fun stopScript(viewId: String) {
-        val execution = mScriptExecutions[viewId]
-        execution?.engine?.forceStop()
-        mScriptExecutions.remove(viewId)
+        val id = mScriptExecutions[viewId]
+        if (id != null) {
+            EngineController.stopScript(id)
+        }
     }
 
     private fun getName(data: JsonObject): String? {

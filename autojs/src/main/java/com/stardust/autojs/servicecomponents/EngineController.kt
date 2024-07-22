@@ -1,8 +1,12 @@
 package com.stardust.autojs.servicecomponents
 
 import com.aiselp.autox.engine.NodeScriptEngine
+import com.stardust.autojs.AutoJs
+import com.stardust.autojs.execution.ExecutionConfig
 import com.stardust.autojs.project.ProjectConfig
 import com.stardust.autojs.script.JavaScriptSource
+import com.stardust.autojs.script.ScriptFile
+import com.stardust.autojs.script.ScriptSource
 import com.stardust.autojs.servicecomponents.ScriptServiceConnection.Companion.GlobalConnection
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Deferred
@@ -46,11 +50,24 @@ object EngineController {
     }
 
     fun runScript(taskInfo: TaskInfo, listener: BinderScriptListener? = null) = scope.launch {
-        serviceConnection.runScript(taskInfo, listener)
+        if (AutoJs.Companion::instance.isLateinit) {
+            val source: ScriptSource = ScriptFile(taskInfo.sourcePath).toSource()
+            AutoJs.instance.scriptEngineService.execute(
+                source, listener?.toScriptExecutionListener(),
+                ExecutionConfig(workingDirectory = taskInfo.workerDirectory)
+            )
+        } else {
+            serviceConnection.runScript(taskInfo, listener)
+        }
     }
-    fun launchProject(projectConfig: ProjectConfig, listener: BinderScriptListener? = null) = scope.launch {
-        runScript(File(projectConfig.projectDirectory, projectConfig.mainScript?:"main.js"), listener)
-    }
+
+    fun launchProject(projectConfig: ProjectConfig, listener: BinderScriptListener? = null) =
+        scope.launch {
+            runScript(
+                File(projectConfig.projectDirectory, projectConfig.mainScript ?: "main.js"),
+                listener
+            )
+        }
 
 
     fun runScript(file: File, listener: BinderScriptListener? = null) {

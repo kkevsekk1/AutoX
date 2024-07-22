@@ -173,11 +173,12 @@
             android:configChanges="orientation|screenSize" />
         <activity
             android:name="org.autojs.autojs.ui.build.BuildActivity"
-            android:theme="@style/M3AppTheme"
-            android:configChanges="orientation|screenSize" />
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/M3AppTheme" />
         <activity android:name="org.autojs.autojs.ui.build.SignManageActivityKt" />
-        <activity android:name="org.autojs.autojs.ui.build.ProjectConfigActivity"
-            android:theme="@style/M3AppTheme"/>
+        <activity
+            android:name="org.autojs.autojs.ui.build.ProjectConfigActivity"
+            android:theme="@style/M3AppTheme" />
         <activity
             android:name="org.autojs.autojs.ui.log.LogActivityKt"
             android:process="@string/text_script_process_name"
@@ -334,6 +335,12 @@
                 <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
+        <service
+            android:name="com.stardust.enhancedfloaty.FloatyService"
+            android:process="@string/text_script_process_name" />
+        <service
+            android:name="org.autojs.autojs.ui.floating.FloatyService"
+            android:process="@string/text_script_process_name" />
 
         <receiver
             android:name="org.autojs.autojs.external.widget.ScriptWidget"

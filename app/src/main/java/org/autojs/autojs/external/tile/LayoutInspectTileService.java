@@ -19,7 +19,6 @@ import org.autojs.autojs.tool.AccessibilityServiceTool;
 import org.autojs.autojs.ui.floating.FloatyWindowManger;
 import org.autojs.autojs.ui.floating.FullScreenFloatyWindow;
 
-@RequiresApi(api = Build.VERSION_CODES.N)
 public abstract class LayoutInspectTileService extends TileService implements LayoutInspector.CaptureAvailableListener {
 
     private boolean mCapturing = false;
