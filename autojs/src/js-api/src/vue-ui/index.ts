@@ -80,3 +80,4 @@ export * from '@vue/runtime-core'
 export * as Icons from './icons'
 export { ModifierExtension }
 export { ActivityEventListener }
+export * as Theme from './theme'

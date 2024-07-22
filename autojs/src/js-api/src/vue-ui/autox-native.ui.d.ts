@@ -53,4 +53,8 @@ declare namespace root.ui {
         group: string,
         name: String): ImageVector
     function getModifierExtFactory(key: String): ModifierExtBuilder
+    namespace theme {
+        function darkColorScheme(ops: Map<String, string | bigint>): ColorScheme
+        function lightColorScheme(ops: Map<String, string | bigint>): ColorScheme
+    }
 }

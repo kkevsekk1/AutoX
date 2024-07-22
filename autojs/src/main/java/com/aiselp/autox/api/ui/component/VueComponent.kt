@@ -61,5 +61,6 @@ object VueComponent {
         add(Chip)
         add(TabRow)
         add(Tab)
+        add(MaterialTheme)
     }
 }

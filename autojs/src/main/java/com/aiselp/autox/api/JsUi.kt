@@ -12,12 +12,14 @@ import com.aiselp.autox.api.ui.ComposeTextNode
 import com.aiselp.autox.api.ui.Default
 import com.aiselp.autox.api.ui.Filled
 import com.aiselp.autox.api.ui.Icons
+import com.aiselp.autox.api.ui.JsTheme
 import com.aiselp.autox.api.ui.ModifierExtFactory
 import com.aiselp.autox.api.ui.ScriptActivityBuilder
 import com.aiselp.autox.engine.EventLoopQueue
 import com.aiselp.autox.engine.NodeScriptEngine
 import com.aiselp.autox.engine.V8PromiseFactory
 import com.caoccao.javet.annotations.V8Function
+import com.caoccao.javet.annotations.V8Property
 import com.caoccao.javet.interop.V8Runtime
 import com.caoccao.javet.interop.converters.JavetProxyConverter
 import com.caoccao.javet.values.V8Value
@@ -38,6 +40,9 @@ class JsUi(nodeScriptEngine: NodeScriptEngine) : NativeApi {
 
     private val modifierExtFactory = ModifierExtFactory(eventLoopQueue)
     private val activitys = mutableSetOf<Activity>()
+
+    @get:V8Property
+    val theme = JsTheme
     override fun install(v8Runtime: V8Runtime, global: V8ValueObject): NativeApi.BindingMode {
         return NativeApi.BindingMode.PROXY
     }
