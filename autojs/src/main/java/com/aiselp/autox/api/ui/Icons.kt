@@ -8,18 +8,19 @@ import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Done
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.MailOutline
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.ui.graphics.vector.ImageVector
-import kotlin.reflect.full.memberProperties
 
 
 interface Icons {
@@ -40,6 +41,8 @@ interface Icons {
     val Refresh: ImageVector
     val AccountBox: ImageVector
     val ArrowDropDown : ImageVector
+    val Done: ImageVector
+    val Person: ImageVector
 }
 
 object Default : com.aiselp.autox.api.ui.Icons {
@@ -60,6 +63,8 @@ object Default : com.aiselp.autox.api.ui.Icons {
     override val Refresh by lazy { Icons.Default.Refresh }
     override val AccountBox by lazy { Icons.Default.AccountBox }
     override val ArrowDropDown: ImageVector by lazy { Icons.Default.ArrowDropDown }
+    override val Done: ImageVector by lazy { Icons.Default.Done }
+    override val Person: ImageVector by lazy { Icons.Default.Person }
 }
 
 object Filled : com.aiselp.autox.api.ui.Icons {
@@ -80,8 +85,10 @@ object Filled : com.aiselp.autox.api.ui.Icons {
     override val Refresh by lazy { Icons.Filled.Refresh }
     override val AccountBox by lazy { Icons.Filled.AccountBox }
     override val ArrowDropDown: ImageVector by lazy { Icons.Filled.ArrowDropDown }
+    override val Done: ImageVector by lazy { Icons.Filled.Done }
+    override val Person: ImageVector by lazy { Icons.Filled.Person }
 }
 
 fun s() {
-    com.aiselp.autox.api.ui.Icons::class.memberProperties.find { it.name == "Call" }
+   Icons.Default.Star
 }

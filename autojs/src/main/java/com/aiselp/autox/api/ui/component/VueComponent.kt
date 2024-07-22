@@ -58,5 +58,8 @@ object VueComponent {
         add(ExposedDropdownMenuBox)
         add(BottomSheetScaffold)
         add(ModalBottomSheet)
+        add(Chip)
+        add(TabRow)
+        add(Tab)
     }
 }
