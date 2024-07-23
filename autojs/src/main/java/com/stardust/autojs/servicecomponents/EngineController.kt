@@ -50,13 +50,14 @@ object EngineController {
     }
 
     fun runScript(taskInfo: TaskInfo, listener: BinderScriptListener? = null) = scope.launch {
-        if (AutoJs.Companion::instance.isLateinit) {
+        try {
+            AutoJs.instance
             val source: ScriptSource = ScriptFile(taskInfo.sourcePath).toSource()
             AutoJs.instance.scriptEngineService.execute(
                 source, listener?.toScriptExecutionListener(),
                 ExecutionConfig(workingDirectory = taskInfo.workerDirectory)
             )
-        } else {
+        } catch (e: Throwable) {
             serviceConnection.runScript(taskInfo, listener)
         }
     }

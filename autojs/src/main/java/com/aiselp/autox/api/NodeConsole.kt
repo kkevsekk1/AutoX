@@ -4,12 +4,24 @@ import com.caoccao.javet.annotations.V8Function
 import com.caoccao.javet.interop.V8Runtime
 import com.caoccao.javet.values.V8Value
 import com.caoccao.javet.values.reference.V8ValueObject
+import com.stardust.autojs.AutoJs
+import com.stardust.autojs.core.console.GlobalConsole
 import com.stardust.autojs.runtime.api.Console
+import com.stardust.util.UiHandler
 
-class NodeConsole(val console: Console) : NativeApi {
+class NodeConsole(uiHandler: UiHandler) : NativeApi {
     override val moduleId: String = "console"
     override val globalModule: Boolean = true
     private var v8ValueObject: V8ValueObject? = null
+    lateinit var console: Console
+
+    init {
+        try {
+            console = AutoJs.instance.globalConsole
+        } catch (e: Exception) {
+            console = GlobalConsole(uiHandler)
+        }
+    }
     override fun install(v8Runtime: V8Runtime, global: V8ValueObject): NativeApi.BindingMode {
         v8Runtime.getExecutor(SCRIPT).execute<V8ValueObject>().let {
             v8ValueObject = it

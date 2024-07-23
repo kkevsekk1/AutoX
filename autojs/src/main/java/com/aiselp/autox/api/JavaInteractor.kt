@@ -6,12 +6,14 @@ import com.caoccao.javet.annotations.V8Function
 import com.caoccao.javet.interop.V8Runtime
 import com.caoccao.javet.interop.converters.JavetObjectConverter
 import com.caoccao.javet.values.V8Value
+import com.caoccao.javet.values.reference.V8ValueFunction
 import com.caoccao.javet.values.reference.V8ValueObject
 import com.caoccao.javet.values.reference.V8ValuePromise
 import com.stardust.autojs.runtime.exception.ScriptException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
@@ -45,6 +47,15 @@ class JavaInteractor(
             }
         }
         return promise
+    }
+
+    @V8Function
+    fun callback(fn: V8ValueFunction) {
+        val v8Callback = promiseFactory.eventLoopQueue.createV8Callback(fn)
+        scope.launch {
+            delay(2000)
+            v8Callback.invoke()
+        }
     }
 
     @V8Function

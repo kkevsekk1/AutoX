@@ -5,8 +5,12 @@ import com.aiselp.autox.api.NativeApi
 import com.caoccao.javet.annotations.V8Function
 import com.caoccao.javet.annotations.V8Property
 import com.caoccao.javet.interop.V8Runtime
+import com.caoccao.javet.values.V8Value
 import com.caoccao.javet.values.reference.V8ValueError
 import com.caoccao.javet.values.reference.V8ValueObject
+import com.stardust.autojs.runtime.exception.ScriptException
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.isActive
 
 class NativeApiManager(engine: NodeScriptEngine) {
     private val apis = mutableMapOf<String, NativeApi>()
@@ -60,12 +64,24 @@ class NativeApiManager(engine: NodeScriptEngine) {
         val context: Context = engine.context.applicationContext
 
         @V8Function
-        fun exit(e: V8ValueError?) {
-            val stack = e?.stack
-            val message = e?.getString("message")
-            Thread {
-                engine.forceStop(message ?: "unknown error", stack ?: "")
-            }.start()
+        fun exit(e: V8Value?) {
+            if (e is V8ValueError) {
+                val stack = e.stack
+                val message = e.getString("message")
+                Thread {
+                    engine.forceStop(message ?: "unknown error", stack ?: "")
+                }.start()
+            } else {
+                val err = ScriptException(e.toString())
+                Thread {
+                    engine.forceStop(err)
+                }.start()
+            }
+        }
+
+        @V8Function
+        fun safeExit() {
+            if (engine.scope.isActive) engine.scope.cancel()
         }
     }
 

@@ -9,8 +9,8 @@ import com.aiselp.autox.api.JsToast
 import com.aiselp.autox.api.JsUi
 import com.aiselp.autox.api.NodeConsole
 import com.aiselp.autox.module.NodeModuleResolver
+import com.caoccao.javet.entities.JavetEntityError
 import com.caoccao.javet.enums.V8AwaitMode
-import com.caoccao.javet.exceptions.JavetExecutionException
 import com.caoccao.javet.interop.NodeRuntime
 import com.caoccao.javet.interop.V8Host
 import com.caoccao.javet.interop.converters.JavetProxyConverter
@@ -18,7 +18,6 @@ import com.caoccao.javet.node.modules.NodeModuleModule
 import com.caoccao.javet.node.modules.NodeModuleProcess
 import com.caoccao.javet.values.V8Value
 import com.caoccao.javet.values.reference.V8ValuePromise
-import com.stardust.autojs.AutoJs
 import com.stardust.autojs.BuildConfig
 import com.stardust.autojs.engine.ScriptEngine
 import com.stardust.autojs.execution.ExecutionConfig
@@ -39,12 +38,13 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
     val runtime: NodeRuntime = V8Host.getNodeInstance().createV8Runtime()
 
     private val tags = mutableMapOf<String, Any?>()
+    private val v8Locker = runtime.v8Locker
     private val config: ExecutionConfig by lazy {
         tags[ExecutionConfig.tag] as ExecutionConfig
     }
     private val moduleDirectory = getModuleDirectory(context)
     private val resultListener = PromiseListener()
-    private val console = NodeConsole(AutoJs.instance.globalConsole)
+    private val console = NodeConsole(uiHandler)
     private val nativeApiManager = NativeApiManager(this)
     val converter = JavetProxyConverter()
     val scope = CoroutineScope(Dispatchers.Default)
@@ -76,8 +76,6 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
         }
         if (scope.isActive) scope.cancel("force stop", e)
         console.error(e.stackTraceToString())
-//        runtime.getNodeModule(NodeModuleProcess::class.java)
-//            .moduleObject.invokeVoid("exit", runtime.createV8ValueInteger(1))
     }
 
     override fun init() {
@@ -92,6 +90,11 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
                     if (c > 5) process.abort()
                     Autox.exit(err)
                 })
+                process.exit = function(code) {
+                    if (code > 0){
+                        throw new Error('exit with code: ' + code)
+                    }else Autox.safeExit()
+                }
             })()
         """.trimIndent()
         ).executeVoid()
@@ -121,22 +124,41 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
                 while (scope.isActive) {
 //                    Log.d(TAG,"loop ing...")
                     if (runtime.await(V8AwaitMode.RunNoWait) or
-                        eventLoopQueue.executeQueue()
+                        eventLoopQueue.executeQueue() or
+                        resultListener.result.isActive
                     ) {
                         Thread.sleep(1)
                         continue
                     } else break
                 }
             }
+            if (resultListener.result.isActive) return@runBlocking null
             return@runBlocking withTimeout(10) {
+                val result = resultListener.await()
                 if (resultListener.stack != null) console.error(resultListener.stack)
-                if (resultListener.isRejectedCalled) throw ScriptException(resultListener.await())
-                resultListener.await()
+                if (resultListener.isRejectedCalled) {
+                    exceptionHandling(result)
+                }
+                result
             }
-        } catch (e: JavetExecutionException) {
-            throw e.apply { console.error(scriptingError.stack) }
         } catch (e: Throwable) {
-            throw e.apply { console.error(toString()) }
+            exceptionHandling(e)
+        }
+    }
+
+    private fun exceptionHandling(e: Any?) {
+        when (e) {
+            is Throwable -> run {
+                console.error(e.stackTraceToString())
+                throw e
+            }
+
+            is JavetEntityError -> run {
+                console.error(e.stack)
+                throw ScriptException(e.message)
+            }
+
+            else -> throw ScriptException(e.toString())
         }
     }
 

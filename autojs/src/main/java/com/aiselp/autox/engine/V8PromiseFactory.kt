@@ -5,20 +5,20 @@ import com.caoccao.javet.values.reference.V8ValueFunction
 import com.caoccao.javet.values.reference.V8ValueObject
 import com.caoccao.javet.values.reference.V8ValuePromise
 
-class V8PromiseFactory(val runtime: V8Runtime, private val eventLoopQueue: EventLoopQueue) {
+class V8PromiseFactory(val runtime: V8Runtime,  val eventLoopQueue: EventLoopQueue) {
     private val executor = runtime.getExecutor(
         """
         (()=>{
             const adapter = {};
-            const stmid = setInterval(() => { }, 1000);
+         
             adapter.promise = new Promise(function(resolve, reject) {
                 adapter.resolve = (r)=>{
                     resolve(r)
-                    clearInterval(stmid)
+                    
                 }
                 adapter.reject = (r)=>{
                     reject(r)
-                    clearInterval(stmid)
+                    
                 }
             })
             return adapter
@@ -42,24 +42,26 @@ class V8PromiseFactory(val runtime: V8Runtime, private val eventLoopQueue: Event
             if (promiseStatus != PENDING) {
                 return
             }
-            val resolve = adapter.get<V8ValueFunction>("resolve")
+
             eventLoopQueue.addTask {
+                val resolve = adapter.get<V8ValueFunction>("resolve")
                 resolve.use { it.callVoid(null, arg) }
+                close()
             }
             promiseStatus = FULFILLED
-            close()
+
         }
 
         fun reject(arg: Any?) {
             if (promiseStatus != PENDING) {
                 return
             }
-            val reject = adapter.get<V8ValueFunction>("reject")
             eventLoopQueue.addTask {
+                val reject = adapter.get<V8ValueFunction>("reject")
                 reject.use { it.callVoid(null, arg) }
+                close()
             }
             promiseStatus = REJECTED
-            close()
         }
 
         companion object {
