@@ -13,15 +13,12 @@ class NodeConsole(uiHandler: UiHandler) : NativeApi {
     override val moduleId: String = "console"
     override val globalModule: Boolean = true
     private var v8ValueObject: V8ValueObject? = null
-    lateinit var console: Console
-
-    init {
-        try {
-            console = AutoJs.instance.globalConsole
-        } catch (e: Exception) {
-            console = GlobalConsole(uiHandler)
-        }
+    val console: Console = try {
+        AutoJs.instance.globalConsole
+    } catch (e: Exception) {
+        GlobalConsole(uiHandler)
     }
+
     override fun install(v8Runtime: V8Runtime, global: V8ValueObject): NativeApi.BindingMode {
         v8Runtime.getExecutor(SCRIPT).execute<V8ValueObject>().let {
             v8ValueObject = it

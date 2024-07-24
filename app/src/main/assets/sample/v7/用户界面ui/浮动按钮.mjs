@@ -13,14 +13,14 @@ const app = createApp({
     <column verticalArrangement="space_between" modifier=${[fillMaxSize()]}>
         <row modifier=${[fillMaxWidth()]} horizontalArrangement="space_between" >
             <FloatingActionButton size="small" icon=${Add()} />
-            <FloatingActionButton />
+            <FloatingActionButton >
                 <Icon src=${Home()} tint=${0xffcc7459n} />
             </FloatingActionButton>
             <FloatingActionButton size="large" icon=${Menu()} />
         </row>
         <row modifier=${[fillMaxWidth()]} horizontalArrangement="space_between" >
             <ExtendedFloatingActionButton text="Extended Fab" icon=${Home()} />
-            <ExtendedFloatingActionButton text="Extended Fab" icon=${Home()} >
+            <ExtendedFloatingActionButton text="Extended Fab" icon=${Home()}>
                 <template #icon>
                     <Icon src=${Add()} tint=${0xffcc4433n} />
                 </template>

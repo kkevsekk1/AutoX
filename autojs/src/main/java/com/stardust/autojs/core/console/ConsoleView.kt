@@ -186,11 +186,7 @@ class ConsoleView : FrameLayout, LogListener {
 
     private class ViewHolder(itemView: View, val logSize: Float) :
         RecyclerView.ViewHolder(itemView) {
-        var textView: TextView
-
-        init {
-            textView = itemView as TextView
-        }
+        var textView: TextView = itemView as TextView
 
         fun bindData(logEntry: ConsoleImpl.LogEntry) {
             val text = if (logEntry.content.length > 5000) {

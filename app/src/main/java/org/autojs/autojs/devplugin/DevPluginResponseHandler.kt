@@ -95,9 +95,9 @@ class DevPluginResponseHandler(private val cacheDir: File) : Handler {
     }
 
     private fun runScript(viewId: String, name: String, script: String) {
-        val name1 = if (name.isEmpty()) "[$viewId]"
-        else PFiles.getNameWithoutExtension(name)
-        val file = File(GlobalAppContext.get().cacheDir, "remote/[remote]$name1")
+        val name1 = if (name.isEmpty()) "[$viewId].js"
+        else PFiles.getName(name)
+        val file = File(GlobalAppContext.get().cacheDir, "remote/remote-$name1")
         file.parentFile!!.mkdirs()
         file.writeText(script)
         EngineController.runScript(file, object : BinderScriptListener {

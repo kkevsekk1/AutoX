@@ -81,6 +81,16 @@ class ScriptServiceConnection : ServiceConnection {
         send()
     }
 
+    suspend fun registerGlobalConsoleListener(listener: BinderConsoleListener) = sendBinder {
+        action = ScriptBinder.Action.REGISTER_GLOBAL_CONSOLE_LISTENER.id
+        data.writeStrongBinder(
+            BinderConsoleListener.ClientInterface(
+                listener
+            )
+        )
+        send()
+    }
+
     suspend fun awaitConnected() = withTimeout(3000) {
         if (isConnected) return@withTimeout
         check(reBind != null) { "service is not connected" }

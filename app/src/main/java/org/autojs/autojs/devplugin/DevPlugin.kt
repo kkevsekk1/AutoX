@@ -7,6 +7,8 @@ import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import com.google.gson.JsonPrimitive
 import com.stardust.app.GlobalAppContext
+import com.stardust.autojs.servicecomponents.BinderConsoleListener
+import com.stardust.autojs.servicecomponents.ScriptServiceConnection
 import io.ktor.websocket.CloseReason
 import io.ktor.websocket.Frame
 import io.ktor.websocket.FrameType
@@ -80,8 +82,16 @@ object DevPlugin {
 
     init {
         CoroutineScope(Dispatchers.IO).launch {
+            ScriptServiceConnection.GlobalConnection.registerGlobalConsoleListener(
+                object : BinderConsoleListener {
+                    override fun onPrintln(text: String) {
+                        log(text)
+                    }
+                }
+            )
             collect()
         }
+
     }
 
     suspend fun connect(url: String) {
@@ -112,10 +122,12 @@ object DevPlugin {
                     Log.d(TAG, "ConnectComputerSwitch: CONNECTING")
                     GlobalAppContext.toast(R.string.text_connecting)
                 }
+
                 State.RECONNECTING -> {
                     Log.d(TAG, "ConnectComputerSwitch: RECONNECTING")
                     GlobalAppContext.toast(R.string.text_reconnecting)
                 }
+
                 State.CONNECTION_FAILED -> {
                     Log.d(TAG, "ConnectComputerSwitch: CONNECTION_FAILED")
                     GlobalAppContext.toast(
@@ -125,6 +137,7 @@ object DevPlugin {
                     )
                     it.e?.printStackTrace()
                 }
+
                 State.HANDSHAKE_TIMEOUT -> {
                     GlobalAppContext.toast(R.string.text_handshake_failed)
                 }
@@ -223,9 +236,11 @@ object DevPlugin {
                     TYPE_PONG -> {
                         lastPongId = obj["data"].asLong
                     }
+
                     TYPE_CLOSE -> {
                         this.close()
                     }
+
                     TYPE_BYTES_COMMAND -> {
                         val md5 = obj["md5"].asString
                         bytesMap.remove(md5)?.let {
@@ -234,6 +249,7 @@ object DevPlugin {
                             requiredBytesCommands[md5] = obj
                         }
                     }
+
                     else -> responseHandler.handle(obj)
                 }
             } catch (e: Exception) {
@@ -366,11 +382,13 @@ object DevPlugin {
                             val text = (frame as Frame.Text).readText()
                             JsonUtil.dispatchJson(text)?.let { onJson(it) }
                         }
+
                         FrameType.BINARY -> {
                             val bytes = frame.readBytes()
                             val md5 = bytes.toByteString(0, bytes.size).md5().hex()
                             onBytes(Bytes(md5, bytes))
                         }
+
                         else -> {}
                     }
                 },
