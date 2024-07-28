@@ -50,7 +50,7 @@ public class Pref {
         AccessibilityConfig.setIsUnintendedGuardEnabled(def().getBoolean(getString(R.string.key_guard_mode), false));
     }
 
-    private static SharedPreferences def() {
+    public static SharedPreferences def() {
         return PreferenceManager.getDefaultSharedPreferences(GlobalAppContext.get());
     }
 

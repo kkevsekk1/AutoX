@@ -398,38 +398,4 @@ public abstract class ScriptRuntime {
         return Continuation.Companion.create(this, scope);
     }
 
-
-    public static String getStackTrace(Throwable e, boolean printJavaStackTrace) {
-        String message = e.getMessage();
-        StringBuilder scriptTrace = new StringBuilder(message == null ? "" : message + "\n");
-        if (e instanceof RhinoException) {
-            RhinoException rhinoException = (RhinoException) e;
-            scriptTrace.append(rhinoException.details()).append("\n");
-            for (ScriptStackElement element : rhinoException.getScriptStack()) {
-                element.renderV8Style(scriptTrace);
-                scriptTrace.append("\n");
-            }
-            if (printJavaStackTrace) {
-                scriptTrace.append("- - - - - - - - - - -\n");
-            } else {
-                return scriptTrace.toString();
-            }
-        }
-        try {
-            StringWriter stringWriter = new StringWriter();
-            PrintWriter writer = new PrintWriter(stringWriter);
-            e.printStackTrace(writer);
-            writer.close();
-            BufferedReader bufferedReader = new BufferedReader(new StringReader(stringWriter.toString()));
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                scriptTrace.append("\n").append(line);
-            }
-            return scriptTrace.toString();
-        } catch (IOException e1) {
-            e1.printStackTrace();
-            return message;
-        }
-    }
-
 }

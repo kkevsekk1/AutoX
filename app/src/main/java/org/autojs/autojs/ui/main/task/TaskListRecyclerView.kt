@@ -1,6 +1,7 @@
 package org.autojs.autojs.ui.main.task
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.util.Log
@@ -40,7 +41,6 @@ import org.autojs.autojs.ui.main.task.Task.PendingTask
 import org.autojs.autojs.ui.main.task.TaskGroup.PendingTaskGroup
 import org.autojs.autojs.ui.main.task.TaskGroup.RunningTaskGroup
 import org.autojs.autojs.ui.timing.TimedTaskSettingActivity
-import org.autojs.autojs.ui.timing.TimedTaskSettingActivity_
 import org.autojs.autoxjs.R
 
 /**
@@ -246,9 +246,9 @@ class TaskListRecyclerView : ThemeColorRecyclerView {
                 val task = mTask as PendingTask
                 val extra =
                     if (task.timedTask == null) TimedTaskSettingActivity.EXTRA_INTENT_TASK_ID else TimedTaskSettingActivity.EXTRA_TASK_ID
-                TimedTaskSettingActivity_.intent(context)
-                    .extra(extra, task.id)
-                    .start()
+                context.startActivity(Intent(context,TimedTaskSettingActivity::class.java).apply {
+                    putExtra(extra, task.id)
+                })
             }
         }
     }

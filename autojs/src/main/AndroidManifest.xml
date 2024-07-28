@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission
         android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
@@ -27,9 +28,13 @@
     <application>
         <activity
             android:name=".execution.ScriptExecuteActivity"
-            android:process="@string/text_script_process_name"
             android:configChanges="fontScale|keyboard|keyboardHidden|locale|navigation|orientation|screenLayout|screenSize|uiMode"
+            android:process="@string/text_script_process_name"
             android:theme="@style/ScriptTheme" />
+        <activity
+            android:name="com.aiselp.autox.activity.VueUiScriptActivity"
+            android:configChanges="fontScale|keyboard|keyboardHidden|locale|navigation|orientation|screenLayout|screenSize|uiMode"
+            android:process="@string/text_script_process_name" />
 
 
         <activity
@@ -50,8 +55,8 @@
         <service
             android:name="com.stardust.autojs.core.accessibility.AccessibilityService"
             android:exported="false"
-            android:process="@string/text_script_process_name"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:process="@string/text_script_process_name">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
@@ -63,8 +68,8 @@
         <service
             android:name="com.stardust.autojs.core.image.capture.CaptureForegroundService"
             android:exported="false"
-            android:process="@string/text_script_process_name"
-            android:foregroundServiceType="mediaProjection" />
+            android:foregroundServiceType="mediaProjection"
+            android:process="@string/text_script_process_name" />
 
     </application>
 

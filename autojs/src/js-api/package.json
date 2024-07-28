@@ -1,0 +1,32 @@
+{
+  "name": "autox-api",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "gulp build",
+    "clean": "gulp clear",
+    "docs": "typedoc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-replace": "^5.0.7",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@vue/runtime-core": "^3.4.31",
+    "axios": "^1.7.2",
+    "gulp": "^5.0.0",
+    "gulp-cli": "^3.0.0",
+    "htm": "^3.1.1",
+    "lodash": "^4.17.21",
+    "rollup": "^4.18.0",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.6.3",
+    "typedoc": "^0.26.3",
+    "typedoc-plugin-markdown": "^4.1.1",
+    "typescript": "^5.5.2"
+  }
+}

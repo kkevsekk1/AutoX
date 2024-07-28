@@ -112,7 +112,7 @@ public class Events extends EventEmitter implements OnKeyListener, TouchObserver
             throw new ScriptException(mContext.getString(R.string.text_should_enable_key_observing));
         }
         ensureHandler();
-        Loopers.Companion.addAsyncTaskToCurrentThreadLooper(task);
+        mLoopers.addAsyncTaskToCurrentThreadLooper(task);
         mListeningKey = true;
         mAccessibilityBridge.ensureServiceEnabled();
         service.getOnKeyObserver().addListener(this);
@@ -128,7 +128,7 @@ public class Events extends EventEmitter implements OnKeyListener, TouchObserver
         if (mTouchObserver != null)
             return;
         ensureHandler();
-        Loopers.Companion.addAsyncTaskToCurrentThreadLooper(task);
+        mLoopers.addAsyncTaskToCurrentThreadLooper(task);
         mTouchObserver = new TouchObserver(InputEventObserver.getGlobal(mContext));
         mTouchObserver.setOnTouchEventListener(this);
         mTouchObserver.observe();
@@ -225,7 +225,7 @@ public class Events extends EventEmitter implements OnKeyListener, TouchObserver
             return;
         mListeningNotification = true;
         ensureHandler();
-        Loopers.Companion.addAsyncTaskToCurrentThreadLooper(task);
+        mLoopers.addAsyncTaskToCurrentThreadLooper(task);
         if (NotificationListenerService.Companion.getInstance() == null) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
                 mContext.startActivity(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS));
@@ -241,7 +241,7 @@ public class Events extends EventEmitter implements OnKeyListener, TouchObserver
         mAccessibilityBridge.ensureServiceEnabled();
         mListeningToast = true;
         ensureHandler();
-        Loopers.Companion.addAsyncTaskToCurrentThreadLooper(task);
+        mLoopers.addAsyncTaskToCurrentThreadLooper(task);
         mAccessibilityBridge.getNotificationObserver().addToastListener(this);
     }
 
@@ -256,7 +256,7 @@ public class Events extends EventEmitter implements OnKeyListener, TouchObserver
         }
         service.getGestureEventDispatcher().addListener(this);
         ensureHandler();
-        Loopers.Companion.addAsyncTaskToCurrentThreadLooper(task);
+        mLoopers.addAsyncTaskToCurrentThreadLooper(task);
         mListeningGesture = true;
     }
 

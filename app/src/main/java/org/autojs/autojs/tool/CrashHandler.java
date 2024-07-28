@@ -10,6 +10,8 @@ import android.os.Build;
 import android.os.Looper;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import com.stardust.app.GlobalAppContext;
 
 import org.autojs.autoxjs.BuildConfig;
@@ -39,16 +41,16 @@ public class CrashHandler extends CrashReport.CrashHandleCallback implements Unc
         mBuglyHandler = buglyHandler;
     }
 
-    public void uncaughtException(Thread thread, Throwable ex) {
+    public void uncaughtException(@NonNull Thread thread, @NonNull Throwable ex) {
         Log.e(TAG, "Uncaught Exception", ex);
         if (thread != Looper.getMainLooper().getThread()) {
-            if(!(ex instanceof RhinoException)){
+            if (!(ex instanceof RhinoException)) {
                 CrashReport.postCatchedException(ex, thread);
             }
             return;
         }
         AccessibilityService service = AccessibilityService.Companion.getInstance();
-        if (service != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        if (service != null) {
             Log.d(TAG, "disable service: " + service);
             service.disableSelf();
         } else {
@@ -62,8 +64,8 @@ public class CrashHandler extends CrashReport.CrashHandleCallback implements Unc
     }
 
     @Override
-    public synchronized Map<String, String> onCrashHandleStart(int crashType, String errorType,
-                                                               String errorMessage, String errorStack) {
+    public synchronized Map<String, String> onCrashHandleStart(
+            int crashType, String errorType, String errorMessage, String errorStack) {
         Log.d(TAG, "onCrashHandleStart: crashType = " + crashType + ", errorType = " + errorType + ", msg = "
                 + errorMessage + ", stack = " + errorStack);
         try {

@@ -18,27 +18,12 @@
     <string name="email" translatable="false">chengshulun@live.com</string>
     <string name="default_main_file_name" translatable="false">main.js</string>
 
-    <string name="key_auto_backup" translatable="false">key_auto_back</string>
-    <string name="key_night_mode" translatable="false">key_night_mode</string>
-    <string name="key_foreground_servie" translatable="false">key_foreground_service</string>
-    <string name="key_script_dir_path" translatable="false">key_script_dir_path</string>
-    <string name="key_documentation_source" translatable="false">key_documentation_source</string>
-    <string name="key_enable_observe_key" translatable="false">key_enable_observe_key</string>
-    <string name="key_single_build_clean_mode" translatable="false">key_single_build_clean_mode</string>
-    <string name="key_stable_mode" translatable="false">key_stable_mode</string>
-    <string name="key_record_toast" translatable="false">key_record_toast</string>
-    <string name="key_root_record_out_file_type" translatable="false">key_root_record_out_file_type</string>
-    <string name="key_use_volume_control_running" translatable="false">key_use_volume_control_running</string>
-    <string name="key_enable_accessibility_service_by_root" translatable="false">key_enable_accessibility_service_by_root</string>
-    <string name="key_max_length_for_code_completion" translatable="false">key_max_length_for_code_completion</string>
-    <string name="key_use_volume_control_record" translatable="false">key_use_volume_control_record</string>
-    <string name="key_guard_mode" translatable="false">key_guard_mode</string>
-
     <string name="default_value_script_dir_path" translatable="false">/脚本/</string>
     <string name="text_android_job" translatable="false">AndroidJob</string>
     <string name="text_alarm_manager" translatable="false">AlarmManager</string>
     <string name="text_work_manager" translatable="false">WorkManager</string>
 
+    <string name="text_intent_run_script">允许使用广播运行脚本</string>
     <string name="text_accessibility_service_description">使脚本自动操作(点击、长按、滑动等)所需，若关闭则只能执行不涉及自动操作的脚本。</string>
     <string name="text_new_file">新建文件</string>
     <string name="text_create_fail">创建失败</string>
@@ -254,6 +239,7 @@
     <string name="text_select_file_to_upload">选择要上传的文件</string>
     <string name="text_select_file_to_import">选择要导入的文件</string>
     <string name="text_build_apk">打包应用</string>
+    <string name="text_build_confirm">点击确认开始打包应用</string>
     <string name="text_select">选择</string>
     <string name="text_output_apk_path">打包应用保存位置</string>
     <string name="text_config">配置</string>

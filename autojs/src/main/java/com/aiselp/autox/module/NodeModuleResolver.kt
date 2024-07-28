@@ -8,7 +8,8 @@ import com.caoccao.javet.values.reference.IV8Module
 import java.io.File
 import java.net.URI
 
-class NodeModuleResolver(val workingDirectory: File) : JavetBuiltInModuleResolver() {
+class NodeModuleResolver(val workingDirectory: File, private val globalModuleDirectory: File) :
+    JavetBuiltInModuleResolver() {
     private val esModuleCache = mutableMapOf<String, IV8Module>()
 
     override fun resolve(
@@ -21,8 +22,11 @@ class NodeModuleResolver(val workingDirectory: File) : JavetBuiltInModuleResolve
         }
         val uri = Uri.parse(resourceName)
         return if (uri.scheme == null) {
-            super.resolve(v8Runtime, "node:$resourceName", v8ModuleReferrer)
-                ?: parsingPackageModule(v8Runtime, workingDirectory, resourceName)
+            try {
+                super.resolve(v8Runtime, "node:$resourceName", v8ModuleReferrer)
+            }catch (e: Exception){
+                null
+            } ?: parsingPackageModule(v8Runtime, workingDirectory, resourceName)
         } else parsingModule(v8Runtime, uri)
     }
 
@@ -47,9 +51,20 @@ class NodeModuleResolver(val workingDirectory: File) : JavetBuiltInModuleResolve
                 .compileV8Module()
         } else {
             v8Runtime.getExecutor(
-                "export default Promise.resolve().then(() => require(`${file.path}`));"
+                "export default require(`${file.path}`)"
             ).setResourceName(file.path)
                 .compileV8Module()
+        }
+    }
+
+    private fun loadPackageModule(
+        v8Runtime: V8Runtime, directory: File?, name: String
+    ): IV8Module? {
+        if (directory == null) return null
+        if (!directory.isDirectory) return null
+        val packageDirectory = File(directory, name)
+        return PackageJson.create(packageDirectory)?.let {
+            it.main?.let { file -> parsingModule(v8Runtime, file, it.isEsModule()) }
         }
     }
 
@@ -58,11 +73,11 @@ class NodeModuleResolver(val workingDirectory: File) : JavetBuiltInModuleResolve
     ): IV8Module? {
         if (workingDirectory == null) return null
         val modulesDirection = File(workingDirectory, "node_modules")
-        if (!modulesDirection.isDirectory) return null
-        val packageDirectory = File(modulesDirection, name)
-        return PackageJson.create(packageDirectory)?.let {
-            it.main?.let { file -> parsingModule(v8Runtime, file, it.isEsModule()) }
-        }
+        return loadPackageModule(v8Runtime, modulesDirection, name) ?: loadPackageModule(
+            v8Runtime,
+            globalModuleDirectory,
+            name
+        )
     }
 
     fun addCacheModule(module: IV8Module) {

@@ -23,10 +23,6 @@ public class ScriptDirPathPreference extends EditTextPreference {
     public ScriptDirPathPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
-    @Override
-    public int getDialogLayoutResource() {
-        return  R.layout.script_dir_pref_radio_group;
-    }
 
 }
 

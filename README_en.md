@@ -109,17 +109,17 @@ Command description: Run the command in the project root directory, if using Win
 
 ##### Install the debug build locally to the device：
 ```shell
-./gradlew app:buildDebugTemplateApp && ./gradlew app:assembleV6Debug && ./gradlew app:installV6Debug
+./gradlew app:buildDebugTemplateApp && ./gradlew app:assembleV7Debug && ./gradlew app:installV7Debug
 #or
-./gradlew app:buildDebugTemplateApp ; ./gradlew app:assembleV6Debug ; ./gradlew app:installV6Debug
+./gradlew app:buildDebugTemplateApp ; ./gradlew app:assembleV7Debug ; ./gradlew app:installV7Debug
 ```
 The generated debug version APK file is under app/build/outputs/apk/v6/debug with the default signature
 
 ##### Compile the release version locally：
 ```shell
-./gradlew app:buildTemplateApp && ./gradlew inrt:cp2APP && ./gradlew app:assembleV6
+./gradlew app:buildTemplateApp  && ./gradlew app:assembleV7
 #or
-./gradlew app:buildTemplateApp ; ./gradlew inrt:cp2APP ; ./gradlew app:assembleV6
+./gradlew app:buildTemplateApp  ; ./gradlew app:assembleV7
 ```
 The generated APK file is an unsigned APK file. Under app/build/outputs/apk/v6/release, it needs to be signed before it can be installed.
 

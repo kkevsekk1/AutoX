@@ -1,0 +1,14 @@
+{
+    "entryPoints": ["./src/*"],
+    "out": "./docs",
+    "plugin": ["typedoc-plugin-markdown"],
+    "hidePageHeader": true,
+    "hideBreadcrumbs": true,
+    "useCodeBlocks": true,
+    "expandParameters": false,
+    "parametersFormat":"table",
+    "outputFileStrategy":"modules",
+    "mergeReadme": true,
+
+    "excludeExternals": true
+}

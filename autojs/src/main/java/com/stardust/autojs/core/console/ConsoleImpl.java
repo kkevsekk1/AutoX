@@ -2,6 +2,7 @@ package com.stardust.autojs.core.console;
 
 import android.content.Context;
 import android.content.Intent;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -13,6 +14,7 @@ import android.view.WindowManager;
 import com.stardust.autojs.R;
 import com.stardust.autojs.annotation.ScriptInterface;
 import com.stardust.autojs.runtime.ScriptRuntime;
+import com.stardust.autojs.runtime.ScriptRuntimeV2;
 import com.stardust.autojs.runtime.api.AbstractConsole;
 import com.stardust.autojs.runtime.api.Console;
 import com.stardust.autojs.runtime.exception.ScriptInterruptedException;
@@ -34,19 +36,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ConsoleImpl extends AbstractConsole {
 
-    private int maxLines=-1;
+    private int maxLines = -1;
+
     public static class LogEntry implements Comparable<LogEntry> {
 
         public int id;
         public int level;
         public CharSequence content;
         public boolean newLine = false;
-
-        public LogEntry(int id, int level, CharSequence content) {
-            this.id = id;
-            this.level = level;
-            this.content = content;
-        }
 
         public LogEntry(int id, int level, CharSequence content, boolean newLine) {
             this.id = id;
@@ -70,12 +67,12 @@ public class ConsoleImpl extends AbstractConsole {
     private final Object WINDOW_SHOW_LOCK = new Object();
     private final Console mGlobalConsole;
     private final ArrayList<LogEntry> mLogEntries = new ArrayList<>();
-    private AtomicInteger mIdCounter = new AtomicInteger(0);
-    private ResizableExpandableFloatyWindow mFloatyWindow;
-    private ConsoleFloaty mConsoleFloaty;
+    private final AtomicInteger mIdCounter = new AtomicInteger(0);
+    private final ResizableExpandableFloatyWindow mFloatyWindow;
+    private final ConsoleFloaty mConsoleFloaty;
     private WeakReference<LogListener> mLogListener;
-    private UiHandler mUiHandler;
-    private BlockingQueue<String> mInput = new ArrayBlockingQueue<>(1);
+    private final UiHandler mUiHandler;
+    private final BlockingQueue<String> mInput = new ArrayBlockingQueue<>(1);
     private WeakReference<ConsoleView> mConsoleView;
     private volatile boolean mShown = false;
     private int mX, mY;
@@ -120,11 +117,11 @@ public class ConsoleImpl extends AbstractConsole {
     }
 
     public void printAllStackTrace(Throwable t) {
-        println(android.util.Log.ERROR, ScriptRuntime.getStackTrace(t, true));
+        println(android.util.Log.ERROR, ScriptRuntimeV2.Companion.getStackTrace(t, true));
     }
 
     public String getStackTrace(Throwable t) {
-        return ScriptRuntime.getStackTrace(t, false);
+        return ScriptRuntimeV2.Companion.getStackTrace(t, false);
     }
 
     @Override
@@ -139,16 +136,16 @@ public class ConsoleImpl extends AbstractConsole {
         if (mLogListener != null && mLogListener.get() != null) {
             mLogListener.get().onNewLog(logEntry);
         }
-        if(maxLines>0&& mLogEntries.size()>maxLines){
+        if (maxLines > 0 && mLogEntries.size() > maxLines) {
             clear();
         }
         return null;
     }
 
     @Override
-    public void setTitle(CharSequence title, String color,int size) {
-        if(TextUtils.isEmpty(color)){
-            color="#fe14efb1";
+    public void setTitle(CharSequence title, String color, int size) {
+        if (TextUtils.isEmpty(color)) {
+            color = "#fe14efb1";
         }
         mConsoleFloaty.setTitle(title, Color.parseColor(color), size);
 
@@ -159,16 +156,16 @@ public class ConsoleImpl extends AbstractConsole {
 
     }
 
-    public void setTitle(CharSequence title,String color) {
-        if(TextUtils.isEmpty(color)){
-            color="#fe14efb1";
+    public void setTitle(CharSequence title, String color) {
+        if (TextUtils.isEmpty(color)) {
+            color = "#fe14efb1";
         }
         mConsoleFloaty.setTitle(title, Color.parseColor(color), -1);
     }
 
     @Override
     public void setBackground(@Nullable String color) {
-        if(mConsoleView.get()==null){
+        if (mConsoleView.get() == null) {
             Log.e(ConsoleImpl.class.getName(), "设置不生效，console没创建创建 ");
             return;
         }
@@ -179,18 +176,20 @@ public class ConsoleImpl extends AbstractConsole {
     public void setLogSize(int size) {
         mConsoleView.get().setLogSize(size);
     }
+
     @Override
-    public void  setCanInput(boolean can){
-        if(mConsoleView.get()==null){
+    public void setCanInput(boolean can) {
+        if (mConsoleView.get() == null) {
             Log.e(ConsoleImpl.class.getName(), "设置不生效，console没创建创建 ");
             return;
         }
-        if(can){
+        if (can) {
             mConsoleView.get().showEditText();
-        }else{
+        } else {
             mConsoleView.get().hideEditText();
         }
     }
+
     @Override
     public void write(int level, CharSequence charSequence) {
         println(level, charSequence);
@@ -268,7 +267,7 @@ public class ConsoleImpl extends AbstractConsole {
 
     @Override
     public void setMaxLines(int maxLines) {
-        this.maxLines =maxLines;
+        this.maxLines = maxLines;
     }
 
 
@@ -328,7 +327,6 @@ public class ConsoleImpl extends AbstractConsole {
     boolean submitInput(@NonNull CharSequence input) {
         return mInput.offer(input.toString());
     }
-
 
 
     @Override

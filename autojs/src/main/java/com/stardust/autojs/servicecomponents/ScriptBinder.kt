@@ -26,6 +26,8 @@ class ScriptBinder(service: IndependentScriptService, val scope: CoroutineScope)
                 Action.STOP_SCRIPT.id -> stopScript(data)
                 Action.STOP_ALL_SCRIPT.id -> stopAllScript()
                 Action.REGISTER_GLOBAL_SCRIPT_LISTENER.id -> registerGlobalScriptListener(data)
+                Action.REGISTER_GLOBAL_CONSOLE_LISTENER.id -> registerGlobalConsoleListener(data)
+                else -> Log.w(TAG, "unknown action id = $code")
             }
             Log.d(TAG, "action id = $code, complete")
             return@runBlocking true
@@ -80,6 +82,13 @@ class ScriptBinder(service: IndependentScriptService, val scope: CoroutineScope)
         val listener = BinderScriptListener.ServerInterface(binder)
         AutoJs.instance.scriptEngineService.registerGlobalScriptExecutionListener(listener)
     }
+    private fun registerGlobalConsoleListener(data: Parcel){
+        val binder = data.readStrongBinder()
+        val listener = BinderConsoleListener.ServerInterface(binder)
+        val sub = AutoJs.instance.globalConsole.createObservable().subscribe {
+            listener.onPrintln(it)
+        }
+    }
 
     enum class Action(val id: Int) {
         START(1),
@@ -88,7 +97,8 @@ class ScriptBinder(service: IndependentScriptService, val scope: CoroutineScope)
         RUN_SCRIPT(4),
         STOP_SCRIPT(5),
         STOP_ALL_SCRIPT(6),
-        REGISTER_GLOBAL_SCRIPT_LISTENER(7)
+        REGISTER_GLOBAL_SCRIPT_LISTENER(7),
+        REGISTER_GLOBAL_CONSOLE_LISTENER(8),
     }
 
     companion object {

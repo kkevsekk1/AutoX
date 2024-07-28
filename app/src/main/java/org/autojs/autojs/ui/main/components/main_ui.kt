@@ -22,10 +22,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.stardust.util.IntentUtil
 import org.autojs.autojs.ui.log.LogActivityKt
 import org.autojs.autojs.ui.main.web.DocumentSourceSelectDialog
 import org.autojs.autojs.ui.main.web.EditorAppManager.Companion.loadHomeDocument
+import org.autojs.autojs.ui.main.web.EditorAppManager.Companion.openDocument
 import org.autojs.autoxjs.R
 
 //主界面日志按钮
@@ -64,9 +64,7 @@ fun DocumentPageMenuButton(getWebView: () -> WebView) {
             }
             DropdownMenuItem(onClick = {
                 dismissMenu()
-                getWebView().url?.let {
-                    IntentUtil.browse(context, it)
-                }
+                openDocument(context)
             }) {
                 Icon(
                     painterResource(id = R.drawable.ic_external_link),

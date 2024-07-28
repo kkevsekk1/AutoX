@@ -80,7 +80,6 @@ import org.autojs.autojs.Pref
 import org.autojs.autojs.external.foreground.ForegroundService
 import org.autojs.autojs.timing.TimedTaskScheduler
 import org.autojs.autojs.ui.build.ProjectConfigActivity
-import org.autojs.autojs.ui.build.ProjectConfigActivity_
 import org.autojs.autojs.ui.common.ScriptOperations
 import org.autojs.autojs.ui.compose.theme.AutoXJsTheme
 import org.autojs.autojs.ui.compose.widget.MyIcon
@@ -121,7 +120,7 @@ class MainActivity : FragmentActivity() {
         if (Pref.isForegroundServiceEnabled()) ForegroundService.start(this)
         else ForegroundService.stop(this)
 
-        if (Pref.isFloatingMenuShown() && !FloatyWindowManger.isCircularMenuShowing()) {
+        if (Pref.isFloatingMenuShown()) {
             if (DrawOverlaysPermission.isCanDrawOverlays(this)) FloatyWindowManger.showCircularMenu()
             else Pref.setFloatingMenuShown(false)
         }
@@ -500,23 +499,15 @@ fun TopAppBarMenu(
     }
 }
 
-@OptIn(ExperimentalPermissionsApi::class)
 @Composable
 private fun NewDirectory(
     context: Context,
     scriptListFragment: ScriptListFragment,
     onDismissRequest: () -> Unit
 ) {
-    val permission = rememberExternalStoragePermissionsState {
-        if (it) getScriptOperations(
-            context,
-            scriptListFragment.explorerView
-        ).newDirectory()
-        else showExternalStoragePermissionToast(context)
-    }
     DropdownMenuItem(onClick = {
         onDismissRequest()
-        permission.launchMultiplePermissionRequest()
+        getScriptOperations(context, scriptListFragment.explorerView).newDirectory()
     }) {
         MyIcon(
             painter = painterResource(id = R.drawable.ic_floating_action_menu_dir),
@@ -534,16 +525,9 @@ private fun NewFile(
     scriptListFragment: ScriptListFragment,
     onDismissRequest: () -> Unit
 ) {
-    val permission = rememberExternalStoragePermissionsState {
-        if (it) getScriptOperations(
-            context,
-            scriptListFragment.explorerView
-        ).newFile()
-        else showExternalStoragePermissionToast(context)
-    }
     DropdownMenuItem(onClick = {
         onDismissRequest()
-        permission.launchMultiplePermissionRequest()
+        getScriptOperations(context, scriptListFragment.explorerView).newFile()
     }) {
         MyIcon(
             painter = painterResource(id = R.drawable.ic_floating_action_menu_file),
@@ -561,16 +545,9 @@ private fun ImportFile(
     scriptListFragment: ScriptListFragment,
     onDismissRequest: () -> Unit
 ) {
-    val permission = rememberExternalStoragePermissionsState {
-        if (it) getScriptOperations(
-            context,
-            scriptListFragment.explorerView
-        ).importFile()
-        else showExternalStoragePermissionToast(context)
-    }
     DropdownMenuItem(onClick = {
         onDismissRequest()
-        permission.launchMultiplePermissionRequest()
+        getScriptOperations(context, scriptListFragment.explorerView).importFile()
     }) {
         MyIcon(
             painter = painterResource(id = R.drawable.ic_floating_action_menu_open),
@@ -589,13 +566,10 @@ private fun NewProject(
 ) {
     DropdownMenuItem(onClick = {
         onDismissRequest()
-        ProjectConfigActivity_.intent(context)
-            .extra(
-                ProjectConfigActivity.EXTRA_PARENT_DIRECTORY,
-                scriptListFragment.explorerView.currentPage?.path
-            )
-            .extra(ProjectConfigActivity.EXTRA_NEW_PROJECT, true)
-            .start()
+        ProjectConfigActivity.newProject(
+            context,
+            scriptListFragment.explorerView.currentPage!!.toScriptFile()
+        )
     }) {
         MyIcon(
             painter = painterResource(id = R.drawable.ic_project2),

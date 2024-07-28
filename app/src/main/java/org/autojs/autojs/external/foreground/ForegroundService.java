@@ -1,6 +1,7 @@
 package org.autojs.autojs.external.foreground;
 
 import static android.app.PendingIntent.FLAG_IMMUTABLE;
+import static android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -26,14 +27,10 @@ public class ForegroundService extends Service {
     private static final String CHANEL_ID = ForegroundService.class.getName() + ".foreground";
 
     public static void start(Context context) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            context.startForegroundService(new Intent(context, ForegroundService.class));
-        } else {
-            context.startService(new Intent(context, ForegroundService.class));
-        }
+        context.startForegroundService(new Intent(context, ForegroundService.class));
     }
 
-    public static void stop(Context context){
+    public static void stop(Context context) {
         context.stopService(new Intent(context, ForegroundService.class));
     }
 
@@ -50,16 +47,17 @@ public class ForegroundService extends Service {
     }
 
     private void startForeground() {
-        startForeground(NOTIFICATION_ID, buildNotification());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            startForeground(FOREGROUND_SERVICE_TYPE_SPECIAL_USE, buildNotification());
+        } else {
+            startForeground(NOTIFICATION_ID, buildNotification());
+        }
     }
 
     private Notification buildNotification() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            createNotificationChannel();
-        }
-//        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, MainActivity_.intent(this).get(), 0);
-        int flags = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? FLAG_IMMUTABLE : 0;
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), flags);
+        createNotificationChannel();
+        //        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, MainActivity_.intent(this).get(), 0);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), FLAG_IMMUTABLE);
         return new NotificationCompat.Builder(this, CHANEL_ID)
                 .setContentTitle(getString(R.string.foreground_notification_title))
                 .setContentText(getString(R.string.foreground_notification_text))
@@ -71,7 +69,6 @@ public class ForegroundService extends Service {
                 .build();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private void createNotificationChannel() {
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         assert manager != null;
@@ -87,6 +84,5 @@ public class ForegroundService extends Service {
     public void onDestroy() {
         stopForeground(true);
         super.onDestroy();
-
     }
 }

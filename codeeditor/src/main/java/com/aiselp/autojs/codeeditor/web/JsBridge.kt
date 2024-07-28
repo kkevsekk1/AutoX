@@ -1,22 +1,20 @@
 package com.aiselp.autojs.codeeditor.web
 
-import android.os.Build
 import android.os.Looper
 import android.util.Log
 import android.webkit.JavascriptInterface
 import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
-import androidx.annotation.RequiresApi
 import androidx.webkit.WebViewClientCompat
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.annotations.Expose
+import com.stardust.util.IntentUtil
 import java.io.ByteArrayOutputStream
 import kotlin.random.Random
 
 
-@RequiresApi(Build.VERSION_CODES.M)
 class JsBridge(private val webView: WebView) {
     companion object {
         const val WEBOBJECTNAME = "\$autox"
@@ -189,6 +187,10 @@ class JsBridge(private val webView: WebView) {
             if (view != null) {
                 injectionJsBridge(view)
             }
+        }
+        override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
+            IntentUtil.browse(view.context, request.url.toString())
+            return true
         }
     }
 }

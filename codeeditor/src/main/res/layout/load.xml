@@ -10,14 +10,13 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        >
+        android:paddingRight="20dp">
 
         <ProgressBar
             android:id="@+id/progressBar2"
             style="?android:attr/progressBarStyle"
-            android:layout_width="89dp"
-            android:layout_height="86dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp" />
 
         <TextView
@@ -26,8 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:maxLines="2"
-            android:text="TextView"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

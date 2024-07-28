@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -8,24 +7,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background"
         android:fitsSystemWindows="true"
         android:orientation="vertical">
 
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:theme="@style/AppTheme.AppBarOverlay">
+            android:layout_height="wrap_content">
 
-            <com.stardust.theme.widget.ThemeColorToolbar
+            <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                android:theme="@style/ToolBarStyle"
-                app:popupTheme="@style/AppTheme.PopupOverlay"
-                app:title="@string/text_about"/>
+                android:layout_height="wrap_content"
+                app:title="@string/text_about" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -39,7 +33,6 @@
                 android:id="@+id/icon_container"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="@color/surface"
                 android:clickable="true"
                 android:foreground="?selectableItemBackgroundBorderless">
 
@@ -59,7 +52,7 @@
                     android:layout_marginTop="16dp"
                     android:gravity="center"
                     android:textColor="#777777"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
 
             </RelativeLayout>
 
@@ -76,21 +69,21 @@
                     android:gravity="center"
                     android:text="@string/copyright"
                     android:textColor="@color/on_surface"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
             </RelativeLayout>
         </LinearLayout>
 
     </LinearLayout>
 
-    <com.stardust.theme.widget.ThemeColorFloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="32dp"
         android:clickable="true"
-        android:src="@drawable/ic_share_white_48dp"
-        app:tint="@color/on_secondary"
-        app:layout_anchor="@id/icon_container"
-        app:layout_anchorGravity="bottom|right|end"/>
+        android:contentDescription="@string/share_app"
+        app:srcCompat="@drawable/ic_share_white_48dp"
+        app:tint="@color/on_secondary" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

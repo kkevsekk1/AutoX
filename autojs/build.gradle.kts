@@ -16,16 +16,25 @@ android {
     buildTypes {
         named("release") {
             isMinifyEnabled = false
-            setProguardFiles(listOf(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"))
+            setProguardFiles(
+                listOf(
+                    getDefaultProguardFile("proguard-android.txt"),
+                    "proguard-rules.pro"
+                )
+            )
         }
     }
-
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = compose_version
+    }
 
     lint.abortOnError = false
     sourceSets {
         named("main") {
-//            jniLibs.srcDirs = listOf("src/main/jniLibs")
-            res.srcDirs("src/main/res","src/main/res-i18n")
+            res.srcDirs("src/main/res", "src/main/res-i18n")
         }
     }
     compileOptions {
@@ -37,14 +46,18 @@ android {
 
 dependencies {
     androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs.test.runner)
+    androidTestImplementation(libs.test.rules)
     debugImplementation(libs.leakcanary.android)
     implementation(libs.leakcanary.`object`.watcher.android)
     testImplementation(libs.junit)
 
+    implementation(libs.coil.compose)
     implementation(libs.glide)
     implementation(libs.documentfile)
     implementation(libs.preference.ktx)
-    implementation("com.caoccao.javet:javet-android-node:3.1.0")
+    implementation(libs.javet.android.node)
+    api(libs.rxjava3.rxandroid)
     api(libs.eventbus)
     api("net.lingala.zip4j:zip4j:1.3.2")
     api("com.afollestad.material-dialogs:core:0.9.2.3")
@@ -59,9 +72,6 @@ dependencies {
     api("com.github.Stericson:RootShell:1.6")
     // Gson
     api(libs.google.gson)
-    // log4j
-    api(group = "de.mindpipe.android", name = "android-logging-log4j", version = "1.0.3")
-    api(group = "log4j", name = "log4j", version = "1.2.17")
     api(project(path = ":common"))
     api(project(path = ":automator"))
     api(project(path = ":LocalRepo:libtermexec"))
@@ -71,12 +81,23 @@ dependencies {
     api(project(path = ":LocalRepo:OpenCV"))
     api(project(":paddleocr"))
     // libs
-    api(fileTree("../app/libs"){include("dx.jar", "rhino-1.7.14-jdk7.jar")})
-    api("cz.adaptech:tesseract4android:4.1.1")
-    api("com.google.mlkit:text-recognition:16.0.0-beta5")
-    api("com.google.mlkit:text-recognition-chinese:16.0.0-beta5")
-    api("com.google.mlkit:text-recognition-devanagari:16.0.0-beta5")
-    api("com.google.mlkit:text-recognition-japanese:16.0.0-beta5")
-    api("com.google.mlkit:text-recognition-korean:16.0.0-beta5")
+    api(fileTree("./libs") { include("dx.jar", "rhino-1.7.14-jdk7.jar") })
+    implementation("cz.adaptech:tesseract4android:4.1.1")
+    implementation(libs.bundles.mlkit)
 }
 
+tasks.register("buildJsModule") {
+    val jsApiDir= File(projectDir, "src/js-api")
+    val jsModuleDir = File(projectDir, "src/main/assets/v7modules")
+    doFirst {
+        exec {
+            workingDir = jsApiDir
+            commandLine("node", "build.mjs")
+        }
+        delete(jsModuleDir)
+        copy {
+            from(File(jsApiDir, "dist"))
+            into(jsModuleDir)
+        }
+    }
+}

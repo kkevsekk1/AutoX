@@ -21,7 +21,6 @@ import java.io.File
 import java.util.zip.ZipEntry
 import java.util.zip.ZipInputStream
 
-@RequiresApi(Build.VERSION_CODES.M)
 class EditorAppManager(val context: Activity) {
     companion object {
         const val TAG = "EditorAppManager"

@@ -8,25 +8,18 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("com.jakewharton.butterknife")
-    id("kotlin-kapt")
+    id("kotlin-kapt")//Deprecated!!
+    id("com.google.devtools.ksp")
 }
-
-//val SupportLibVersion = "28.0.0"
 
 val propFile: File = File("E:/资料/jks/autojs-app/sign.properties");
 val properties = Properties()
 if (propFile.exists()) {
-    propFile.inputStream().reader().use {
+    propFile.reader().use {
         properties.load(it)
     }
 }
 
-//configurations.all {
-//    resolutionStrategy {
-//        force("com.android.support:appcompat-v7:${SupportLibVersion}")
-//        force("com.android.support:support-v4:${SupportLibVersion}")
-//    }
-//}
 android {
     compileSdk = versions.compile
     defaultConfig {
@@ -44,12 +37,10 @@ android {
                 arguments["androidManifestFile"] = "$projectDir/src/main/AndroidManifest.xml"
             }
         }
-        ndk {
-            abiFilters.addAll(listOf("arm64-v8a", "armeabi-v7a"))
-        }
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = compose_version
@@ -74,24 +65,18 @@ android {
         }
     }
     splits {
-
         // Configures multiple APKs based on ABI.
         abi {
-
             // Enables building multiple APKs per ABI.
             isEnable = true
-
             // By default all ABIs are included, so use reset() and include to specify that we only
             // want APKs for x86 and x86_64.
-
             // Resets the list of ABIs that Gradle should create APKs for to none.
             reset()
-
             // Specifies a list of ABIs that Gradle should create APKs for.
-            include("armeabi-v7a", "arm64-v8a")
-
+            include( "arm64-v8a")
             // Specifies that we do not want to also generate a universal APK that includes all ABIs.
-            isUniversalApk = true
+            isUniversalApk = false
         }
     }
     buildTypes {
@@ -129,23 +114,20 @@ android {
             versionCode = versions.appVersionCode
             versionName = versions.appVersionName
             buildConfigField("String", "CHANNEL", "\"common\"")
-//            buildConfigField("String", "APPID", "\"?id=21\"")
             manifestPlaceholders.putAll(mapOf("appName" to "@string/app_name"))
         }
-        create("v6") {
-            applicationIdSuffix = ".v6"
+        create("v7") {
+            applicationIdSuffix = ".v7"
             versionCode = versions.devVersionCode
             versionName = versions.devVersionName
-            buildConfigField("String", "CHANNEL", "\"v6\"")
-//            buildConfigField("String", "APPID", "\"?id=23\"")
-            manifestPlaceholders.putAll(mapOf("appName" to "Autox.js v6"))
+            buildConfigField("String", "CHANNEL", "\"v7\"")
+            manifestPlaceholders.putAll(mapOf("appName" to "Autox.js v7"))
         }
     }
 
     sourceSets {
         getByName("main") {
             res.srcDirs("src/main/res", "src/main/res-i18n")
-            jniLibs.srcDirs("/libs")
         }
     }
 
@@ -156,7 +138,7 @@ android {
         exclude(group = "com.github.atlassian.commonmark-java", module = "commonmark")
     }
 
-    packagingOptions {
+    packaging {
         //ktor netty implementation("io.ktor:ktor-server-netty:2.0.1")
         resources.pickFirsts.addAll(
             listOf(
@@ -173,8 +155,9 @@ dependencies {
     val AAVersion = "4.5.2"
 
     implementation(platform(libs.compose.bom))
+    // Deprecated!!
     implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.1.0")
-    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.androidx.webkit)
 
     implementation(libs.bundles.accompanist)
@@ -190,34 +173,32 @@ dependencies {
     testImplementation(libs.junit)
     // Kotlin携程
     implementation(libs.kotlinx.coroutines.android)
-    // Android Annotations
-    annotationProcessor("org.androidannotations:androidannotations:$AAVersion")
+    // Android Annotations Deprecated!!
     kapt("org.androidannotations:androidannotations:$AAVersion")
     //noinspection GradleDependency
     implementation("org.androidannotations:androidannotations-api:$AAVersion")
-    // ButterKnife
+    // ButterKnife Deprecated!!
     implementation("com.jakewharton:butterknife:10.2.1")
-    annotationProcessor("com.jakewharton:butterknife-compiler:10.2.3")
     kapt("com.jakewharton:butterknife-compiler:10.2.3")
     // Android supports
     implementation(libs.preference.ktx)
     implementation(libs.appcompat) //
-    implementation("androidx.cardview:cardview:1.0.0")
+
     implementation(libs.material)
-    // Personal libraries
+    implementation(libs.compose.material3)
+    implementation(libs.compose.material3.window.size)
+    implementation(libs.compose.material3.adaptive.navigation.suite)
+    // Personal libraries  Deprecated!!
     implementation("com.github.hyb1996:MutableTheme:1.0.0")
-    // Material Dialogs
+    // Material Dialogs  Deprecated!!
     implementation("com.afollestad.material-dialogs:core:0.9.2.3")
     // Common Markdown
     implementation("com.github.atlassian:commonmark-java:commonmark-parent-0.9.0")
     // Android issue reporter (a github issue reporter)
-    implementation("com.heinrichreimersoftware:android-issue-reporter:1.3.1") {
-        exclude(group = "com.afollestad.material-dialogs")
-        exclude(group = "com.android.support")
-    }
+    implementation("com.heinrichreimersoftware:android-issue-reporter:1.3.1")
     //MultiLevelListView
     implementation("com.github.hyb1996:android-multi-level-listview:1.1")
-    //Licenses Dialog
+    //Licenses Dialog  Deprecated!!
     implementation("de.psdev.licensesdialog:licensesdialog:2.2.0")
     //Expandable RecyclerView
     implementation("com.bignerdranch.android:expandablerecyclerview:3.0.0-RC1")
@@ -232,7 +213,7 @@ dependencies {
     //Expandable RecyclerView
     implementation("com.thoughtbot:expandablerecyclerview:1.3")
 //    implementation("org.signal.autox:apkbuilder:1.0.3")
-    // RxJava
+    // RxJava  Deprecated!!
     implementation(libs.rxjava2)
     implementation(libs.rxjava2.rxandroid)
     // Retrofit
@@ -244,7 +225,7 @@ dependencies {
     implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
     //Glide
     implementation(libs.glide)
-    kapt(libs.glide.compiler)
+    ksp(libs.glide.ksp)
     //joda time
     implementation("net.danlew:android.joda:2.10.14")
     // Tasker Plugin
@@ -253,7 +234,7 @@ dependencies {
     implementation("com.flurry.android:analytics:13.1.0@aar")
     // tencent
     implementation("com.tencent.bugly:crashreport:4.0.0")
-    api("com.tencent.tbs:tbssdk:44181")
+    implementation("com.tencent.tbs:tbssdk:44181")
     // MaterialDialogCommon
     implementation("com.afollestad.material-dialogs:commons:0.9.2.3")
     // WorkManager
@@ -276,7 +257,7 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.savedstate)
     implementation(libs.lifecycle.service)
     // Annotation processor
-    kapt(libs.lifecycle.compiler)
+    ksp(libs.lifecycle.compiler)
 
     implementation(libs.androidx.savedstate.ktx)
     implementation(libs.androidx.savedstate)
@@ -290,7 +271,7 @@ dependencies {
     //TextView markdown
     implementation("io.noties.markwon:core:4.6.2")
     implementation("androidx.viewpager2:viewpager2:1.1.0-beta01")
-    implementation("io.coil-kt:coil-compose:2.0.0-rc03")
+    implementation(libs.coil.compose)
 }
 
 fun copyTemplateToAPP(isDebug: Boolean, to: File) {

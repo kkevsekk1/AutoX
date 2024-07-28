@@ -18,6 +18,23 @@ interface BinderScriptListener {
         return ClientInterface(this, scope)
     }
 
+    fun toScriptExecutionListener(): ScriptExecutionListener {
+        return object : ScriptExecutionListener {
+            override fun onStart(execution: ScriptExecution) {
+                onStart(TaskInfo.ExecutionTaskInfo(execution))
+            }
+
+            override fun onSuccess(execution: ScriptExecution, result: Any?) {
+                onSuccess(TaskInfo.ExecutionTaskInfo(execution))
+            }
+
+            override fun onException(execution: ScriptExecution, e: Throwable) {
+                onException(TaskInfo.ExecutionTaskInfo(execution), e)
+            }
+
+        }
+    }
+
     class ServerInterface(val binder: IBinder) : BinderScriptListener, ScriptExecutionListener {
 
         fun connect(code: Int, taskInfo: TaskInfo, binderAction: TanBinder.() -> Unit) {

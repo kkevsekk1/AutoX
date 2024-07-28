@@ -7,6 +7,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import com.aiselp.autox.engine.NodeScriptEngine
+import com.google.mlkit.common.MlKit
 import com.stardust.app.SimpleActivityLifecycleCallbacks
 import com.stardust.autojs.core.accessibility.AccessibilityBridge
 import com.stardust.autojs.core.activity.ActivityInfoProvider
@@ -59,6 +60,7 @@ abstract class AutoJs protected constructor(protected val application: Applicati
     val globalConsole: GlobalConsole by lazy { createGlobalConsole() }
 
     init {
+        MlKit.initialize(application)
         scriptEngineService = buildScriptEngineService()
         ScriptEngineService.instance = scriptEngineService
         addAccessibilityServiceDelegates()

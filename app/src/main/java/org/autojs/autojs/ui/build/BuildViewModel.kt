@@ -18,7 +18,6 @@ import com.stardust.autojs.project.Constant
 import com.stardust.autojs.project.ProjectConfig
 import com.stardust.pio.PFiles
 import com.stardust.toast
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.launchIn
@@ -33,7 +32,10 @@ import org.autojs.autojs.build.ApkSigner
 import org.autojs.autojs.model.explorer.ExplorerFileItem
 import org.autojs.autojs.model.explorer.Explorers
 import org.autojs.autojs.model.script.ScriptFile
-import org.autojs.autojs.tool.*
+import org.autojs.autojs.tool.addIfNotExist
+import org.autojs.autojs.tool.getRandomString
+import org.autojs.autojs.tool.parseUriOrNull
+import org.autojs.autojs.tool.saveIcon
 import org.autojs.autoxjs.R
 import java.io.File
 import java.net.URLDecoder
@@ -57,7 +59,7 @@ class BuildViewModelFactory(
  */
 class BuildViewModel(private val app: Application, private var source: String) :
     AndroidViewModel(app) {
-    private val mainScope = CoroutineScope(Dispatchers.Main)
+    private val mainScope = viewModelScope
 
     companion object {
         const val TAG = "BuildViewModel"

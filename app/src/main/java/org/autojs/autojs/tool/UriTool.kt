@@ -1,6 +1,8 @@
 package org.autojs.autojs.tool
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import androidx.core.content.FileProvider
@@ -23,4 +25,8 @@ fun File.toContentUri(context: Context): Uri {
 fun parseUriOrNull(uriString: String): Uri? {
     return if (uriString.matches(Regex("^.+://.+$"))) Uri.parse(uriString)
     else null
+}
+
+fun <T : Activity> Context.startActivity(clazz: Class<T>) {
+    this.startActivity(Intent(this, clazz))
 }

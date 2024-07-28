@@ -6,7 +6,7 @@ import com.caoccao.javet.values.reference.V8ValueError
 import kotlinx.coroutines.CompletableDeferred
 
 class PromiseListener : IV8ValuePromise.IListener {
-    private val result = CompletableDeferred<String>()
+    val result = CompletableDeferred<Any?>()
     var stack: String? = null
 
     @Volatile
@@ -23,7 +23,9 @@ class PromiseListener : IV8ValuePromise.IListener {
 
     override fun onFulfilled(v8Value: V8Value?) {
         isFulfilledCalled = true
-        result.complete(v8Value.toString())
+        if (v8Value != null) {
+            result.complete(v8Value.v8Runtime.converter.toObject(v8Value))
+        } else result.complete(null)
     }
 
     override fun onRejected(v8Value: V8Value?) {
@@ -31,10 +33,10 @@ class PromiseListener : IV8ValuePromise.IListener {
         if (v8Value is V8ValueError) {
             stack = v8Value.stack
         }
-        result.complete(v8Value.toString())
+        result.complete(v8Value?.v8Runtime?.converter?.toObject(v8Value))
     }
 
-    suspend fun await(): String {
+    suspend fun await(): Any? {
         return result.await()
     }
 
