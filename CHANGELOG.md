@@ -3,6 +3,14 @@ autoxjs 整个项目的一些更新日志,双版本号为稳定版（内容以�
 
 ## [Unreleased](https://github.com/kkevsekk1/AutoX/compare/6.6.0...HEAD) 未发布
 
+## [7.0.1] - 2024-7-29
+
+* v7版本更新 by @aiselp
+
+[7.0.1]:https://github.com/kkevsekk1/AutoX/compare/6.6.0...7.0.1
+
+
+
 
 
 ## [6.6.0] - 2024-4-21
