@@ -1,8 +1,8 @@
 {
-  "appVersionCode": 700,
-  "appVersionName": "7.0.0",
-  "devVersionCode": 700,
-  "devVersionName": "7.0.0",
+  "appVersionCode": 701,
+  "appVersionName": "7.0.1",
+  "devVersionCode": 701,
+  "devVersionName": "7.0.1",
   "compile": 34,
   "target": 34,
   "mini": 27,
