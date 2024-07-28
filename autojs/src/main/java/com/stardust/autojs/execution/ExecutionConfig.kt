@@ -16,12 +16,7 @@ data class ExecutionConfig(
     var loopTimes: Int = 1,
     var scriptConfig: ScriptConfig = ScriptConfig()
 ) : Parcelable {
-
-
-    private val mArguments = HashMap<String, Any>()
-
-    val arguments: Map<String, Any>
-        get() = mArguments
+    val arguments = mutableMapOf<String, Any?>()
 
     constructor(parcel: Parcel) : this(
         parcel.readString().orEmpty(),
@@ -32,12 +27,12 @@ data class ExecutionConfig(
         parcel.readInt()
     )
 
-    fun setArgument(key: String, `object`: Any) {
-        mArguments[key] = `object`
+    fun setArgument(key: String, `object`: Any?) {
+        arguments[key] = `object`
     }
 
     fun getArgument(key: String): Any? {
-        return mArguments[key]
+        return arguments[key]
     }
 
     override fun equals(other: Any?): Boolean {
@@ -52,7 +47,7 @@ data class ExecutionConfig(
         if (delay != other.delay) return false
         if (interval != other.interval) return false
         if (loopTimes != other.loopTimes) return false
-        if (mArguments != other.mArguments) return false
+        if (arguments != other.arguments) return false
 
         return true
     }
@@ -64,7 +59,7 @@ data class ExecutionConfig(
         result = 31 * result + delay.hashCode()
         result = 31 * result + interval.hashCode()
         result = 31 * result + loopTimes
-        result = 31 * result + mArguments.hashCode()
+        result = 31 * result + arguments.hashCode()
         return result
     }
 

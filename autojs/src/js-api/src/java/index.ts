@@ -1,4 +1,7 @@
-
+/**
+ * 该模块用于与java交互
+ * @packageDocumentation
+ */
 const java = Autox.java
 /**
  * 采用默认的计算线程池异步调用java方法，返回Promise接受结果

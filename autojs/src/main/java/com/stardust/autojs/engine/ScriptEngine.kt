@@ -20,29 +20,26 @@ import java.util.concurrent.atomic.AtomicInteger
  * If you want to stop the engine in other threads, you should call [ScriptEngine.forceStop].
  */
 interface ScriptEngine<S : ScriptSource?> {
+    var id: Int
+    val isDestroyed: Boolean
+    val uncaughtException: Throwable?
     fun put(name: String, value: Any?)
     fun execute(scriptSource: S): Any?
     fun forceStop()
     fun destroy()
-    val isDestroyed: Boolean
     fun setTag(key: String, value: Any?)
     fun getTag(key: String): Any?
     fun cwd(): String?
     fun uncaughtException(throwable: Throwable?)
-    val uncaughtException: Throwable?
-    var id: Int
-
-    /**
-     * @hide
-     */
     fun setOnDestroyListener(listener: OnDestroyListener)
-
-    /**
-     * @hide
-     */
     fun init()
+
     interface OnDestroyListener {
         fun onDestroy(engine: ScriptEngine<*>)
+    }
+
+    interface EngineEvent {
+        fun emit(name: String, vararg args: Any?)
     }
 
 

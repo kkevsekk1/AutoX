@@ -1,3 +1,8 @@
+/**
+ * 入门
+ * @document README.md
+ * @packageDocumentation
+ */
 import {
     App,
     Component,
@@ -78,6 +83,9 @@ export const xml = htm.bind(h)
 export { setDebug }
 export * from '@vue/runtime-core'
 export * as Icons from './icons'
+/**
+ * 这个对象导出用于设置`Modifier`的函数
+ */
 export { ModifierExtension }
 export { ActivityEventListener }
 export * as Theme from './theme'
