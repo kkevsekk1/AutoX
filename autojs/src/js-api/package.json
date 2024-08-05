@@ -16,6 +16,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-replace": "^5.0.7",
     "@rollup/plugin-typescript": "^11.1.6",
+    "@types/lodash": "^4.17.7",
     "@vue/runtime-core": "^3.4.31",
     "axios": "^1.7.2",
     "gulp": "^5.0.0",

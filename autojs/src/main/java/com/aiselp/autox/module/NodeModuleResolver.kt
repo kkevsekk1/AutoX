@@ -19,8 +19,8 @@ class NodeModuleResolver(
     private val globalModuleDirectory: File
 ) : IV8ModuleResolver {
     private val esModuleCache = mutableMapOf<String, IV8Module>()
-    val require = runtime.getNodeModule(NodeModuleModule::class.java).moduleObject
-        .invoke<V8ValueFunction>(
+    val require: V8ValueFunction = runtime.getNodeModule(NodeModuleModule::class.java).moduleObject
+        .invoke(
             NodeModuleModule.FUNCTION_CREATE_REQUIRE,
             workingDirectory.absolutePath
         )
@@ -34,6 +34,9 @@ class NodeModuleResolver(
             return parsingModule(v8Runtime, Uri.parse(s))
         }
         val uri = Uri.parse(resourceName)
+        if (resourceName.startsWith("/")) {
+            return parsingModule(v8Runtime, uri)
+        }
         return when (uri.scheme) {
             "node" -> loadNodeModule(resourceName)
             null -> run {
