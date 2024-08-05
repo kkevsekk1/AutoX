@@ -1,24 +1,26 @@
 package com.stardust.autojs.core.image.capture
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.media.projection.MediaProjectionManager
 import android.os.Bundle
-import com.stardust.app.OnActivityResultDelegate
-import com.stardust.autojs.core.image.capture.ScreenCaptureRequester.ActivityScreenCaptureRequester
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContract
+import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.platform.LocalContext
 import com.stardust.util.IntentExtras
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.delay
 
 /**
  * Created by Stardust on 2017/5/22.
  */
-class ScreenCaptureRequestActivity : Activity() {
-    interface Callback {
+class ScreenCaptureRequestActivity : AppCompatActivity() {
+    fun interface Callback {
         fun onResult(data: Intent?)
     }
 
-    private val mOnActivityResultDelegateMediator = OnActivityResultDelegate.Mediator()
     private var mCallback: Callback? = null
     private var extraId = 0
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,17 +37,16 @@ class ScreenCaptureRequestActivity : Activity() {
             return
         }
 
-        MainScope().launch {
-            val screenCaptureRequester = ActivityScreenCaptureRequester(
-                mOnActivityResultDelegateMediator,
-                this@ScreenCaptureRequestActivity
-            )
-            val intent = try {
-                screenCaptureRequester.request()
-            } catch (e: Exception) {
-                null
+        setContent {
+            val requester = rememberLauncherForActivityResult(ScreenCaptureRequester()) {
+                mCallback?.onResult(it)
+                finish()
             }
-            mCallback?.onResult(intent)
+            val context = LocalContext.current
+            LaunchedEffect(key1 = Unit) {
+                delay(10)
+                requester.launch(context)
+            }
         }
     }
 
@@ -55,10 +56,14 @@ class ScreenCaptureRequestActivity : Activity() {
         mCallback = null
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        mOnActivityResultDelegateMediator.onActivityResult(requestCode, resultCode, data)
-        IntentExtras.fromIdAndRelease(extraId)
-        finish()
+    class ScreenCaptureRequester : ActivityResultContract<Context, Intent?>() {
+        override fun createIntent(context: Context, input: Context): Intent {
+            return (input.getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager).createScreenCaptureIntent()
+        }
+
+        override fun parseResult(resultCode: Int, intent: Intent?): Intent? {
+            return intent
+        }
     }
 
     companion object {

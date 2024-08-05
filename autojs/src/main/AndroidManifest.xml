@@ -12,6 +12,11 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!-- 前台服务   -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+
     <!--  termux  -->
     <uses-permission android:name="com.termux.permission.RUN_COMMAND" />
     <uses-permission
@@ -46,11 +51,13 @@
         <activity
             android:name="com.stardust.autojs.core.image.capture.ScreenCaptureRequestActivity"
             android:excludeFromRecents="true"
+            android:process="@string/text_script_process_name"
             android:taskAffinity="com.stardust.autojs.runtime.api.image.ScreenCaptureRequestActivity"
             android:theme="@style/ScriptTheme.Transparent" />
 
         <service
             android:name=".IndependentScriptService"
+            android:foregroundServiceType="mediaPlayback"
             android:process="@string/text_script_process_name" />
         <service
             android:name="com.stardust.autojs.core.accessibility.AccessibilityService"

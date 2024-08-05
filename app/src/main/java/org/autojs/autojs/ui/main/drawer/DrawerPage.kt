@@ -60,6 +60,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.window.Dialog
+import androidx.core.content.edit
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.preference.PreferenceManager
 import coil.compose.rememberAsyncImagePainter
@@ -68,6 +69,8 @@ import com.stardust.app.isOpPermissionGranted
 import com.stardust.app.permission.DrawOverlaysPermission
 import com.stardust.app.permission.DrawOverlaysPermission.launchCanDrawOverlaysSettings
 import com.stardust.app.permission.PermissionsSettingsUtil
+import com.stardust.autojs.IndependentScriptService
+import com.stardust.autojs.core.pref.PrefKey
 import com.stardust.enhancedfloaty.FloatyService
 import com.stardust.notification.NotificationListenerService
 import com.stardust.toast
@@ -84,7 +87,6 @@ import kotlinx.coroutines.withContext
 import org.autojs.autojs.Pref
 import org.autojs.autojs.autojs.AutoJs
 import org.autojs.autojs.devplugin.DevPlugin
-import org.autojs.autojs.external.foreground.ForegroundService
 import org.autojs.autojs.tool.AccessibilityServiceTool
 import org.autojs.autojs.tool.WifiTool
 import org.autojs.autojs.ui.build.MyTextField
@@ -341,7 +343,6 @@ private fun BottomButtons() {
 fun exitCompletely(context: Context) {
     if (context is Activity) context.finish()
     FloatyWindowManger.hideCircularMenu()
-    ForegroundService.stop(context)
     context.stopService(Intent(context, FloatyService::class.java))
     AutoJs.getInstance().scriptEngineService.stopAll()
 }
@@ -418,6 +419,7 @@ private fun ConnectComputerSwitch() {
                         ).show()
                     }
                 }
+
                 QRResult.QRUserCanceled -> {}
                 QRResult.QRMissingPermission -> {}
                 is QRResult.QRError -> {}
@@ -602,10 +604,10 @@ private fun FloatingWindowSwitch() {
     val launcher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult(),
         onResult = {
-            if (DrawOverlaysPermission.isCanDrawOverlays(context)){
+            if (DrawOverlaysPermission.isCanDrawOverlays(context)) {
                 FloatyWindowManger.showCircularMenu()
                 isFloatingWindowShowing = true
-            }else isFloatingWindowShowing = false
+            } else isFloatingWindowShowing = false
         }
     )
     SwitchItem(
@@ -693,8 +695,8 @@ private fun UsageStatsPermissionSwitch() {
 private fun ForegroundServiceSwitch() {
     val context = LocalContext.current
     var isOpenForegroundServices by remember {
-        val default = PreferenceManager.getDefaultSharedPreferences(context)
-            .getBoolean(context.getString(R.string.key_foreground_servie), false)
+        val default = com.stardust.autojs.core.pref.Pref.getDefault(context)
+            .getBoolean(PrefKey.KEY_FOREGROUND_SERVIE, false)
         mutableStateOf(default)
     }
     SwitchItem(
@@ -707,15 +709,12 @@ private fun ForegroundServiceSwitch() {
         text = { Text(text = stringResource(id = R.string.text_foreground_service)) },
         checked = isOpenForegroundServices,
         onCheckedChange = {
-            if (it) {
-                ForegroundService.start(context)
-            } else {
-                ForegroundService.stop(context)
+            com.stardust.autojs.core.pref.Pref.getDefault(context).edit(true) {
+                putBoolean(PrefKey.KEY_FOREGROUND_SERVIE, it)
             }
-            PreferenceManager.getDefaultSharedPreferences(context)
-                .edit()
-                .putBoolean(context.getString(R.string.key_foreground_servie), it)
-                .apply()
+            if (it) {
+                IndependentScriptService.startForeground(context)
+            } else IndependentScriptService.stopForeground(context)
             isOpenForegroundServices = it
         }
     )
