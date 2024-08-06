@@ -41,6 +41,10 @@
             android:configChanges="fontScale|keyboard|keyboardHidden|locale|navigation|orientation|screenLayout|screenSize|uiMode"
             android:process="@string/text_script_process_name" />
 
+        <activity
+            android:name="com.aiselp.autox.activity.AppDialogActivity"
+            android:process="@string/text_script_process_name"
+            android:theme="@style/TransparentDialogTheme" />
 
         <activity
             android:name="com.stardust.autojs.core.permission.PermissionRequestActivity"

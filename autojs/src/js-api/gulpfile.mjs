@@ -26,6 +26,17 @@ export async function createPackageFile(cb) {
     )
     cb()
 }
+async function createRootPackageFile(cb) {
+    const n = JSON.parse(await fs.readFile('./package.json', 'utf8'))
+    const packageFile = {
+        name: n.name,
+        version: n.version,
+        description: n.description,
+        type: "module",
+        license: n.license,
+    }
+    await fs.writeFile('./dist/package.json', JSON.stringify(packageFile, undefined, 2))
+}
 
 export const build = series(
     clear,
@@ -37,5 +48,6 @@ export const build = series(
             await Promise.all(option.output.map(bundle.write))
         }
     },
-    createPackageFile
+    createPackageFile,
+    createRootPackageFile,
 )

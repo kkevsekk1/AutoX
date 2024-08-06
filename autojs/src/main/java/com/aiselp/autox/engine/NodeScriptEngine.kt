@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.aiselp.autox.api.JavaInteractor
 import com.aiselp.autox.api.JsClipManager
+import com.aiselp.autox.api.JsDialogs
 import com.aiselp.autox.api.JsEngines
 import com.aiselp.autox.api.JsMedia
 import com.aiselp.autox.api.JsToast
@@ -111,6 +112,7 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
         nativeApiManager.register(JavaInteractor(scope, converter, promiseFactory))
         nativeApiManager.register(JsToast(context, scope))
         nativeApiManager.register(JsMedia(context))
+        nativeApiManager.register(JsDialogs(eventLoopQueue, context, scope))
         nativeApiManager.register(JsEngines(this))
         nativeApiManager.initialize(runtime, global)
     }

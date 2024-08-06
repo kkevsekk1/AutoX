@@ -3,7 +3,7 @@ import { RendererOptions } from '@vue/runtime-core'
 import { PxNode, PxNodeTypes } from './types'
 import { createElement, insertElement, removeElement, setText } from './nativeRender';
 
-
+export type DomRendererOptions = RendererOptions<PxNode, PxElement>
 let nodeId: number = 0
 
 export enum NodeOpTypes {
@@ -93,7 +93,7 @@ export function logNodeOp(op: NodeOp) {
     }
 }
 
-export const nodeOps: Omit<RendererOptions<PxNode, PxElement>, 'patchProp'> = {
+export const nodeOps: Omit<DomRendererOptions, 'patchProp'> = {
     createElement(tag: string): PxElement {
         const node: PxElement = new PxElement(tag)
         logNodeOp({
