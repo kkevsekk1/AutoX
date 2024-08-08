@@ -63,7 +63,7 @@ const app = createApp({
         <Button type="elevated">elevated按钮</Button>
         <Button type="outlined">outlined按钮</Button>
         <Button type="tonal">tonal按钮</Button>
-        <IconButton><Icon src=${Home()} /></IconButton>
+        <IconButton><Icon src=${Home} /></IconButton>
         切换按钮
         <${G}/>
     </column>

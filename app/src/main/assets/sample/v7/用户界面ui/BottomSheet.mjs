@@ -31,7 +31,7 @@ const BottomSheetScaffold = defineComponent({
         <template #topBar>
             <TopAppBar title=${"TopAppBar"} >
                 <template #navigationIcon>
-                    <IconButton><Icon src=${Menu()} /></IconButton>
+                    <IconButton><Icon src=${Menu} /></IconButton>
                 </template>
             </TopAppBar>
         </template>

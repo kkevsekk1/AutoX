@@ -12,7 +12,7 @@ const TopAppBar = defineComponent({
     <TopAppBar title=${"TopAppBar"} >
         <template #navigationIcon>
             <IconButton>
-                <Icon src=${Menu()} />
+                <Icon src=${Menu} />
             </IconButton>
         </template>
         <template #actions>
@@ -31,17 +31,17 @@ const BottomAppBar = defineComponent({
 <column verticalArrangement=end modifier=${[fillMaxSize()]}>
     <BottomAppBar>
         <template #floatingActionButton>
-            <FloatingActionButton size="small" icon=${Add()} />
+            <FloatingActionButton size="small" icon=${Add} />
         </template>
         <template #actions>
             <IconButton>
-                <Icon src=${Menu()} />
+                <Icon src=${Menu} />
             </IconButton>
             <IconButton>
-                <Icon src=${Search()} />
+                <Icon src=${Search} />
             </IconButton>
             <IconButton>
-                <Icon src=${Star()} />
+                <Icon src=${Star} />
             </IconButton>
         </template>
     </BottomAppBar>

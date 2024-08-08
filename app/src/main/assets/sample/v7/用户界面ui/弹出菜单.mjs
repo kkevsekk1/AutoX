@@ -71,7 +71,7 @@ const M2 = defineComponent({
                 readOnly=${true}
                 singleLine=${true} >
                 <template #trailingIcon>
-                    <Icon modifier=${[rotate(this.rotate)]} src=${ArrowDropDown()} /> 
+                    <Icon modifier=${[rotate(this.rotate)]} src=${ArrowDropDown} /> 
                 </template>
             </OutlinedTextField>
             <template #menu>

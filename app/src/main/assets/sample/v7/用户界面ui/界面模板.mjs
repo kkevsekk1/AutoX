@@ -61,7 +61,7 @@ const TopAppBar = defineComponent({
 <TopAppBar title=${"界面模板"} >
     <template #navigationIcon>
         <IconButton onClick=${() => { drawer.open() }}>
-            <Icon src=${Menu()} />
+            <Icon src=${Menu} />
         </IconButton>
     </template>
     <template #actions>
@@ -106,9 +106,9 @@ let app = createApp({
             <text text="第 ${cu.value} 内容：" />
         </box>
         <NavigationBar>
-            <item selected=${cu.value == 0} onClick=${() => cu.value = 0} icon=${Home()}>主页</item>
-            <item selected=${cu.value == 1} onClick=${() => cu.value = 1} icon=${Home()}>管理</item>
-            <item enabled=${false} icon=${Home()}>文档</item>
+            <item selected=${cu.value == 0} onClick=${() => cu.value = 0} icon=${Home}>主页</item>
+            <item selected=${cu.value == 1} onClick=${() => cu.value = 1} icon=${Home}>管理</item>
+            <item enabled=${false} icon=${Home}>文档</item>
         </NavigationBar>
     </column>
 </ModalNavigationDrawer>

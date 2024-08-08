@@ -36,8 +36,8 @@ const app = createApp({
         <TextField prefix="https://" suffix=".com" value=${input.value} onValueChange=${updateInput} />
         只读和图标
         <TextField readOnly=${true} value=${input.value} onValueChange=${updateInput} >
-            <template #leadingIcon><Icon src=${Home()} /> </template>
-            <template #trailingIcon><Icon src=${Add()} /> </template>
+            <template #leadingIcon><Icon src=${Home} /> </template>
+            <template #trailingIcon><Icon src=${Add} /> </template>
         </TextField>
     </column>
         `
