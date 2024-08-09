@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",
+      "useDefineForClassFields": true,
+      "module": "ESNext",
+      "moduleResolution": "Node",
+      "strict": true,
+      "declaration": true,
+      "resolveJsonModule": true,
+      "isolatedModules": false,
+      "esModuleInterop": true,
+      "outDir": "dist",
+      "allowJs": true,
+      "checkJs": true,
+      "lib": ["ESNext"],
+      "skipLibCheck": true,
+      "typeRoots": ["../../../../../../autojs/src/js-api/node_modules/@types"],
+      "paths": {
+        "*": [
+        "../../../../../../autojs/src/js-api/node_modules/*",
+        "../../../../../../autojs/src/js-api/src/*"
+        ]
+      }
+    } ,
+    "include":["./**/*.ts","./**/*.mjs"]
+  }
+  
