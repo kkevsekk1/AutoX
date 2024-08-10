@@ -95,3 +95,9 @@ jobs:
         run: |
           ossutil mkdir oss://autoxjsoss/autoxjs/${{ steps.vars.outputs.short_ref }}
           ossutil cp -rf build/app/signed oss://autoxjsoss/autoxjs/${{ steps.vars.outputs.short_ref }}
+      - name: publish v7-modules
+        if: github.repository == 'aiselp/AutoX'
+        run: |
+          cd autojs/src/js-api/dist
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+          npm publish
