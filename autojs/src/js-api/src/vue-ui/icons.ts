@@ -1,4 +1,4 @@
-
+import { memoize } from 'lodash'
 export interface Icons {
     Call: ImageVector
     Add: ImageVector
@@ -21,57 +21,25 @@ export interface Icons {
     Person: ImageVector
 }
 
-export type IconExprot = {
-    [Property in keyof Icons]:
-    () => Icons[Property]
-}
 const ui = Autox.ui
-function createLoadFn(group: string, name: string) {
-    return () => ui.loadIcon(group, name)
+
+function createLoadProxy(group: string): unknown {
+    const e = memoize((name: string) => {
+        return ui.loadIcon(group, name)
+    })
+    return new Proxy({ e }, {
+        get(target, propKey) {
+            if (typeof propKey === 'string') {
+                return target.e(propKey)
+            } else {
+                throw new TypeError(`Filled Not exported property: ${String(propKey)} in IconGroup ${group} `)
+            }
+        }
+    })
 }
 
-let group = "Filled"
-const Filled: IconExprot = {
-    Call: createLoadFn(group, "Call"),
-    Add: createLoadFn(group, "Add"),
-    ArrowBack: createLoadFn(group, "ArrowBack"),
-    Clear: createLoadFn(group, "Clear"),
-    Edit: createLoadFn(group, "Edit"),
-    Menu: createLoadFn(group, "Menu"),
-    Search: createLoadFn(group, "Search"),
-    Close: createLoadFn(group, "Close"),
-    Star: createLoadFn(group, "Star"),
-    Home: createLoadFn(group, "Home"),
-    Notifications: createLoadFn(group, "Notifications"),
-    Settings: createLoadFn(group, "Settings"),
-    MoreVert: createLoadFn(group, "MoreVert"),
-    MailOutline: createLoadFn(group, "MailOutline"),
-    Refresh: createLoadFn(group, "Refresh"),
-    AccountBox: createLoadFn(group, "AccountBox"),
-    ArrowDropDown: createLoadFn(group, "ArrowDropDown"),
-    Done: createLoadFn(group, "Done"),
-    Person: createLoadFn(group, "Person"),
-}
-group = "Default"
-const Default: Icons = {
-    Call: createLoadFn(group, "Call"),
-    Add: createLoadFn(group, "Add"),
-    ArrowBack: createLoadFn(group, "ArrowBack"),
-    Clear: createLoadFn(group, "Clear"),
-    Edit: createLoadFn(group, "Edit"),
-    Menu: createLoadFn(group, "Menu"),
-    Search: createLoadFn(group, "Search"),
-    Close: createLoadFn(group, "Close"),
-    Star: createLoadFn(group, "Star"),
-    Home: createLoadFn(group, "Home"),
-    Notifications: createLoadFn(group, "Notifications"),
-    Settings: createLoadFn(group, "Settings"),
-    MoreVert: createLoadFn(group, "MoreVert"),
-    MailOutline: createLoadFn(group, "MailOutline"),
-    Refresh: createLoadFn(group, "Refresh"),
-    AccountBox: createLoadFn(group, "AccountBox"),
-    ArrowDropDown: createLoadFn(group, "ArrowDropDown"),
-    Done: createLoadFn(group, "Done"),
-    Person: createLoadFn(group, "Person"),
-}
+
+const Filled: Icons = createLoadProxy("Filled") as Icons
+
+const Default: Icons = createLoadProxy("Default") as Icons
 export { Filled, Default }

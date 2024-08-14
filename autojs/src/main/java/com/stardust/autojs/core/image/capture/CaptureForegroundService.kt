@@ -6,13 +6,14 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
+import android.content.pm.ServiceInfo
 import android.media.projection.MediaProjection
 import android.os.Build
 import android.os.Handler
 import android.os.IBinder
 import android.util.Log
-import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
+import androidx.core.app.ServiceCompat
 import com.stardust.autojs.R
 import com.stardust.autojs.core.image.capture.ScreenCaptureRequestActivity
 
@@ -43,16 +44,18 @@ class CaptureForegroundService : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        startForeground(NOTIFICATION_ID, buildNotification())
+        ServiceCompat.startForeground(
+            this, NOTIFICATION_ID, buildNotification(),
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION
+            } else 0
+        )
     }
 
 
     private fun buildNotification(): Notification {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            createNotificationChannel()
-        }
-        val flags =
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) PendingIntent.FLAG_IMMUTABLE else 0
+        createNotificationChannel()
+        val flags = PendingIntent.FLAG_IMMUTABLE
         val contentIntent = PendingIntent.getActivity(
             this, 0,
             Intent(this, ScreenCaptureRequestActivity::class.java), flags
@@ -68,7 +71,6 @@ class CaptureForegroundService : Service() {
             .build()
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private fun createNotificationChannel() {
         val manager = (getSystemService(NOTIFICATION_SERVICE) as NotificationManager)
         val channel = NotificationChannel(
@@ -111,7 +113,7 @@ class CaptureForegroundService : Service() {
         var mediaProjection: MediaProjection? = null
         private const val TAG = "CaptureService"
         private const val STOP = "STOP_SERVICE"
-        private const val NOTIFICATION_ID = 2
+        private const val NOTIFICATION_ID = 26
         private val CHANNEL_ID = CaptureForegroundService::class.java.name + ".foreground"
         private const val NOTIFICATION_TITLE = "前台截图服务运行中"
     }

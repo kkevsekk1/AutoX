@@ -31,7 +31,7 @@ class EventLoopQueue(val runtime: NodeRuntime) {
                     return id;
                 },
                 emit: function(id, ...args){
-                    callbacks.get(id)(...args);
+                    return callbacks.get(id)?.(...args);
                 },
                 removeCallback: function(id){
                     callbacks.delete(callbacks.get(id));
@@ -68,26 +68,28 @@ class EventLoopQueue(val runtime: NodeRuntime) {
     }
 
     fun createV8Callback(fn: V8ValueFunction): V8Callback {
+
         val id = util.invoke<V8ValueLong>("addCallback", fn)
         id.use {
-            return V8Callback(id.asLong())
+            return LastingV8Callback(id.asLong())
         }
     }
 
-    fun removeV8Callback(callback: V8Callback) {
-        addTask {
-            util.invokeVoid("removeCallback", callback.id)
-        }
+    fun createWeakV8Callback(fn: V8ValueFunction): V8Callback {
+        return WeakV8Callback(fn)
     }
 
-    fun executeQueue(): Boolean = synchronized(this) {
-        val executeQueue = currentQueue
-        if (executeQueue.isEmpty()) {
-            return false
+    fun executeQueue(): Boolean {
+        val executeQueue: ArrayDeque<Runnable>
+        synchronized(this) {
+            executeQueue = currentQueue
+            if (executeQueue.isEmpty()) {
+                return false
+            }
+            currentQueue = if (currentQueue === queue) {
+                queueX
+            } else queue
         }
-        currentQueue = if (currentQueue === queue) {
-            queueX
-        } else queue
         executeQueue.forEach { it.run() }
         executeQueue.clear()
         return true
@@ -103,8 +105,11 @@ class EventLoopQueue(val runtime: NodeRuntime) {
         util.close()
     }
 
-    inner class V8Callback(val id: Long):AutoCloseable {
-        @Volatile
+    /**
+     * 此回调会在js上下文中创建一个持久引用，使用完毕应调用close，
+     * 此类实现了线程安全，可在任意线程中调用
+     */
+    inner class LastingV8Callback(val id: Long) : V8Callback {
         private var removerd = false
 
         private fun call(vararg args: Any?): Any? {
@@ -115,7 +120,7 @@ class EventLoopQueue(val runtime: NodeRuntime) {
             } else return result
         }
 
-        fun invoke(vararg args: Any?): CompletableDeferred<Any?> {
+        override fun invoke(vararg args: Any?): CompletableDeferred<Any?> {
             if (removerd) {
                 Log.w(TAG, "this callback[${id}] has been removed")
                 return CompletableDeferred<Any?>().also { it.complete(null) }
@@ -125,22 +130,64 @@ class EventLoopQueue(val runtime: NodeRuntime) {
             return deferred
         }
 
-        fun invokeSync(vararg args: Any?): Any? = runBlocking {
+        override fun invokeSync(vararg args: Any?): Any? = runBlocking {
             invoke(*args).await()
         }
 
-        suspend fun invokeAsync(vararg args: Any?): Any? {
+        override suspend fun invokeAsync(vararg args: Any?): Any? {
             return invoke(*args).await()
         }
 
         override fun close() {
             removerd = true
-            this@EventLoopQueue.removeV8Callback(this)
+            addTask {
+                util.invokeVoid("removeCallback", id)
+            }
+        }
+    }
+
+    /**
+     * 弱引用回调，当V8ValueFunction在js上下文失去引用并被回收后，此回调将失效
+     */
+    inner class WeakV8Callback(val fn: V8ValueFunction) : V8Callback {
+        init {
+            fn.setWeak()
         }
 
-        fun cancel() {
-
+        private fun call(vararg args: Any?): Any? {
+            if (fn.isClosed) {
+                Log.d(TAG, "this callback[${fn}] has been closed")
+                return null
+            }
+            val result = runtime.converter.toObject<Any?>(fn.call(null, *args))
+            if (result is V8Value) {
+                result.close()
+                return null
+            } else return result
         }
+
+        override fun invoke(vararg args: Any?): CompletableDeferred<Any?> {
+            val deferred = CompletableDeferred<Any?>(job)
+            this@EventLoopQueue.addTask { deferred.complete(call(*args)) }
+            return deferred
+        }
+
+        override fun invokeSync(vararg args: Any?): Any? = runBlocking {
+            invoke(*args).await()
+        }
+
+        override suspend fun invokeAsync(vararg args: Any?): Any? {
+            return invoke(*args).await()
+        }
+
+        override fun close() {
+        }
+    }
+
+    interface V8Callback : AutoCloseable {
+        fun invoke(vararg args: Any?): CompletableDeferred<Any?>
+        fun invokeSync(vararg args: Any?): Any?
+        suspend fun invokeAsync(vararg args: Any?): Any?
     }
 
     companion object {

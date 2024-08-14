@@ -12,17 +12,17 @@ const app = createApp({
         return xml`
     <column verticalArrangement="space_between" modifier=${[fillMaxSize()]}>
         <row modifier=${[fillMaxWidth()]} horizontalArrangement="space_between" >
-            <FloatingActionButton size="small" icon=${Add()} />
+            <FloatingActionButton size="small" icon=${Add} />
             <FloatingActionButton >
-                <Icon src=${Home()} tint=${0xffcc7459n} />
+                <Icon src=${Home} tint=${0xffcc7459n} />
             </FloatingActionButton>
-            <FloatingActionButton size="large" icon=${Menu()} />
+            <FloatingActionButton size="large" icon=${Menu} />
         </row>
         <row modifier=${[fillMaxWidth()]} horizontalArrangement="space_between" >
-            <ExtendedFloatingActionButton text="Extended Fab" icon=${Home()} />
-            <ExtendedFloatingActionButton text="Extended Fab" icon=${Home()}>
+            <ExtendedFloatingActionButton text="Extended Fab" icon=${Home} />
+            <ExtendedFloatingActionButton text="Extended Fab" icon=${Home}>
                 <template #icon>
-                    <Icon src=${Add()} tint=${0xffcc4433n} />
+                    <Icon src=${Add} tint=${0xffcc4433n} />
                 </template>
                 <template #text>
                     <text color=#cc99c1 >Extended Fab2</text>

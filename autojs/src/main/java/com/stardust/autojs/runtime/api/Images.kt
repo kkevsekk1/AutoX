@@ -51,14 +51,19 @@ class Images(
     val colorFinder: ColorFinder = ColorFinder(mScreenMetrics)
 
     fun requestScreenCapture(orientation: Int): Boolean = runBlocking {
-        return@runBlocking runCatching {
+        try {
             mScreenCaptureRequester.requestScreenCapture(
                 mContext, orientation
             )
             captureScreen()
-        }.isSuccess
+            true
+        } catch (e: Exception) {
+            e.printStackTrace()
+            false
+        }
     }
-    fun stopScreenCapturer(){
+
+    fun stopScreenCapturer() {
         mScreenCaptureRequester.recycle()
     }
 

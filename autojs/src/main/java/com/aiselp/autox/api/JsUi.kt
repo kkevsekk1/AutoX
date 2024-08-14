@@ -96,11 +96,6 @@ class JsUi(nodeScriptEngine: NodeScriptEngine) : NativeApi {
     @V8Function
     fun patchProp(element: ComposeElement, key: String, value: V8Value?) {
         val value1 = converterValue(value)
-        element.props[key]?.let {
-            if (it is EventLoopQueue.V8Callback) {
-                it.close()
-            }
-        }
         element.props[key] = value1
     }
 
@@ -140,7 +135,7 @@ class JsUi(nodeScriptEngine: NodeScriptEngine) : NativeApi {
 
     private fun converterValue(value: V8Value?): Any? {
         return if (value is V8ValueFunction) {
-            eventLoopQueue.createV8Callback(value)
+            eventLoopQueue.createWeakV8Callback(value)
         } else {
             converter.toObject<Any?>(value)
         }

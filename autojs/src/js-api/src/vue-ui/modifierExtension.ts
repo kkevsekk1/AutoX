@@ -98,7 +98,7 @@ export function padding(left: number, top?: number, right?: number, bottom?: num
  * @param clickable 
  * @returns 
  */
-export function clickable(clickable: () => {}) {
+export function clickable(clickable: () => void) {
     return loadFactory('clickable').createModifierExt([clickable])
 }
 /**

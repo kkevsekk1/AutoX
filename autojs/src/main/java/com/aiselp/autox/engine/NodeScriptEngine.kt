@@ -4,6 +4,8 @@ import android.content.Context
 import android.util.Log
 import com.aiselp.autox.api.JavaInteractor
 import com.aiselp.autox.api.JsClipManager
+import com.aiselp.autox.api.JsDialogs
+import com.aiselp.autox.api.JsEngines
 import com.aiselp.autox.api.JsMedia
 import com.aiselp.autox.api.JsToast
 import com.aiselp.autox.api.JsUi
@@ -34,7 +36,7 @@ import kotlinx.coroutines.withTimeout
 import java.io.File
 
 class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
-    ScriptEngine.AbstractScriptEngine<ScriptSource>() {
+    ScriptEngine.AbstractScriptEngine<ScriptSource>(), ScriptEngine.EngineEvent {
     val runtime: NodeRuntime = V8Host.getNodeInstance().createV8Runtime()
 
     private val tags = mutableMapOf<String, Any?>()
@@ -81,6 +83,7 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
     override fun init() {
         runtime.converter = converter
         runtime.allowEval(true)
+        runtime.isStopping = true
         runtime.getExecutor(
             """
             (()=>{
@@ -109,6 +112,8 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
         nativeApiManager.register(JavaInteractor(scope, converter, promiseFactory))
         nativeApiManager.register(JsToast(context, scope))
         nativeApiManager.register(JsMedia(context))
+        nativeApiManager.register(JsDialogs(eventLoopQueue, context, scope))
+        nativeApiManager.register(JsEngines(this))
         nativeApiManager.initialize(runtime, global)
     }
 
@@ -124,7 +129,7 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
                 while (scope.isActive) {
 //                    Log.d(TAG,"loop ing...")
                     if (runtime.await(V8AwaitMode.RunNoWait) or
-                        eventLoopQueue.executeQueue() or
+                        eventLoopQueue.executeQueue() ||
                         resultListener.result.isActive
                     ) {
                         Thread.sleep(1)
@@ -146,6 +151,11 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
         }
     }
 
+    override fun emit(name: String, vararg args: Any?) {
+        val jsEngines = nativeApiManager.getNativeApi(JsEngines.ID) as? JsEngines
+        jsEngines?.let { eventLoopQueue.addTask { it.emitEngineEvent(name, args) } }
+    }
+
     private fun exceptionHandling(e: Any?) {
         when (e) {
             is Throwable -> run {
@@ -165,19 +175,19 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
     private fun initializeModule(file: File): V8Value {
         val parentFile = file.parentFile ?: File("/")
         runtime.getNodeModule(NodeModuleProcess::class.java).workingDirectory = parentFile
-        runtime.getNodeModule(NodeModuleModule::class.java).setRequireRootDirectory(parentFile)
-        val nodeModuleResolver = NodeModuleResolver(parentFile, moduleDirectory)
+        val nodeModuleResolver = NodeModuleResolver(runtime, parentFile, moduleDirectory)
         runtime.v8ModuleResolver = nodeModuleResolver
+        runtime.globalObject.delete(NodeModuleModule.PROPERTY_REQUIRE)
         return if (NodeModuleResolver.isEsModule(file)) {
             //es module
-            runtime.getExecutor(file).setResourceName(file.path).compileV8Module(true).run {
+            NodeModuleResolver.compileV8Module(runtime, file.readText(), file.path).run {
                 nodeModuleResolver.addCacheModule(this)
                 execute()
             }
         } else {
             //commonjs
-            runtime.globalObject.invoke(
-                NodeModuleModule.PROPERTY_REQUIRE, runtime.createV8ValueString(file.path)
+            nodeModuleResolver.require.call(
+                null, runtime.createV8ValueString(file.path)
             )
         }
     }

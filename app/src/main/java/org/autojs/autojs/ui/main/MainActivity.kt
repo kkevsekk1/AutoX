@@ -77,7 +77,6 @@ import com.stardust.autojs.servicecomponents.EngineController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.autojs.autojs.Pref
-import org.autojs.autojs.external.foreground.ForegroundService
 import org.autojs.autojs.timing.TimedTaskScheduler
 import org.autojs.autojs.ui.build.ProjectConfigActivity
 import org.autojs.autojs.ui.common.ScriptOperations
@@ -117,8 +116,6 @@ class MainActivity : FragmentActivity() {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
         Log.i("MainActivity", "Pid: ${Process.myPid()}")
-        if (Pref.isForegroundServiceEnabled()) ForegroundService.start(this)
-        else ForegroundService.stop(this)
 
         if (Pref.isFloatingMenuShown()) {
             if (DrawOverlaysPermission.isCanDrawOverlays(this)) FloatyWindowManger.showCircularMenu()

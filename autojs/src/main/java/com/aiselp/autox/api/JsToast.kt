@@ -7,7 +7,9 @@ import com.caoccao.javet.annotations.V8Property
 import com.caoccao.javet.interop.V8Runtime
 import com.caoccao.javet.values.reference.V8ValueObject
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class JsToast(private val context: Context, private val scope: CoroutineScope) : NativeApi {
@@ -15,12 +17,14 @@ class JsToast(private val context: Context, private val scope: CoroutineScope) :
 
     @get:V8Property(name = "SHORT")
     val SHORT = Toast.LENGTH_SHORT
+
     @get:V8Property(name = "LONG")
     val LONG = Toast.LENGTH_LONG
+
+    @OptIn(DelicateCoroutinesApi::class)
     @V8Function
-    @JvmOverloads
     fun showToast(msg: String, duration: Int = Toast.LENGTH_SHORT) =
-        scope.launch(Dispatchers.Main) {
+        GlobalScope.launch(Dispatchers.Main) {
             Toast.makeText(context, msg, duration).show()
         }
 

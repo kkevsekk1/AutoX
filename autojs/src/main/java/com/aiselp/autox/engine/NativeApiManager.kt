@@ -7,6 +7,7 @@ import com.caoccao.javet.annotations.V8Property
 import com.caoccao.javet.interop.V8Runtime
 import com.caoccao.javet.values.V8Value
 import com.caoccao.javet.values.reference.V8ValueError
+import com.caoccao.javet.values.reference.V8ValueFunction
 import com.caoccao.javet.values.reference.V8ValueObject
 import com.stardust.autojs.runtime.exception.ScriptException
 import kotlinx.coroutines.cancel
@@ -20,10 +21,16 @@ class NativeApiManager(engine: NodeScriptEngine) {
         apis[api.moduleId] = api
     }
 
+    fun getNativeApi(moduleId: String): NativeApi? {
+        return apis[moduleId]
+    }
+
     fun initialize(v8Runtime: V8Runtime, global: V8ValueObject) {
         v8Runtime.createV8ValueObject().use { autoxObject ->
             autoxObject.bind(rootObject)
-            global.set(INSTANCE_NAME, autoxObject)
+            v8Runtime.getExecutor(DEFINE_PROPERTY).execute<V8ValueFunction>().use {
+                it.callVoid(null, global, INSTANCE_NAME, autoxObject)
+            }
             for (api in apis.values) {
                 val bindingMode = api.install(v8Runtime, global)
                 when (bindingMode) {
@@ -87,5 +94,14 @@ class NativeApiManager(engine: NodeScriptEngine) {
 
     companion object {
         private const val INSTANCE_NAME = "Autox"
+        private val DEFINE_PROPERTY = """
+            (obj, name, value) => {
+                Object.defineProperty(obj, name, {
+                    value,
+                    writable: false,
+                    enumerable: false,
+                })
+            }
+        """.trimIndent()
     }
 }

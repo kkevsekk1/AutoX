@@ -7,7 +7,6 @@ import android.hardware.display.DisplayManager
 import android.hardware.display.VirtualDisplay
 import android.media.Image
 import android.media.ImageReader
-import android.media.MediaRecorder
 import android.media.projection.MediaProjection
 import android.os.Handler
 import android.os.Looper
@@ -47,13 +46,13 @@ class ScreenCapturer(
         val screenHeight = ScreenMetrics.getOrientationAwareScreenHeight(orientation)
         val screenWidth = ScreenMetrics.getOrientationAwareScreenWidth(orientation)
         mImageReader = createImageReader(screenWidth, screenHeight)
-        mVirtualDisplay = createVirtualDisplay(screenWidth, screenHeight, screenDensity)
         mediaProjection.registerCallback(object : MediaProjection.Callback() {
             override fun onStop() {
                 available = false
                 release()
             }
         }, mHandler)
+        mVirtualDisplay = createVirtualDisplay(screenWidth, screenHeight, screenDensity)
     }
 
     private fun createImageReader(width: Int, height: Int): ImageReader {

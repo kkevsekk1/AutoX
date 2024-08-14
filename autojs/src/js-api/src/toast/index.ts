@@ -9,7 +9,7 @@ interface ToastOptions {
  * import { showToast } from 'toast'
  * showToast('hello world')
  * @param message 要显示的消息
- * @param option 可以是"short" | "long"，表示弹出时长
+ * @param option 可以是`"short" | "long"`，表示弹出时长
  */
 export function showToast(message: any, option?: ToastOptions | string) {
     let duration: number

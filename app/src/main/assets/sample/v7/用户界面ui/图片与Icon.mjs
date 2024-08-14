@@ -14,9 +14,9 @@ const app = createApp({
         return xml`
     <column modifier=${modifier}>
         Icon
-        <Icon modifier=${ImgModifier} src=${Home()} />
+        <Icon modifier=${ImgModifier} src=${Home} />
         带颜色的Icon
-        <Icon modifier=${ImgModifier} src=${Add()} tint=${0xffcc4433n} />
+        <Icon modifier=${ImgModifier} src=${Add} tint=${0xffcc4433n} />
         支持@drawer/ 中的资源
         <Icon modifier=${ImgModifier} src="@drawable/ic_ali_close" />
         

@@ -1,14 +1,17 @@
-import { NodeOpTypes, logNodeOp } from './nodeOps'
+import { NodeOpTypes, logNodeOp, DomRendererOptions } from './nodeOps'
 import { isOn } from '@vue/shared'
 import { PxElement } from './types';
 import { patchElementProp } from './nativeRender';
 import { parseModifier } from './modifierParse';
 
-export function patchProp(
+export const patchProp: DomRendererOptions['patchProp'] = function (
     el: PxElement,
     key: string,
     prevValue: any,
     nextValue: any,
+    namespace,
+    prevChildren,
+    parentComponent
 ) {
     logNodeOp({
         type: NodeOpTypes.PATCH,

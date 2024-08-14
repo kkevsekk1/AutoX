@@ -7,6 +7,7 @@ import com.stardust.autojs.execution.ScriptExecution;
 import com.stardust.autojs.runtime.ScriptRuntime;
 import com.stardust.autojs.script.AutoFileSource;
 import com.stardust.autojs.script.JavaScriptFileSource;
+import com.stardust.autojs.script.ScriptFile;
 import com.stardust.autojs.script.StringScriptSource;
 
 /**
@@ -29,7 +30,7 @@ public class Engines {
     }
 
     public ScriptExecution execScriptFile(String path, ExecutionConfig config) {
-        return mEngineService.execute(new JavaScriptFileSource(mScriptRuntime.files.path(path)), config);
+        return mEngineService.execute(new ScriptFile(mScriptRuntime.files.path(path)).toSource(), config);
     }
 
     public ScriptExecution execAutoFile(String path, ExecutionConfig config) {

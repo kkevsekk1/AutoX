@@ -8,9 +8,11 @@ const clipManager = Autox.clipManager
 /**
  * 此对象是一个EventEmitter，用于监听剪贴板变化
  * @template
+ * ```js
  * clipboardManager.on('clip_changed',()=>{
  *      getClip()
  * })
+ * ```
  */
 export const clipboardManager = new EventEmitter()
 clipManager.registerListener({

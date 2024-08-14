@@ -8,15 +8,15 @@ const { Person, Star, Home, Close, Settings } = Icons.Default
 const modifier = [padding(0, 5)]
 const tabs = [{
     text: "Settings",
-    icon: Settings(),
+    icon: Settings,
     enabled: true,
 }, {
     text: "Home",
-    icon: Home(),
+    icon: Home,
     enabled: false
 }, {
     text: "Star",
-    icon: Star(),
+    icon: Star,
     enabled: true,
 }
 ]
