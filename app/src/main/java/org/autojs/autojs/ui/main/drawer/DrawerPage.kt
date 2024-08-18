@@ -71,7 +71,6 @@ import com.stardust.app.permission.DrawOverlaysPermission.launchCanDrawOverlaysS
 import com.stardust.app.permission.PermissionsSettingsUtil
 import com.stardust.autojs.IndependentScriptService
 import com.stardust.autojs.core.pref.PrefKey
-import com.stardust.enhancedfloaty.FloatyService
 import com.stardust.notification.NotificationListenerService
 import com.stardust.toast
 import com.stardust.util.IntentUtil
@@ -85,7 +84,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.autojs.autojs.Pref
-import org.autojs.autojs.autojs.AutoJs
 import org.autojs.autojs.devplugin.DevPlugin
 import org.autojs.autojs.tool.AccessibilityServiceTool
 import org.autojs.autojs.tool.WifiTool
@@ -320,16 +318,7 @@ private fun BottomButtons() {
         }
         TextButton(
             modifier = Modifier.weight(1f), onClick = {
-                val currentTime = System.currentTimeMillis()
-                val interval = currentTime - lastBackPressedTime
-                if (interval > 2000) {
-                    lastBackPressedTime = currentTime
-                    Toast.makeText(
-                        context,
-                        context.getString(R.string.text_press_again_to_exit),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else exitCompletely(context)
+                exitCompletely(context)
             },
             colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colors.onBackground)
         ) {
@@ -342,9 +331,6 @@ private fun BottomButtons() {
 
 fun exitCompletely(context: Context) {
     if (context is Activity) context.finish()
-    FloatyWindowManger.hideCircularMenu()
-    context.stopService(Intent(context, FloatyService::class.java))
-    AutoJs.getInstance().scriptEngineService.stopAll()
 }
 
 @Composable
