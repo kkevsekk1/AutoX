@@ -47,6 +47,7 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -919,7 +920,7 @@ fun TimedTaskSchedulerDialog(
 ) {
     val context = LocalContext.current
     var selected by rememberSaveable {
-        mutableStateOf(Pref.getTaskManager())
+        mutableIntStateOf(Pref.getTaskManager())
     }
     MyAlertDialog1(
         onDismissRequest = onDismissRequest,
@@ -933,7 +934,7 @@ fun TimedTaskSchedulerDialog(
             Column {
                 Spacer(modifier = Modifier.size(16.dp))
                 Column() {
-                    for (i in 0 until 3) {
+                    for (i in 0 until 2) {
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
                             modifier = Modifier
@@ -944,7 +945,6 @@ fun TimedTaskSchedulerDialog(
                             Text(
                                 text = when (i) {
                                     0 -> stringResource(id = R.string.text_work_manager)
-                                    1 -> stringResource(id = R.string.text_android_job)
                                     else -> stringResource(id = R.string.text_alarm_manager)
                                 }
                             )

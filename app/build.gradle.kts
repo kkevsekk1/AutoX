@@ -239,8 +239,6 @@ dependencies {
     implementation("com.afollestad.material-dialogs:commons:0.9.2.3")
     // WorkManager
     implementation("androidx.work:work-runtime:2.7.1")
-    // Android job
-    implementation("com.evernote:android-job:1.4.2")
     // Optional, if you use support library fragments:
     implementation(project(":autojs"))
     implementation(project(":apkbuilder"))

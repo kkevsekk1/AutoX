@@ -7,13 +7,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import org.autojs.autojs.App
 import org.autojs.autojs.Pref
-import org.autojs.autojs.autojs.AutoJs
-import org.autojs.autojs.external.ScriptIntents
-import org.autojs.autojs.timing.work.WorkProvider
-import org.autojs.autojs.timing.work.WorkManagerProvider
-import org.autojs.autojs.timing.work.AndroidJobProvider
 import org.autojs.autojs.timing.work.AlarmManagerProvider
-import java.lang.Exception
+import org.autojs.autojs.timing.work.WorkManagerProvider
+import org.autojs.autojs.timing.work.WorkProvider
 import java.util.concurrent.TimeUnit
 
 /**
@@ -72,20 +68,14 @@ abstract class TimedTaskScheduler : WorkProvider {
     }
 
     open fun autoJsLog(content: String) {
-        AutoJs.getInstance().debugInfo(content)
+//        AutoJs.getInstance().debugInfo(content)
     }
 
     companion object {
-        @JvmStatic
-        val LOG_TAG = "TimedTaskScheduler"
+        internal const val LOG_TAG = "TimedTaskScheduler"
         private val SCHEDULE_TASK_MIN_TIME = TimeUnit.DAYS.toMillis(2)
 
-        @JvmStatic
-        protected val JOB_TAG_CHECK_TASKS = "checkTasks"
-//        @JvmStatic
-//        fun cancel(context: Application,timedTask: TimedTask) {
-//            getWorkProvider(context).cancel(timedTask)
-//        }
+        const val JOB_TAG_CHECK_TASKS = "checkTasks"
 
         fun init(context: Application) {
             createCheckWorker(context, 20)
@@ -97,14 +87,10 @@ abstract class TimedTaskScheduler : WorkProvider {
             getWorkProvider(context).enqueuePeriodicWork(delay)
         }
 
-        @JvmStatic
-        protected fun runTask(context: Application, task: TimedTask) {
+        fun runTask(context: Application, task: TimedTask) {
             autoJsLog("run task: task = $task")
             val intent = task.createIntent()
-            ScriptIntents.handleIntent(context, intent)
-            TimedTaskManager.notifyTaskFinished(task.id)
-            // 如果队列中有任务正在等待，直接取消
-            getWorkProvider(context).cancel(context, task)
+            context.sendBroadcast(intent)
         }
 
         @Synchronized
@@ -138,10 +124,7 @@ abstract class TimedTaskScheduler : WorkProvider {
                     Log.d(LOG_TAG, "The currently enabled scheduled task method is Work Manager")
                     WorkManagerProvider
                 }
-                1 -> {
-                    Log.d(LOG_TAG, "The currently enabled scheduled task method is Android Job")
-                    AndroidJobProvider
-                }
+
                 else -> {
                     Log.d(LOG_TAG, "The currently enabled scheduled task mode is Alarm Manager")
                     AlarmManagerProvider
@@ -151,7 +134,7 @@ abstract class TimedTaskScheduler : WorkProvider {
 
         private fun autoJsLog(content: String) {
             Log.d(LOG_TAG, content)
-            AutoJs.getInstance().debugInfo(content)
+            //AutoJs.getInstance().debugInfo(content)
         }
     }
 

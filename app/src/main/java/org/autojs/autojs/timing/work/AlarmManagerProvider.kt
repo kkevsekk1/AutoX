@@ -2,14 +2,12 @@ package org.autojs.autojs.timing.work
 
 import android.annotation.SuppressLint
 import android.app.AlarmManager
-import android.app.AlarmManager.AlarmClockInfo
 import android.app.Application
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.SystemClock
 import android.util.Log
 import org.autojs.autojs.App
@@ -103,11 +101,7 @@ object AlarmManagerProvider : TimedTaskScheduler() {
             type = AlarmManager.ELAPSED_REALTIME_WAKEUP
             autoJsLog("less then 5 minutes, millis changed from $oldMillis to $millis")
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            alarmManager.setExactAndAllowWhileIdle(type, millis, op)
-        } else {
-            alarmManager.setAlarmClock(AlarmClockInfo(millis, null), op)
-        }
+        alarmManager.setAndAllowWhileIdle(type, millis, op)
     }
 
     private fun checkTasksRepeatedlyIfNeeded(context: Context) {
@@ -137,8 +131,7 @@ object AlarmManagerProvider : TimedTaskScheduler() {
 
     private fun createTaskCheckPendingIntent(context: Context): PendingIntent {
         if (sCheckTasksPendingIntent == null) {
-            val flags = PendingIntent.FLAG_UPDATE_CURRENT or
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) PendingIntent.FLAG_IMMUTABLE else 0
+            val flags = PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
             sCheckTasksPendingIntent = PendingIntent.getBroadcast(
                 context, REQUEST_CODE_CHECK_TASK_REPEATEDLY,
                 Intent(ACTION_CHECK_TASK)

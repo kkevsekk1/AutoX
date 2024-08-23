@@ -4,11 +4,10 @@ import android.app.PendingIntent
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import com.stardust.autojs.execution.ExecutionConfig
-import org.autojs.autoxjs.BuildConfig
 import org.autojs.autojs.external.ScriptIntents
 import org.autojs.autojs.storage.database.BaseModel
+import org.autojs.autoxjs.BuildConfig
 import org.joda.time.DateTime
 import org.joda.time.DateTimeConstants
 import org.joda.time.LocalDateTime
@@ -110,10 +109,7 @@ class TimedTask : BaseModel {
     }
 
     fun createPendingIntent(context: Context): PendingIntent {
-        var flags = PendingIntent.FLAG_UPDATE_CURRENT
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            flags = flags or PendingIntent.FLAG_IMMUTABLE
-        }
+        val flags = PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         return PendingIntent.getBroadcast(
             context, ((REQUEST_CODE + 1 + id) % 65535).toInt(),
             createIntent(), flags
