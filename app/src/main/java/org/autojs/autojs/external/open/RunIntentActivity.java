@@ -8,11 +8,13 @@ import androidx.annotation.Nullable;
 import android.widget.Toast;
 
 import com.stardust.autojs.script.StringScriptSource;
+import com.stardust.autojs.servicecomponents.EngineController;
 import com.stardust.pio.PFiles;
 import org.autojs.autojs.external.ScriptIntents;
 import org.autojs.autoxjs.R;
 import org.autojs.autojs.model.script.Scripts;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
@@ -34,13 +36,13 @@ public class RunIntentActivity extends Activity {
         finish();
     }
 
-    private void handleIntent(Intent intent) throws FileNotFoundException {
+    private void handleIntent(Intent intent) {
         Uri uri = intent.getData();
-        if (uri != null && "content".equals(uri.getScheme())) {
-            InputStream stream = getContentResolver().openInputStream(uri);
-            Scripts.INSTANCE.run(new StringScriptSource(PFiles.read(stream)));
-        } else {
-            ScriptIntents.handleIntent(this, intent);
+        if (uri == null) {
+            Toast.makeText(this, "uri is null", Toast.LENGTH_LONG).show();
         }
+        assert uri != null;
+        String path = uri.getPath();
+        EngineController.INSTANCE.runScript(new File(path),null);
     }
 }
