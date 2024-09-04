@@ -22,6 +22,7 @@
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- 非auto_js运行必需，不会主动申请，某些脚本可以自行申请 -->
+    <uses-permission android:name="android.permission.READ_LOGS" /> <!-- 非auto_js运行必需，无法主动申请，若需要使用某些脚本可以手动为auto_js申请 -->
     <uses-permission android:name="android.permission.ACCEPT_HANDOVER" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
