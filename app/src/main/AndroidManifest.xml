@@ -353,6 +353,7 @@
         </receiver>
         <receiver
             android:name="org.autojs.autojs.timing.TaskReceiver"
+            android:process="@string/text_script_process_name"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.stardust.autojs.action.task" />

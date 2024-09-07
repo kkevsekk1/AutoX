@@ -2,6 +2,7 @@ package com.aiselp.autojs.codeeditor
 
 import android.content.Context
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.graphics.Rect
 import android.os.Bundle
 import android.util.Log
@@ -62,6 +63,7 @@ class EditActivity : AppCompatActivity() {
         const val TAG = "EditActivity"
         fun editFile(context: Context, path: File) {
             val intent = Intent(context, EditActivity::class.java)
+                .setFlags(FLAG_ACTIVITY_NEW_TASK)
                 .putExtra(EXTRA_PATH, path.path)
             context.startActivity(intent)
         }

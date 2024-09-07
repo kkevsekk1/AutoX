@@ -1,7 +1,6 @@
 package org.autojs.autojs.ui.main.task
 
 import android.content.Context
-import android.content.Intent
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.util.Log
@@ -12,9 +11,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ThemeColorRecyclerView
-import butterknife.BindView
-import butterknife.ButterKnife
-import butterknife.OnClick
 import com.bignerdranch.expandablerecyclerview.ChildViewHolder
 import com.bignerdranch.expandablerecyclerview.ExpandableRecyclerAdapter
 import com.bignerdranch.expandablerecyclerview.ParentViewHolder
@@ -26,7 +22,6 @@ import com.stardust.autojs.workground.WrapContentLinearLayoutManager
 import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Consumer
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -47,27 +42,28 @@ import org.autojs.autoxjs.R
  * Created by Stardust on 2017/3/24.
  */
 class TaskListRecyclerView : ThemeColorRecyclerView {
-    private val mTaskGroups: MutableList<TaskGroup> = ArrayList()
-    private var mRunningTaskGroup: RunningTaskGroup? = null
-    private var mPendingTaskGroup: PendingTaskGroup? = null
-    private var mAdapter: Adapter? = null
+    private val mRunningTaskGroup: RunningTaskGroup = RunningTaskGroup(context)
+    private val mPendingTaskGroup: PendingTaskGroup = PendingTaskGroup(context)
+    private val mTaskGroups: MutableList<TaskGroup> =
+        mutableListOf(mRunningTaskGroup, mPendingTaskGroup)
+    private var mAdapter: Adapter = Adapter(mTaskGroups)
     private var mTimedTaskChangeDisposable: Disposable? = null
     private var mIntentTaskChangeDisposable: Disposable? = null
     private val mScriptExecutionListener: BinderScriptListener =
         object : BinderScriptListener {
-            override fun onStart(task: TaskInfo) {
-                post { mAdapter!!.notifyChildInserted(0, mRunningTaskGroup!!.addTask(task)) }
+            override fun onStart(taskInfo: TaskInfo) {
+                post { mAdapter.notifyChildInserted(0, mRunningTaskGroup.addTask(taskInfo)) }
             }
 
-            override fun onSuccess(task: TaskInfo) = onFinish(task)
+            override fun onSuccess(taskInfo: TaskInfo) = onFinish(taskInfo)
             override fun onException(taskInfo: TaskInfo, e: Throwable) = onFinish(taskInfo)
 
 
             private fun onFinish(task: TaskInfo) {
                 post {
-                    val i = mRunningTaskGroup!!.removeTask(task)
+                    val i = mRunningTaskGroup.removeTask(task)
                     if (i >= 0) {
-                        mAdapter!!.notifyChildRemoved(0, i)
+                        mAdapter.notifyChildRemoved(0, i)
                     } else {
                         refresh()
                     }
@@ -93,11 +89,6 @@ class TaskListRecyclerView : ThemeColorRecyclerView {
                 .showLastDivider()
                 .build()
         )
-        mRunningTaskGroup = RunningTaskGroup(context)
-        mTaskGroups.add(mRunningTaskGroup!!)
-        mPendingTaskGroup = PendingTaskGroup(context)
-        mTaskGroups.add(mPendingTaskGroup!!)
-        mAdapter = Adapter(mTaskGroups)
         setAdapter(mAdapter)
     }
 
@@ -112,7 +103,6 @@ class TaskListRecyclerView : ThemeColorRecyclerView {
                 setAdapter(mAdapter)
             }
         }
-        //notifyDataSetChanged not working...
     }
 
     override fun onAttachedToWindow() {
@@ -120,10 +110,10 @@ class TaskListRecyclerView : ThemeColorRecyclerView {
         EngineController.registerGlobalScriptExecutionListener(mScriptExecutionListener)
         mTimedTaskChangeDisposable = timeTaskChanges
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(Consumer { taskChange: ModelChange<TimedTask> -> onTaskChange(taskChange) })
+            .subscribe { taskChange: ModelChange<TimedTask> -> onTaskChange(taskChange) }
         mIntentTaskChangeDisposable = intentTaskChanges
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(Consumer { taskChange: ModelChange<IntentTask> -> onTaskChange(taskChange) })
+            .subscribe { taskChange: ModelChange<IntentTask> -> onTaskChange(taskChange) }
     }
 
     override fun onWindowVisibilityChanged(visibility: Int) {
@@ -142,19 +132,19 @@ class TaskListRecyclerView : ThemeColorRecyclerView {
 
     fun onTaskChange(taskChange: ModelChange<*>) {
         if (taskChange.action == ModelChange.INSERT) {
-            mAdapter!!.notifyChildInserted(1, mPendingTaskGroup!!.addTask(taskChange.data))
+            mAdapter.notifyChildInserted(1, mPendingTaskGroup.addTask(taskChange.data))
         } else if (taskChange.action == ModelChange.DELETE) {
-            val i = mPendingTaskGroup!!.removeTask(taskChange.data)
+            val i = mPendingTaskGroup.removeTask(taskChange.data)
             if (i >= 0) {
-                mAdapter!!.notifyChildRemoved(1, i)
+                mAdapter.notifyChildRemoved(1, i)
             } else {
                 Log.w(LOG_TAG, "data inconsistent on change: $taskChange")
                 refresh()
             }
         } else if (taskChange.action == ModelChange.UPDATE) {
-            val i = mPendingTaskGroup!!.updateTask(taskChange.data)
+            val i = mPendingTaskGroup.updateTask(taskChange.data)
             if (i >= 0) {
-                mAdapter!!.notifyChildChanged(1, i)
+                mAdapter.notifyChildChanged(1, i)
             } else {
                 refresh()
             }
@@ -201,67 +191,53 @@ class TaskListRecyclerView : ThemeColorRecyclerView {
     }
 
     internal inner class TaskViewHolder(itemView: View) : ChildViewHolder<Task?>(itemView) {
-        @JvmField
-        @BindView(R.id.first_char)
-        var mFirstChar: TextView? = null
-
-        @JvmField
-        @BindView(R.id.name)
-        var mName: TextView? = null
-
-        @JvmField
-        @BindView(R.id.desc)
-        var mDesc: TextView? = null
+        private val mFirstChar: TextView = itemView.findViewById(R.id.first_char)
+        private val mName: TextView = itemView.findViewById(R.id.name)
+        private val mDesc: TextView = itemView.findViewById(R.id.desc)
         private var mTask: TaskInfo? = null
-        private val mFirstCharBackground: GradientDrawable
+        private val mFirstCharBackground: GradientDrawable =
+            mFirstChar.background as GradientDrawable
 
         init {
             itemView.setOnClickListener { view: View? -> onItemClick(view) }
-            ButterKnife.bind(this, itemView)
-            mFirstCharBackground = mFirstChar!!.background as GradientDrawable
+            itemView.findViewById<View>(R.id.stop).setOnClickListener { stop() }
         }
 
         fun bind(task: TaskInfo) {
             mTask = task
-            mName!!.text = task.name
-            mDesc!!.text = task.desc
+            mName.text = task.name
+            mDesc.text = task.desc
             if (AutoFileSource.ENGINE == mTask!!.engineName) {
-                mFirstChar!!.text = "R"
-                mFirstCharBackground.setColor(resources.getColor(R.color.color_r))
+                mFirstChar.text = "R"
+                mFirstCharBackground.setColor(context.getColor(R.color.color_r))
             } else {
-                mFirstChar!!.text = "J"
-                mFirstCharBackground.setColor(resources.getColor(R.color.color_j))
+                mFirstChar.text = "J"
+                mFirstCharBackground.setColor(context.getColor(R.color.color_j))
             }
         }
 
-        @OnClick(R.id.stop)
         fun stop() {
-            if (mTask != null) {
-                EngineController.stopScript(mTask!!.id)
-            }
+            val task = mTask ?: return
+            if (task is PendingTask) {
+                task.cancel()
+            } else
+                EngineController.stopScript(task.id)
         }
 
-        fun onItemClick(view: View?) {
+        private fun onItemClick(view: View?) {
             if (mTask is PendingTask) {
-                val task = mTask as PendingTask
-                val extra =
-                    if (task.timedTask == null) TimedTaskSettingActivity.EXTRA_INTENT_TASK_ID else TimedTaskSettingActivity.EXTRA_TASK_ID
-                context.startActivity(Intent(context,TimedTaskSettingActivity::class.java).apply {
-                    putExtra(extra, task.id)
-                })
+                TimedTaskSettingActivity.reviseTimeTask(context, mTask as PendingTask)
             }
         }
     }
 
-    private inner class TaskGroupViewHolder internal constructor(itemView: View) :
+    private inner class TaskGroupViewHolder(itemView: View) :
         ParentViewHolder<TaskGroup?, TaskInfo>(itemView) {
-        var title: TextView
-        var icon: ImageView
+        val title: TextView = itemView.findViewById(R.id.title)
+        val icon: ImageView = itemView.findViewById(R.id.icon)
 
         init {
-            title = itemView.findViewById(R.id.title)
-            icon = itemView.findViewById(R.id.icon)
-            itemView.setOnClickListener { view: View? ->
+            itemView.setOnClickListener {
                 if (isExpanded) {
                     collapseView()
                 } else {

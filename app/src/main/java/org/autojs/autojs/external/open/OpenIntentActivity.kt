@@ -2,13 +2,13 @@ package org.autojs.autojs.external.open
 
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.text.InputType
 import android.widget.EditText
 import android.widget.Toast
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.stardust.autojs.script.StringScriptSource
+import com.stardust.autojs.servicecomponents.EngineController
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -17,7 +17,6 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.autojs.autojs.Pref
-import org.autojs.autojs.external.ScriptIntents
 import org.autojs.autojs.model.script.Scripts
 import org.autojs.autojs.ui.BaseActivity
 import org.autojs.autojs.ui.edit.EditActivity
@@ -73,9 +72,7 @@ class OpenIntentActivity : BaseActivity() {
     private fun editFile2(file: Uri): Job? {
         val path = file.path!!
         if (file.scheme == "file" && File(path).isFile()) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                com.aiselp.autojs.codeeditor.EditActivity.editFile(this, File(path))
-            }
+            com.aiselp.autojs.codeeditor.EditActivity.editFile(this, File(path))
             return Job().apply { complete() }
         }
         showToast(R.string.edit_and_run_handle_intent_error)
@@ -136,7 +133,7 @@ class OpenIntentActivity : BaseActivity() {
     private fun runFile(file: Uri) = coroutineScope.launch {
         when (file.scheme) {
             "file" -> {
-                ScriptIntents.handleIntent(this@OpenIntentActivity, intent)
+                EngineController.runScript(File(file.path!!))
             }
 
             "content" -> withContext(Dispatchers.IO) {
@@ -167,11 +164,7 @@ class OpenIntentActivity : BaseActivity() {
                 showMenu(intent)
             }.onFailure {
                 it.printStackTrace()
-                Toast.makeText(
-                    this@OpenIntentActivity,
-                    R.string.edit_and_run_handle_intent_error,
-                    Toast.LENGTH_LONG
-                ).show()
+                showToast(R.string.edit_and_run_handle_intent_error)
             }
             finish()
         }

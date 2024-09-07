@@ -4,14 +4,22 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import android.util.Log
-import androidx.work.*
+import androidx.work.Data
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.ExistingWorkPolicy
+import androidx.work.OneTimeWorkRequest
+import androidx.work.PeriodicWorkRequest
+import androidx.work.WorkInfo
+import androidx.work.WorkManager
+import androidx.work.Worker
+import androidx.work.WorkerParameters
 import org.autojs.autojs.App
-import org.autojs.autojs.autojs.AutoJs
 import org.autojs.autojs.timing.TimedTask
 import org.autojs.autojs.timing.TimedTaskManager
 import org.autojs.autojs.timing.TimedTaskScheduler
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
+import java.util.Locale
 import java.util.concurrent.TimeUnit
 
 /**
@@ -78,7 +86,7 @@ object WorkManagerProvider : TimedTaskScheduler() {
             } catch (e: Exception) {
                 Log.d(LOG_TAG, "获取校验线程失败")
             }
-            if (workInfoList != null && workInfoList.isNotEmpty()) {
+            if (!workInfoList.isNullOrEmpty()) {
                 for (workInfo in workInfoList) {
                     if (workInfo.state == WorkInfo.State.ENQUEUED) {
                         workFine = true
@@ -130,7 +138,6 @@ object WorkManagerProvider : TimedTaskScheduler() {
                 return Result.success()
             }
             Log.d(LOG_TAG, "定期检测任务运行中")
-            AutoJs.getInstance().debugInfo("定期检测任务运行中")
             getWorkProvider(context).checkTasks(context, false)
             return Result.success()
         }

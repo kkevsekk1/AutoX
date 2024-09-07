@@ -72,11 +72,9 @@ import com.aiselp.autojs.codeeditor.EditActivity
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.stardust.app.permission.DrawOverlaysPermission
 import com.stardust.autojs.servicecomponents.EngineController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import org.autojs.autojs.Pref
 import org.autojs.autojs.timing.TimedTaskScheduler
 import org.autojs.autojs.ui.build.ProjectConfigActivity
 import org.autojs.autojs.ui.common.ScriptOperations
@@ -84,7 +82,6 @@ import org.autojs.autojs.ui.compose.theme.AutoXJsTheme
 import org.autojs.autojs.ui.compose.widget.MyIcon
 import org.autojs.autojs.ui.compose.widget.SearchBox2
 import org.autojs.autojs.ui.explorer.ExplorerViewKt
-import org.autojs.autojs.ui.floating.FloatyWindowManger
 import org.autojs.autojs.ui.main.components.DocumentPageMenuButton
 import org.autojs.autojs.ui.main.components.LogButton
 import org.autojs.autojs.ui.main.drawer.DrawerPage
@@ -117,10 +114,6 @@ class MainActivity : FragmentActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         Log.i("MainActivity", "Pid: ${Process.myPid()}")
 
-        if (Pref.isFloatingMenuShown()) {
-            if (DrawOverlaysPermission.isCanDrawOverlays(this)) FloatyWindowManger.showCircularMenu()
-            else Pref.setFloatingMenuShown(false)
-        }
         setContent {
             scope = rememberCoroutineScope()
             AutoXJsTheme {

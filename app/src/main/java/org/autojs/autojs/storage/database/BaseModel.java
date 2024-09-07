@@ -22,6 +22,6 @@ public abstract class BaseModel {
 
     @Override
     public int hashCode() {
-        return (int)(mId ^ (mId >>> 32));
+        return Long.hashCode(mId);
     }
 }

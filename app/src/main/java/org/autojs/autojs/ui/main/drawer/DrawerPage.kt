@@ -47,6 +47,7 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -71,7 +72,6 @@ import com.stardust.app.permission.DrawOverlaysPermission.launchCanDrawOverlaysS
 import com.stardust.app.permission.PermissionsSettingsUtil
 import com.stardust.autojs.IndependentScriptService
 import com.stardust.autojs.core.pref.PrefKey
-import com.stardust.enhancedfloaty.FloatyService
 import com.stardust.notification.NotificationListenerService
 import com.stardust.toast
 import com.stardust.util.IntentUtil
@@ -85,7 +85,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.autojs.autojs.Pref
-import org.autojs.autojs.autojs.AutoJs
 import org.autojs.autojs.devplugin.DevPlugin
 import org.autojs.autojs.tool.AccessibilityServiceTool
 import org.autojs.autojs.tool.WifiTool
@@ -320,16 +319,7 @@ private fun BottomButtons() {
         }
         TextButton(
             modifier = Modifier.weight(1f), onClick = {
-                val currentTime = System.currentTimeMillis()
-                val interval = currentTime - lastBackPressedTime
-                if (interval > 2000) {
-                    lastBackPressedTime = currentTime
-                    Toast.makeText(
-                        context,
-                        context.getString(R.string.text_press_again_to_exit),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else exitCompletely(context)
+                exitCompletely(context)
             },
             colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colors.onBackground)
         ) {
@@ -342,9 +332,6 @@ private fun BottomButtons() {
 
 fun exitCompletely(context: Context) {
     if (context is Activity) context.finish()
-    FloatyWindowManger.hideCircularMenu()
-    context.stopService(Intent(context, FloatyService::class.java))
-    AutoJs.getInstance().scriptEngineService.stopAll()
 }
 
 @Composable
@@ -933,7 +920,7 @@ fun TimedTaskSchedulerDialog(
 ) {
     val context = LocalContext.current
     var selected by rememberSaveable {
-        mutableStateOf(Pref.getTaskManager())
+        mutableIntStateOf(Pref.getTaskManager())
     }
     MyAlertDialog1(
         onDismissRequest = onDismissRequest,
@@ -947,7 +934,7 @@ fun TimedTaskSchedulerDialog(
             Column {
                 Spacer(modifier = Modifier.size(16.dp))
                 Column() {
-                    for (i in 0 until 3) {
+                    for (i in 0 until 2) {
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
                             modifier = Modifier
@@ -958,7 +945,6 @@ fun TimedTaskSchedulerDialog(
                             Text(
                                 text = when (i) {
                                     0 -> stringResource(id = R.string.text_work_manager)
-                                    1 -> stringResource(id = R.string.text_android_job)
                                     else -> stringResource(id = R.string.text_alarm_manager)
                                 }
                             )

@@ -20,7 +20,7 @@ interface Task : TaskInfo {
     fun cancel()
     class PendingTask : Task {
         var timedTask: TimedTask?
-        private var mIntentTask: IntentTask?
+        var mIntentTask: IntentTask?
 
         constructor(timedTask: TimedTask?) {
             this.timedTask = timedTask
@@ -38,7 +38,8 @@ interface Task : TaskInfo {
             } else mIntentTask == task
         }
 
-        override val name: String = getSimplifiedPath(scriptPath!!)
+        override val name: String
+            get() = getSimplifiedPath(scriptPath)
 
         override val desc: String
             get() {
@@ -63,17 +64,13 @@ interface Task : TaskInfo {
             }
         }
 
-        private val scriptPath: String?
-            get() = if (timedTask != null) {
-                timedTask!!.scriptPath
-            } else {
-                assert(mIntentTask != null)
-                mIntentTask!!.scriptPath
-            }
+        private val scriptPath: String
+            get() = timedTask?.scriptPath ?: mIntentTask?.scriptPath ?: "unknown"
+
 
         override val engineName: String
             get() {
-                return if (scriptPath!!.endsWith(".js")) {
+                return if (scriptPath.endsWith(".js")) {
                     JavaScriptSource.ENGINE
                 } else {
                     AutoFileSource.ENGINE
@@ -89,9 +86,10 @@ interface Task : TaskInfo {
                 return if (timedTask != null) timedTask!!.id.toInt() else mIntentTask!!.id.toInt()
             }
 
-        override val workerDirectory: String = File(scriptPath).getParent()
+        override val workerDirectory: String
+            get() = File(scriptPath).getParent() ?: "/"
 
-        override val sourcePath: String = scriptPath!!
+        override val sourcePath: String = scriptPath
 
         override val isRunning: Boolean = false
     }

@@ -3,6 +3,7 @@ import { rm } from 'fs/promises'
 import fs from 'fs/promises'
 import { rollup } from 'rollup'
 import { loadConfigFile } from 'rollup/loadConfigFile'
+import { copy } from 'fs-extra'
 
 export async function clear(cb) {
     await rm('./dist', { recursive: true, force: true })
@@ -28,12 +29,19 @@ export async function createPackageFile(cb) {
 }
 async function createRootPackageFile(cb) {
     const n = JSON.parse(await fs.readFile('./package.json', 'utf8'))
+    const bin = {
+        "install-autox-types": "./srcipts/install-types.mjs"
+    }
+    await copy('./srcipts', './dist/srcipts')
     const packageFile = {
         name: n.name,
         version: n.version,
         description: n.description,
         type: "module",
+        bin,
         license: n.license,
+        author: n.author,
+        dependencies: n.devDependencies
     }
     await fs.writeFile('./dist/package.json', JSON.stringify(packageFile, undefined, 2))
 }

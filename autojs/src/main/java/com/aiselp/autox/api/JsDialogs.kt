@@ -1,9 +1,11 @@
 package com.aiselp.autox.api
 
 import android.content.Context
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.window.SecureFlagPolicy
 import com.aiselp.autox.activity.AppDialogActivity
 import com.aiselp.autox.api.ui.ComposeElement
+import com.aiselp.autox.api.ui.Render
 import com.aiselp.autox.engine.EventLoopQueue
 import com.caoccao.javet.annotations.V8Function
 import com.caoccao.javet.interop.V8Runtime
@@ -30,10 +32,17 @@ class JsDialogs(
         listener: V8ValueObject?
     ): AppDialogActivity.AppDialogBuilder {
         val securePolicy = listener?.getString("securePolicy")
-        val builder = object : AppDialogActivity.AppDialogBuilder(element, scope) {
+        val builder = object : AppDialogActivity.AppDialogBuilder(scope) {
+            val el: ComposeElement = element
             val dismissListener = listener?.get<V8ValueFunction>("onDismiss")?.let {
                 eventLoopQueue.createV8Callback(it)
             }
+
+            @Composable
+            override fun Render() {
+                el.Render()
+            }
+
             override val dismissOnBackPress: Boolean =
                 listener?.getBoolean("dismissOnBackPress") ?: super.dismissOnBackPress
             override val dismissOnClickOutside: Boolean =

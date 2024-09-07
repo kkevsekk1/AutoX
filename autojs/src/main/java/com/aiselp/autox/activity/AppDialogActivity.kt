@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -13,11 +14,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.SecureFlagPolicy
-import com.aiselp.autox.api.ui.ComposeElement
-import com.aiselp.autox.api.ui.Render
 import com.aiselp.autox.ui.material3.theme.AppTheme
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class AppDialogActivity : AppCompatActivity() {
@@ -34,7 +35,7 @@ class AppDialogActivity : AppCompatActivity() {
         builder.build(this)
     }
 
-    abstract class AppDialogBuilder(val el: ComposeElement, val scope: CoroutineScope) {
+    abstract class AppDialogBuilder @OptIn(DelicateCoroutinesApi::class) constructor(val scope: CoroutineScope = GlobalScope) {
         var show by mutableStateOf(true)
         open val dismissOnBackPress = true
         open val dismissOnClickOutside = true
@@ -45,7 +46,11 @@ class AppDialogActivity : AppCompatActivity() {
             show = false
         }
 
-        fun build(activity: AppCompatActivity) {
+        @Composable
+        open fun Render() {
+        }
+
+        open fun build(activity: AppCompatActivity) {
             activity.setContent {
                 if (!show) {
                     LaunchedEffect(Unit) {
@@ -63,7 +68,7 @@ class AppDialogActivity : AppCompatActivity() {
                             securePolicy = securePolicy,
                         )
                     ) {
-                        el.Render()
+                        Render()
                     }
                 }
             }
