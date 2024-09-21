@@ -16,6 +16,7 @@ fun InputBox(
     OutlinedTextField(value = value,
         maxLines = maxLines,
         onValueChange = onValueChange,
+        singleLine = maxLines == 1,
         modifier = modifier,
         label = label?.let {
             { Text(text = label) }
