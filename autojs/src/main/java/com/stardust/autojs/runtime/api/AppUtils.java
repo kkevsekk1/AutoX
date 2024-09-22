@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
@@ -16,6 +18,7 @@ import com.stardust.util.IntentUtil;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by Stardust on 2017/4/2.
@@ -23,7 +26,7 @@ import java.util.List;
 
 public class AppUtils {
 
-    private Context mContext;
+    private final Context mContext;
     private volatile WeakReference<Activity> mCurrentActivity = new WeakReference<>(null);
     private final String mFileProviderAuthority;
 
@@ -41,7 +44,7 @@ public class AppUtils {
     public boolean launchPackage(String packageName) {
         try {
             PackageManager packageManager = mContext.getPackageManager();
-            mContext.startActivity(packageManager.getLaunchIntentForPackage(packageName)
+            mContext.startActivity(Objects.requireNonNull(packageManager.getLaunchIntentForPackage(packageName))
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             return true;
         } catch (Exception e) {
@@ -81,7 +84,7 @@ public class AppUtils {
         try {
             ApplicationInfo applicationInfo = packageManager.getApplicationInfo(packageName, 0);
             CharSequence appName = packageManager.getApplicationLabel(applicationInfo);
-            return appName == null ? null : appName.toString();
+            return appName.toString();
         } catch (PackageManager.NameNotFoundException e) {
             return null;
         }
@@ -124,7 +127,7 @@ public class AppUtils {
     }
 
     @ScriptInterface
-    public void openUrl(String url) {
+    public void openUrl(@NonNull String url) {
         if (!url.startsWith("http://") && !url.startsWith("https://")) {
             url = "http://" + url;
         }
