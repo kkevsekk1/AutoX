@@ -286,7 +286,7 @@
         <receiver
             android:name="org.autojs.autojs.external.tasker.FireSettingReceiver"
             android:exported="true"
-            android:process=":background"
+            android:process="@string/text_script_process_name"
             tools:ignore="ExportedReceiver">
 
             <!-- this Intent filter allows the plug-in to discovered by the host. -->

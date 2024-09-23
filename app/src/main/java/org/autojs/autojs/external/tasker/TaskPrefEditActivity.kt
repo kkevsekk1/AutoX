@@ -139,7 +139,6 @@ open class TaskPrefEditActivity : AbstractAppCompatPluginActivity() {
         }
         return blurb!!
     }
-
     class ScriptEditActivityResult(val title: String, val summary: String) :
         ActivityResultContract<String?, ActivityResult>() {
         override fun createIntent(context: Context, input: String?): Intent {
