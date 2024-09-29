@@ -321,7 +321,8 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
+                
+                <data android:scheme="autoxscript"/>
                 <data android:scheme="file" />
                 <data android:scheme="content" />
                 <data android:mimeType="application/x-javascript" />
