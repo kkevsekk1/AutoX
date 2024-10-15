@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">* bí danh</string>
   <string name="text_sign_hint_key_password">*mật khẩu mở khóa</string>
   <string name="text_sign_hint_key_year">* Thời hạn hiệu lực (năm)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">* Mã quốc gia (XX)</string>
+    <string name="text_sign_hint_key_country">* Mã quốc gia (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Sau đây là các thông số tùy chọn</string>
   <string name="text_sign_hint_key_name">Tên</string>

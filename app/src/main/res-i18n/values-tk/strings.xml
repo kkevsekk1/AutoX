@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">* lakam</string>
   <string name="text_sign_hint_key_password">* parol</string>
   <string name="text_sign_hint_key_year">* Möhlet möhleti (ýyllar)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">* Codeurt kody (XX)</string>
+    <string name="text_sign_hint_key_country">* Codeurt kody (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Aşakdakylar goşmaça parametrler</string>
   <string name="text_sign_hint_key_name">Ady</string>

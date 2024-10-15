@@ -40,7 +40,6 @@ public class ApkPackager {
                 String name = e.getName();
                 if (!e.isDirectory() && !TextUtils.isEmpty(name)) {
                     File file = new File(mWorkspacePath, name);
-                    System.out.println(file);
                     file.getParentFile().mkdirs();
                     FileOutputStream fos = new FileOutputStream(file);
                     StreamUtils.write(zis, fos);

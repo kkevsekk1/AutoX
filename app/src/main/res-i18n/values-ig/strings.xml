@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">* utu aha</string>
   <string name="text_sign_hint_key_password">* okwuntughe</string>
   <string name="text_sign_hint_key_year">*Oge nkwado (afọ)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">* Koodu obodo (XX)</string>
+    <string name="text_sign_hint_key_country">* Koodu obodo (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Ndị a bụ parampat nhọrọ</string>
   <string name="text_sign_hint_key_name">Aha</string>

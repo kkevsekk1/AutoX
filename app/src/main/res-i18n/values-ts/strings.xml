@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*alias</string>
   <string name="text_sign_hint_key_password">*phasiwedi</string>
   <string name="text_sign_hint_key_year">*Nkarhi wa ku tirha (malembe) .</string>
-  <string name="text_sign_key_year_def">25.</string>
-  <string name="text_sign_hint_key_country">*Khodi ya tiko (XX) .</string>
+    <string name="text_sign_hint_key_country">*Khodi ya tiko (XX) .</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Leswi landzelaka i tipharamitha leti nga hlawuriwa</string>
   <string name="text_sign_hint_key_name">Vito</string>

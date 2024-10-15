@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*ቅጽል ስም</string>
   <string name="text_sign_hint_key_password">*መሕለፊ ቓል</string>
   <string name="text_sign_hint_key_year">*ናይ ትኽክለኛነት ግዜ (ዓመታት)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*ኮድ ሃገር (XX)</string>
+    <string name="text_sign_hint_key_country">*ኮድ ሃገር (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">እዞም ዝስዕቡ ኣማራጺ መለክዒታት እዮም።</string>
   <string name="text_sign_hint_key_name">ሽም</string>

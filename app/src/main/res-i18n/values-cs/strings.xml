@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*jinak</string>
   <string name="text_sign_hint_key_password">*Heslo</string>
   <string name="text_sign_hint_key_year">* Doba platnosti (roky)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Kód země (XX)</string>
+    <string name="text_sign_hint_key_country">*Kód země (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Následují volitelné parametry</string>
   <string name="text_sign_hint_key_name">Název</string>

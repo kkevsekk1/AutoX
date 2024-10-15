@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*alyas</string>
   <string name="text_sign_hint_key_password">*modpas</string>
   <string name="text_sign_hint_key_year">* Peryòd validite (ane)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Kod peyi (XX)</string>
+    <string name="text_sign_hint_key_country">*Kod peyi (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Sa ki anba la yo se paramèt opsyonèl</string>
   <string name="text_sign_hint_key_name">Non</string>

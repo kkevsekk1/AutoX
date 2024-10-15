@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*alias</string>
   <string name="text_sign_hint_key_password">*sandi</string>
   <string name="text_sign_hint_key_year">* Mangsa validitas (taun)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">* Kode Nagara (XX)</string>
+    <string name="text_sign_hint_key_country">* Kode Nagara (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Di handap ieu mangrupakeun parameter pilihan</string>
   <string name="text_sign_hint_key_name">Ngaran</string>

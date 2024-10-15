@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">* ተለዋጭ ስም</string>
   <string name="text_sign_hint_key_password">*ፕስወርድ</string>
   <string name="text_sign_hint_key_year">* ትክክለኛ ጊዜ (ዓመታት)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">የሀገር ኮድ (XX)</string>
+    <string name="text_sign_hint_key_country">የሀገር ኮድ (XX)</string>
   <string name="text_sign_key_country_def">ኤን</string>
   <string name="text_sign_hint_not_must">የሚከተሉት አማራጭ መለኪያዎች ናቸው።</string>
   <string name="text_sign_hint_key_name">ስም</string>

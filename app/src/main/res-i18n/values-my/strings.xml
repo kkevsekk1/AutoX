@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">* နာမည်အရင်း</string>
   <string name="text_sign_hint_key_password">* စကားဝှက်</string>
   <string name="text_sign_hint_key_year">* သက်တမ်း (နှစ်)</string>
-  <string name="text_sign_key_year_def">၂၅</string>
-  <string name="text_sign_hint_key_country">*နိုင်ငံကုဒ် (XX)</string>
+    <string name="text_sign_hint_key_country">*နိုင်ငံကုဒ် (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">အောက်ပါတို့သည် ရွေးချယ်နိုင်သော ဘောင်များဖြစ်သည်။</string>
   <string name="text_sign_hint_key_name">နာမည်</string>

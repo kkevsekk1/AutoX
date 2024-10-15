@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*alias</string>
   <string name="text_sign_hint_key_password">*Salasana</string>
   <string name="text_sign_hint_key_year">* Voimassaoloaika (vuosia)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Maakoodi (XX)</string>
+    <string name="text_sign_hint_key_country">*Maakoodi (XX)</string>
   <string name="text_sign_key_country_def">FI</string>
   <string name="text_sign_hint_not_must">Seuraavat ovat valinnaisia ​​parametreja</string>
   <string name="text_sign_hint_key_name">Nimi</string>

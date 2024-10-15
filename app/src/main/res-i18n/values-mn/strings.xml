@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*холбоо</string>
   <string name="text_sign_hint_key_password">*нууц үг</string>
   <string name="text_sign_hint_key_year">*Хэрэглэх хугацаа (жил)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Улсын код (XX)</string>
+    <string name="text_sign_hint_key_country">*Улсын код (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Дараах нь нэмэлт параметрүүд юм</string>
   <string name="text_sign_hint_key_name">Нэр</string>

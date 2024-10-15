@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*alias ƒe ŋkɔ</string>
   <string name="text_sign_hint_key_password">*safuinya</string>
   <string name="text_sign_hint_key_year">*Ɣeyiɣi si woatsɔ awɔ dɔe (ƒewo) .</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Dukɔa ƒe ŋkɔ (XX) .</string>
+    <string name="text_sign_hint_key_country">*Dukɔa ƒe ŋkɔ (XX) .</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Nusiwo gbɔna nye parameter siwo woate ŋu awɔ le wo ɖokui si</string>
   <string name="text_sign_hint_key_name">Ŋkɔ</string>

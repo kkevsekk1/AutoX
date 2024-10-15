@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*alias ukax sañ muni</string>
   <string name="text_sign_hint_key_password">*chimpu</string>
   <string name="text_sign_hint_key_year">*Validez ukax (maranaka) .</string>
-  <string name="text_sign_key_year_def">25. Ukaxa</string>
-  <string name="text_sign_hint_key_country">*Marka qillqata (XX) .</string>
+    <string name="text_sign_hint_key_country">*Marka qillqata (XX) .</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Akax parámetros opcionales ukanakawa</string>
   <string name="text_sign_hint_key_name">Chacha</string>

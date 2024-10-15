@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">* ailias</string>
   <string name="text_sign_hint_key_password">*facal-faire</string>
   <string name="text_sign_hint_key_year">* Ùine dligheachd (bliadhnaichean)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">* Còd na dùthcha (XX)</string>
+    <string name="text_sign_hint_key_country">* Còd na dùthcha (XX)</string>
   <string name="text_sign_key_country_def">GA</string>
   <string name="text_sign_hint_not_must">Tha na leanas nam paramadairean roghainneil</string>
   <string name="text_sign_hint_key_name">Ainm</string>

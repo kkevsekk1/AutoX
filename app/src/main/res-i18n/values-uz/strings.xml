@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">* taxallus</string>
   <string name="text_sign_hint_key_password">*parol</string>
   <string name="text_sign_hint_key_year">* Amal qilish muddati (yillar)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Mamlakat kodi (XX)</string>
+    <string name="text_sign_hint_key_country">*Mamlakat kodi (XX)</string>
   <string name="text_sign_key_country_def">UZ</string>
   <string name="text_sign_hint_not_must">Quyida ixtiyoriy parametrlar mavjud</string>
   <string name="text_sign_hint_key_name">Nomi</string>

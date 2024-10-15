@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*นามแฝง</string>
   <string name="text_sign_hint_key_password">*รหัสผ่าน</string>
   <string name="text_sign_hint_key_year">*อายุการใช้งาน (ปี)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*รหัสประเทศ (XX)</string>
+    <string name="text_sign_hint_key_country">*รหัสประเทศ (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">ต่อไปนี้เป็นพารามิเตอร์ทางเลือก</string>
   <string name="text_sign_hint_key_name">ชื่อ</string>

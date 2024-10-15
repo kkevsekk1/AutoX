@@ -89,6 +89,3 @@ object Filled : com.aiselp.autox.api.ui.Icons {
     override val Person: ImageVector by lazy { Icons.Filled.Person }
 }
 
-fun s() {
-   Icons.Default.Star
-}

@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">* மாற்றுப்பெயர்</string>
   <string name="text_sign_hint_key_password">*கடவுச்சொல்</string>
   <string name="text_sign_hint_key_year">* செல்லுபடியாகும் காலம் (ஆண்டுகள்)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*நாட்டின் குறியீடு (XX)</string>
+    <string name="text_sign_hint_key_country">*நாட்டின் குறியீடு (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">பின்வருபவை விருப்ப அளவுருக்கள்</string>
   <string name="text_sign_hint_key_name">பெயர்</string>

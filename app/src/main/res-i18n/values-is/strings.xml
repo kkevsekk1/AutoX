@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*alias</string>
   <string name="text_sign_hint_key_password">*lykilorð</string>
   <string name="text_sign_hint_key_year">*Gildistími (ár)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Landsnúmer (XX)</string>
+    <string name="text_sign_hint_key_country">*Landsnúmer (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Eftirfarandi eru valfrjálsar breytur</string>
   <string name="text_sign_hint_key_name">Nafn</string>

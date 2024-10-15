@@ -2,6 +2,9 @@ package org.autojs.autojs.build
 
 import android.util.Log
 import androidx.core.net.toUri
+import com.aiselp.autox.apkbuilder.AAPT_Util
+import com.aiselp.autox.apkbuilder.ApkKeyStore
+import com.aiselp.autox.apkbuilder.ApkSignUtil
 import com.stardust.app.GlobalAppContext
 import com.stardust.autojs.apkbuilder.ApkPackager
 import com.stardust.autojs.apkbuilder.ManifestEditor
@@ -13,10 +16,10 @@ import com.stardust.autojs.script.JavaScriptFileSource
 import com.stardust.pio.PFiles
 import com.stardust.util.AdvancedEncryptionStandard
 import com.stardust.util.MD5
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
-import org.apache.commons.io.FileUtils
-import org.apache.commons.io.IOUtils
+import kotlinx.coroutines.withContext
 import org.autojs.autojs.tool.addAllIfNotExist
 import org.autojs.autojs.tool.copyTo
 import org.autojs.autojs.tool.parseUriOrNull
@@ -141,7 +144,7 @@ class ApkBuilder(
     }
 
     private fun encrypt(file: File, newFile: File) {
-        if (!projectConfig!!.isEncrypt){
+        if (!projectConfig!!.isEncrypt) {
             newFile.delete()
             file.copyTo(newFile)
             return
@@ -300,16 +303,30 @@ class ApkBuilder(
         return this
     }
 
-    suspend fun sign(keyStorePath: String?, keyPassword: String?): ApkBuilder {
+    suspend fun sign(
+        apkKeyStore: ApkKeyStore,
+        v1Sign: Boolean = true,
+        v2Sign: Boolean = true,
+        v3Sign: Boolean = false,
+        v4Sign: Boolean = false
+    ): ApkBuilder {
         _progressState.emit(BuildState.SIGN)
-        if (!keyPassword.isNullOrEmpty() && !keyStorePath.isNullOrEmpty()) {
+        withContext(Dispatchers.IO) {
             val waitSignApk = File(waitSignApk1)
-            ZipOutputStream(FileOutputStream(waitSignApk)).use { inZip(File(workspacePath), it) }
-            ApkSigner.sign(keyStorePath, keyPassword, waitSignApk, outApkFile)
-        } else {
-            FileOutputStream(outApkFile).use {
-                DefaultSign.sign(File(workspacePath), it)
+            ZipOutputStream(waitSignApk.outputStream()).use {
+                inZip(File(workspacePath), it)
             }
+            val optimizeFile = File(waitSignApk.parentFile, waitSignApk.nameWithoutExtension + "-opt.apk")
+            AAPT_Util.aapt2Optimize(waitSignApk, optimizeFile)
+
+            val s = ApkSignUtil.sign(
+                optimizeFile,
+                outApkFile,
+                apkKeyStore,
+                v1Sign, v2Sign, v3Sign, v4Sign
+            )
+            optimizeFile.delete()
+            if (!s) throw Exception("sign apk error")
         }
         return this
     }
@@ -431,9 +448,9 @@ class ApkBuilder(
 
         private fun doFile(name: String, f: File, zos: ZipOutputStream, dos: DigestOutputStream) {
             zos.putNextEntry(ZipEntry(name))
-            val fis = FileUtils.openInputStream(f)
-            IOUtils.copy(fis, dos)
-            IOUtils.closeQuietly(fis)
+            f.inputStream().use {
+                it.copyTo(dos)
+            }
             zos.closeEntry()
         }
     }

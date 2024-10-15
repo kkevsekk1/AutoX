@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*उर्फ</string>
   <string name="text_sign_hint_key_password">* पासवर्ड</string>
   <string name="text_sign_hint_key_year">*वैधता कालावधी (वर्षे)</string>
-  <string name="text_sign_key_year_def">२५</string>
-  <string name="text_sign_hint_key_country">*देश कोड (XX)</string>
+    <string name="text_sign_hint_key_country">*देश कोड (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">खालील पर्यायी मापदंड आहेत</string>
   <string name="text_sign_hint_key_name">नाव</string>

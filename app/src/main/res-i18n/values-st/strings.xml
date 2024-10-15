@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">* tse ling</string>
   <string name="text_sign_hint_key_password">* password</string>
   <string name="text_sign_hint_key_year">* Nako ea ho sebetsa (lilemo)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Khoutu ea naha (XX)</string>
+    <string name="text_sign_hint_key_country">*Khoutu ea naha (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Tse latelang ke li-parameter tsa boikhethelo</string>
   <string name="text_sign_hint_key_name">Lebitso</string>

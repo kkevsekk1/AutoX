@@ -71,6 +71,7 @@ accompanist-pager = { module = "com.google.accompanist:accompanist-pager", versi
 accompanist-pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanist-version" }
 accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist-version" }
 ##########################
+commons-exec = "org.apache.commons:commons-exec:1.3"
 commons-io = "commons-io:commons-io:2.6"
 eventbus = "org.greenrobot:eventbus:3.3.1"
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines-android" }
@@ -106,6 +107,7 @@ test-rules = "androidx.test:rules:1.5.0"
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 
+timscriptov-apksigner ="com.github.TimScriptov:apksigner:1.2.0"
 andserver-processor = { module = "com.yanzhenjie.andserver:processor", version.ref = "andserver" }
 andserver-api = { module = "com.yanzhenjie.andserver:api", version.ref = "andserver" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil-compose-version" }

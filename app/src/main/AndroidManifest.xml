@@ -175,7 +175,7 @@
             android:name="org.autojs.autojs.ui.build.BuildActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/M3AppTheme" />
-        <activity android:name="org.autojs.autojs.ui.build.SignManageActivityKt" />
+        <activity android:name="org.autojs.autojs.ui.build.SignManageActivity" />
         <activity
             android:name="org.autojs.autojs.ui.build.ProjectConfigActivity"
             android:theme="@style/M3AppTheme" />

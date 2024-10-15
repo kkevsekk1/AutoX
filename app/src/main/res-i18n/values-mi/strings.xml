@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*ingoa</string>
   <string name="text_sign_hint_key_password">*kupuhipa</string>
   <string name="text_sign_hint_key_year">*Wā whaimana (tau)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Waehere whenua (XX)</string>
+    <string name="text_sign_hint_key_country">*Waehere whenua (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Ko nga tawhā e whai ake nei</string>
   <string name="text_sign_hint_key_name">Ingoa</string>

@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*alias</string>
   <string name="text_sign_hint_key_password">*পাছৱৰ্ড</string>
   <string name="text_sign_hint_key_year">*বৈধতাৰ সময়সীমা (বছৰ)</string>
-  <string name="text_sign_key_year_def">২৫</string>
-  <string name="text_sign_hint_key_country">*দেশৰ কোড (XX)</string>
+    <string name="text_sign_hint_key_country">*দেশৰ কোড (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">তলত দিয়া হৈছে বৈকল্পিক প্ৰাচলসমূহ</string>
   <string name="text_sign_hint_key_name">নাম</string>

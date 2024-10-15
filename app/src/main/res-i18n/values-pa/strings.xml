@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*ਉਰਫ਼</string>
   <string name="text_sign_hint_key_password">* ਪਾਸਵਰਡ</string>
   <string name="text_sign_hint_key_year">*ਵੈਧਤਾ ਦੀ ਮਿਆਦ (ਸਾਲ)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*ਦੇਸ਼ ਕੋਡ (XX)</string>
+    <string name="text_sign_hint_key_country">*ਦੇਸ਼ ਕੋਡ (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">ਹੇਠਾਂ ਦਿੱਤੇ ਵਿਕਲਪਿਕ ਮਾਪਦੰਡ ਹਨ</string>
   <string name="text_sign_hint_key_name">ਨਾਮ</string>

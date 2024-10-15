@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*alias</string>
   <string name="text_sign_hint_key_password">*password</string>
   <string name="text_sign_hint_key_year">*Perjodu ta\' validità (snin)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Kodiċi tal-pajjiż (XX)</string>
+    <string name="text_sign_hint_key_country">*Kodiċi tal-pajjiż (XX)</string>
   <string name="text_sign_key_country_def">MT</string>
   <string name="text_sign_hint_not_must">Dawn li ġejjin huma parametri fakultattivi</string>
   <string name="text_sign_hint_key_name">Isem</string>

@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*лакап ат</string>
   <string name="text_sign_hint_key_password">*купуя сөз</string>
   <string name="text_sign_hint_key_year">* Жарактуулук мөөнөтү (жыл)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Өлкө коду (XX)</string>
+    <string name="text_sign_hint_key_country">*Өлкө коду (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Төмөнкүлөр кошумча параметрлер болуп саналат</string>
   <string name="text_sign_hint_key_name">Аты</string>

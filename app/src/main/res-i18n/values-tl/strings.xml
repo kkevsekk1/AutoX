@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*alias</string>
   <string name="text_sign_hint_key_password">*password</string>
   <string name="text_sign_hint_key_year">* Panahon ng bisa (taon)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Code ng bansa (XX)</string>
+    <string name="text_sign_hint_key_country">*Code ng bansa (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Ang mga sumusunod ay mga opsyonal na parameter</string>
   <string name="text_sign_hint_key_name">Pangalan</string>

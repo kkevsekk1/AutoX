@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">* ឈ្មោះក្លែងក្លាយ</string>
   <string name="text_sign_hint_key_password">* ពាក្យសម្ងាត់</string>
   <string name="text_sign_hint_key_year">* រយៈពេលសុពលភាព (ឆ្នាំ)</string>
-  <string name="text_sign_key_year_def">២៥</string>
-  <string name="text_sign_hint_key_country">* លេខកូដប្រទេស (XX)</string>
+    <string name="text_sign_hint_key_country">* លេខកូដប្រទេស (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">ខាងក្រោមគឺជាប៉ារ៉ាម៉ែត្រស្រេចចិត្ត</string>
   <string name="text_sign_hint_key_name">ឈ្មោះ</string>

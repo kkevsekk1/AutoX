@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*ઉર્ફે</string>
   <string name="text_sign_hint_key_password">* પાસવર્ડ</string>
   <string name="text_sign_hint_key_year">*માન્યતા અવધિ (વર્ષ)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*દેશ કોડ (XX)</string>
+    <string name="text_sign_hint_key_country">*દેશ કોડ (XX)</string>
   <string name="text_sign_key_country_def">ઇએન</string>
   <string name="text_sign_hint_not_must">નીચેના વૈકલ્પિક પરિમાણો છે</string>
   <string name="text_sign_hint_key_name">નામ</string>

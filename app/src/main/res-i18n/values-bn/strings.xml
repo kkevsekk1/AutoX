@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">* উপনাম</string>
   <string name="text_sign_hint_key_password">*পাসওয়ার্ড</string>
   <string name="text_sign_hint_key_year">* মেয়াদকাল (বছর)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*দেশের কোড (XX)</string>
+    <string name="text_sign_hint_key_country">*দেশের কোড (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">নিম্নলিখিত ঐচ্ছিক পরামিতি</string>
   <string name="text_sign_hint_key_name">নাম</string>

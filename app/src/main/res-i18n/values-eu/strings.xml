@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*ezizena</string>
   <string name="text_sign_hint_key_password">*pasahitza</string>
   <string name="text_sign_hint_key_year">* Baliozko epea (urteak)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Herrialdearen kodea (XX)</string>
+    <string name="text_sign_hint_key_country">*Herrialdearen kodea (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Honako hauek aukerako parametroak dira</string>
   <string name="text_sign_hint_key_name">Izena</string>

@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*pseudonim</string>
   <string name="text_sign_hint_key_password">*zaporka</string>
   <string name="text_sign_hint_key_year">*Razdoblje valjanosti (godine)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Pozivni broj zemlje (XX)</string>
+    <string name="text_sign_hint_key_country">*Pozivni broj zemlje (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Sljedeći su izborni parametri</string>
   <string name="text_sign_hint_key_name">Ime</string>

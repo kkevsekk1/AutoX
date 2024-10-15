@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*alias</string>
   <string name="text_sign_hint_key_password">*Lösenord</string>
   <string name="text_sign_hint_key_year">* Giltighetstid (år)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Landskod (XX)</string>
+    <string name="text_sign_hint_key_country">*Landskod (XX)</string>
   <string name="text_sign_key_country_def">SV</string>
   <string name="text_sign_hint_not_must">Följande är valfria parametrar</string>
   <string name="text_sign_hint_key_name">Namn</string>

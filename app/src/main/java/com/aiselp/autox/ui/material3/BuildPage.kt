@@ -17,6 +17,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -27,10 +29,13 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -45,9 +50,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
+import com.aiselp.autox.apkbuilder.ApkKeyStore
+import com.aiselp.autox.ui.material3.components.BaseDialog
 import com.aiselp.autox.ui.material3.components.BuildCard
 import com.aiselp.autox.ui.material3.components.CheckboxOption
+import com.aiselp.autox.ui.material3.components.DialogController
 import com.aiselp.autox.ui.material3.components.InputBox
 import com.aiselp.autox.ui.material3.components.M3TopAppBar
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -55,9 +64,9 @@ import com.stardust.util.IntentUtil
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.autojs.autojs.external.fileprovider.AppFileProvider
+import org.autojs.autojs.tool.startActivity
 import org.autojs.autojs.ui.build.BuildViewModel
-import org.autojs.autojs.ui.build.buildApk
-import org.autojs.autojs.ui.build.chooseSign
+import org.autojs.autojs.ui.build.SignManageActivity
 import org.autojs.autojs.ui.build.selectOutputDirPath
 import org.autojs.autojs.ui.build.selectSourceFilePath
 import org.autojs.autojs.ui.shortcut.ShortcutIconSelectResult
@@ -65,17 +74,28 @@ import org.autojs.autoxjs.R
 
 @Composable
 fun BuildPage(viewModel: BuildViewModel) {
-    val activity = LocalContext.current as Activity
-    BackHandler { finish(activity, viewModel) }
+    val context = LocalContext.current as Activity
+    val scope = rememberCoroutineScope()
+    val finishDialog = object : DialogController() {
+        fun exitCheck() {
+            if (viewModel.isConfigurationHasChanged) {
+                scope.launch { show() }
+            } else context.finish()
+        }
+    }
+
+
+    BackHandler { finishDialog.exitCheck() }
     Scaffold(topBar = {
         M3TopAppBar(
             title = stringResource(R.string.text_build_apk),
-            onNavigationClick = { finish(activity, viewModel) },
+            onNavigationClick = { finishDialog.exitCheck() },
             actions = { Actions(viewModel) }
         )
     }, floatingActionButton = {
         FloatingMenu(model = viewModel)
     }, floatingActionButtonPosition = FabPosition.End) {
+        finishDialog.FinishDialog(model = viewModel)
         Column(
             Modifier
                 .padding(it)
@@ -336,16 +356,95 @@ fun EncryptCard(model: BuildViewModel) {
 @Composable
 private fun SignatureCard(model: BuildViewModel) {
     val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    val dialogController = DialogController()
+    dialogController.ChooseSignDialog(model.keyStore) {
+        model.keyStore = it
+    }
     BuildCard(stringResource(R.string.text_sign)) {
-        Text(text = model.appSignKeyPath ?: stringResource(R.string.text_default_signature))
-        TextButton(onClick = {
-            chooseSign(
-                context = context,
-                currentKeyStore = model.keyStore,
-                onKeyStoreChange = { model.keyStore = it;model.appSignKeyPath = it?.path }
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Text(
+                modifier = Modifier.weight(1f),
+                text = model.keyStore?.name ?: stringResource(R.string.text_default_signature)
             )
+            TextButton(onClick = {
+                scope.launch { dialogController.show() }
+            }) {
+                Text(text = stringResource(id = R.string.text_sign_choose))
+            }
+        }
+        Text(text = stringResource(id = R.string.text_sign_plan))
+        Column {
+            val m = Modifier
+            Row {
+                CheckboxOption(modifier = m, model::v1Sign, "启用v1签名")
+                CheckboxOption(modifier = m, model::v2Sign, "启用v2签名")
+            }
+            Row {
+                CheckboxOption(modifier = m, model::v3Sign, "启用v3签名")
+                CheckboxOption(modifier = m, model::v4Sign, "启用v4签名")
+            }
+        }
+    }
+}
+
+@Composable
+fun DialogController.ChooseSignDialog(
+    currentKeyFile: ApkKeyStore?,
+    onKeyStoreChange: (ApkKeyStore?) -> Unit
+) {
+    val scope = rememberCoroutineScope()
+    val context = LocalContext.current
+    val model = viewModel(BuildViewModel::class.java)
+    var list by remember {
+        mutableStateOf(model.apkSignUtil.loadSavedApkKeyStore())
+    }
+    var current by remember { mutableStateOf(currentKeyFile) }
+    LaunchedEffect(key1 = showState) {
+        if (showState)
+            list = model.apkSignUtil.loadSavedApkKeyStore()
+    }
+
+    BaseDialog(
+        onDismissRequest = { scope.launch { dismiss() } },
+        title = {
+            Text(
+                text = stringResource(R.string.text_sign_choose),
+                style = MaterialTheme.typography.titleLarge
+            )
+        },
+        positiveText = "确定",
+        onPositiveClick = { scope.launch { dismiss(); onKeyStoreChange(current) } },
+        negativeText = "取消",
+        onNegativeClick = { scope.launch { dismiss() } },
+        neutralText = "签名管理",
+        onNeutralClick = {
+            context.startActivity(SignManageActivity::class.java)
+            scope.launch { dismiss() }
         }) {
-            Text(text = stringResource(id = R.string.text_sign_choose))
+        LazyColumn {
+            item {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { current = null },
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    RadioButton(selected = current == null, onClick = { current = null })
+                    Text(text = "默认签名")
+                }
+            }
+            items(list) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { current = it },
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    RadioButton(selected = current == it, onClick = { current = it })
+                    Text(text = it.name ?: "未知签名")
+                }
+            }
         }
     }
 }
@@ -364,7 +463,7 @@ fun BuildingDialog(show: Boolean, model: BuildViewModel, onDismissRequest: () ->
                     Text(text = stringResource(R.string.cancel))
                 }
                 TextButton(onClick = {
-                    buildApk(model, context, model.keyStore)
+                    model.buildApk()
                 }) { Text(text = stringResource(R.string.ok)) }
             }
         }
@@ -426,21 +525,29 @@ fun FloatingMenu(model: BuildViewModel) {
     }
 }
 
-private fun finish(activity: Activity, model: BuildViewModel) {
-    if (model.isConfigurationHasChanged) {
-        MaterialAlertDialogBuilder(activity)
-            .setTitle(R.string.text_alert)
-            .setMessage(R.string.edit_exit_without_save_warn)
-            .setPositiveButton(R.string.text_save_and_exit) { _, _ ->
-                model.saveConfig()
-                activity.finish()
-            }
-            .setNegativeButton(R.string.text_exit_directly) { _, _ ->
-                activity.finish()
-            }
-            .setNeutralButton(R.string.cancel) { _, _ -> }
-            .show()
-    } else activity.finish()
+@Composable
+private fun DialogController.FinishDialog(model: BuildViewModel) {
+    val scope = rememberCoroutineScope()
+    val context = LocalContext.current as Activity
+    BaseDialog(
+        onDismissRequest = { scope.launch { dismiss() } },
+        title = {
+            Text(
+                text = stringResource(R.string.text_alert),
+                style = MaterialTheme.typography.titleLarge
+            )
+        },
+        positiveText = stringResource(id = R.string.text_save_and_exit),
+        onPositiveClick = {
+            model.saveConfig();context.finish()
+        },
+        negativeText = stringResource(id = R.string.cancel),
+        onNegativeClick = { scope.launch { dismiss() } },
+        neutralText = stringResource(id = R.string.text_exit_directly),
+        onNeutralClick = { context.finish() }
+    ) {
+        Text(text = stringResource(R.string.edit_exit_without_save_warn))
+    }
 }
 
 fun showSaveDialog(context: Context, model: BuildViewModel) {

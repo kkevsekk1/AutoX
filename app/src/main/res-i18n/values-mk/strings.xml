@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*алијас</string>
   <string name="text_sign_hint_key_password">*лозинка</string>
   <string name="text_sign_hint_key_year">*Период на важност (години)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Шифра на земја (XX)</string>
+    <string name="text_sign_hint_key_country">*Шифра на земја (XX)</string>
   <string name="text_sign_key_country_def">МК</string>
   <string name="text_sign_hint_not_must">Следниве се опционални параметри</string>
   <string name="text_sign_hint_key_name">Име</string>

@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*alias</string>
   <string name="text_sign_hint_key_password">* tenimiafina</string>
   <string name="text_sign_hint_key_year">* Vanim-potoana manankery (taona)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Kaody firenena (XX)</string>
+    <string name="text_sign_hint_key_country">*Kaody firenena (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Ireto manaraka ireto dia masontsivana azo atao</string>
   <string name="text_sign_hint_key_name">Anarana</string>

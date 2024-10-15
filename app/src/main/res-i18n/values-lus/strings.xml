@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*alias tih a ni</string>
   <string name="text_sign_hint_key_password">*tawngkam ruk</string>
   <string name="text_sign_hint_key_year">*Validity hun chhung (kum) .</string>
-  <string name="text_sign_key_year_def">25 a ni</string>
-  <string name="text_sign_hint_key_country">*Ram code (XX) a ni.</string>
+    <string name="text_sign_hint_key_country">*Ram code (XX) a ni.</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">A hnuaia tarlan te hi optional parameters te an ni</string>
   <string name="text_sign_hint_key_name">Hming</string>

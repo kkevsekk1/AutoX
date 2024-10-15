@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*عرف</string>
   <string name="text_sign_hint_key_password">*رمز</string>
   <string name="text_sign_hint_key_year">* د اعتبار موده (کلونه)</string>
-  <string name="text_sign_key_year_def">۲۵</string>
-  <string name="text_sign_hint_key_country">د هیواد کوډ (XX)</string>
+    <string name="text_sign_hint_key_country">د هیواد کوډ (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">لاندې اختیاري پیرامیټونه دي</string>
   <string name="text_sign_hint_key_name">نوم</string>

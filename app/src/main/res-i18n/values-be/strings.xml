@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*псеўданім</string>
   <string name="text_sign_hint_key_password">* пароль</string>
   <string name="text_sign_hint_key_year">* Тэрмін дзеяння (гады)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Код краіны (XX)</string>
+    <string name="text_sign_hint_key_country">*Код краіны (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Ніжэй прыведзены неабавязковыя параметры</string>
   <string name="text_sign_hint_key_name">Імя</string>

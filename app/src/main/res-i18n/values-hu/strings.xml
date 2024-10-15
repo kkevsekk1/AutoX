@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*álnév</string>
   <string name="text_sign_hint_key_password">*Jelszó</string>
   <string name="text_sign_hint_key_year">*Érvényességi idő (év)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Országkód (XX)</string>
+    <string name="text_sign_hint_key_country">*Országkód (XX)</string>
   <string name="text_sign_key_country_def">HU</string>
   <string name="text_sign_hint_not_must">Az alábbiak választható paraméterek</string>
   <string name="text_sign_hint_key_name">Név</string>

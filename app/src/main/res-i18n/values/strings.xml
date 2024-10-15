@@ -275,7 +275,6 @@
     <string name="text_sign_hint_key_alias">*别名</string>
     <string name="text_sign_hint_key_password">*密码</string>
     <string name="text_sign_hint_key_year">*有效期(年)</string>
-    <string name="text_sign_key_year_def">25</string>
     <string name="text_sign_hint_key_country">*国家代码(XX)</string>
     <string name="text_sign_key_country_def">CN</string>
     <string name="text_sign_hint_not_must">以下为可选参数</string>
@@ -547,4 +546,9 @@
     <string name="text_reconnecting">正在重新连接</string>
     <string name="text_connecting">正在连接</string>
     <string name="text_handshake_failed">握手失败</string>
+    <string name="text_sign_keystore">密钥库</string>
+    <string name="text_sign_keystore_password">密钥库密码</string>
+    <string name="text_sign_alias">别名</string>
+    <string name="text_sign_key_password">私钥密码</string>
+    <string name="text_sign_plan">签名方案</string>
 </resources>

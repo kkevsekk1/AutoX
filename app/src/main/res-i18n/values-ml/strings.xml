@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*അപരനാമം</string>
   <string name="text_sign_hint_key_password">*password</string>
   <string name="text_sign_hint_key_year">*സാധുത കാലയളവ് (വർഷങ്ങൾ)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*രാജ്യ കോഡ് (XX)</string>
+    <string name="text_sign_hint_key_country">*രാജ്യ കോഡ് (XX)</string>
   <string name="text_sign_key_country_def">ഇ.എൻ</string>
   <string name="text_sign_hint_not_must">ഇനിപ്പറയുന്നവ ഓപ്ഷണൽ പാരാമീറ്ററുകളാണ്</string>
   <string name="text_sign_hint_key_name">പേര്</string>

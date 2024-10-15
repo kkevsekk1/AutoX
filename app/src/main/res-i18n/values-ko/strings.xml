@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*별명</string>
   <string name="text_sign_hint_key_password">*비밀번호</string>
   <string name="text_sign_hint_key_year">*유효기간(년)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*국가 코드(XX)</string>
+    <string name="text_sign_hint_key_country">*국가 코드(XX)</string>
   <string name="text_sign_key_country_def">KO</string>
   <string name="text_sign_hint_not_must">다음은 선택적 매개변수입니다.</string>
   <string name="text_sign_hint_key_name">이름</string>

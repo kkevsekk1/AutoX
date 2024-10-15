@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*alias a wɔfrɛ no</string>
   <string name="text_sign_hint_key_password">*paswɛde</string>
   <string name="text_sign_hint_key_year">*Validity bere (mfe) .</string>
-  <string name="text_sign_key_year_def">25. 25</string>
-  <string name="text_sign_hint_key_country">*Ɔman no mmara (XX) .</string>
+    <string name="text_sign_hint_key_country">*Ɔman no mmara (XX) .</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Nea edidi so yi yɛ parameters a wobetumi apaw</string>
   <string name="text_sign_hint_key_name">Din</string>

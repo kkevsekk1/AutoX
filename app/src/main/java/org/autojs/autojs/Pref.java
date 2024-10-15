@@ -183,14 +183,6 @@ public class Pref {
         return getScriptDirPath().concat("/.keyStore/");
     }
 
-    public static String getKeyStorePassWord(String keyName) {
-        return def().getString(keyName, "");
-    }
-
-    public static void setKeyStorePassWord(String keyName, String passWord) {
-        def().edit().putString(keyName, passWord).apply();
-    }
-
     public static boolean isForegroundServiceEnabled() {
         return def().getBoolean(getString(R.string.key_foreground_servie), false);
     }

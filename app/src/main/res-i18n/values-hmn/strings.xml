@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*alias</string>
   <string name="text_sign_hint_key_password">* tus password</string>
   <string name="text_sign_hint_key_year">* Lub sijhawm siv tau (xyoo)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">* Lub teb chaws chaws (XX)</string>
+    <string name="text_sign_hint_key_country">* Lub teb chaws chaws (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">Cov hauv qab no yog cov kev xaiv xaiv</string>
   <string name="text_sign_hint_key_name">Npe</string>

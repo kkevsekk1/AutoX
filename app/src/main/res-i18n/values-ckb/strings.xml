@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*ناونیشان</string>
   <string name="text_sign_hint_key_password">*نهێنوشە</string>
   <string name="text_sign_hint_key_year">*ماوەی کارایی (ساڵ)</string>
-  <string name="text_sign_key_year_def">25. 25</string>
-  <string name="text_sign_hint_key_country">*کۆدی وڵات (XX)</string>
+    <string name="text_sign_hint_key_country">*کۆدی وڵات (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">ئەمانەی خوارەوە پارامێتەرەکانی هەڵبژاردەن</string>
   <string name="text_sign_hint_key_name">ناو</string>

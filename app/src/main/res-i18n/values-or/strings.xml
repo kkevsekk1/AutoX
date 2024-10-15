@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">* ଛଦ୍ମନାମ</string>
   <string name="text_sign_hint_key_password">* ପାସୱାର୍ଡ</string>
   <string name="text_sign_hint_key_year">* ବ id ଧତା ଅବଧି (ବର୍ଷ)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">* ଦେଶ କୋଡ୍ (XX)</string>
+    <string name="text_sign_hint_key_country">* ଦେଶ କୋଡ୍ (XX)</string>
   <string name="text_sign_key_country_def">EN</string>
   <string name="text_sign_hint_not_must">ନିମ୍ନଲିଖିତଗୁଡ଼ିକ ହେଉଛି ବ al କଳ୍ପିକ ପାରାମିଟର |</string>
   <string name="text_sign_hint_key_name">ନାମ</string>
