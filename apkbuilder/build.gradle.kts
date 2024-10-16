@@ -44,7 +44,6 @@ dependencies {
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
     testImplementation(libs.junit)
-    api(files("libs/tiny-sign-0.9.jar"))
     api(libs.commons.io)
     implementation(libs.core.ktx)
 }

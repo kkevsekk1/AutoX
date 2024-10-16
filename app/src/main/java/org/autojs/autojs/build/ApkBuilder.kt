@@ -6,13 +6,13 @@ import com.aiselp.autox.apkbuilder.AAPT_Util
 import com.aiselp.autox.apkbuilder.ApkKeyStore
 import com.aiselp.autox.apkbuilder.ApkSignUtil
 import com.stardust.app.GlobalAppContext
-import com.stardust.autojs.apkbuilder.ApkPackager
 import com.stardust.autojs.apkbuilder.ManifestEditor
 import com.stardust.autojs.project.BuildInfo
 import com.stardust.autojs.project.Constant
 import com.stardust.autojs.project.ProjectConfig
 import com.stardust.autojs.script.EncryptedScriptFileHeader
 import com.stardust.autojs.script.JavaScriptFileSource
+import com.stardust.io.Zip
 import com.stardust.pio.PFiles
 import com.stardust.util.AdvancedEncryptionStandard
 import com.stardust.util.MD5
@@ -23,7 +23,6 @@ import kotlinx.coroutines.withContext
 import org.autojs.autojs.tool.addAllIfNotExist
 import org.autojs.autojs.tool.copyTo
 import org.autojs.autojs.tool.parseUriOrNull
-import org.autojs.autojs.tool.unzip
 import pxb.android.StringItem
 import pxb.android.axml.AxmlWriter
 import zhao.arsceditor.ArscUtil
@@ -41,7 +40,7 @@ import java.util.zip.ZipOutputStream
  * Modified by wilinz on 2022/5/23
  */
 class ApkBuilder(
-    apkInputStream: InputStream,
+    private val apkInputStream: InputStream,
     private val outApkFile: File,
     private val workspacePath: String
 ) {
@@ -58,7 +57,6 @@ class ApkBuilder(
     val progressState get() = _progressState.asSharedFlow()
 
     //    private var progressCallback: ProgressCallback? = null
-    private val apkPackager: ApkPackager = ApkPackager(apkInputStream, workspacePath)
     private var arscPackageName: String? = null
     private var manifestEditor: ManifestEditor? = null
     private var projectConfig: ProjectConfig? = null
@@ -78,7 +76,7 @@ class ApkBuilder(
     suspend fun prepare(): ApkBuilder {
         _progressState.emit(BuildState.PREPARE)
         File(workspacePath).mkdirs()
-        apkPackager.unzip()
+        Zip.unzip(apkInputStream, File(workspacePath))
         unzipLibs()
         return this
     }
@@ -91,7 +89,7 @@ class ApkBuilder(
         val context = GlobalAppContext.get()
         val myApkFile =
             File(context.packageManager.getApplicationInfo(context.packageName, 0).sourceDir)
-        unzip(myApkFile, File(nativePath), "lib/")
+        Zip.unzip(myApkFile, File(nativePath), "lib/")
     }
 
     private fun setScriptFile(path: String): ApkBuilder {
