@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.os.Process
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -51,6 +52,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -67,13 +69,17 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.aiselp.autojs.codeeditor.EditActivity
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.stardust.autojs.servicecomponents.EngineController
-import kotlinx.coroutines.CoroutineScope
+import com.stardust.autojs.util.PermissionUtil
+import com.stardust.autojs.util.StoragePermissionResultContract
+import com.stardust.toast
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.autojs.autojs.timing.TimedTaskScheduler
 import org.autojs.autojs.ui.build.ProjectConfigActivity
@@ -95,18 +101,12 @@ data class BottomNavigationItem(val icon: Int, val label: String)
 
 class MainActivity : FragmentActivity() {
 
-    companion object {
-        @JvmStatic
-        fun getIntent(context: Context) = Intent(context, MainActivity::class.java)
-    }
-
     private val scriptListFragment by lazy { ScriptListFragment() }
     private val taskManagerFragment by lazy { TaskManagerFragmentKt() }
     private val webViewFragment by lazy { EditorAppManager() }
-    private var lastBackPressedTime = 0L
     private var drawerState: DrawerState? = null
     private val viewPager: ViewPager2 by lazy { ViewPager2(this) }
-    private var scope: CoroutineScope? = null
+
 
     @OptIn(ExperimentalPermissionsApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -114,8 +114,34 @@ class MainActivity : FragmentActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         Log.i("MainActivity", "Pid: ${Process.myPid()}")
 
+        // Request external storage permission
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val storagePermissionRequestLauncher =
+                registerForActivityResult(StoragePermissionResultContract()) {
+                    lifecycleScope.launch { if (it) "授权成功".toast(this@MainActivity) }
+                }
+            PermissionUtil.showPermissionDialog(this, storagePermissionRequestLauncher)
+        }
+
         setContent {
-            scope = rememberCoroutineScope()
+            val scope = rememberCoroutineScope()
+            var lastBackPressedTime = remember { 0L }
+            BackHandler {
+                if (drawerState?.isOpen == true) {
+                    scope.launch(Dispatchers.Main) { drawerState?.close() }
+                    return@BackHandler
+                }
+                if (viewPager.currentItem == 0 && scriptListFragment.onBackPressed()) {
+                    return@BackHandler
+                }
+                val currentTime = System.currentTimeMillis()
+                if (currentTime - lastBackPressedTime > 2000) {
+                    lastBackPressedTime = currentTime
+                    scope.launch {
+                        getString(R.string.text_press_again_to_exit).toast(this@MainActivity)
+                    }
+                } else finish()
+            }
             AutoXJsTheme {
                 Surface(color = MaterialTheme.colors.background) {
                     val permission = rememberExternalStoragePermissionsState {
@@ -145,30 +171,6 @@ class MainActivity : FragmentActivity() {
         super.onResume()
         TimedTaskScheduler.ensureCheckTaskWorks(application)
     }
-
-    override fun onBackPressed() {
-        if (drawerState?.isOpen == true) {
-            scope?.launch { drawerState?.close() }
-            return
-        }
-        if (viewPager.currentItem == 0 && scriptListFragment.onBackPressed()) {
-            return
-        }
-        back()
-    }
-
-    private fun back() {
-        val currentTime = System.currentTimeMillis()
-        val interval = currentTime - lastBackPressedTime
-        if (interval > 2000) {
-            lastBackPressedTime = currentTime
-            Toast.makeText(
-                this,
-                getString(R.string.text_press_again_to_exit),
-                Toast.LENGTH_SHORT
-            ).show()
-        } else super.onBackPressed()
-    }
 }
 
 @Composable
@@ -188,9 +190,7 @@ fun MainPage(
     val bottomBarItems = remember {
         getBottomItems(context)
     }
-    var currentPage by remember {
-        mutableStateOf(0)
-    }
+    var currentPage by remember { mutableIntStateOf(0) }
 
     SetSystemUI(scaffoldState)
 

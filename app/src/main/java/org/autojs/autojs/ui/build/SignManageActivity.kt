@@ -190,7 +190,9 @@ class SignManageActivity : AppCompatActivity() {
             if (apkSignUtil.signDatabaseHelper.queryPath(path) == null) {
                 apkSignUtil.signDatabaseHelper.insertData(apkKeyStore)
             } else apkSignUtil.signDatabaseHelper.updateData(apkKeyStore)
-            data = data.subList(0, data.size)
+            val e = data
+            data = emptyList()
+            data = e
         }
 
         fun loadKeyStore(path: File, password: String) = apkSignUtil.loadKeyStore(path, password)

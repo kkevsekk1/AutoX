@@ -486,13 +486,17 @@ fun BuildingDialog(show: Boolean, model: BuildViewModel, onDismissRequest: () ->
     fun buildFailed() {
         onDismissRequest()
         model.isShowBuildSuccessfullyDialog = false
+        val outApk = model.outApk
+        if (outApk?.isFile != true){
+            return
+        }
         MaterialAlertDialogBuilder(context)
             .setTitle(R.string.text_build_successfully)
             .setMessage(
                 stringResource(R.string.format_build_successfully, model.outputPath)
             ).setPositiveButton(R.string.text_install) { _, _ ->
                 IntentUtil.installApkOrToast(
-                    context, model.outputPath, AppFileProvider.AUTHORITY
+                    context, outApk.absolutePath, AppFileProvider.AUTHORITY
                 )
             }.setNegativeButton(R.string.text_exit) { _, _ -> }
             .show()

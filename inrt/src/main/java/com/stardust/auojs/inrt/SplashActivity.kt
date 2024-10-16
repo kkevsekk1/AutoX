@@ -1,6 +1,5 @@
 package com.stardust.auojs.inrt
 
-import android.Manifest
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Build
@@ -14,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
@@ -32,6 +32,8 @@ import com.stardust.auojs.inrt.autojs.AccessibilityServiceTool1
 import com.stardust.auojs.inrt.autojs.AutoJs
 import com.stardust.auojs.inrt.launch.GlobalProjectLauncher
 import com.stardust.autojs.project.ProjectConfig
+import com.stardust.autojs.util.PermissionUtil
+import com.stardust.autojs.util.StoragePermissionResultContract
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -88,14 +90,10 @@ class SplashActivity : ComponentActivity() {
             checkSpecialPermissions()
         }
 
+    @RequiresApi(Build.VERSION_CODES.R)
     private val storagePermissionLauncher =
-        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { result ->
-            if (result.all { it.value }) {
-                checkSpecialPermissions()
-            } else {
-                GlobalAppContext.toast(getString(R.string.text_please_enable_permissions_before_running))
-                requestExternalStoragePermission()
-            }
+        registerForActivityResult(StoragePermissionResultContract()) {
+            checkSpecialPermissions()
         }
 
     private lateinit var projectConfig: ProjectConfig
@@ -133,11 +131,11 @@ class SplashActivity : ComponentActivity() {
         setContentView(R.layout.activity_splash)
         lifecycleScope.launch {
             projectConfig = withContext(Dispatchers.IO) {
-                    ProjectConfig.fromAssets(
-                        this@SplashActivity,
-                        ProjectConfig.configFileOfDir("project")
-                    )!!
-                }
+                ProjectConfig.fromAssets(
+                    this@SplashActivity,
+                    ProjectConfig.configFileOfDir("project")
+                )!!
+            }
             if (projectConfig.launchConfig.displaySplash) {
                 val frame = findViewById<FrameLayout>(R.id.frame)
                 frame.visibility = View.VISIBLE
@@ -204,12 +202,9 @@ class SplashActivity : ComponentActivity() {
     }
 
     private fun requestExternalStoragePermission() {
-        storagePermissionLauncher.launch(
-            arrayOf(
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
-            )
-        )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && !PermissionUtil.checkStoragePermission()) {
+            PermissionUtil.showPermissionDialog(this, storagePermissionLauncher)
+        } else checkSpecialPermissions()
     }
 
     private fun requestDrawOverlays() {

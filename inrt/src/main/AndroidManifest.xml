@@ -22,32 +22,40 @@
         android:theme="@style/ScriptTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
-        tools:replace="android:label, android:allowBackup"
-        tools:targetApi="m">
+        tools:replace="android:label, android:allowBackup">
         <activity
             android:name="com.stardust.auojs.inrt.LoginActivity"
-            android:label="@string/title_activity_login" />
+            android:label="@string/title_activity_login"
+            android:process="@string/text_script_process_name" />
 
-        <activity android:name="com.stardust.auojs.inrt.LogActivity" />
-        <activity android:name="com.stardust.auojs.inrt.FeatureActivity" />
+        <activity
+            android:name="com.stardust.auojs.inrt.LogActivity"
+            android:process="@string/text_script_process_name" />
+        <activity
+            android:name="com.stardust.auojs.inrt.FeatureActivity"
+            android:process="@string/text_script_process_name" />
 
         <activity
             android:name="com.stardust.auojs.inrt.SplashActivity"
             android:clearTaskOnLaunch="true"
             android:exported="true"
             android:finishOnTaskLaunch="true"
+            android:process="@string/text_script_process_name"
             android:theme="@style/ScriptTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.stardust.auojs.inrt.SettingsActivity" />
+        <activity
+            android:name="com.stardust.auojs.inrt.SettingsActivity"
+            android:process="@string/text_script_process_name" />
 
         <service
             android:name="com.stardust.notification.NotificationListenerService"
             android:exported="false"
             android:label="inrt"
+            android:process="@string/text_script_process_name"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService" />
@@ -58,6 +66,7 @@
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.stardust.auojs.inrt.fileprovider"
             android:exported="false"
+            android:process="@string/text_script_process_name"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"

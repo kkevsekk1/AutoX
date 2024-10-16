@@ -97,8 +97,10 @@ class ApkBuilder(
     private fun setScriptFile(path: String): ApkBuilder {
         if (PFiles.isDir(path)) {
             copyDir(path, "assets/project/")
-        } else {
+        } else if (PFiles.isFile(path)) {
             replaceFile(oldFile = File(path), "assets/project/${projectConfig!!.mainScript}")
+        } else {
+            throw IllegalArgumentException("Invalid source path: $path")
         }
         return this
     }
@@ -316,7 +318,8 @@ class ApkBuilder(
             ZipOutputStream(waitSignApk.outputStream()).use {
                 inZip(File(workspacePath), it)
             }
-            val optimizeFile = File(waitSignApk.parentFile, waitSignApk.nameWithoutExtension + "-opt.apk")
+            val optimizeFile =
+                File(waitSignApk.parentFile, waitSignApk.nameWithoutExtension + "-opt.apk")
             AAPT_Util.aapt2Optimize(waitSignApk, optimizeFile)
 
             val s = ApkSignUtil.sign(

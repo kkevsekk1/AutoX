@@ -275,13 +275,14 @@ dependencies {
 fun copyTemplateToAPP(isDebug: Boolean, to: File) {
     val outName = if (isDebug) "template-debug" else "template-release"
     val outFile = project(":inrt").buildOutputs.named(outName).get().outputFile
+//    logger.error("buildTemplate from: $outFile")
     copy {
         from(outFile)
         into(to)
         delete(File(to, "template.apk"))
         rename(outFile.name, "template.apk")
     }
-    logger.lifecycle("buildTemplate success, debugMode: $isDebug")
+    logger.info("buildTemplate success, debugMode: $isDebug")
 }
 
 val assetsDir = File(projectDir, "src/main/assets")

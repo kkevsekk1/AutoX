@@ -1,7 +1,6 @@
 package org.autojs.autojs.ui.main.scripts
 
 import android.content.Context
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -36,7 +35,6 @@ import com.leinardi.android.speeddial.compose.SpeedDial
 import com.leinardi.android.speeddial.compose.SpeedDialScope
 import com.leinardi.android.speeddial.compose.SpeedDialState
 import com.stardust.app.GlobalAppContext.get
-import com.stardust.autojs.util.PermissionUtil
 import com.stardust.util.IntentUtil
 import org.autojs.autojs.Pref
 import org.autojs.autojs.external.fileprovider.AppFileProvider
@@ -66,9 +64,6 @@ class ScriptListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         explorerView.setUpViews()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            PermissionUtil.showPermissionDialog(requireActivity())
-        }
         return ComposeView(requireContext()).apply {
             setContent {
                 Scaffold(

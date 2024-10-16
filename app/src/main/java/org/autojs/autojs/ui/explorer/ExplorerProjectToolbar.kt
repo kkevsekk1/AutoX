@@ -3,19 +3,17 @@ package org.autojs.autojs.ui.explorer
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import butterknife.ButterKnife
 import butterknife.OnClick
 import com.stardust.autojs.project.ProjectConfig
 import com.stardust.autojs.project.ProjectConfig.Companion.fromProject
-import com.stardust.autojs.project.ProjectLauncher
+import com.stardust.autojs.servicecomponents.EngineController
 import com.stardust.pio.PFile
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.autojs.autojs.autojs.AutoJs
 import org.autojs.autojs.model.explorer.ExplorerChangeEvent
 import org.autojs.autojs.model.explorer.Explorers
 import org.autojs.autojs.ui.build.BuildActivity.Companion.start
@@ -68,12 +66,8 @@ class ExplorerProjectToolbar : CardView {
 
     @OnClick(R.id.run)
     fun run() {
-        try {
-            ProjectLauncher(mDirectory!!.path)
-                .launch(AutoJs.getInstance().scriptEngineService)
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Toast.makeText(context, e.message, Toast.LENGTH_LONG).show()
+        EngineController.scope.launch {
+            EngineController.launchProject(fromProject(mDirectory!!)!!)
         }
     }
 

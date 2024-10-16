@@ -100,10 +100,12 @@ fun DialogController.ReviseSignKeyDialog(apkKeyStore: ApkKeyStore) {
         scope.launch { dismiss() }
     }) {
         Column {
+            Text(text = "文件路径: ")
+            Text(text = apkKeyStore.path.toString())
+            Spacer(modifier = Modifier.widthIn(8.dp))
             Row(
                 Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.End
             ) {
                 PasswordInputBox(
                     modifier = Modifier.weight(1f),
