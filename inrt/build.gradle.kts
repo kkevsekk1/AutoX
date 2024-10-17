@@ -1,4 +1,3 @@
-import java.util.Properties
 import kotlin.collections.*
 
 plugins {
@@ -6,13 +5,6 @@ plugins {
     id("kotlin-android")
 }
 
-val propFile: File = File("E:/资料/jks/autojs-inrt/sign.properties");
-val properties = Properties()
-if (propFile.exists()) {
-    propFile.reader().use {
-        properties.load(it)
-    }
-}
 
 android {
     compileSdk = versions.compile
@@ -38,16 +30,8 @@ android {
         add("MissingTranslation")
         add("ExtraTranslation")
     }
-
-    signingConfigs {
-        if (propFile.exists()) {
-            getByName("release") {
-                storeFile = file(properties.getProperty("storeFile"))
-                storePassword = properties.getProperty("storePassword")
-                keyAlias = properties.getProperty("keyAlias")
-                keyPassword = properties.getProperty("keyPassword")
-            }
-        }
+    buildFeatures {
+        buildConfig = true
     }
     compileOptions {
         sourceCompatibility = versions.javaVersion
@@ -62,9 +46,6 @@ android {
                     "proguard-rules.pro"
                 )
             )
-            if (propFile.exists()) {
-                signingConfig = signingConfigs.getByName("release")
-            }
         }
         named("release") {
             isMinifyEnabled = false
@@ -74,9 +55,6 @@ android {
                     "proguard-rules.pro"
                 )
             )
-            if (propFile.exists()) {
-                signingConfig = signingConfigs.getByName("release")
-            }
         }
     }
     flavorDimensions.apply {
@@ -160,9 +138,6 @@ dependencies {
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
     androidTestImplementation(libs.espresso.core)
-    // RxJava
-//    implementation("io.reactivex.rxjava2:rxjava:2.2.21")
-//    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
     implementation("com.fanjun:keeplive:1.1.22")
     implementation("com.dhh:websocket2:2.1.4")
     implementation("com.github.SenhLinsh:Utils-Everywhere:3.0.0")
