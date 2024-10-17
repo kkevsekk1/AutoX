@@ -215,8 +215,8 @@ dependencies {
     implementation(libs.rxjava2)
     implementation(libs.rxjava2.rxandroid)
     // Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation(libs.retrofit2.retrofit)
+    implementation(libs.retrofit2.converter.gson)
     debugImplementation(libs.leakcanary.android)
     // Optional, if you use support library fragments:
     implementation("com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0")

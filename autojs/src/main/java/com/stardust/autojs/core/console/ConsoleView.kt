@@ -37,7 +37,7 @@ class ConsoleView : FrameLayout, LogListener {
     private lateinit var submitButton: Button
     private var mWindow: ResizableExpandableFloatyWindow? = null
     private var mShouldStopRefresh = false
-    private val mLogEntries = ArrayList<ConsoleImpl.LogEntry>()
+    private val mLogEntries = ArrayList<LogEntry>()
     private var mLogSize = -1f
 
     constructor(context: Context) : super(context) {
@@ -109,7 +109,7 @@ class ConsoleView : FrameLayout, LogListener {
         console.setConsoleView(this)
     }
 
-    override fun onNewLog(logEntry: ConsoleImpl.LogEntry) {}
+    override fun onNewLog(logEntry: LogEntry) {}
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         mShouldStopRefresh = false
@@ -188,7 +188,7 @@ class ConsoleView : FrameLayout, LogListener {
         RecyclerView.ViewHolder(itemView) {
         var textView: TextView = itemView as TextView
 
-        fun bindData(logEntry: ConsoleImpl.LogEntry) {
+        fun bindData(logEntry: LogEntry) {
             val text = if (logEntry.content.length > 5000) {
                 logEntry.content.substring(0, 2000) + " ......<${logEntry.content.length - 5000}>"
             } else logEntry.content

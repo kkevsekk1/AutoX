@@ -1,7 +1,31 @@
 
 module.exports = function (runtime, scope) {
-    var rtConsole = runtime.console;
-    var console = {};
+    const rtConsole = runtime.console;
+    const extension = runtime.consoleExtension
+    let consoleEmitter = null;
+    let globalConsoleEmitter = null;
+
+    const console = {
+        extension,
+        get emitter() {
+            if (consoleEmitter) return consoleEmitter;
+            consoleEmitter = new (require('events').EventEmitter)();
+            extension.registerConsoleListener(function (log, level, levelString) {
+                consoleEmitter.emit('println', log, level, levelString)
+                consoleEmitter.emit(levelString, log, level)
+            })
+            return consoleEmitter;
+        },
+        get globalEmitter() {
+            if (globalConsoleEmitter) return globalConsoleEmitter;
+            globalConsoleEmitter = new (require('events').EventEmitter)();
+            extension.registerGlobalConsoleListener(function (log, level, levelString) {
+                globalConsoleEmitter.emit('println', log, level, levelString)
+                globalConsoleEmitter.emit(levelString, log, level)
+            })
+            return globalConsoleEmitter;
+        }
+    };
 
     console.assert = function (value, message) {
         message = message || "";
@@ -57,13 +81,16 @@ module.exports = function (runtime, scope) {
         console.log(util.format.apply(util, arguments) + "\n" + k.stack);
     };
 
+    let s = null;
     console.setGlobalLogConfig = function (config) {
-        throw new Error("Deprecated")
+        console.warn(`setGlobalLogConfig is deprecated, replaced with console.globalEmitter`)
+        const { file } = config;
+        if (s) s.dispose()
+        s = extension.registerGlobalConsoleListener(function (log, level, levelString) {
+            try { files.append(file, log + '\n') } catch (e) { }
+        })
     }
 
-    function option(value, def) {
-        return value == undefined ? def : value;
-    }
 
     console.show = rtConsole.show.bind(rtConsole);
     console.hide = rtConsole.hide.bind(rtConsole);
@@ -71,7 +98,7 @@ module.exports = function (runtime, scope) {
     console.setSize = rtConsole.setSize.bind(rtConsole);
     console.setPosition = rtConsole.setPosition.bind(rtConsole);
     console.setTitle = rtConsole.setTitle.bind(rtConsole);
-    console.setBackgroud =rtConsole.setBackground.bind(rtConsole);
+    console.setBackgroud = rtConsole.setBackground.bind(rtConsole);
     console.setBackground = rtConsole.setBackground.bind(rtConsole);
     console.setCanInput = rtConsole.setCanInput.bind(rtConsole);
     console.setLogSize = rtConsole.setLogSize.bind(rtConsole);

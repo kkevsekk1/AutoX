@@ -2,12 +2,14 @@ package com.stardust.autojs.runtime
 
 import com.stardust.autojs.ScriptEngineService
 import com.stardust.autojs.core.accessibility.AccessibilityBridge
+import com.stardust.autojs.core.console.ConsoleImpl
 import com.stardust.autojs.core.image.capture.ScreenCaptureRequester
 import com.stardust.autojs.core.looper.Loopers
 import com.stardust.autojs.rhino.TopLevelScope
 import com.stardust.autojs.runtime.api.AbstractShell
 import com.stardust.autojs.runtime.api.AppUtils
 import com.stardust.autojs.runtime.api.Console
+import com.stardust.autojs.runtime.api.ConsoleExtension
 import com.stardust.autojs.runtime.api.Events
 import com.stardust.autojs.runtime.api.Sensors
 import com.stardust.autojs.runtime.api.Threads
@@ -20,13 +22,15 @@ import java.io.PrintWriter
 import java.io.StringReader
 import java.io.StringWriter
 
-class ScriptRuntimeV2(builder: Builder) : ScriptRuntime(builder) {
+class ScriptRuntimeV2(val builder: Builder) : ScriptRuntime(builder) {
+    lateinit var consoleExtension: ConsoleExtension
 
     override fun init() {
         check(loopers == null) { "already initialized" }
         threads = Threads(this)
         timers = Timers(this)
         loopers = Loopers(this)
+        consoleExtension = ConsoleExtension(console as ConsoleImpl, loopers!!.servantLooper)
         events = Events(uiHandler.context, accessibilityBridge, this)
         mThread = Thread.currentThread()
         sensors = Sensors(uiHandler.context, this)
@@ -44,6 +48,7 @@ class ScriptRuntimeV2(builder: Builder) : ScriptRuntime(builder) {
 
     override fun onExit() {
         super.onExit()
+        consoleExtension.close()
 //        ObjectWatcher.default.watch(this, engines.myEngine().toString() + "::" + TAG)
     }
 
@@ -62,6 +67,7 @@ class ScriptRuntimeV2(builder: Builder) : ScriptRuntime(builder) {
 
     companion object {
         private const val TAG = "ScriptRuntimeV2"
+
         @JvmStatic
         fun getStackTrace(e: Throwable, printJavaStackTrace: Boolean): String? {
             val message = e.message
