@@ -31,7 +31,7 @@ open class DialogController(
     initShow: Boolean = false,
 ) {
     var showState by mutableStateOf(initShow)
-        private set
+        protected set
 
     open fun onShow() {}
     suspend fun show() = withContext(Dispatchers.Main) {
@@ -78,10 +78,13 @@ fun DialogController.BaseDialog(
                 Spacer(modifier = Modifier.height(16.dp))
                 Box(modifier = Modifier.heightIn(max = 500.dp)) { content() }
                 Spacer(modifier = Modifier.height(16.dp))
-                if (positiveText == null && negativeText == null && neutralText == null) return@Column
-                Row(verticalAlignment = Alignment.CenterVertically) {
+                if (positiveText == null && negativeText == null && neutralText == null) {
+                    Spacer(modifier = Modifier.height(16.dp))
+                } else Row(verticalAlignment = Alignment.CenterVertically) {
                     neutralText?.let {
-                        TextButton(onClick = onNeutralClick ?: this@BaseDialog::onNeutralClick) {
+                        TextButton(
+                            onClick = onNeutralClick ?: this@BaseDialog::onNeutralClick
+                        ) {
                             Text(text = it)
                         }
                     }
