@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*Alias</string>
   <string name="text_sign_hint_key_password">*hasło</string>
   <string name="text_sign_hint_key_year">*Okres ważności (lata)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Kod kraju (XX)</string>
+    <string name="text_sign_hint_key_country">*Kod kraju (XX)</string>
   <string name="text_sign_key_country_def">PL</string>
   <string name="text_sign_hint_not_must">Poniżej znajdują się parametry opcjonalne</string>
   <string name="text_sign_hint_key_name">Nazwa</string>

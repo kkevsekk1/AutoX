@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*alias</string>
   <string name="text_sign_hint_key_password">*senha</string>
   <string name="text_sign_hint_key_year">*Período de validade (anos)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*Código do país (XX)</string>
+    <string name="text_sign_hint_key_country">*Código do país (XX)</string>
   <string name="text_sign_key_country_def">PT</string>
   <string name="text_sign_hint_not_must">Os seguintes são parâmetros opcionais</string>
   <string name="text_sign_hint_key_name">Nome</string>

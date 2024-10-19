@@ -37,10 +37,14 @@ android {
                 arguments["androidManifestFile"] = "$projectDir/src/main/AndroidManifest.xml"
             }
         }
+        resourceConfigurations.addAll(
+            listOf("zh", "en", "es", "ar", "ja", "zh_TW", "fr", "de", "it", "ko", "ru", "tr","lt")
+        )
     }
     buildFeatures {
         compose = true
         viewBinding = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = compose_version
@@ -74,7 +78,7 @@ android {
             // Resets the list of ABIs that Gradle should create APKs for to none.
             reset()
             // Specifies a list of ABIs that Gradle should create APKs for.
-            include( "arm64-v8a")
+            include("arm64-v8a")
             // Specifies that we do not want to also generate a universal APK that includes all ABIs.
             isUniversalApk = false
         }
@@ -204,21 +208,15 @@ dependencies {
     implementation("com.bignerdranch.android:expandablerecyclerview:3.0.0-RC1")
     //FlexibleDivider
     implementation("com.yqritc:recyclerview-flexibledivider:1.4.0")
-    //???
-    implementation("com.wang.avi:library:2.1.3")
     //Commons-lang
-    implementation("org.apache.commons:commons-lang3:3.12.0")
-    // 证书签名相关
-    implementation("com.madgag.spongycastle:bcpkix-jdk15on:1.56.0.0")
-    //Expandable RecyclerView
-    implementation("com.thoughtbot:expandablerecyclerview:1.3")
-//    implementation("org.signal.autox:apkbuilder:1.0.3")
+    implementation(libs.commons.lang3)
+
     // RxJava  Deprecated!!
     implementation(libs.rxjava2)
     implementation(libs.rxjava2.rxandroid)
     // Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation(libs.retrofit2.retrofit)
+    implementation(libs.retrofit2.converter.gson)
     debugImplementation(libs.leakcanary.android)
     // Optional, if you use support library fragments:
     implementation("com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0")
@@ -275,13 +273,14 @@ dependencies {
 fun copyTemplateToAPP(isDebug: Boolean, to: File) {
     val outName = if (isDebug) "template-debug" else "template-release"
     val outFile = project(":inrt").buildOutputs.named(outName).get().outputFile
+//    logger.error("buildTemplate from: $outFile")
     copy {
         from(outFile)
         into(to)
         delete(File(to, "template.apk"))
         rename(outFile.name, "template.apk")
     }
-    logger.lifecycle("buildTemplate success, debugMode: $isDebug")
+    logger.info("buildTemplate success, debugMode: $isDebug")
 }
 
 val assetsDir = File(projectDir, "src/main/assets")

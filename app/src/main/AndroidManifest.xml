@@ -175,7 +175,7 @@
             android:name="org.autojs.autojs.ui.build.BuildActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/M3AppTheme" />
-        <activity android:name="org.autojs.autojs.ui.build.SignManageActivityKt" />
+        <activity android:name="org.autojs.autojs.ui.build.SignManageActivity" />
         <activity
             android:name="org.autojs.autojs.ui.build.ProjectConfigActivity"
             android:theme="@style/M3AppTheme" />
@@ -202,14 +202,14 @@
             android:name="org.autojs.autojs.ui.error.IssueReporterActivity"
             android:theme="@style/IssueReporterTheme" />
 
-        <activity android:name="org.autojs.autojs.external.tasker.TaskPrefEditActivity_" />
+        <activity android:name="org.autojs.autojs.external.tasker.TaskPrefEditActivity" />
 
         <activity-alias
             android:name=".external.tasker.PluginActivity"
             android:exported="true"
             android:icon="@drawable/ic_android_eat_js"
             android:label="${appName}"
-            android:targetActivity="org.autojs.autojs.external.tasker.TaskPrefEditActivity_"
+            android:targetActivity="org.autojs.autojs.external.tasker.TaskPrefEditActivity"
             tools:ignore="ExportedActivity">
             <intent-filter>
                 <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
@@ -286,7 +286,7 @@
         <receiver
             android:name="org.autojs.autojs.external.tasker.FireSettingReceiver"
             android:exported="true"
-            android:process=":background"
+            android:process="@string/text_script_process_name"
             tools:ignore="ExportedReceiver">
 
             <!-- this Intent filter allows the plug-in to discovered by the host. -->

@@ -20,7 +20,11 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
     buildFeatures {
+        compose = true
         viewBinding = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = compose_version
     }
 
     buildTypes {

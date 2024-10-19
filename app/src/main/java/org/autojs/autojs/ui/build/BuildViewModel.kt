@@ -12,10 +12,13 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.aiselp.autox.apkbuilder.ApkKeyStore
+import com.aiselp.autox.apkbuilder.ApkSignUtil
 import com.stardust.app.GlobalAppContext
 import com.stardust.autojs.project.Asset
 import com.stardust.autojs.project.Constant
 import com.stardust.autojs.project.ProjectConfig
+import com.stardust.autojs.project.SigningConfig
 import com.stardust.pio.PFiles
 import com.stardust.toast
 import kotlinx.coroutines.Dispatchers
@@ -27,8 +30,6 @@ import kotlinx.coroutines.withContext
 import org.autojs.autojs.Pref
 import org.autojs.autojs.build.ApkBuilder
 import org.autojs.autojs.build.ApkBuilderPluginHelper
-import org.autojs.autojs.build.ApkKeyStore
-import org.autojs.autojs.build.ApkSigner
 import org.autojs.autojs.model.explorer.ExplorerFileItem
 import org.autojs.autojs.model.explorer.Explorers
 import org.autojs.autojs.model.script.ScriptFile
@@ -60,6 +61,7 @@ class BuildViewModelFactory(
 class BuildViewModel(private val app: Application, private var source: String) :
     AndroidViewModel(app) {
     private val mainScope = viewModelScope
+    val apkSignUtil = ApkSignUtil(app)
 
     companion object {
         const val TAG = "BuildViewModel"
@@ -132,8 +134,11 @@ class BuildViewModel(private val app: Application, private var source: String) :
 
 
     //签名
-    var appSignKeyPath by mutableStateOf<String?>(null)
     var keyStore by mutableStateOf<ApkKeyStore?>(null)
+    var v1Sign: Boolean by mutableStateOf(true)
+    var v2Sign: Boolean by mutableStateOf(true)
+    var v3Sign: Boolean by mutableStateOf(false)
+    var v4Sign: Boolean by mutableStateOf(false)
 
     var isEncrypt by mutableStateOf(false)
 
@@ -149,6 +154,7 @@ class BuildViewModel(private val app: Application, private var source: String) :
         }
 
     init {
+        addCloseable { apkSignUtil.close() }
         setIsSingleFile()
         mainScriptFile = getMainScriptName()
         setupWithSourceFile(ScriptFile(source))
@@ -278,9 +284,15 @@ class BuildViewModel(private val app: Application, private var source: String) :
                 permissions = updatePermissions()
                 isHideAccessibilityServices = viewModel.isHideAccessibilityServices
             }
-            signingConfig.apply {
-                keyStore = viewModel.keyStore?.path
-                alias = viewModel.keyStore?.alias
+            SigningConfig(
+                keyStore = viewModel.keyStore?.path,
+                alias = viewModel.keyStore?.alias,
+                v1Sign = viewModel.v1Sign,
+                v2Sign = viewModel.v2Sign,
+                v3Sign = viewModel.v3Sign,
+                v4Sign = viewModel.v4Sign,
+            ).let {
+                if (it != signingConfig) signingConfig = it
             }
         }
     }
@@ -311,9 +323,12 @@ class BuildViewModel(private val app: Application, private var source: String) :
         }
 
         val signConfig = projectConfig.signingConfig
+        v1Sign = signConfig.v1Sign
+        v2Sign = signConfig.v2Sign
+        v3Sign = signConfig.v3Sign
+        v4Sign = signConfig.v4Sign
         if (!signConfig.keyStore.isNullOrEmpty()) {
-            appSignKeyPath = signConfig.keyStore
-            keyStore = ApkSigner.loadApkKeyStore(signConfig.keyStore)
+            keyStore = apkSignUtil.queryPath(signConfig.keyStore!!)
         }
         setPermissions(projectConfig)
         setAssetsAndLibs(projectConfig)
@@ -589,34 +604,31 @@ class BuildViewModel(private val app: Application, private var source: String) :
             GlobalAppContext.toast(R.string.text_template_apk_not_found)
             return null
         }
-        val keyStorePath = keyStore?.path
         val apkBuilder = ApkBuilder(templateApk, outApk, tmpDir.path)
 
-        withContext(Dispatchers.IO) {
-            launch {
-                try {
-                    apkBuilder.progressState.onEach { state ->
-                        withContext(Dispatchers.Main) {
-                            onBuildState(state)
-                        }
-                    }.launchIn(this)
-                    withContext(Dispatchers.Main) { isShowBuildDialog = true }
-                    apkBuilder
-                        .prepare()
-                        .withConfig(config)
-                        .build()
-                        .sign(
-                            keyStorePath,
-                            keyStorePath?.let { Pref.getKeyStorePassWord(PFiles.getName(it)) })
-                        .cleanWorkspace()
-                    onBuildSuccessful(outApk)
-                } catch (e: Exception) {
-                    onBuildFailed(e)
-                } finally {
-                    apkBuilder.finish()
-                }
+        mainScope.launch(Dispatchers.IO) {
+            try {
+                apkBuilder.progressState.onEach { state ->
+                    withContext(Dispatchers.Main) {
+                        onBuildState(state)
+                    }
+                }.launchIn(this)
+                withContext(Dispatchers.Main) { isShowBuildDialog = true }
+                val apkKeyStore = keyStore ?: apkSignUtil.getDefaultKeyStore()
+                apkBuilder
+                    .prepare()
+                    .withConfig(config)
+                    .build()
+                    .sign(apkKeyStore, v1Sign, v2Sign, v3Sign, v4Sign)
+                    .cleanWorkspace()
+                onBuildSuccessful(outApk)
+            } catch (e: Exception) {
+                onBuildFailed(e)
+            } finally {
+                apkBuilder.finish()
             }
         }
+
         return apkBuilder.progressState
     }
 

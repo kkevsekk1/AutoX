@@ -1,514 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!--Automatically translated by Globalization Translator (https://github.com/wilinz/globalization-translator)-->
-<resources>
-  <string name="text_accessibility_service_description">برای خودکار کردن عملیات اسکریپت (کلیک کردن، فشار دادن طولانی، کشیدن انگشت و غیره) لازم است، در صورت غیرفعال بودن، فقط اسکریپت هایی که شامل عملیات خودکار نیستند را می توان اجرا کرد.</string>
-  <string name="text_new_file">یک فایل جدید ایجاد کنید</string>
-  <string name="text_create_fail">ایجاد نشد</string>
-  <string name="text_please_input_name">لطفا یک نام وارد کنید</string>
-  <string name="text_name">نام</string>
-  <string name="text_go_to_setting">به تنظیمات بروید</string>
-  <string name="explain_accessibility_permission">نرم افزار برای اجرا باید «خدمات دسترس‌پذیری» را باز کند، لطفاً «تنظیمات->خدمات دسترسی» یا «تنظیمات->خدمات دسترس‌پذیری->سرویس‌های بارگیری‌شده بیشتر» را باز کنید، این برنامه را بیابید و خدمات دسترسی را فعال کنید \n همچنین می‌توانید آن را تنظیم کنید. بعد در منوی کشویی.</string>
-  <string name="explain_accessibility_permission2">نرم افزار برای اجرا باید «خدمات دسترس‌پذیری» را باز کند، لطفاً «تنظیمات->خدمات دسترسی» یا «تنظیمات->خدمات دسترس‌پذیری->سرویس‌های دانلود شده بیشتر» را باز کنید، این برنامه را بیابید و خدمات دسترسی را فعال کنید.</string>
-  <string name="text_cancel">لغو کنید</string>
-  <string name="text_path_is_empty">مسیر خالی است</string>
-  <string name="text_file_not_exists">فایل وجود ندارد</string>
-  <string name="text_no_file_rw_permission">بدون مجوز خواندن و نوشتن فایل</string>
-  <string name="text_no_accessibility_permission">سرویس دسترس‌پذیری شروع نشده است</string>
-  <string name="text_drawer_close">منوی کشویی را ببندید</string>
-  <string name="text_drawer_open">منوی کشویی را باز کنید</string>
-  <string name="text_undo">لغو</string>
-  <string name="text_redo">دوباره انجام دهید</string>
-  <string name="text_save">صرفه جویی</string>
-  <string name="text_save_as_project">ذخیره به عنوان پروژه</string>
-  <string name="text_run">اجرا کن</string>
-  <string name="text_alert">اشاره</string>
-  <string name="edit_exit_without_save_warn">محتوا ذخیره نشده است، آیا مطمئن هستید که می خواهید خارج شوید؟</string>
-  <string name="text_select_save_mode">لطفاً یک روش ذخیره را انتخاب کنید</string>
-  <string name="text_save_and_exit">ذخیره و خروج</string>
-  <string name="text_save_as_project_and_exit">ذخیره به عنوان پروژه و خروج</string>
-  <string name="text_exit_directly">مستقیما خارج شوید</string>
-  <string name="text_setting">برپایی</string>
-  <string name="text_exit">ترک کردن</string>
-  <string name="text_auto_operate_service">خدمات دسترسی</string>
-  <string name="text_about">در باره</string>
-  <string name="text_licenses">مجوز منبع باز</string>
-  <string name="text_do_not_remind_again">دوباره یادآوری نکن</string>
-  <string name="github">کد منبع نرم افزار</string>
-  <string name="text_already_copy_to_clip">در کلیپ بورد کپی شد</string>
-  <string name="text_qq_already_copy_to_clip">شماره گروه QQ در کلیپ بورد کپی شده است</string>
-  <string name="share_app">[Autox.js] آدرس دانلود: https://github.com/kkevsekk1/AutoX/releases</string>
-  <string name="text_floating_window">پنجره شناور</string>
-  <string name="text_error_report">گزارش خطا</string>
-  <string name="text_press_again_to_exit">دوباره فشار دهید تا از برنامه خارج شوید</string>
-  <string name="text_already_stop_n_scripts">%d اسکریپت در حال اجرا متوقف شد</string>
-  <string name="text_start_running">شروع عملیات</string>
-  <string name="text_open_by_other_apps">با یک برنامه دیگر باز کنید</string>
-  <string name="text_rename">تغییر نام دهید</string>
-  <string name="text_send_shortcut">ایجاد میانبر</string>
-  <string name="text_already_create">ایجاد شده</string>
-  <string name="text_delete">حذف</string>
-  <string name="text_already_delete">حذف شده</string>
-  <string name="text_error">اشتباه</string>
-  <string name="text_copy_debug_info">کپی اطلاعات اشکال زدایی</string>
-  <string name="text_it_is_the_developer_of_app">این یکی از توسعه دهندگان نرم افزار (.・・)ノ است</string>
-  <string name="text_please_choose">لطفا انتخاب کنید</string>
-  <string name="text_crash">O(≧口≦)o جمع شد</string>
-  <string name="crash_feedback">پیام های خطا به صورت خودکار ارسال می شود. همچنین می‌توانید اطلاعات اشکال‌زدایی را به صورت دستی کپی کرده و به توسعه‌دهنده ارسال کنید (*^▽^*) یا برای خروج از برنامه روی \"Exit\" کلیک کنید (╥﹏╥)o</string>
-  <string name="text_clear">خالی</string>
-  <string name="text_console">کنسول</string>
-  <string name="text_log">ورود به سیستم</string>
-  <string name="text_report_fail">ارسال ناموفق بود</string>
-  <string name="text_report_succeed">با موفقیت ثبت شد</string>
-  <string name="edit_and_run_handle_intent_error">فایل پردازش نشد</string>
-  <string name="text_issue_report">بازخورد</string>
-  <string name="text_script_record">فیلمنامه ضبط</string>
-  <string name="text_start_record">شروع به ضبط کنید</string>
-  <string name="text_recorded">پایان ضبط</string>
-  <string name="text_copy_to_clip">کپی به کلیپ بورد</string>
-  <string name="text_file_write_fail">نوشتن فایل ناموفق بود</string>
-  <string name="text_use_volume_control_record">برای کنترل از کلید کاهش صدا استفاده کنید</string>
-  <string name="summary_use_volume_control_record">پس از باز کردن پنجره شناور، هر بار کلید کاهش صدا ضبط اسکریپت را شروع یا متوقف می کند</string>
-  <string name="text_qq_group">این شماره گروه QQ است، اگر نمی توانید آن را باز کنید، لطفا به صورت دستی جستجو کنید</string>
-  <string name="text_mobile_qq_not_installed">Mobile QQ نصب نشده است</string>
-  <string name="text_edit">ویرایش کنید</string>
-  <string name="text_max_length_for_code_completion">حداکثر طول فایل تکمیل کد</string>
-  <string name="text_file_exists">فایل مورد نظر از قبل وجود دارد</string>
-  <string name="text_accessibility_service">خدمات دسترسی</string>
-  <string name="text_enable_accessibility_service_by_root">به طور خودکار خدمات با امتیازات ریشه را فعال کنید</string>
-  <string name="text_auto_operate_service_enabled_but_not_running">سرویس دسترس‌پذیری فعال است اما اجرا نمی‌شود، ممکن است این یک باگ اندروید باشد، ممکن است لازم باشد تلفن را راه‌اندازی مجدد کنید یا سرویس دسترس‌پذیری را راه‌اندازی مجدد کنید.</string>
-  <string name="text_enable_accessibility_service_by_root_timeout">مهلت زمانی برای شروع سرویس دسترس‌پذیری با امتیازات ریشه</string>
-  <string name="summary_enable_accessibility_service_by_root">پس از باز کردن، اجرای اسکریپت به طور خودکار سرویس دسترسی با امتیازات Root را باز می کند</string>
-  <string name="text_appearance">خارجی</string>
-  <string name="text_theme_color">رنگ تم</string>
-  <string name="text_select_image">Image را انتخاب کنید</string>
-  <string name="text_help">کمک</string>
-  <string name="text_no_floating_window_permission">بدون مجوز پنجره شناور</string>
-  <string name="text_no_accessibility_permission_to_capture">سرویس دسترس‌پذیری شروع نشده است</string>
-  <string name="text_record_msg">اعلان ضبط</string>
-  <string name="text_text_changed">تغییر متن</string>
-  <string name="text_scrolled">اسلاید</string>
-  <string name="text_long_clicked">مطبوعات</string>
-  <string name="text_clicked">کلیک</string>
-  <string name="text_copy_to_my_scripts">وارد کردن به اسکریپت من</string>
-  <string name="text_import_succeed">واردات با موفقیت انجام شد</string>
-  <string name="text_current_activity">فعالیت فعلی:</string>
-  <string name="text_current_package">نام بسته برنامه فعلی:</string>
-  <string name="go_to_accessibility_settings">لطفاً Settings->Accessibility Services->Autox.js را باز کرده و آن را فعال کنید</string>
-  <string name="text_script_running">اجرای اسکریپت</string>
-  <string name="text_use_volume_to_stop_running">کلید افزایش صدا همه اسکریپت ها را متوقف می کند</string>
-  <string name="text_need_to_enable_accessibility_service">خدمات دسترس‌پذیری باید فعال شوند</string>
-  <string name="text_import_fail">واردات انجام نشد</string>
-  <string name="text_no_brower">من مرورگر ندارم o(╯□╰)o برو یکی نصب کن</string>
-  <string name="text_refresh">تازه کردن</string>
-  <string name="notice_no_running_script">بدون اسکریپت در حال اجرا φ(>ω&lt;*)</string>
-  <string name="text_please_choose_a_script">لطفاً یک اسکریپت انتخاب کنید</string>
-  <string name="text_edit_prepare_script">ویرایش اسکریپت های از پیش اجرا شده</string>
-  <string name="text_pre_execute_script">پیش از اجرای اسکریپت</string>
-  <string name="text_clear_pre_execute_script">اسکریپت های از پیش اجرا شده را پاک کنید</string>
-  <string name="text_clear_file_selection">بازنشانی انتخاب فایل اسکریپت</string>
-  <string name="summary_pre_execute_script">قبل از اجرای فایل اسکریپت اجرا خواهد شد</string>
-  <string name="text_checking_update">بررسی به روز رسانی</string>
-  <string name="text_new_version">نسخه جدید</string>
-  <string name="text_new_version2">نسخه جدید: %s</string>
-  <string name="text_check_update_error">بررسی به‌روزرسانی انجام نشد: %s</string>
-  <string name="text_check_for_updates">به روز رسانی را بررسی کنید</string>
-  <string name="text_is_latest_version">در حال حاضر آخرین نسخه</string>
-  <string name="text_version_too_old">نسخه خیلی کم است</string>
-  <string name="warning_version_too_old">نسخه فعلی نسخه بتا عمومی است و مشکلات ظاهری و احتمالی زیادی دارد و دیگر برای استفاده مداوم مناسب نیست.</string>
-  <string name="text_update">تجدید</string>
-  <string name="text_release_notes">تغییرات</string>
-  <string name="text_download_url">لینک دانلود</string>
-  <string name="text_directly_download">دانلود</string>
-  <string name="text_download_failed">دانلود نشد</string>
-  <string name="text_do_not_ask_again_for_this_version">این نسخه دیگر درخواست نمی کند</string>
-  <string name="text_code_beautify">کد قالب</string>
-  <string name="text_processing">در حال پردازش</string>
-  <string name="text_guard_mode">حالت محافظت شده</string>
-  <string name="summary_guard_mode">فرمان عملیات خودکار را نمی توان در این رابط نرم افزار اجرا کرد تا از لمس تصادفی جلوگیری شود</string>
-  <string name="text_layout_inspector_is_dumping">تجزیه و تحلیل چیدمان در حال انجام است</string>
-  <string name="text_force_stop">توقف اجباری</string>
-  <string name="text_execution_finished" formatted="false">\n ------------ \n [ %s ] در %f ثانیه به پایان رسید</string>
-  <string name="text_again">از نو</string>
-  <string name="text_again_and_again">دو برابر</string>
-  <string name="text_again_and_again_again">دوباره دوبرابر</string>
-  <string name="text_again_and_again_again_again">دوباره دوبرابر</string>
-  <string name="text_connect_computer">کامپیوتر را وصل کنید</string>
-  <string name="regist">به اپ استور متصل شوید</string>
-  <string name="text_server_address">آدرس سرور</string>
-  <string name="text_server_address_error">آدرس لینک اشتباه</string>
-  <string name="text_annunciation">بیانیه</string>
-  <string name="text_about_me_and_repo">درباره پروژه ها و توسعه دهندگان</string>
-  <string name="text_attribute">ویژگی های</string>
-  <string name="text_value">ارزش</string>
-  <string name="text_show_widget_infomation">مشاهده اطلاعات کنترل</string>
-  <string name="text_show_layout_hierarchy">مشاهده در سلسله مراتب طرح</string>
-  <string name="text_show_layout_bounds">در Layout Scope مشاهده کنید</string>
-  <string name="text_more">بیشتر</string>
-  <string name="text_script_save_successfully">با موفقیت ذخیره شد، لطفا دایرکتوری را بازخوانی کنید</string>
-  <string name="text_run_repeatedly">دوچرخه سواری</string>
-  <string name="text_loop_interval">فاصله چرخه (ثانیه)</string>
-  <string name="text_loop_delay">تاخیر در اجرا (ثانیه)</string>
-  <string name="text_loop_times">چرخه ها</string>
-  <string name="hint_loop_times">0 حلقه بی نهایت است</string>
-  <string name="hint_loop_delay">چند ثانیه تاخیر برای شروع حلقه زدن</string>
-  <string name="text_number_format_error">فرمت اشتباه</string>
-  <string name="text_accessibility_settings">خدمات دسترس‌پذیری را باز کنید</string>
-  <string name="text_enable_accessibitliy_service_by_root_failed">با امتیازات ریشه باز نشد</string>
-  <string name="text_on_progress">در حال پردازش</string>
-  <string name="text_delete_failed">حذف نشد</string>
-  <string name="text_edit_script">ویرایش اسکریپت</string>
-  <string name="text_run_script">اجرای اسکریپت</string>
-  <string name="text_import_script">وارد کردن فایل اسکریپت</string>
-  <string name="text_root_record_out_file_type">نوع فایل تولید شده با ضبط ریشه</string>
-  <string name="text_binary">دودویی</string>
-  <string name="summary_stable_mode">تجزیه و تحلیل چیدمان زمانی که فعال باشد پایدارتر است، اما ممکن است تعداد کمی از اسکریپت ها به درستی کار نکنند. سرویس دسترس‌پذیری را مجدداً راه‌اندازی کنید تا اعمال شود</string>
-  <string name="text_hideLaucher">پنهان کردن نمادهای دسکتاپ (راه اندازی برنامه ها از طریق adb یا روش های دیگر)</string>
-  <string name="text_stable_mode">حالت پایدار</string>
-  <string name="text_single_build_clean_mode">حالت تازه‌سازی بسته‌بندی تک فایل</string>
-  <string name="summary_single_build_clean_mode">پس از باز کردن، فایل پیکربندی بسته بندی زمانی که فایل واحد بسته بندی می شود ذخیره نمی شود و تمام اطلاعات پیکربندی مانند تصویر راه اندازی و نماد برنامه ذخیره نمی شود.</string>
-  <string name="text_directory">پوشه</string>
-  <string name="text_file">سند</string>
-  <string name="text_tutorial">آموزش</string>
-  <string name="text_community">انجمن</string>
-  <string name="text_manage">مدیریت کنید</string>
-  <string name="not_login">برای عملکردهای عادی نیازی به ورود نیست</string>
-  <string name="text_volume_down_control">کنترل کلید کاهش صدا</string>
-  <string name="text_auto_backup">اسکریپت پشتیبان گیری خودکار</string>
-  <string name="text_others">دیگر</string>
-  <string name="text_import">وارد كردن</string>
-  <string name="text_click_too_frequently">عملیات شما خیلی سریع است ヽ(#`Д´)ﾉ</string>
-  <string name="text_username">نام کاربری</string>
-  <string name="text_password">کلمه عبور</string>
-  <string name="text_login">وارد شدن</string>
-  <string name="text_forgot_password">رمز عبور را فراموش کرده اید؟</string>
-  <string name="text_username_cannot_be_empty">نام کاربری نمی تواند خالی باشد</string>
-  <string name="text_password_cannot_be_empty">رمز عبور نمی تواند خالی باشد</string>
-  <string name="text_time">زمان</string>
-  <string name="text_size">اندازه</string>
-  <string name="text_type">نوع</string>
-  <string name="text_editor_theme">تم های ویرایشگر</string>
-  <string name="text_jump_to_line">پرش به خط</string>
-  <string name="text_info">اطلاعات</string>
-  <string name="text_find_or_replace">پیدا کردن / جایگزین کردن</string>
-  <string name="text_copy_all">همه را کپی کنید</string>
-  <string name="text_copy_line">ردیف کپی</string>
-  <string name="text_delete_line">ردیف را حذف کنید</string>
-  <string name="format_editor_info" formatted="false">کاراکترها: %d \n : %d \n : %s</string>
-  <string name="text_find">پیدا کردن</string>
-  <string name="text_replace">جایگزین کردن</string>
-  <string name="text_regex">عبارت منظم</string>
-  <string name="text_replace_all">همه را جایگزین کنید</string>
-  <string name="text_find_next">پایین</string>
-  <string name="text_find_prev">بالا</string>
-  <string name="hint_regex">نحو معمولی مانند جاوا اسکریپت است، می توانید به جای موارد مشابه از 1 تا 9 دلار استفاده کنید.</string>
-  <string name="text_jump">پرش</string>
-  <string name="text_jump_to_end">به انتهای فایل بروید</string>
-  <string name="text_jump_to_start">به شروع فایل بروید</string>
-  <string name="text_jump_to_line_start">به ابتدای خط بروید</string>
-  <string name="text_jump_to_line_end">به انتهای خط بروید</string>
-  <string name="text_exit_floating_window">از پنجره شناور خارج شوید</string>
-  <string name="text_select_save_path">ذخیره در</string>
-  <string name="text_cancel_download">لغو دانلود</string>
-  <string name="text_download">دانلود</string>
-  <string name="format_file_downloaded" formatted="true">فایل در %s ذخیره شد</string>
-  <string name="confirm_overwrite_file">فایل از قبل وجود دارد، آیا می خواهید آن را بازنویسی کنید؟</string>
-  <string name="text_select_file_to_upload">فایل مورد نظر را برای آپلود انتخاب کنید</string>
-  <string name="text_select_file_to_import">فایل مورد نظر را برای وارد کردن انتخاب کنید</string>
-  <string name="text_build_apk">برنامه های بسته بندی شده</string>
-  <string name="text_select">انتخاب کنید</string>
-  <string name="text_output_apk_path">مکان ذخیره برنامه بسته بندی شده</string>
-  <string name="text_config">پیکربندی کنید</string>
-  <string name="text_app_name">نام نرم افزار</string>
-  <string name="text_package_name">نام بسته ها</string>
-  <string name="text_version_name">نام نسخه</string>
-  <string name="text_version_code">شماره نسخه</string>
-  <string name="text_run_config">پیکربندی اجرا</string>
-  <string name="text_hideLogs">پنهان کردن گزارش</string>
-  <string name="text_required_accessibility_service">خدمات دسترسی مورد نیاز است</string>
-  <string name="text_required_terminal_emulator">شبیه ساز ترمینال</string>
-  <string name="text_required_background_start">به مجوز رابط پنجره بازشو پس زمینه نیاز دارد</string>
-  <string name="text_required_draw_overlay">مجوز پنجره شناور مورد نیاز است</string>
-  <string name="text_volumeUpcontrol">کلید افزایش صدا برای پایان کار</string>
-  <string name="text_splash_text">متن رابط راه اندازی</string>
-  <string name="text_splash_icon">نماد رابط را راه اندازی کنید</string>
-  <string name="text_service_desc_text">شرح خدمات دسترسی</string>
-  <string name="text_sign">امضاء کردن</string>
-  <string name="text_sign_choose">امضا را انتخاب کنید</string>
-  <string name="text_sign_password">رمز عبور گواهی امضا</string>
-  <string name="text_sign_password_input">لطفا رمز عبور را تایید کنید</string>
-  <string name="text_sign_manage">مدیریت امضا</string>
-  <string name="text_sign_key_add">امضا ایجاد کنید</string>
-  <string name="text_sign_key_import">امضای واردات</string>
-  <string name="text_sign_hint_key_path">*مسیر ذخیره فایل</string>
-  <string name="text_sign_hint_key_alias">*نام مستعار</string>
-  <string name="text_sign_hint_key_password">*کلمه عبور</string>
-  <string name="text_sign_hint_key_year">* مدت اعتبار (سال)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*کد کشور (XX)</string>
-  <string name="text_sign_key_country_def">EN</string>
-  <string name="text_sign_hint_not_must">موارد زیر پارامترهای اختیاری هستند</string>
-  <string name="text_sign_hint_key_name">نام</string>
-  <string name="text_sign_hint_key_org">سازمان دادن</string>
-  <string name="text_sign_hint_key_org_unit">واحد سازمانی</string>
-  <string name="text_sign_hint_key_province">استان</string>
-  <string name="text_sign_hint_key_city">شهر</string>
-  <string name="text_sign_create_success">با موفقیت ایجاد شد</string>
-  <string name="text_sign_create_fail">ایجاد نشد</string>
-  <string name="text_build_successfully">با موفقیت بسته بندی شد</string>
-  <string name="text_install">نصب</string>
-  <string name="text_build_failed">بسته بندی انجام نشد، پیام خطا:</string>
-  <string name="format_build_successfully" formatted="true">فایل apk در %s ذخیره شد</string>
-  <string name="apk_builder_prepare">سند در حال آماده شدن است</string>
-  <string name="apk_builder_build">ساختمان</string>
-  <string name="apk_builder_package">بسته بندی</string>
-  <string name="apk_builder_sign">امضا کردن</string>
-  <string name="apk_builder_clean">پاک کردن فایل های موقت</string>
-  <string name="text_source_file_path">مسیر فایل اسکریپت (پوشه).</string>
-  <string name="text_search">جستجو کردن</string>
-  <string name="text_select_icon">نماد را انتخاب کنید</string>
-  <string name="text_use_android_n_shortcut">به میانبر اندروید 7.0 اضافه شد</string>
-  <string name="text_login_succeed">ورود با موفقیت</string>
-  <string name="text_login_fail">ورود ناموفق بود</string>
-  <string name="text_reset_password">بازنشانی رمز عبور</string>
-  <string name="text_logining">ورود به سیستم در</string>
-  <string name="text_register">ثبت نام</string>
-  <string name="text_email">ایمیل</string>
-  <string name="text_email_cannot_be_empty">ایمیل نمی تواند خالی باشد</string>
-  <string name="text_email_format_error">خطای فرمت ایمیل</string>
-  <string name="text_registering">ثبت نام</string>
-  <string name="text_register_fail">ثبت نام انجام نشد</string>
-  <string name="text_register_succeed">موفقیت ثبت نام</string>
-  <string name="text_sample">کد نمونه</string>
-  <string name="text_reset_to_initial_content">بازنشانی به محتوای اصلی</string>
-  <string name="text_reset_succeed">تنظیم مجدد با موفقیت</string>
-  <string name="text_cannot_read_file">قادر به خواندن فایل نیست</string>
-  <string name="text_service">خدمت</string>
-  <string name="text_notification_permission">مجوز خواندن را مطلع کنید</string>
-  <string name="text_open_main_activity">رابط اصلی را باز کنید</string>
-  <string name="text_generate_code">کد تولید کنید</string>
-  <string name="text_action">عمل</string>
-  <string name="text_click">کلیک</string>
-  <string name="text_long_click">فشار طولانی (longClick)</string>
-  <string name="text_set_text">تنظیم متن (setText)</string>
-  <string name="text_scroll_forward">تند کشیدن به جلو/راست/پایین (پیمایش به جلو)</string>
-  <string name="text_scroll_backward">اسکرول به عقب/بالا/چپ (پیمایش به عقب)</string>
-  <string name="text_find_one">تا زمانی که یکی پیدا شود (findOne)</string>
-  <string name="text_until_find">تا زمانی که همه چیز پیدا شود (تا یافتن)</string>
-  <string name="text_wait_for">صبر کنید تا کنترل ظاهر شود (waitFor)</string>
-  <string name="text_selector_exists">قضاوت در مورد وجود کنترل (وجود دارد)</string>
-  <string name="text_options">گزینه ها</string>
-  <string name="text_using_id_selector">با استفاده از id انتخاب کنید</string>
-  <string name="text_using_text_selector">استفاده از انتخاب متن (متن)</string>
-  <string name="text_using_desc_selector">انتخاب با استفاده از توضیحات (نزول)</string>
-  <string name="text_generate">تولید می کنند</string>
-  <string name="text_generate_fail">ساخت ناموفق o(╥﹏╥)o</string>
-  <string name="text_documentation_source">منبع اسناد</string>
-  <string name="text_send">ارسال</string>
-  <string name="text_timed_task">کار زمان بندی شده</string>
-  <string name="text_running_task">اسکریپت در حال اجرا</string>
-  <string name="text_done">پایان</string>
-  <string name="text_disposable_task">فقط یکبار اجرا کنید</string>
-  <string name="text_daily_task">روزانه اجرا شود</string>
-  <string name="text_weekly_task">اجرا در هفته</string>
-  <string name="text_timing">زمان سنجی</string>
-  <string name="text_disposable_task_time_before_now">زمان کار کمتر از زمان فعلی است</string>
-  <string name="text_next_run_time">اجرا بعدی</string>
-  <string name="text_day1">در روز دوشنبه</string>
-  <string name="text_day2">سهشنبه</string>
-  <string name="text_day3">چهار شنبه</string>
-  <string name="text_day4">پنج شنبه</string>
-  <string name="text_day5">جمعه</string>
-  <string name="text_day6">شنبه</string>
-  <string name="text_day7">یکشنبه</string>
-  <string name="text_weekly_task_should_check_day_of_week">حداقل یک روز از هفته را انتخاب کنید</string>
-  <string name="no_apk_builder_plugin">افزونه بسته بندی شده نصب نشده است، آیا می خواهید آن را اکنون دانلود کنید؟</string>
-  <string name="text_apk_builder_plugin_unavailable">افزونه بسته در دسترس نیست</string>
-  <string name="text_detail">جزئیات</string>
-  <string name="text_open">باز کن</string>
-  <string name="text_generated_code">تولید نتایج</string>
-  <string name="text_copy">کپی 🀄</string>
-  <string name="text_should_not_be_empty">نمیتواند خالی باشد</string>
-  <string name="text_icon">آیکون</string>
-  <string name="text_device_not_rooted">دستگاه روت نشده است</string>
-  <string name="prompt_device_not_rooted">تشخیص داده شد که دستگاه شما روت نشده است، اسکریپت ضبط نیاز به امتیازات روت دارد، آیا می خواهید ادامه دهید؟</string>
-  <string name="text_device_rooted">هنوز برای ضبط</string>
-  <string name="text_community_category">بخش</string>
-  <string name="text_community_unread">خوانده نشده</string>
-  <string name="text_community_recent">به روز</string>
-  <string name="text_community_popular">محبوب</string>
-  <string name="text_community_tags">موضوع</string>
-  <string name="nodebb_error_invalid_login_credentials">اعتبار ورود نامعتبر است</string>
-  <string name="nodebb_error_change_password_error_length">رمز عبور خیلی کوتاه است</string>
-  <string name="nodebb_error_email_taken">صندوق پست اشغال شده است</string>
-  <string name="nodebb_error_change_password_error_match">دو رمز عبور وارد شده مطابقت ندارند</string>
-  <string name="text_logout">خروج از سیستم</string>
-  <string name="nodebb_error_forbidden">عملیات انجام نشد، لطفاً بعداً دوباره امتحان کنید</string>
-  <string name="description_stable_mode">حالت پایدار با حذف جزئیات طرح‌بندی، اسکریپت را در هنگام گرفتن طرح‌بندی پایدارتر می‌کند، اما در عین حال کنترل‌های کمتری روی صفحه نمایش می‌دهد. \n سرویس دسترس‌پذیری را \n کنید تا اعمال شود.</string>
-  <string name="text_size_min_value">2</string>
-  <string name="text_size_max_value">60</string>
-  <string name="text_text_size">اندازه فونت</string>
-  <string name="text_preview">پیش نمایش</string>
-  <string name="text_size_current_value" formatted="true">اندازه قلم: %d</string>
-  <string name="error_regex_find_prev">بیان منظم نمی تواند به جلو نگاه کند</string>
-  <string name="text_notification">اطلاع</string>
-  <string name="apk_builder_plugin_version_too_low">نسخه پلاگین بسته بندی شده خیلی کم است و ممکن است برنامه بسته بندی شده به درستی اجرا نشود. آیا می خواهید نسخه مربوط به افزونه بسته بندی شده را هم اکنون دانلود کنید؟</string>
-  <string name="text_inspect_layout_bounds">تجزیه و تحلیل محدوده طرح بندی</string>
-  <string name="text_inspect_layout_hierarchy">سلسله مراتب چیدمان</string>
-  <string name="text_inspect_layout">تحلیل چیدمان</string>
-  <string name="text_pointer_location">موقعیت اشاره گر [ریشه]</string>
-  <string name="text_change_script_dir">تغییر مسیر پوشه اسکریپت</string>
-  <string name="text_error_copy_file" formatted="true">خطایی روی داد: %s</string>
-  <string name="text_debug">اشکال زدایی</string>
-  <string name="text_set_breakpoint">نقطه شکست</string>
-  <string name="text_launch_debugger">اشکال زدایی را شروع کنید</string>
-  <string name="text_debug_step_out">بپر بیرون</string>
-  <string name="text_debug_step_into">وارد</string>
-  <string name="text_debug_step_over">یک قدم</string>
-  <string name="text_debug_resume_script">ادامه هید</string>
-  <string name="text_stop">متوقف کردن</string>
-  <string name="text_new_watching_variable">یک متغیر یا عبارت برای تماشا اضافه کنید</string>
-  <string name="text_variable_or_expr">متغیر یا عبارت</string>
-  <string name="text_remove_all_breakpoints">حذف تمام نقاط شکست</string>
-  <string name="hint_long_click_run_to_debug">اشکال زدایی را نیز می توان با فشار طولانی آیکون \"Run\" آغاز کرد</string>
-  <string name="format_debug_bar_title">اشکال زدایی [ %s ]</string>
-  <string name="text_copy_value">ارزش کپی</string>
-  <string name="text_execute_code">کد را اجرا کنید</string>
-  <string name="text_code">کد</string>
-  <string name="text_result">نتیجه</string>
-  <string name="text_close">بسته</string>
-  <string name="text_execute">پیاده سازی</string>
-  <string name="error_connect_to_remote">اتصال ناموفق بود: %s</string>
-  <string name="text_are_you_sure_to_delete">آیا مطمئن هستید که می خواهید %s را حذف کنید؟</string>
-  <string name="text_run_on_broadcast">یک رویداد خاص (پخش) عملیات را آغاز می کند</string>
-  <string name="text_search_java_class">بسته ها/کلاس های جاوا را جستجو کنید</string>
-  <string name="text_class_or_package_name">نام کلاس/بسته</string>
-  <string name="text_view_docs">مشاهده مستندات</string>
-  <string name="text_market">بازار</string>
-  <string name="text_launch_config">پیکربندی اجرا</string>
-  <string name="text_main_file_name">نام اسکریپت اصلی</string>
-  <string name="text_project">پروژه</string>
-  <string name="text_project_location">محل پروژه</string>
-  <string name="text_new_project">پروژه جدید</string>
-  <string name="text_js_file">فایل js</string>
-  <string name="text_invalid_project">مورد نامعتبر</string>
-  <string name="text_invalid_project_config">بدون فایل پیکربندی</string>
-  <string name="text_foreground_service">پذیرایی</string>
-  <string name="foreground_notification_channel_name">اطلاعیه خدمات میز جلو</string>
-  <string name="foreground_notification_title">Autox.js به کار خود ادامه می دهد</string>
-  <string name="foreground_notification_text">برای ورود به رابط اصلی کلیک کنید</string>
-  <string name="text_run_on_other_broadcast">رویدادهای دیگر (پخش)</string>
-  <string name="text_broadcast_action">اقدام پخش</string>
-  <string name="text_run_on_boot">هنگام بوت شدن</string>
-  <string name="text_run_on_screen_on">وقتی صفحه نمایش روشن است</string>
-  <string name="text_run_on_screen_off">وقتی صفحه نمایش خاموش است</string>
-  <string name="error_empty_selection">لطفاً یک گزینه رویداد پخش را انتخاب کنید</string>
-  <string name="text_run_on_battery_change">وقتی قدرت تغییر می کند</string>
-  <string name="text_run_on_screen_unlock">وقتی قفل صفحه باز است</string>
-  <string name="text_run_on_power_connect">وقتی برق وصل شد</string>
-  <string name="text_run_on_power_disconnect">وقتی برق قطع می شود</string>
-  <string name="text_run_on_conn_change">هنگامی که اتصال شبکه تغییر می کند</string>
-  <string name="text_run_on_package_install">هنگامی که یک برنامه جدید نصب می شود</string>
-  <string name="text_run_on_package_uninstall">وقتی برنامه حذف نصب می شود</string>
-  <string name="text_run_on_package_update">هنگام اعمال به روز رسانی</string>
-  <string name="text_run_on_headset_plug">هنگام وصل و جدا کردن هدست</string>
-  <string name="text_run_on_time_tick">هر دقیقه</string>
-  <string name="text_run_on_config_change">هنگامی که تنظیمات خاصی (جهت صفحه، منطقه، و غیره) تغییر می کند</string>
-  <string name="error_pattern_syntax">خطای بیان منظم</string>
-  <string name="text_invalid_package_name">نام بسته غیر قانونی</string>
-  <string name="error_cannot_rename">تغییر نام انجام نشد</string>
-  <string name="text_project_save_success">پروژه در %s ذخیره شده است</string>
-  <string name="text_project_save_error">ذخیره پروژه %s ناموفق بود</string>
-  <string name="text_night_mode">حالت شب</string>
-  <string name="text_run_on_startup">هنگامی که Autox.js شروع می شود</string>
-  <string name="text_usage_stats_permission">دسترسی استفاده</string>
-  <string name="description_usage_stats_permission">از طریق مجوز «مشاهده آمار استفاده» می‌توانید استفاده‌های قبلی اپلیکیشن این دستگاه را به دست آورید تا با دقت بیشتری به اپلیکیشن فعلی (currentPackage) دست پیدا کنید.</string>
-  <string name="text_open_with">راه باز</string>
-  <string name="text_root">ریشه</string>
-  <string name="text_no_root">بدون روت</string>
-  <string name="text_star">جمع آوری کنید</string>
-  <string name="text_upvote">عالی</string>
-  <string name="text_downvote">قدم بردار</string>
-  <string name="textSizePlus">+</string>
-  <string name="textSizeMinus">-</string>
-  <plurals name="air_error_short_description" key="air_error_short_description"> 
-    <item quantity="one">توضیحات باید حداقل %d نویسه باشد.</item>  
-    <item quantity="other">توضیحات باید حداقل %d نویسه باشد.</item> 
-  </plurals>
-  <string name="air_title_report_issue">گزارش خطا</string>
-  <string name="air_title_issue">سوال</string>
-  <string name="air_label_issue_title">عنوان</string>
-  <string name="air_label_issue_description">توصیف کردن</string>
-  <string name="air_label_device_info">اطلاعات دستگاه</string>
-  <string name="air_label_use_email">ارسال از طریق ایمیل</string>
-  <string name="air_label_use_guest">ارسال ناشناس</string>
-  <string name="air_label_email">ایمیل</string>
-  <string name="air_label_email_optional">ایمیل تماس (اختیاری)</string>
-  <string name="air_error_no_title">لطفا یک سوال وارد کنید</string>
-  <string name="air_error_no_description">لطفا توضیحات مفصل را وارد کنید</string>
-  <string name="air_error_no_username">لطفاً یک نام کاربری معتبر Github وارد کنید</string>
-  <string name="air_error_no_password">لطفا رمز عبور صحیح را وارد کنید</string>
-  <string name="air_error_no_email">لطفا ایمیل خود را وارد کنید</string>
-  <string name="air_dialog_title_loading">در حال آپلود در GitHub…</string>
-  <string name="air_dialog_title_failed">گزارش اشکال ارسال نشد</string>
-  <string name="air_dialog_description_failed_wrong_credentials">نام کاربری یا رمز عبور اشتباه است</string>
-  <string name="air_dialog_description_failed_invalid_token">نشانه دسترسی نامعتبر است. لطفاً با توسعه دهنده نرم افزار تماس بگیرید.</string>
-  <string name="air_dialog_description_failed_issues_not_available">مشکلات موجود نیست، لطفا با توسعه دهنده نرم افزار تماس بگیرید.</string>
-  <string name="air_dialog_description_failed_unknown">اشتباه ناشناخته</string>
-  <string name="air_dialog_action_failed">خوب</string>
-  <string name="text_template_apk_not_found">Apk الگو پیدا نمی شود، لطفاً فایل apk را در فهرست \"build/outputs/apk/common/release\" در \"app/src/main/assets\" کپی کنید و نام آن را \"template.apk\" بگذارید و دوباره آن را بسازید.</string>
-  <string name="desc_back">بازگشت</string>
-  <string name="desc_add_icon">اضافه کردن نماد</string>
-  <string name="text_default_signature">امضای پیش فرض</string>
-  <string name="desc_done">پایان</string>
-  <string name="apk_icon">نماد APK</string>
-  <string name="text_packaging_options">گزینه ها را کامپایل کنید</string>
-  <string name="text_verification_failed">تأیید ناموفق بود</string>
-  <string name="text_WebX">WebX</string>
-  <string name="text_file_manager_permission">همه دسترسی به فایل</string>
-  <string name="text_fullscreen">تغییر حالت تمام صفحه 1</string>
-  <string name="text_drawer_right">منوی سمت راست را باز کنید</string>
-  <string name="text_required_default_paddle_ocr_model">بسته بندی پیش فرض داده های آموزشی PaddleOCR</string>
-  <string name="switch_fullscreen">حالت تمام صفحه را تغییر دهید</string>
-  <string name="text_custom_ocr_model_path">بسته راهنمای مدل OCR سفارشی</string>
-  <string name="desc_more">بیشتر</string>
-  <string name="text_switch_web_kernel">سوئیچ هسته وب</string>
-  <string name="text_favorites_management">مدیریت مجموعه</string>
-  <string name="text_switch_timed_task_scheduler">تغییر برنامه زمانبندی کار</string>
-  <string name="text_go_to_open">بازکردن</string>
-  <string name="text_home">صفحه اصلی</string>
-  <string name="text_management">مدیریت کنید</string>
-  <string name="text_document">مستندات</string>
-  <string name="text_open_usb_debug">اشکال زدایی USB را روشن کنید</string>
-  <string name="text_scan_qr">اسکن کد</string>
-  <string name="text_connect_failed">اتصال ناموفق بود: %s ، لطفاً بررسی کنید که آیا فایروال رایانه پورت 9317 را مجاز می‌کند، آیا در همان شبکه محلی است و آیا افزونه VS CODE سرویس را باز کرده است یا خیر...</string>
-  <string name="text_start_service_failed">سرویس شروع نشد: %s</string>
-  <string name="text_unsupported_qr_code">کدهای QR در این قالب پشتیبانی نمی شوند</string>
-  <string name="text_connected_to_computer">متصل به کامپیوتر</string>
-  <string name="text_press_again_to_exit_app">دوباره فشار دهید تا از برنامه خارج شوید</string>
-  <string name="text_app_download_link">لینک دانلود</string>
-  <string name="text_project_link">آدرس پروژه</string>
-  <string name="text_release_date">منتشر شده: %s</string>
-  <string name="text_checking_for_updates">بررسی به روز رسانی</string>
-  <string name="text_update_information_not_found">هیچ اطلاعات به روز رسانی یافت نشد</string>
-  <string name="text_please_enable_external_storage">لطفاً ابتدا مجوز حافظه خارجی را فعال کنید</string>
-  <string name="text_app_detail_settings">تنظیمات جزئیات برنامه</string>
-  <string name="text_logcat">ورود به سیستم</string>
-  <string name="text_menu">منو</string>
-  <string name="text_exit_search">خروج از جستجو</string>
-  <string name="text_licenses_other">مجوز غیر متن باز</string>
-  <string name="text_save_successfully">با موفقیت ذخیره شد</string>
-  <string name="text_invalid_config">پیکربندی نامعتبر</string>
-  <string name="text_abi">ABI های پشتیبانی شده (با کاما از هم جدا شده اند)</string>
-  <string name="text_save_project_to">پروژه در: %s ذخیره شد</string>
-  <string name="text_hide_and_show">پنهان کردن/نشان دادن</string>
-  <string name="text_browser_open">مرورگر باز شود</string>
-  <string name="text_do_nothing">هیچ کاری نکن</string>
-  <string name="text_copy_to_new_folder">محتویات پوشه اصلی را در پوشه جدید کپی کنید</string>
-  <string name="text_move_new_folder">محتویات پوشه اصلی را به پوشه جدید منتقل کنید</string>
-  <string name="text_accessibility_service_is_not_enable">سرویس دسترس‌پذیری روشن نیست</string>
-  <string name="text_set_successfully">با موفقیت تنظیم کرد</string>
-  <string name="text_reconnecting">اتصال مجدد</string>
-  <string name="text_connecting">برقراری ارتباط</string>
-  <string name="text_handshake_failed">دست دادن ناموفق بود</string>
-</resources>

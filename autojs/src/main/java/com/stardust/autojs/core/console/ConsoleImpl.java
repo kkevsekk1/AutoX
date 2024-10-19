@@ -30,6 +30,8 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import io.reactivex.rxjava3.subjects.PublishSubject;
+
 /**
  * Created by Stardust on 2017/5/2.
  */
@@ -38,32 +40,13 @@ public class ConsoleImpl extends AbstractConsole {
 
     private int maxLines = -1;
 
-    public static class LogEntry implements Comparable<LogEntry> {
-
-        public int id;
-        public int level;
-        public CharSequence content;
-        public boolean newLine = false;
-
-        public LogEntry(int id, int level, CharSequence content, boolean newLine) {
-            this.id = id;
-            this.level = level;
-            this.content = content;
-            this.newLine = newLine;
-        }
-
-        @Override
-        public int compareTo(@NonNull LogEntry o) {
-            return 0;
-        }
-    }
-
     public interface LogListener {
         void onNewLog(LogEntry logEntry);
 
         void onLogClear();
     }
 
+    private final PublishSubject<LogEntry> logPublish = PublishSubject.create();
     private final Object WINDOW_SHOW_LOCK = new Object();
     private final Console mGlobalConsole;
     private final ArrayList<LogEntry> mLogEntries = new ArrayList<>();
@@ -123,6 +106,12 @@ public class ConsoleImpl extends AbstractConsole {
     public String getStackTrace(Throwable t) {
         return ScriptRuntimeV2.Companion.getStackTrace(t, false);
     }
+    public PublishSubject<LogEntry> getLogPublish() {
+        return logPublish;
+    }
+    public Console getGlobalConsole(){
+        return mGlobalConsole;
+    }
 
     @Override
     public String println(int level, CharSequence charSequence) {
@@ -139,6 +128,7 @@ public class ConsoleImpl extends AbstractConsole {
         if (maxLines > 0 && mLogEntries.size() > maxLines) {
             clear();
         }
+        logPublish.onNext(logEntry);
         return null;
     }
 

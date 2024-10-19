@@ -40,8 +40,8 @@ public class RunIntentActivity extends Activity {
         Uri uri = intent.getData();
         if (uri == null) {
             Toast.makeText(this, "uri is null", Toast.LENGTH_LONG).show();
+            return;
         }
-        assert uri != null;
         String path = uri.getPath();
         EngineController.INSTANCE.runScript(new File(path),null);
     }

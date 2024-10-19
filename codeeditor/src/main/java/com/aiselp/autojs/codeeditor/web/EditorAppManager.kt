@@ -2,19 +2,17 @@ package com.aiselp.autojs.codeeditor.web
 
 import android.app.Activity
 import android.content.Context
-import android.os.Build
 import android.util.Log
 import android.view.ViewGroup
 import android.webkit.WebView
-import androidx.annotation.RequiresApi
 import com.aiselp.autojs.codeeditor.dialogs.LoadDialog
 import com.aiselp.autojs.codeeditor.plugins.AppController
 import com.aiselp.autojs.codeeditor.plugins.FileSystem
 import com.stardust.pio.PFiles
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
@@ -39,21 +37,22 @@ class EditorAppManager(val context: Activity) {
     )
     private val pluginManager = PluginManager(jsBridge, coroutineScope)
     var openedFile: String? = null
-    private val loadDialog = LoadDialog(context)
+    val loadDialog = LoadDialog()
 
     init {
         webView.webViewClient = JsBridge.SuperWebViewClient()
         installPlugin()
-        loadDialog.show()
         coroutineScope.launch {
+            loadDialog.show()
             fileHttpServer.start()
-            async { initWebResources() }.await()
+            initWebResources()
             loadDialog.setContent("启动中")
+            delay(500)
             fileHttpServer.await()
             withContext(Dispatchers.Main) {
                 webView.loadUrl(fileHttpServer.getAddress())
 //                webView.loadUrl("http://192.168.10.10:8010")
-                loadDialog.dialog.dismiss()
+                loadDialog.dismiss()
             }
         }
 //        webView.loadUrl("http://appassets.androidplatform.net/index.html")

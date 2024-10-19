@@ -27,6 +27,9 @@ android {
         }
     }
     namespace = "com.stardust.automator"
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 dependencies {

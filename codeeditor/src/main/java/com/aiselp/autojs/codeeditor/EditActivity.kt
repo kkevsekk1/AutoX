@@ -4,25 +4,47 @@ import android.content.Context
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.graphics.Rect
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.widget.FrameLayout
+import android.view.View
 import androidx.activity.addCallback
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.viewinterop.AndroidView
 import com.aiselp.autojs.codeeditor.web.EditorAppManager
+import com.aiselp.autox.ui.material3.theme.AppTheme
 import java.io.File
+
 
 class EditActivity : AppCompatActivity() {
     private lateinit var editorAppManager: EditorAppManager
-    private lateinit var contextFrameLayout: FrameLayout
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         editorAppManager = EditorAppManager(this)
         editorAppManager.openedFile = intent.getStringExtra(EXTRA_PATH)
-        contextFrameLayout = FrameLayout(this)
-        contextFrameLayout.addView(editorAppManager.webView)
-        setContentView(contextFrameLayout)
-        setKeyboardEvent()
+
+        setContent {
+            val rootView = LocalView.current
+            LaunchedEffect(Unit) {
+                setKeyboardEvent(rootView)
+            }
+            AppTheme {
+                editorAppManager.loadDialog.Dialog()
+                Box(modifier = Modifier.fillMaxSize()) {
+                    AndroidView(factory = {
+                        editorAppManager.webView
+                    })
+                }
+            }
+        }
+
         onBackPressedDispatcher.addCallback {
             moveTaskToBack(false)
         }
@@ -34,14 +56,19 @@ class EditActivity : AppCompatActivity() {
         editorAppManager.destroy()
     }
 
-    private fun setKeyboardEvent() {
-        val rootView = contextFrameLayout.rootView
+    private fun setKeyboardEvent(rootView: View) {
+        val rootHeight = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val metrics = windowManager.currentWindowMetrics
+            metrics.bounds.bottom
+        } else {
+            windowManager.defaultDisplay.height
+        }
         rootView.viewTreeObserver.addOnGlobalLayoutListener {
-            val r = Rect()
-            rootView.getWindowVisibleDisplayFrame(r)
-            val currentHeight = rootView.height
-            val resultBottom = r.bottom
-            if (currentHeight - resultBottom > 200) {
+            val rect = Rect().also {
+                rootView.getWindowVisibleDisplayFrame(it)
+            }
+            val resultBottom = rect.bottom
+            if (rootHeight - resultBottom > 200) {
                 editorAppManager.onKeyboardDidShow()
             } else {
                 editorAppManager.onKeyboardDidHide()

@@ -39,13 +39,6 @@ public class TaskerScriptEditActivity extends BaseActivity {
         setUpViews();
     }
 
-    public static void edit(Activity activity, String title, String summary, String content) {
-        activity.startActivityForResult(new Intent(activity, TaskerScriptEditActivity.class)
-                .putExtra(EXTRA_CONTENT, content)
-                .putExtra("summary", summary)
-                .putExtra(EXTRA_NAME, title), REQUEST_CODE);
-    }
-
 
     void setUpViews() {
         Observable<String> stringObservable = mEditorView.handleIntent(getIntent()

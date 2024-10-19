@@ -8,6 +8,9 @@ android {
     defaultConfig {
         minSdk = versions.mini
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters.add("arm64-v8a")
+        }
     }
     buildTypes {
         named("release") {
@@ -26,15 +29,21 @@ android {
         targetCompatibility = versions.javaVersion
     }
 
+    sourceSets {
+        named("main") {
+            jniLibs.srcDirs("libs")
+        }
+    }
 }
 
 dependencies {
-
+    implementation(libs.commons.exec)
+    api(libs.timscriptov.apksigner)
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("lib*.so"))))
     implementation(libs.okhttp)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
     testImplementation(libs.junit)
-    api(files("libs/tiny-sign-0.9.jar"))
     api(libs.commons.io)
     implementation(libs.core.ktx)
 }

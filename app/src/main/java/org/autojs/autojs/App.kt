@@ -1,19 +1,24 @@
 package org.autojs.autojs
 
 import android.annotation.SuppressLint
+import android.app.LocaleManager
 import android.content.Intent
 import android.os.Build
+import android.os.LocaleList
 import android.os.Process
 import android.util.Log
 import android.webkit.WebView
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.core.content.edit
+import androidx.core.os.LocaleListCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.multidex.MultiDexApplication
 import androidx.work.Configuration
 import com.aiselp.autox.engine.NodeScriptEngine.Companion.initModuleResource
 import com.flurry.android.FlurryAgent
 import com.stardust.app.GlobalAppContext
+import com.stardust.autojs.core.pref.PrefKey
 import com.stardust.autojs.servicecomponents.ScriptServiceConnection
 import com.stardust.autojs.util.ProcessUtils
 import com.stardust.theme.ThemeColor
@@ -72,6 +77,7 @@ class App : MultiDexApplication(), Configuration.Provider {
     }
 
     private fun init() {
+        initLanguage()
         ThemeColorManagerCompat.init(
             this,
             ThemeColor(
@@ -97,6 +103,26 @@ class App : MultiDexApplication(), Configuration.Provider {
         Log.i(
             TAG, "Pid: ${Process.myPid()}, isScriptProcess: ${ProcessUtils.isScriptProcess(this)}"
         )
+    }
+
+    private fun initLanguage() {
+        fun changeLanguage(language: String?) {
+            if (language == null) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    getSystemService(LocaleManager::class.java)
+                        .applicationLocales = LocaleList.getEmptyLocaleList()
+                } else AppCompatDelegate.setApplicationLocales(LocaleListCompat.getEmptyLocaleList())
+            } else
+                AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(language))
+        }
+
+        val l = Pref.def().getString(PrefKey.KEY_LANGUAGE, null)
+        Pref.def().registerOnSharedPreferenceChangeListener { _, key ->
+            if (key == PrefKey.KEY_LANGUAGE) {
+                changeLanguage(key)
+            }
+        }
+        changeLanguage(l)
     }
 
     private fun initResource() {

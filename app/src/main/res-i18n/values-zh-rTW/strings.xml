@@ -244,8 +244,7 @@
   <string name="text_sign_hint_key_alias">*別名</string>
   <string name="text_sign_hint_key_password">*密碼</string>
   <string name="text_sign_hint_key_year">*有效期(年)</string>
-  <string name="text_sign_key_year_def">25</string>
-  <string name="text_sign_hint_key_country">*國家代碼(XX)</string>
+    <string name="text_sign_hint_key_country">*國家代碼(XX)</string>
   <string name="text_sign_key_country_def">CN</string>
   <string name="text_sign_hint_not_must">以下為可選參數</string>
   <string name="text_sign_hint_key_name">名稱</string>
