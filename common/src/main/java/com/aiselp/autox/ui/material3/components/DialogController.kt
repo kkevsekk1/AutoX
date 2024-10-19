@@ -13,17 +13,20 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.BasicAlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 open class DialogController(
@@ -67,8 +70,7 @@ fun DialogController.BaseDialog(
 
     if (!showState) return
     BasicAlertDialog(
-        onDismissRequest = onDismissRequest,
-        properties = properties
+        onDismissRequest = onDismissRequest, properties = properties
     ) {
         Card(modifier = Modifier.fillMaxWidth()) {
             Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
@@ -112,4 +114,30 @@ fun DialogController.BaseDialog(
             }
         }
     }
+}
+
+@Composable
+fun DialogController.AlertDialog(
+    title: String,
+    positiveText: String? = null,
+    onPositiveClick: (() -> Unit)? = null,
+    negativeText: String? = null,
+    onNegativeClick: (() -> Unit)? = null,
+    neutralText: String? = null,
+    onNeutralClick: (() -> Unit)? = null,
+    content: String,
+) {
+    val scope = rememberCoroutineScope()
+    fun d() {
+        scope.launch { dismiss() }
+    }
+    BaseDialog(onDismissRequest = { d();onDismiss() },
+        title = { Text(text = title, style = MaterialTheme.typography.titleLarge) },
+        positiveText = positiveText,
+        onPositiveClick = onPositiveClick ?: { d();onPositiveClick() },
+        negativeText = negativeText,
+        onNegativeClick = onNegativeClick ?: { d();onNegativeClick() },
+        neutralText = neutralText,
+        onNeutralClick = onNeutralClick ?: { d();onNegativeClick() },
+        content = { Text(text = content) })
 }

@@ -72,6 +72,8 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.aiselp.autojs.codeeditor.EditActivity
+import com.aiselp.autox.ui.material3.DrawerPage
+import com.aiselp.autox.ui.material3.theme.M3Theme
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -90,7 +92,6 @@ import org.autojs.autojs.ui.compose.widget.SearchBox2
 import org.autojs.autojs.ui.explorer.ExplorerViewKt
 import org.autojs.autojs.ui.main.components.DocumentPageMenuButton
 import org.autojs.autojs.ui.main.components.LogButton
-import org.autojs.autojs.ui.main.drawer.DrawerPage
 import org.autojs.autojs.ui.main.scripts.ScriptListFragment
 import org.autojs.autojs.ui.main.task.TaskManagerFragmentKt
 import org.autojs.autojs.ui.main.web.EditorAppManager
@@ -232,7 +233,7 @@ fun MainPage(
             }
         },
         drawerContent = {
-            DrawerPage()
+            M3Theme { DrawerPage() }
         },
 
         ) {
