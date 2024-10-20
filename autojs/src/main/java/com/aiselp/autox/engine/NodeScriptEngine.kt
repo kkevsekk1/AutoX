@@ -175,7 +175,7 @@ class NodeScriptEngine(val context: Context, val uiHandler: UiHandler) :
     private fun initializeModule(file: File): V8Value {
         val parentFile = file.parentFile ?: File("/")
         runtime.getNodeModule(NodeModuleProcess::class.java).workingDirectory = parentFile
-        val nodeModuleResolver = NodeModuleResolver(runtime, parentFile, moduleDirectory)
+        val nodeModuleResolver = NodeModuleResolver(runtime, file, moduleDirectory)
         runtime.v8ModuleResolver = nodeModuleResolver
         runtime.globalObject.delete(NodeModuleModule.PROPERTY_REQUIRE)
         return if (NodeModuleResolver.isEsModule(file)) {
