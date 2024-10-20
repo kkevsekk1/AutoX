@@ -5,7 +5,6 @@ import okio.use
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    id("com.yanzhenjie.andserver")
     id("kotlin-kapt")
 }
 
@@ -44,9 +43,7 @@ android {
 
 dependencies {
     implementation(platform(libs.compose.bom))
-    implementation(libs.andserver.api)
     implementation(libs.androidx.constraintlayout)
-    kapt(libs.andserver.processor)
     implementation(libs.kotlinx.coroutines.android)
     api(libs.androidx.webkit)
     implementation(libs.google.gson)

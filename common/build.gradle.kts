@@ -46,7 +46,6 @@ android {
 }
 
 dependencies {
-    androidTestImplementation(libs.espresso.core)
     implementation(platform(libs.compose.bom))
     api(libs.activity.compose)
     api(libs.compose.ui)
@@ -54,8 +53,7 @@ dependencies {
     api(libs.compose.material3)
     api(libs.compose.material3.window.size)
     api(libs.compose.material3.adaptive.navigation.suite)
-    testImplementation(libs.junit)
-    api(libs.androidx.annotation)
+    api(libs.androidx.webkit)
     api("com.github.hyb1996:settingscompat:1.1.5")
     implementation(libs.androidx.activity.ktx)
     implementation(libs.appcompat)
