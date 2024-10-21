@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.BasicAlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -24,6 +23,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.DialogProperties
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -79,9 +79,10 @@ fun DialogController.BaseDialog(
                 ) { title() }
                 Spacer(modifier = Modifier.height(16.dp))
                 Box(modifier = Modifier.heightIn(max = 500.dp)) { content() }
-                Spacer(modifier = Modifier.height(16.dp))
+
+                Spacer(modifier = Modifier.height(8.dp))
                 if (positiveText == null && negativeText == null && neutralText == null) {
-                    Spacer(modifier = Modifier.height(16.dp))
+
                 } else Row(verticalAlignment = Alignment.CenterVertically) {
                     neutralText?.let {
                         TextButton(
@@ -132,7 +133,7 @@ fun DialogController.AlertDialog(
         scope.launch { dismiss() }
     }
     BaseDialog(onDismissRequest = { d();onDismiss() },
-        title = { Text(text = title, style = MaterialTheme.typography.titleLarge) },
+        title = { DialogTitle(title = title) },
         positiveText = positiveText,
         onPositiveClick = onPositiveClick ?: { d();onPositiveClick() },
         negativeText = negativeText,
@@ -140,4 +141,9 @@ fun DialogController.AlertDialog(
         neutralText = neutralText,
         onNeutralClick = onNeutralClick ?: { d();onNegativeClick() },
         content = { Text(text = content) })
+}
+
+@Composable
+fun DialogTitle(title: String) {
+    Text(text = title, fontSize = 20.sp)
 }

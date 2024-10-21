@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -18,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import com.aiselp.autox.ui.material3.components.BaseDialog
 import com.aiselp.autox.ui.material3.components.DialogController
+import com.aiselp.autox.ui.material3.components.DialogTitle
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -37,12 +37,13 @@ class LoadDialog : DialogController(
             content = text
         }
     }
+
     @Composable
     fun Dialog() {
         val scope = rememberCoroutineScope()
         BaseDialog(
             onDismissRequest = { scope.launch { dismiss() } },
-            title = { Text(text = title, style = MaterialTheme.typography.titleLarge) },
+            title = { DialogTitle(title = title) },
         ) {
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                 CircularProgressIndicator()

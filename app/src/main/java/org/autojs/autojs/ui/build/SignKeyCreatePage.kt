@@ -32,6 +32,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.aiselp.autox.apkbuilder.ApkKeyStore
 import com.aiselp.autox.ui.material3.components.BaseDialog
 import com.aiselp.autox.ui.material3.components.DialogController
+import com.aiselp.autox.ui.material3.components.DialogTitle
 import com.aiselp.autox.ui.material3.components.DropdownSingleChoiceInputBox
 import com.aiselp.autox.ui.material3.components.PasswordInputBox
 import com.mcal.apksigner.CertCreator
@@ -54,7 +55,7 @@ fun DialogController.ApkSignDeleteDialog(apkKeyStore: ApkKeyStore) {
     val signManageModel = viewModel(SignManageModel::class.java)
 
     BaseDialog(onDismissRequest = { scope.launch { dismiss() } }, title = {
-        Text(text = "删除签名", style = MaterialTheme.typography.titleLarge)
+        DialogTitle(title = "删除签名")
     }, content = {
         Column {
             Text(text = "你确定要删除该文件？")
@@ -81,7 +82,7 @@ fun DialogController.ReviseSignKeyDialog(apkKeyStore: ApkKeyStore) {
     var keyStore: KeyStore? = null
 
     BaseDialog(onDismissRequest = { scope.launch { dismiss() } }, title = {
-        Text(text = "修改签名文件", style = MaterialTheme.typography.titleLarge)
+        DialogTitle(title =  "修改签名文件")
     }, positiveText = "确定", onPositiveClick = {
         scope.launch {
             if (alias.isNullOrEmpty() || keyStorePassword.isNullOrEmpty() || password.isNullOrEmpty()) {
@@ -204,7 +205,7 @@ fun DialogController.ApkSignCreateDialog() {
     val context = LocalContext.current
 
     BaseDialog(onDismissRequest = { scope.launch { dismiss() } }, title = {
-        Text(text = "创建签名文件", style = MaterialTheme.typography.titleLarge)
+        DialogTitle(title = "创建签名文件")
     }, content = { SignKeyCreatePage() }, positiveText = "确定", onPositiveClick = {
         if (!model.checkAll()) {
             return@BaseDialog

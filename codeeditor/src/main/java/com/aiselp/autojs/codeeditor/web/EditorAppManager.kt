@@ -5,6 +5,7 @@ import android.content.Context
 import android.util.Log
 import android.view.ViewGroup
 import android.webkit.WebView
+import androidx.webkit.WebViewAssetLoader
 import com.aiselp.autojs.codeeditor.dialogs.LoadDialog
 import com.aiselp.autojs.codeeditor.plugins.AppController
 import com.aiselp.autojs.codeeditor.plugins.FileSystem
@@ -30,32 +31,25 @@ class EditorAppManager(val context: Activity) {
     private val coroutineScope = CoroutineScope(Dispatchers.Default)
     val webView = createWebView(context)
     private val jsBridge = JsBridge(webView)
-    private val fileHttpServer = FileHttpServer(
-        context, File(
-            context.filesDir, "$WEB_PUBLIC_PATH/dist"
-        )
-    )
     private val pluginManager = PluginManager(jsBridge, coroutineScope)
     var openedFile: String? = null
     val loadDialog = LoadDialog()
 
     init {
-        webView.webViewClient = JsBridge.SuperWebViewClient()
+        webView.webViewClient =
+            FileAssetWebViewClient(File(context.filesDir, "$WEB_PUBLIC_PATH/dist"))
         installPlugin()
         coroutineScope.launch {
             loadDialog.show()
-            fileHttpServer.start()
             initWebResources()
             loadDialog.setContent("启动中")
             delay(500)
-            fileHttpServer.await()
             withContext(Dispatchers.Main) {
-                webView.loadUrl(fileHttpServer.getAddress())
 //                webView.loadUrl("http://192.168.10.10:8010")
+                webView.loadUrl("https://${WebViewAssetLoader.DEFAULT_DOMAIN}")
                 loadDialog.dismiss()
             }
         }
-//        webView.loadUrl("http://appassets.androidplatform.net/index.html")
         jsBridge.registerHandler("app.init", JsBridge.Handle { _, _ ->
             pluginManager.onWebInit()
             val file = openedFile
@@ -117,7 +111,6 @@ class EditorAppManager(val context: Activity) {
 
     fun destroy() {
         webView.destroy()
-        fileHttpServer.stop()
         coroutineScope.cancel()
     }
 

@@ -29,7 +29,6 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -57,6 +56,7 @@ import com.aiselp.autox.ui.material3.components.BaseDialog
 import com.aiselp.autox.ui.material3.components.BuildCard
 import com.aiselp.autox.ui.material3.components.CheckboxOption
 import com.aiselp.autox.ui.material3.components.DialogController
+import com.aiselp.autox.ui.material3.components.DialogTitle
 import com.aiselp.autox.ui.material3.components.InputBox
 import com.aiselp.autox.ui.material3.components.M3TopAppBar
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -408,10 +408,7 @@ fun DialogController.ChooseSignDialog(
     BaseDialog(
         onDismissRequest = { scope.launch { dismiss() } },
         title = {
-            Text(
-                text = stringResource(R.string.text_sign_choose),
-                style = MaterialTheme.typography.titleLarge
-            )
+            DialogTitle(title = stringResource(R.string.text_sign_choose))
         },
         positiveText = "确定",
         onPositiveClick = { scope.launch { dismiss(); onKeyStoreChange(current) } },
@@ -487,7 +484,7 @@ fun BuildingDialog(show: Boolean, model: BuildViewModel, onDismissRequest: () ->
         onDismissRequest()
         model.isShowBuildSuccessfullyDialog = false
         val outApk = model.outApk
-        if (outApk?.isFile != true){
+        if (outApk?.isFile != true) {
             return
         }
         MaterialAlertDialogBuilder(context)
@@ -536,10 +533,7 @@ private fun DialogController.FinishDialog(model: BuildViewModel) {
     BaseDialog(
         onDismissRequest = { scope.launch { dismiss() } },
         title = {
-            Text(
-                text = stringResource(R.string.text_alert),
-                style = MaterialTheme.typography.titleLarge
-            )
+            DialogTitle(title = stringResource(R.string.text_alert))
         },
         positiveText = stringResource(id = R.string.text_save_and_exit),
         onPositiveClick = {

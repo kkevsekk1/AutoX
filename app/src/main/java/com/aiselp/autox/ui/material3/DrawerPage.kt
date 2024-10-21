@@ -59,6 +59,7 @@ import coil.compose.rememberAsyncImagePainter
 import com.aiselp.autox.ui.material3.components.AlertDialog
 import com.aiselp.autox.ui.material3.components.BaseDialog
 import com.aiselp.autox.ui.material3.components.DialogController
+import com.aiselp.autox.ui.material3.components.DialogTitle
 import com.aiselp.autox.ui.material3.components.SettingOptionSwitch
 import com.aiselp.autox.ui.material3.components.Watch
 import com.stardust.app.GlobalAppContext
@@ -195,7 +196,7 @@ private fun AccessibilityServiceSwitch() {
         }
     )
     dialog.BaseDialog(onDismissRequest = { scope.launch { dialog.dismiss() } },
-        title = { Text(text = stringResource(R.string.text_need_to_enable_accessibility_service)) },
+        title = { DialogTitle(title = stringResource(R.string.text_need_to_enable_accessibility_service)) },
         positiveText = stringResource(id = R.string.text_go_to_open),
         onPositiveClick = {
             scope.launch { dialog.dismiss() }
@@ -497,10 +498,7 @@ private fun DialogController.ConnectComputerDialog() {
     BaseDialog(
         onDismissRequest = { scope.launch { dismiss() } },
         title = {
-            Text(
-                text = stringResource(id = R.string.text_server_address),
-                style = MaterialTheme.typography.titleLarge
-            )
+            DialogTitle(title = stringResource(id = R.string.text_server_address))
         },
         positiveText = stringResource(id = R.string.ok),
         onPositiveClick = {
@@ -588,10 +586,7 @@ private fun DialogController.TimedTaskSchedulerDialog() {
             toast(context, R.string.text_set_successfully)
         },
         title = {
-            Text(
-                text = stringResource(id = R.string.text_switch_timed_task_scheduler),
-                style = MaterialTheme.typography.titleLarge
-            )
+            DialogTitle(title = stringResource(id = R.string.text_switch_timed_task_scheduler))
         },
     ) {
         Column {
@@ -670,12 +665,11 @@ private fun CheckForUpdate(model: DrawerViewModel = viewModel()) {
     dialog.BaseDialog(
         onDismissRequest = { scope.launch { dialog.dismiss() } },
         title = {
-            Text(
-                text = stringResource(
+            DialogTitle(
+                title = stringResource(
                     R.string.text_new_version2,
                     model.githubReleaseInfo!!.name
-                ),
-                style = MaterialTheme.typography.titleMedium
+                )
             )
         },
         positiveText = stringResource(id = R.string.text_download),
